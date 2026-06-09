@@ -1,0 +1,16 @@
+{
+  "cityCode": "22302",
+  "citySlug": "kawazu",
+  "cityName": "河津町",
+  "prefSlug": "shizuoka",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1400,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

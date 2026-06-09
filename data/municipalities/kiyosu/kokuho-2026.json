@@ -1,0 +1,99 @@
+{
+  "cityCode": "23233",
+  "citySlug": "kiyosu",
+  "cityName": "清須市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0793,
+    "support": 0.028,
+    "care": 0.0241
+  },
+  "perCapita": {
+    "medical": 33857,
+    "support": 11887,
+    "care": 12117
+  },
+  "household": {
+    "medical": 21734,
+    "support": 7631,
+    "care": 6000
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-10T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kiyosu.aichi.jp/kenko_iryo/nenkin_hoken/kokuho/zei_keisan/hokenzeiritsu.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "清須市 令和8年度国民健康保険税率改定について（公式サイト）",
+      "url": "https://www.city.kiyosu.aichi.jp/kenko_iryo/nenkin_hoken/kokuho/zei_keisan/hokenzeiritsu.html",
+      "publishedAt": "2026-05-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-10",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "清須市公式 R8 改正ページ（更新日 2026-05-01）から取得。3方式（平等割あり）。愛知尾張中部エリア、北名古屋・小牧・春日井の同系統。子ども分均等割1,214円+18歳以上加算78円→perCapita合算1,292円、平等割785円。市独自軽減：『高校生世代までの子ども・子育て支援納付金分均等割額については減額されます』との注記あり（schema要検討、現時点では均等割そのまま設定）。R8 簡易試算Excelシートも別途公開。"
+  },
+  "childcare": {
+    "rate": 0.0029,
+    "perCapita": 1292,
+    "household": 785
+  }
+}

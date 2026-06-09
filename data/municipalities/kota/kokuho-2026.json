@@ -1,0 +1,99 @@
+{
+  "cityCode": "23501",
+  "citySlug": "kota",
+  "cityName": "幸田町",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0651,
+    "support": 0.0273,
+    "care": 0.0218
+  },
+  "perCapita": {
+    "medical": 27200,
+    "support": 11200,
+    "care": 10900
+  },
+  "household": {
+    "medical": 18500,
+    "support": 7600,
+    "care": 5600
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-11T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.town.kota.lg.jp/soshiki/9/454.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "幸田町 令和8年度国民健康保険税（公式サイト）",
+      "url": "https://www.town.kota.lg.jp/soshiki/9/454.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-11",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "幸田町公式 R8 ページ（適用日 2026-04-01）から取得。3方式（平等割あり）。愛知西三河エリア、刈谷・西尾・安城の同系統。cityCode は registry 既載 23425 が誤りで 23501 が正（NII・Wikipedia・NAVITIME・eLTAX 全一致）— registry 訂正必要。"
+  },
+  "childcare": {
+    "rate": 0.003,
+    "perCapita": 1366,
+    "household": 821
+  }
+}

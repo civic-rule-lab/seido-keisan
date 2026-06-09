@@ -1,0 +1,102 @@
+{
+  "cityCode": "13218",
+  "citySlug": "fussa",
+  "cityName": "福生市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0594,
+    "support": 0.024,
+    "care": 0.0193
+  },
+  "perCapita": {
+    "medical": 33900,
+    "support": 14200,
+    "care": 14800
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.926Z",
+      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1001872.html",
+        "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1021041.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "福生市公式ページ「国民健康保険税」 + 補助ページ「子ども・子育て支援納付金分」",
+      "url": "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1001872.html",
+      "publishedAt": "2026-05-15"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-15",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "福生市公式ページから取得。子ども・子育て支援金分は新方式 perCapitaAdult + perCapitaAdultScope: 'all_ages'（perCapita 1,928 + perCapitaAdult 92 = 大人 1 人 2,020 円、18歳未満は formula 上 0 算入）。medical.cap = 670,000 円は福生市独自・国標準 660,000 より上方。子ども分は補助ページ /1021041.html で別途確認。"
+  },
+  "childcareLevy": {
+    "rate": 0.0031,
+    "perCapita": 1928,
+    "perCapitaAdult": 92,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

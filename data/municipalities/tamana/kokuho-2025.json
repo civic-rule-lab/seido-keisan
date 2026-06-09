@@ -1,0 +1,84 @@
+{
+  "cityCode": "43206",
+  "citySlug": "tamana",
+  "cityName": "玉名市",
+  "fiscalYear": 2025,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0876,
+    "support": 0.0309,
+    "care": 0.0245
+  },
+  "perCapita": {
+    "medical": 30618,
+    "support": 10759,
+    "care": 15984
+  },
+  "household": {
+    "medical": 20693,
+    "support": 7271,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 305000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 560000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataVersion": "1.0.0",
+    "status": "unverified",
+    "lifecycle": {
+      "createdAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-04-07T00:00:00Z",
+      "validFrom": "2025-04-01",
+      "validUntil": "2026-03-31",
+      "expiresAt": "2026-04-30"
+    },
+    "source": {
+      "type": "manual",
+      "title": "",
+      "url": "",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "",
+      "verifiedAt": "",
+      "method": "manual"
+    },
+    "quality": {
+      "confidenceScore": 0.8,
+      "completeness": "full"
+    },
+    "notes": ""
+  }
+}

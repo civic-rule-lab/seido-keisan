@@ -1,0 +1,16 @@
+{
+  "cityCode": "27232",
+  "citySlug": "hannan",
+  "cityName": "阪南市",
+  "prefSlug": "osaka",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1300,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

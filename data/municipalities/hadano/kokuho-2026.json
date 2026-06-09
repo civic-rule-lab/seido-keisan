@@ -1,0 +1,102 @@
+{
+  "cityCode": "14211",
+  "citySlug": "hadano",
+  "cityName": "秦野市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "国民健康保険税方式",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0769,
+    "support": 0.0315,
+    "care": 0.0315
+  },
+  "perCapita": {
+    "medical": 26500,
+    "support": 10000,
+    "care": 11600
+  },
+  "household": {
+    "medical": 23700,
+    "support": 8800,
+    "care": 6700
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.2",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.776Z",
+      "updatedAt": "2026-05-30T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.hadano.kanagawa.jp/soshiki/5/1038/5/4/5037.html",
+        "https://www.city.hadano.kanagawa.jp/soshiki/5/1038/5/4/3561.html",
+        "https://www.city.hadano.kanagawa.jp/material/files/group/39/R8sisan.pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "秦野市 令和8年度国民健康保険料 公式試算ツール",
+      "url": "",
+      "publishedAt": "2026-05-06"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-08",
+      "method": "official-tool"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "公式試算ツールから取得。R8軽減判定係数（5割31万・2割57万）を反映。2026-05-30: 子ども・子育て支援納付金分の均等割を公式試算用紙(R8sisan.pdf)・公式料率ページ(5037.html)で再照合し、18歳以上1人あたりの賦課額 1,150→1,200円に訂正（18歳未満は全額軽減。公式は「均等割1,200円×18歳以上の被保険者のみ」）。"
+  },
+  "childcare": {
+    "rate": 0.0029,
+    "perCapita": 1200,
+    "household": 1000
+  }
+}

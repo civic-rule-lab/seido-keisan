@@ -1,0 +1,99 @@
+{
+  "cityCode": "23212",
+  "citySlug": "anjo",
+  "cityName": "安城市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0743,
+    "support": 0.0284,
+    "care": 0.0244
+  },
+  "perCapita": {
+    "medical": 31700,
+    "support": 12000,
+    "care": 12200
+  },
+  "household": {
+    "medical": 20300,
+    "support": 7700,
+    "care": 6000
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-10T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.anjo.aichi.jp/kurasu/hokennenkin/kokuho/kokuhokazeikeisan.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "安城市 令和8年度国民健康保険税の計算方法（公式サイト）",
+      "url": "https://www.city.anjo.aichi.jp/kurasu/hokennenkin/kokuho/kokuhokazeikeisan.html",
+      "publishedAt": "2026-03-31"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-10",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "安城市公式 R8 計算方法ページ（更新日 2026-03-31）から取得。3方式（平等割あり）。愛知西三河エリア、刈谷・西尾の同系統。子ども分均等割1,200円+18歳以上加算100円→perCapita合算1,300円、平等割700円。所得割0.29%、限度30,000円。R8試算用Excelシートも公開中。医療限度額は『地方税法改正に伴い改正予定』と注記あり、安城は67万で先行計上。"
+  },
+  "childcare": {
+    "rate": 0.0029,
+    "perCapita": 1300,
+    "household": 700
+  }
+}

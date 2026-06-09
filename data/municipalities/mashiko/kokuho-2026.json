@@ -1,0 +1,101 @@
+{
+  "cityCode": "09342",
+  "citySlug": "mashiko",
+  "cityName": "益子町",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0593,
+    "support": 0.0268,
+    "care": 0.0206
+  },
+  "perCapita": {
+    "medical": 24105,
+    "support": 10218,
+    "care": 11042
+  },
+  "household": {
+    "medical": 18395,
+    "support": 7749,
+    "care": 5983
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "provisional",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.559Z",
+      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "standard_r8",
+      "sourceStatus": "prefecture_standard_municipal_list",
+      "sourceUrls": [
+        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": []
+    },
+    "source": {
+      "type": "prefecture_standard",
+      "title": "令和8年度 栃木県 市町村標準保険料率",
+      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "",
+      "method": "prefecture-standard-municipal-list"
+    },
+    "quality": {
+      "confidenceScore": 0.6,
+      "completeness": "full"
+    },
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で益子町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+  },
+  "childcareLevy": {
+    "rate": 0.0027,
+    "perCapita": 1223,
+    "household": 875,
+    "cap": 30000
+  }
+}

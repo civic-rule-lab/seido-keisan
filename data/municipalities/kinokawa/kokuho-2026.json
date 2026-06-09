@@ -1,0 +1,105 @@
+{
+  "cityCode": "30208",
+  "citySlug": "kinokawa",
+  "cityName": "紀の川市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.083,
+    "support": 0.027,
+    "care": 0.024
+  },
+  "perCapita": {
+    "medical": 29000,
+    "support": 10000,
+    "care": 10500
+  },
+  "household": {
+    "medical": 21000,
+    "support": 7000,
+    "care": 5500
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-06T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kinokawa.lg.jp/020/files/R8kokuhozeitirashi.pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kinokawa.lg.jp/020/kokuhozei.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "紀の川市「令和8年度の国民健康保険税」おしらせ (R8kokuho_*itirashi.pdf)",
+      "url": "https://www.city.kinokawa.lg.jp/020/kokuhozei.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-06",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.9,
+      "completeness": "full"
+    },
+    "notes": "紀の川市公式PDF「令和8年度の国民健康保険税」（改定後列）から確定。医療8.3%/29,000/21,000（改定前8.6%/31,500/22,000から引下げ）・後期2.7%/10,000/7,000（改定なし）・介護2.4%/10,500/5,500（改定なし）。3方式・資産割なし。限度額は医療67万(66万→引上げ明記)/後期26万/介護17万/子ども3万（PDF明示）。子ども支援金分0.3%＝均等割1,125円＋18歳以上被保険者均等割66円＋平等割766円、注記「平成20年4月2日以降生まれ(高校生年代までの加入者)の均等割は全額減額」→childcareLevy perCapita=1125/perCapitaAdult=66/perCapitaAdultScope=all_ages（長崎・佐賀・有田・田辺型）。5割軽減31万/2割軽減57万へのR8拡大もPDF明記（テンプレ値と一致）。⚠️source.urlはPDF直リンク未確定（chrome-extension経由でURL欠落・R8kokuho*itirashi.pdfはcity.kinokawa.lg.jp配下）→Code側で掲載元ページ確定要。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1125,
+    "perCapitaAdult": 66,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
+  }
+}

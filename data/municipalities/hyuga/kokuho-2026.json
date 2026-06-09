@@ -1,0 +1,110 @@
+{
+  "cityCode": "45206",
+  "citySlug": "hyuga",
+  "cityName": "日向市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.086,
+    "support": 0.031,
+    "care": 0.029
+  },
+  "assetLevy": {
+    "medical": 0.11,
+    "support": 0.05,
+    "care": 0.062
+  },
+  "perCapita": {
+    "medical": 21600,
+    "support": 7500,
+    "care": 8900
+  },
+  "household": {
+    "medical": 21600,
+    "support": 7400,
+    "care": 7200
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-07T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://hyugacity.jp/sp/display.php?cont=140319143015"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://hyugacity.jp/sp/display.php?cont=140319143015"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "日向市「国民健康保険税」令和8年度の税率（display.php?cont=140319143015）",
+      "url": "https://hyugacity.jp/sp/display.php?cont=140319143015",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-07",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "日向市公式「令和8年度の税率」(ユーザー提供スクショ・display.php?cont=140319143015)から確定。★R8でも資産割フル残存の4方式（県内では延岡=医療後期のみと異なり全3区分に資産割）: 医療8.60%+資産割11.00%/21,600/21,600・後期3.10%+資産割5.00%/7,500/7,400・介護2.90%+資産割6.20%/8,900/7,200→assetLevy {medical:0.11, support:0.05, care:0.062}（資産割=当該年度の固定資産税額×率）。賦課限度額=医療67万/後期26万/介護17万/子ども3万（表明示）。★子ども・子育て支援金分の所得割0.81%は県内他市(0.31〜0.32%)より大幅に高い市独自値（資産割なし・ページ明記どおり採用）＝均等割1,400円(うち100円は18歳以上均等割額と明記→perCapita=1300/perCapitaAdult=100)＋平等割800円、高校生世代以下(18歳未満)は子ども分均等割全額軽減→perCapitaAdultScope=all_ages。R8軽減判定5割31万/2割57万明記（テンプレ一致）。特定世帯平等割1/2(5年)・特定継続1/4(3年)はengine未対応の標準措置。"
+  },
+  "childcareLevy": {
+    "rate": 0.0081,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800,
+    "cap": 30000
+  }
+}

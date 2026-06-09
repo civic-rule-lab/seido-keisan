@@ -1,0 +1,16 @@
+{
+  "cityCode": "25202",
+  "citySlug": "hikone",
+  "cityName": "彦根市",
+  "prefSlug": "shiga",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1800,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

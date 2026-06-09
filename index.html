@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="制度計算は、お住まいの市区町村を選ぶだけで住民税・国民健康保険・介護保険の年間負担をまとめて試算できる無料ツールです。">
+<link rel="canonical" href="https://seido-keisan.jp/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="制度計算｜税金・保険料まるごとシミュレーター">
+<meta property="og:description" content="お住まいの市区町村を選ぶだけで、住民税・国民健康保険・介護保険の年間負担をまとめて試算。">
+<meta property="og:url" content="https://seido-keisan.jp/">
+<meta property="og:site_name" content="制度計算">
+<meta property="og:locale" content="ja_JP">
+<title>制度計算｜税金・保険料まるごとシミュレーター</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"制度計算｜税金・保険料まるごとシミュレーター","description":"お住まいの市区町村を選ぶだけで、住民税・国民健康保険・介護保険の年間負担をまとめて試算できる無料ツール。","url":"https://seido-keisan.jp/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:32px 22px 36px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .brand{font-size:14px;font-weight:700;color:#7fd4e6;text-align:center;letter-spacing:0.04em;}
+  .tagline{font-size:12px;font-weight:600;color:#7fd4e6;text-align:center;margin-bottom:18px;}
+  h1{font-size:clamp(24px,4.4vw,30px);font-weight:800;color:#0f172a;text-align:center;margin:6px 0 8px;line-height:1.4;}
+  .lead{font-size:15px;color:#374151;line-height:1.8;text-align:center;margin:0 0 26px;}
+  label{display:block;font-size:14px;font-weight:700;margin:16px 0 7px;color:#111827;}
+  select{width:100%;padding:14px 12px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#0f172a;box-sizing:border-box;appearance:none;-webkit-appearance:none;}
+  select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  select:disabled{background:#f3f4f6;color:#9ca3af;}
+  button{width:100%;margin-top:24px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed;}
+  .systems{display:flex;justify-content:center;gap:18px;margin:24px 0 0;font-size:13px;color:#475569;}
+  .systems span{display:inline-flex;align-items:center;gap:5px;}
+  .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;display:inline-block;}
+  .dot.soon{background:#cbd5e1;}
+  .status{margin-top:22px;font-size:12px;color:#6b7280;text-align:center;line-height:1.8;}
+  .footer{text-align:center;margin-top:28px;}
+  .footer a{display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;}
+  .footer .f1{font-size:16px;font-weight:700;color:#fff;letter-spacing:0.02em;}
+  .footer .f2{font-size:11px;font-weight:500;color:#fff;margin-top:1px;}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="brand">制度計算</div>
+  <div class="tagline">市民 ↔ 制度</div>
+
+  <h1>税金・保険料、<br>まるごと計算</h1>
+  <p class="lead">お住まいの市区町村を選ぶと、<br>住民税・国民健康保険・介護保険の<br>年間負担をまとめて試算できます。</p>
+
+  <label for="pref">都道府県</label>
+  <select id="pref"><option value="">選択してください</option></select>
+
+  <label for="city">市区町村</label>
+  <select id="city" disabled><option value="">先に都道府県を選択</option></select>
+
+  <button id="go" disabled onclick="goCity()">家計簿シミュレーターを開く</button>
+
+  <div class="systems">
+    <span><i class="dot"></i>住民税</span>
+    <span><i class="dot soon"></i>国民健康保険</span>
+    <span><i class="dot soon"></i>介護保険</span>
+  </div>
+
+  <div class="status">現在 <b>試験公開中</b>（対象自治体は順次拡大します）。<br>計算結果は概算です。正確な額は各自治体の通知でご確認ください。</div>
+
+  <div class="footer">
+    <a href="https://civicrulelab.jp/">
+      <div class="f1">Civic Rule Lab</div>
+      <div class="f2">制度をひらく</div>
+    </a>
+  </div>
+</div>
+
+<script>
+// 公開自治体インデックス（registry の jumin 公開分を生成時に注入）
+// 形: { "愛知県": { slug:"aichi", cities:[ {slug:"nagoya", name:"名古屋市"} ] }, ... }
+var CITY_INDEX = {"神奈川県":{"slug":"kanagawa","cities":[{"slug":"yokohama","name":"横浜市"},{"slug":"kawasaki","name":"川崎市"},{"slug":"sagamihara","name":"相模原市"}]},"埼玉県":{"slug":"saitama","cities":[{"slug":"saitama","name":"さいたま市"}]},"千葉県":{"slug":"chiba","cities":[{"slug":"chiba","name":"千葉市"}]},"大阪府":{"slug":"osaka","cities":[{"slug":"sakai","name":"堺市"},{"slug":"osaka","name":"大阪市"}]},"福岡県":{"slug":"fukuoka","cities":[{"slug":"fukuoka","name":"福岡市"},{"slug":"kitakyushu","name":"北九州市"}]},"京都府":{"slug":"kyoto","cities":[{"slug":"kyoto","name":"京都市"}]},"愛知県":{"slug":"aichi","cities":[{"slug":"nagoya","name":"名古屋市"}]},"北海道":{"slug":"hokkaido","cities":[{"slug":"sapporo","name":"札幌市"}]},"新潟県":{"slug":"niigata","cities":[{"slug":"niigata","name":"新潟市"}]},"兵庫県":{"slug":"hyogo","cities":[{"slug":"kobe","name":"神戸市"},{"slug":"toyookashi","name":"豊岡市"}]},"静岡県":{"slug":"shizuoka","cities":[{"slug":"shizuoka","name":"静岡市"},{"slug":"hamamatsu","name":"浜松市"}]},"広島県":{"slug":"hiroshima","cities":[{"slug":"hiroshima","name":"広島市"}]},"岡山県":{"slug":"okayama","cities":[{"slug":"okayama","name":"岡山市"}]},"熊本県":{"slug":"kumamoto","cities":[{"slug":"kumamoto","name":"熊本市"}]},"宮城県":{"slug":"miyagi","cities":[{"slug":"sendai","name":"仙台市"}]}};
+
+(function(){
+  "use strict";
+  var prefSel=document.getElementById("pref"), citySel=document.getElementById("city"), go=document.getElementById("go");
+  var prefNames=Object.keys(CITY_INDEX);
+  prefNames.forEach(function(pn){
+    var o=document.createElement("option"); o.value=pn; o.textContent=pn; prefSel.appendChild(o);
+  });
+  prefSel.addEventListener("change", function(){
+    citySel.innerHTML=""; go.disabled=true;
+    var pn=prefSel.value;
+    if(!pn){citySel.disabled=true; citySel.innerHTML='<option value="">先に都道府県を選択</option>'; return;}
+    citySel.disabled=false;
+    var ph=document.createElement("option"); ph.value=""; ph.textContent="市区町村を選択"; citySel.appendChild(ph);
+    CITY_INDEX[pn].cities.forEach(function(c){
+      var o=document.createElement("option"); o.value=c.slug; o.textContent=c.name; citySel.appendChild(o);
+    });
+  });
+  citySel.addEventListener("change", function(){ go.disabled=!citySel.value; });
+  window.goCity=function(){
+    var pn=prefSel.value, cs=citySel.value; if(!pn||!cs)return;
+    var prefSlug=CITY_INDEX[pn].slug;
+    if(typeof gtag==="function")gtag("event","select_city",{prefecture:prefSlug,city:cs});
+    location.href="/"+prefSlug+"/"+cs+"/kakeibo/";
+  };
+})();
+</script>
+
+</body>
+</html>

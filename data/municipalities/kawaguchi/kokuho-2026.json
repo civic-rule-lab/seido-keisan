@@ -1,0 +1,100 @@
+{
+  "cityCode": "11203",
+  "citySlug": "kawaguchi",
+  "cityName": "川口市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0745,
+    "support": 0.0278,
+    "care": 0.0236
+  },
+  "perCapita": {
+    "medical": 44000,
+    "support": 16000,
+    "care": 17000
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.938Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kawaguchi.lg.jp/soshiki/01090/030/kokuminkenkouhokenzei/50549.html",
+        "https://www.city.kawaguchi.lg.jp/soshiki/01090/030/kokuminkenkouhokenzei/3336.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "川口市 国民健康保険税の計算方法（令和8年度）",
+      "url": "https://www.city.kawaguchi.lg.jp/soshiki/01090/030/kokuminkenkouhokenzei/3336.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-04-08",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "R8公式サイトで確認。国民健康保険税方式。平等割なし（2方式）。医療上限66万（R7の65万から+1万）。支援上限26万（R7の24万から+2万）。子育て支援金分新設：0.27%・均等1,500円（18歳未満0円）。"
+  },
+  "childcare": {
+    "rate": 0.0027,
+    "perCapita": 1500,
+    "household": 0
+  }
+}

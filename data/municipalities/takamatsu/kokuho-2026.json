@@ -1,0 +1,101 @@
+{
+  "cityCode": "37201",
+  "citySlug": "takamatsu",
+  "cityName": "高松市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0988,
+    "support": 0.0260,
+    "care": 0.0216
+  },
+  "perCapita": {
+    "medical": 31700,
+    "support": 8700,
+    "care": 9400
+  },
+  "household": {
+    "medical": 21700,
+    "support": 5800,
+    "care": 4600
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800,
+    "cap": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/nenkin/kokuho/hokenryo/ryoukin.html"
+      ],
+      "verifiedAt": "2026-05-30",
+      "r8Updated": true,
+      "verificationLevel": "official_source_checked",
+      "createdAt": "2026-04-08T01:03:23.685Z",
+      "updatedAt": "2026-05-30T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30"
+    },
+    "source": {
+      "type": "official",
+      "title": "高松市 令和8年度国民健康保険料 公式ページ",
+      "url": "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/nenkin/kokuho/hokenryo/ryoukin.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-30",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "R8公式ページで確認（2026-05-30）。3方式。子ども分18歳以上加算100円のsakai pattern。"
+  }
+}

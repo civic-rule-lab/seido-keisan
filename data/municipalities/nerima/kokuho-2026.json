@@ -1,0 +1,101 @@
+{
+  "cityCode": "13120",
+  "citySlug": "nerima",
+  "cityName": "練馬区",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0751,
+    "support": 0.028,
+    "care": 0.0243
+  },
+  "perCapita": {
+    "medical": 47600,
+    "support": 17600,
+    "care": 17800
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000
+  },
+  "childcareLevy": {
+    "enabled": true,
+    "rate": 0.0027,
+    "perCapita": 1873,
+    "cap": 30000,
+    "under18Reduction": true
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-17T00:00:00Z",
+      "updatedAt": "2026-05-18T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-18",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "manual",
+      "title": "国民健康保険料の計算方法（令和8年度）：練馬区公式ホームページ",
+      "url": "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-04-17T00:00:00Z",
+      "method": "manual"
+    },
+    "quality": {
+      "confidenceScore": 1.0,
+      "completeness": "full"
+    },
+    "notes": "子育て支援金分を含む初の schemaVersion 2.0 データ"
+  }
+}

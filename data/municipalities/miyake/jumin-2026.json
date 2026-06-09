@@ -1,0 +1,16 @@
+{
+  "cityCode": "29362",
+  "citySlug": "miyake",
+  "cityName": "三宅町",
+  "prefSlug": "nara",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1500,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

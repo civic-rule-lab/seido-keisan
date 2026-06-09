@@ -1,0 +1,103 @@
+{
+  "cityCode": "27205",
+  "citySlug": "suita",
+  "cityName": "吹田市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "大阪府統一保険料率。R6より全府統一。R8で賦課限度額引き上げ・子ども子育て支援金分新設。介護分は2方式（平等割なし）。賦課限度額660000/260000/170000/30000円。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.095,
+    "support": 0.0306,
+    "care": 0.026
+  },
+  "perCapita": {
+    "medical": 34990,
+    "support": 11191,
+    "care": 18682
+  },
+  "household": {
+    "medical": 33908,
+    "support": 10845,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.045Z",
+      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.suita.osaka.jp/kenko/1018391/1024421/1024423.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "吹田市 国民健康保険料（令和8年度）",
+      "url": "https://www.city.suita.osaka.jp/kenko/1018391/1024421/1024423.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-15",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.9,
+      "completeness": "full"
+    },
+    "notes": "大阪府統一保険料率 (R8)。吹田市公式「国民健康保険料」ページに R8 試算 Excel が公開されている (令和8年4月～令和9年3月)。大阪府公式 R8 統一保険料率テーブルで全値確認: 医療 9.50%・34,990円・33,908円・上限66万円 / 支援 3.06%・11,191円・10,845円・上限26万円 / 介護 2.60%・18,682円・上限17万円 / 子育て 0.28%・上限3万円。子育て分均等割は osaka と同 breakdown (perCapita 1,745円 + 18歳以上 96円 = 合計 1,841円) を採用。吹田市公式ページの数値内訳表記は直接 fetch できず、大阪府統一料率からの整合性で確定（calculation 結果は 1,841円 / 18歳以上で同一）。"
+  },
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1745,
+    "perCapitaAdult": 96,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cityCode": "09343",
+  "citySlug": "motegi",
+  "cityName": "茂木町",
+  "prefSlug": "tochigi",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1700,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

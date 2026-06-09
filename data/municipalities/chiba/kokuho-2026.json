@@ -1,0 +1,100 @@
+{
+  "cityCode": "12100",
+  "citySlug": "chiba",
+  "cityName": "千葉市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "政令市。医療分・支援分・介護分すべてに平等割あり。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0721,
+    "support": 0.0285,
+    "care": 0.0257
+  },
+  "perCapita": {
+    "medical": 23280,
+    "support": 8880,
+    "care": 16560
+  },
+  "household": {
+    "medical": 26640,
+    "support": 10320,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.014Z",
+      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.chiba.jp/hokenfukushi/iryoeisei/hoken/hokenryou-ketteishimashita.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "千葉市 令和8年度国民健康保険料率の決定",
+      "url": "https://www.city.chiba.jp/hokenfukushi/iryoeisei/hoken/hokenryou-ketteishimashita.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-04-08",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "R8公式サイトで確認。医療分：7.21%・均等23,280円・平等26,640円。支援分：2.85%・8,880円・10,320円。介護分：2.57%・16,560円（平等割要確認）。子育て支援金分新設：0.31%・1,800円（18歳以上120円）。"
+  },
+  "childcare": {
+    "rate": 0.0031,
+    "perCapita": 1800,
+    "household": 0
+  }
+}

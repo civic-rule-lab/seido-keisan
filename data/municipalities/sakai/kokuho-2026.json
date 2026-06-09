@@ -1,0 +1,102 @@
+{
+  "cityCode": "27140",
+  "citySlug": "sakai",
+  "cityName": "堺市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "大阪府統一保険料率。R6より全府統一。介護分は2方式（平等割なし）。賦課限度額650000/240000円。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.095,
+    "support": 0.0306,
+    "care": 0.026
+  },
+  "perCapita": {
+    "medical": 34990,
+    "support": 11191,
+    "care": 18682
+  },
+  "household": {
+    "medical": 33908,
+    "support": 10845,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.042Z",
+      "updatedAt": "2026-05-21T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.sakai.lg.jp/kurashi/honen/kokuho/hokenryo/shikumi.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "堺市 保険料の仕組みと料率（令和8年度）",
+      "url": "https://www.city.sakai.lg.jp/kurashi/honen/kokuho/hokenryo/shikumi.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-21",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 1.0,
+      "completeness": "full"
+    },
+    "notes": "R8公式サイトで確認。大阪府統一料率。医療分上限66万円（R8も同額）。支援分上限26万円（R7の24万から変更）。子育て支援金分新設：0.28%・均等割1,742円（18歳未満10割軽減・18歳以上99円）。\n\n2026-05-21 構造変換 (Issue #53): 既存の flat childcare (rate:0.0028, perCapita:1742, household:0) を rich childcareLevy (perCapita:1742, perCapitaAdult:99, perCapitaAdultScope:\"all_ages\", household:0) に分解。flat 形式では engine 上で「18歳未満 10割軽減」を表現できず全員に 1,742 円課金していた誤動作を解消。abiko/akishima/yokohama 同型 (PR #47 と同パターン)。sakai 公式ページ (shikumi.html) を WebFetch で再確認し、所得割 0.28% / 均等割基本 1,742円 / 18歳以上加算 99円 / 18歳未満 10割軽減 / 成人合計 1,841円 / 上限 3万円の breakdown 全項目一致を直接確認。"
+  },
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1742,
+    "perCapitaAdult": 99,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

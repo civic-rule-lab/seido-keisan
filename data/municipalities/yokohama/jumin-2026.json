@@ -1,0 +1,20 @@
+{
+  "cityCode": "14100",
+  "citySlug": "yokohama",
+  "cityName": "横浜市",
+  "prefSlug": "kanagawa",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "prefRate": 0.02025,
+  "prefPerCapita": 1300,
+  "cityRate": 0.08,
+  "cityPerCapita": 3900,
+  "source": {
+    "url": "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/kojin-shiminzei-kenminzei/kojin-shimin.html",
+    "pageTitle": "個人の市民税・県民税（概要）- 横浜市",
+    "retrievedAt": "2026-04-30"
+  },
+  "notes": "政令市（prefRate=2.025%）。横浜みどり税(+900円均等割)あり。神奈川水源環境保全税はPREF_DEFAULTSで適用済み。"
+}

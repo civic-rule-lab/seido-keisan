@@ -1,0 +1,100 @@
+{
+  "cityCode": "15100",
+  "citySlug": "niigata",
+  "cityName": "新潟市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "政令市。介護分は平等割なし（所得割+均等割の2方式）。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.074,
+    "support": 0.031,
+    "care": 0.025
+  },
+  "perCapita": {
+    "medical": 14700,
+    "support": 7200,
+    "care": 14100
+  },
+  "household": {
+    "medical": 19200,
+    "support": 9000,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.321Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.niigata.lg.jp/kurashi/hoken/kokuho/hokenryo/henko.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "新潟市 令和8年度の国民健康保険料率と軽減判定所得について",
+      "url": "https://www.city.niigata.lg.jp/kurashi/hoken/kokuho/hokenryo/henko.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-04-08",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "R8公式サイトで確認。医療分：所得割7.4%・均等割14,700円・平等割19,200円。支援分：3.1%・7,200円・9,000円。介護分：2.5%・14,100円（平等割なし）。子育て支援金分新設：0.27%・1,600円。"
+  },
+  "childcare": {
+    "rate": 0.0027,
+    "perCapita": 1600,
+    "household": 0
+  }
+}

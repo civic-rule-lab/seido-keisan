@@ -1,0 +1,16 @@
+{
+  "cityCode": "28216",
+  "citySlug": "takasago",
+  "cityName": "高砂市",
+  "prefSlug": "hyogo",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1800,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "cityCode": "14213",
+  "citySlug": "yamato",
+  "cityName": "大和市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "国民健康保険税方式",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.078,
+    "support": 0.0295,
+    "care": 0.027
+  },
+  "perCapita": {
+    "medical": 24600,
+    "support": 10200,
+    "care": 12600
+  },
+  "household": {
+    "medical": 25200,
+    "support": 10200,
+    "care": 9000
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.777Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.yamato.lg.jp/gyosei/soshik/2020/kokuminkenkohoken/kokuho_zeikin/6920.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "大和市 令和8年度国民健康保険税の税率（公式サイト）",
+      "url": "https://www.city.yamato.lg.jp/gyosei/soshik/2020/kokuminkenkohoken/kokuho_zeikin/6920.html",
+      "publishedAt": "2026-03-04"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-08",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "大和市公式国保ページから R8 料率を取得・確認。R8 で料率は据え置き、医療分上限のみ +1万円・子ども子育て支援金分新設。"
+  },
+  "childcare": {
+    "rate": 0.0026,
+    "perCapita": 1260,
+    "household": 900
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cityCode": "14383",
+  "citySlug": "manazuru",
+  "cityName": "真鶴町",
+  "prefSlug": "kanagawa",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04025,
+  "prefPerCapita": 1300,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

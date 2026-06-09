@@ -1,0 +1,101 @@
+{
+  "cityCode": "13210",
+  "citySlug": "koganei",
+  "cityName": "小金井市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0674,
+    "support": 0.0225,
+    "care": 0.02
+  },
+  "perCapita": {
+    "medical": 31000,
+    "support": 14000,
+    "care": 15000
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.924Z",
+      "updatedAt": "2026-05-14T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.koganei.lg.jp/kurashi/427/kokuhozei/hokenzei_keisan.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "小金井市公式ページ「国民健康保険税の計算方法」",
+      "url": "https://www.city.koganei.lg.jp/kurashi/427/kokuhozei/hokenzei_keisan.html",
+      "publishedAt": "2026-03-31"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-14",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "小金井市公式ページ「国民健康保険税の計算方法」から取得（最終更新: 2026-03-31）。子ども・子育て支援金分は新方式 perCapitaAdult + perCapitaAdultScope: 'all_ages'（大人 1 人 = perCapita 1,855 + perCapitaAdult 89 = 1,944 円、18歳未満は実質 0）。medical.cap = 670,000 円は小金井市独自・国標準 660,000 より上方（公式ページで明示）。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1855,
+    "perCapitaAdult": 89,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

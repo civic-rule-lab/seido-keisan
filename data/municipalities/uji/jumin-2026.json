@@ -1,0 +1,16 @@
+{
+  "cityCode": "26204",
+  "citySlug": "uji",
+  "cityName": "宇治市",
+  "prefSlug": "kyoto",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1600,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

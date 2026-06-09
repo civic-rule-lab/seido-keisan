@@ -1,0 +1,103 @@
+{
+  "cityCode": "12203",
+  "citySlug": "ichikawa",
+  "cityName": "市川市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "市川市独自料率 (千葉県は府内統一料率方式ではない・各市独自設定)。4方式 (所得割 + 均等割 + 平等割) を維持。R8 で主要 4 区分は据え置き、子ども・子育て支援金分のみ新設。賦課限度額670000/260000/170000/30000円。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.075,
+    "support": 0.019,
+    "care": 0.0205
+  },
+  "perCapita": {
+    "medical": 12000,
+    "support": 8800,
+    "care": 13600
+  },
+  "household": {
+    "medical": 20400,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.015Z",
+      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.ichikawa.lg.jp/page/4191.html",
+        "https://www.city.ichikawa.lg.jp/pub04/1111000007.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "市川市 令和8年度国民健康保険税について",
+      "url": "https://www.city.ichikawa.lg.jp/page/4191.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-15",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "市川市公式「令和8年度国民健康保険税について」ページ (page/4191.html) を一次抽出元として全項目直接確認。医療 7.50%・12,000円・20,400円・上限67万円 / 後期 1.90%・8,800円・上限26万円 / 介護 2.05%・13,600円・上限17万円 / 子ども 0.23%・上限3万円。R8 で主要 4 区分はすべて R7 から据え置きで、子ども・子育て支援金分のみが R8 で新設された (構造: 均等割 2,000円 × 18歳以上 + 18歳以上加算 100円 × 18歳以上)。childcareLevy 新方式 (perCapita 2,000 + perCapitaAdult 100 / scope all_ages) を採用。軽減判定 5割 310,000円 / 2割 570,000円 (R8 国基準)。なお household.medical は通常世帯 20,400円 (特定世帯 10,200円 / 特定継続 15,300円の特殊扱いがあるが現行 schema は通常世帯のみ表現)。補助 URL: pub04/1111000007.html (国保税概要)。"
+  },
+  "childcareLevy": {
+    "rate": 0.0023,
+    "perCapita": 2000,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

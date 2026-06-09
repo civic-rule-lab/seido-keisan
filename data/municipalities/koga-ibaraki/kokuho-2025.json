@@ -1,0 +1,84 @@
+{
+  "cityCode": "08204",
+  "citySlug": "koga-ibaraki",
+  "cityName": "古河市",
+  "fiscalYear": 2025,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0784,
+    "support": 0.0344,
+    "care": 0.0231
+  },
+  "perCapita": {
+    "medical": 30500,
+    "support": 12600,
+    "care": 15200
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 650000,
+    "support": 240000,
+    "care": 170000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 305000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 560000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataVersion": "1.0.0",
+    "status": "needs_update",
+    "lifecycle": {
+      "createdAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-04-07T00:00:00Z",
+      "validFrom": "2025-04-01",
+      "validUntil": "2026-03-31",
+      "expiresAt": "2026-04-30"
+    },
+    "source": {
+      "type": "estimated",
+      "title": "",
+      "url": "",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "",
+      "verifiedAt": "",
+      "method": ""
+    },
+    "quality": {
+      "confidenceScore": 0,
+      "completeness": "partial"
+    },
+    "notes": "PLACEHOLDER: 茨城県古河市のR7値は未取得（5/11新規slug追加、福岡県古賀koga(40221)との衝突回避のため茨城古河は -ibaraki サフィックス）。水戸市R7をベースにstructure保持目的で複製。次回Coworkで茨城古河R7を取得して上書き予定。"
+  }
+}

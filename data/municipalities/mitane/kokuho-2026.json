@@ -1,0 +1,101 @@
+{
+  "cityCode": "05348",
+  "citySlug": "mitane",
+  "cityName": "三種町",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0539,
+    "support": 0.0293,
+    "care": 0.025
+  },
+  "perCapita": {
+    "medical": 23929,
+    "support": 12925,
+    "care": 12899
+  },
+  "household": {
+    "medical": 15204,
+    "support": 8212,
+    "care": 6334
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "provisional",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.537Z",
+      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "standard_r8",
+      "sourceStatus": "prefecture_standard_municipal_list",
+      "sourceUrls": [
+        "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_令和8年度秋田県国民健康保険標準保険税率一覧(HP掲載用).pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": []
+    },
+    "source": {
+      "type": "prefecture_standard",
+      "title": "令和8年度 秋田県 国民健康保険標準保険税率（市町村標準・県内統一算定方式）",
+      "url": "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_令和8年度秋田県国民健康保険標準保険税率一覧(HP掲載用).pdf",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "",
+      "method": "prefecture-standard-municipal-list"
+    },
+    "quality": {
+      "confidenceScore": 0.6,
+      "completeness": "full"
+    },
+    "notes": "秋田県公表の令和8年度 国民健康保険標準保険税率(市町村標準・県内統一算定方式)を参考値として採用。法定外繰入ゼロ前提の理論値で三種町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割0%。子ども子育て分は18歳以上均等割(=54円)を省いたフラット暫定(大潟村は18+227円と県内突出)。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+  },
+  "childcareLevy": {
+    "rate": 0.0026,
+    "perCapita": 1337,
+    "household": 842,
+    "cap": 30000
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "cityCode": "43100",
+  "citySlug": "kumamoto",
+  "cityName": "熊本市",
+  "prefSlug": "kumamoto",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "prefRate": 0.02,
+  "prefPerCapita": 1500,
+  "cityRate": 0.08,
+  "source": {
+    "url": "https://www.city.kumamoto.jp/kiji00312986/index.html",
+    "pageTitle": "市民税・県民税・森林環境税の算定について - 熊本市",
+    "retrievedAt": "2026-04-30"
+  },
+  "notes": "政令市（prefRate=2%, cityRate=8%）。水とみどりの森づくり税(+500円)はPREF_DEFAULTSで適用済み。市独自超過課税なし。"
+}

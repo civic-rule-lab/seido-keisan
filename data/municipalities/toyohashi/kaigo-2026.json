@@ -1,0 +1,114 @@
+{
+  "cityCode": "23201",
+  "citySlug": "toyohashi",
+  "cityName": "豊橋市",
+  "prefSlug": "aichi",
+  "prefecture": "愛知県",
+  "fiscalYear": 2026,
+  "system": "kaigo",
+  "schemaVersion": "1.0",
+  "planPeriod": "第9期（2024-2026）",
+  "status": "needs_update",
+  "baseAmount": null,
+  "brackets": [
+    {
+      "level": "1",
+      "label": "第1段階",
+      "rate": 0.285,
+      "criteria": {
+        "householdAllNonTaxable": true,
+        "pensionIncomeMax": 800000
+      },
+      "condition": "世帯全員非課税 かつ 本人年金収入80万円以下（または生活保護受給者）"
+    },
+    {
+      "level": "2",
+      "label": "第2段階",
+      "rate": 0.485,
+      "criteria": {
+        "householdAllNonTaxable": true,
+        "pensionIncomeMin": 800001,
+        "pensionIncomeMax": 1200000
+      },
+      "condition": "世帯全員非課税 かつ 本人年金収入80万円超〜120万円以下"
+    },
+    {
+      "level": "3",
+      "label": "第3段階",
+      "rate": 0.685,
+      "criteria": {
+        "householdAllNonTaxable": true,
+        "pensionIncomeMin": 1200001
+      },
+      "condition": "世帯全員非課税 かつ 本人年金収入120万円超"
+    },
+    {
+      "level": "4",
+      "label": "第4段階",
+      "rate": 0.9,
+      "criteria": {
+        "selfTaxable": false,
+        "householdAllNonTaxable": false
+      },
+      "condition": "本人非課税 かつ 世帯内に住民税課税者あり"
+    },
+    {
+      "level": "5",
+      "label": "第5段階（基準）",
+      "rate": 1,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMax": 1199999
+      },
+      "condition": "本人課税 かつ 前年合計所得金額120万円未満"
+    },
+    {
+      "level": "6",
+      "label": "第6段階",
+      "rate": 1.2,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 1200000,
+        "totalIncomeMax": 2099999
+      },
+      "condition": "本人課税 かつ 前年合計所得金額120万円以上210万円未満"
+    },
+    {
+      "level": "7",
+      "label": "第7段階",
+      "rate": 1.45,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 2100000,
+        "totalIncomeMax": 3199999
+      },
+      "condition": "本人課税 かつ 前年合計所得金額210万円以上320万円未満"
+    },
+    {
+      "level": "8",
+      "label": "第8段階",
+      "rate": 1.7,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 3200000,
+        "totalIncomeMax": 4199999
+      },
+      "condition": "本人課税 かつ 前年合計所得金額320万円以上420万円未満"
+    },
+    {
+      "level": "9",
+      "label": "第9段階",
+      "rate": 2,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 4200000
+      },
+      "condition": "本人課税 かつ 前年合計所得金額420万円以上"
+    }
+  ],
+  "fallbackLevel": "5",
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

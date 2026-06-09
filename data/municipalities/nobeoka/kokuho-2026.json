@@ -1,0 +1,110 @@
+{
+  "cityCode": "45203",
+  "citySlug": "nobeoka",
+  "cityName": "延岡市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0845,
+    "support": 0.028,
+    "care": 0.028
+  },
+  "assetLevy": {
+    "medical": 0.1,
+    "support": 0.02,
+    "care": 0
+  },
+  "perCapita": {
+    "medical": 25200,
+    "support": 7200,
+    "care": 13200
+  },
+  "household": {
+    "medical": 22800,
+    "support": 7200,
+    "care": 0
+  },
+  "caps": {
+    "medical": 600000,
+    "support": 200000,
+    "care": 160000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-07T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.nobeoka.miyazaki.jp/soshiki/22/2227.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.nobeoka.miyazaki.jp/soshiki/22/2227.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "延岡市「令和8年度国民健康保険税の税率等について」（2026-06-04更新）",
+      "url": "https://www.city.nobeoka.miyazaki.jp/soshiki/22/2227.html",
+      "publishedAt": "2026-06"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-07",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "延岡市公式「令和8年度国民健康保険税の税率等について」(2227.html・2026-06-04更新・ユーザースクショとも照合一致)から確定。★資産割残存4方式: 医療8.45%+資産割10.00%(R7 15.50%から引下げ)/後期2.80%+資産割2.00%(R7 3.00%)・R8〜R10の3ヶ年で段階廃止予定と明記(宮崎県運営方針=3方式統一)→assetLevy {medical:0.1, support:0.02, care:0}。★介護分は所得割+均等割のみ(平等割なし→household.care=0)。医療25,200円(資産割引下げ相当分の均等割引上げ・R7 22,800)/22,800円。★課税限度額は市独自の段階引上げ中=医療60万(R7 58万)/後期20万(R7 19万)/介護16万/子ども3万(政令67/26/17万より低い・「国の政令で定める額に向けて段階的に引き上げていく予定」と明記)。子ども分0.31%＝均等割1,100円＋18歳以上均等割100円(18歳未満の軽減分補填と明記)＋平等割600円、18歳以下の均等割全額免除→childcareLevy perCapita=1100/perCapitaAdult=100/perCapitaAdultScope=all_ages。令和9年度以降は未定とページ明記→年次更新時に要再確認。"
+  },
+  "childcareLevy": {
+    "rate": 0.0031,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 600,
+    "cap": 30000
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cityCode": "42321",
+  "citySlug": "higashisonogi",
+  "cityName": "東彼杵町",
+  "prefSlug": "nagasaki",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1500,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

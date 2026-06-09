@@ -1,0 +1,20 @@
+{
+  "cityCode": "12100",
+  "citySlug": "chiba",
+  "cityName": "千葉市",
+  "prefSlug": "chiba",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "prefRate": 0.02,
+  "prefPerCapita": 1000,
+  "cityRate": 0.08,
+  "cityPerCapita": 3000,
+  "source": {
+    "url": "https://www.city.chiba.jp/zaiseikyoku/zeimu/kazeikanri/kojin.html",
+    "pageTitle": "個人市民税 - 千葉市",
+    "retrievedAt": "2026-04-30"
+  },
+  "notes": "政令市（prefRate=2%, cityRate=8%）。均等割は市民税3,000円・県民税1,000円（標準値）。千葉県・市ともに超過課税なし。"
+}

@@ -1,0 +1,16 @@
+{
+  "cityCode": "46221",
+  "citySlug": "shibushi",
+  "cityName": "志布志市",
+  "prefSlug": "kagoshima",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1500,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

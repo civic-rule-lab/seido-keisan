@@ -1,0 +1,16 @@
+{
+  "cityCode": "06402",
+  "citySlug": "shirataka",
+  "cityName": "白鷹町",
+  "prefSlug": "yamagata",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 2000,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

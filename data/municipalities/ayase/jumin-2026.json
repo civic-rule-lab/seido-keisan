@@ -1,0 +1,16 @@
+{
+  "cityCode": "14218",
+  "citySlug": "ayase",
+  "cityName": "綾瀬市",
+  "prefSlug": "kanagawa",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04025,
+  "prefPerCapita": 1300,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

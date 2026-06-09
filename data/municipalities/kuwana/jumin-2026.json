@@ -1,0 +1,16 @@
+{
+  "cityCode": "24205",
+  "citySlug": "kuwana",
+  "cityName": "桑名市",
+  "prefSlug": "mie",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 2000,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

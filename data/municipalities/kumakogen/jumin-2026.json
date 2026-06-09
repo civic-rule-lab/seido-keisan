@@ -1,0 +1,16 @@
+{
+  "cityCode": "38386",
+  "citySlug": "kumakogen",
+  "cityName": "久万高原町",
+  "prefSlug": "ehime",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1700,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

@@ -1,0 +1,156 @@
+// 個人住民税 計算ロジック（純粋関数）
+// 99%の自治体が同一税率のため、JUMIN_DEFAULTS からマージして使う。
+// 差分のある自治体のみ data に値を持つ。
+//
+// Node: require('./js/core/jumin') で { calculateJumin, JUMIN_DEFAULTS } を取得
+// Browser: <script> で読み込むとグローバル関数
+
+'use strict';
+
+const _isNode = typeof module !== 'undefined' && !!module.exports;
+
+const _income = _isNode
+  ? require('./shared/income.js')
+  : { calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin };
+
+// ─── 全国標準値（差分管理のベース） ─────────────────────────────
+
+// 令和6年度（2024年）改正:
+//   東日本大震災復興特例（均等割 +1,000円）が令和5年度で終了。
+//   代わりに国の森林環境税（1,000円）が令和6年度から課税開始。
+//   均等割の合計は 5,000円 で変わらないが内訳が変わった。
+//     旧: 都道府県 1,500円 + 市区町村 3,500円          = 5,000円
+//     新: 都道府県 1,000円 + 市区町村 3,000円 + 国税 1,000円 = 5,000円
+
+const JUMIN_DEFAULTS = {
+  prefRate:            0.04,    // 都道府県民税 所得割
+  cityRate:            0.06,    // 市区町村民税 所得割
+  prefPerCapita:       1_000,   // 都道府県民税 均等割（令和6年度以降）
+  cityPerCapita:       3_000,   // 市区町村民税 均等割（令和6年度以降）
+  forestTax:           1_000,   // 森林環境税（国税・令和6年度〜、全国一律）
+  basicDeductionJumin: 430_000,
+};
+
+// ─── 計算関数 ─────────────────────────────────────────────────
+
+// ─── 非課税限度額（標準・生活保護1級地） ───────────────────────────
+// 均等割: 35万円 ×（本人＋同一生計配偶者＋扶養親族）＋ 10万円 ＋ 加算21万円（扶養等がいる場合）
+// 所得割: 35万円 ×（同上）＋ 10万円 ＋ 加算32万円（扶養等がいる場合）
+// dependents = 同一生計配偶者＋扶養親族の数（本人を除く）。単身は 0。
+function _kintoNonTaxableLimit(dependents) {
+  const n = 1 + Math.max(0, dependents | 0);
+  return 350_000 * n + 100_000 + (dependents > 0 ? 210_000 : 0);
+}
+function _shotokuNonTaxableLimit(dependents) {
+  const n = 1 + Math.max(0, dependents | 0);
+  return 350_000 * n + 100_000 + (dependents > 0 ? 320_000 : 0);
+}
+
+// ─── 調整控除（所得割の税額控除） ─────────────────────────────────
+// 税源移譲に伴う所得税・住民税の人的控除差を調整する。
+//   課税総所得金額 ≤ 200万円: min(人的控除差合計, 課税総所得金額) × 5%
+//   課税総所得金額 > 200万円: { 人的控除差合計 −（課税総所得金額 − 200万円）} × 5%（最低 2,500円）
+//   合計所得金額 2,500万円超: 適用なし
+// 内訳は県民税2%＋市民税3%＝5%。差額の標準は基礎控除差 5万円（単身）。
+function _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome) {
+  if (taxableIncome <= 0) return 0;
+  if (totalIncome > 25_000_000) return 0;
+  const diff = Math.max(0, humanDeductionDiff);
+  let base;
+  if (taxableIncome <= 2_000_000) {
+    base = Math.min(diff, taxableIncome);
+  } else {
+    base = Math.max(diff - (taxableIncome - 2_000_000), 50_000);
+  }
+  return Math.floor(base * 0.05);
+}
+
+/**
+ * 個人住民税を計算する。
+ *
+ * @param {Object|null} data    - jumin-{year}.json（差分のみ）。null なら標準値のみ使用。
+ * @param {Object} inputs
+ * @param {number} [inputs.salary=0]
+ * @param {number} [inputs.pension=0]
+ * @param {number} [inputs.age]
+ * @param {number} [inputs.otherIncome=0]     - 事業・不動産所得等（所得換算済み）
+ * @param {number} [inputs.socialInsurance=0] - 社会保険料控除（国保+介護等の実支払額）
+ * @param {number} [inputs.spouseDeduction=0]
+ * @param {number} [inputs.dependentDeduction=0]
+ * @param {number} [inputs.disabilityDeduction=0]
+ * @param {number} [inputs.singleParentDeduction=0]
+ * @param {number} [inputs.lifeInsuranceDeduction=0] - 生命保険料控除
+ * @param {number} [inputs.earthquakeInsuranceDeduction=0] - 地震保険料控除
+ * @param {number} [inputs.medicalDeduction=0]   - 医療費控除
+ * @param {number} [inputs.dependents=0]          - 同一生計配偶者＋扶養親族の数（非課税判定用）
+ * @param {number} [inputs.humanDeductionDiff=50000] - 人的控除差の合計（調整控除用。標準=基礎控除差5万）
+ * @param {number} [inputs.taxCredits=0]          - ふるさと納税・住宅ローン等の税額控除合計（所得割から控除）
+ * @returns {Object}
+ *   taxableIncome    - 課税総所得金額（所得割の算定基礎）
+ *   totalIncome      - 合計所得金額（介護保険段階判定に使用）
+ *   incomeLevy       - 所得割（調整控除・税額控除適用後）
+ *   adjustmentCredit - 適用した調整控除額
+ *   perCapita        - 均等割（森林環境税を含む）
+ *   total            - 年間住民税
+ *   monthly          - 月額目安
+ *   isTaxable        - 均等割課税者か（介護保険段階判定に使用）
+ */
+function calculateJumin(data, inputs) {
+  const cfg = { ...JUMIN_DEFAULTS, ...(data || {}) };
+  const {
+    salary = 0, pension = 0, age,
+    otherIncome = 0,
+    socialInsurance = 0,
+    spouseDeduction = 0,
+    dependentDeduction = 0,
+    disabilityDeduction = 0,
+    singleParentDeduction = 0,
+    lifeInsuranceDeduction = 0,
+    earthquakeInsuranceDeduction = 0,
+    medicalDeduction = 0,
+    dependents = 0,
+    humanDeductionDiff = 50_000,
+    taxCredits = 0,
+  } = inputs || {};
+
+  // 合計所得金額（介護保険段階判定・基礎控除前）
+  const totalIncome = _income.calcTaxableIncomeForKokuho({ salary, pension, age, otherIncome });
+
+  // 住民税課税所得（所得控除後）。1,000円未満切捨て（課税標準）。
+  const taxableRaw = _income.calcTaxableIncomeForJumin({
+    salary, pension, age, otherIncome,
+    socialInsurance,
+    spouseDeduction, dependentDeduction,
+    disabilityDeduction, singleParentDeduction,
+    // 保険料・医療費控除も所得控除として差し引く
+    basicDeductionJumin:
+      cfg.basicDeductionJumin + lifeInsuranceDeduction + earthquakeInsuranceDeduction + medicalDeduction,
+  });
+  const taxableIncome = Math.floor(taxableRaw / 1000) * 1000;
+
+  // ── 非課税判定（標準・1級地） ──
+  const kintoTaxable   = totalIncome > _kintoNonTaxableLimit(dependents);
+  const shotokuTaxable = taxableIncome > 0 && totalIncome > _shotokuNonTaxableLimit(dependents);
+
+  // ── 所得割（調整控除・税額控除適用後） ──
+  let incomeLevy = 0;
+  let adjustmentCredit = 0;
+  if (shotokuTaxable) {
+    const gross = Math.floor(taxableIncome * (cfg.prefRate + cfg.cityRate));
+    adjustmentCredit = _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome);
+    incomeLevy = Math.max(0, gross - adjustmentCredit - Math.max(0, taxCredits));
+    incomeLevy = Math.floor(incomeLevy / 100) * 100; // 100円未満切捨て
+  }
+
+  // ── 均等割 ＋ 森林環境税（均等割課税者のみ） ──
+  const perCapita = kintoTaxable
+    ? cfg.prefPerCapita + cfg.cityPerCapita + cfg.forestTax
+    : 0;
+
+  const total   = incomeLevy + perCapita;
+  const monthly = Math.round(total / 12);
+
+  return { taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly, isTaxable: kintoTaxable };
+}
+
+if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS };

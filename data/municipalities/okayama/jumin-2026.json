@@ -1,0 +1,19 @@
+{
+  "cityCode": "33100",
+  "citySlug": "okayama",
+  "cityName": "岡山市",
+  "prefSlug": "okayama",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "prefRate": 0.02,
+  "prefPerCapita": 1500,
+  "cityRate": 0.08,
+  "source": {
+    "url": "https://www.city.okayama.jp/kurashi/0000005458.html",
+    "pageTitle": "個人市県民税の税額の計算方法 - 岡山市",
+    "retrievedAt": "2026-04-30"
+  },
+  "notes": "政令市。おかやま森づくり県民税(+500円)はPREF_DEFAULTSで適用済み。市独自超過課税なし。"
+}

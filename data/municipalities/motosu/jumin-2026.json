@@ -1,0 +1,16 @@
+{
+  "cityCode": "21218",
+  "citySlug": "motosu",
+  "cityName": "本巣市",
+  "prefSlug": "gifu",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 2000,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "cityCode": "30209",
+  "citySlug": "iwade",
+  "cityName": "岩出市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.087,
+    "support": 0.029,
+    "care": 0.0245
+  },
+  "perCapita": {
+    "medical": 30700,
+    "support": 10400,
+    "care": 10450
+  },
+  "household": {
+    "medical": 21300,
+    "support": 7200,
+    "care": 5400
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-06T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.iwade.lg.jp/soshiki/8/1336.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.iwade.lg.jp/soshiki/8/1336.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "岩出市「国民健康保険税の計算について」国民健康保険税率【令和8年度】",
+      "url": "https://www.city.iwade.lg.jp/soshiki/8/1336.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-06",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "岩出市公式「国民健康保険税率【令和8年度】」(表2)・「賦課限度額【令和8年度】」(表3)から確定。医療8.7%/30,700/21,300・後期2.9%/10,400/7,200・介護2.45%/10,450/5,400。3方式・資産割なし。限度額は表3明示=医療67万/後期26万/介護17万/子ども3万(合計113万)。子ども分0.3%＝均等割1,100円＋18歳以上均等割91円＋平等割766円、※3「18歳未満被保険者は均等割額が全額軽減・その分を18歳以上被保険者に18歳以上均等割額として賦課」→childcareLevy perCapita=1100/perCapitaAdult=91/perCapitaAdultScope=all_ages（長崎・佐賀・有田・田辺・紀の川型）。大人合計1,191円・平等割766円は県標準パターンと一致（横検算OK）。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1100,
+    "perCapitaAdult": 91,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
+  }
+}

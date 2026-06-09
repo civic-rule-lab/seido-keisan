@@ -1,0 +1,85 @@
+{
+  "cityCode": "27211",
+  "citySlug": "ibaraki",
+  "cityName": "茨木市",
+  "fiscalYear": 2025,
+  "system": "kokuho",
+  "note": "大阪府統一保険料率。R6より全府統一。介護分は2方式（平等割なし）。賦課限度額650000/240000円。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.093,
+    "support": 0.0302,
+    "care": 0.0256
+  },
+  "perCapita": {
+    "medical": 34424,
+    "support": 11034,
+    "care": 18784
+  },
+  "household": {
+    "medical": 33574,
+    "support": 10761,
+    "care": 0
+  },
+  "caps": {
+    "medical": 650000,
+    "support": 240000,
+    "care": 170000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 305000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 560000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataVersion": "1.0.0",
+    "status": "unverified",
+    "lifecycle": {
+      "createdAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-04-07T00:00:00Z",
+      "validFrom": "2025-04-01",
+      "validUntil": "2026-03-31",
+      "expiresAt": "2026-04-30"
+    },
+    "source": {
+      "type": "manual",
+      "title": "",
+      "url": "",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "",
+      "verifiedAt": "",
+      "method": "manual"
+    },
+    "quality": {
+      "confidenceScore": 0.8,
+      "completeness": "full"
+    },
+    "notes": ""
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "cityCode": "13202",
+  "citySlug": "tachikawa",
+  "cityName": "立川市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0685,
+    "support": 0.0229,
+    "care": 0.0173
+  },
+  "perCapita": {
+    "medical": 34200,
+    "support": 12200,
+    "care": 14800
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 250000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.899Z",
+      "updatedAt": "2026-05-14T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.tachikawa.lg.jp/kurashi/nenkin/1002478/1002510/1002554/1002560.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "立川市公式ページ「令和8年度国民健康保険料」",
+      "url": "https://www.city.tachikawa.lg.jp/kurashi/nenkin/1002478/1002510/1002554/1002560.html",
+      "publishedAt": "2026-05-11"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-14",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "立川市公式ページ「令和8年度国民健康保険料」から取得（更新日: 2026-05-11）。医療・支援・介護に加えて子ども・子育て支援金分を新設反映（4月1日現在18歳以上のみ均等割 2,000 円が課される構造、under18Reduction: true で実装）。support.cap は 250,000 円（立川市独自・国標準 260,000 とは異なる）。"
+  },
+  "childcare": {
+    "rate": 0.0031,
+    "perCapita": 2000,
+    "household": 0,
+    "under18Reduction": true
+  }
+}

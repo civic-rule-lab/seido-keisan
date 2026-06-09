@@ -1,0 +1,102 @@
+{
+  "cityCode": "26100",
+  "citySlug": "kyoto",
+  "cityName": "京都市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "note": "政令市。区ごとに窓口が異なるが保険料率は市全体で統一。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0794,
+    "support": 0.0266,
+    "care": 0.0251
+  },
+  "perCapita": {
+    "medical": 30080,
+    "support": 10360,
+    "care": 11090
+  },
+  "household": {
+    "medical": 17930,
+    "support": 6180,
+    "care": 5370
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1110,
+    "perCapitaAdult": 60,
+    "perCapitaAdultScope": "all_ages",
+    "household": 660,
+    "cap": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000351038.html"
+      ],
+      "verifiedAt": "2026-05-30",
+      "r8Updated": true,
+      "verificationLevel": "official_source_checked",
+      "createdAt": "2026-04-08T01:03:22.105Z",
+      "updatedAt": "2026-05-30T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30"
+    },
+    "source": {
+      "type": "official",
+      "title": "京都市 令和8年度国民健康保険料 公式ページ",
+      "url": "https://www.city.kyoto.lg.jp/hokenfukushi/page/0000351038.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-30",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "R8公式スクショ確認済（2026-05-30）。全区分3方式。介護平等割5,370円は台帳「なし」の誤りを公式で訂正。18歳以上均等割は子ども分のみ60円のsakai pattern。未就学児軽減(医療15,040/後期5,180)→preschoolReduction:true。18歳未満(平成20/4/2以降生)は子ども分均等割全額減額。"
+  }
+}

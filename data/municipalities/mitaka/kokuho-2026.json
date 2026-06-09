@@ -1,0 +1,101 @@
+{
+  "cityCode": "13204",
+  "citySlug": "mitaka",
+  "cityName": "三鷹市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.061,
+    "support": 0.023,
+    "care": 0.016
+  },
+  "perCapita": {
+    "medical": 29000,
+    "support": 11800,
+    "care": 13400
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.901Z",
+      "updatedAt": "2026-05-14T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.mitaka.lg.jp/c_service/000/000431.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-14",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "三鷹市公式ページ「国民健康保険税」（令和8年度の保険税の計算方法）",
+      "url": "https://www.city.mitaka.lg.jp/c_service/000/000431.html",
+      "publishedAt": "2026-05-14"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-14",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "三鷹市公式ページから取得。医療・支援・介護分は R7 と同値据え置き、医療上限のみ 670,000→660,000（R8 国標準への合わせ込み）。子ども・子育て支援納付金分を新設、新方式 perCapitaAdult + perCapitaAdultScope: 'all_ages' を採用。大人 1 人あたり = perCapita 1,846 + perCapitaAdult 98 = 1,944 円。18歳到達後の最初の3/31以前の被保険者は均等割 10割軽減（formula 上 adults のみ計算対象）。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1846,
+    "perCapitaAdult": 98,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

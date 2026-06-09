@@ -1,0 +1,16 @@
+{
+  "cityCode": "19442",
+  "citySlug": "kosugemura",
+  "cityName": "小菅村",
+  "prefSlug": "yamanashi",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1500,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

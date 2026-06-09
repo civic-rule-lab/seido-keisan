@@ -1,0 +1,104 @@
+{
+  "cityCode": "17384",
+  "citySlug": "shika",
+  "cityName": "志賀町",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.077,
+    "support": 0.024,
+    "care": 0.023
+  },
+  "perCapita": {
+    "medical": 33000,
+    "support": 10200,
+    "care": 10600
+  },
+  "household": {
+    "medical": 22000,
+    "support": 7100,
+    "care": 6000
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 20000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.359Z",
+      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://town.shika.lg.jp/page/8016.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://town.shika.lg.jp/page/8016.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "志賀町公式「令和8年度から『子ども・子育て支援金制度』が始まります」国民健康保険税率表",
+      "url": "https://town.shika.lg.jp/page/8016.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-05",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "志賀町公式ページの令和8年度 国民健康保険税率表（実告示）から確定。医療7.7%/33,000/22,000・支援2.4%/10,200/7,100・介護2.3%/10,600/6,000・子ども子育て0.28%/1,200/800。賦課限度額は医療67万・支援26万・介護17万・子ども2万。子ども・子育て支援金分の均等割は18歳になる年度の年度末まで非対象（18歳未満は均等割免除）→ under18Reduction:true で表現。県標準(医療8.52%)とは法定外繰入等で乖離あり、本データは町実告示が正。"
+  },
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1200,
+    "under18Reduction": true,
+    "household": 800,
+    "cap": 20000
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cityCode": "10421",
+  "citySlug": "nakanojo",
+  "cityName": "中之条町",
+  "prefSlug": "gunma",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1700,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

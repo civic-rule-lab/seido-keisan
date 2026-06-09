@@ -1,0 +1,99 @@
+{
+  "cityCode": "09208",
+  "citySlug": "oyama",
+  "cityName": "小山市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.061,
+    "support": 0.028,
+    "care": 0.024
+  },
+  "perCapita": {
+    "medical": 23800,
+    "support": 10000,
+    "care": 9500
+  },
+  "household": {
+    "medical": 19500,
+    "support": 7500,
+    "care": 7500
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-11T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.oyama.tochigi.jp/kurashi/zei-hoken-nenkin/kokuho/page000837.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "小山市 令和8年度国民健康保険税の税率（公式サイト）",
+      "url": "https://www.city.oyama.tochigi.jp/kurashi/zei-hoken-nenkin/kokuho/page000837.html",
+      "publishedAt": "2026-04-13"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-11",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "小山市公式 R8 ページ（更新日 2026-04-13）から取得。3方式（平等割あり）。栃木県、4月告示済み（地方の独自運営協議会で先行決定パターン）。医療上限 66万 据え置き（県準統一系・古河/越谷と同様）。子ども分均等割は18歳未満全額軽減で18歳以上に按分負担される設計（公式記載）。cityCode は registry 既載 09207 が誤りで 09208 が正（NII・Japan-DB 全一致）— registry 訂正必要。"
+  },
+  "childcare": {
+    "rate": 0.004,
+    "perCapita": 1800,
+    "household": 1000
+  }
+}

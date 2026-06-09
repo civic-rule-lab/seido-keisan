@@ -1,0 +1,84 @@
+{
+  "cityCode": "46535",
+  "citySlug": "yoron",
+  "cityName": "与論町",
+  "fiscalYear": 2025,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0506,
+    "support": 0.0284,
+    "care": 0.0239
+  },
+  "perCapita": {
+    "medical": 21652,
+    "support": 11927,
+    "care": 11944
+  },
+  "household": {
+    "medical": 14026,
+    "support": 7726,
+    "care": 5943
+  },
+  "caps": {
+    "medical": 650000,
+    "support": 240000,
+    "care": 170000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 305000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 560000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataVersion": "1.0.0",
+    "status": "unverified",
+    "lifecycle": {
+      "createdAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-04-07T00:00:00Z",
+      "validFrom": "2025-04-01",
+      "validUntil": "2026-03-31",
+      "expiresAt": "2026-04-30"
+    },
+    "source": {
+      "type": "manual",
+      "title": "",
+      "url": "",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "",
+      "verifiedAt": "",
+      "method": "manual"
+    },
+    "quality": {
+      "confidenceScore": 0.8,
+      "completeness": "full"
+    },
+    "notes": ""
+  }
+}

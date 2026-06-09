@@ -1,0 +1,101 @@
+{
+  "cityCode": "19207",
+  "citySlug": "nirasaki",
+  "cityName": "韮崎市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0723,
+    "support": 0.0277,
+    "care": 0.0229
+  },
+  "perCapita": {
+    "medical": 32177,
+    "support": 12261,
+    "care": 12082
+  },
+  "household": {
+    "medical": 21070,
+    "support": 8029,
+    "care": 6067
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "provisional",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.568Z",
+      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "standard_r8",
+      "sourceStatus": "prefecture_standard_municipal_list",
+      "sourceUrls": [
+        "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": []
+    },
+    "source": {
+      "type": "prefecture_standard",
+      "title": "令和8年度 山梨県 市町村標準保険料率（納付金算定PDF参考資料・暫定）",
+      "url": "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "",
+      "method": "prefecture-standard-municipal-list"
+    },
+    "quality": {
+      "confidenceScore": 0.5,
+      "completeness": "full"
+    },
+    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で韮崎市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=54円)を省いたフラット暫定。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。"
+  },
+  "childcareLevy": {
+    "rate": 0.0027,
+    "perCapita": 1230,
+    "household": 792,
+    "cap": 30000
+  }
+}

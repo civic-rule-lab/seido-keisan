@@ -1,0 +1,103 @@
+{
+  "cityCode": "30201",
+  "citySlug": "wakayama",
+  "cityName": "和歌山市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0904,
+    "support": 0.0286,
+    "care": 0.0265
+  },
+  "perCapita": {
+    "medical": 30720,
+    "support": 10200,
+    "care": 10800
+  },
+  "household": {
+    "medical": 22560,
+    "support": 7200,
+    "care": 5760
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.054Z",
+      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1001517.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1001517.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "和歌山市公式「令和8年度の保険料が決定しました」国民健康保険料率表",
+      "url": "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1001517.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-05",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "和歌山市公式ページの令和8年度 国民健康保険料率表（実告示）から確定。医療9.04%/30,720/22,560・後期2.86%/10,200/7,200・介護2.65%/10,800/5,760・子ども子育て0.30%/1,200/720。賦課限度額は医療67万(R7 66万→R8 67万)・後期26万・介護17万・子ども3万。和歌山県は県集約標準テーブル未公表(R12県内統一を目標に各市町村が個別の標準保険税率を提示する段階)のため横展開不可、本データは和歌山市の実告示。子ども・子育て支援金分の18歳スコープはページに明示なし(フラット均等割で採用)。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1200,
+    "household": 720,
+    "cap": 30000
+  }
+}

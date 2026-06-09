@@ -1,0 +1,19 @@
+{
+  "cityCode": "14150",
+  "citySlug": "sagamihara",
+  "cityName": "相模原市",
+  "prefSlug": "kanagawa",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "prefRate": 0.02025,
+  "prefPerCapita": 1300,
+  "cityRate": 0.08,
+  "source": {
+    "url": "https://www.city.sagamihara.kanagawa.jp/kurashi/1026448/zeikin/1026477/jyuminzei_kojin/1020285.html",
+    "pageTitle": "均等割と所得割 - 相模原市",
+    "retrievedAt": "2026-04-30"
+  },
+  "notes": "政令市（prefRate=2.025%, cityRate=8%）。市独自の均等割超過課税なし。神奈川水源環境保全税はPREF_DEFAULTSで適用済み。"
+}

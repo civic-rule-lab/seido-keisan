@@ -1,0 +1,99 @@
+// 介護保険料（第1号被保険者・65歳以上）計算ロジック（純粋関数）
+// 第2号被保険者（40〜64歳）は kokuho.js 内の careTotal で処理済み。
+//
+// 段階判定は kaigo-{year}.json の brackets[].criteria を順に評価する
+// データ駆動方式。自治体ごとの段階数（9〜16段階）に自動対応。
+//
+// 境界値の格納方法:
+//   pensionIncomeMax/Min, totalIncomeMax/Min はすべて「含む（≤）」で格納する。
+//   「〜未満」は値を -1 した整数で表す（例: 120万円未満 → totalIncomeMax: 1199999）。
+//   「〜以上」は値をそのままで表す（例: 120万円以上 → totalIncomeMin: 1200000）。
+
+'use strict';
+
+// ─── 段階マッチング ───────────────────────────────────────────
+
+/**
+ * memberContext が bracket の criteria を満たすか評価する。
+ * criteria フィールドが存在しない bracket は常に true（フォールバック用）。
+ *
+ * @param {Object} ctx     - { pensionIncome, totalIncome, isSelfTaxable, isHouseholdAllNonTaxable }
+ * @param {Object} bracket - { criteria?: { ... } }
+ * @returns {boolean}
+ */
+function matchBracket(ctx, bracket) {
+  const c = bracket.criteria;
+  if (!c) return true;  // criteria なしはすべてマッチ
+
+  if (c.householdAllNonTaxable !== undefined &&
+      c.householdAllNonTaxable !== ctx.isHouseholdAllNonTaxable) return false;
+
+  if (c.selfTaxable !== undefined &&
+      c.selfTaxable !== ctx.isSelfTaxable) return false;
+
+  if (c.pensionIncomeMax !== undefined &&
+      ctx.pensionIncome > c.pensionIncomeMax) return false;
+
+  if (c.pensionIncomeMin !== undefined &&
+      ctx.pensionIncome < c.pensionIncomeMin) return false;
+
+  if (c.totalIncomeMax !== undefined &&
+      ctx.totalIncome > c.totalIncomeMax) return false;
+
+  if (c.totalIncomeMin !== undefined &&
+      ctx.totalIncome < c.totalIncomeMin) return false;
+
+  return true;
+}
+
+// ─── 計算関数 ─────────────────────────────────────────────────
+
+/**
+ * 介護保険第1号被保険者（65歳以上）1人分の年間保険料を計算する。
+ *
+ * @param {Object} data           - kaigo-{year}.json
+ * @param {number} data.baseAmount         - 基準額（円/年）
+ * @param {Object[]} data.brackets         - 段階定義（配列順に先頭からマッチング）
+ * @param {string} [data.fallbackLevel]    - criteria 不一致時のフォールバック段階
+ * @param {Object} memberContext
+ * @param {number} memberContext.pensionIncome            - 年金受給額（円・控除前）
+ * @param {number} memberContext.totalIncome              - 合計所得金額（円）
+ * @param {boolean} memberContext.isSelfTaxable           - 本人が住民税課税か
+ * @param {boolean} memberContext.isHouseholdAllNonTaxable - 世帯全員が住民税非課税か
+ * @returns {Object|null} null は data が不正な場合
+ */
+function calculateKaigo(data, memberContext) {
+  if (!data || !Array.isArray(data.brackets) || data.brackets.length === 0) return null;
+
+  const ctx = {
+    pensionIncome:             memberContext.pensionIncome            ?? 0,
+    totalIncome:               memberContext.totalIncome              ?? 0,
+    isSelfTaxable:             memberContext.isSelfTaxable            ?? false,
+    isHouseholdAllNonTaxable:  memberContext.isHouseholdAllNonTaxable ?? false,
+  };
+
+  // 配列を先頭から評価し、最初にマッチした段階を採用
+  let matched = data.brackets.find(b => matchBracket(ctx, b));
+
+  // フォールバック（criteria 不一致・データ欠損の防御）
+  if (!matched) {
+    matched = data.brackets.find(b => String(b.level) === String(data.fallbackLevel))
+           || data.brackets[Math.floor(data.brackets.length / 2)];
+  }
+
+  // 保険料: annual フィールド優先、なければ baseAmount × rate で算出
+  const annual = matched.annual ?? Math.round(data.baseAmount * matched.rate);
+
+  return {
+    level:      matched.level,
+    label:      matched.label,
+    rate:       matched.rate,
+    baseAmount: data.baseAmount,
+    annual,
+    monthly:    Math.round(annual / 12),
+  };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { calculateKaigo, matchBracket };
+}

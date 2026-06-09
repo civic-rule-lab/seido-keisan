@@ -1,0 +1,103 @@
+{
+  "cityCode": "27213",
+  "citySlug": "izumisano",
+  "cityName": "泉佐野市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.095,
+    "support": 0.0306,
+    "care": 0.026
+  },
+  "perCapita": {
+    "medical": 34990,
+    "support": 11191,
+    "care": 18682
+  },
+  "household": {
+    "medical": 33908,
+    "support": 10845,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "provisional",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:22.048Z",
+      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "standard_r8",
+      "sourceStatus": "prefecture_standard_unified",
+      "sourceUrls": [
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": []
+    },
+    "source": {
+      "type": "prefecture_standard",
+      "title": "令和8年度 大阪府市町村標準保険料率（大阪府統一保険料率）",
+      "url": "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "",
+      "method": "prefecture-standard-unified"
+    },
+    "quality": {
+      "confidenceScore": 0.6,
+      "completeness": "full"
+    },
+    "notes": "大阪府は令和6年度から府内完全統一料率。令和8年度 府統一保険料率を参考値として採用(医療/後期/介護は全43市町村共通)。介護・子ども分は2方式(平等割0)。子ども均等割は均等割1743円+18歳以上98円=1,841円統一(内訳は泉佐野市の年齢構成等で異なる)。限度額 医療66万(大阪統一)。市告示確定で verified_r8 昇格。"
+  },
+  "childcareLevy": {
+    "rate": 0.0028,
+    "perCapita": 1743,
+    "perCapitaAdult": 98,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0,
+    "cap": 30000
+  }
+}

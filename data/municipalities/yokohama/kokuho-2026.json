@@ -1,0 +1,103 @@
+{
+  "cityCode": "14100",
+  "citySlug": "yokohama",
+  "cityName": "横浜市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0833,
+    "support": 0.0262,
+    "care": 0.0284
+  },
+  "perCapita": {
+    "medical": 40870,
+    "support": 13380,
+    "care": 16200
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.766Z",
+      "updatedAt": "2026-05-20T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/r7hokennryouritu.html",
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/04seidokaisei.html",
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/04hokenryounituite.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-20",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "横浜市 令和8年度保険料の料率等について",
+      "url": "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/r7hokennryouritu.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-20",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 1.0,
+      "completeness": "full"
+    },
+    "notes": "Cowork session 2026-05-20 にて横浜市公式 R8 料率ページ (r7hokennryouritu.html) と制度改正ページ (04seidokaisei.html) で全項目照合し verified_r8 化。前段 (医療/支援/介護/caps/reduction.standards) は R8 移行時に投入済のため不変更、子ども・子育て支援納付金分のみ誤ったフラット childcare (perCapita 1770 合算) を abiko/akishima 同型の childcareLevy (perCapita 1690 + perCapitaAdult 80, scope all_ages) に分解。18歳未満全額軽減を engine 上で正しく反映可能に。R8 子ども分値: 0.34%/1,690円+18歳以上80円/3万(新設)。神奈川県 R8 lifecycle 未設定の第 1 例。"
+  },
+  "childcareLevy": {
+    "rate": 0.0034,
+    "perCapita": 1690,
+    "perCapitaAdult": 80,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

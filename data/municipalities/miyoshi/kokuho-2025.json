@@ -1,0 +1,85 @@
+{
+  "cityCode": "23236",
+  "citySlug": "miyoshi",
+  "cityName": "みよし市",
+  "fiscalYear": 2025,
+  "system": "kokuho",
+  "note": "愛知県R7標準保険料率を使用。実際値は要確認。",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0801,
+    "support": 0.0278,
+    "care": 0.0234
+  },
+  "perCapita": {
+    "medical": 34342,
+    "support": 11777,
+    "care": 11889
+  },
+  "household": {
+    "medical": 22294,
+    "support": 7646,
+    "care": 5884
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 305000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 560000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "1.0",
+    "dataVersion": "1.0.0",
+    "status": "unverified",
+    "lifecycle": {
+      "createdAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-04-07T00:00:00Z",
+      "validFrom": "2025-04-01",
+      "validUntil": "2026-03-31",
+      "expiresAt": "2026-04-30"
+    },
+    "source": {
+      "type": "manual",
+      "title": "",
+      "url": "",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "",
+      "verifiedAt": "",
+      "method": "manual"
+    },
+    "quality": {
+      "confidenceScore": 0.8,
+      "completeness": "full"
+    },
+    "notes": ""
+  }
+}

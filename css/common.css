@@ -1,0 +1,433 @@
+body{
+  font-family:sans-serif;
+  margin:0;
+  padding:20px;
+  background:linear-gradient(180deg,#eef2ff 0%, #f8fbff 100%);
+  color:#222;
+}
+
+.wrap{
+  max-width:720px;
+  margin:0 auto;
+  background:#ffffff;
+  padding:24px 20px 28px;
+  border-radius:18px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 10px 30px rgba(0,0,0,0.05);
+  box-sizing:border-box;
+}
+
+.card{
+  background:transparent;
+  border-radius:0;
+  padding:0;
+  box-shadow:none;
+}
+
+.brand{
+  font-size:20px;
+  font-weight:700;
+  color:#7fd4e6;
+  text-align:center;
+  margin-bottom:2px;
+}
+
+.tagline{
+  font-size:14px;
+  font-weight:500;
+  color:#7fd4e6;
+  text-align:center;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:30px;
+  margin:0 0 6px 0;
+  font-weight:700;
+  line-height:1.4;
+  color:#0f172a;
+  text-align:center;
+}
+/* タイトルは自治体名・「国民健康保険料計算」を概念の塊として常に別行に固定する。
+   block 化で幅や市名長に依存せず必ず「1行目=自治体名 / 2行目=国民健康保険料計算
+   （/ 3行目=年度）」に揃う。nowrap で各塊が途中で割れない（例: 国民健康保険/料計算 を防止）。 */
+.h1-seg{
+  display:block;
+  white-space:nowrap;
+}
+
+.h1-year{
+  display:block;
+  font-size:0.75em;
+  font-weight:500;
+  color:#0f172a;
+  margin-top:2px;
+  text-align:center;
+  width:100%;
+}
+
+.subtitle{
+  font-size:14px;
+  color:#6b7280;
+  margin-bottom:28px;
+  text-align:center;
+}
+
+.mode-title{
+  margin-top:6px;
+  margin-bottom:12px;
+  font-size:28px;
+  font-weight:700;
+  color:#1d4ed8;
+  text-align:center;
+}
+
+label{
+  display:block;
+  font-size:15px;
+  font-weight:700;
+  margin-top:22px;
+  margin-bottom:8px;
+  color:#111827;
+}
+
+input{
+  width:100%;
+  padding:14px 12px;
+  font-size:22px;
+  font-weight:500;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  border:2px solid #cbd5e1;
+  border-radius:12px;
+  background:#ffffff;
+  color:#0f172a;
+  box-sizing:border-box;
+}
+
+input:focus{
+  outline:none;
+  border-color:#2563eb;
+  box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+}
+
+input::placeholder{
+  color:#9ca3af;
+  font-size:22px;
+  font-weight:400;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+button{
+  width:100%;
+  margin-top:28px;
+  padding:16px;
+  font-size:18px;
+  font-weight:700;
+  border:none;
+  border-radius:999px;
+  background:#1d4ed8;
+  color:#ffffff;
+  cursor:pointer;
+  box-shadow:0 6px 16px rgba(0,0,0,0.15);
+}
+
+button:hover{
+  background:#1e40af;
+}
+
+button:active{
+  transform:translateY(1px);
+}
+
+.result-title{
+  margin-top:34px;
+  font-size:18px;
+  font-weight:700;
+  color:#111827;
+}
+
+#result{
+  margin-top:14px;
+  padding:18px 16px;
+  background:#f8fafc;
+  border:2px solid #e5e7eb;
+  border-radius:14px;
+  min-height:28px;
+  line-height:1.8;
+  color:#111827;
+  box-sizing:border-box;
+}
+
+.result-placeholder{
+  color:#9ca3af;
+}
+
+.result-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  margin-bottom:8px;
+}
+
+.result-label{
+  font-size:17px;
+  color:#374151;
+  flex:1;
+}
+
+.amount{
+  font-size:20px;
+  font-weight:700;
+  color:#0f172a;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  text-align:right;
+  white-space:nowrap;
+}
+
+.divider{
+  margin:16px 0;
+  border-top:2px solid #e5e7eb;
+}
+
+.total-title{
+  font-size:18px;
+  font-weight:700;
+  color:#111827;
+  margin-bottom:8px;
+}
+
+.total{
+  display:block;
+  font-size:40px;
+  font-weight:800;
+  line-height:1.2;
+  color:#0f172a;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  margin-bottom:8px;
+}
+
+.monthly{
+  font-size:16px;
+  font-weight:600;
+  color:#475569;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+
+.section-title{
+  margin-top:20px;
+  margin-bottom:10px;
+  font-size:16px;
+  font-weight:700;
+  color:#111827;
+}
+
+.percent-box{
+  margin-top:8px;
+  padding:14px;
+  background:#ffffff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+}
+
+.percent-item{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:8px;
+  font-size:14px;
+  color:#374151;
+}
+
+.percent-item:last-child{
+  margin-bottom:0;
+}
+
+.reduction-box{
+  margin-top:16px;
+  padding:14px;
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  border-radius:12px;
+}
+
+.reduction-title{
+  font-size:15px;
+  font-weight:700;
+  color:#1d4ed8;
+  margin-bottom:8px;
+}
+
+.reduction-main{
+  font-size:18px;
+  font-weight:800;
+  color:#0f172a;
+  margin-bottom:6px;
+}
+
+.reduction-sub{
+  font-size:13px;
+  line-height:1.8;
+  color:#475569;
+}
+
+.link-box{
+  margin-top:18px;
+  font-size:14px;
+  line-height:1.7;
+  color:#374151;
+}
+
+.link-box a{
+  color:#2563eb;
+  font-weight:600;
+  text-decoration:none;
+}
+
+.link-box a:hover{
+  text-decoration:underline;
+}
+
+.back-link{
+  margin-top:24px;
+}
+
+.back-link a{
+  color:#5b3fb4;
+  text-decoration:underline;
+  font-size:16px;
+}
+
+.note{
+  margin-top:18px;
+  font-size:13px;
+  line-height:1.8;
+  color:#6b7280;
+}
+.menu-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:14px;
+}
+
+.menu-card{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  min-height:132px;
+  padding:18px 12px;
+  text-align:center;
+  border:2px solid #cbd5e1;
+  border-radius:18px;
+  background:#ffffff;
+  box-sizing:border-box;
+}
+
+.menu-card-title{
+  font-size:18px;
+  font-weight:700;
+  line-height:1.4;
+  color:#0f172a;
+  white-space:nowrap;
+}
+
+.menu-sub{
+  margin-top:8px;
+  font-size:13px;
+  line-height:1.5;
+  color:#6b7280;
+}
+
+/* ─── result-note ───────────────────────────────────────────────
+   計算結果直下の免責 + 確認済みバッジ（1行コンパクト）
+──────────────────────────────────────────────────────────────── */
+.result-note{
+  margin:10px 0 0;
+  font-size:13px;
+  color:#6b7280;
+  line-height:1.6;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+}
+.result-note__text{
+  flex:1;
+}
+.result-note__badge{
+  flex-shrink:0;
+  white-space:nowrap;
+  font-size:10px;
+  font-weight:600;
+  padding:1px 5px;
+  border-radius:4px;
+}
+.result-note__badge--verified{
+  color:#166534;
+  background:#f0fdf4;
+  border:1px solid #bbf7d0;
+}
+.result-note__badge--old{
+  color:#9a3412;
+  background:#fff7ed;
+  border:1px solid #fed7aa;
+}
+.result-note__badge--inferred{
+  color:#4b5563;
+  background:#f9fafb;
+  border:1px solid #e5e7eb;
+}
+.result-note__badge--standard{
+  color:#1e40af;
+  background:#eff6ff;
+  border:1px solid #bfdbfe;
+  white-space:normal;
+}
+/* モバイルでは免責テキストとバッジを横並びにすると左テキストが極細列に潰れるため縦積みにする */
+@media (max-width:480px){
+  .result-note{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .result-note__badge{
+    white-space:normal;
+  }
+}
+
+/* ─── note-pref ─────────────────────────────────────────────────
+   都道府県の住民税補足（※と同列・小テキスト）
+──────────────────────────────────────────────────────────────── */
+.note-pref{
+  margin:6px 0 0;
+  font-size:13px;
+  color:#6b7280;
+  line-height:1.8;
+}
+.note-pref__label{
+  font-weight:700;
+  color:#4b5563;
+}
+.note-pref__link{
+  color:#2563eb;
+  text-decoration:none;
+}
+.note-pref__link:hover{ text-decoration:underline; }
+
+/* ─── over75-note ───────────────────────────────────────────────
+   75歳以上の補足注記（※の下に小さく表示）
+──────────────────────────────────────────────────────────────── */
+.over75-note{
+  margin:8px 0 0;
+  font-size:12px;
+  color:#6b7280;
+  line-height:1.6;
+}
+.over75-note a{
+  display:block;
+  margin-top:2px;
+  color:#2563eb;
+  text-decoration:none;
+}
+.over75-note a:hover{ text-decoration:underline; }

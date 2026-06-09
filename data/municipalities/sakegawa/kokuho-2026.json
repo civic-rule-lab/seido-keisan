@@ -1,0 +1,97 @@
+{
+  "cityCode": "06366",
+  "citySlug": "sakegawa",
+  "cityName": "鮭川村",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.07,
+    "support": 0.023,
+    "care": 0.02
+  },
+  "perCapita": {
+    "medical": 24000,
+    "support": 8300,
+    "care": 9700
+  },
+  "household": {
+    "medical": 24800,
+    "support": 8400,
+    "care": 6600
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "provisional",
+    "lifecycle": {
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "updatedAt": "2026-06-08T00:00:00.000Z",
+      "r8Stage": "source_found_r8",
+      "sourceStatus": "previous_year_carryover",
+      "sourceUrls": [
+        "https://www.town.mamurogawa.yamagata.jp/"
+      ],
+      "watchUrls": [
+        "https://www.town.mamurogawa.yamagata.jp/"
+      ],
+      "previousYearTemplate": true,
+      "r8Updated": true
+    },
+    "source": {
+      "type": "wide_area_union_rate",
+      "title": "最上地区広域連合 国民健康保険料率（広報No.39・令和7年度）",
+      "url": "https://www.town.mamurogawa.yamagata.jp/",
+      "publishedAt": "2025"
+    },
+    "quality": {
+      "confidenceScore": 0.55,
+      "completeness": "full"
+    },
+    "notes": "★最上地区広域連合の統一実料率(4村=金山/真室川/鮭川/戸沢 同一)。令和8料率が未公表(山間部で公表遅延)のため、令和7実料率を令和8暫定として採用＝過年度据え置きより県民の概算に近い。賦課限度額は医療66万(令和7で65→66万、令和8政令67万は未反映＝山形市と同じ66万県内据え置き)。★子ども・子育て支援金分(令和8新設)は最上未公表のため山形県標準値(0.27%/1,100/18歳以上100/800)を仮置き。令和8確定公表後に更新。出典: 最上地区広域連合 広報No.39(ユーザー提供・真室川町ドメイン)。"
+  },
+  "childcareLevy": {
+    "rate": 0.0027,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800,
+    "cap": 30000
+  }
+}

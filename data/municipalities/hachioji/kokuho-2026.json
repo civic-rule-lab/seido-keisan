@@ -1,0 +1,99 @@
+{
+  "cityCode": "13201",
+  "citySlug": "hachioji",
+  "cityName": "八王子市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0742,
+    "support": 0.0285,
+    "care": 0.0241
+  },
+  "perCapita": {
+    "medical": 42500,
+    "support": 17800,
+    "care": 18000
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.898Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+      "https://www.city.hachioji.tokyo.jp/kurashi/nenkin/001/003/001/p003505.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "八王子市 令和8年度国民健康保険税についての改正点（公式サイト）",
+      "url": "https://www.city.hachioji.tokyo.jp/kurashi/nenkin/001/003/001/p003504.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-09",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "八王子市公式サイトから R8 料率を取得・確認。2方式（平等割なし）。子ども・子育て支援金分の均等割は18歳未満全額軽減（perCapitaは18歳以上）。R8軽減判定係数（5割31万・2割57万）を反映。"
+  },
+  "childcare": {
+    "rate": 0.0030,
+    "perCapita": 1800,
+    "household": 0
+  }
+}

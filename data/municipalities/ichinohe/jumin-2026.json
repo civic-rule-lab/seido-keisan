@@ -1,0 +1,16 @@
+{
+  "cityCode": "03524",
+  "citySlug": "ichinohe",
+  "cityName": "一戸町",
+  "prefSlug": "iwate",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 2000,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

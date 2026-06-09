@@ -1,0 +1,103 @@
+{
+  "cityCode": "41204",
+  "citySlug": "taku",
+  "cityName": "多久市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0948,
+    "support": 0.0287,
+    "care": 0.0227
+  },
+  "perCapita": {
+    "medical": 35724,
+    "support": 10703,
+    "care": 11670
+  },
+  "household": {
+    "medical": 37798,
+    "support": 11325,
+    "care": 5859
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "provisional",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.747Z",
+      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "standard_r8",
+      "sourceStatus": "prefecture_standard_municipal_list",
+      "sourceUrls": [
+        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": []
+    },
+    "source": {
+      "type": "prefecture_standard",
+      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
+      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "",
+      "method": "prefecture-standard-municipal-list"
+    },
+    "quality": {
+      "confidenceScore": 0.6,
+      "completeness": "full"
+    },
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で多久市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=43円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+  },
+  "childcareLevy": {
+    "rate": 0.0025,
+    "perCapita": 1102,
+    "perCapitaAdult": 43,
+    "perCapitaAdultScope": "all_ages",
+    "household": 750,
+    "cap": 30000
+  }
+}

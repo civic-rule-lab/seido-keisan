@@ -1,0 +1,99 @@
+{
+  "cityCode": "23206",
+  "citySlug": "kasugai",
+  "cityName": "春日井市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0730,
+    "support": 0.0260,
+    "care": 0.0220
+  },
+  "perCapita": {
+    "medical": 31600,
+    "support": 11400,
+    "care": 12290
+  },
+  "household": {
+    "medical": 22000,
+    "support": 9000,
+    "care": 6270
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-10T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kasugai.lg.jp/kurashi/zei/kokuho/1036670/1036487/1039271.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "春日井市 令和8年度税率（公式サイト）",
+      "url": "https://www.city.kasugai.lg.jp/kurashi/zei/kokuho/1036670/1036487/1039271.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-10",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "春日井市公式 R8 専用ページ（更新日 2026-04-01）から取得。3方式（平等割あり）。愛知尾張中部エリア、北名古屋・清須・小牧の同系統。⚠️ 医療分賦課限度額が660,000円（66万）でR8標準67万を採用していない。川越・調布と同パターン。子ども分均等割1,113円+18歳以上加算57円→perCapita合算1,170円、平等割720円。所得割0.26%。未就学児は均等割5割軽減（preschoolReduction）。計算例も詳細。"
+  },
+  "childcare": {
+    "rate": 0.0026,
+    "perCapita": 1170,
+    "household": 720
+  }
+}

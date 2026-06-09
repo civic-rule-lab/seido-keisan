@@ -1,0 +1,107 @@
+{
+  "cityCode": "13207",
+  "citySlug": "akishima",
+  "cityName": "昭島市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.059,
+    "support": 0.0225,
+    "care": 0.017
+  },
+  "perCapita": {
+    "medical": 28000,
+    "support": 12000,
+    "care": 15000
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "schoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.903Z",
+      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.akishima.lg.jp/kurashi/kokuho/1002176/1002195/1002197.html",
+        "https://www.city.akishima.lg.jp/kurashi/kokuho/1002176/1002195/1002199.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-15",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "昭島市公式ページ「保険税の決めかた」 + 補助ページ「保険税の軽減と減免」",
+      "url": "https://www.city.akishima.lg.jp/kurashi/kokuho/1002176/1002195/1002197.html",
+      "publishedAt": "2026-05-15"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-15",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "昭島市公式ページから取得。子ども・子育て支援金分は新方式 perCapitaAdult + perCapitaAdultScope: 'all_ages'（perCapita 1,900 + perCapitaAdult 100 = 大人 1 人 2,000 円、18歳未満は formula 上 0 算入）。⚠️ 昭島市独自減免: 未就学児を除く 18 歳未満（学齢児）の医療分・支援分均等割を 5 割減額（schoolReduction: enabled, 0.5/0.5）。これは PR #13 (issue #12) で追加した schoolReduction 機構を使った最初の自治体。medical.cap = 670,000 円は昭島市独自・国標準 660,000 より上方。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1900,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "cityCode": "19425",
+  "citySlug": "yamanakako",
+  "cityName": "山中湖村",
+  "prefSlug": "yamanashi",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 1500,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "cityCode": "30204",
+  "citySlug": "arida",
+  "cityName": "有田市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.078,
+    "support": 0.026,
+    "care": 0.024
+  },
+  "perCapita": {
+    "medical": 27600,
+    "support": 9200,
+    "care": 9200
+  },
+  "household": {
+    "medical": 24000,
+    "support": 7200,
+    "care": 7200
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-06T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.arida.lg.jp/kurashi/kokuho/1005382.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.arida.lg.jp/kurashi/kokuho/1005382.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "有田市公式「有田市国民健康保険税率の改正内容」令和8年度（改正後）",
+      "url": "https://www.city.arida.lg.jp/kurashi/kokuho/1005382.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-06",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.9,
+      "completeness": "full"
+    },
+    "notes": "有田市公式「有田市国民健康保険税率の改正内容」令和8年度（改正後）列から確定。医療7.8%/27,600/24,000・後期2.6%/9,200/7,200・介護2.4%/9,200/7,200。子ども・子育て支援金分0.3%＝均等割1,118円＋18歳以上均等割73円＋平等割766円。ページ注記「18歳未満被保険者は均等割が全額軽減され、その分を18歳以上被保険者に18歳以上均等割として賦課」→childcareLevy perCapita=1118/perCapitaAdult=73/perCapitaAdultScope=all_ages（長崎・佐賀型）。⚠️改正内容ページに賦課限度額の記載なし→R8政令基準（医療67万/後期26万/介護17万/子ども3万）を踏襲（Code側で条例・告示の限度額確認推奨）。ページには県提示の有田市標準保険税率（R7参考値）も併載だが不使用。和歌山県は県集約標準テーブル未公表のため個別verified（3件目）。【2026-06-06追記】賦課限度額670000は和歌山県第三期国保運営方針で決着: 「R5現在全市町村が法定額と同額」+標準算定「賦課限度額は政令基準どおり」=政令準拠県(R8政令医療67万)・県内verified他5市も全件67万明記で整合→670000で正。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1118,
+    "perCapitaAdult": 73,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
+  }
+}

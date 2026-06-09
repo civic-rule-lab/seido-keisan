@@ -1,0 +1,99 @@
+{
+  "cityCode": "23219",
+  "citySlug": "komaki",
+  "cityName": "小牧市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0665,
+    "support": 0.0245,
+    "care": 0.0218
+  },
+  "perCapita": {
+    "medical": 31300,
+    "support": 11100,
+    "care": 11500
+  },
+  "household": {
+    "medical": 20400,
+    "support": 7400,
+    "care": 6200
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-10T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.komaki.aichi.jp/admin/soshiki/fukushi/hokeniryou/4_1/3/2/5745.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "小牧市 国民健康保険税 令和8年度税率（公式サイト）",
+      "url": "https://www.city.komaki.aichi.jp/admin/soshiki/fukushi/hokeniryou/4_1/3/2/5745.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-10",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.88,
+      "completeness": "partial"
+    },
+    "notes": "小牧市公式 R8 ページ（更新日 2026-04-01）から取得。3方式（平等割あり）。愛知尾張中部エリア、北名古屋・清須・春日井の同系統。⚠️ 子ども・子育て支援納付金分の課税対象が公式記載で『18歳以上の方には子ども分が加算されます』と注記。表の均等割1,100円・平等割700円が18歳以上のみに適用される解釈の余地あり。schema 上は perCapita 1,100 / household 700 で全員前提として登録、PDF（Rkokuhozeiritsugakawarimasu.pdf）で次回確認の上、必要なら『18歳以上のみ』フラグを追加検討。資産割は R4 廃止済"
+  },
+  "childcare": {
+    "rate": 0.0024,
+    "perCapita": 1100,
+    "household": 700
+  }
+}

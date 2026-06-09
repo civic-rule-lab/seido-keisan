@@ -1,0 +1,99 @@
+{
+  "cityCode": "11222",
+  "citySlug": "koshigaya",
+  "cityName": "越谷市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0811,
+    "support": 0.0283,
+    "care": 0.0244
+  },
+  "perCapita": {
+    "medical": 49315,
+    "support": 17086,
+    "care": 17325
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 660000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-05-11T00:00:00.000Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/kokuho/kokuhokanyudattai/r8zeiritsuhenko.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "越谷市 令和8年度の国民健康保険税率を変更（公式サイト）",
+      "url": "https://www.city.koshigaya.saitama.jp/kurashi_shisei/fukushi/kokuho/kokuhokanyudattai/r8zeiritsuhenko.html",
+      "publishedAt": "2026-04-28"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-11",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "越谷市公式 R8 改正ページ（最新告示 2026-04-28）から取得。2方式（平等割なし）。埼玉 R9 県準統一に向けた段階的引き上げ。医療上限は 66万 据え置き（川越と同じく標準67万に未到達）。子ども分均等割は本体1,827円・18歳以上加算+151円。cityCode は registry 既載 11223 が誤りで 11222 が正（J-LIS/総務省コード）— registry 訂正必要。"
+  },
+  "childcare": {
+    "rate": 0.003,
+    "perCapita": 1827,
+    "household": 0
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "cityCode": "30391",
+  "citySlug": "minabe",
+  "cityName": "みなべ町",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0688,
+    "support": 0.018,
+    "care": 0.0145
+  },
+  "perCapita": {
+    "medical": 32000,
+    "support": 14300,
+    "care": 17100
+  },
+  "household": {
+    "medical": 30500,
+    "support": 12200,
+    "care": 10000
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-07T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.town.minabe.lg.jp/kurashi/06/06/2013091100137.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.minabe.lg.jp/kurashi/06/06/2013091100137.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "みなべ町「国民健康保険税」令和8年度みなべ町国民健康保険税",
+      "url": "https://www.town.minabe.lg.jp/kurashi/06/06/2013091100137.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-07",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "みなべ町公式「国民健康保険税」(2013091100137.html)の「令和8年度みなべ町国民健康保険税」表から確定。医療6.88%/32,000/30,500・後期1.80%/14,300/12,200・介護1.45%/17,100/10,000。3方式・資産割なし。R7→R8で所得割引下げ・均等割平等割引上げの大幅改定（R7比較表あり: 医療7.42→6.88%等）。限度額=医療67万(R7 66万→引上げ)/後期26万/介護17万/子ども3万。子ども・子育て支援納付金分0.30%＝均等割1,200円(※内訳: 均等割1,100円＋18歳以上均等割100円・18歳未満は均等割10割軽減)＋平等割800円→childcareLevy perCapita=1100/perCapitaAdult=100/perCapitaAdultScope=all_ages。★県標準パターン(大人計1,191/平等766)と異なる町独自値(1,200/800)。⚠️特定世帯(平等割1/2)・特定継続世帯(3/4)の減額はengine未対応(全区分の平等割に適用・子ども分も400/600円)→通常世帯のみ正確。R8軽減判定5割31.0万/2割57.0万明記（テンプレ一致）。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800,
+    "cap": 30000
+  }
+}

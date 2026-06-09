@@ -1,0 +1,16 @@
+{
+  "cityCode": "04301",
+  "citySlug": "zao",
+  "cityName": "蔵王町",
+  "prefSlug": "miyagi",
+  "fiscalYear": 2026,
+  "system": "jumin",
+  "schemaVersion": "1.0",
+  "status": "inferred",
+  "prefRate": 0.04,
+  "prefPerCapita": 2200,
+  "source": {
+    "url": null,
+    "retrievedAt": null
+  }
+}

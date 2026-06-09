@@ -1,0 +1,99 @@
+{
+  "cityCode": "13214",
+  "citySlug": "kokubunji",
+  "cityName": "国分寺市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.0653,
+    "support": 0.0246,
+    "care": 0.0227
+  },
+  "perCapita": {
+    "medical": 32200,
+    "support": 14600,
+    "care": 16300
+  },
+  "household": {
+    "medical": 0,
+    "support": 0,
+    "care": 0
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:21.926Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kokubunji.tokyo.jp/kenkou-fukushi/iryou/1011822/1019962/index.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "国分寺市 令和8年度国民健康保険税率を改定します（公式サイト）",
+      "url": "https://www.city.kokubunji.tokyo.jp/kenkou-fukushi/iryou/1011822/1019962/index.html",
+      "publishedAt": "2026-04-01"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-05-10",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "国分寺市公式 R8 税率改定ページ（更新日 2026-04-01）から取得。2方式（平等割なし）、東京多摩。都標準保険料率と段階的接近の方針。医療分上限R7 65万→R8 67万、後期支援R7 24万→R8 26万。子ども分均等割1959円（うち18歳以上78円分）、18歳未満は均等割課税対象（後で軽減適用される建て付け）。"
+  },
+  "childcare": {
+    "rate": 0.0030,
+    "perCapita": 1959,
+    "household": 0
+  }
+}

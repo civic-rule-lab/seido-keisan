@@ -1,0 +1,110 @@
+{
+  "cityCode": "30401",
+  "citySlug": "shirahama",
+  "cityName": "白浜町",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.07,
+    "support": 0.029,
+    "care": 0.025
+  },
+  "assetLevy": {
+    "medical": 0.1,
+    "support": 0,
+    "care": 0
+  },
+  "perCapita": {
+    "medical": 25000,
+    "support": 9000,
+    "care": 9000
+  },
+  "household": {
+    "medical": 21300,
+    "support": 9600,
+    "care": 6000
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.1.0",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-07T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.town.shirahama.wakayama.jp/soshiki/zeimu/kazei/gyomu/kokuminkenkouhokenzei/1450338421489.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.shirahama.wakayama.jp/soshiki/zeimu/kazei/gyomu/kokuminkenkouhokenzei/1450338421489.html"
+      ]
+    },
+    "source": {
+      "type": "official",
+      "title": "白浜町「国民健康保険税」令和8年度 国民健康保険税率（2026-06-01更新）",
+      "url": "https://www.town.shirahama.wakayama.jp/soshiki/zeimu/kazei/gyomu/kokuminkenkouhokenzei/1450338421489.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-07",
+      "method": "official-page"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "白浜町公式「国民健康保険税」(1450338421489.html・2026-06-01更新)の「令和8年度 国民健康保険税率」から確定。★資産割あり4方式（医療分のみ固定資産税(都市計画税除く)×10.0%・後期/介護/子どもは資産割率0%と明記→assetLevy {medical:0.1, support:0, care:0}・県内3例目）。医療7%/25,000/21,300・後期2.9%/9,000/9,600・介護2.5%/9,000/6,000。課税限度額=医療67万/後期26万/介護17万/子ども3万（ページ明示）。子ども・子育て支援分0.3%＝均等割1,191円(※内訳: 均等割1,140円＋18歳以上被保険者均等割51円・18歳未満は10割軽減)＋平等割766円→childcareLevy perCapita=1140/perCapitaAdult=51/perCapitaAdultScope=all_ages。大人合計1,191円・平等割766円は県標準パターンと一致（横検算OK）。R8軽減判定5割31万/2割57万明記（テンプレ一致）。"
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1140,
+    "perCapitaAdult": 51,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "cityCode": "38201",
+  "citySlug": "matsuyama",
+  "cityName": "松山市",
+  "fiscalYear": 2026,
+  "system": "kokuho",
+  "basicDeduction": 430000,
+  "rate": {
+    "medical": 0.076,
+    "support": 0.032,
+    "care": 0.027
+  },
+  "perCapita": {
+    "medical": 25200,
+    "support": 9600,
+    "care": 9660
+  },
+  "household": {
+    "medical": 19920,
+    "support": 7800,
+    "care": 5880
+  },
+  "caps": {
+    "medical": 670000,
+    "support": 260000,
+    "care": 170000,
+    "childcare": 30000
+  },
+  "preschoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
+  },
+  "reduction": {
+    "enabled": true,
+    "standards": {
+      "sevenTenths": {
+        "base": 430000,
+        "perPersonAdd": 0
+      },
+      "fiveTenths": {
+        "base": 430000,
+        "perPersonAdd": 310000
+      },
+      "twoTenths": {
+        "base": 430000,
+        "perPersonAdd": 570000
+      }
+    },
+    "salaryPensionAdd": 100000,
+    "ratios": {
+      "sevenTenths": 0.7,
+      "fiveTenths": 0.5,
+      "twoTenths": 0.2
+    }
+  },
+  "meta": {
+    "schemaVersion": "2.0",
+    "dataVersion": "2.0.1",
+    "status": "verified",
+    "lifecycle": {
+      "createdAt": "2026-04-08T01:03:23.205Z",
+      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "validFrom": "2026-04-01",
+      "validUntil": "2027-03-31",
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.matsuyama.ehime.jp/kurashi/tetsuzuki/kokuho/kokuhoryokinn/r8kokuhoryou.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-05-21",
+      "verificationLevel": "official_source_checked"
+    },
+    "source": {
+      "type": "official",
+      "title": "松山市 令和8年度 松山市国保料",
+      "url": "https://www.city.matsuyama.ehime.jp/kurashi/tetsuzuki/kokuho/kokuhoryokinn/r8kokuhoryou.html",
+      "publishedAt": ""
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-04-08",
+      "method": "official-site"
+    },
+    "quality": {
+      "confidenceScore": 0.95,
+      "completeness": "full"
+    },
+    "notes": "R8公式サイトで確認。子育て支援金分新設：0.22%・均等996円（18-74歳のみ）・平等600円。"
+  },
+  "childcare": {
+    "rate": 0.0022,
+    "perCapita": 996,
+    "household": 600
+  }
+}

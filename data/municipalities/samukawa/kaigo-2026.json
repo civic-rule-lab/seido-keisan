@@ -1,0 +1,20 @@
+{
+  "cityCode": "14321",
+  "citySlug": "samukawa",
+  "cityName": "寒川町",
+  "prefSlug": "kanagawa",
+  "prefecture": "神奈川県",
+  "fiscalYear": 2026,
+  "system": "kaigo",
+  "schemaVersion": "1.0",
+  "planPeriod": "第9期（2024-2026）",
+  "status": "needs_update",
+  "baseAmount": null,
+  "brackets": null,
+  "fallbackLevel": "5",
+  "source": {
+    "url": null,
+    "pageTitle": null,
+    "retrievedAt": null
+  }
+}
