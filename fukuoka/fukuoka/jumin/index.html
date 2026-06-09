@@ -122,8 +122,19 @@
     prefRate:0.04, cityRate:0.06, prefPerCapita:1000, cityPerCapita:3000, forestTax:1000
   };
 
-  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);});}
+  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id){var v=document.getElementById(id);if(!v)return 0;return Math.max(0,Number(toHalfWidth(v.value||"").replace(/[^\d]/g,""))||0);}
+  // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）。money欄はblurでカンマ整形。
+  function setupNumericInput(id, withCommas){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
+    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",clean);
+    el.addEventListener("blur",commit);
+    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
+  }
   function pct(r){return (r*100).toFixed(r*100%1===0?0:3).replace(/\.?0+$/,"")+"%";}
   function cfgVal(k){return (JUMIN_DATA && JUMIN_DATA[k]!==undefined && JUMIN_DATA[k]!==null) ? JUMIN_DATA[k] : D[k];}
 
@@ -170,8 +181,9 @@
     }
   };
 
-  if(document.readyState!=="loading")renderRate();
-  else document.addEventListener("DOMContentLoaded",renderRate);
+  function init(){ renderRate(); setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); }
+  if(document.readyState!=="loading")init();
+  else document.addEventListener("DOMContentLoaded",init);
 })();
 </script>
 

@@ -143,8 +143,22 @@
   // 検証完了後に true へ切り替えると、計算ロジックがそのまま有効化される。
   var KAIGO_ENABLED = false;
 
-  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);});}
+  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id,min){var v=document.getElementById(id);var n=v?Number(toHalfWidth(v.value||"").replace(/[^\d]/g,"")):0;return Math.max(min||0, isFinite(n)?n:0);}
+  // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
+  function setupNumericInput(id, withCommas){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
+    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",clean);
+    el.addEventListener("blur",commit);
+    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
+  }
+  function initInputs(){ setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); setupNumericInput("family",false); }
+  if(document.readyState!=="loading")initInputs();
+  else document.addEventListener("DOMContentLoaded",initInputs);
   function yen(n){return Math.round(n).toLocaleString()+" 円";}
 
   // 制度別JSONを取得（年度フォールバック付き）。無ければ null。
