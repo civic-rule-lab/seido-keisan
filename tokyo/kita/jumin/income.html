@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="北区の住民税（市民税・県民税）はいくら？社会保険料・扶養・保険料控除・ふるさと納税まで入力して令和8年度の税額を詳しくシミュレーション。所得割10%・均等割を反映。">
+<link rel="canonical" href="https://seido-keisan.jp/tokyo/kita/jumin/income.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="北区の住民税シミュレーション｜控除・ふるさと納税対応の詳しい計算【令和8年度】">
+<meta property="og:description" content="北区の住民税（市民税・県民税）はいくら？社会保険料・扶養・保険料控除・ふるさと納税まで入力して令和8年度の税額を詳しくシミュレーション。所得割10%・均等割を反映。">
+<meta property="og:url" content="https://seido-keisan.jp/tokyo/kita/jumin/income.html">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=09703846">
+<title>北区の住民税シミュレーション｜控除・ふるさと納税対応の詳しい計算【令和8年度】</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"東京都","item":"https://seido-keisan.jp/#tokyo"},{"@type":"ListItem","position":3,"name":"北区","item":"https://seido-keisan.jp/tokyo/kita/"}]},{"@type":"WebApplication","name":"北区 住民税計算ツール（詳しく）（令和8年度）","description":"北区の住民税（市民税・県民税）はいくら？社会保険料・扶養・保険料控除・ふるさと納税まで入力して令和8年度の税額を詳しくシミュレーション。所得割10%・均等割を反映。","url":"https://seido-keisan.jp/tokyo/kita/jumin/income.html","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（common.css 不在でも整って見える） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  label{display:block;font-size:14px;font-weight:700;margin:14px 0 7px;color:#111827;}
+  input{width:100%;padding:13px 14px;font-size:16px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+
+  /* 住民税（詳しく）固有 */
+  .ji-section{margin:24px 0 6px;font-size:14px;font-weight:700;color:#1d4ed8;border-bottom:1px solid #e5e7eb;padding-bottom:4px;}
+  .ji-check{display:flex;align-items:center;gap:8px;font-size:14px;color:#374151;margin:8px 0;cursor:pointer;}
+  .ji-check input{width:18px;height:18px;accent-color:#2563eb;}
+  .ji-hint{font-size:11px;color:#9ca3af;margin:2px 0 0;}
+  .ji-row{display:flex;justify-content:space-between;font-size:13px;color:#4b5563;padding:2px 0;}
+  .ji-row .amount{font-variant-numeric:tabular-nums;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:24px;font-size:clamp(26px,4.2vw,30px);text-align:center;"><span class="h1-seg">北区</span><span class="h1-seg">住民税計算（詳しく）</span><span class="h1-year">【令和8年度】</span></h1>
+
+  <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 28px;">社会保険料・扶養・保険料控除・ふるさと納税まで入力すると、公式シミュレーターに近い精度で北区の住民税を試算できます。</p>
+
+  <div class="ji-section">収入</div>
+  <label for="salary">給与収入（年収）</label>
+  <input id="salary" type="text" inputmode="numeric" placeholder="例：5,000,000">
+  <label for="pension">公的年金収入（任意）</label>
+  <input id="pension" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="age">年齢</label>
+  <input id="age" type="text" inputmode="numeric" placeholder="例：40">
+
+  <div class="ji-section">社会保険料</div>
+  <label for="social">社会保険料（年額・空欄なら給与の約14.4%で概算）</label>
+  <input id="social" type="text" inputmode="numeric" placeholder="例：720,000">
+
+  <div class="ji-section">扶養・配偶者</div>
+  <label class="ji-check"><input type="checkbox" id="spouse"> 配偶者控除（合計所得48万円以下の配偶者）</label>
+  <label for="dep_general">一般扶養親族（16〜18歳・23〜69歳）人数</label>
+  <input id="dep_general" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="dep_specific">特定扶養親族（19〜22歳）人数</label>
+  <input id="dep_specific" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="dep_elderly">老人扶養親族（70歳以上）人数</label>
+  <input id="dep_elderly" type="text" inputmode="numeric" placeholder="例：0">
+
+  <div class="ji-section">保険料・医療費控除</div>
+  <label for="life">生命保険料控除額（住民税・上限7万円）</label>
+  <input id="life" type="text" inputmode="numeric" placeholder="例：28,000">
+  <label for="quake">地震保険料控除額（住民税・上限2.5万円）</label>
+  <input id="quake" type="text" inputmode="numeric" placeholder="例：25,000">
+  <label for="medical">医療費控除額</label>
+  <input id="medical" type="text" inputmode="numeric" placeholder="例：0">
+
+  <div class="ji-section">その他の控除</div>
+  <label class="ji-check"><input type="checkbox" id="disabled"> 障害者控除（本人・普通障害）</label>
+  <label class="ji-check"><input type="checkbox" id="singleparent"> ひとり親控除</label>
+  <label class="ji-check"><input type="checkbox" id="widow"> 寡婦控除</label>
+
+  <div class="ji-section">ふるさと納税</div>
+  <label for="furusato">ふるさと納税の寄附額（年間）</label>
+  <input id="furusato" type="text" inputmode="numeric" placeholder="例：50,000">
+  <p class="ji-hint">寄附金税額控除（住民税分）を確定申告ベースで概算し差し引きます。控除上限（所得割の約2割）超過分やワンストップ特例の住民税上乗せ分は反映しません。</p>
+
+  <button onclick="calcJuminFull()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <p style="margin-top:10px;font-size:12px;text-align:right;">
+    <a href="./" style="color:#6b7280;text-decoration:none;">← 北区 かんたん計算に戻る</a>
+  </p>
+
+  <div class="note">
+    ※給与所得控除・社会保険料控除・各種所得控除・調整控除・ふるさと納税の寄附金税額控除を反映した試算です。<br>
+    ※生命保険料・地震保険料・医療費控除は住民税の控除額をそのまま入力してください。<br>
+    ※住宅ローン控除・配当控除・分離課税は未対応です。<br>
+    ※実際の税額は自治体の通知や公式案内でご確認ください。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<script>const JUMIN_DATA = {"cityCode":"13117","citySlug":"kita","cityName":"北区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "kita"; const PUBLISH_YEAR = 2026;</script>
+<script src="/js/core/shared/income.js?v=c5bb3bce"></script>
+<script src="/js/core/jumin.js?v=c5bb3bce"></script>
+<script>
+(function () {
+  "use strict";
+  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
+  function num(id){var v=document.getElementById(id);if(!v||v.value==="")return null;var n=Number(toHalfWidth(v.value).replace(/[^\d]/g,""));return isFinite(n)?Math.max(0,n):null;}
+  function chk(id){var v=document.getElementById(id);return !!(v&&v.checked);}
+  // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
+  function setupNumericInput(id, withCommas){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
+    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",clean);
+    el.addEventListener("blur",commit);
+    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
+  }
+  function initInputs(){
+    ["salary","pension","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,true);});
+    ["age","dep_general","dep_specific","dep_elderly"].forEach(function(id){setupNumericInput(id,false);});
+  }
+  if(document.readyState!=="loading")initInputs();
+  else document.addEventListener("DOMContentLoaded",initInputs);
+
+  // 所得税の限界税率（課税所得ベース・ふるさと納税の特例分計算用）
+  function marginalRate(t){
+    if(t<=1950000)return 0.05; if(t<=3300000)return 0.10; if(t<=6950000)return 0.20;
+    if(t<=9000000)return 0.23; if(t<=18000000)return 0.33; if(t<=40000000)return 0.40; return 0.45;
+  }
+
+  window.calcJuminFull = function(){
+    var result=document.getElementById("result");
+    try{
+      var salary=num("salary")||0, pension=num("pension")||0, age=num("age")||40;
+      if(salary===0 && pension===0){result.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";return;}
+
+      // 社会保険料：実額入力、空欄なら給与の14.4%概算
+      var social=num("social"); if(social===null)social=Math.round(salary*0.144);
+
+      // 扶養・配偶者控除（住民税の控除額）と人的控除差（調整控除用）
+      var spouseDed=0, depDed=0, disDed=0, spDed=0;
+      var humanDiff=50000; // 基礎控除差（常時）
+      if(chk("spouse")){ spouseDed+=330000; humanDiff+=50000; }
+      var dg=num("dep_general")||0, ds=num("dep_specific")||0, de=num("dep_elderly")||0;
+      depDed += dg*330000 + ds*450000 + de*380000;
+      humanDiff += dg*50000 + ds*180000 + de*100000;
+      if(chk("disabled")){ disDed+=260000; humanDiff+=10000; }
+      if(chk("singleparent")){ spDed+=300000; humanDiff+=50000; }
+      if(chk("widow")){ spDed+=260000; humanDiff+=10000; }
+
+      var life=Math.min(num("life")||0,70000);
+      var quake=Math.min(num("quake")||0,25000);
+      var medical=num("medical")||0;
+      var dependents = (chk("spouse")?1:0) + dg + ds + de;
+
+      var common={
+        salary:salary, pension:pension, age:age,
+        socialInsurance:social,
+        spouseDeduction:spouseDed, dependentDeduction:depDed,
+        disabilityDeduction:disDed, singleParentDeduction:spDed,
+        lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
+        dependents:dependents, humanDeductionDiff:humanDiff
+      };
+
+      // 1) ふるさと納税前の所得割を算出
+      var r0=calculateJumin(JUMIN_DATA, common);
+
+      // 2) ふるさと納税の寄附金税額控除（住民税分）を概算
+      var furusato=num("furusato")||0, furusatoCredit=0;
+      if(furusato>2000 && r0.incomeLevy>0){
+        var excess=furusato-2000;
+        var basic=Math.floor(excess*0.10);
+        var special=Math.floor(excess*(0.90-marginalRate(r0.taxableIncome)*1.021));
+        var specialCap=Math.floor(r0.incomeLevy*0.20);
+        furusatoCredit=basic+Math.min(Math.max(special,0),specialCap);
+      }
+
+      // 3) 税額控除を反映して再計算
+      var r=calculateJumin(JUMIN_DATA, Object.assign({}, common, {taxCredits:furusatoCredit}));
+
+      if(typeof gtag==="function"){gtag("event","calculate",{city:(typeof CITY_SLUG!=="undefined"?CITY_SLUG:"unknown"),calc_type:"jumin-income"});}
+
+      result.innerHTML=
+        "<div class='result-row'><div class='result-label'>課税総所得金額</div><div class='amount'>"+r.taxableIncome.toLocaleString()+" 円</div></div>"+
+        "<div class='result-row'><div class='result-label'>所得割（調整控除"+(r.adjustmentCredit?"・税額控除":"")+"後）</div><div class='amount'>"+r.incomeLevy.toLocaleString()+" 円</div></div>"+
+        (furusatoCredit>0?"<div class='ji-row'><span>　うちふるさと納税控除</span><span class='amount'>-"+furusatoCredit.toLocaleString()+" 円</span></div>":"")+
+        "<div class='result-row'><div class='result-label'>均等割（森林環境税含む）</div><div class='amount'>"+r.perCapita.toLocaleString()+" 円</div></div>"+
+        "<div class='result-row'><div class='result-label'>住民税 合計（年額）</div><div class='amount'>"+r.total.toLocaleString()+" 円</div></div>"+
+        "<div class='result-row'><div class='result-label'>月額目安</div><div class='amount'>約 "+r.monthly.toLocaleString()+" 円</div></div>"+
+        (r.isTaxable?"":"<div class='result-row'><div class='result-label'>判定</div><div class='amount'>非課税</div></div>");
+    }catch(e){
+      result.innerHTML="<div class='result-label'>計算エラー</div><div class='monthly'>"+e.message+"</div>";
+    }
+  };
+})();
+</script>
+
+</body>
+</html>
