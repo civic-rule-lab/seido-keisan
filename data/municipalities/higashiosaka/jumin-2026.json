@@ -6,11 +6,15 @@
   "fiscalYear": 2026,
   "system": "jumin",
   "schemaVersion": "1.0",
-  "status": "inferred",
+  "status": "verified",
   "prefRate": 0.04,
   "prefPerCapita": 1300,
+  "cityRate": 0.06,
+  "cityPerCapita": 3000,
   "source": {
-    "url": null,
-    "retrievedAt": null
-  }
+    "url": "https://www.city.higashiosaka.lg.jp/0000001415.html",
+    "pageTitle": "税額の計算について｜東大阪市",
+    "retrievedAt": "2026-06-10"
+  },
+  "notes": "市民税6%・均等割3,000円＋府民税4%・1,300円（大阪府森林環境税300円込み）を公式ページで確認。 R8税制改正は控除関係のみで税率影響なし。"
 }

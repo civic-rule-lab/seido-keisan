@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="東大阪市の税金・保険料はいくら？令和8年度の住民税・国民健康保険・介護保険の年間負担を、収入と家族構成からまとめて概算する家計簿シミュレーター。">
+<link rel="canonical" href="https://seido-keisan.jp/osaka/higashiosaka/kakeibo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="東大阪市の税金・保険料はいくら？家計簿シミュレーター｜住民税・国保・介護まとめて計算【令和8年度】">
+<meta property="og:description" content="東大阪市の税金・保険料はいくら？令和8年度の住民税・国民健康保険・介護保険の年間負担を、収入と家族構成からまとめて概算する家計簿シミュレーター。">
+<meta property="og:url" content="https://seido-keisan.jp/osaka/higashiosaka/kakeibo/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=09703846">
+<title>東大阪市の税金・保険料はいくら？家計簿シミュレーター｜住民税・国保・介護まとめて計算【令和8年度】</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"大阪府","item":"https://seido-keisan.jp/#osaka"},{"@type":"ListItem","position":3,"name":"東大阪市","item":"https://seido-keisan.jp/osaka/higashiosaka/"}]},{"@type":"WebApplication","name":"東大阪市 家計簿シミュレーター（令和8年度）","description":"東大阪市の税金・保険料はいくら？令和8年度の住民税・国民健康保険・介護保険の年間負担を、収入と家族構成からまとめて概算する家計簿シミュレーター。","url":"https://seido-keisan.jp/osaka/higashiosaka/kakeibo/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 家計簿シミュレーター 自己完結スタイル（common.css 不在でも整って見える） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+
+  /* 入力フォーム */
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  input{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
+  .field-grid label{margin-top:0;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+
+  /* 結果（国保の計算ページと同じトーンの軽いリスト） */
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+
+  .ci-systems{margin:8px 0 0;}
+  .ci-grp{margin:20px 0 0;}
+  .ci-grp-head{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;color:#1d4ed8;margin:0 0 6px;padding-bottom:5px;border-bottom:1px solid #eef2f7;}
+  .ci-grp-head .ci-grp-sum{font-size:15px;font-weight:700;color:#0f172a;}
+  .ci-sub{font-size:13px;color:#9ca3af;}
+  .ci-total{margin-top:22px;padding:16px 16px 14px;background:#f0f6ff;border-radius:14px;}
+  .ci-total .amount{color:#1d4ed8;font-size:24px;}
+  .ci-links{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
+  .ci-links a{font-size:13px;color:#1d4ed8;text-decoration:none;border:1px solid #bfdbfe;border-radius:999px;padding:5px 14px;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:6px;font-size:clamp(26px,4.2vw,30px);text-align:center;"><span class="h1-seg">東大阪市</span><span class="h1-seg">家計簿シミュレーター</span><span class="h1-year">【令和8年度】</span></h1>
+
+  <h2 style="margin:0 0 22px;font-size:clamp(16px,2.6vw,18px);font-weight:600;color:#1d4ed8;text-align:center;">税金・保険料まとめて計算</h2>
+
+  <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 28px;">引っ越し・退職・年金開始などで変わる「住民税・国民健康保険・介護保険」の負担を、収入と家族構成から一括で概算します。データのある制度のみ表示されます。</p>
+
+  <label for="salary">給与収入（年収）</label>
+  <input id="salary" type="text" inputmode="numeric" placeholder="例：5,000,000">
+
+  <label for="pension">公的年金収入（任意）</label>
+  <input id="pension" type="text" inputmode="numeric" placeholder="例：0">
+
+  <div class="field-grid">
+    <div>
+      <label for="age">年齢</label>
+      <input id="age" type="text" inputmode="numeric" placeholder="例：40">
+    </div>
+    <div>
+      <label for="family">世帯人数</label>
+      <input id="family" type="text" inputmode="numeric" placeholder="例：3">
+    </div>
+  </div>
+
+  <button onclick="calcAll()">まとめて計算する</button>
+
+  <div class="result-title">計算結果</div>
+
+  <div class="ci-systems" id="systems"><span class="result-placeholder">収入・家族構成を入力して計算してください</span></div>
+
+  <div class="ci-total" id="grand" style="display:none;">
+    <div class="result-row">
+      <div class="result-label" style="font-weight:700;">年間負担の合計（概算）</div>
+      <div class="amount" id="grandAmt">—</div>
+    </div>
+    <div class="result-row">
+      <div class="result-label" style="font-size:14px;color:#6b7280;">月あたりの目安</div>
+      <div class="amount" id="grandMonth" style="font-size:16px;color:#475569;"></div>
+    </div>
+  </div>
+
+  <div class="ci-links">
+    <a href="../jumin/">住民税だけ詳しく →</a>
+    <!-- 暫定: 国保は当面 kokuho-keisan.jp 側を参照（seido-keisan へ移行したら内部 "../" に戻す） -->
+    <a href="https://kokuho-keisan.jp/osaka/higashiosaka/" target="_blank" rel="noopener">国保だけ詳しく ↗</a>
+  </div>
+
+  <div class="note">
+    ※住民税：給与収入の約14.4%を社会保険料控除として概算。各種人的控除は未考慮。<br>
+    ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。<br>
+    ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
+    ※実際の金額は各自治体の通知・公式案内でご確認ください。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<script>const CITY_SLUG = "higashiosaka";</script>
+<script src="/js/core/shared/income.js?v=c5bb3bce"></script>
+<script src="/js/core/jumin.js?v=c5bb3bce"></script>
+<script src="/js/core/kokuho.js?v=c5bb3bce"></script>
+<script src="/js/core/kaigo.js?v=c5bb3bce"></script>
+<script>
+(function () {
+  "use strict";
+  var CITY = (typeof CITY_SLUG !== "undefined") ? CITY_SLUG : (location.pathname.split("/").filter(Boolean)[1] || "");
+  var YEARS = [2026, 2025];
+  var _cache = {};
+  // 介護保険データは現在検証中。verified 化が済むまで合計に含めず「準備中」表示にする。
+  // 検証完了後に true へ切り替えると、計算ロジックがそのまま有効化される。
+  var KAIGO_ENABLED = false;
+
+  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
+  function num(id,min){var v=document.getElementById(id);var n=v?Number(toHalfWidth(v.value||"").replace(/[^\d]/g,"")):0;return Math.max(min||0, isFinite(n)?n:0);}
+  // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
+  function setupNumericInput(id, withCommas){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
+    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",clean);
+    el.addEventListener("blur",commit);
+    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
+  }
+  function initInputs(){ setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); setupNumericInput("family",false); }
+  if(document.readyState!=="loading")initInputs();
+  else document.addEventListener("DOMContentLoaded",initInputs);
+  function yen(n){return Math.round(n).toLocaleString()+" 円";}
+
+  // 制度別JSONを取得（年度フォールバック付き）。無ければ null。
+  async function loadSystem(sys){
+    if(_cache[sys]!==undefined) return _cache[sys];
+    for(var i=0;i<YEARS.length;i++){
+      try{
+        var res=await fetch("/data/municipalities/"+CITY+"/"+sys+"-"+YEARS[i]+".json",{cache:"no-store"});
+        if(res.ok){var j=await res.json(); _cache[sys]=j; return j;}
+      }catch(e){/* try next year */}
+    }
+    _cache[sys]=null; return null;
+  }
+
+  window.calcAll = async function(){
+    var systemsEl=document.getElementById("systems");
+    var grandEl=document.getElementById("grand");
+    var salary=num("salary"), pension=num("pension"), age=num("age")||40, family=num("family",1)||1;
+    if(salary===0 && pension===0){systemsEl.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";grandEl.style.display="none";return;}
+
+    systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
+
+    // 共有の所得計算
+    var totalIncome = calcSalaryIncome(salary) + calcPensionIncome(pension, age); // 総所得金額等
+    var socialInsurance = Math.round(salary*0.144);
+
+    var settled = await Promise.allSettled([loadSystem("jumin"), loadSystem("kokuho"), loadSystem("kaigo")]);
+    var juminData  = settled[0].status==="fulfilled" ? settled[0].value : null;
+    var kokuhoData = settled[1].status==="fulfilled" ? settled[1].value : null;
+    var kaigoData  = settled[2].status==="fulfilled" ? settled[2].value : null;
+
+    var cards=[], grand=0, taxableJumin=true;
+
+    // ── 住民税（jumin-2026.json が無くても標準値で計算可） ──
+    try{
+      var rj=calculateJumin(juminData, {salary:salary, pension:pension, age:age, socialInsurance:socialInsurance});
+      taxableJumin = !!rj.isTaxable;
+      grand += rj.total;
+      cards.push(card("住民税", rj.total, [
+        ["所得割", rj.incomeLevy],["均等割（森林環境税含む）", rj.perCapita]
+      ]));
+    }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
+
+    // ── 国民健康保険（データがある場合のみ） ──
+    if(kokuhoData){
+      try{
+        var rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:0, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
+        grand += rk.total;
+        cards.push(card("国民健康保険", rk.total, [
+          ["医療分", rk.medicalTotal],["支援分", rk.supportTotal],["介護分", rk.careTotal],["法定軽減", -rk.totalReduction]
+        ]));
+      }catch(e){ cards.push(skip("国民健康保険", "計算できませんでした")); }
+    } else { cards.push(skip("国民健康保険", "この自治体のデータは準備中")); }
+
+    // ── 介護保険・第1号（65歳以上のみ） ──
+    // データは検証中のため、当面は合計に含めず「準備中」表示。
+    // KAIGO_ENABLED=true かつ有効な保険料(annual>0)が得られた場合のみ加算する。
+    if(age>=65){
+      if(KAIGO_ENABLED && kaigoData){
+        try{
+          var rkg=calculateKaigo(kaigoData, {
+            pensionIncome: calcPensionIncome(pension, age),
+            totalIncome: totalIncome,
+            isSelfTaxable: taxableJumin,
+            isHouseholdAllNonTaxable: false
+          });
+          if(rkg && rkg.annual>0){
+            grand += rkg.annual;
+            cards.push(card("介護保険（第1号）", rkg.annual, [
+              [rkg.label||("第"+rkg.level+"段階"), rkg.annual]
+            ]));
+          } else { cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
+        }catch(e){ cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
+      } else { cards.push(skip("介護保険（第1号）", "準備中（検証中）")); }
+    }
+
+    systemsEl.innerHTML = cards.join("");
+    document.getElementById("grandAmt").textContent = "約 "+grand.toLocaleString()+" 円 / 年";
+    document.getElementById("grandMonth").textContent = "月あたり 約 "+Math.round(grand/12).toLocaleString()+" 円";
+    grandEl.style.display="block";
+
+    if(typeof gtag==="function"){gtag("event","calculate",{city:CITY,calc_type:"integrated"});}
+  };
+
+  function card(name, total, rows){
+    var inner=rows.map(function(r){return "<div class='result-row'><div class='result-label' style='font-size:15px;'>"+r[0]+"</div><div class='amount' style='font-size:16px;'>"+(r[1]<0?"-":"")+Math.abs(Math.round(r[1])).toLocaleString()+" 円</div></div>";}).join("");
+    return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-grp-sum'>約 "+Math.round(total).toLocaleString()+" 円/年</span></div>"+inner+"</div>";
+  }
+  function skip(name, msg){
+    return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";
+  }
+})();
+</script>
+
+</body>
+</html>
