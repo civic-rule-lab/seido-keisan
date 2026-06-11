@@ -61,11 +61,19 @@
   <label for="city">市区町村</label>
   <select id="city" disabled><option value="">先に都道府県を選択</option></select>
 
+  <label for="system">制度</label>
+  <select id="system">
+    <option value="kakeibo" selected>まとめて試算（家計簿シミュレーター）</option>
+    <option value="jumin">住民税</option>
+    <option value="kokuho">国民健康保険</option>
+    <option value="kaigo" disabled>介護保険（準備中）</option>
+  </select>
+
   <button id="go" disabled onclick="goCity()">家計簿シミュレーターを開く</button>
 
   <div class="systems">
     <span><i class="dot"></i>住民税</span>
-    <span><i class="dot soon"></i>国民健康保険</span>
+    <span><i class="dot"></i>国民健康保険</span>
     <span><i class="dot soon"></i>介護保険</span>
   </div>
 
@@ -82,11 +90,17 @@
 <script>
 // 公開自治体インデックス（registry の jumin 公開分を生成時に注入）
 // 形: { "愛知県": { slug:"aichi", cities:[ {slug:"nagoya", name:"名古屋市"} ] }, ... }
-var CITY_INDEX = {"神奈川県":{"slug":"kanagawa","cities":[{"slug":"yokohama","name":"横浜市"},{"slug":"kawasaki","name":"川崎市"},{"slug":"sagamihara","name":"相模原市"}]},"東京都":{"slug":"tokyo","cities":[{"slug":"katsushika","name":"葛飾区"},{"slug":"edogawa","name":"江戸川区"},{"slug":"koto","name":"江東区"},{"slug":"minato","name":"港区"},{"slug":"arakawa","name":"荒川区"},{"slug":"shibuya","name":"渋谷区"},{"slug":"shinjuku","name":"新宿区"},{"slug":"suginami","name":"杉並区"},{"slug":"setagaya","name":"世田谷区"},{"slug":"chiyoda","name":"千代田区"},{"slug":"adachi","name":"足立区"},{"slug":"taito","name":"台東区"},{"slug":"ota","name":"大田区"},{"slug":"chuo","name":"中央区"},{"slug":"nakano-ku","name":"中野区"},{"slug":"hachioji","name":"八王子市"},{"slug":"itabashi","name":"板橋区"},{"slug":"shinagawa","name":"品川区"},{"slug":"bunkyo","name":"文京区"},{"slug":"toshima","name":"豊島区"},{"slug":"kita","name":"北区"},{"slug":"sumida","name":"墨田区"},{"slug":"meguro","name":"目黒区"},{"slug":"nerima","name":"練馬区"}]},"埼玉県":{"slug":"saitama","cities":[{"slug":"saitama","name":"さいたま市"},{"slug":"kawaguchi","name":"川口市"}]},"千葉県":{"slug":"chiba","cities":[{"slug":"chiba","name":"千葉市"},{"slug":"funabashi","name":"船橋市"}]},"大阪府":{"slug":"osaka","cities":[{"slug":"sakai","name":"堺市"},{"slug":"osaka","name":"大阪市"},{"slug":"higashiosaka","name":"東大阪市"}]},"福岡県":{"slug":"fukuoka","cities":[{"slug":"fukuoka","name":"福岡市"},{"slug":"kitakyushu","name":"北九州市"}]},"京都府":{"slug":"kyoto","cities":[{"slug":"kyoto","name":"京都市"}]},"愛知県":{"slug":"aichi","cities":[{"slug":"nagoya","name":"名古屋市"}]},"北海道":{"slug":"hokkaido","cities":[{"slug":"sapporo","name":"札幌市"}]},"新潟県":{"slug":"niigata","cities":[{"slug":"niigata","name":"新潟市"}]},"栃木県":{"slug":"tochigi","cities":[{"slug":"utsunomiya","name":"宇都宮市"}]},"兵庫県":{"slug":"hyogo","cities":[{"slug":"kobe","name":"神戸市"},{"slug":"himeji","name":"姫路市"},{"slug":"toyookashi","name":"豊岡市"}]},"静岡県":{"slug":"shizuoka","cities":[{"slug":"shizuoka","name":"静岡市"},{"slug":"hamamatsu","name":"浜松市"}]},"広島県":{"slug":"hiroshima","cities":[{"slug":"hiroshima","name":"広島市"}]},"岐阜県":{"slug":"gifu","cities":[{"slug":"gifu","name":"岐阜市"}]},"岡山県":{"slug":"okayama","cities":[{"slug":"okayama","name":"岡山市"}]},"熊本県":{"slug":"kumamoto","cities":[{"slug":"kumamoto","name":"熊本市"}]},"鹿児島県":{"slug":"kagoshima","cities":[{"slug":"kagoshima","name":"鹿児島市"}]},"宮城県":{"slug":"miyagi","cities":[{"slug":"sendai","name":"仙台市"}]},"愛媛県":{"slug":"ehime","cities":[{"slug":"matsuyama","name":"松山市"}]},"石川県":{"slug":"ishikawa","cities":[{"slug":"kanazawa","name":"金沢市"}]}};
+var CITY_INDEX = {"北海道":{"slug":"hokkaido","cities":[{"slug":"sapporo","name":"札幌市"}]},"宮城県":{"slug":"miyagi","cities":[{"slug":"sendai","name":"仙台市"}]},"栃木県":{"slug":"tochigi","cities":[{"slug":"utsunomiya","name":"宇都宮市"}]},"埼玉県":{"slug":"saitama","cities":[{"slug":"saitama","name":"さいたま市"},{"slug":"kawaguchi","name":"川口市"}]},"千葉県":{"slug":"chiba","cities":[{"slug":"chiba","name":"千葉市"},{"slug":"funabashi","name":"船橋市"}]},"東京都":{"slug":"tokyo","cities":[{"slug":"chiyoda","name":"千代田区"},{"slug":"chuo","name":"中央区"},{"slug":"minato","name":"港区"},{"slug":"shinjuku","name":"新宿区"},{"slug":"bunkyo","name":"文京区"},{"slug":"taito","name":"台東区"},{"slug":"sumida","name":"墨田区"},{"slug":"koto","name":"江東区"},{"slug":"shinagawa","name":"品川区"},{"slug":"meguro","name":"目黒区"},{"slug":"ota","name":"大田区"},{"slug":"setagaya","name":"世田谷区"},{"slug":"shibuya","name":"渋谷区"},{"slug":"nakano-ku","name":"中野区"},{"slug":"suginami","name":"杉並区"},{"slug":"toshima","name":"豊島区"},{"slug":"kita","name":"北区"},{"slug":"arakawa","name":"荒川区"},{"slug":"itabashi","name":"板橋区"},{"slug":"nerima","name":"練馬区"},{"slug":"adachi","name":"足立区"},{"slug":"katsushika","name":"葛飾区"},{"slug":"edogawa","name":"江戸川区"},{"slug":"hachioji","name":"八王子市"}]},"神奈川県":{"slug":"kanagawa","cities":[{"slug":"yokohama","name":"横浜市"},{"slug":"kawasaki","name":"川崎市"},{"slug":"sagamihara","name":"相模原市"}]},"新潟県":{"slug":"niigata","cities":[{"slug":"niigata","name":"新潟市"}]},"石川県":{"slug":"ishikawa","cities":[{"slug":"kanazawa","name":"金沢市"}]},"岐阜県":{"slug":"gifu","cities":[{"slug":"gifu","name":"岐阜市"}]},"静岡県":{"slug":"shizuoka","cities":[{"slug":"shizuoka","name":"静岡市"},{"slug":"hamamatsu","name":"浜松市"}]},"愛知県":{"slug":"aichi","cities":[{"slug":"nagoya","name":"名古屋市"}]},"京都府":{"slug":"kyoto","cities":[{"slug":"kyoto","name":"京都市"}]},"大阪府":{"slug":"osaka","cities":[{"slug":"osaka","name":"大阪市"},{"slug":"sakai","name":"堺市"},{"slug":"higashiosaka","name":"東大阪市"}]},"兵庫県":{"slug":"hyogo","cities":[{"slug":"kobe","name":"神戸市"},{"slug":"himeji","name":"姫路市"},{"slug":"toyookashi","name":"豊岡市"}]},"岡山県":{"slug":"okayama","cities":[{"slug":"okayama","name":"岡山市"}]},"広島県":{"slug":"hiroshima","cities":[{"slug":"hiroshima","name":"広島市"}]},"愛媛県":{"slug":"ehime","cities":[{"slug":"matsuyama","name":"松山市"}]},"福岡県":{"slug":"fukuoka","cities":[{"slug":"kitakyushu","name":"北九州市"},{"slug":"fukuoka","name":"福岡市"}]},"熊本県":{"slug":"kumamoto","cities":[{"slug":"kumamoto","name":"熊本市"}]},"鹿児島県":{"slug":"kagoshima","cities":[{"slug":"kagoshima","name":"鹿児島市"}]}};
 
 (function(){
   "use strict";
-  var prefSel=document.getElementById("pref"), citySel=document.getElementById("city"), go=document.getElementById("go");
+  var prefSel=document.getElementById("pref"), citySel=document.getElementById("city"), go=document.getElementById("go"), sysSel=document.getElementById("system");
+  // 制度ごとの遷移先とボタン文言。国保は全国版（kokuho-keisan.jp）へ。
+  var SYSTEMS={
+    kakeibo:{label:"家計簿シミュレーターを開く", url:function(p,c){return "/"+p+"/"+c+"/kakeibo/";}},
+    jumin:  {label:"住民税の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/jumin/";}},
+    kokuho: {label:"国民健康保険の計算を開く",   url:function(p,c){return "https://kokuho-keisan.jp/"+p+"/"+c+"/";}}
+  };
   var prefNames=Object.keys(CITY_INDEX);
   prefNames.forEach(function(pn){
     var o=document.createElement("option"); o.value=pn; o.textContent=pn; prefSel.appendChild(o);
@@ -102,11 +116,15 @@ var CITY_INDEX = {"神奈川県":{"slug":"kanagawa","cities":[{"slug":"yokohama"
     });
   });
   citySel.addEventListener("change", function(){ go.disabled=!citySel.value; });
+  sysSel.addEventListener("change", function(){
+    var s=SYSTEMS[sysSel.value]; if(s) go.textContent=s.label;
+  });
   window.goCity=function(){
-    var pn=prefSel.value, cs=citySel.value; if(!pn||!cs)return;
+    var pn=prefSel.value, cs=citySel.value, sys=sysSel.value; if(!pn||!cs)return;
+    var s=SYSTEMS[sys]||SYSTEMS.kakeibo;
     var prefSlug=CITY_INDEX[pn].slug;
-    if(typeof gtag==="function")gtag("event","select_city",{prefecture:prefSlug,city:cs});
-    location.href="/"+prefSlug+"/"+cs+"/kakeibo/";
+    if(typeof gtag==="function")gtag("event","select_city",{prefecture:prefSlug,city:cs,system:sys});
+    location.href=s.url(prefSlug,cs);
   };
 })();
 </script>
