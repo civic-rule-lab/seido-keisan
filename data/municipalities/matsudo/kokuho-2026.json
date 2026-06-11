@@ -61,7 +61,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.017Z",
-      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -69,11 +69,11 @@
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
         "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/oshirase/korona_hokenyuuyo.html",
-        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/ryouhayamihyou.html"
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/hoken.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-15",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {

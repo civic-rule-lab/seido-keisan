@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.0027,
+    "perCapita": 1800,
+    "perCapitaAdult": 73,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.887Z",
-      "updatedAt": "2026-05-18T00:00:00.000Z",
+      "updatedAt": "2026-06-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -72,14 +79,14 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-18",
+      "verifiedAt": "2026-06-11",
       "verificationLevel": "official_source_checked"
     },
     "source": {
       "type": "official",
-      "title": "練馬区 国民健康保険料の計算方法（令和8年度）",
-      "url": "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html",
-      "publishedAt": ""
+      "title": "特別区長会 特別区の国民健康保険制度（令和8年度統一保険料率）",
+      "url": "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+      "publishedAt": "2026-04-01"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
@@ -91,10 +98,5 @@
       "completeness": "full"
     },
     "notes": "R8東京23区統一保険料率。子ども・子育て支援金分新設（所得割0.27%・均等割1873円）。"
-  },
-  "childcare": {
-    "rate": 0.0027,
-    "perCapita": 1873,
-    "household": 0
   }
 }

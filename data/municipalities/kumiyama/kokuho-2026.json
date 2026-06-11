@@ -7,7 +7,7 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.1046,
-    "support": 0.0310,
+    "support": 0.031,
     "care": 0.0301
   },
   "perCapita": {
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0032,
+    "perCapita": 1158,
+    "perCapitaAdult": 103,
+    "perCapitaAdultScope": "all_ages",
+    "household": 739
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "久御山町公式 R8 ページ（更新日 2026-05-01）から取得。3方式（平等割あり）。京都府、新規開拓自治体。子ども分均等割は本体1,158円・18歳以上加算+103円。"
-  },
-  "childcare": {
-    "rate": 0.0032,
-    "perCapita": 1158,
-    "household": 739
   }
 }

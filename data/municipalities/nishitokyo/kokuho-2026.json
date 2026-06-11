@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1900,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.933Z",
-      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -72,7 +79,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-15",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -91,11 +98,5 @@
       "completeness": "full"
     },
     "notes": "西東京市公式ページから取得。⚠️ 西東京市は『国民健康保険「料」』方式（他多くの自治体は「税」方式）。current schema は system=\"kokuho\" 統一なので料/税の違いは notes に記録のみ、計算挙動は同じ。子ども・子育て支援金分は均等割 1,900 円で 18歳未満全額軽減（under18Reduction: true）。medical.cap = 670,000 円は西東京市独自・国標準 660,000 より上方。"
-  },
-  "childcare": {
-    "rate": 0.003,
-    "perCapita": 1900,
-    "household": 0,
-    "under18Reduction": true
   }
 }

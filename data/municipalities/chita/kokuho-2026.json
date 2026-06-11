@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0768,
-    "support": 0.0274,
+    "medical": 0.073,
+    "support": 0.0258,
     "care": 0.0235
   },
   "perCapita": {
-    "medical": 32823,
-    "support": 11623,
-    "care": 11799
+    "medical": 31087,
+    "support": 10870,
+    "care": 10542
   },
   "household": {
-    "medical": 21070,
-    "support": 7462,
-    "care": 5843
+    "medical": 19529,
+    "support": 6809,
+    "care": 5303
   },
   "caps": {
     "medical": 670000,
@@ -60,14 +60,14 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.149Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-06-10T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "sourceStatus": "prefecture_standard_municipal_basis",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604944.pdf"
+        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
@@ -77,7 +77,7 @@
     },
     "source": {
       "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 市町村標準保険料率",
+      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
       "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
       "publishedAt": "2026"
     },
@@ -93,9 +93,10 @@
     "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、知多市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=57円)を省いたフラット暫定。市町村告示後 verified_r8 へ昇格。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1232,
-    "household": 784,
-    "cap": 30000
-  }
+    "rate": 0.0027,
+    "perCapita": 1120,
+    "cap": 30000,
+    "household": 854
+  },
+  "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、知多市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }

@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.0031,
+    "perCapita": 1926,
+    "perCapitaAdult": 88,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,18 +67,20 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.901Z",
-      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.city.ome.tokyo.jp/soshiki/18/711.html"
+        "https://www.city.ome.tokyo.jp/soshiki/18/711.html",
+        "https://www.city.ome.tokyo.jp/uploaded/attachment/78897.pdf",
+        "https://www.city.ome.tokyo.jp/uploaded/attachment/75908.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-15",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,11 +99,5 @@
       "completeness": "full"
     },
     "notes": "青梅市公式ページから取得（更新日 2026-03-27）。子ども・子育て支援金分は均等割 2,014 円で 18歳未満全額軽減（under18Reduction: true で実装、kokuho.js は 18歳未満を formula から除外）。medical.cap = 670,000 円は青梅市独自・国標準 660,000 より上方。"
-  },
-  "childcare": {
-    "rate": 0.0031,
-    "perCapita": 2014,
-    "household": 0,
-    "under18Reduction": true
   }
 }

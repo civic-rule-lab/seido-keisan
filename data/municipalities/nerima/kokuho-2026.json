@@ -26,11 +26,11 @@
     "care": 170000
   },
   "childcareLevy": {
-    "enabled": true,
     "rate": 0.0027,
-    "perCapita": 1873,
-    "cap": 30000,
-    "under18Reduction": true
+    "perCapita": 1800,
+    "perCapitaAdult": 73,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
   },
   "preschoolReduction": {
     "enabled": true,
@@ -66,7 +66,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-17T00:00:00Z",
-      "updatedAt": "2026-05-18T00:00:00.000Z",
+      "updatedAt": "2026-06-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -78,13 +78,13 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-18",
+      "verifiedAt": "2026-06-11",
       "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "manual",
-      "title": "国民健康保険料の計算方法（令和8年度）：練馬区公式ホームページ",
-      "url": "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html",
+      "type": "official",
+      "title": "特別区長会 特別区の国民健康保険制度（令和8年度統一保険料率）",
+      "url": "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
       "publishedAt": "2026-04-01"
     },
     "audit": {
