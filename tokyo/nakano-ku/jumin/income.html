@@ -65,6 +65,9 @@
   <input id="salary" type="text" inputmode="numeric" placeholder="例：5,000,000">
   <label for="pension">公的年金収入（任意）</label>
   <input id="pension" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="business">事業所得（個人事業主の方・任意）</label>
+  <input id="business" type="text" inputmode="numeric" placeholder="例：0">
+  <p class="ji-hint">売上から経費（と青色申告特別控除）を引いた後の「所得金額」を入力してください。不動産所得などもここに合算できます。</p>
   <label for="age">年齢</label>
   <input id="age" type="text" inputmode="numeric" placeholder="例：40">
 
@@ -76,8 +79,11 @@
   <label class="ji-check"><input type="checkbox" id="spouse"> 配偶者控除（合計所得48万円以下の配偶者）</label>
   <label for="dep_general">一般扶養親族（16〜18歳・23〜69歳）人数</label>
   <input id="dep_general" type="text" inputmode="numeric" placeholder="例：0">
-  <label for="dep_specific">特定扶養親族（19〜22歳）人数</label>
+  <label for="dep_specific">特定扶養親族（19〜22歳・給与収入123万円以下）人数</label>
   <input id="dep_specific" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="child_salary">19〜22歳の子の給与収入が123万円を超える場合：その給与収入（年収）</label>
+  <input id="child_salary" type="text" inputmode="numeric" placeholder="例：1,500,000">
+  <p class="ji-hint">アルバイト等の給与収入が123万円超188万円以下なら、特定親族特別控除（令和8年度新設・3万〜45万円）を収入額から自動判定します。上の人数には含めないでください。該当する子が2人以上いる場合は1人分のみ反映されます。</p>
   <label for="dep_elderly">老人扶養親族（70歳以上）人数</label>
   <input id="dep_elderly" type="text" inputmode="numeric" placeholder="例：0">
 
@@ -110,6 +116,8 @@
 
   <div class="note">
     ※給与所得控除・社会保険料控除・各種所得控除・調整控除・ふるさと納税の寄附金税額控除を反映した試算です。<br>
+    ※令和8年度新設の特定親族特別控除（19〜22歳の子等・給与収入123万円超188万円以下）に対応しています。<br>
+    ※事業所得は売上から経費を引いた「所得金額」を入力してください。社会保険料を空欄にした場合の概算（給与の約14.4%）には事業所得分（国保等）は含まれないため、実額入力をおすすめします。<br>
     ※生命保険料・地震保険料・医療費控除は住民税の控除額をそのまま入力してください。<br>
     ※住宅ローン控除・配当控除・分離課税は未対応です。<br>
     ※実際の税額は自治体の通知や公式案内でご確認ください。
@@ -126,8 +134,8 @@
 </div>
 
 <script>const JUMIN_DATA = {"cityCode":"13114","citySlug":"nakano-ku","cityName":"中野区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "nakano-ku"; const PUBLISH_YEAR = 2026;</script>
-<script src="/js/core/shared/income.js?v=c5bb3bce"></script>
-<script src="/js/core/jumin.js?v=c5bb3bce"></script>
+<script src="/js/core/shared/income.js?v=37098256"></script>
+<script src="/js/core/jumin.js?v=37098256"></script>
 <script>
 (function () {
   "use strict";
@@ -146,7 +154,7 @@
     el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
   }
   function initInputs(){
-    ["salary","pension","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,true);});
+    ["salary","pension","business","child_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,true);});
     ["age","dep_general","dep_specific","dep_elderly"].forEach(function(id){setupNumericInput(id,false);});
   }
   if(document.readyState!=="loading")initInputs();
@@ -161,8 +169,8 @@
   window.calcJuminFull = function(){
     var result=document.getElementById("result");
     try{
-      var salary=num("salary")||0, pension=num("pension")||0, age=num("age")||40;
-      if(salary===0 && pension===0){result.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";return;}
+      var salary=num("salary")||0, pension=num("pension")||0, business=num("business")||0, age=num("age")||40;
+      if(salary===0 && pension===0 && business===0){result.innerHTML="<span class='result-placeholder'>給与収入・年金収入・事業所得のいずれかを入力してください</span>";return;}
 
       // 社会保険料：実額入力、空欄なら給与の14.4%概算
       var social=num("social"); if(social===null)social=Math.round(salary*0.144);
@@ -182,14 +190,18 @@
       var quake=Math.min(num("quake")||0,25000);
       var medical=num("medical")||0;
       var dependents = (chk("spouse")?1:0) + dg + ds + de;
+      // 19〜22歳の子の給与収入（123万円超）→ 特定親族特別控除をエンジンで自動判定
+      var childSalary=num("child_salary")||0;
 
       var common={
         salary:salary, pension:pension, age:age,
+        otherIncome:business,
         socialInsurance:social,
         spouseDeduction:spouseDed, dependentDeduction:depDed,
         disabilityDeduction:disDed, singleParentDeduction:spDed,
         lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
-        dependents:dependents, humanDeductionDiff:humanDiff
+        dependents:dependents, humanDeductionDiff:humanDiff,
+        specialDependentSalaries: childSalary>0 ? [childSalary] : []
       };
 
       // 1) ふるさと納税前の所得割を算出
@@ -212,6 +224,7 @@
 
       result.innerHTML=
         "<div class='result-row'><div class='result-label'>課税総所得金額</div><div class='amount'>"+r.taxableIncome.toLocaleString()+" 円</div></div>"+
+        (r.specialDependentDeduction>0?"<div class='ji-row'><span>　19〜22歳の子の控除（特定扶養／特定親族特別控除）</span><span class='amount'>-"+r.specialDependentDeduction.toLocaleString()+" 円</span></div>":"")+
         "<div class='result-row'><div class='result-label'>所得割（調整控除"+(r.adjustmentCredit?"・税額控除":"")+"後）</div><div class='amount'>"+r.incomeLevy.toLocaleString()+" 円</div></div>"+
         (furusatoCredit>0?"<div class='ji-row'><span>　うちふるさと納税控除</span><span class='amount'>-"+furusatoCredit.toLocaleString()+" 円</span></div>":"")+
         "<div class='result-row'><div class='result-label'>均等割（森林環境税含む）</div><div class='amount'>"+r.perCapita.toLocaleString()+" 円</div></div>"+

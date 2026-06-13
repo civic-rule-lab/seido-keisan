@@ -60,10 +60,14 @@
     "status": "needs_update",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.068Z",
-      "updatedAt": "2026-04-08T01:03:23.068Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "source_found_r8",
+      "sourceUrls": [
+        "https://www.town.nachikatsuura.wakayama.jp/div/somu/htm/reiki/H343901010005/H343901010005_j.html"
+      ]
     },
     "source": {
       "type": "estimated",
@@ -80,7 +84,7 @@
       "confidenceScore": 0.5,
       "completeness": "partial"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "例規集の国民健康保険税条例を確認（2026-06-12）: R8改正未登載（子ども・子育て支援納付金の条文なし）・現行条文はR7値で県公表実料率と完全一致。条例ページをsourceUrlsで監視しR8改正登載を検知する。資産割あり(R7条例で率確認済み)。"
   },
   "childcare": {
     "rate": 0,

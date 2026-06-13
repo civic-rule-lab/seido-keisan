@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1260,
+    "perCapitaAdult": 106,
+    "perCapitaAdultScope": "all_ages",
+    "household": 821
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "幸田町公式 R8 ページ（適用日 2026-04-01）から取得。3方式（平等割あり）。愛知西三河エリア、刈谷・西尾・安城の同系統。cityCode は registry 既載 23425 が誤りで 23501 が正（NII・Wikipedia・NAVITIME・eLTAX 全一致）— registry 訂正必要。"
-  },
-  "childcare": {
-    "rate": 0.003,
-    "perCapita": 1366,
-    "household": 821
   }
 }

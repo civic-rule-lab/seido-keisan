@@ -60,10 +60,17 @@
     "status": "needs_update",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.055Z",
-      "updatedAt": "2026-04-08T01:03:23.055Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "source_found_r8",
+      "watchUrls": [
+        "https://www.city.gobo.lg.jp/sosiki/siminseikatu/kokuho/tanto/hoken/kokuhozei/1383026463919.html"
+      ],
+      "sourceUrls": [
+        "https://www.city.gobo.lg.jp/sosiki/siminseikatu/kokuho/tanto/hoken/kokuhozei/1383026463919.html"
+      ]
     },
     "source": {
       "type": "estimated",
@@ -80,7 +87,7 @@
       "confidenceScore": 0.5,
       "completeness": "partial"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "公式ページはR7掲載のみ（2026-06-12実機確認）・R8未告示・子ども分なし。広報ごぼうR8年4月号も制度説明のみ。watchUrlsでR8告示を監視。和歌山は7月本算定が多い。"
   },
   "childcare": {
     "rate": 0,

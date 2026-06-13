@@ -26,10 +26,17 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.0031,
+    "perCapita": 2000,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
+    "medicalPerCapitaRate": 1.0,
+    "supportPerCapitaRate": 1.0
   },
   "reduction": {
     "enabled": true,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.899Z",
-      "updatedAt": "2026-05-14T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-14",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,11 +97,5 @@
       "completeness": "full"
     },
     "notes": "立川市公式ページ「令和8年度国民健康保険料」から取得（更新日: 2026-05-11）。医療・支援・介護に加えて子ども・子育て支援金分を新設反映（4月1日現在18歳以上のみ均等割 2,000 円が課される構造、under18Reduction: true で実装）。support.cap は 250,000 円（立川市独自・国標準 260,000 とは異なる）。"
-  },
-  "childcare": {
-    "rate": 0.0031,
-    "perCapita": 2000,
-    "household": 0,
-    "under18Reduction": true
   }
 }

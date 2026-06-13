@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1800,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,18 +67,18 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.898Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-      "https://www.city.hachioji.tokyo.jp/kurashi/nenkin/001/003/001/p003505.html"
+        "https://www.city.hachioji.tokyo.jp/kurashi/nenkin/001/003/001/p003505.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "八王子市公式サイトから R8 料率を取得・確認。2方式（平等割なし）。子ども・子育て支援金分の均等割は18歳未満全額軽減（perCapitaは18歳以上）。R8軽減判定係数（5割31万・2割57万）を反映。"
-  },
-  "childcare": {
-    "rate": 0.0030,
-    "perCapita": 1800,
-    "household": 0
   }
 }

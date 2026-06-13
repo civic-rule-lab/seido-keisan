@@ -7,29 +7,24 @@
   "note": "4方式（所得割+資産割+均等割+平等割）",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.07200000000000001,
-    "support": 0.02,
-    "care": 0.018000000000000002
+    "medical": 0.071,
+    "support": 0.026,
+    "care": 0.018
   },
   "perCapita": {
-    "medical": 29500,
+    "medical": 27000,
     "support": 9000,
-    "care": 9200
+    "care": 9000
   },
   "household": {
-    "medical": 29000,
+    "medical": 27000,
     "support": 9000,
-    "care": 7200
+    "care": 7000
   },
   "caps": {
     "medical": 660000,
     "support": 260000,
     "care": 170000
-  },
-  "assetLevy": {
-    "medical": 0.035,
-    "support": 0.009,
-    "care": 0.004
   },
   "preschoolReduction": {
     "enabled": true,
@@ -62,29 +57,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "北海道 令和7年度国民健康保険料(税)の賦課状況等に関する調査(市町村別保険料率一覧・内訳)",
+      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html",
+      "publishedAt": "2026-06-02"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "prefecture-official-xlsx"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "道公表R7一覧(内訳)で乖離を修正: medical率 0.07200000000000001→0.071・medical均等割 29500→27000・medical平等割 29000→27000・medical資産割 0.035→0.0・support率 0.02→0.026・support資産割 0.009→0.0・care均等割 9200→9000・care平等割 7200→7000・care資産割 0.004→0.0。大雪地区広域連合の料率を適用"
   }
 }

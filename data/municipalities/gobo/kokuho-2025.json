@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0752,
-    "support": 0.0305,
-    "care": 0.0247
+    "medical": 0.085,
+    "support": 0.025,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 27122,
-    "support": 10683,
-    "care": 10817
+    "medical": 32100,
+    "support": 7700,
+    "care": 9800
   },
   "household": {
-    "medical": 18801,
-    "support": 7406,
-    "care": 5489
+    "medical": 28000,
+    "support": 6900,
+    "care": 5400
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.city.gobo.lg.jp/sosiki/siminseikatu/kokuho/tanto/hoken/kokuhozei/1383026463919.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
+      "type": "official",
+      "title": "御坊市 国民健康保険税（令和7年度税率等）",
+      "url": "https://www.city.gobo.lg.jp/sosiki/siminseikatu/kokuho/tanto/hoken/kokuhozei/1383026463919.html",
       "publishedAt": ""
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "official-site (実機スクリーンショット)"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "実機スクリーンショットで公式R7値を確認し推計値を修正（基礎8.5%/32,100/28,000/66万・支援2.5%/7,700/6,900/26万・介護2.0%/9,800/5,400/17万）。旧推計は全項目乖離していた。軽減5割=30.5万/2割=56万（R7基準・設定済み）。"
   }
 }

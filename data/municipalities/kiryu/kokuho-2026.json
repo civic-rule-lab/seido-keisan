@@ -6,9 +6,9 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0680,
-    "support": 0.0260,
-    "care": 0.0220
+    "medical": 0.068,
+    "support": 0.026,
+    "care": 0.022
   },
   "perCapita": {
     "medical": 25800,
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "桐生市公式 R8 国保税の決め方ページ（更新日 2026-04-24・ページID:1000705）から取得。3方式（平等割あり）。群馬県内、4月告示済み。医療最高限度67万、後期26万、介護17万、子ども分3万を公式に明示。子ども分均等割は本体1,200円・18歳以上加算+100円・高校3年生該当年度以下（18歳未満）は免除（公式記載）。"
-  },
-  "childcare": {
-    "rate": 0.0030,
-    "perCapita": 1200,
-    "household": 800
   }
 }

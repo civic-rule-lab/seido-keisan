@@ -7,7 +7,7 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.0723,
-    "support": 0.0260,
+    "support": 0.026,
     "care": 0.0226
   },
   "perCapita": {
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0023,
+    "perCapita": 1700,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.926Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "ひたちなか市公式 R8 改正ページ（更新日 2026-04-06）から取得。茨城（水戸・日立verified）の同系統。3か年（R7-R9）で1人当たり計27,000円増の段階的引き上げ中、R8は1人当たり年平均9,000円増。2方式と推定（公式ページに均等割・所得割のみ記載、水戸/日立も2方式）。子ども分均等割1,700円（18歳以上のみ対象）。市独自支援で『小・中・高校生世代の均等割5割減免』あり（schema要検討）、未就学児は5割軽減（preschoolReductionで対応）。"
-  },
-  "childcare": {
-    "rate": 0.0023,
-    "perCapita": 1700,
-    "household": 0
   }
 }

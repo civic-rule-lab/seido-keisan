@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0852,
-    "support": 0.0261,
-    "care": 0.017
+    "medical": 0.06,
+    "support": 0.025,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 30721,
-    "support": 9149,
-    "care": 7442
+    "medical": 25000,
+    "support": 9000,
+    "care": 9600
   },
   "household": {
-    "medical": 21297,
-    "support": 6342,
-    "care": 3776
+    "medical": 18000,
+    "support": 8000,
+    "care": 5100
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/d00220355_d/fil/R7ryoritsu.pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "和歌山県 令和7年度 各市町村が実際に定める保険料(税)率",
+      "url": "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/d00220355_d/fil/R7ryoritsu.pdf",
+      "publishedAt": "2025-07"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "prefecture-official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "県公表のR7実料率一覧（R7ryoritsu.pdf）で全項目を修正。旧推計値は乖離していた。"
   }
 }

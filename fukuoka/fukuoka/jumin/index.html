@@ -70,6 +70,9 @@
   <label for="pension">公的年金収入（任意）</label>
   <input id="pension" type="text" inputmode="numeric" placeholder="例：0">
 
+  <label for="business">事業所得（個人事業主の方・任意）</label>
+  <input id="business" type="text" inputmode="numeric" placeholder="例：0">
+
   <label for="age">年齢</label>
   <input id="age" type="text" inputmode="numeric" placeholder="例：40">
 
@@ -124,7 +127,8 @@
 
   <div class="note">
     ※給与収入から給与所得控除・社会保険料控除（概算）・基礎控除43万円を差し引いた概算です。<br>
-    ※社会保険料は給与収入の約14.4%として概算します（実額と異なる場合があります）。<br>
+    ※社会保険料は給与収入の約14.4%として概算します（実額と異なる場合があります）。事業所得分の国保料等は概算に含まれないため、個人事業主の方は「詳しく計算」で実額入力をおすすめします。<br>
+    ※事業所得は売上から経費（と青色申告特別控除）を引いた「所得金額」を入力してください。<br>
     ※配偶者・扶養・生命保険料・ふるさと納税などの控除は考慮していません（「詳しく計算」で対応予定）。<br>
     ※均等割には森林環境税（国税1,000円）を含みます。<br>
     ※実際の税額は自治体の通知や公式案内でご確認ください。
@@ -144,8 +148,8 @@
 <!-- 住民税データ（自治体スペック or null＝全国標準値） -->
 <script>const JUMIN_DATA = {"cityCode":"40130","citySlug":"fukuoka","cityName":"福岡市","prefSlug":"fukuoka","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.02,"prefPerCapita":1500,"cityRate":0.08,"source":{"url":"https://www.city.fukuoka.lg.jp/zaisei/zeisei/qa/FAQ4030.html","pageTitle":"市県民税の均等割とは何ですか？ - 福岡市","retrievedAt":"2026-04-30"},"notes":"政令市。福岡県森林環境税(+500円)はPREF_DEFAULTSで適用済み。市独自超過課税なし。"}; const CITY_SLUG = "fukuoka"; const PUBLISH_YEAR = 2026;</script>
 <!-- 計算エンジン（income.js を先に読み込み、グローバル関数を jumin.js に供給） -->
-<script src="/js/core/shared/income.js?v=c5bb3bce"></script>
-<script src="/js/core/jumin.js?v=c5bb3bce"></script>
+<script src="/js/core/shared/income.js?v=37098256"></script>
+<script src="/js/core/jumin.js?v=37098256"></script>
 <script>
 (function () {
   "use strict";
@@ -194,12 +198,12 @@
   window.calcJumin = function(){
     var result=document.getElementById("result");
     try{
-      var salary=num("salary"), pension=num("pension"), age=num("age")||40;
-      if(salary===0 && pension===0){result.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";return;}
+      var salary=num("salary"), pension=num("pension"), business=num("business"), age=num("age")||40;
+      if(salary===0 && pension===0 && business===0){result.innerHTML="<span class='result-placeholder'>給与収入・年金収入・事業所得のいずれかを入力してください</span>";return;}
       // 社会保険料控除を給与収入の約14.4%で概算控除し、公式シミュレーターに近い概算にする。
-      // 年金収入には社保概算を適用しない（実額は「詳しく計算」ページで入力）。
+      // 年金収入・事業所得には社保概算を適用しない（実額は「詳しく計算」ページで入力）。
       var socialInsurance=Math.round(salary*0.144);
-      var r=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, age:age, socialInsurance:socialInsurance});
+      var r=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, otherIncome:business, age:age, socialInsurance:socialInsurance});
       if(typeof gtag==="function"){var pp=location.pathname.split("/").filter(Boolean);gtag("event","calculate",{prefecture:pp[0]||"unknown",city:(typeof CITY_SLUG!=="undefined"?CITY_SLUG:"unknown"),calc_type:"jumin-simple"});}
       result.innerHTML=
         "<div class='result-row'><div class='result-label'>所得割（年額）</div><div class='amount'>"+r.incomeLevy.toLocaleString()+" 円</div></div>"+
@@ -212,7 +216,7 @@
     }
   };
 
-  function init(){ renderRate(); setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); }
+  function init(){ renderRate(); setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("business",true); setupNumericInput("age",false); }
   if(document.readyState!=="loading")init();
   else document.addEventListener("DOMContentLoaded",init);
 })();

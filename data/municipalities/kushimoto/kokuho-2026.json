@@ -6,25 +6,32 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0718,
-    "support": 0.0308,
-    "care": 0.0256
+    "medical": 0.072,
+    "support": 0.024,
+    "care": 0.0191
   },
   "perCapita": {
-    "medical": 25909,
-    "support": 10789,
-    "care": 11211
+    "medical": 14000,
+    "support": 4500,
+    "care": 6000
   },
   "household": {
-    "medical": 17961,
-    "support": 7479,
-    "care": 5689
+    "medical": 42000,
+    "support": 15000,
+    "care": 9500
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1162,
+    "perCapitaAdult": 29,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,34 +64,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.071Z",
-      "updatedAt": "2026-04-08T01:03:23.071Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.town.kushimoto.wakayama.jp/reiki_int/reiki_honbun/r218RG00000138.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-12",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "串本町国民健康保険税条例（令和8年3月11日条例第4号・令和8年4月1日施行）",
+      "url": "https://www.town.kushimoto.wakayama.jp/reiki_int/reiki_honbun/r218RG00000138.html",
+      "publishedAt": "2026-04"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "reiki-ordinance-text"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "notes": "串本町国民健康保険税条例（令和8年4月1日施行版）を条文単位で確認。**R8で資産割（医6%/支2%/介2%）を全廃**し所得割引き上げ: 医療7.2%/14,000/42,000・支援2.4%/4,500/15,000・介護1.91%/6,000/9,500・子0.3%/均1,162円+18歳以上29円/766円。**医療限度額は条例で66万円に据え置き（第2条第2項原文確認）**。子ども分限度額のただし書なし（政令上限3万円を適用）。"
   }
 }

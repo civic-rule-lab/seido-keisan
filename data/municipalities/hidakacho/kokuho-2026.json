@@ -60,10 +60,17 @@
     "status": "needs_update",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.062Z",
-      "updatedAt": "2026-04-08T01:03:23.062Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "source_found_r8",
+      "watchUrls": [
+        "http://www.town.wakayama-hidaka.lg.jp/docs/2014090400051/"
+      ],
+      "sourceUrls": [
+        "http://www.town.wakayama-hidaka.lg.jp/docs/2014090400051/"
+      ]
     },
     "source": {
       "type": "estimated",
@@ -80,7 +87,7 @@
       "confidenceScore": 0.5,
       "completeness": "partial"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "公式の国保税ページは旧水準（医5.6%/22,700/17,700・支2.05%/8,600/6,700・限度額65万/20万=R3以前相当）で現年度の参考にならない。現データは推計値のまま。R8告示掲載を watchUrls で監視（standard_r8）。和歌山町村は7月本算定通知が多い。"
   },
   "childcare": {
     "rate": 0,

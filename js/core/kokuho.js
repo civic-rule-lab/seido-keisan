@@ -134,7 +134,11 @@ function calculateKokuho(input, data) {
       childcarePerCapitaTotal = adults * (childcarePerCapita + (childcareCfg.perCapitaAdult || 0));
     }
   } else {
-    const under18Excluded = (childcareCfg?.under18Reduction && childcareRate > 0) ? u18 : 0;
+    // 旧形式（perCapitaAdult 未定義）: 国制度上、子ども・子育て支援金分の均等割は
+    // 18歳未満が全額軽減（10割減免）のため、デフォルトで 18歳未満を除外する。
+    // （旧実装は under18Reduction: true 明示時のみ除外しており、フラグなしの
+    //   旧形式 childcareLevy 1,449自治体で18歳未満からも徴収する計算誤りがあった）
+    const under18Excluded = childcarePerCapita > 0 ? u18 : 0;
     childcarePerCapitaTotal = (family - under18Excluded) * childcarePerCapita;
   }
   const childcareHouseholdTotal = childcareRate > 0 ? childcareHousehold : 0;

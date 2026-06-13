@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.0027,
+    "perCapita": 1800,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.015Z",
-      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-15",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "R8公式サイトで確認。平等割なし（2方式）。子育て支援金分新設：0.27%・均等1,800円（18歳未満免除）。"
-  },
-  "childcare": {
-    "rate": 0.0027,
-    "perCapita": 1800,
-    "household": 0
   }
 }

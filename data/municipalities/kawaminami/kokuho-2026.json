@@ -7,25 +7,32 @@
   "note": "2方式（所得割+均等割のみ、平等割なし）。資産割なし。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0803,
-    "support": 0.0281,
-    "care": 0.0222
+    "medical": 0.085,
+    "support": 0.0274,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 45000,
-    "support": 15900,
-    "care": 17900
+    "medical": 37535,
+    "support": 12049,
+    "care": 12462
   },
   "household": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
+    "medical": 24591,
+    "support": 7894,
+    "care": 6338
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0079,
+    "perCapita": 1192,
+    "perCapitaAdult": 140,
+    "perCapitaAdultScope": "all_ages",
+    "household": 807
   },
   "preschoolReduction": {
     "enabled": true,
@@ -58,34 +65,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.384Z",
-      "updatedAt": "2026-04-08T01:03:22.384Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "standard_r8",
+      "sourceStatus": "prefecture_standard_municipal_list",
+      "sourceUrls": [
+        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
+        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "prefecture_standard_unverified"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "prefecture_standard",
+      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
+      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
+      "publishedAt": "2026-03"
     },
     "audit": {
-      "verifiedBy": "",
+      "verifiedBy": "civic-rule-lab",
       "verifiedAt": "",
-      "method": ""
+      "method": "prefecture-standard-municipal-list"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.6,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。川南町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
   }
 }

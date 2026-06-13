@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1900,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.900Z",
-      "updatedAt": "2026-05-14T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-14",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "武蔵野市公式ページ「国民健康保険税について」から取得。「令和8年4月1日現在公布されている条例に基づく税率等」と明記された確定値。子ども・子育て支援金分を新設（perCapita 1,900 円、家族全員に課される構造、under18Reduction なし）。"
-  },
-  "childcare": {
-    "rate": 0.003,
-    "perCapita": 1900,
-    "household": 0
   }
 }

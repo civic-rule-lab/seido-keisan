@@ -6,24 +6,28 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0736,
-    "support": 0.0309,
-    "care": 0.0258
+    "medical": 0.07,
+    "support": 0.029,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 26532,
-    "support": 10808,
-    "care": 11295
+    "medical": 26200,
+    "support": 10000,
+    "care": 9400
   },
   "household": {
-    "medical": 18393,
-    "support": 7493,
-    "care": 5731
+    "medical": 22600,
+    "support": 9400,
+    "care": 6500
   },
   "caps": {
     "medical": 660000,
     "support": 260000,
     "care": 170000
+  },
+  "assetLevy": {
+    "medical": 0.1,
+    "support": 0.03
   },
   "preschoolReduction": {
     "enabled": true,
@@ -56,29 +60,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/d00220355_d/fil/R7ryoritsu.pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "和歌山県 令和7年度 各市町村が実際に定める保険料(税)率",
+      "url": "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/d00220355_d/fil/R7ryoritsu.pdf",
+      "publishedAt": "2025-07"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "prefecture-official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "県公表のR7実料率一覧（R7ryoritsu.pdf）で全項目を修正。旧推計値は乖離していた。 4方式（資産割あり: medical10.0%/support3.0%）→ assetLevy 設定。"
   }
 }

@@ -6,24 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.061,
-    "support": 0.024,
-    "care": 0.021
+    "medical": 0.0534,
+    "support": 0.014,
+    "care": 0.0106
   },
   "perCapita": {
-    "medical": 21000,
-    "support": 6500,
-    "care": 8500
+    "medical": 19500,
+    "support": 4900,
+    "care": 6600
   },
   "household": {
-    "medical": 21000,
+    "medical": 24200,
     "support": 6000,
-    "care": 6500
-  },
-  "assetLevy": {
-    "medical": 0.13,
-    "support": 0.035,
-    "care": 0.035
+    "care": 4700
   },
   "caps": {
     "medical": 660000,
@@ -61,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "北海道 令和7年度国民健康保険料(税)の賦課状況等に関する調査(市町村別保険料率一覧・内訳)",
+      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html",
+      "publishedAt": "2026-06-02"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "prefecture-official-xlsx"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "道公表R7一覧(内訳)で乖離を修正: medical率 0.061→0.0534・medical均等割 21000→19500・medical平等割 21000→24200・medical資産割 0.13→0.0・support率 0.024→0.014・support均等割 6500→4900・support資産割 0.035→0.0・care率 0.021→0.0106・care均等割 8500→6600・care平等割 6500→4700・care資産割 0.035→0.0。資産割は道調査でR7全廃を確認しassetLevy削除"
   }
 }

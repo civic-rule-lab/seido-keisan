@@ -56,13 +56,16 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.shinhidaka-hokkaido.jp/hotnews/detail/00009291.html"
+      ]
     },
     "source": {
       "type": "manual",
@@ -71,14 +74,14 @@
       "publishedAt": ""
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "R8改正ページの「令和7年度（現行）」欄と全項目一致を確認（2026-06-12）。"
   }
 }

@@ -6,9 +6,9 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0680,
-    "support": 0.0250,
-    "care": 0.0210
+    "medical": 0.068,
+    "support": 0.025,
+    "care": 0.021
   },
   "perCapita": {
     "medical": 27400,
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,20 +67,20 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-      "https://www.city.takasaki.gunma.jp/page/3606.html",
-      "https://www.city.takasaki.gunma.jp/page/3607.html",
-      "https://www.city.takasaki.gunma.jp/uploaded/attachment/37655.xlsx"
+        "https://www.city.takasaki.gunma.jp/page/3606.html",
+        "https://www.city.takasaki.gunma.jp/page/3607.html",
+        "https://www.city.takasaki.gunma.jp/uploaded/attachment/37655.xlsx"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -88,14 +95,9 @@
       "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.90,
+      "confidenceScore": 0.9,
       "completeness": "partial"
     },
     "notes": "高崎市公式 R8 計算例ページ（更新日 2026-04-01、ページID:0003607）の計算例から取得。3方式（平等割あり）。100円未満切捨て。子ども分均等割は本体1,200円・18歳以上加算+100円・18歳未満は本体均等割10割軽減（公式計算例で『1,200円×3名 + 100円×2名 - 18歳未満軽減1,200円×1名 = 2,600円』と明示）。賦課限度額は公式ページに明示なしのため、群馬県内自治体（富岡市等）と R8 国基準に基づく 670,000/260,000/170,000/30,000 を採用（要 Code 検証）。試算用Excel `https://www.city.takasaki.gunma.jp/uploaded/attachment/37655.xlsx` で限度額確認可能なはず。"
-  },
-  "childcare": {
-    "rate": 0.0030,
-    "perCapita": 1200,
-    "household": 800
   }
 }

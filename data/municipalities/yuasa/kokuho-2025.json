@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0698,
-    "support": 0.0313,
-    "care": 0.0255
+    "medical": 0.091,
+    "support": 0.028,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 25173,
-    "support": 10952,
-    "care": 11178
+    "medical": 27500,
+    "support": 8000,
+    "care": 9500
   },
   "household": {
-    "medical": 17450,
-    "support": 7592,
-    "care": 5672
+    "medical": 23600,
+    "support": 6400,
+    "care": 6600
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,33 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.town.yuasa.wakayama.jp/uploaded/attachment/10238.pdf",
+        "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/d00220355_d/fil/R7ryoritsu.pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
+      "type": "official",
+      "title": "広報ゆあさ令和8年4月号（R7比較表）＋和歌山県R7実料率一覧",
+      "url": "https://www.town.yuasa.wakayama.jp/uploaded/attachment/10238.pdf",
       "publishedAt": ""
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "R7実料率（医9.10%/27,500/23,600・支2.8%/8,000/6,400・介2.7%/9,500/6,600）を広報R8年4月号の前年度欄＋県公表の実料率一覧で確認し推計値を修正。旧推計は全項目乖離していた。"
   }
 }

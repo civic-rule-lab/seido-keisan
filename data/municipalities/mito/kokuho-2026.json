@@ -7,7 +7,7 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.0785,
-    "support": 0.0350,
+    "support": 0.035,
     "care": 0.0237
   },
   "perCapita": {
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0023,
+    "perCapita": 1700,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.401Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "水戸市公式サイトから R8 料率を取得・確認。2方式（平等割なし）。後期支援分上限を R7 24万→R8 26万へ引上げ。子ども・子育て支援金分は18歳未満全額軽減（perCapitaは18歳以上）。R8軽減判定係数（5割31万・2割57万）を反映。"
-  },
-  "childcare": {
-    "rate": 0.0023,
-    "perCapita": 1700,
-    "household": 0
   }
 }

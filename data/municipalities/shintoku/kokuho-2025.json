@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0765,
-    "support": 0.025,
-    "care": 0.0152
+    "medical": 0.079,
+    "support": 0.026,
+    "care": 0.0202
   },
   "perCapita": {
-    "medical": 31600,
-    "support": 9300,
-    "care": 8700
+    "medical": 26279,
+    "support": 9117,
+    "care": 9202
   },
   "household": {
-    "medical": 23300,
-    "support": 8000,
-    "care": 4500
+    "medical": 26084,
+    "support": 9050,
+    "care": 7218
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "北海道 令和7年度国民健康保険料(税)の賦課状況等に関する調査(市町村別保険料率一覧・内訳)",
+      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html",
+      "publishedAt": "2026-06-02"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "prefecture-official-xlsx"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "道公表R7一覧(内訳)で乖離を修正: medical率 0.0765→0.079・medical均等割 31600→26279・medical平等割 23300→26084・support率 0.025→0.026・support均等割 9300→9117・support平等割 8000→9050・care率 0.0152→0.0202・care均等割 8700→9202・care平等割 4500→7218"
   }
 }

@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.004,
+    "perCapita": 1800,
+    "perCapitaAdult": 141,
+    "perCapitaAdultScope": "all_ages",
+    "household": 1000
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "小山市公式 R8 ページ（更新日 2026-04-13）から取得。3方式（平等割あり）。栃木県、4月告示済み（地方の独自運営協議会で先行決定パターン）。医療上限 66万 据え置き（県準統一系・古河/越谷と同様）。子ども分均等割は18歳未満全額軽減で18歳以上に按分負担される設計（公式記載）。cityCode は registry 既載 09207 が誤りで 09208 が正（NII・Japan-DB 全一致）— registry 訂正必要。"
-  },
-  "childcare": {
-    "rate": 0.004,
-    "perCapita": 1800,
-    "household": 1000
   }
 }

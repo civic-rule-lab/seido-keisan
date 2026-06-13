@@ -6,25 +6,32 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0785,
-    "support": 0.0316,
-    "care": 0.0262
+    "medical": 0.074,
+    "support": 0.024,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 28303,
-    "support": 11079,
-    "care": 11501
+    "medical": 33000,
+    "support": 10700,
+    "care": 10400
   },
   "household": {
-    "medical": 19620,
-    "support": 7680,
-    "care": 5836
+    "medical": 23000,
+    "support": 7400,
+    "care": 5400
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1191,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,34 +64,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.054Z",
-      "updatedAt": "2026-04-08T01:03:23.054Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.city.kainan.lg.jp/kakubusho/kurashibu/hokennenkinka/hokennenkinkatorikumi/kokuhotetuduki/kokuhonituite.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-12",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
+      "type": "official",
+      "title": "海南市 国民健康保険税について（令和8年度税率等）",
+      "url": "https://www.city.kainan.lg.jp/kakubusho/kurashibu/hokennenkinka/hokennenkinkatorikumi/kokuhotetuduki/kokuhonituite.html",
       "publishedAt": ""
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "notes": "R8告示値を公式ページで確認（医7.4%/33,000/23,000・支2.4%/10,700/7,400・介2.2%/10,400/5,400・子0.3%/1,191円【18歳未満免除】/平等割766円・限度額67/26/17/3万）。ページの「更新日2025-04-01」表記はCMSの定型で、内容は【前年度7.5%】等の比較・子ども分新設値からR8確定。所得割は被保険者ごと個別計算。"
   }
 }

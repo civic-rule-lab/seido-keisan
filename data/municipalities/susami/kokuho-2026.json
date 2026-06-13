@@ -6,25 +6,32 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0759,
-    "support": 0.0312,
-    "care": 0.0257
+    "medical": 0.0792,
+    "support": 0.0234,
+    "care": 0.0201
   },
   "perCapita": {
-    "medical": 27381,
-    "support": 10945,
-    "care": 11248
+    "medical": 23900,
+    "support": 6400,
+    "care": 8400
   },
   "household": {
-    "medical": 18981,
-    "support": 7588,
-    "care": 5707
+    "medical": 28700,
+    "support": 7900,
+    "care": 7700
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1124,
+    "perCapitaAdult": 66,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,34 +64,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.068Z",
-      "updatedAt": "2026-04-08T01:03:23.068Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.town.susami.lg.jp/other-contents/reiki_int/reiki_honbun/k543RG00000126.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-12",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "すさみ町国民健康保険税条例（令和8年条例第12号・令和8年4月1日施行）",
+      "url": "https://www.town.susami.lg.jp/other-contents/reiki_int/reiki_honbun/k543RG00000126.html",
+      "publishedAt": "2026-04"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "reiki-ordinance-text"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "notes": "すさみ町国民健康保険税条例（令和8年4月1日施行版）を条文単位で確認。医療7.92%/23,900/28,700/限度67万・支援2.34%/6,400/7,900・介護2.01%/8,400/7,700・子0.3%/均1,124円+18歳以上66円/平等割766円/3万。資産割条文は削除済み（3方式）。"
   }
 }

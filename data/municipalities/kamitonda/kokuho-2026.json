@@ -6,25 +6,32 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0829,
-    "support": 0.0306,
-    "care": 0.0252
+    "medical": 0.08,
+    "support": 0.025,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 29890,
-    "support": 10708,
-    "care": 11050
+    "medical": 30900,
+    "support": 10300,
+    "care": 11800
   },
   "household": {
-    "medical": 20720,
-    "support": 7423,
-    "care": 5607
+    "medical": 30300,
+    "support": 9400,
+    "care": 8100
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1105,
+    "perCapitaAdult": 86,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,34 +64,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.067Z",
-      "updatedAt": "2026-04-08T01:03:23.067Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "http://www.town.kamitonda.lg.jp/section/reiki/reiki_honbun/k541RG00000162.html"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-12",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "上富田町国民健康保険税条例（令和8年3月18日条例第8号・令和8年4月1日施行）",
+      "url": "http://www.town.kamitonda.lg.jp/section/reiki/reiki_honbun/k541RG00000162.html",
+      "publishedAt": "2026-04"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "reiki-ordinance-text"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "notes": "上富田町国民健康保険税条例（令和8年4月1日施行版）を条文単位で確認。医療8.0%/30,900/30,300・支援2.5%/10,300/9,400・介護2.0%/11,800/8,100・子0.3%/均1,105円+18歳以上86円/766円。**医療限度額は条例で660,000円に据え置き（国基準67万に未追随・第2条第2項原文確認）**。子ども分限度額は政令委任（3万円）。資産割なし。"
   }
 }

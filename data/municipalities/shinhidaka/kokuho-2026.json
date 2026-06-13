@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0829,
-    "support": 0.024,
-    "care": 0.0195
+    "medical": 0.0861,
+    "support": 0.025,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 28667,
-    "support": 8861,
-    "care": 8920
+    "medical": 27900,
+    "support": 9000,
+    "care": 9300
   },
   "household": {
-    "medical": 28221,
-    "support": 8723,
-    "care": 6960
+    "medical": 36500,
+    "support": 8900,
+    "care": 9500
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,46 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.265Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.shinhidaka-hokkaido.jp/hotnews/detail/00009291.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-06-12",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "新ひだか町 国民健康保険税 税率の改正（令和8年度）",
+      "url": "https://www.shinhidaka-hokkaido.jp/hotnews/detail/00009291.html",
+      "publishedAt": ""
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-06-12",
+      "method": "official-site (実機スクリーンショット)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、新ひだか町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)の分割を省いたフラット均等割で暫定。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "R8公式表で確認（医8.61%/27,900/36,500/67万・支2.5%/9,000/8,900/26万・介2.4%/9,300/9,500/17万・子0.29%/均等割1,000円+18歳以上100円/平等割1,000円/3万・計113万）。県標準の暫定値から差し替え。18歳以上被保険者均等割=年度当初18歳到達者。R7公開データ(kokuho-2025)は公式の現行欄と全項目一致を確認済み。"
   },
   "childcareLevy": {
     "rate": 0.0029,
     "perCapita": 1000,
-    "household": 1000,
-    "cap": 30000
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 1000
   }
 }

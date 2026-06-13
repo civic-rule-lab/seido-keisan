@@ -27,6 +27,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.0031,
+    "perCapita": 1680,
+    "perCapitaAdult": 120,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -61,7 +68,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.014Z",
-      "updatedAt": "2026-05-15T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -72,7 +79,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-15",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -91,10 +98,5 @@
       "completeness": "full"
     },
     "notes": "R8公式サイトで確認。医療分：7.21%・均等23,280円・平等26,640円。支援分：2.85%・8,880円・10,320円。介護分：2.57%・16,560円（平等割要確認）。子育て支援金分新設：0.31%・1,800円（18歳以上120円）。"
-  },
-  "childcare": {
-    "rate": 0.0031,
-    "perCapita": 1800,
-    "household": 0
   }
 }

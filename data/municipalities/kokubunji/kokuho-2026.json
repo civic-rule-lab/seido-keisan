@@ -26,6 +26,13 @@
     "care": 170000,
     "childcare": 30000
   },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1881,
+    "perCapitaAdult": 78,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
+  },
   "preschoolReduction": {
     "enabled": true,
     "medicalPerCapitaRate": 0.5,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.926Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "国分寺市公式 R8 税率改定ページ（更新日 2026-04-01）から取得。2方式（平等割なし）、東京多摩。都標準保険料率と段階的接近の方針。医療分上限R7 65万→R8 67万、後期支援R7 24万→R8 26万。子ども分均等割1959円（うち18歳以上78円分）、18歳未満は均等割課税対象（後で軽減適用される建て付け）。"
-  },
-  "childcare": {
-    "rate": 0.0030,
-    "perCapita": 1959,
-    "household": 0
   }
 }

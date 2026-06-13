@@ -6,7 +6,7 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0670,
+    "medical": 0.067,
     "support": 0.0308,
     "care": 0.0247
   },
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.0026,
+    "perCapita": 1700,
+    "perCapitaAdult": 200,
+    "perCapitaAdultScope": "all_ages",
+    "household": 0
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -71,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +97,5 @@
       "completeness": "full"
     },
     "notes": "古河市公式 R8 ページ（更新日 2026-04-01）から取得。2方式（平等割なし）。茨城南西部、県準統一進行中のため医療上限は 66万 据え置き（67万に未到達）。子ども分均等割は本体1,700円・18歳以上加算+200円。slug は「koga」が福岡県古賀市（40221）に既割当のため、サフィックス方式で「koga-ibaraki」を新規割当（registry 追加必要）。"
-  },
-  "childcare": {
-    "rate": 0.0026,
-    "perCapita": 1700,
-    "household": 0
   }
 }

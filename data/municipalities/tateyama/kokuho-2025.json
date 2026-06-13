@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.066,
-    "support": 0.023,
-    "care": 0.02
+    "medical": 0.0722,
+    "support": 0.0292,
+    "care": 0.0245
   },
   "perCapita": {
-    "medical": 24600,
-    "support": 7800,
-    "care": 9600
+    "medical": 22200,
+    "support": 15200,
+    "care": 16800
   },
   "household": {
-    "medical": 22800,
-    "support": 6600,
-    "care": 6600
+    "medical": 25200,
+    "support": 0,
+    "care": 0
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/r7kokuhoryoritsu.pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "千葉県 令和7年度 県内市町村の国民健康保険料(税)率一覧",
+      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/r7kokuhoryoritsu.pdf",
+      "publishedAt": "2026-02-16"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "prefecture-official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "県公表R7実料率一覧で乖離を修正: medical率 0.066→0.0722・medical均等割 24600→22200・medical平等割 22800→25200・support率 0.023→0.0292・support均等割 7800→15200・support平等割 6600→0・care率 0.02→0.0245・care均等割 9600→16800・care平等割 6600→0。市公式ページはH29年から料率未更新のため県集計が最新ソース。"
   }
 }

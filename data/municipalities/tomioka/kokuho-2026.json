@@ -8,7 +8,7 @@
   "rate": {
     "medical": 0.0696,
     "support": 0.0298,
-    "care": 0.0250
+    "care": 0.025
   },
   "perCapita": {
     "medical": 26000,
@@ -25,6 +25,13 @@
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
+    "perCapitaAdultScope": "all_ages",
+    "household": 800
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,18 +67,19 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-05-11T00:00:00.000Z",
-      "updatedAt": "2026-05-25T00:00:00.000Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.city.tomioka.lg.jp/www/contents/1773791213293/index.html"
+        "https://www.city.tomioka.lg.jp/www/contents/1773791213293/index.html",
+        "https://www.city.tomioka.lg.jp/www/contents/1450421495497/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-05-21",
+      "verifiedAt": "2026-06-12",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -90,10 +98,5 @@
       "completeness": "full"
     },
     "notes": "富岡市公式 R8 ページ（適用日 2026-04-01）から取得。3方式（平等割あり）。群馬県内、4月告示済み（地方の独自運営協議会で先行決定パターン）。子ども分均等割は本体1,200円・18歳以上加算+100円、18歳未満は子ども分均等割10割軽減。"
-  },
-  "childcare": {
-    "rate": 0.0030,
-    "perCapita": 1200,
-    "household": 800
   }
 }

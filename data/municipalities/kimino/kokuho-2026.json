@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0823,
-    "support": 0.031,
-    "care": 0.0257
+    "medical": 0.082,
+    "support": 0.03,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 29674,
-    "support": 10870,
-    "care": 11279
+    "medical": 29000,
+    "support": 9200,
+    "care": 9600
   },
   "household": {
-    "medical": 20570,
-    "support": 7536,
-    "care": 5723
+    "medical": 22300,
+    "support": 6700,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -60,27 +60,31 @@
     "status": "needs_update",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.058Z",
-      "updatedAt": "2026-04-08T01:03:23.058Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "extracted_r8",
+      "sourceUrls": [
+        "https://www.town.kimino.wakayama.jp/sagasu/zeimuka/aboutzeikin/2044.html"
+      ]
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
+      "type": "official",
+      "title": "紀美野町 国民健康保険税について",
+      "url": "https://www.town.kimino.wakayama.jp/sagasu/zeimuka/aboutzeikin/2044.html",
       "publishedAt": ""
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
+      "confidenceScore": 0.7,
       "completeness": "partial"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "公式ページ（更新日2026-05-25）の税率表を反映（医8.2%/29,000/22,300・支3.0%/9,200/6,700・介2.5%/9,600/5,800・限度額67/26/17万=R8水準）。ただし子ども・子育て支援金分が未掲載のため verified 昇格は保留。納税通知書発送7/14 → 7月に子ども分掲載を change-detector で監視（standard_r8）。"
   },
   "childcare": {
     "rate": 0,

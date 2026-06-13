@@ -6,25 +6,32 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0698,
-    "support": 0.0313,
-    "care": 0.0255
+    "medical": 0.078,
+    "support": 0.028,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 25173,
-    "support": 10952,
-    "care": 11178
+    "medical": 26300,
+    "support": 8000,
+    "care": 9500
   },
   "household": {
-    "medical": 17450,
-    "support": 7592,
-    "care": 5672
+    "medical": 22800,
+    "support": 6400,
+    "care": 6600
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1191,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,34 +64,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.060Z",
-      "updatedAt": "2026-04-08T01:03:23.060Z",
+      "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
+      "sourceUrls": [
+        "https://www.town.yuasa.wakayama.jp/uploaded/attachment/10238.pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "2026-06-12",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "広報ゆあさ令和8年4月号 国保税率改正",
+      "url": "https://www.town.yuasa.wakayama.jp/uploaded/attachment/10238.pdf",
+      "publishedAt": "2026-04"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-12",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "notes": "R8広報で確認: 医療分引き下げ7.80%/26,300/22,800・限度額67万。支援・介護は据え置き（R7値=県実料率一覧で確認: 支2.8%/8,000/6,400・介2.7%/9,500/6,600）。子ども分新設0.3%/1,191円/平等割766円（和歌山県内の海南と同値・18歳未満均等割は国制度どおり全額軽減）。"
   }
 }
