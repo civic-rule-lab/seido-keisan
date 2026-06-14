@@ -5,9 +5,34 @@
 // データ駆動方式。自治体ごとの段階数（9〜16段階）に自動対応。
 //
 // 境界値の格納方法:
-//   pensionIncomeMax/Min, totalIncomeMax/Min はすべて「含む（≤）」で格納する。
+//   pensionIncomeMax/Min, totalIncomeMax/Min, sumIncomeMax/Min はすべて
+//   「含む（≤）」で格納する。
 //   「〜未満」は値を -1 した整数で表す（例: 120万円未満 → totalIncomeMax: 1199999）。
 //   「〜以上」は値をそのままで表す（例: 120万円以上 → totalIncomeMin: 1200000）。
+//
+// criteria 語彙（第4〜14段階の総ざらいで確定。生活保護/老齢福祉年金の
+// 第1段階特例フラグは将来の拡張点として未実装＝対象利用者の結果に影響なし）:
+//
+//   課税状況フラグ（段階の"層"を決める）:
+//     householdAllNonTaxable - 世帯全員が住民税非課税か（第1〜3段階の層）
+//     selfTaxable            - 本人が住民税課税か（true=第6段階以上の層 /
+//                              false かつ householdAllNonTaxable=false=第4〜5段階の層）
+//
+//   所得しきい値（層の中で段階を分ける。Max/Min は ≤ 含む・未満は -1）:
+//     pensionIncome - 課税年金収入額（控除前の収入額）。第1〜3を年金のみで
+//                     近似する旧データ向け（年金外所得があると誤判定→sumIncome 推奨）
+//     sumIncome     - 段階判定用の合算所得 = 課税年金収入額
+//                     ＋（公的年金等に係る所得を除く合計所得金額）。
+//                     国の第1〜5段階の標準判定（「課税年金収入額＋合計所得金額が
+//                     80万/120万…」）はこの合算しきい値で表す。
+//     totalIncome   - 第6段階以上の判定に使う「介護段階判定用の合計所得金額」。
+//                     住民税の合計所得金額とは別物で、公的年金等に係る雑所得を
+//                     除外し、長期・短期譲渡所得の特別控除を適用した後の額。
+//                     導出は呼び出し側（income.js）の責務。境界値・段階数・係数は
+//                     自治体ごとにカスタム（13〜19段階等）で、本エンジンは brackets
+//                     配列を first-match 評価するだけ（データ駆動）。
+//     ※額は bracket.annual（公表値・百円丸め等）があれば優先、なければ
+//       baseAmount×rate。係数と公表額が一致しない自治体があるため annual を正とする。
 
 'use strict';
 
@@ -43,6 +68,12 @@ function matchBracket(ctx, bracket) {
   if (c.totalIncomeMin !== undefined &&
       ctx.totalIncome < c.totalIncomeMin) return false;
 
+  if (c.sumIncomeMax !== undefined &&
+      ctx.sumIncome > c.sumIncomeMax) return false;
+
+  if (c.sumIncomeMin !== undefined &&
+      ctx.sumIncome < c.sumIncomeMin) return false;
+
   return true;
 }
 
@@ -68,6 +99,10 @@ function calculateKaigo(data, memberContext) {
   const ctx = {
     pensionIncome:             memberContext.pensionIncome            ?? 0,
     totalIncome:               memberContext.totalIncome              ?? 0,
+    // sumIncome 未指定時は pensionIncome + totalIncome へフォールバックせず、
+    // 合算型 criteria を持つ自治体では呼び出し側が必ず sumIncome を渡す前提。
+    // （誤フォールバックで二重計上しないよう 0 既定）
+    sumIncome:                 memberContext.sumIncome                ?? 0,
     isSelfTaxable:             memberContext.isSelfTaxable            ?? false,
     isHouseholdAllNonTaxable:  memberContext.isHouseholdAllNonTaxable ?? false,
   };

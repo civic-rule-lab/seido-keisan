@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0784,
-    "support": 0.0344,
-    "care": 0.0231
+    "medical": 0.0672,
+    "support": 0.0285,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 30500,
-    "support": 12600,
-    "care": 15200
+    "medical": 35800,
+    "support": 15700,
+    "care": 15700
   },
   "household": {
     "medical": 0,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-06-14T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/documents/kokuhoryou07.pdf"
+      ]
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "茨城県 令和7年度 国民健康保険料(税)率一覧",
+      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/documents/kokuhoryou07.pdf",
+      "publishedAt": "2025"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-14",
+      "method": "prefecture-official-pdf"
     },
     "quality": {
-      "confidenceScore": 0,
+      "confidenceScore": 0.95,
       "completeness": "partial"
     },
-    "notes": "PLACEHOLDER: 茨城県古河市のR7値は未取得（5/11新規slug追加、福岡県古賀koga(40221)との衝突回避のため茨城古河は -ibaraki サフィックス）。水戸市R7をベースにstructure保持目的で複製。次回Coworkで茨城古河R7を取得して上書き予定。"
+    "notes": "茨城県公表R7料率一覧（kokuhoryou07.pdf）で古河市の実料率を取得し、プレースホルダ（水戸市R7の複製）を上書き。変更: 医療所得割 7.84→6.72・医療均等割 30500→35800・支援所得割 3.44→2.85・支援均等割 12600→15700・介護所得割 2.31→2.3・介護均等割 15200→15700。茨城は全44市町村2方式（平等割・資産割なし）。"
   }
 }

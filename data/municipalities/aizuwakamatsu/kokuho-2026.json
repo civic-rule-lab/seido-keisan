@@ -90,11 +90,13 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で会津若松市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=97円)を省いたフラット暫定。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で会津若松市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=97円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
   },
   "childcareLevy": {
     "rate": 0.003,
     "perCapita": 1335,
+    "perCapitaAdult": 97,
+    "perCapitaAdultScope": "all_ages",
     "household": 875,
     "cap": 30000
   }

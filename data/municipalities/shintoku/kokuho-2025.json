@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.079,
-    "support": 0.026,
-    "care": 0.0202
+    "medical": 0.0765,
+    "support": 0.025,
+    "care": 0.0152
   },
   "perCapita": {
-    "medical": 26279,
-    "support": 9117,
-    "care": 9202
+    "medical": 31600,
+    "support": 9300,
+    "care": 8700
   },
   "household": {
-    "medical": 26084,
-    "support": 9050,
-    "care": 7218
+    "medical": 23300,
+    "support": 8000,
+    "care": 4500
   },
   "caps": {
     "medical": 660000,
@@ -59,7 +59,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-06-14T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30",
@@ -75,13 +75,13 @@
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-06-12",
-      "method": "prefecture-official-xlsx"
+      "verifiedAt": "2026-06-14",
+      "method": "prefecture-official-xlsx-recheck"
     },
     "quality": {
       "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "道公表R7一覧(内訳)で乖離を修正: medical率 0.0765→0.079・medical均等割 31600→26279・medical平等割 23300→26084・support率 0.025→0.026・support均等割 9300→9117・support平等割 8000→9050・care率 0.0152→0.0202・care均等割 8700→9202・care平等割 4500→7218"
+    "notes": "道公表R7実料率一覧（新得町修正版・2026-06-02。道が新得町分を再公表した最新版）と再突合し、前回の推計/旧値を公式実料率へ修正。変更: medical所得割 7.9→7.65・support所得割 2.6→2.5・care所得割 2.02→1.52・medical均等割 26279→31600・support均等割 9117→9300・care均等割 9202→8700・medical平等割 26084→23300・support平等割 9050→8000・care平等割 7218→4500。"
   }
 }

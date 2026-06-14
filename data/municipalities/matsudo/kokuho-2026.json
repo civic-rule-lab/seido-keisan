@@ -68,8 +68,8 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/oshirase/korona_hokenyuuyo.html",
-        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/hoken.html"
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/hoken.html",
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/oshirase/korona_hokenyuuyo.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
@@ -78,8 +78,8 @@
     },
     "source": {
       "type": "official",
-      "title": "松戸市 令和8年度国民健康保険料率について",
-      "url": "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/oshirase/korona_hokenyuuyo.html",
+      "title": "松戸市 国民健康保険料の計算方法（令和8年度税率）",
+      "url": "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/hoken.html",
       "publishedAt": "2026-04-24"
     },
     "audit": {
@@ -91,7 +91,7 @@
       "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "松戸市公式「令和8年度国民健康保険料率について」ページ (更新日 2026-04-24、URL slug は korona_hokenyuuyo.html だが内容は R8 改正お知らせ) で R7 → R8 対比表により全項目直接確認。医療 7.62% (据え置き)・27,000円 (R7 21,000 → +6,000)・18,000円 (据え置き) / 後期 2.86% (+0.24pt)・15,000円 (R7 12,000 → +3,000) / 介護 2.26% (+0.45pt)・18,000円 (R7 15,000 → +3,000) / 子ども 0.31%・1,860円 + 18歳以上加算 140円 = 合計 2,000円 (R8 新設)。caps と賦課限度額は PDF 早見表 (ryouhayamihyou.html リンクの R8-sousyotoku-kyuuyo-d60e081f.pdf) で確認: 医療 67万・後期 26万・介護 17万・子ども 3万。childcareLevy 新方式 (perCapita 1,860 + perCapitaAdult 140 / scope all_ages) を採用。軽減判定 5割 310,000円 / 2割 570,000円 (R8 国基準) も PDF 本文で確認。"
+    "notes": "松戸市公式「令和8年度国民健康保険料率について」ページ (更新日 2026-04-24、URL slug は korona_hokenyuuyo.html だが内容は R8 改正お知らせ) で R7 → R8 対比表により全項目直接確認。医療 7.62% (据え置き)・27,000円 (R7 21,000 → +6,000)・18,000円 (据え置き) / 後期 2.86% (+0.24pt)・15,000円 (R7 12,000 → +3,000) / 介護 2.26% (+0.45pt)・18,000円 (R7 15,000 → +3,000) / 子ども 0.31%・1,860円 + 18歳以上加算 140円 = 合計 2,000円 (R8 新設)。caps と賦課限度額は PDF 早見表 (ryouhayamihyou.html リンクの R8-sousyotoku-kyuuyo-d60e081f.pdf) で確認: 医療 67万・後期 26万・介護 17万・子ども 3万。childcareLevy 新方式 (perCapita 1,860 + perCapitaAdult 140 / scope all_ages) を採用。軽減判定 5割 310,000円 / 2割 570,000円 (R8 国基準) も PDF 本文で確認。2026-06-13 再検証: 計算方法ページ (ryounosantei/hoken.html・更新 2026-04-24) の計算例 (世帯主 算定基礎額 2,550,000円 → 医療所得割 194,310円 = 7.62% 等) から全分の税率・均等割・平等割・限度額を逆算突合し一致。primary sourceUrl を当該 hoken.html に変更 (旧 korona_hokenyuuyo.html は監視用に従属保持)。"
   },
   "childcareLevy": {
     "rate": 0.0031,

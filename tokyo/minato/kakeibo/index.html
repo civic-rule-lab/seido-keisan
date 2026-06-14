@@ -129,19 +129,18 @@
 </div>
 
 <script>const CITY_SLUG = "minato";</script>
-<script src="/js/core/shared/income.js?v=37098256"></script>
-<script src="/js/core/jumin.js?v=37098256"></script>
-<script src="/js/core/kokuho.js?v=37098256"></script>
-<script src="/js/core/kaigo.js?v=37098256"></script>
+<script src="/js/core/shared/income.js?v=b46528d1"></script>
+<script src="/js/core/jumin.js?v=b46528d1"></script>
+<script src="/js/core/kokuho.js?v=b46528d1"></script>
+<script src="/js/core/kaigo.js?v=b46528d1"></script>
 <script>
 (function () {
   "use strict";
   var CITY = (typeof CITY_SLUG !== "undefined") ? CITY_SLUG : (location.pathname.split("/").filter(Boolean)[1] || "");
   var YEARS = [2026, 2025];
   var _cache = {};
-  // 介護保険データは現在検証中。verified 化が済むまで合計に含めず「準備中」表示にする。
-  // 検証完了後に true へ切り替えると、計算ロジックがそのまま有効化される。
-  var KAIGO_ENABLED = false;
+  // 介護保険（第1号）は自治体ごとに段階的リリース。kaigo-{year}.json の status が
+  // verified / inferred の自治体だけ点灯し、それ以外は「準備中」表示のまま（合計にも含めない）。
 
   function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id,min){var v=document.getElementById(id);var n=v?Number(toHalfWidth(v.value||"").replace(/[^\d]/g,"")):0;return Math.max(min||0, isFinite(n)?n:0);}
@@ -214,16 +213,21 @@
     } else { cards.push(skip("国民健康保険", "この自治体のデータは準備中")); }
 
     // ── 介護保険・第1号（65歳以上のみ） ──
-    // データは検証中のため、当面は合計に含めず「準備中」表示。
-    // KAIGO_ENABLED=true かつ有効な保険料(annual>0)が得られた場合のみ加算する。
+    // verified/inferred の自治体のみ点灯（段階的リリース）。簡易版: 単身・単一所得者を仮定し
+    // 「本人が非課税なら世帯も非課税」とみなす。第1〜5段階は合算所得 sumIncome（課税年金収入＋
+    // 公的年金等を除く合計所得）、第6〜14段階は合計所得金額で判定する。
     if(age>=65){
-      if(KAIGO_ENABLED && kaigoData){
+      var kaigoReady = kaigoData && (kaigoData.status==="verified" || kaigoData.status==="inferred");
+      if(kaigoReady){
         try{
+          var pensionShotoku = calcPensionIncome(pension, age);
+          var otherTotal = Math.max(0, totalIncome - pensionShotoku);
           var rkg=calculateKaigo(kaigoData, {
-            pensionIncome: calcPensionIncome(pension, age),
-            totalIncome: totalIncome,
+            pensionIncome: pension,                  // 課税年金収入額（控除前・収入額）
+            totalIncome: totalIncome,                // 合計所得金額（第6段階以上）
+            sumIncome: pension + otherTotal,         // 合算しきい値（第1〜5段階）
             isSelfTaxable: taxableJumin,
-            isHouseholdAllNonTaxable: false
+            isHouseholdAllNonTaxable: !taxableJumin  // 単身/単一所得者の仮定
           });
           if(rkg && rkg.annual>0){
             grand += rkg.annual;

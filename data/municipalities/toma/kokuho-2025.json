@@ -7,19 +7,24 @@
   "note": "4方式（所得割+資産割+均等割+平等割）",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.071,
-    "support": 0.026,
+    "medical": 0.072,
+    "support": 0.02,
     "care": 0.018
   },
   "perCapita": {
-    "medical": 27000,
+    "medical": 29500,
     "support": 9000,
-    "care": 9000
+    "care": 9200
   },
   "household": {
-    "medical": 27000,
+    "medical": 29000,
     "support": 9000,
-    "care": 7000
+    "care": 7200
+  },
+  "assetLevy": {
+    "medical": 0.035,
+    "support": 0.009,
+    "care": 0.004
   },
   "caps": {
     "medical": 660000,
@@ -60,7 +65,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-06-14T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30",
@@ -76,13 +81,13 @@
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-06-12",
-      "method": "prefecture-official-xlsx"
+      "verifiedAt": "2026-06-14",
+      "method": "prefecture-official-xlsx-recheck"
     },
     "quality": {
       "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "道公表R7一覧(内訳)で乖離を修正: medical率 0.07200000000000001→0.071・medical均等割 29500→27000・medical平等割 29000→27000・medical資産割 0.035→0.0・support率 0.02→0.026・support資産割 0.009→0.0・care均等割 9200→9000・care平等割 7200→7000・care資産割 0.004→0.0。大雪地区広域連合の料率を適用"
+    "notes": "道公表R7実料率一覧（新得町修正版・2026-06-02）と再突合し、前回値を当該町の公式実料率へ修正。前回は大雪地区広域連合料率を誤適用していた（大雪連合の構成は東川・美瑛・東神楽の3町のみで当町は非該当・各町が独自料率を告示）。変更: medical所得割 7.1→7.2・support所得割 2.6→2・medical均等割 27000→29500・care均等割 9000→9200・medical平等割 27000→29000・care平等割 7000→7200・assetLevy新設(医療3.5%/後期0.9%/介護0.4%)。"
   }
 }

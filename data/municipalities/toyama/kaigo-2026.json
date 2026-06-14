@@ -8,107 +8,58 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "needs_update",
-  "baseAmount": null,
+  "status": "verified",
+  "baseAmount": 79200,
   "brackets": [
-    {
-      "level": "1",
-      "label": "第1段階",
-      "rate": 0.285,
-      "criteria": {
-        "householdAllNonTaxable": true,
-        "pensionIncomeMax": 800000
-      },
-      "condition": "世帯全員非課税 かつ 本人年金収入80万円以下（または生活保護受給者）"
-    },
-    {
-      "level": "2",
-      "label": "第2段階",
-      "rate": 0.485,
-      "criteria": {
-        "householdAllNonTaxable": true,
-        "pensionIncomeMin": 800001,
-        "pensionIncomeMax": 1200000
-      },
-      "condition": "世帯全員非課税 かつ 本人年金収入80万円超〜120万円以下"
-    },
-    {
-      "level": "3",
-      "label": "第3段階",
-      "rate": 0.685,
-      "criteria": {
-        "householdAllNonTaxable": true,
-        "pensionIncomeMin": 1200001
-      },
-      "condition": "世帯全員非課税 かつ 本人年金収入120万円超"
-    },
-    {
-      "level": "4",
-      "label": "第4段階",
-      "rate": 0.9,
-      "criteria": {
-        "selfTaxable": false,
-        "householdAllNonTaxable": false
-      },
-      "condition": "本人非課税 かつ 世帯内に住民税課税者あり"
-    },
-    {
-      "level": "5",
-      "label": "第5段階（基準）",
-      "rate": 1,
-      "criteria": {
-        "selfTaxable": true,
-        "totalIncomeMax": 1199999
-      },
-      "condition": "本人課税 かつ 前年合計所得金額120万円未満"
-    },
-    {
-      "level": "6",
-      "label": "第6段階",
-      "rate": 1.2,
-      "criteria": {
-        "selfTaxable": true,
-        "totalIncomeMin": 1200000,
-        "totalIncomeMax": 2099999
-      },
-      "condition": "本人課税 かつ 前年合計所得金額120万円以上210万円未満"
-    },
-    {
-      "level": "7",
-      "label": "第7段階",
-      "rate": 1.45,
-      "criteria": {
-        "selfTaxable": true,
-        "totalIncomeMin": 2100000,
-        "totalIncomeMax": 3199999
-      },
-      "condition": "本人課税 かつ 前年合計所得金額210万円以上320万円未満"
-    },
-    {
-      "level": "8",
-      "label": "第8段階",
-      "rate": 1.7,
-      "criteria": {
-        "selfTaxable": true,
-        "totalIncomeMin": 3200000,
-        "totalIncomeMax": 4199999
-      },
-      "condition": "本人課税 かつ 前年合計所得金額320万円以上420万円未満"
-    },
-    {
-      "level": "9",
-      "label": "第9段階",
-      "rate": 2,
-      "criteria": {
-        "selfTaxable": true,
-        "totalIncomeMin": 4200000
-      },
-      "condition": "本人課税 かつ 前年合計所得金額420万円以上"
-    }
+    { "level": "1", "label": "第1段階", "rate": 0.25, "annual": 19800,
+      "criteria": { "householdAllNonTaxable": true, "sumIncomeMax": 826500 },
+      "condition": "世帯全員非課税 かつ（生活保護受給者／合計所得＋課税年金収入が82.65万円以下）" },
+    { "level": "2", "label": "第2段階", "rate": 0.45, "annual": 35700,
+      "criteria": { "householdAllNonTaxable": true, "sumIncomeMin": 826501, "sumIncomeMax": 1200000 },
+      "condition": "世帯全員非課税 かつ 合計所得＋課税年金収入が82.65万円超〜120万円以下" },
+    { "level": "3", "label": "第3段階", "rate": 0.685, "annual": 54300,
+      "criteria": { "householdAllNonTaxable": true, "sumIncomeMin": 1200001 },
+      "condition": "世帯全員非課税 かつ 合計所得＋課税年金収入が120万円を超える" },
+    { "level": "4", "label": "第4段階", "rate": 0.85, "annual": 67400,
+      "criteria": { "householdAllNonTaxable": false, "selfTaxable": false, "sumIncomeMax": 826500 },
+      "condition": "世帯課税あり・本人非課税 かつ 合計所得＋課税年金収入が82.65万円以下" },
+    { "level": "5", "label": "第5段階（基準）", "rate": 1.00, "annual": 79200,
+      "criteria": { "householdAllNonTaxable": false, "selfTaxable": false, "sumIncomeMin": 826501 },
+      "condition": "世帯課税あり・本人非課税 かつ 合計所得＋課税年金収入が82.65万円超" },
+    { "level": "6", "label": "第6段階", "rate": 1.15, "annual": 91100,
+      "criteria": { "selfTaxable": true, "totalIncomeMax": 799999 },
+      "condition": "本人課税・合計所得金額80万円未満" },
+    { "level": "7", "label": "第7段階", "rate": 1.20, "annual": 95100,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 800000, "totalIncomeMax": 1249999 },
+      "condition": "本人課税・合計所得金額80万円以上125万円未満" },
+    { "level": "8", "label": "第8段階", "rate": 1.30, "annual": 103000,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 1250000, "totalIncomeMax": 2099999 },
+      "condition": "本人課税・合計所得金額125万円以上210万円未満" },
+    { "level": "9", "label": "第9段階", "rate": 1.50, "annual": 118800,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 2100000, "totalIncomeMax": 3999999 },
+      "condition": "本人課税・合計所得金額210万円以上400万円未満" },
+    { "level": "10", "label": "第10段階", "rate": 1.70, "annual": 134700,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 4000000, "totalIncomeMax": 4199999 },
+      "condition": "本人課税・合計所得金額400万円以上420万円未満" },
+    { "level": "11", "label": "第11段階", "rate": 1.90, "annual": 150500,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 4200000, "totalIncomeMax": 5199999 },
+      "condition": "本人課税・合計所得金額420万円以上520万円未満" },
+    { "level": "12", "label": "第12段階", "rate": 2.10, "annual": 166400,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 5200000, "totalIncomeMax": 6199999 },
+      "condition": "本人課税・合計所得金額520万円以上620万円未満" },
+    { "level": "13", "label": "第13段階", "rate": 2.30, "annual": 182200,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 6200000, "totalIncomeMax": 7199999 },
+      "condition": "本人課税・合計所得金額620万円以上720万円未満" },
+    { "level": "14", "label": "第14段階", "rate": 2.40, "annual": 190100,
+      "criteria": { "selfTaxable": true, "totalIncomeMin": 7200000 },
+      "condition": "本人課税・合計所得金額720万円以上" }
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": null,
-    "retrievedAt": null
-  }
+    "url": "https://www.city.toyama.lg.jp/health/kaigo/1010522/1003813.html",
+    "pdfUrl": "https://www.city.toyama.lg.jp/_res/projects/default_project/_page_/001/003/813/hokenryou2026.pdf",
+    "pageTitle": "富山市 介護保険料（所得段階別介護保険料 令和8年度）",
+    "retrievedAt": "2026-06-14"
+  },
+  "notes": "富山市公式「所得段階別介護保険料（令和8年度）」PDFから確定。第9期基準額79,200円/年（月6,600円）・14段階。年額は百円単位で告示（例: 第2段階35,700円は基準額×0.45=35,640と不一致のため annual を正とする）。第1〜5段階は『合計所得金額＋課税年金収入額の合計（82.65万/120万円しきい値）』の合算型→criteria sumIncome を使用。第6〜14段階は合計所得金額ベース。"
 }
