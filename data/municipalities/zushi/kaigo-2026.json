@@ -8,13 +8,168 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "needs_update",
-  "baseAmount": null,
-  "brackets": null,
+  "status": "verified",
+  "baseAmount": 69720,
+  "brackets": [
+    {
+      "level": "1",
+      "label": "第1段階",
+      "rate": 0.285,
+      "annual": 19872,
+      "criteria": {
+        "householdAllNonTaxable": true,
+        "sumIncomeMax": 826500
+      },
+      "condition": "世帯全員非課税(生活保護/老齢福祉年金含む) かつ 合算所得が82.65万円以下"
+    },
+    {
+      "level": "2",
+      "label": "第2段階",
+      "rate": 0.485,
+      "annual": 33816,
+      "criteria": {
+        "householdAllNonTaxable": true,
+        "sumIncomeMin": 826501,
+        "sumIncomeMax": 1200000
+      },
+      "condition": "世帯全員非課税 かつ 合算所得82.65万円超〜120万円以下"
+    },
+    {
+      "level": "3",
+      "label": "第3段階",
+      "rate": 0.685,
+      "annual": 47760,
+      "criteria": {
+        "householdAllNonTaxable": true,
+        "sumIncomeMin": 1200001
+      },
+      "condition": "世帯全員非課税 かつ 合算所得120万円超"
+    },
+    {
+      "level": "4",
+      "label": "第4段階",
+      "rate": 0.9,
+      "annual": 62748,
+      "criteria": {
+        "householdAllNonTaxable": false,
+        "selfTaxable": false,
+        "sumIncomeMax": 826500
+      },
+      "condition": "世帯課税あり・本人非課税 かつ 合算所得82.65万円以下"
+    },
+    {
+      "level": "5",
+      "label": "第5段階（基準）",
+      "rate": 1.0,
+      "annual": 69720,
+      "criteria": {
+        "householdAllNonTaxable": false,
+        "selfTaxable": false,
+        "sumIncomeMin": 826501
+      },
+      "condition": "世帯課税あり・本人非課税 かつ 合算所得82.65万円超"
+    },
+    {
+      "level": "6",
+      "label": "第6段階",
+      "rate": 1.2,
+      "annual": 83664,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMax": 1249999
+      },
+      "condition": "本人課税・合計所得125万円未満"
+    },
+    {
+      "level": "7",
+      "label": "第7段階",
+      "rate": 1.3,
+      "annual": 90636,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 1250000,
+        "totalIncomeMax": 1999999
+      },
+      "condition": "本人課税・合計所得125万円以上200万円未満"
+    },
+    {
+      "level": "8",
+      "label": "第8段階",
+      "rate": 1.5501,
+      "annual": 108072,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 2000000,
+        "totalIncomeMax": 2999999
+      },
+      "condition": "本人課税・合計所得200万円以上300万円未満"
+    },
+    {
+      "level": "9",
+      "label": "第9段階",
+      "rate": 1.8,
+      "annual": 125496,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 3000000,
+        "totalIncomeMax": 4999999
+      },
+      "condition": "本人課税・合計所得300万円以上500万円未満"
+    },
+    {
+      "level": "10",
+      "label": "第10段階",
+      "rate": 2.0,
+      "annual": 139440,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 5000000,
+        "totalIncomeMax": 7999999
+      },
+      "condition": "本人課税・合計所得500万円以上800万円未満"
+    },
+    {
+      "level": "11",
+      "label": "第11段階",
+      "rate": 2.3,
+      "annual": 160356,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 8000000,
+        "totalIncomeMax": 10999999
+      },
+      "condition": "本人課税・合計所得800万円以上1100万円未満"
+    },
+    {
+      "level": "12",
+      "label": "第12段階",
+      "rate": 2.6,
+      "annual": 181272,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 11000000,
+        "totalIncomeMax": 14999999
+      },
+      "condition": "本人課税・合計所得1100万円以上1500万円未満"
+    },
+    {
+      "level": "13",
+      "label": "第13段階",
+      "rate": 2.8,
+      "annual": 195216,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 15000000
+      },
+      "condition": "本人課税・合計所得1500万円以上"
+    }
+  ],
   "fallbackLevel": "5",
   "source": {
-    "url": null,
-    "pageTitle": null,
-    "retrievedAt": null
-  }
+    "url": "https://www.city.zushi.kanagawa.jp/kenkofukushi/kaigohoken/1004112/1004113.html",
+    "pdfUrl": null,
+    "pageTitle": "逗子市 介護保険料（令和6〜8年度・13段階）",
+    "retrievedAt": "2026-06-15"
+  },
+  "notes": "逗子市公式HPから確定。基準額69,720円。HP表記は80万9千円だがR8正規化=82.65万を適用。第6段階125万未満始まり・本人課税の刻みが独自。"
 }
