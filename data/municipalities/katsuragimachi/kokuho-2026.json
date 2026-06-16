@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0852,
-    "support": 0.031,
-    "care": 0.0267
+    "medical": 0.0806,
+    "support": 0.0267,
+    "care": 0.0234
   },
   "perCapita": {
-    "medical": 30732,
-    "support": 10845,
-    "care": 11697
+    "medical": 29000,
+    "support": 9800,
+    "care": 9700
   },
   "household": {
-    "medical": 21304,
-    "support": 7518,
-    "care": 5935
+    "medical": 21200,
+    "support": 7200,
+    "care": 5100
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,38 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.058Z",
       "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "source_found_r8",
+      "r8Stage": "verified_r8",
       "sourceUrls": [
         "https://www.town.katsuragi.wakayama.jp/reiki/reiki_honbun/k518RG00000210.html"
-      ]
+      ],
+      "sourceStatus": "ordinance_after_revision",
+      "verifiedAt": "2026-06-15",
+      "verificationLevel": "municipal_verified",
+      "r8Updated": true
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "municipal_ordinance",
+      "title": "かつらぎ町国民健康保険税条例（令和8年3月改正・令和8年度）",
+      "url": "https://www.town.katsuragi.wakayama.jp/reiki/reiki_honbun/k518RG00000210.html",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-15",
+      "method": "municipal-ordinance-after-revision"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 1.0,
+      "completeness": "full"
     },
-    "notes": "例規集の国民健康保険税条例を確認（2026-06-12）: R8改正未登載（子ども・子育て支援納付金の条文なし）・現行条文はR7値で県公表実料率と完全一致。条例ページをsourceUrlsで監視しR8改正登載を検知する。"
+    "notes": "かつらぎ町国保税条例(令和8年3月10日条例第3号・令和8年度施行)から確定。医療8.06/支援2.67/介護2.34/子育て0.30%。子ども子育て支援納付金分R8新設(均等1122/18歳以上加算69/平等766/限度3万)。基礎控除43万・医療限度66万。"
   },
   "childcare": {
     "rate": 0,
     "perCapita": 0,
     "household": 0
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1122,
+    "perCapitaAdult": 69,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }

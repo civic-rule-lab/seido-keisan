@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0767,
-    "support": 0.0307,
-    "care": 0.0236
+    "medical": 0.061,
+    "support": 0.0205,
+    "care": 0.017
   },
   "perCapita": {
-    "medical": 27649,
-    "support": 10738,
-    "care": 10318
+    "medical": 25700,
+    "support": 8600,
+    "care": 9200
   },
   "household": {
-    "medical": 19167,
-    "support": 7444,
-    "care": 5236
+    "medical": 20000,
+    "support": 6700,
+    "care": 4800
   },
   "caps": {
     "medical": 670000,
@@ -57,41 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.062Z",
       "updatedAt": "2026-06-12T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "source_found_r8",
+      "r8Stage": "verified_r8",
       "watchUrls": [
         "http://www.town.wakayama-hidaka.lg.jp/docs/2014090400051/"
       ],
       "sourceUrls": [
         "http://www.town.wakayama-hidaka.lg.jp/docs/2014090400051/"
-      ]
+      ],
+      "sourceStatus": "official_rate_page",
+      "verifiedAt": "2026-06-15",
+      "verificationLevel": "municipal_verified",
+      "r8Updated": true
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "municipal_official",
+      "title": "日高町 国民健康保険税税率（令和8年度）",
+      "url": "http://www.town.wakayama-hidaka.lg.jp/docs/2014090400051/",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-06-15",
+      "method": "municipal-official-rate"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 1.0,
+      "completeness": "full"
     },
-    "notes": "公式の国保税ページは旧水準（医5.6%/22,700/17,700・支2.05%/8,600/6,700・限度額65万/20万=R3以前相当）で現年度の参考にならない。現データは推計値のまま。R8告示掲載を watchUrls で監視（standard_r8）。和歌山町村は7月本算定通知が多い。"
+    "notes": "日高町公式HP(令和8年度国保税率)から実料率で確定。4分(医療6.10/支援2.05/介護1.70/子育て0.30%)・子ども子育て支援金分R8新設(均等1112/18歳以上加算79/平等766/限度3万)。基礎控除43万。"
   },
   "childcare": {
     "rate": 0,
     "perCapita": 0,
     "household": 0
+  },
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1112,
+    "perCapitaAdult": 79,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }
