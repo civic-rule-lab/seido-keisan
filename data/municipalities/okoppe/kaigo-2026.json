@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 66000,
   "brackets": [
     {
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "#",
-    "pageTitle": "興部町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://www.town.okoppe.lg.jp/cms/section/kaigo/lgdqf50000001r1z-att/lgdqf50000001r51.pdf",
+    "pageTitle": "興部町高齢者保健福祉計画・第9期介護保険事業計画（令和6年度〜令和8年度）概要版（7 介護保険事業費の見込みと保険料）",
+    "retrievedAt": "2026-06-27"
   },
-  "notes": "興部町13段。基準66000。第1-3軽減後。境界R8=826500。 ★監査2026-06-27: 公式出典に辿れず(出典記録なし)→verified不可・inferred格下げ。"
+  "notes": "興部町13段。基準66000。第1-3軽減後。境界R8=826500。 ★2026-06-27 verified化: 第9期計画概要版PDF(7 保険料段階)と全13段(割合・年額)完全一致を確認。出典=町公式概要版PDF。"
 }
