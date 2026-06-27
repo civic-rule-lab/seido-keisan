@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 79200,
   "brackets": [
     {
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.shonai.lg.jp/kurashi/hoken/kaigo/kaigohoken.html",
+    "url": "https://www.town.shonai.lg.jp/kurashi/hoken/kaigo/kaigohoken.files/R8_kaigohokenryou.pdf",
     "pageTitle": "庄内町 介護保険料（第9期）",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "庄内町13段(inferred)。基準79200(月6600・確定)。段階表が画像PNGのみ→国標準13段推計。要スクショ確定。境界R8=826500。"
+  "notes": "庄内町13段。基準79200(月6600)。公式PDF確定(R6-8・第10-13は今期新設)。第1-3軽減後(22572/38412/54252)。第6+標準境界。境界R8=826500。"
 }

@@ -48,8 +48,8 @@
     {
       "level": "4",
       "label": "第4段階",
-      "rate": 0.9007,
-      "annual": 65680,
+      "rate": 0.85,
+      "annual": 61980,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -214,9 +214,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kawaguchi.lg.jp/soshiki/01070/050/annai/kaigohokennnohokennryou/26129.html",
+    "url": "https://www.city.kawaguchi.lg.jp/material/files/group/42/hokennryoudannkai2025.pdf",
     "pageTitle": "川口市 介護保険料（第9期）",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "川口市★17段。基準72920(月6077)。第1-3軽減後。独自境界720-820/820-1000/1000-1500/1500-2000/2000万。段別年額はkokuho-keisanミラー由来=公式PDFスクショで最終確認推奨。境界R8=826500。"
+  "notes": "川口市★17段。基準72920(月6077)。公式PDF確定。第1-3軽減後・★第4=0.85(61980)。独自境界720-820/820-1000/1000-1500/1500-2000/2000万。境界R8=826500。"
 }

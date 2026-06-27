@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 70800,
   "brackets": [
     {
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.vill.nishigo.fukushima.jp/",
+    "url": "https://www.vill.nishigo.fukushima.jp/material/files/group/9/10hukushi9jighoG.pdf",
     "pageTitle": "西郷村 介護保険料（第9期）",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "西郷村13段(inferred)。基準70800(月5900・計画PDF確定)。公式段階表ページ無→二次(kokuho-keisan)採用。第10次計画で国標準13段明記。要公式確定。境界R8=826500。"
+  "notes": "西郷村13段。基準70800(月5900)。第9期計画PDF確定(p16)。第1-3軽減後(20200/34400/48500)。第6+標準境界。境界R8=826500。"
 }

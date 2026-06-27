@@ -8,14 +8,14 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 78000,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.285,
-      "annual": 22230,
+      "rate": 0.2846,
+      "annual": 22200,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.485,
-      "annual": 37830,
+      "rate": 0.4846,
+      "annual": 37800,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.685,
-      "annual": 53430,
+      "rate": 0.6846,
+      "annual": 53400,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.vill.tenei.fukushima.jp/",
+    "url": "https://www.vill.tenei.fukushima.jp/soshiki/38/kaigo-fukushi.html",
     "pageTitle": "天栄村 介護保険料（第9期）",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "天栄村13段(inferred)。基準78000(月6500・確定)。公式に段階別数値表なし→国標準13段推計。要スクショ確定。境界R8=826500。"
+  "notes": "天栄村13段。基準78000(月6500)。公式段階表確定。第1-3軽減後(22200/37800/53400・100円丸め)。第6+標準境界。境界R8=826500。"
 }

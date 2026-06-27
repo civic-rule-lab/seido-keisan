@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 75600,
   "brackets": [
     {
@@ -160,15 +160,27 @@
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000,
-        "totalIncomeMax": 9999999
+        "totalIncomeMax": 8199999
       },
-      "condition": "本人課税・合計所得金額720万円以上1000万円未満"
+      "condition": "本人課税・合計所得金額720万円以上820万円未満"
     },
     {
       "level": "14",
       "label": "第14段階",
       "rate": 2.5,
       "annual": 189000,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 8200000,
+        "totalIncomeMax": 9999999
+      },
+      "condition": "本人課税・合計所得金額820万円以上1000万円未満"
+    },
+    {
+      "level": "15",
+      "label": "第15段階",
+      "rate": 2.6,
+      "annual": 196560,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 10000000
@@ -178,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.misato.lg.jp/kenko_iryo_fukushi/koreishafukushi/kaigohoken/index.html",
+    "url": "https://www1.g-reiki.net/misato/reiki_honbun/z600RG00000388.html",
     "pageTitle": "三郷市 介護保険料（第9期）",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "三郷市★14段(inferred)。基準75600(月6300・公式確定)。段階表は公式JS描画で取得不可→kokuho-keisanミラー導出。★第2=0.435・第13/14上位境界(720-1000/1000)は要公式照合(条例別表 g-reiki misato z600RG00000388)。境界R8=826500。"
+  "notes": "三郷市★15段。基準75600(月6300)。介護保険条例第10条(令和6-8年度)。第1-3軽減後=第2-4項(21540/32880/51780)。第6+独自境界820/1000万。境界R8=826500。"
 }

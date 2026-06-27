@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 86400,
   "brackets": [
     {
@@ -119,8 +119,8 @@
     {
       "level": "10",
       "label": "第10段階",
-      "rate": 1.8993,
-      "annual": 164100,
+      "rate": 1.9005,
+      "annual": 164200,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.kaneyama.fukushima.jp/",
+    "url": "https://www.town.kaneyama.fukushima.jp/reikishu/reiki_honbun/c555RG00000303.html",
     "pageTitle": "金山町 介護保険料（第9期）",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "金山町13段(inferred・福島。山形金山kaneyamachiと別)。基準86400(月7200)。条例方式だが公式段階表ページ無→二次の告示額採用。要条例確定。境界R8=826500。"
+  "notes": "金山町13段(福島。山形金山kaneyamachiと別)。基準86400(月7200)。介護保険条例第2条(令6-8年度)。第1-3軽減後=第2-4項(24700/42000/59200)。第10=164200。第6+標準境界。境界R8=826500。"
 }
