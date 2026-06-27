@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "verified",
+  "status": "inferred",
   "baseAmount": 66000,
   "brackets": [
     {
@@ -170,5 +170,5 @@
     "pageTitle": "興部町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "興部町13段。基準66000。第1-3軽減後。境界R8=826500。"
+  "notes": "興部町13段。基準66000。第1-3軽減後。境界R8=826500。 ★監査2026-06-27: 公式出典に辿れず(出典記録なし)→verified不可・inferred格下げ。"
 }

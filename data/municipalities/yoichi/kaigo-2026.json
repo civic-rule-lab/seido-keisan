@@ -14,8 +14,8 @@
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.285,
-      "annual": 19665,
+      "rate": 0.2043,
+      "annual": 14100,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.485,
-      "annual": 33465,
+      "rate": 0.4043,
+      "annual": 27900,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.685,
-      "annual": 47265,
+      "rate": 0.6043,
+      "annual": 41700,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -76,9 +76,9 @@
       "annual": 82800,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMax": 1199999
+        "totalIncomeMax": 1249999
       },
-      "condition": "本人課税・合計所得金額120万円未満"
+      "condition": "本人課税・合計所得金額125万円未満"
     },
     {
       "level": "7",
@@ -87,10 +87,10 @@
       "annual": 89700,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 1200000,
+        "totalIncomeMin": 1250000,
         "totalIncomeMax": 2099999
       },
-      "condition": "本人課税・合計所得金額120万円以上210万円未満"
+      "condition": "本人課税・合計所得金額125万円以上210万円未満"
     },
     {
       "level": "8",
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "#",
+    "url": "https://www.town.yoichi.hokkaido.jp/kurashi/kurashinojouhou/fukushi-kaigo/kaigohoken/hokenryou.html",
     "pageTitle": "余市町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "余市町(後志独立)13段。基準69000。第1-3軽減後。境界R8=826500。"
+  "notes": "余市町(後志独立)★13段(監査修正2026-06-27・条例第4条R6-8)。基準69000。第1-3=14100/27900/41700(軽減賦課0.205/0.405/0.605)。★第6段境界=独自125万。境界R8=826500。"
 }

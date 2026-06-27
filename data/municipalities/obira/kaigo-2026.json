@@ -9,13 +9,13 @@
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
   "status": "verified",
-  "baseAmount": 59760,
+  "baseAmount": 59700,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.285,
-      "annual": 17031,
+      "rate": 0.2848,
+      "annual": 17000,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.485,
-      "annual": 28984,
+      "rate": 0.4841,
+      "annual": 28900,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.685,
-      "annual": 40936,
+      "rate": 0.6851,
+      "annual": 40900,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -48,8 +48,8 @@
     {
       "level": "4",
       "label": "第4段階",
-      "rate": 0.9,
-      "annual": 53784,
+      "rate": 0.8995,
+      "annual": 53700,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -61,7 +61,7 @@
       "level": "5",
       "label": "第5段階（基準）",
       "rate": 1.0,
-      "annual": 59760,
+      "annual": 59700,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -72,8 +72,8 @@
     {
       "level": "6",
       "label": "第6段階",
-      "rate": 1.2,
-      "annual": 71712,
+      "rate": 1.201,
+      "annual": 71700,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -83,8 +83,8 @@
     {
       "level": "7",
       "label": "第7段階",
-      "rate": 1.3,
-      "annual": 77688,
+      "rate": 1.3015,
+      "annual": 77700,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -95,8 +95,8 @@
     {
       "level": "8",
       "label": "第8段階",
-      "rate": 1.5,
-      "annual": 89640,
+      "rate": 1.5008,
+      "annual": 89600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 2100000,
@@ -107,8 +107,8 @@
     {
       "level": "9",
       "label": "第9段階",
-      "rate": 1.7,
-      "annual": 101592,
+      "rate": 1.7018,
+      "annual": 101600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -119,8 +119,8 @@
     {
       "level": "10",
       "label": "第10段階",
-      "rate": 1.9,
-      "annual": 113544,
+      "rate": 1.8007,
+      "annual": 107500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -131,8 +131,8 @@
     {
       "level": "11",
       "label": "第11段階",
-      "rate": 2.1,
-      "annual": 125496,
+      "rate": 1.9012,
+      "annual": 113500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -143,8 +143,8 @@
     {
       "level": "12",
       "label": "第12段階",
-      "rate": 2.3,
-      "annual": 137448,
+      "rate": 2.0017,
+      "annual": 119500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -155,8 +155,8 @@
     {
       "level": "13",
       "label": "第13段階",
-      "rate": 2.4,
-      "annual": 143424,
+      "rate": 2.1022,
+      "annual": 125500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "#",
+    "url": "https://www.town.obira.hokkaido.jp/hotnews/detail/00000141.html",
     "pageTitle": "小平町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "小平町13段。基準59760。第1-3軽減後。境界R8=826500。"
+  "notes": "小平町(監査修正:base59700・第10-13独自1.8/1.9/2.0/2.1・公式HP)13段。基準59700。第1-3軽減後。境界R8=826500。"
 }

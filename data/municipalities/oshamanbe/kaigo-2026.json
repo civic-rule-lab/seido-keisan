@@ -14,8 +14,8 @@
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.285,
-      "annual": 20520,
+      "rate": 0.3,
+      "annual": 21600,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.485,
-      "annual": 34920,
+      "rate": 0.5,
+      "annual": 36000,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.685,
-      "annual": 49320,
+      "rate": 0.7,
+      "annual": 50400,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "#",
+    "url": "https://www.town.oshamambe.lg.jp/",
     "pageTitle": "長万部町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "長万部町13段。基準72000。第1-3軽減後。境界R8=826500。"
+  "notes": "長万部町(監査修正:第1-3独自0.30/0.50/0.70)13段。基準72000。第1-3軽減後。境界R8=826500。"
 }

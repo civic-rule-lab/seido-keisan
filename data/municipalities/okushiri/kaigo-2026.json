@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "verified",
+  "status": "inferred",
   "baseAmount": 54000,
   "brackets": [
     {
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "#",
+    "url": "https://www.kokuho-keisan.com/kaigohoken/detail/013676.html",
     "pageTitle": "奥尻町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "奥尻町13段(二次)。基準54000。第1-3軽減後・★第2=0.40独自。境界R8=826500。"
+  "notes": "奥尻町13段(二次)。基準54000。第1-3軽減後・★第2=0.40独自。境界R8=826500。 ★監査2026-06-27: 公式出典に辿れず(二次ソースのみ(集計サイト))→verified不可・inferred格下げ。"
 }

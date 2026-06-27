@@ -14,8 +14,8 @@
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.27,
-      "annual": 16524,
+      "rate": 0.285,
+      "annual": 17442,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.405,
-      "annual": 24786,
+      "rate": 0.485,
+      "annual": 29682,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.585,
-      "annual": 35802,
+      "rate": 0.685,
+      "annual": 41922,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "#",
+    "url": "https://www.town.embetsu.hokkaido.jp/fs/1/8/1/5/7/_/_9_________.pdf",
     "pageTitle": "遠別町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "遠別町13段。基準61200。第1-3軽減後。境界R8=826500。"
+  "notes": "遠別町(監査修正:第1-3軽減後0.285/.485/.685=計画書PDF)13段。基準61200。第1-3軽減後。境界R8=826500。"
 }

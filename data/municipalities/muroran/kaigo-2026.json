@@ -159,9 +159,21 @@
       "annual": 132000,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 7200000
+        "totalIncomeMin": 7200000,
+        "totalIncomeMax": 9999999
       },
-      "condition": "本人課税・合計所得金額720万円以上"
+      "condition": "本人課税・合計所得金額720万円以上1000万円未満"
+    },
+    {
+      "level": "14",
+      "label": "第14段階",
+      "rate": 2.7,
+      "annual": 148500,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 10000000
+      },
+      "condition": "本人課税・合計所得金額1000万円以上"
     }
   ],
   "fallbackLevel": "5",
@@ -170,5 +182,5 @@
     "pageTitle": "室蘭市 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "室蘭市13段。基準55000。第1-3軽減後。境界R8=826500。"
+  "notes": "室蘭市★14段(監査修正2026-06-27)。基準55000。第1-3軽減後。第13=132000(720-1000万)・第14=148500(1000万以上)。境界R8=826500。"
 }
