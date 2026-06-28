@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://seido-keisan.jp/sitemap.xml
