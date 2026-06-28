@@ -1,0 +1,69 @@
+{
+  "cityCode": "13113",
+  "citySlug": "shibuya",
+  "cityName": "渋谷区",
+  "prefSlug": "tokyo",
+  "prefecture": "東京都",
+  "fiscalYear": 2026,
+  "system": "kouki",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "basicDeduction": 430000,
+  "perCapita": {
+    "medical": 53300,
+    "childcare": 1300
+  },
+  "rate": {
+    "medical": 0.0988,
+    "childcare": 0.0026
+  },
+  "caps": {
+    "medical": 850000,
+    "childcare": 21000
+  },
+  "reduction": {
+    "base": 430000,
+    "perEarnerAdd": 100000,
+    "fivePerInsured": 310000,
+    "twoPerInsured": 570000,
+    "ratios": {
+      "seven": {
+        "medical": 0.72,
+        "childcare": 0.7
+      },
+      "five": {
+        "medical": 0.5,
+        "childcare": 0.5
+      },
+      "two": {
+        "medical": 0.2,
+        "childcare": 0.2
+      }
+    }
+  },
+  "incomeReduction": [
+    {
+      "threshold": 150000,
+      "rate": 0.5
+    },
+    {
+      "threshold": 200000,
+      "rate": 0.25
+    }
+  ],
+  "publicNote": "東京都には、所得割額の独自軽減があります（基礎控除後の所得が15万円以下の場合は50%、20万円以下の場合は25%軽減されます）。",
+  "source": {
+    "rates": {
+      "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",
+      "title": "厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について",
+      "retrievedAt": "2026-06-28"
+    },
+    "kansho": {
+      "url": "https://www.tokyo-ikiiki.net/seido/1001968/1001975/index.html",
+      "note": "所得割独自軽減あり(旧ただし書所得15万以下50%/20万以下25%・広域独自)・都内均一",
+      "confidence": 1,
+      "retrievedAt": "2026-06-28"
+    }
+  },
+  "notes": "医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。"
+}

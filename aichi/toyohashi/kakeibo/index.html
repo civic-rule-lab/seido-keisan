@@ -114,6 +114,8 @@
     ※住民税：給与収入の約14.4%を社会保険料控除として概算。各種人的控除は未考慮。<br>
     ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。<br>
     ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
+    ※75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（金額は後期高齢者医療のページで計算できます）。<br>
+    ※各制度の「詳しく計算 →」から個別ページに移動できます。<br>
     ※実際の金額は各自治体の通知・公式案内でご確認ください。
   </div>
 
@@ -198,11 +200,14 @@
       grand += rj.total;
       cards.push(card("住民税", rj.total, [
         ["所得割", rj.incomeLevy],["均等割（森林環境税含む）", rj.perCapita]
-      ]));
+      ], juminData ? {href:"../jumin/", label:"住民税を詳しく計算"} : null));
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
-    // ── 国民健康保険（データがある場合のみ） ──
-    if(kokuhoData){
+    // ── 医療保険：74歳以下は国民健康保険、75歳以上は後期高齢者医療（対象が異なる） ──
+    if(age>=75){
+      // 75歳以上は国保の対象外。金額は個別ページに委ね、導線のみ示す。
+      cards.push("<div class='ci-grp'><div class='ci-grp-head'>後期高齢者医療<span class='ci-sub'>75歳以上</span></div><div class='ci-sub' style='line-height:1.7;color:#6b7280;'>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です。</div><div style='margin-top:7px;text-align:right;'><a href='../kouki/' style='font-size:13px;color:#1d4ed8;text-decoration:none;font-weight:600;'>後期高齢者医療を計算する →</a></div></div>");
+    } else if(kokuhoData){
       try{
         var rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:0, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
         grand += rk.total;
@@ -233,7 +238,7 @@
             grand += rkg.annual;
             cards.push(card("介護保険（第1号）", rkg.annual, [
               [rkg.label||("第"+rkg.level+"段階"), rkg.annual]
-            ]));
+            ], {href:"../kaigo/", label:"介護保険を詳しく計算"}));
           } else { cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
         }catch(e){ cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
       } else { cards.push(skip("介護保険（第1号）", "準備中（検証中）")); }
@@ -247,9 +252,10 @@
     if(typeof gtag==="function"){gtag("event","calculate",{city:CITY,calc_type:"integrated"});}
   };
 
-  function card(name, total, rows){
+  function card(name, total, rows, link){
     var inner=rows.map(function(r){return "<div class='result-row'><div class='result-label' style='font-size:15px;'>"+r[0]+"</div><div class='amount' style='font-size:16px;'>"+(r[1]<0?"-":"")+Math.abs(Math.round(r[1])).toLocaleString()+" 円</div></div>";}).join("");
-    return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-grp-sum'>約 "+Math.round(total).toLocaleString()+" 円/年</span></div>"+inner+"</div>";
+    var linkHtml = link ? "<div style='margin-top:7px;text-align:right;'><a href='"+link.href+"' style='font-size:13px;color:#1d4ed8;text-decoration:none;font-weight:600;'>"+link.label+" →</a></div>" : "";
+    return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-grp-sum'>約 "+Math.round(total).toLocaleString()+" 円/年</span></div>"+inner+linkHtml+"</div>";
   }
   function skip(name, msg){
     return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";

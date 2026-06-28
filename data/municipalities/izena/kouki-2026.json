@@ -1,0 +1,59 @@
+{
+  "cityCode": "47360",
+  "citySlug": "izena",
+  "cityName": "伊是名村",
+  "prefSlug": "okinawa",
+  "prefecture": "沖縄県",
+  "fiscalYear": 2026,
+  "system": "kouki",
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "basicDeduction": 430000,
+  "perCapita": {
+    "medical": 61000,
+    "childcare": 1290
+  },
+  "rate": {
+    "medical": 0.1081,
+    "childcare": 0.0026
+  },
+  "caps": {
+    "medical": 850000,
+    "childcare": 21000
+  },
+  "reduction": {
+    "base": 430000,
+    "perEarnerAdd": 100000,
+    "fivePerInsured": 310000,
+    "twoPerInsured": 570000,
+    "ratios": {
+      "seven": {
+        "medical": 0.72,
+        "childcare": 0.7
+      },
+      "five": {
+        "medical": 0.5,
+        "childcare": 0.5
+      },
+      "two": {
+        "medical": 0.2,
+        "childcare": 0.2
+      }
+    }
+  },
+  "incomeReduction": null,
+  "source": {
+    "rates": {
+      "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",
+      "title": "厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について",
+      "retrievedAt": "2026-06-28"
+    },
+    "kansho": {
+      "url": "https://www.kouiki-okinawa.jp/hokenryou.html",
+      "note": "所得割独自軽減なし・不均一賦課はH25終了し以降均一(公式明記)",
+      "confidence": 0.95,
+      "retrievedAt": "2026-06-28"
+    }
+  },
+  "notes": "医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。"
+}

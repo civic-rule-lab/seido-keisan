@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="大磯町（神奈川県）の令和8年度（2026年度）介護保険料（第1号・65歳以上）を無料で計算。基準額56,400円。所得と住民税の課税状況から段階別の保険料がわかります。">
+<link rel="canonical" href="https://seido-keisan.jp/kanagawa/oiso/kaigo/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="大磯町の介護保険料（第1号・65歳以上）はいくら？かんたん計算【令和8年度（2026年度）】">
+<meta property="og:description" content="大磯町（神奈川県）の令和8年度（2026年度）介護保険料（第1号・65歳以上）を無料で計算。基準額56,400円。所得と住民税の課税状況から段階別の保険料がわかります。">
+<meta property="og:url" content="https://seido-keisan.jp/kanagawa/oiso/kaigo/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=09703846">
+<title>大磯町の介護保険料（第1号・65歳以上）はいくら？かんたん計算【令和8年度（2026年度）】</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"神奈川県","item":"https://seido-keisan.jp/#kanagawa"},{"@type":"ListItem","position":3,"name":"大磯町","item":"https://seido-keisan.jp/kanagawa/oiso/"}]},{"@type":"WebApplication","name":"大磯町 介護保険料（第1号）計算ツール（令和8年度（2026年度））","description":"大磯町（神奈川県）の令和8年度（2026年度）介護保険料（第1号・65歳以上）を無料で計算。基準額56,400円。所得と住民税の課税状況から段階別の保険料がわかります。","url":"https://seido-keisan.jp/kanagawa/oiso/kaigo/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}]}</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（国保・住民税・後期ページと統一） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;word-break:keep-all;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:24px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  input,select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .result-total .result-label{font-weight:700;color:#111827;}
+  .result-total .amount{color:#1d4ed8;font-size:19px;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+
+  /* 介護保険ページ固有 */
+  .kg-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .kg-card .kg-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
+  .kg-base{font-size:14px;color:#0f172a;margin-bottom:8px;}
+  .kg-table{width:100%;border-collapse:collapse;font-size:12px;}
+  .kg-table th,.kg-table td{border:1px solid #e5e7eb;padding:6px 8px;}
+  .kg-table th{background:#f3f6fb;color:#374151;font-weight:600;text-align:left;}
+  .kg-table td{text-align:right;font-variant-numeric:tabular-nums;}
+  .kg-table td.kg-stage{text-align:left;}
+  .kg-table tr.kg-hit td{background:#fef9c3;font-weight:700;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:40px;font-size:clamp(20px,4.2vw,26px);line-height:1.5;text-align:center;"><span class="h1-seg">大磯町</span><span class="h1-seg">介護保険料（第1号）の計算</span><span class="h1-year">【令和8年度（2026年度）】</span></h1>
+
+  <p style="font-size:16px;color:#374151;line-height:1.7;margin:0 0 40px;">大磯町の65歳以上（介護保険・第1号被保険者）の保険料を概算できます。基準額（第5段階）は56,400円で、所得と住民税の課税状況に応じた段階の倍率で決まります。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <label for="pension">公的年金収入（年額）</label>
+  <input id="pension" type="text" inputmode="numeric" placeholder="例：1,800,000">
+
+  <label for="salary">給与収入（任意・年額）</label>
+  <input id="salary" type="text" inputmode="numeric" placeholder="例：0">
+
+  <label for="other">その他の所得（任意・所得金額）</label>
+  <input id="other" type="text" inputmode="numeric" placeholder="例：0">
+
+  <label for="taxstatus">住民税の課税状況</label>
+  <select id="taxstatus">
+    <option value="house_nontax">世帯全員が住民税非課税</option>
+    <option value="self_nontax">本人は非課税（世帯に課税の方がいる）</option>
+    <option value="self_tax" selected>本人が住民税課税</option>
+  </select>
+
+  <button onclick="calcKaigo()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="kg-card">
+    <div class="kg-card-title">大磯町の介護保険料（令和8年度（2026年度）・第9期（2024-2026））</div>
+    <div id="rateTable"></div>
+  </div>
+
+  <p style="margin-top:12px;font-size:13px;text-align:right;">
+    <a href="../kakeibo/" style="color:#6b7280;text-decoration:none;">この自治体の負担をまとめて見る →</a>
+  </p>
+
+  <div class="note">
+    ※この金額は概算です。実際の保険料は市区町村の通知でご確認ください。<br>
+    ※65歳以上の方（介護保険・第1号被保険者）の保険料です。40〜64歳の方（第2号）は国民健康保険・健康保険に含まれます。<br>
+    ※保険料は「基準額（第5段階）× 段階の倍率」で決まり、所得と住民税の課税状況で段階が変わります。<br>
+    ※段階の判定は、第1〜5段階は「課税年金収入＋年金以外の合計所得」、第6段階以上は「合計所得金額」で行います。<br>
+    ※公的年金等控除・給与所得控除を差し引いて所得を求めます。遺族年金・障害年金などの非課税年金は含めません。
+    <span id="cityNote"></span>
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<!-- 介護保険データ（自治体スペック・第9期） -->
+<script>const KAIGO_DATA = {"cityCode":"14341","citySlug":"oiso","cityName":"大磯町","prefSlug":"kanagawa","prefecture":"神奈川県","fiscalYear":2026,"system":"kaigo","schemaVersion":"1.0","planPeriod":"第9期（2024-2026）","status":"verified","baseAmount":56400,"brackets":[{"level":"1","label":"第1段階","rate":0.2851,"annual":16080,"criteria":{"householdAllNonTaxable":true,"sumIncomeMax":826500},"condition":"世帯全員非課税(生活保護/老齢福祉年金含む) かつ 合算所得が82.65万円以下"},{"level":"2","label":"第2段階","rate":0.4851,"annual":27360,"criteria":{"householdAllNonTaxable":true,"sumIncomeMin":826501,"sumIncomeMax":1200000},"condition":"世帯全員非課税 かつ 合算所得82.65万円超〜120万円以下"},{"level":"3","label":"第3段階","rate":0.6851,"annual":38640,"criteria":{"householdAllNonTaxable":true,"sumIncomeMin":1200001},"condition":"世帯全員非課税 かつ 合算所得120万円超"},{"level":"4","label":"第4段階","rate":0.9,"annual":50760,"criteria":{"householdAllNonTaxable":false,"selfTaxable":false,"sumIncomeMax":826500},"condition":"世帯課税あり・本人非課税 かつ 合算所得82.65万円以下"},{"level":"5","label":"第5段階（基準）","rate":1,"annual":56400,"criteria":{"householdAllNonTaxable":false,"selfTaxable":false,"sumIncomeMin":826501},"condition":"世帯課税あり・本人非課税 かつ 合算所得82.65万円超"},{"level":"6","label":"第6段階","rate":1.1,"annual":62040,"criteria":{"selfTaxable":true,"totalIncomeMax":1199999},"condition":"本人課税・合計所得120万円未満"},{"level":"7","label":"第7段階","rate":1.2,"annual":67680,"criteria":{"selfTaxable":true,"totalIncomeMin":1200000,"totalIncomeMax":2099999},"condition":"本人課税・合計所得120万円以上210万円未満"},{"level":"8","label":"第8段階","rate":1.3,"annual":73320,"criteria":{"selfTaxable":true,"totalIncomeMin":2100000,"totalIncomeMax":3199999},"condition":"本人課税・合計所得210万円以上320万円未満"},{"level":"9","label":"第9段階","rate":1.4,"annual":78960,"criteria":{"selfTaxable":true,"totalIncomeMin":3200000,"totalIncomeMax":4199999},"condition":"本人課税・合計所得320万円以上420万円未満"},{"level":"10","label":"第10段階","rate":1.6,"annual":90240,"criteria":{"selfTaxable":true,"totalIncomeMin":4200000,"totalIncomeMax":5199999},"condition":"本人課税・合計所得420万円以上520万円未満"},{"level":"11","label":"第11段階","rate":1.9,"annual":107160,"criteria":{"selfTaxable":true,"totalIncomeMin":5200000,"totalIncomeMax":6199999},"condition":"本人課税・合計所得520万円以上620万円未満"},{"level":"12","label":"第12段階","rate":2.1,"annual":118440,"criteria":{"selfTaxable":true,"totalIncomeMin":6200000,"totalIncomeMax":7199999},"condition":"本人課税・合計所得620万円以上720万円未満"},{"level":"13","label":"第13段階","rate":2.3,"annual":129720,"criteria":{"selfTaxable":true,"totalIncomeMin":7200000},"condition":"本人課税・合計所得720万円以上"}],"fallbackLevel":"5","source":{"url":"https://www.town.oiso.kanagawa.jp/kenko/kaigohoken/1359101434671.html","pdfUrl":null,"pageTitle":"大磯町 介護保険料（令和6〜8年度・13段階）","retrievedAt":"2026-06-15"},"notes":"大磯町公式HPから確定。基準額56,400円。HP表記は80万9千円だがR8正規化=82.65万を適用。"}; const CITY_SLUG = "oiso"; const PUBLISH_YEAR = 2026;</script>
+<!-- 計算エンジン（income.js を先に読み込み、kaigo.js に所得換算を供給） -->
+<script src="/js/core/shared/income.js?v=f93087bf"></script>
+<script src="/js/core/kaigo.js?v=f93087bf"></script>
+<script>
+(function () {
+  "use strict";
+
+  // 入力中は全角→半角・記号除去のみ。カンマは変換確定(compositionend)とblurで付与（国保・住民税と同一）。
+  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
+  function num(id){var v=document.getElementById(id);if(!v)return 0;return Math.max(0,Number(toHalfWidth(v.value||"").replace(/[^\d]/g,""))||0);}
+  function setupNumericInput(id, withCommas){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
+    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",clean);
+    el.addEventListener("blur",commit);
+    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
+  }
+
+  // ─── 段階表の描画（自治体差分の可視化・SEO） ───
+  function renderRate(){
+    var el=document.getElementById("rateTable"); if(!el||!KAIGO_DATA)return;
+    var d=KAIGO_DATA;
+    var html="<div class='kg-base'>基準額（第5段階・年額）：<strong>"+(d.baseAmount?d.baseAmount.toLocaleString():"—")+"円</strong></div>";
+    html+="<table class='kg-table'><tr><th>段階</th><th>倍率</th><th>年額</th></tr>";
+    (d.brackets||[]).forEach(function(b){
+      var annual=(b.annual!=null)?b.annual:Math.round((d.baseAmount||0)*b.rate);
+      html+="<tr data-level='"+b.level+"'><td class='kg-stage'>"+(b.label||("第"+b.level+"段階"))+"</td><td>×"+b.rate+"</td><td>"+annual.toLocaleString()+"円</td></tr>";
+    });
+    html+="</table>";
+    html+="<p style='font-size:11px;color:#6b7280;margin:6px 0 0;line-height:1.7;'>段階は所得と住民税の課税状況で決まります。（保険料は各市区町村が第9期＝令和6〜8年度に決定した公表値です。）</p>";
+    el.innerHTML=html;
+  }
+
+  // 課税状況の選択 → 課税フラグ
+  function taxFlags(){
+    var v=document.getElementById("taxstatus").value;
+    if(v==="house_nontax") return { isHouseholdAllNonTaxable:true,  isSelfTaxable:false };
+    if(v==="self_nontax")  return { isHouseholdAllNonTaxable:false, isSelfTaxable:false };
+    return { isHouseholdAllNonTaxable:false, isSelfTaxable:true };
+  }
+
+  // 世帯入力 → エンジン入力（65歳以上の第1号を前提）
+  function toContext(pension,salary,other){
+    var age=70;
+    var pShotoku=(typeof calcPensionIncome==="function")?calcPensionIncome(pension,age):0;
+    var sShotoku=(typeof calcSalaryIncome==="function")?calcSalaryIncome(salary):0;
+    var totalIncome=pShotoku+sShotoku+other;          // 合計所得金額（第6段階以上）
+    var sumIncome=pension+(sShotoku+other);           // 合算しきい値（第1〜5段階）＝課税年金収入＋年金以外の所得
+    var f=taxFlags();
+    return { pensionIncome:pension, totalIncome:totalIncome, sumIncome:sumIncome,
+             isSelfTaxable:f.isSelfTaxable, isHouseholdAllNonTaxable:f.isHouseholdAllNonTaxable };
+  }
+
+  // ─── 計算 ───
+  window.calcKaigo = function(){
+    var result=document.getElementById("result");
+    try{
+      var pension=num("pension"), salary=num("salary"), other=num("other");
+      var r=calculateKaigo(KAIGO_DATA, toContext(pension,salary,other));
+      if(!r){result.innerHTML="<span class='result-placeholder'>保険料データを読み込めませんでした</span>";return;}
+      if(typeof gtag==="function"){var pp=location.pathname.split("/").filter(Boolean);gtag("event","calculate",{prefecture:pp[0]||"unknown",city:(typeof CITY_SLUG!=="undefined"?CITY_SLUG:"unknown"),calc_type:"kaigo-simple"});}
+      result.innerHTML=
+        "<div class='result-row'><div class='result-label'>あなたの段階</div><div class='amount'>"+(r.label||("第"+r.level+"段階"))+"（×"+r.rate+"）</div></div>"+
+        "<div class='result-row result-total'><div class='result-label'>介護保険料（年額・概算）</div><div class='amount'>約 "+r.annual.toLocaleString()+" 円</div></div>"+
+        "<div class='result-row'><div class='result-label'>月額目安</div><div class='amount'>約 "+r.monthly.toLocaleString()+" 円</div></div>";
+      // 段階表で該当行をハイライト
+      var rows=document.querySelectorAll("#rateTable tr[data-level]");
+      rows.forEach(function(tr){ tr.classList.toggle("kg-hit", String(tr.getAttribute("data-level"))===String(r.level)); });
+    }catch(e){
+      result.innerHTML="<div class='result-label'>計算エラー</div><div class='result-label'>"+e.message+"</div>";
+    }
+  };
+
+  // この自治体だけの市民向け補足注釈（kaigo-{year}.json の publicNote）を一番下に表示。
+  // ※ 内部メモの notes（出典・段階構造など）は市民目線のため表示しない。自治体別の
+  //    お知らせを出したいときは、その自治体の JSON に publicNote を記載する。
+  function renderCityNote(){
+    var el=document.getElementById("cityNote"); if(!el||!KAIGO_DATA)return;
+    if(KAIGO_DATA.publicNote){ el.innerHTML="<br>※この自治体の補足："+String(KAIGO_DATA.publicNote); }
+  }
+
+  function init(){ renderRate(); renderCityNote(); setupNumericInput("pension",true); setupNumericInput("salary",true); setupNumericInput("other",true); }
+  if(document.readyState!=="loading")init();
+  else document.addEventListener("DOMContentLoaded",init);
+})();
+</script>
+
+</body>
+</html>
