@@ -42,6 +42,7 @@
     }
   },
   "incomeReduction": null,
+  "publicNote": null,
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",
@@ -49,9 +50,9 @@
       "retrievedAt": "2026-06-28"
     },
     "kansho": {
-      "url": "https://www.kouiki-okayama.jp/?p=2201",
-      "note": "所得割独自軽減なし・県内均一",
-      "confidence": 0.85,
+      "url": "https://www.pref.okayama.jp/page/486151.html",
+      "note": "所得割独自軽減なし・県内均一(公式広域連合ページで裏取り＝軽減は全国一律7.2割/5割/2割＋被扶養者2年5割のみ)(県公式に「岡山県内均一」明記)",
+      "confidence": 0.95,
       "retrievedAt": "2026-06-28"
     }
   },

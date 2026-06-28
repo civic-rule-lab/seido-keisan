@@ -42,6 +42,7 @@
     }
   },
   "incomeReduction": null,
+  "publicNote": null,
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",
@@ -50,8 +51,8 @@
     },
     "kansho": {
       "url": "https://www.kochi-kouiki.or.jp/life/dtl.php?hdnKey=267",
-      "note": "所得割独自軽減なし・県内一律",
-      "confidence": 0.85,
+      "note": "所得割独自軽減なし・県内均一(公式広域連合ページで裏取り＝軽減は全国一律7.2割/5割/2割＋被扶養者2年5割のみ)(R8本文encoding不可・構造確認)",
+      "confidence": 0.88,
       "retrievedAt": "2026-06-28"
     }
   },

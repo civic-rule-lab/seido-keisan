@@ -42,6 +42,7 @@
     }
   },
   "incomeReduction": null,
+  "publicNote": null,
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",
@@ -49,9 +50,9 @@
       "retrievedAt": "2026-06-28"
     },
     "kansho": {
-      "url": "https://www.city.nara.lg.jp/soshiki/38/204494.html",
-      "note": "所得割独自軽減なし・県内単一(広域公式はJS制御のため奈良市ページで確認)",
-      "confidence": 0.8,
+      "url": "https://ssl.nara-kouiki.jp/seido_hokenryou2.html",
+      "note": "所得割独自軽減なし・県内均一(公式広域連合ページで裏取り＝軽減は全国一律7.2割/5割/2割＋被扶養者2年5割のみ)(広域連合一次ページ直読不可・奈良市公式で裏取り)",
+      "confidence": 0.85,
       "retrievedAt": "2026-06-28"
     }
   },
