@@ -63,7 +63,14 @@
       "updatedAt": "2026-04-08T01:03:23.070Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html"
+      ],
+      "r8Stage": "source_found_r8",
+      "sourceUrls": [
+        "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html"
+      ]
     },
     "source": {
       "type": "estimated",
@@ -80,7 +87,7 @@
       "confidenceScore": 0.5,
       "completeness": "partial"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。 / 2026-07-02: 公式国保ページをwatchUrl登録(税率表HTML掲載)。R8告示待ち監視。"
   },
   "childcare": {
     "rate": 0,

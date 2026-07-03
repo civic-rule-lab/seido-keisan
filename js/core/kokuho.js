@@ -2,6 +2,12 @@
 // Browser: <script> で読み込むとグローバル関数として使用可能
 // Node:    require('./js/core/kokuho') で { calculateKokuho } を取得
 
+// 子ども・子育て支援金分の賦課限度額の国基準（政令）。
+// 出典: 国民健康保険法施行令 第29条の7 第5項 第10号（令和8年度新設・30,000円、2026-07-02 確認）
+// 注意: 条例で国基準未満を定める自治体が実在する（例: shika 20,000円）ため、
+// これは「データ欠落時の最後の手段」であり、正は各自治体 JSON の childcareLevy.cap。
+const CHILDCARE_CAP_NATIONAL = 30000;
+
 function calculateKokuho(input, data) {
   const { income, family, preschool, under18, care, salaryPensionCount, fixedAssetTax,
           reductionJudgmentIncome } = input;
@@ -40,14 +46,9 @@ function calculateKokuho(input, data) {
   const supportHousehold = data.household?.support || 0;
   const careHousehold    = careSafe > 0 ? (data.household?.care || 0) : 0;
 
-  // 未就学児軽減
-  const preschoolReductionMedical = Math.round(
-    preschoolSafe * data.perCapita.medical * (data.preschoolReduction?.medicalPerCapitaRate || 0)
-  );
-  const preschoolReductionSupport = Math.round(
-    preschoolSafe * data.perCapita.support * (data.preschoolReduction?.supportPerCapitaRate || 0)
-  );
-  const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
+  // 未就学児軽減の計算は「軽減判定」で reductionRate が確定した後に行う。
+  // 制度上、法定軽減（7/5/2割）が適用される世帯では「軽減後の」均等割額の5割を
+  // 軽減するため、reductionRate に依存する。定義は下方（reductionRate 決定後）へ移動。
 
   // 学齢児軽減（未就学児を除く 18 歳未満の医療分・支援分均等割を減額）
   // 例: 昭島市の独自減免「未就学児を除く 18 歳未満の医療分・支援分均等割を 5割減額」
@@ -97,6 +98,19 @@ function calculateKokuho(input, data) {
     reductionLabel = "2割軽減";
     reductionRate  = data.reduction?.ratios?.twoTenths || 0;
   }
+
+  // 未就学児軽減（均等割の医療分・支援分）
+  // 制度: 法定軽減（7/5/2割）が適用される世帯では「軽減後の均等割額」の5割を軽減する。
+  //   例) 7割軽減世帯 → 残り3割の5割(=1.5割)を軽減 → 合計8.5割軽減。
+  // よって未就学児分の per-capita に (1 - reductionRate) を乗じた残額へ軽減率を適用する。
+  // reductionRate=0（軽減なし）のときは (1-0)=1 で従来式と一致（後方互換）。
+  const preschoolReductionMedical = Math.round(
+    preschoolSafe * data.perCapita.medical * (1 - reductionRate) * (data.preschoolReduction?.medicalPerCapitaRate || 0)
+  );
+  const preschoolReductionSupport = Math.round(
+    preschoolSafe * data.perCapita.support * (1 - reductionRate) * (data.preschoolReduction?.supportPerCapitaRate || 0)
+  );
+  const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
 
   // 子ども・子育て支援金分（R8新設・0なら無効）
   // childcareLevy（旧方式・under18Reduction/perCapitaAdult 対応）を優先、
@@ -158,7 +172,16 @@ function calculateKokuho(input, data) {
   medicalTotal   = Math.min(Math.max(medicalTotal,   0), data.caps.medical);
   supportTotal   = Math.min(Math.max(supportTotal,   0), data.caps.support);
   careTotal      = Math.min(Math.max(careTotal,      0), data.caps.care);
-  childcareTotal = Math.min(Math.max(childcareTotal, 0), childcareCfg?.cap ?? 30000);
+  // 支援金分の cap は自治体データが正。未定義なら国基準で代用するが、
+  // 静かに落とさず警告する（cap 未定義は 2026-07-02 時点で 114 自治体）。
+  let childcareCap = childcareCfg?.cap;
+  if (childcareCap === undefined) {
+    childcareCap = CHILDCARE_CAP_NATIONAL;
+    if (childcareTotal > 0 && typeof console !== "undefined") {
+      console.warn(`[kokuho] ${data.citySlug || "(citySlug不明)"}: childcareLevy.cap がデータ未定義のため国基準 ${CHILDCARE_CAP_NATIONAL} 円で代用（条例値の確認・データ整備が必要）`);
+    }
+  }
+  childcareTotal = Math.min(Math.max(childcareTotal, 0), childcareCap);
 
   const total          = medicalTotal + supportTotal + careTotal + childcareTotal;
   const monthly        = Math.round(total / 12);

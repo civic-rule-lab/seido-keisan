@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0883,
-    "support": 0.0316,
-    "care": 0.027
+    "medical": 0.0865,
+    "support": 0.0252,
+    "care": 0.0224
   },
   "perCapita": {
-    "medical": 31831,
-    "support": 11054,
-    "care": 11813
+    "medical": 29200,
+    "support": 8750,
+    "care": 10200
   },
   "household": {
-    "medical": 22066,
-    "support": 7663,
-    "care": 5994
+    "medical": 23300,
+    "support": 6500,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,34 +57,46 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.059Z",
-      "updatedAt": "2026-04-08T01:03:23.059Z",
+      "updatedAt": "2026-07-02T00:06:41Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.town.koya.wakayama.jp/kurashi/zeikin/38632.html"
+      ],
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "official_rate_page",
+      "r8Updated": true,
+      "sourceUrls": [
+        "https://www.town.koya.wakayama.jp/kurashi/zeikin/38632.html"
+      ]
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "高野町 国民健康保険税（令和8年度）",
+      "url": "https://www.town.koya.wakayama.jp/kurashi/zeikin/38632.html",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-07-02",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。 / 2026-07-02: 公式国保税ページでR8完全告示を確認(医8.65%/支2.52%/介2.24%/子0.30%・限度67/26/17/3万・子育て支援金分あり)。watchUrl登録。verified_r8化候補。 / 2026-07-02: verified_r8化。高野町公式国保税ページ(official_rate_page)から医8.65/支2.52/介2.24/子0.30・均等29200/8750/10200/子1150(+18歳以上41)・平等23300/6500/5500/子766・限度67/26/17/3万を反映。"
   },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1150,
+    "perCapitaAdult": 41,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }

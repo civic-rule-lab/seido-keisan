@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0935,
-    "support": 0.0281,
-    "care": 0.0247
+    "medical": 0.092,
+    "support": 0.0272,
+    "care": 0.0239
   },
   "perCapita": {
-    "medical": 40469,
-    "support": 12086,
-    "care": 12690
+    "medical": 38600,
+    "support": 11200,
+    "care": 12200
   },
   "household": {
-    "medical": 25960,
-    "support": 7753,
-    "care": 6180
+    "medical": 25600,
+    "support": 7400,
+    "care": 5900
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.356Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-07-03T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.city.nonoichi.lg.jp/soshiki/16/930.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-07-03",
+      "verificationLevel": "municipal_verified",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "municipal_official",
+      "title": "令和8年度 野々市市国民健康保険税率（国民健康保険税ページ）",
+      "url": "https://www.city.nonoichi.lg.jp/soshiki/16/930.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-07-03",
+      "method": "municipal-official-rate"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 1.0,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で野々市市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=76円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "野々市市公式HP「国民健康保険税」(2026-04-06更新)のR8税率表から実料率で確定。3方式・資産割なし。限度額は医療67万/支援26万/介護17万/子ども3万(合計113万・ページ表と整合)。子ども子育て分は均等割1200円+18歳以上加算100円(perCapitaAdult)+平等割800円。R8から仮算定廃止(納付9回)の注記あり。県標準(provisional)から municipal_verified へ昇格 (2026-07-03)。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1241,
-    "perCapitaAdult": 76,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 819,
+    "household": 800,
     "cap": 30000
   }
 }
