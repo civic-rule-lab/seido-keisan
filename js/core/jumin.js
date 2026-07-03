@@ -85,17 +85,34 @@ function calcTokuteiShinzokuDeduction(relativeIncome) {
 //   課税総所得金額 > 200万円: { 人的控除差合計 −（課税総所得金額 − 200万円）} × 5%（最低 2,500円）
 //   合計所得金額 2,500万円超: 適用なし
 // 内訳は県民税2%＋市民税3%＝5%。差額の標準は基礎控除差 5万円（単身）。
-function _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome) {
+// 調整控除の算定基礎（税率を掛ける前の base）。都道府県分・市区町村分を別々に按分するため切り出し。
+function _adjustmentCreditBase(taxableIncome, humanDeductionDiff, totalIncome) {
   if (taxableIncome <= 0) return 0;
   if (totalIncome > 25_000_000) return 0;
   const diff = Math.max(0, humanDeductionDiff);
-  let base;
   if (taxableIncome <= 2_000_000) {
-    base = Math.min(diff, taxableIncome);
-  } else {
-    base = Math.max(diff - (taxableIncome - 2_000_000), 50_000);
+    return Math.min(diff, taxableIncome);
   }
-  return Math.floor(base * 0.05);
+  return Math.max(diff - (taxableIncome - 2_000_000), 50_000);
+}
+function _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome) {
+  return Math.floor(_adjustmentCreditBase(taxableIncome, humanDeductionDiff, totalIncome) * 0.05);
+}
+
+// ─── 保育料指数（市町村民税所得割・調整控除後・税額控除前・旧6%換算） ─────
+// 保育所利用者負担額の階層判定に使う「指数」の1人分。
+//   ・市区町村民税所得割のみ（都道府県分は含めない）
+//   ・調整控除は適用後／ふるさと納税・住宅ローン控除等の税額控除は適用前（＝下がらない）
+//   ・税率は常に標準6%・調整控除の市区町村分3%で固定。政令市(cityRate=8%)でも「旧6%換算」を
+//     この計算で直接得るため cfg.cityRate は使わない [指示書§1: 政令市6/8補正]。
+//   ・名古屋市等の市民税減税は本標準計算では未反映（自治体別の要確認事項）[未確認・推測]。
+// 引数は calculateJumin と同じ課税標準・人的控除差・合計所得。父母合算は呼び出し側で2人分を足す。
+function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, shotokuTaxable) {
+  if (!shotokuTaxable) return 0;
+  const cityGross = Math.floor(taxableIncome * 0.06);
+  const cityAdjust = Math.floor(_adjustmentCreditBase(taxableIncome, humanDeductionDiff, totalIncome) * 0.03);
+  const levy = Math.max(0, cityGross - cityAdjust);
+  return Math.floor(levy / 100) * 100; // 100円未満切捨て
 }
 
 /**
@@ -133,6 +150,8 @@ function _adjustmentCredit(taxableIncome, humanDeductionDiff, totalIncome) {
  *   total            - 年間住民税
  *   monthly          - 月額目安
  *   isTaxable        - 均等割課税者か（介護保険段階判定に使用）
+ *   hoikuShotokuwari - 保育料の指数(1人分)。市町村民税所得割・調整控除後・税額控除前・旧6%換算。
+ *                      父母合算は呼び出し側で2回呼んで加算する。非課税は0。
  */
 function calculateJumin(data, inputs) {
   const cfg = { ...JUMIN_DEFAULTS, ...(data || {}) };
@@ -210,11 +229,15 @@ function calculateJumin(data, inputs) {
   const total   = incomeLevy + perCapita;
   const monthly = Math.round(total / 12);
 
+  // 保育料指数（市町村民税所得割・調整控除後・税額控除前・旧6%換算）。1人分。
+  const hoikuShotokuwari = calcHoikuShotokuwari(taxableIncome, effHumanDiff, totalIncome, shotokuTaxable);
+
   return {
     taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly,
     isTaxable: kintoTaxable,
     specialDependentDeduction, // 19〜22歳の子等に適用された控除額（特定扶養45万/特定親族特別控除3万〜45万）
+    hoikuShotokuwari,          // 保育料の指数(1人分・市民税所得割/調整控除後/税額控除前/旧6%換算)。父母合算は呼び出し側で。
   };
 }
 
-if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction };
+if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari };
