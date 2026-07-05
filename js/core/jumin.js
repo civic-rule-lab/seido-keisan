@@ -135,6 +135,8 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  * @param {number} [inputs.dependents=0]          - 同一生計配偶者＋扶養親族の数（非課税判定用）
  * @param {number} [inputs.humanDeductionDiff=50000] - 人的控除差の合計（調整控除用。標準=基礎控除差5万）
  * @param {number} [inputs.taxCredits=0]          - ふるさと納税・住宅ローン等の税額控除合計（所得割から控除）
+ * @param {number} [inputs.fiscalYear=2026]       - 住民税の年度。未指定=令和8年度で後方互換。
+ *   令和9年度(2027)以降は給与所得控除の最低保障が74万（令和8年度税制改正）。保育料の令和9年度指数を出す際に指定する。
  * @param {number[]} [inputs.specialDependentSalaries=[]] - 19〜22歳の子等の給与収入（年収）。
  *   給与所得換算した合計所得から自動判定する:
  *     所得58万円以下（給与123万円以下）   → 特定扶養控除45万円＋人的控除差18万円＋扶養人数に加算
@@ -170,6 +172,8 @@ function calculateJumin(data, inputs) {
     humanDeductionDiff = 50_000,
     taxCredits = 0,
     specialDependentSalaries = [],
+    fiscalYear, // 住民税の年度。未指定=令和8年度(2026)で後方互換（給与所得控除の最低保障65万）。
+                // 2027以降で給与所得控除の最低保障74万を適用（令和8年度税制改正）。
   } = inputs || {};
 
   // ── 19〜22歳の子等（B案: 給与収入から特定扶養／特定親族特別控除を自動判定） ──
@@ -178,7 +182,8 @@ function calculateJumin(data, inputs) {
   let _sdDependents = 0;             // 特定扶養該当分の扶養人数（特別控除対象者は含めない）
   for (const s of (Array.isArray(specialDependentSalaries) ? specialDependentSalaries : [])) {
     if (!Number.isFinite(s) || s <= 0) continue;
-    const relIncome = _income.calcSalaryIncome(s);
+    // 給与→所得の閾値も年度で動く（65万前提「給与123万⇔所得58万」→74万年度は「給与132万⇔所得58万」）。
+    const relIncome = _income.calcSalaryIncome(s, fiscalYear);
     if (relIncome <= 580_000) {
       // 給与123万円以下 → 従来どおり特定扶養控除（45万円・控除差18万円・扶養人数+1）
       specialDependentDeduction += 450_000;
@@ -193,11 +198,11 @@ function calculateJumin(data, inputs) {
   const effDependents         = dependents + _sdDependents;
 
   // 合計所得金額（介護保険段階判定・基礎控除前）
-  const totalIncome = _income.calcTaxableIncomeForKokuho({ salary, pension, age, otherIncome });
+  const totalIncome = _income.calcTaxableIncomeForKokuho({ salary, pension, age, otherIncome, fiscalYear });
 
   // 住民税課税所得（所得控除後）。1,000円未満切捨て（課税標準）。
   const taxableRaw = _income.calcTaxableIncomeForJumin({
-    salary, pension, age, otherIncome,
+    salary, pension, age, otherIncome, fiscalYear,
     socialInsurance,
     spouseDeduction, dependentDeduction: effDependentDeduction,
     disabilityDeduction, singleParentDeduction,

@@ -13,25 +13,34 @@
 
 /**
  * 給与収入から給与所得控除を差し引いた「給与所得」を返す。
- * 令和8年度（2026年度）個人住民税ルール。
  *
- * 令和7年度税制改正により、令和7年分所得に係る令和8年度分から:
+ * 令和7年度税制改正（令和7年分所得に係る令和8年度分から）:
  *   - 最低保障額: 55万円 → 65万円
  *   - 162.5万〜180万円の区間（×40%-10万）を廃止
- *   - 190万円以下を一律65万円控除に統合
- *   （190万円 × 30% + 8万円 = 65万円 で次の区間と連続）
+ *   - 190万円以下を一律65万円控除に統合（190万×30%+8万=65万で次区間と連続）
+ *
+ * 令和8年度税制改正（令和7年12月26日 大綱・R7.12閣議決定）:
+ *   - 給与所得控除の最低保障を 65万→69万本則＋5万特例＝実効74万に引上げ。
+ *   - 適用時期は所得税＝令和8・9年分／個人住民税＝令和9・10年度分。
+ *   - 出典: 財務省『令和8年度税制改正の大綱』
+ *     https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/20251226taikou.pdf
  *
  * @param {number} salary - 給与収入（円、年額）
+ * @param {number} [fiscalYear=2026] - 個人住民税の年度。既定=令和8年度(2026)で後方互換。
+ *   令和9年度(2027)以降は最低保障74万を適用。
  * @returns {number} 給与所得（円、整数）
  */
-function calcSalaryIncome(salary) {
+function calcSalaryIncome(salary, fiscalYear = 2026) {
   if (!Number.isFinite(salary) || salary <= 0) return 0;
 
+  // 最低保障: 令和8年度=65万 / 令和9年度以降(+5万特例)=74万。
+  // 最低保障は区間式に混ぜず max() のフロアとして扱う（切替点が自動移動）:
+  //   65万→ salary 190万で 0.3s+8万 と連続 / 74万→ salary 220万で連続。
+  const minGuarantee = fiscalYear >= 2027 ? 740_000 : 650_000;
+
   let deduction;
-  if (salary <= 1_900_000) {
-    deduction = 650_000;                       // 最低保障額 65万円（令和8年度以降）
-  } else if (salary <= 3_600_000) {
-    deduction = salary * 0.3 + 80_000;
+  if (salary <= 3_600_000) {
+    deduction = Math.max(minGuarantee, salary * 0.3 + 80_000);
   } else if (salary <= 6_600_000) {
     deduction = salary * 0.2 + 440_000;
   } else if (salary <= 8_500_000) {
@@ -105,7 +114,7 @@ function calcPensionIncome(pension, age, otherIncome = 0) {
  */
 function calcTaxableIncomeForKokuho(params) {
   const p = params || {};
-  const salaryIncome  = calcSalaryIncome(p.salary || 0);
+  const salaryIncome  = calcSalaryIncome(p.salary || 0, p.fiscalYear);
   const pensionIncome = calcPensionIncome(p.pension || 0, p.age);
   const other         = Number.isFinite(p.otherIncome) ? p.otherIncome : 0;
 
@@ -134,7 +143,7 @@ function calcTaxableIncomeForKokuho(params) {
 function calcTaxableIncomeForJumin(params) {
   const p = params || {};
   const totalIncome =
-    calcSalaryIncome(p.salary || 0) +
+    calcSalaryIncome(p.salary || 0, p.fiscalYear) +
     calcPensionIncome(p.pension || 0, p.age) +
     (Number.isFinite(p.otherIncome) ? p.otherIncome : 0);
 
