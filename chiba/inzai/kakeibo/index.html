@@ -49,7 +49,7 @@
   .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
 
   .ci-systems{margin:8px 0 0;}
-  .ci-grp{margin:20px 0 0;}
+  .ci-grp{margin:14px 0 0;background:#f8fafc;border:1px solid #eef2f7;border-radius:12px;padding:13px 15px;}
   .ci-grp-head{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;color:#1d4ed8;margin:0 0 6px;padding-bottom:5px;border-bottom:1px solid #eef2f7;}
   .ci-grp-head .ci-grp-sum{font-size:15px;font-weight:700;color:#0f172a;}
   .ci-sub{font-size:13px;color:#9ca3af;}
@@ -87,6 +87,31 @@
     </div>
   </div>
 
+  <div id="hoikuBlock" style="display:none;margin-top:18px;padding:14px;border:1px solid #dbeafe;border-radius:12px;background:#f8fbff;">
+    <label style="display:flex;align-items:center;gap:8px;margin:0;font-weight:600;cursor:pointer;">
+      <input type="checkbox" id="hoikuOptIn" onchange="document.getElementById('hoikuDetail').style.display=this.checked?'block':'none';">
+      保育料も試算する（0〜2歳のお子さんが認可保育所）
+    </label>
+    <div id="hoikuDetail" style="display:none;margin-top:12px;">
+      <label for="hoikuSpouse">配偶者（保護者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄</span></label>
+      <input id="hoikuSpouse" type="text" inputmode="numeric" placeholder="例：3,000,000">
+      <div class="field-grid">
+        <div>
+          <label for="hoikuChildAge">お子さんの年齢</label>
+          <select id="hoikuChildAge"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
+        </div>
+        <div>
+          <label for="hoikuSiblings">認可に通う兄・姉</label>
+          <select id="hoikuSiblings"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上</option></select>
+        </div>
+      </div>
+      <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
+        <input type="checkbox" id="hoikuHitorioya"> ひとり親世帯・世帯員に障害者がいる
+      </label>
+      <div class="note" style="margin-top:8px;">保育時間=標準時間・施設=認可保育所を仮定した概算です。保育時間・施設種別・在園外きょうだいの軽減は<a href="../hoiku/" style="color:#1d4ed8;font-weight:600;">保育料を詳しく計算 →</a>で反映できます。</div>
+    </div>
+  </div>
+
   <button onclick="calcAll()">まとめて計算する</button>
 
   <div class="result-title">計算結果</div>
@@ -108,10 +133,13 @@
     
     <!-- 暫定: 国保は当面 kokuho-keisan.jp 側を参照（seido-keisan へ移行したら内部 "../" に戻す） -->
     <a href="https://kokuho-keisan.jp/chiba/inzai/" target="_blank" rel="noopener">国保だけ詳しく ↗</a>
+    <!-- 社保は別サイト shaho-keisan.jp。県別ページは準備中のため当面トップ／比較ページへ -->
+    <a href="https://shaho-keisan.jp/" target="_blank" rel="noopener">会社員の社会保険料 ↗</a>
+    <a href="https://shaho-keisan.jp/hikaku/" target="_blank" rel="noopener">任意継続 vs 国保 ↗</a>
   </div>
 
   <div class="note">
-    ※住民税：給与収入の約14.4%を社会保険料控除として概算。各種人的控除は未考慮。<br>
+    ※住民税：給与収入の約14.4%を社会保険料控除として概算。各種人的控除は未考慮。会社員の方は shaho-keisan.jp で協会けんぽ・厚生年金・雇用保険の正確な社会保険料を計算できます。<br>
     ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。<br>
     ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
     ※75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（金額は後期高齢者医療のページで計算できます）。<br>
@@ -135,6 +163,7 @@
 <script src="/js/core/jumin.js?v=8721383c"></script>
 <script src="/js/core/kokuho.js?v=8721383c"></script>
 <script src="/js/core/kaigo.js?v=8721383c"></script>
+<script src="/js/core/hoiku.js?v=8721383c"></script>
 <script>
 (function () {
   "use strict";
@@ -157,7 +186,7 @@
     el.addEventListener("blur",commit);
     el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
   }
-  function initInputs(){ setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); setupNumericInput("family",false); }
+  function initInputs(){ setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); }
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);
   function yen(n){return Math.round(n).toLocaleString()+" 円";}
@@ -186,12 +215,13 @@
     var totalIncome = calcSalaryIncome(salary) + calcPensionIncome(pension, age); // 総所得金額等
     var socialInsurance = Math.round(salary*0.144);
 
-    var settled = await Promise.allSettled([loadSystem("jumin"), loadSystem("kokuho"), loadSystem("kaigo")]);
+    var settled = await Promise.allSettled([loadSystem("jumin"), loadSystem("kokuho"), loadSystem("kaigo"), loadSystem("hoiku")]);
     var juminData  = settled[0].status==="fulfilled" ? settled[0].value : null;
     var kokuhoData = settled[1].status==="fulfilled" ? settled[1].value : null;
     var kaigoData  = settled[2].status==="fulfilled" ? settled[2].value : null;
+    var hoikuData  = settled[3].status==="fulfilled" ? settled[3].value : null;
 
-    var cards=[], grand=0, taxableJumin=true;
+    var cards=[], grand=0, taxableJumin=true, detailLinks=[];
 
     // ── 住民税（jumin-2026.json が無くても標準値で計算可） ──
     try{
@@ -200,7 +230,8 @@
       grand += rj.total;
       cards.push(card("住民税", rj.total, [
         ["所得割", rj.incomeLevy],["均等割（森林環境税含む）", rj.perCapita]
-      ], juminData ? {href:"../jumin/", label:"住民税を詳しく計算"} : null));
+      ], "#1d4ed8"));
+      if(juminData) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"#1d4ed8"});
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
     // ── 医療保険：74歳以下は国民健康保険、75歳以上は後期高齢者医療（対象が異なる） ──
@@ -213,7 +244,7 @@
         grand += rk.total;
         cards.push(card("国民健康保険", rk.total, [
           ["医療分", rk.medicalTotal],["支援分", rk.supportTotal],["介護分", rk.careTotal],["法定軽減", -rk.totalReduction]
-        ]));
+        ], "#0d9488"));
       }catch(e){ cards.push(skip("国民健康保険", "計算できませんでした")); }
     } else { cards.push(skip("国民健康保険", "この自治体のデータは準備中")); }
 
@@ -238,10 +269,45 @@
             grand += rkg.annual;
             cards.push(card("介護保険（第1号）", rkg.annual, [
               [rkg.label||("第"+rkg.level+"段階"), rkg.annual]
-            ], {href:"../kaigo/", label:"介護保険を詳しく計算"}));
+            ], "#d97706"));
+            detailLinks.push({href:"../kaigo/", label:"介護保険を詳しく計算", color:"#d97706"});
           } else { cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
         }catch(e){ cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
       } else { cards.push(skip("介護保険（第1号）", "準備中（検証中）")); }
+    }
+
+    // ── 保育料（0〜2歳・認可・opt-in。hoikuData のある自治体のみ加算） ──
+    var _hoikuOptIn = document.getElementById("hoikuOptIn");
+    if(_hoikuOptIn && _hoikuOptIn.checked){
+      if(hoikuData && hoikuData.inputBasis==="shotokuwari-direct"){
+        // 名古屋型は年収から導けない。probe が枠を消すが二重防御でここでも加算しない
+        cards.push(skip("保育料（認可・0〜2歳）", "このまちは年収からの試算に非対応です。保育料ページでご確認ください"));
+      } else if(hoikuData){
+        if(salary===0 && num("hoikuSpouse")===0 && pension===0){
+          // 保護者に給与も年金も無いと非課税/有償の区別がつかず数値段に誤着地するため計算しない
+          cards.push(skip("保育料（認可・0〜2歳）", "保育料の試算には保護者の給与または年金収入の入力が必要です"));
+        } else try{
+          var rh = calcHoikuFromSalaries(hoikuData, salary, num("hoikuSpouse"), {
+            age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
+            enrolled: Number((document.getElementById("hoikuSiblings")||{}).value)||0,
+            hitorioya: !!(document.getElementById("hoikuHitorioya")||{}).checked,
+            honninPension: pension
+          });
+          var _hoikuAnnual = (rh.monthly||0)*12;
+          grand += _hoikuAnnual;
+          cards.push(card("保育料（認可・0〜2歳）", _hoikuAnnual, [["月額", rh.monthly||0]], "#db2777", "#1d4ed8"));
+          detailLinks.push({href:"../hoiku/", label:"保育料を詳しく計算", color:"#db2777", textColor:"#1d4ed8"});
+        }catch(e){ cards.push(skip("保育料（認可・0〜2歳）", "計算できませんでした")); }
+      } else { cards.push(skip("保育料（認可・0〜2歳）", "この自治体のデータは準備中")); }
+    }
+
+    // ── 「詳しく計算する」導線：カード枠は付けず、制度色のピルで並べる ──
+    if(detailLinks.length){
+      var _dl = detailLinks.map(function(l){
+        var c=l.color||"#1d4ed8", t=l.textColor||c;   // 枠=c / 文字=t（保育料は枠ピンク・文字青）
+        return "<a href='"+l.href+"' style='display:inline-block;font-size:13px;color:"+t+";text-decoration:none;font-weight:600;border:1.5px solid "+c+";border-radius:999px;padding:6px 14px;margin:8px 8px 0 0;'>"+l.label+" →</a>";
+      }).join("");
+      cards.push("<div style='margin-top:8px;'>"+_dl+"</div>");
     }
 
     systemsEl.innerHTML = cards.join("");
@@ -252,14 +318,51 @@
     if(typeof gtag==="function"){gtag("event","calculate",{city:CITY,calc_type:"integrated"});}
   };
 
-  function card(name, total, rows, link){
+  function card(name, total, rows, accent, textColor){
+    accent = accent || "#1d4ed8";
+    var tc = textColor || accent;   // 枠色(accent)と文字色(textColor)を分けられる（保育料=枠ピンク/文字青）
     var inner=rows.map(function(r){return "<div class='result-row'><div class='result-label' style='font-size:15px;'>"+r[0]+"</div><div class='amount' style='font-size:16px;'>"+(r[1]<0?"-":"")+Math.abs(Math.round(r[1])).toLocaleString()+" 円</div></div>";}).join("");
-    var linkHtml = link ? "<div style='margin-top:7px;text-align:right;'><a href='"+link.href+"' style='font-size:13px;color:#1d4ed8;text-decoration:none;font-weight:600;'>"+link.label+" →</a></div>" : "";
-    return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-grp-sum'>約 "+Math.round(total).toLocaleString()+" 円/年</span></div>"+inner+linkHtml+"</div>";
+    return "<div class='ci-grp' style='border-left:4px solid "+accent+";'><div class='ci-grp-head' style='color:"+tc+";'>"+name+"<span class='ci-grp-sum'>約 "+Math.round(total).toLocaleString()+" 円/年</span></div>"+inner+"</div>";
   }
   function skip(name, msg){
-    return "<div class='ci-grp'><div class='ci-grp-head'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";
+    return "<div class='ci-grp' style='border-left:4px solid #cbd5e1;'><div class='ci-grp-head' style='color:#64748b;'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";
   }
+  // ── 保育料 結線（独立ページ hoiku-simple.html と同方式。①〜⑤を家計簿に移植） ──
+  function _juminOf(sal, pen){
+    sal=sal||0; pen=pen||0;
+    if(!sal && !pen) return {shotokuwari:0, taxable:false};
+    var si=Math.round(sal*0.144);
+    var r=calculateJumin(null,{salary:sal,pension:pen,otherIncome:0,age:40,socialInsurance:si});
+    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable};
+  }
+  function calcHoikuFromSalaries(M, honninSalary, spouseSalary, opts){
+    opts=opts||{};
+    var honninPension=opts.honninPension||0;               // 世帯主(=保護者1)の年金も課税判定に反映
+    var f=_juminOf(honninSalary, honninPension), m=_juminOf(spouseSalary, 0);
+    var input={ age:opts.age||"age1_2", hitorioya:!!opts.hitorioya, month:(M.fiscalSwitch||9),
+      father:{shotokuwari:f.shotokuwari}, mother:{shotokuwari:m.shotokuwari}, isSeireiNotice:false };
+    var fe=(!honninSalary && !honninPension), me=(!spouseSalary);
+    var fTax=fe?false:f.taxable, mTax=me?false:m.taxable;
+    input.hikazei = !(fe&&me) && !fTax && !mTax;   // ② 非課税=父母AND(年金課税も考慮)
+    input.childOrder = (opts.enrolled||0)+1;        // ① 多子=在園兄姉+1
+    return calcHoiku(input, M);                      // ④ kintowariOnly不問 ⑤ salary経路 isSeireiNotice=false
+  }
+  // hoiku データがある自治体だけ opt-in ブロックを表示
+  (function probeHoiku(){
+    function run(){ loadSystem("hoiku").then(function(hd){
+      var b=document.getElementById("hoikuBlock"); if(!b||!hd) return;
+      var isFree = hd.status==="free" || (hd.freePolicy && hd.freePolicy.firstChild);
+      if(isFree){
+        // 無償のまちは試算フォームを出さず、無償の案内だけ表示（合計にも乗せない）
+        b.innerHTML='<div style="font-weight:600;">保育料（0〜2歳・認可）</div><div class="note" style="margin-top:4px;">このまちは第1子から<b>無償（0円）</b>です。認可外・3歳以上などの別枠は<a href="../hoiku/" style="color:#1d4ed8;font-weight:600;">保育料ページ →</a>でご確認ください。</div>';
+      } else if(hd.inputBasis==="shotokuwari-direct"){
+        // 名古屋型（税源移譲前所得割で直接判定）は年収から導けないため家計簿では試算せず誘導
+        b.innerHTML='<div style="font-weight:600;">保育料（0〜2歳・認可）</div><div class="note" style="margin-top:4px;">このまちの保育料は市民税の課税額から直接判定するため、家計簿の年収試算には対応していません。<a href="../hoiku/" style="color:#1d4ed8;font-weight:600;">保育料を詳しく計算 →</a></div>';
+      }
+      b.style.display="block";
+    }).catch(function(){}); }
+    if(document.readyState!=="loading") run(); else document.addEventListener("DOMContentLoaded", run);
+  })();
 })();
 </script>
 

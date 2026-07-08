@@ -31,6 +31,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/kanagawa/yokohama/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/kanagawa/kawasaki/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1387,6 +1393,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/chiyoda/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/chuo/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1406,6 +1418,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/chuo/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/chuo/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1435,6 +1453,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/minato/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/shinjuku/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1454,6 +1478,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/shinjuku/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/shinjuku/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1483,6 +1513,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/bunkyo/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/taito/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1502,6 +1538,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/taito/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/taito/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1531,6 +1573,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/sumida/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/koto/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1550,6 +1598,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/koto/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/koto/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1579,6 +1633,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/shinagawa/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/meguro/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1598,6 +1658,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/meguro/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/meguro/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1627,6 +1693,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/ota/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/setagaya/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1646,6 +1718,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/setagaya/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/setagaya/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1675,6 +1753,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/shibuya/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/nakano-ku/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1694,6 +1778,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/nakano-ku/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/nakano-ku/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1723,6 +1813,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/suginami/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/toshima/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1742,6 +1838,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/toshima/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/toshima/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1771,6 +1873,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/kita/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/arakawa/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1790,6 +1898,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/arakawa/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/arakawa/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1819,6 +1933,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/itabashi/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/nerima/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1838,6 +1958,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/nerima/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/nerima/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1867,6 +1993,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/adachi/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/katsushika/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1886,6 +2018,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/katsushika/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/katsushika/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1915,6 +2053,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/edogawa/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/hachioji/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1939,6 +2083,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/hachioji/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/tachikawa/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1946,6 +2096,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/tachikawa/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/tachikawa/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1963,6 +2119,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/musashino/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/mitaka/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1970,6 +2132,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/mitaka/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/mitaka/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -1987,6 +2155,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/ome/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/fuchu/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -1994,6 +2168,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/fuchu/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/fuchu/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2011,6 +2191,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/akishima/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/chofu/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2018,6 +2204,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/chofu/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/chofu/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2035,6 +2227,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/machida/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/koganei/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2042,6 +2240,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/koganei/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/koganei/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2059,6 +2263,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/kodaira/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/hino/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2066,6 +2276,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/hino/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/hino/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2083,6 +2299,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/higashimurayama/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/kokubunji/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2090,6 +2312,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/kokubunji/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/kokubunji/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2107,6 +2335,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/kunitachi/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/fussa/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2114,6 +2348,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/fussa/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/fussa/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2131,6 +2371,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/komae/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/higashiyamato/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2138,6 +2384,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/higashiyamato/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/higashiyamato/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2155,6 +2407,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/kiyose/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/higashikurume/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2162,6 +2420,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/higashikurume/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/higashikurume/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2179,6 +2443,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/musashimurayama/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/tama/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2186,6 +2456,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/tama/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/tama/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2203,6 +2479,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/inagi/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/hamura/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2210,6 +2492,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/hamura/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/hamura/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -2227,6 +2515,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/tokyo/akiruno/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/tokyo/nishitokyo/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -2234,6 +2528,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/tokyo/nishitokyo/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/tokyo/nishitokyo/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -5059,6 +5359,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/kyoto/kyoto/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/kyoto/fukuchiyama/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -5378,6 +5684,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/aichi/nagoya/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/aichi/nagoya/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -6038,6 +6350,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/hokkaido/sapporo/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/hokkaido/sapporo/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -8659,6 +8977,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/niigata/niigata/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/niigata/nagaoka/kaigo/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -10579,6 +10903,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/hyogo/kobe/hoiku/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/hyogo/himeji/jumin/income.html</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
@@ -11126,6 +11456,12 @@
   </url>
   <url>
     <loc>https://seido-keisan.jp/shizuoka/hamamatsu/kakeibo/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/shizuoka/hamamatsu/hoiku/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

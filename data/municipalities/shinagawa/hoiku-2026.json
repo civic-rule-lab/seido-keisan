@@ -1,0 +1,19 @@
+{
+  "cityCode": "13109",
+  "citySlug": "shinagawa",
+  "cityName": "品川区",
+  "prefSlug": "tokyo",
+  "fiscalYear": 2026,
+  "system": "hoiku",
+  "schemaVersion": "1.0",
+  "status": "free",
+  "freePolicy": {
+    "firstChild": true,
+    "since": "2025-09",
+    "incomeLimit": false,
+    "source": [
+      "https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"
+    ]
+  },
+  "confidence": "確認済"
+}

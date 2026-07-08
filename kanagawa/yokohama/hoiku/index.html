@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- 【実装ドラフト v1・レビュー用／本番未配置】保育料 かんたん計算テンプレート
+     ※移行時は kokuho-core/templates/hoiku-simple.html へ。プレースホルダは generate-hoiku-pages.js が置換。
+     ※結線は jumin-simple.html と同方式（テンプレ内インラインscript＋{"cityCode":"14100","citySlug":"yokohama","cityName":"横浜市","prefSlug":"kanagawa","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"verified","confidence":"確認済","fiscalSwitch":9,"taxBasis":"市民税所得割額(税額控除前・調整控除後)・旧税率6%相当(政令市の税源移譲前)","seireiConversion":true,"defaultFacility":"ninka","facilityTypes":{"ninka":"認定こども園(保育利用)・認可保育所","kogata":"小規模保育事業・家庭的保育事業・居宅訪問型保育事業・新制度対象の事業所内保育事業"},"zeroAgeSameAsToddler":true,"source":["https://www.city.yokohama.lg.jp/kosodate-kyoiku/hoiku-yoji/shisetsu/riyou/riyouryo/riyouryosantei/default20190319.html","https://www.city.yokohama.lg.jp/kosodate-kyoiku/hoiku-yoji/shisetsu/riyou/riyouryo/riyouryosantei/default20190319.files/0070_20260123.pdf"],"asOf":"2026-04","hitorioyaNote":"C→E0, D1〜D5→E1〜E5 の実額付け替え(第1子=E実額, 第2子=0)。D6以上(所得割>77,100)は付け替えなし。対象=ひとり親世帯・障害者手帳等世帯(在宅)。","grandparentRule":"父母の市民税(所得割・均等割)が非課税の場合、同居の扶養義務者(祖父母等)を算定対象に加えることがある[未モデル化]。","multiChild":{"third":0,"countScope":"preschoolSiblings","note":"第2子は明示実額(child2)。第3子以降0。年収360万未満(所得割57,700以下・ひとり親77,100以下)は年齢問わず多子カウント[カウント方法は未モデル化]。"},"brackets":[{"level":1,"criteria":"seikatsuhogo","standard":0,"short":0},{"level":2,"criteria":"hikazei","standard":0,"short":0},{"level":3,"tier":"C","facility":{"ninka":{"standard":6700,"short":6500,"child2":{"standard":2300,"short":2200},"hitorioya":{"standard":2300,"short":2200,"child2":{"standard":0,"short":0}}},"kogata":{"standard":4000,"short":3900,"child2":{"standard":1600,"short":1500},"hitorioya":{"standard":1600,"short":1500,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":0},{"level":4,"tier":"D1","facility":{"ninka":{"standard":8200,"short":8000,"child2":{"standard":2900,"short":2800},"hitorioya":{"standard":2900,"short":2800,"child2":{"standard":0,"short":0}}},"kogata":{"standard":5100,"short":5000,"child2":{"standard":2100,"short":2000},"hitorioya":{"standard":2100,"short":2000,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":10000},{"level":5,"tier":"D2","facility":{"ninka":{"standard":10000,"short":9800,"child2":{"standard":3500,"short":3400},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":6300,"short":6100,"child2":{"standard":2500,"short":2400},"hitorioya":{"standard":2500,"short":2400,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":48600},{"level":6,"tier":"D3","facility":{"ninka":{"standard":12500,"short":12200,"child2":{"standard":4400,"short":4300},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":8600,"short":8400,"child2":{"standard":3400,"short":3300},"hitorioya":{"standard":2800,"short":2700,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":50400},{"level":7,"tier":"D4","facility":{"ninka":{"standard":14500,"short":14200,"child2":{"standard":5100,"short":5000},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":10800,"short":10600,"child2":{"standard":4300,"short":4200},"hitorioya":{"standard":2800,"short":2700,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":57700},{"level":8,"tier":"D5","facility":{"ninka":{"standard":16500,"short":16200,"child2":{"standard":5800,"short":5700},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":13100,"short":12800,"child2":{"standard":5100,"short":5000},"hitorioya":{"standard":2800,"short":2700,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":77100},{"level":9,"tier":"D6","facility":{"ninka":{"standard":20400,"short":20000,"child2":{"standard":7100,"short":6900}},"kogata":{"standard":19000,"short":18600,"child2":{"standard":7100,"short":6900}}},"maxShotokuwari":97000},{"level":10,"tier":"D7","facility":{"ninka":{"standard":25000,"short":24500,"child2":{"standard":8800,"short":8600}},"kogata":{"standard":21900,"short":21500,"child2":{"standard":8800,"short":8600}}},"maxShotokuwari":102600},{"level":11,"tier":"D8","facility":{"ninka":{"standard":29000,"short":28500,"child2":{"standard":10200,"short":10000}},"kogata":{"standard":26900,"short":26400,"child2":{"standard":10100,"short":9900}}},"maxShotokuwari":120600},{"level":12,"tier":"D9","facility":{"ninka":{"standard":34000,"short":33400,"child2":{"standard":11900,"short":11600}},"kogata":{"standard":31100,"short":30500,"child2":{"standard":11900,"short":11600}}},"maxShotokuwari":138600},{"level":13,"tier":"D10","facility":{"ninka":{"standard":38000,"short":37300,"child2":{"standard":13300,"short":13000}},"kogata":{"standard":35000,"short":34400,"child2":{"standard":13300,"short":13000}}},"maxShotokuwari":169000},{"level":14,"tier":"D11","facility":{"ninka":{"standard":41500,"short":40700,"child2":{"standard":14500,"short":14200}},"kogata":{"standard":38100,"short":37400,"child2":{"standard":14500,"short":14200}}},"maxShotokuwari":174900},{"level":15,"tier":"D12","facility":{"ninka":{"standard":44500,"short":43700,"child2":{"standard":15600,"short":15300}},"kogata":{"standard":41000,"short":40300,"child2":{"standard":15600,"short":15300}}},"maxShotokuwari":192900},{"level":16,"tier":"D13","facility":{"ninka":{"standard":47500,"short":46600,"child2":{"standard":21400,"short":21000}},"kogata":{"standard":43800,"short":43000,"child2":{"standard":21400,"short":21000}}},"maxShotokuwari":211200},{"level":17,"tier":"D14","facility":{"ninka":{"standard":50200,"short":49300,"child2":{"standard":22600,"short":22200}},"kogata":{"standard":46200,"short":45400,"child2":{"standard":22600,"short":22200}}},"maxShotokuwari":228900},{"level":18,"tier":"D15","facility":{"ninka":{"standard":53000,"short":52000,"child2":{"standard":23900,"short":23400}},"kogata":{"standard":48800,"short":47900,"child2":{"standard":23900,"short":23400}}},"maxShotokuwari":246700},{"level":19,"tier":"D16","facility":{"ninka":{"standard":55000,"short":54000,"child2":{"standard":24800,"short":24300}},"kogata":{"standard":50600,"short":49700,"child2":{"standard":24800,"short":24300}}},"maxShotokuwari":255700},{"level":20,"tier":"D17","facility":{"ninka":{"standard":57000,"short":56000,"child2":{"standard":25700,"short":25200}},"kogata":{"standard":52200,"short":51300,"child2":{"standard":25700,"short":25200}}},"maxShotokuwari":264700},{"level":21,"tier":"D18","facility":{"ninka":{"standard":58000,"short":57000,"child2":{"standard":26800,"short":26300}},"kogata":{"standard":53600,"short":52600,"child2":{"standard":26800,"short":26300}}},"maxShotokuwari":273700},{"level":22,"tier":"D19","facility":{"ninka":{"standard":59000,"short":57900,"child2":{"standard":27900,"short":27400}},"kogata":{"standard":55000,"short":54000,"child2":{"standard":27500,"short":27000}}},"maxShotokuwari":282700},{"level":23,"tier":"D20","facility":{"ninka":{"standard":60000,"short":58900,"child2":{"standard":29000,"short":28500}},"kogata":{"standard":55300,"short":54300,"child2":{"standard":27700,"short":27200}}},"maxShotokuwari":291700},{"level":24,"tier":"D21","facility":{"ninka":{"standard":61000,"short":59900,"child2":{"standard":30100,"short":29500}},"kogata":{"standard":55600,"short":54600,"child2":{"standard":27800,"short":27300}}},"maxShotokuwari":301000},{"level":25,"tier":"D22","facility":{"ninka":{"standard":64500,"short":63400,"child2":{"standard":33100,"short":32500}},"kogata":{"standard":55900,"short":54900,"child2":{"standard":28000,"short":27500}}},"maxShotokuwari":309700},{"level":26,"tier":"D23","facility":{"ninka":{"standard":68000,"short":66800,"child2":{"standard":36200,"short":35500}},"kogata":{"standard":56300,"short":55300,"child2":{"standard":28200,"short":27700}}},"maxShotokuwari":335800},{"level":27,"tier":"D24","facility":{"ninka":{"standard":71500,"short":70200,"child2":{"standard":39300,"short":38600}},"kogata":{"standard":56700,"short":55700,"child2":{"standard":28400,"short":27900}}},"maxShotokuwari":361300},{"level":28,"tier":"D25","facility":{"ninka":{"standard":73600,"short":72300,"child2":{"standard":39700,"short":39000}},"kogata":{"standard":57200,"short":56200,"child2":{"standard":28600,"short":28100}}},"maxShotokuwari":387700},{"level":29,"tier":"D26","facility":{"ninka":{"standard":75600,"short":74300,"child2":{"standard":40000,"short":39300}},"kogata":{"standard":57700,"short":56700,"child2":{"standard":28900,"short":28400}}},"maxShotokuwari":397000},{"level":30,"tier":"D27","facility":{"ninka":{"standard":77500,"short":76100,"child2":{"standard":42600,"short":41800}},"kogata":{"standard":58100,"short":57200,"child2":{"standard":29100,"short":28600}}}}]}埋め込み）。
+     ※Fable5指摘の結線ルール①〜⑤をこのscriptで実装。 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="横浜市の保育料（認可保育所・0〜2歳・3号認定）は令和8年度いくら？父母の年収から市民税所得割ベースで階層・多子軽減・ひとり親軽減を反映して無料でかんたん試算できます。">
+<link rel="canonical" href="https://seido-keisan.jp/kanagawa/yokohama/hoiku/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="横浜市の保育料はいくら？かんたん計算【令和8年度】">
+<meta property="og:description" content="横浜市の保育料（認可保育所・0〜2歳・3号認定）は令和8年度いくら？父母の年収から市民税所得割ベースで階層・多子軽減・ひとり親軽減を反映して無料でかんたん試算できます。">
+<meta property="og:url" content="https://seido-keisan.jp/kanagawa/yokohama/hoiku/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=09703846">
+<title>横浜市の保育料はいくら？かんたん計算【令和8年度】｜認可保育所・0〜2歳</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"神奈川県","item":"https://seido-keisan.jp/#kanagawa"},{"@type":"ListItem","position":3,"name":"横浜市","item":"https://seido-keisan.jp/kanagawa/yokohama/"}]},{"@type":"WebApplication","name":"横浜市 保育料計算ツール（令和8年度）","description":"横浜市の保育料（認可保育所・0〜2歳・3号認定）は令和8年度いくら？父母の年収から市民税所得割ベースで階層・多子軽減・ひとり親軽減を反映して無料でかんたん試算できます。","url":"https://seido-keisan.jp/kanagawa/yokohama/hoiku/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}]}</script>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#e7f6ee 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#fff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,.05);box-sizing:border-box;}
+  h1{margin:28px 0 24px;font-size:clamp(24px,4.5vw,30px);text-align:center;}
+  h1 .yr{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .intro{font-size:15px;color:#374151;line-height:1.8;margin:0 0 26px;}
+  label{display:block;font-size:14px;font-weight:700;margin:16px 0 6px;color:#111827;}
+  .hint{font-weight:400;color:#6b7280;font-size:12px;}
+  input,select{width:100%;padding:12px 12px;font-size:16px;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#0f172a;box-sizing:border-box;}
+  input:focus,select:focus{outline:none;border-color:#0b7285;box-shadow:0 0 0 3px rgba(11,114,133,.15);}
+  .row{display:flex;gap:10px}.row>div{flex:1}
+  .chk{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:14px;font-weight:500;}
+  .chk input{width:auto;margin-top:3px;}
+  .tabs{display:flex;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;margin:6px 0 8px;}
+  .tabs button{flex:1;padding:10px;border:0;background:#fff;font-size:13.5px;cursor:pointer;color:#52606d;}
+  .tabs button.on{background:#d7eef2;color:#0b7285;font-weight:700;}
+  .sec{font-size:12px;letter-spacing:.04em;color:#52606d;font-weight:700;border-top:1px solid #e5e7eb;padding-top:14px;margin:20px 0 2px;}
+  button.cta{width:100%;margin-top:22px;padding:15px;font-size:17px;font-weight:700;border:0;border-radius:999px;background:#0b7285;color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(11,114,133,.25);}
+  .result-title{margin-top:26px;font-size:16px;font-weight:700;}
+  #result{margin-top:6px;}
+  .result-row{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  .amount{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .ph{color:#9ca3af;font-size:14px;}
+  .note{margin-top:18px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .free-box{background:#e7f6ee;border:1px solid #b6e3c8;border-radius:14px;padding:22px 18px;text-align:center;}
+  .free-box .big{font-size:24px;font-weight:800;color:#0b6b3a;margin:6px 0;}
+  .free-box p{color:#2f6b4a;font-size:13.5px;margin:6px 0;}
+  details{margin-top:16px;border:1px solid #e5e7eb;border-radius:12px;padding:8px 14px;}
+  summary{cursor:pointer;font-weight:700;font-size:14px;color:#374151;}
+  .warn{background:#fff6e5;border:1px solid #f0dca8;color:#a15c00;font-size:12.5px;padding:8px 10px;border-radius:8px;margin:8px 0;}
+  .kakeibo-card{display:flex;align-items:center;gap:12px;margin:24px 0 6px;padding:14px 16px;border:1px solid #b6e3c8;background:#f2fbf6;border-radius:14px;text-decoration:none;transition:background .15s;}
+  .kakeibo-card:hover{background:#e7f6ee;}
+  .kakeibo-ico{flex:0 0 auto;display:flex;}
+  .kakeibo-main{display:block;font-size:14.5px;font-weight:700;color:#134e34;}
+  .kakeibo-sub{display:block;font-size:12px;color:#4b7a5f;margin-top:2px;}
+  .hidden{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>横浜市の保育料計算<span class="yr">【令和8年度】認可保育所・0〜2歳（3号）</span></h1>
+  <p class="intro">横浜市の認可保育所（0〜2歳・3号認定）の保育料が令和8年度いくらになるか、父母の年収から無料で試算できます。保育料は市民税の所得割額をもとにした階層で決まり、多子（きょうだい）軽減・ひとり親軽減も反映します。</p>
+
+  <div id="app"><span class="ph">読み込み中…</span></div>
+
+  <div class="result-title" id="resultTitle">試算結果</div>
+  <div id="result"><span class="ph">上の項目を入力して「保育料を試算する」を押してください</span></div>
+
+  <a href="../kakeibo/" class="kakeibo-card"><span class="kakeibo-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0b7285" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18M12 8h5M12 12h5"/></svg></span><span class="kakeibo-txt"><span class="kakeibo-main">この自治体の負担をまとめて見る</span><span class="kakeibo-sub">住民税・国保・介護をまとめて試算（家計簿シミュレーターへ）→</span></span></a>
+  <div class="note">
+    ※認可保育所・0〜2歳（3号認定）の利用者負担額の目安です。3歳以上は原則無償（給食費等は別）。<br>
+    ※保育料は父母の市民税所得割額をもとにした階層で決まります。ふるさと納税・住宅ローン控除では下がりません（税額控除前で判定）。<br>
+    ※実際の額は自治体の通知や公式案内でご確認ください。
+  </div>
+
+  <p style="margin-top:24px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#fff;">Civic Rule Lab</div>
+      <div style="font-size:11px;color:#fff;">市民 ↔ 制度</div>
+    </a>
+  </div>
+</div>
+
+<!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
+<script>const HOIKU_DATA = {"cityCode":"14100","citySlug":"yokohama","cityName":"横浜市","prefSlug":"kanagawa","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"verified","confidence":"確認済","fiscalSwitch":9,"taxBasis":"市民税所得割額(税額控除前・調整控除後)・旧税率6%相当(政令市の税源移譲前)","seireiConversion":true,"defaultFacility":"ninka","facilityTypes":{"ninka":"認定こども園(保育利用)・認可保育所","kogata":"小規模保育事業・家庭的保育事業・居宅訪問型保育事業・新制度対象の事業所内保育事業"},"zeroAgeSameAsToddler":true,"source":["https://www.city.yokohama.lg.jp/kosodate-kyoiku/hoiku-yoji/shisetsu/riyou/riyouryo/riyouryosantei/default20190319.html","https://www.city.yokohama.lg.jp/kosodate-kyoiku/hoiku-yoji/shisetsu/riyou/riyouryo/riyouryosantei/default20190319.files/0070_20260123.pdf"],"asOf":"2026-04","hitorioyaNote":"C→E0, D1〜D5→E1〜E5 の実額付け替え(第1子=E実額, 第2子=0)。D6以上(所得割>77,100)は付け替えなし。対象=ひとり親世帯・障害者手帳等世帯(在宅)。","grandparentRule":"父母の市民税(所得割・均等割)が非課税の場合、同居の扶養義務者(祖父母等)を算定対象に加えることがある[未モデル化]。","multiChild":{"third":0,"countScope":"preschoolSiblings","note":"第2子は明示実額(child2)。第3子以降0。年収360万未満(所得割57,700以下・ひとり親77,100以下)は年齢問わず多子カウント[カウント方法は未モデル化]。"},"brackets":[{"level":1,"criteria":"seikatsuhogo","standard":0,"short":0},{"level":2,"criteria":"hikazei","standard":0,"short":0},{"level":3,"tier":"C","facility":{"ninka":{"standard":6700,"short":6500,"child2":{"standard":2300,"short":2200},"hitorioya":{"standard":2300,"short":2200,"child2":{"standard":0,"short":0}}},"kogata":{"standard":4000,"short":3900,"child2":{"standard":1600,"short":1500},"hitorioya":{"standard":1600,"short":1500,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":0},{"level":4,"tier":"D1","facility":{"ninka":{"standard":8200,"short":8000,"child2":{"standard":2900,"short":2800},"hitorioya":{"standard":2900,"short":2800,"child2":{"standard":0,"short":0}}},"kogata":{"standard":5100,"short":5000,"child2":{"standard":2100,"short":2000},"hitorioya":{"standard":2100,"short":2000,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":10000},{"level":5,"tier":"D2","facility":{"ninka":{"standard":10000,"short":9800,"child2":{"standard":3500,"short":3400},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":6300,"short":6100,"child2":{"standard":2500,"short":2400},"hitorioya":{"standard":2500,"short":2400,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":48600},{"level":6,"tier":"D3","facility":{"ninka":{"standard":12500,"short":12200,"child2":{"standard":4400,"short":4300},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":8600,"short":8400,"child2":{"standard":3400,"short":3300},"hitorioya":{"standard":2800,"short":2700,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":50400},{"level":7,"tier":"D4","facility":{"ninka":{"standard":14500,"short":14200,"child2":{"standard":5100,"short":5000},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":10800,"short":10600,"child2":{"standard":4300,"short":4200},"hitorioya":{"standard":2800,"short":2700,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":57700},{"level":8,"tier":"D5","facility":{"ninka":{"standard":16500,"short":16200,"child2":{"standard":5800,"short":5700},"hitorioya":{"standard":3200,"short":3100,"child2":{"standard":0,"short":0}}},"kogata":{"standard":13100,"short":12800,"child2":{"standard":5100,"short":5000},"hitorioya":{"standard":2800,"short":2700,"child2":{"standard":0,"short":0}}}},"maxShotokuwari":77100},{"level":9,"tier":"D6","facility":{"ninka":{"standard":20400,"short":20000,"child2":{"standard":7100,"short":6900}},"kogata":{"standard":19000,"short":18600,"child2":{"standard":7100,"short":6900}}},"maxShotokuwari":97000},{"level":10,"tier":"D7","facility":{"ninka":{"standard":25000,"short":24500,"child2":{"standard":8800,"short":8600}},"kogata":{"standard":21900,"short":21500,"child2":{"standard":8800,"short":8600}}},"maxShotokuwari":102600},{"level":11,"tier":"D8","facility":{"ninka":{"standard":29000,"short":28500,"child2":{"standard":10200,"short":10000}},"kogata":{"standard":26900,"short":26400,"child2":{"standard":10100,"short":9900}}},"maxShotokuwari":120600},{"level":12,"tier":"D9","facility":{"ninka":{"standard":34000,"short":33400,"child2":{"standard":11900,"short":11600}},"kogata":{"standard":31100,"short":30500,"child2":{"standard":11900,"short":11600}}},"maxShotokuwari":138600},{"level":13,"tier":"D10","facility":{"ninka":{"standard":38000,"short":37300,"child2":{"standard":13300,"short":13000}},"kogata":{"standard":35000,"short":34400,"child2":{"standard":13300,"short":13000}}},"maxShotokuwari":169000},{"level":14,"tier":"D11","facility":{"ninka":{"standard":41500,"short":40700,"child2":{"standard":14500,"short":14200}},"kogata":{"standard":38100,"short":37400,"child2":{"standard":14500,"short":14200}}},"maxShotokuwari":174900},{"level":15,"tier":"D12","facility":{"ninka":{"standard":44500,"short":43700,"child2":{"standard":15600,"short":15300}},"kogata":{"standard":41000,"short":40300,"child2":{"standard":15600,"short":15300}}},"maxShotokuwari":192900},{"level":16,"tier":"D13","facility":{"ninka":{"standard":47500,"short":46600,"child2":{"standard":21400,"short":21000}},"kogata":{"standard":43800,"short":43000,"child2":{"standard":21400,"short":21000}}},"maxShotokuwari":211200},{"level":17,"tier":"D14","facility":{"ninka":{"standard":50200,"short":49300,"child2":{"standard":22600,"short":22200}},"kogata":{"standard":46200,"short":45400,"child2":{"standard":22600,"short":22200}}},"maxShotokuwari":228900},{"level":18,"tier":"D15","facility":{"ninka":{"standard":53000,"short":52000,"child2":{"standard":23900,"short":23400}},"kogata":{"standard":48800,"short":47900,"child2":{"standard":23900,"short":23400}}},"maxShotokuwari":246700},{"level":19,"tier":"D16","facility":{"ninka":{"standard":55000,"short":54000,"child2":{"standard":24800,"short":24300}},"kogata":{"standard":50600,"short":49700,"child2":{"standard":24800,"short":24300}}},"maxShotokuwari":255700},{"level":20,"tier":"D17","facility":{"ninka":{"standard":57000,"short":56000,"child2":{"standard":25700,"short":25200}},"kogata":{"standard":52200,"short":51300,"child2":{"standard":25700,"short":25200}}},"maxShotokuwari":264700},{"level":21,"tier":"D18","facility":{"ninka":{"standard":58000,"short":57000,"child2":{"standard":26800,"short":26300}},"kogata":{"standard":53600,"short":52600,"child2":{"standard":26800,"short":26300}}},"maxShotokuwari":273700},{"level":22,"tier":"D19","facility":{"ninka":{"standard":59000,"short":57900,"child2":{"standard":27900,"short":27400}},"kogata":{"standard":55000,"short":54000,"child2":{"standard":27500,"short":27000}}},"maxShotokuwari":282700},{"level":23,"tier":"D20","facility":{"ninka":{"standard":60000,"short":58900,"child2":{"standard":29000,"short":28500}},"kogata":{"standard":55300,"short":54300,"child2":{"standard":27700,"short":27200}}},"maxShotokuwari":291700},{"level":24,"tier":"D21","facility":{"ninka":{"standard":61000,"short":59900,"child2":{"standard":30100,"short":29500}},"kogata":{"standard":55600,"short":54600,"child2":{"standard":27800,"short":27300}}},"maxShotokuwari":301000},{"level":25,"tier":"D22","facility":{"ninka":{"standard":64500,"short":63400,"child2":{"standard":33100,"short":32500}},"kogata":{"standard":55900,"short":54900,"child2":{"standard":28000,"short":27500}}},"maxShotokuwari":309700},{"level":26,"tier":"D23","facility":{"ninka":{"standard":68000,"short":66800,"child2":{"standard":36200,"short":35500}},"kogata":{"standard":56300,"short":55300,"child2":{"standard":28200,"short":27700}}},"maxShotokuwari":335800},{"level":27,"tier":"D24","facility":{"ninka":{"standard":71500,"short":70200,"child2":{"standard":39300,"short":38600}},"kogata":{"standard":56700,"short":55700,"child2":{"standard":28400,"short":27900}}},"maxShotokuwari":361300},{"level":28,"tier":"D25","facility":{"ninka":{"standard":73600,"short":72300,"child2":{"standard":39700,"short":39000}},"kogata":{"standard":57200,"short":56200,"child2":{"standard":28600,"short":28100}}},"maxShotokuwari":387700},{"level":29,"tier":"D26","facility":{"ninka":{"standard":75600,"short":74300,"child2":{"standard":40000,"short":39300}},"kogata":{"standard":57700,"short":56700,"child2":{"standard":28900,"short":28400}}},"maxShotokuwari":397000},{"level":30,"tier":"D27","facility":{"ninka":{"standard":77500,"short":76100,"child2":{"standard":42600,"short":41800}},"kogata":{"standard":58100,"short":57200,"child2":{"standard":29100,"short":28600}}}}]}; const CITY_SLUG = "yokohama"; const PUBLISH_YEAR = 2026;</script>
+<!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
+<script src="/js/core/shared/income.js?v=7bf43c8c"></script>
+<script src="/js/core/jumin.js?v=7bf43c8c"></script>
+<script src="/js/core/hoiku.js?v=7bf43c8c"></script>
+<script>
+(function(){
+  "use strict";
+  var M = HOIKU_DATA || {};
+
+  // ── helpers ──
+  function h(s){return String(s==null?"":s);}
+  function toHalf(s){return h(s).replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
+  function num(id){var el=document.getElementById(id);if(!el)return 0;return Math.max(0,Number(toHalf(el.value).replace(/[^\d]/g,""))||0);}
+  function checked(id){var el=document.getElementById(id);return !!(el&&el.checked);}
+  function val(id){var el=document.getElementById(id);return el?el.value:"";}
+  function esc(s){return h(s).replace(/[<>&"]/g,function(c){return{"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];});}
+  function timeKeys(){ return (Array.isArray(M.timeBands)&&M.timeBands.length)?M.timeBands.map(function(b){return b.key;}):["standard","short"]; }
+  function timeLabels(){ return (Array.isArray(M.timeBands)&&M.timeBands.length)?M.timeBands:[{key:"standard",label:"保育標準時間（〜11時間）"},{key:"short",label:"保育短時間（〜8時間）"}]; }
+  // brackets を走査して child2alt.selector（新潟表②型）を持つか調べる＝データ駆動でUIを出す
+  function findSelector(){
+    var brs=M.brackets||[]; for(var i=0;i<brs.length;i++){var b=brs[i];
+      var sets=b&&b.facility?Object.keys(b.facility).map(function(k){return b.facility[k];}):[b];
+      for(var j=0;j<sets.length;j++){ if(sets[j]&&sets[j].child2alt&&sets[j].child2alt.selector) return sets[j].child2alt.selector; }
+    } return null;
+  }
+  function has0saiRate(){
+    var brs=M.brackets||[]; for(var i=0;i<brs.length;i++){var b=brs[i];
+      var sets=b&&b.facility?Object.keys(b.facility).map(function(k){return b.facility[k];}):[b];
+      for(var j=0;j<sets.length;j++){ if(sets[j]&&sets[j].byAge&&sets[j].byAge.age0!=null) return true; }
+    } return false;
+  }
+
+  // ── フォーム生成（有償） ──
+  function renderPaid(){
+    var app=document.getElementById("app");
+    var rt=document.getElementById("resultTitle"); if(rt)rt.style.display="";
+    var rs=document.getElementById("result"); if(rs)rs.style.display="";
+    var basis=M.inputBasis||"salary";
+    var showDirect = true; // 両モード持つ（既定は年収）。直接入力しか無い自治体(名古屋)は基本を直接に。
+    var directDefault = (basis==="shotokuwari-direct");
+    var selKey=findSelector();
+    var facs = M.facilityTypes ? Object.keys(M.facilityTypes) : null;
+    var tks=timeLabels();
+    var html="";
+
+    // 税額入力（タブ）
+    html+='<div class="tabs"><button type="button" id="t-salary" class="'+(directDefault?"":"on")+'" onclick="hoikuTab(\'salary\')">年収から計算</button>'
+        +'<button type="button" id="t-direct" class="'+(directDefault?"on":"")+'" onclick="hoikuTab(\'direct\')">所得割額を直接入力</button></div>';
+    // 年収モード
+    html+='<div id="tab-salary" class="'+(directDefault?"hidden":"")+'">'
+        +'<div class="sec">世帯の収入</div>'
+        +'<label>父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" inputmode="numeric" placeholder="例：4,000,000">'
+        +'<label>母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'</div>';
+    // 直接入力モード
+    html+='<div id="tab-direct" class="'+(directDefault?"":"hidden")+'">'
+        +'<div class="sec">市民税所得割額（通知書）</div>'
+        +'<label>父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" inputmode="numeric" placeholder="例：150,000">'
+        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" inputmode="numeric" placeholder="ひとり親は空欄でOK">';
+    if(M.seireiConversion){ // 政令市で通知書8%→6%換算（名古屋型 seireiConversion:false では出さない）
+      html+='<div class="chk"><input type="checkbox" id="isSeireiNotice"><label for="isSeireiNotice" style="margin:0">通知書の税率が8%（政令市の現行税率）＝6%に近似換算する</label></div>'
+          +'<div class="warn">8%→6%換算は近似です。階層境界では±数百円で1段ずれることがあります（要通知書確認）。</div>';
+    }
+    html+='</div>';
+
+    // 児童・保育
+    html+='<div class="sec">お子さんと保育</div>';
+    if(has0saiRate()){
+      html+='<label>お子さんの年齢</label><select id="age"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
+    }else{
+      html+='<input type="hidden" id="age" value="age1_2">';
+    }
+    html+='<label>保育時間</label><select id="timeType">';
+    tks.forEach(function(b,i){ html+='<option value="'+esc(b.key)+'"'+(i===0?" selected":"")+'>'+esc(b.label||b.key)+'</option>'; });
+    html+='</select>';
+    if(facs){
+      html+='<label>利用する施設の種類</label><select id="facility">';
+      facs.forEach(function(k,i){ html+='<option value="'+esc(k)+'"'+(k===(M.defaultFacility||facs[0])?" selected":"")+'>'+esc(M.facilityTypes[k])+'</option>'; });
+      html+='</select>';
+    }
+
+    // きょうだい（多子）
+    html+='<div class="sec">きょうだい（多子軽減）</div>'
+        +'<label>認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
+        +'<select id="enrolledOlder"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
+    if(selKey){
+      html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
+    }
+
+    // 世帯の状況
+    html+='<div class="sec">世帯の状況</div>'
+        +'<div class="chk"><input type="checkbox" id="hitorioya"><label for="hitorioya" style="margin:0">ひとり親世帯・世帯員に障害者がいる</label></div>'
+        +'<div class="chk"><input type="checkbox" id="seikatsuhogo"><label for="seikatsuhogo" style="margin:0">生活保護を受けている</label></div>';
+
+    // 試算する月
+    var sw=(M.fiscalSwitch||9);
+    html+='<div class="sec">試算する月（年度切替）</div>'
+        +'<label>何月分の保育料か</label>'
+        +'<select id="month"><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
+        +'<div class="warn" id="monthNote" style="display:none">4〜'+(sw-1)+'月分は前年度の課税額で決まります。ここでは同じ年収と仮定した目安です（前年の収入で再計算すると変わることがあります）。</div>';
+
+    html+='<button type="button" class="cta" onclick="hoikuCalc()">保育料を試算する</button>';
+    app.innerHTML=html;
+
+    // 全角→半角ライブ変換
+    ["fatherSalary","motherSalary","fatherShotoku","motherShotoku"].forEach(function(id){ setupNum(id); });
+    var mo=document.getElementById("month"); if(mo)mo.addEventListener("change",function(){ document.getElementById("monthNote").style.display=(mo.value!=String(sw))?"block":"none"; });
+  }
+
+  function setupNum(id){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",function(){ if(!composing) el.value=toHalf(el.value).replace(/[^\d]/g,""); });
+    el.addEventListener("blur",commit);
+    function commit(){ var raw=toHalf(el.value).replace(/[^\d]/g,""); el.value=raw?Number(raw).toLocaleString("ja-JP"):""; }
+  }
+
+  // ── フォーム生成（無償 free・案B） ──
+  function renderFree(){
+    var app=document.getElementById("app");
+    var since=(M.freePolicy&&M.freePolicy.since)?M.freePolicy.since.replace("-","年")+"月":"";
+    var src=(M.freePolicy&&M.freePolicy.source&&M.freePolicy.source[0])||"";
+    var html='<div class="free-box"><p>このまちの保育料は</p><div class="big">第1子から 0円（無償）</div>'
+        +'<p>'+(since?since+"から、":"")+'認可保育所（0〜2歳）の保育料が無償化されています。</p>'
+        +(src?'<p><a href="'+esc(src)+'" target="_blank" rel="noopener" style="color:#0b7285;font-size:12.5px;">根拠（公式）→</a></p>':'')
+        +'</div>'
+        +'<details><summary>無償の対象外かもしれない場合（認可外・企業主導型・3歳以上の別制度など）</summary>'
+        +'<div class="note" style="margin-top:10px">認可保育所以外（認可外・企業主導型保育など）や、幼稚園・3歳以上の別制度は無償化の枠組みが異なります。'
+        +'該当する場合は各施設・自治体の案内でご確認ください。（このページは認可保育所・0〜2歳の無償を前提にしています）</div></details>';
+    app.innerHTML=html;
+    // 無償ページは緑ボックスで0円を伝えるので「試算結果」欄は出さない（計算していないのに結果に見える誤解を防ぐ）
+    var rt=document.getElementById("resultTitle"); if(rt)rt.style.display="none";
+    var rs=document.getElementById("result"); if(rs)rs.style.display="none";
+  }
+
+  // ── 年収→jumin（父母それぞれ）。hoikuShotokuwari は固定6%換算・isTaxable も取得 ──
+  function juminOf(salary){
+    if(!salary) return {shotokuwari:0, taxable:false};
+    var si=Math.round(salary*0.144);
+    var r=calculateJumin(null, {salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si});
+    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable};
+  }
+
+  // ── 試算 ──
+  window.hoikuCalc=function(){
+    var out=document.getElementById("result");
+    try{
+      var directOn = document.getElementById("tab-direct") && !document.getElementById("tab-direct").classList.contains("hidden");
+      var input={};
+      input.age = val("age")||"age1_2";
+      input.timeType = val("timeType")||undefined;
+      if(document.getElementById("facility")) input.facility = val("facility");
+      input.seikatsuhogo = checked("seikatsuhogo");
+      input.hitorioya = checked("hitorioya");
+      var sw=(M.fiscalSwitch||9);
+      input.month = Number(val("month"))||sw;
+
+      // ── 税額系（モード別） ──
+      if(directOn){
+        var fs=num("fatherShotoku"), ms=num("motherShotoku");
+        input.father={shotokuwari:fs}; input.mother={shotokuwari:ms};
+        // ④ kintowariOnly は質問しない。⑤ isSeireiNotice は seireiConversion×直接入力時のみ。
+        input.isSeireiNotice = M.seireiConversion ? checked("isSeireiNotice") : false;
+        // ② 非課税は所得割0だけでは決められない（均等割のみ課税と区別不能）→ 直接入力モードでは
+        //    「両者所得割0のとき hikazei」を近似。厳密には通知書の非課税判定が要る（注記）。
+        input.hikazei = (fs===0 && ms===0);
+      }else{
+        var f=juminOf(num("fatherSalary")), m=juminOf(num("motherSalary"));
+        input.father={shotokuwari:f.shotokuwari}; input.mother={shotokuwari:m.shotokuwari};
+        input.isSeireiNotice=false; // 年収経路は固定6%済み（政令市補正しない）
+        // ② 非課税＝父母AND（在籍親のみ。空欄親は taxable:false で AND を阻害しない）
+        var fatherEmpty=(num("fatherSalary")===0), motherEmpty=(num("motherSalary")===0);
+        var fTax = fatherEmpty?false:f.taxable, mTax = motherEmpty?false:m.taxable;
+        // 少なくとも片方に収入があり、収入のある親が全員非課税なら世帯非課税
+        var anyIncome = !(fatherEmpty&&motherEmpty);
+        input.hikazei = anyIncome && !fTax && !mTax;
+      }
+
+      // ① 多子カウント：childOrder = 在園兄姉数 + 1、非在園きょうだいフラグONで +1（最低2）
+      var enrolled = Number(val("enrolledOlder"))||0;
+      var childOrder = enrolled + 1;
+      var selKey=findSelector();
+      if(selKey && checked("selFlag")){ childOrder += 1; input[selKey]=true; }
+      input.childOrder = childOrder;
+
+      var r = calcHoiku(input, M);
+      var mo = r.monthly||0;
+      var rows='<div class="result-row"><div>保育料（月額）</div><div class="amount">'+mo.toLocaleString()+' 円</div></div>'
+             +'<div class="result-row"><div>年額の目安</div><div class="amount">約 '+(mo*12).toLocaleString()+' 円</div></div>';
+      if(r.level!=null) rows+='<div class="result-row"><div>階層</div><div class="amount">第'+r.level+'階層</div></div>';
+      if(r.reason) rows+='<div class="note" style="margin-top:4px">'+esc(r.reason)+'</div>';
+      if(childOrder>=2 && enrolled===0 && checked("selFlag")) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
+      out.innerHTML=rows;
+    }catch(e){
+      out.innerHTML='<div class="warn">計算エラー: '+esc(e.message)+'</div>';
+    }
+  };
+
+  window.hoikuTab=function(t){
+    var s=document.getElementById("tab-salary"), d=document.getElementById("tab-direct");
+    if(s)s.classList.toggle("hidden",t!=="salary");
+    if(d)d.classList.toggle("hidden",t!=="direct");
+    document.getElementById("t-salary").classList.toggle("on",t==="salary");
+    document.getElementById("t-direct").classList.toggle("on",t==="direct");
+  };
+
+  function init(){ if(M && (M.status==="free"||(M.freePolicy&&M.freePolicy.firstChild))) renderFree(); else renderPaid(); }
+  if(document.readyState!=="loading")init(); else document.addEventListener("DOMContentLoaded",init);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{
+  "cityCode": "13209",
+  "citySlug": "machida",
+  "cityName": "町田市",
+  "prefSlug": "tokyo",
+  "fiscalYear": 2026,
+  "system": "hoiku",
+  "schemaVersion": "1.0",
+  "status": "free",
+  "freePolicy": {
+    "firstChild": true,
+    "since": "2025-09",
+    "incomeLimit": false,
+    "source": [
+      "https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"
+    ]
+  },
+  "confidence": "確認済（公開前に再確認推奨）",
+  "recheck": "第1子・9月・所得制限なしの単独明示が弱い（無償化調査§A）。Chrome拡張で目視再確認"
+}

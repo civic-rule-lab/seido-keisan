@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<!-- 【実装ドラフト v1・レビュー用／本番未配置】保育料 かんたん計算テンプレート
+     ※移行時は kokuho-core/templates/hoiku-simple.html へ。プレースホルダは generate-hoiku-pages.js が置換。
+     ※結線は jumin-simple.html と同方式（テンプレ内インラインscript＋{"cityCode":"13108","citySlug":"koto","cityName":"江東区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.city.koto.lg.jp/280308/daiissimusyouka.html","https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}埋め込み）。
+     ※Fable5指摘の結線ルール①〜⑤をこのscriptで実装。 -->
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="江東区の保育料（認可保育所・0〜2歳）は令和8年度いくら？江東区は第1子から保育料が無償です。対象・条件と、無償対象外ケースの確認をまとめました。">
+<link rel="canonical" href="https://seido-keisan.jp/tokyo/koto/hoiku/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="江東区の保育料はいくら？かんたん計算【令和8年度】">
+<meta property="og:description" content="江東区の保育料（認可保育所・0〜2歳）は令和8年度いくら？江東区は第1子から保育料が無償です。対象・条件と、無償対象外ケースの確認をまとめました。">
+<meta property="og:url" content="https://seido-keisan.jp/tokyo/koto/hoiku/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=09703846">
+<title>江東区の保育料はいくら？かんたん計算【令和8年度】｜認可保育所・0〜2歳</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"東京都","item":"https://seido-keisan.jp/#tokyo"},{"@type":"ListItem","position":3,"name":"江東区","item":"https://seido-keisan.jp/tokyo/koto/"}]},{"@type":"WebApplication","name":"江東区 保育料計算ツール（令和8年度）","description":"江東区の保育料（認可保育所・0〜2歳）は令和8年度いくら？江東区は第1子から保育料が無償です。対象・条件と、無償対象外ケースの確認をまとめました。","url":"https://seido-keisan.jp/tokyo/koto/hoiku/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"}}]}</script>
+<style>
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#e7f6ee 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#fff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,.05);box-sizing:border-box;}
+  h1{margin:28px 0 24px;font-size:clamp(24px,4.5vw,30px);text-align:center;}
+  h1 .yr{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .intro{font-size:15px;color:#374151;line-height:1.8;margin:0 0 26px;}
+  label{display:block;font-size:14px;font-weight:700;margin:16px 0 6px;color:#111827;}
+  .hint{font-weight:400;color:#6b7280;font-size:12px;}
+  input,select{width:100%;padding:12px 12px;font-size:16px;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#0f172a;box-sizing:border-box;}
+  input:focus,select:focus{outline:none;border-color:#0b7285;box-shadow:0 0 0 3px rgba(11,114,133,.15);}
+  .row{display:flex;gap:10px}.row>div{flex:1}
+  .chk{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:14px;font-weight:500;}
+  .chk input{width:auto;margin-top:3px;}
+  .tabs{display:flex;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;margin:6px 0 8px;}
+  .tabs button{flex:1;padding:10px;border:0;background:#fff;font-size:13.5px;cursor:pointer;color:#52606d;}
+  .tabs button.on{background:#d7eef2;color:#0b7285;font-weight:700;}
+  .sec{font-size:12px;letter-spacing:.04em;color:#52606d;font-weight:700;border-top:1px solid #e5e7eb;padding-top:14px;margin:20px 0 2px;}
+  button.cta{width:100%;margin-top:22px;padding:15px;font-size:17px;font-weight:700;border:0;border-radius:999px;background:#0b7285;color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(11,114,133,.25);}
+  .result-title{margin-top:26px;font-size:16px;font-weight:700;}
+  #result{margin-top:6px;}
+  .result-row{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;}
+  .amount{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;}
+  .ph{color:#9ca3af;font-size:14px;}
+  .note{margin-top:18px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .free-box{background:#e7f6ee;border:1px solid #b6e3c8;border-radius:14px;padding:22px 18px;text-align:center;}
+  .free-box .big{font-size:24px;font-weight:800;color:#0b6b3a;margin:6px 0;}
+  .free-box p{color:#2f6b4a;font-size:13.5px;margin:6px 0;}
+  details{margin-top:16px;border:1px solid #e5e7eb;border-radius:12px;padding:8px 14px;}
+  summary{cursor:pointer;font-weight:700;font-size:14px;color:#374151;}
+  .warn{background:#fff6e5;border:1px solid #f0dca8;color:#a15c00;font-size:12.5px;padding:8px 10px;border-radius:8px;margin:8px 0;}
+  .kakeibo-card{display:flex;align-items:center;gap:12px;margin:24px 0 6px;padding:14px 16px;border:1px solid #b6e3c8;background:#f2fbf6;border-radius:14px;text-decoration:none;transition:background .15s;}
+  .kakeibo-card:hover{background:#e7f6ee;}
+  .kakeibo-ico{flex:0 0 auto;display:flex;}
+  .kakeibo-main{display:block;font-size:14.5px;font-weight:700;color:#134e34;}
+  .kakeibo-sub{display:block;font-size:12px;color:#4b7a5f;margin-top:2px;}
+  .hidden{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>江東区の保育料計算<span class="yr">【令和8年度】認可保育所・0〜2歳（3号）</span></h1>
+  <p class="intro">江東区の認可保育所（0〜2歳・3号認定）の保育料が令和8年度いくらになるかをまとめました。江東区は第1子から保育料が無償化されています。</p>
+
+  <div id="app"><span class="ph">読み込み中…</span></div>
+
+  <div class="result-title" id="resultTitle">試算結果</div>
+  <div id="result"><span class="ph">上の項目を入力して「保育料を試算する」を押してください</span></div>
+
+  <a href="../kakeibo/" class="kakeibo-card"><span class="kakeibo-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0b7285" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18M12 8h5M12 12h5"/></svg></span><span class="kakeibo-txt"><span class="kakeibo-main">この自治体の負担をまとめて見る</span><span class="kakeibo-sub">住民税・国保・介護をまとめて試算（家計簿シミュレーターへ）→</span></span></a>
+  <div class="note">
+    ※認可保育所・0〜2歳（3号認定）の利用者負担額の目安です。3歳以上は原則無償（給食費等は別）。<br>
+    ※保育料は父母の市民税所得割額をもとにした階層で決まります。ふるさと納税・住宅ローン控除では下がりません（税額控除前で判定）。<br>
+    ※実際の額は自治体の通知や公式案内でご確認ください。
+  </div>
+
+  <p style="margin-top:24px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#fff;">Civic Rule Lab</div>
+      <div style="font-size:11px;color:#fff;">市民 ↔ 制度</div>
+    </a>
+  </div>
+</div>
+
+<!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
+<script>const HOIKU_DATA = {"cityCode":"13108","citySlug":"koto","cityName":"江東区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.city.koto.lg.jp/280308/daiissimusyouka.html","https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "koto"; const PUBLISH_YEAR = 2026;</script>
+<!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
+<script src="/js/core/shared/income.js?v=7bf43c8c"></script>
+<script src="/js/core/jumin.js?v=7bf43c8c"></script>
+<script src="/js/core/hoiku.js?v=7bf43c8c"></script>
+<script>
+(function(){
+  "use strict";
+  var M = HOIKU_DATA || {};
+
+  // ── helpers ──
+  function h(s){return String(s==null?"":s);}
+  function toHalf(s){return h(s).replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
+  function num(id){var el=document.getElementById(id);if(!el)return 0;return Math.max(0,Number(toHalf(el.value).replace(/[^\d]/g,""))||0);}
+  function checked(id){var el=document.getElementById(id);return !!(el&&el.checked);}
+  function val(id){var el=document.getElementById(id);return el?el.value:"";}
+  function esc(s){return h(s).replace(/[<>&"]/g,function(c){return{"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];});}
+  function timeKeys(){ return (Array.isArray(M.timeBands)&&M.timeBands.length)?M.timeBands.map(function(b){return b.key;}):["standard","short"]; }
+  function timeLabels(){ return (Array.isArray(M.timeBands)&&M.timeBands.length)?M.timeBands:[{key:"standard",label:"保育標準時間（〜11時間）"},{key:"short",label:"保育短時間（〜8時間）"}]; }
+  // brackets を走査して child2alt.selector（新潟表②型）を持つか調べる＝データ駆動でUIを出す
+  function findSelector(){
+    var brs=M.brackets||[]; for(var i=0;i<brs.length;i++){var b=brs[i];
+      var sets=b&&b.facility?Object.keys(b.facility).map(function(k){return b.facility[k];}):[b];
+      for(var j=0;j<sets.length;j++){ if(sets[j]&&sets[j].child2alt&&sets[j].child2alt.selector) return sets[j].child2alt.selector; }
+    } return null;
+  }
+  function has0saiRate(){
+    var brs=M.brackets||[]; for(var i=0;i<brs.length;i++){var b=brs[i];
+      var sets=b&&b.facility?Object.keys(b.facility).map(function(k){return b.facility[k];}):[b];
+      for(var j=0;j<sets.length;j++){ if(sets[j]&&sets[j].byAge&&sets[j].byAge.age0!=null) return true; }
+    } return false;
+  }
+
+  // ── フォーム生成（有償） ──
+  function renderPaid(){
+    var app=document.getElementById("app");
+    var rt=document.getElementById("resultTitle"); if(rt)rt.style.display="";
+    var rs=document.getElementById("result"); if(rs)rs.style.display="";
+    var basis=M.inputBasis||"salary";
+    var showDirect = true; // 両モード持つ（既定は年収）。直接入力しか無い自治体(名古屋)は基本を直接に。
+    var directDefault = (basis==="shotokuwari-direct");
+    var selKey=findSelector();
+    var facs = M.facilityTypes ? Object.keys(M.facilityTypes) : null;
+    var tks=timeLabels();
+    var html="";
+
+    // 税額入力（タブ）
+    html+='<div class="tabs"><button type="button" id="t-salary" class="'+(directDefault?"":"on")+'" onclick="hoikuTab(\'salary\')">年収から計算</button>'
+        +'<button type="button" id="t-direct" class="'+(directDefault?"on":"")+'" onclick="hoikuTab(\'direct\')">所得割額を直接入力</button></div>';
+    // 年収モード
+    html+='<div id="tab-salary" class="'+(directDefault?"hidden":"")+'">'
+        +'<div class="sec">世帯の収入</div>'
+        +'<label>父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" inputmode="numeric" placeholder="例：4,000,000">'
+        +'<label>母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'</div>';
+    // 直接入力モード
+    html+='<div id="tab-direct" class="'+(directDefault?"":"hidden")+'">'
+        +'<div class="sec">市民税所得割額（通知書）</div>'
+        +'<label>父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" inputmode="numeric" placeholder="例：150,000">'
+        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" inputmode="numeric" placeholder="ひとり親は空欄でOK">';
+    if(M.seireiConversion){ // 政令市で通知書8%→6%換算（名古屋型 seireiConversion:false では出さない）
+      html+='<div class="chk"><input type="checkbox" id="isSeireiNotice"><label for="isSeireiNotice" style="margin:0">通知書の税率が8%（政令市の現行税率）＝6%に近似換算する</label></div>'
+          +'<div class="warn">8%→6%換算は近似です。階層境界では±数百円で1段ずれることがあります（要通知書確認）。</div>';
+    }
+    html+='</div>';
+
+    // 児童・保育
+    html+='<div class="sec">お子さんと保育</div>';
+    if(has0saiRate()){
+      html+='<label>お子さんの年齢</label><select id="age"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
+    }else{
+      html+='<input type="hidden" id="age" value="age1_2">';
+    }
+    html+='<label>保育時間</label><select id="timeType">';
+    tks.forEach(function(b,i){ html+='<option value="'+esc(b.key)+'"'+(i===0?" selected":"")+'>'+esc(b.label||b.key)+'</option>'; });
+    html+='</select>';
+    if(facs){
+      html+='<label>利用する施設の種類</label><select id="facility">';
+      facs.forEach(function(k,i){ html+='<option value="'+esc(k)+'"'+(k===(M.defaultFacility||facs[0])?" selected":"")+'>'+esc(M.facilityTypes[k])+'</option>'; });
+      html+='</select>';
+    }
+
+    // きょうだい（多子）
+    html+='<div class="sec">きょうだい（多子軽減）</div>'
+        +'<label>認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
+        +'<select id="enrolledOlder"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
+    if(selKey){
+      html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
+    }
+
+    // 世帯の状況
+    html+='<div class="sec">世帯の状況</div>'
+        +'<div class="chk"><input type="checkbox" id="hitorioya"><label for="hitorioya" style="margin:0">ひとり親世帯・世帯員に障害者がいる</label></div>'
+        +'<div class="chk"><input type="checkbox" id="seikatsuhogo"><label for="seikatsuhogo" style="margin:0">生活保護を受けている</label></div>';
+
+    // 試算する月
+    var sw=(M.fiscalSwitch||9);
+    html+='<div class="sec">試算する月（年度切替）</div>'
+        +'<label>何月分の保育料か</label>'
+        +'<select id="month"><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
+        +'<div class="warn" id="monthNote" style="display:none">4〜'+(sw-1)+'月分は前年度の課税額で決まります。ここでは同じ年収と仮定した目安です（前年の収入で再計算すると変わることがあります）。</div>';
+
+    html+='<button type="button" class="cta" onclick="hoikuCalc()">保育料を試算する</button>';
+    app.innerHTML=html;
+
+    // 全角→半角ライブ変換
+    ["fatherSalary","motherSalary","fatherShotoku","motherShotoku"].forEach(function(id){ setupNum(id); });
+    var mo=document.getElementById("month"); if(mo)mo.addEventListener("change",function(){ document.getElementById("monthNote").style.display=(mo.value!=String(sw))?"block":"none"; });
+  }
+
+  function setupNum(id){
+    var el=document.getElementById(id); if(!el)return; var composing=false;
+    el.addEventListener("compositionstart",function(){composing=true;});
+    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
+    el.addEventListener("input",function(){ if(!composing) el.value=toHalf(el.value).replace(/[^\d]/g,""); });
+    el.addEventListener("blur",commit);
+    function commit(){ var raw=toHalf(el.value).replace(/[^\d]/g,""); el.value=raw?Number(raw).toLocaleString("ja-JP"):""; }
+  }
+
+  // ── フォーム生成（無償 free・案B） ──
+  function renderFree(){
+    var app=document.getElementById("app");
+    var since=(M.freePolicy&&M.freePolicy.since)?M.freePolicy.since.replace("-","年")+"月":"";
+    var src=(M.freePolicy&&M.freePolicy.source&&M.freePolicy.source[0])||"";
+    var html='<div class="free-box"><p>このまちの保育料は</p><div class="big">第1子から 0円（無償）</div>'
+        +'<p>'+(since?since+"から、":"")+'認可保育所（0〜2歳）の保育料が無償化されています。</p>'
+        +(src?'<p><a href="'+esc(src)+'" target="_blank" rel="noopener" style="color:#0b7285;font-size:12.5px;">根拠（公式）→</a></p>':'')
+        +'</div>'
+        +'<details><summary>無償の対象外かもしれない場合（認可外・企業主導型・3歳以上の別制度など）</summary>'
+        +'<div class="note" style="margin-top:10px">認可保育所以外（認可外・企業主導型保育など）や、幼稚園・3歳以上の別制度は無償化の枠組みが異なります。'
+        +'該当する場合は各施設・自治体の案内でご確認ください。（このページは認可保育所・0〜2歳の無償を前提にしています）</div></details>';
+    app.innerHTML=html;
+    // 無償ページは緑ボックスで0円を伝えるので「試算結果」欄は出さない（計算していないのに結果に見える誤解を防ぐ）
+    var rt=document.getElementById("resultTitle"); if(rt)rt.style.display="none";
+    var rs=document.getElementById("result"); if(rs)rs.style.display="none";
+  }
+
+  // ── 年収→jumin（父母それぞれ）。hoikuShotokuwari は固定6%換算・isTaxable も取得 ──
+  function juminOf(salary){
+    if(!salary) return {shotokuwari:0, taxable:false};
+    var si=Math.round(salary*0.144);
+    var r=calculateJumin(null, {salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si});
+    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable};
+  }
+
+  // ── 試算 ──
+  window.hoikuCalc=function(){
+    var out=document.getElementById("result");
+    try{
+      var directOn = document.getElementById("tab-direct") && !document.getElementById("tab-direct").classList.contains("hidden");
+      var input={};
+      input.age = val("age")||"age1_2";
+      input.timeType = val("timeType")||undefined;
+      if(document.getElementById("facility")) input.facility = val("facility");
+      input.seikatsuhogo = checked("seikatsuhogo");
+      input.hitorioya = checked("hitorioya");
+      var sw=(M.fiscalSwitch||9);
+      input.month = Number(val("month"))||sw;
+
+      // ── 税額系（モード別） ──
+      if(directOn){
+        var fs=num("fatherShotoku"), ms=num("motherShotoku");
+        input.father={shotokuwari:fs}; input.mother={shotokuwari:ms};
+        // ④ kintowariOnly は質問しない。⑤ isSeireiNotice は seireiConversion×直接入力時のみ。
+        input.isSeireiNotice = M.seireiConversion ? checked("isSeireiNotice") : false;
+        // ② 非課税は所得割0だけでは決められない（均等割のみ課税と区別不能）→ 直接入力モードでは
+        //    「両者所得割0のとき hikazei」を近似。厳密には通知書の非課税判定が要る（注記）。
+        input.hikazei = (fs===0 && ms===0);
+      }else{
+        var f=juminOf(num("fatherSalary")), m=juminOf(num("motherSalary"));
+        input.father={shotokuwari:f.shotokuwari}; input.mother={shotokuwari:m.shotokuwari};
+        input.isSeireiNotice=false; // 年収経路は固定6%済み（政令市補正しない）
+        // ② 非課税＝父母AND（在籍親のみ。空欄親は taxable:false で AND を阻害しない）
+        var fatherEmpty=(num("fatherSalary")===0), motherEmpty=(num("motherSalary")===0);
+        var fTax = fatherEmpty?false:f.taxable, mTax = motherEmpty?false:m.taxable;
+        // 少なくとも片方に収入があり、収入のある親が全員非課税なら世帯非課税
+        var anyIncome = !(fatherEmpty&&motherEmpty);
+        input.hikazei = anyIncome && !fTax && !mTax;
+      }
+
+      // ① 多子カウント：childOrder = 在園兄姉数 + 1、非在園きょうだいフラグONで +1（最低2）
+      var enrolled = Number(val("enrolledOlder"))||0;
+      var childOrder = enrolled + 1;
+      var selKey=findSelector();
+      if(selKey && checked("selFlag")){ childOrder += 1; input[selKey]=true; }
+      input.childOrder = childOrder;
+
+      var r = calcHoiku(input, M);
+      var mo = r.monthly||0;
+      var rows='<div class="result-row"><div>保育料（月額）</div><div class="amount">'+mo.toLocaleString()+' 円</div></div>'
+             +'<div class="result-row"><div>年額の目安</div><div class="amount">約 '+(mo*12).toLocaleString()+' 円</div></div>';
+      if(r.level!=null) rows+='<div class="result-row"><div>階層</div><div class="amount">第'+r.level+'階層</div></div>';
+      if(r.reason) rows+='<div class="note" style="margin-top:4px">'+esc(r.reason)+'</div>';
+      if(childOrder>=2 && enrolled===0 && checked("selFlag")) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
+      out.innerHTML=rows;
+    }catch(e){
+      out.innerHTML='<div class="warn">計算エラー: '+esc(e.message)+'</div>';
+    }
+  };
+
+  window.hoikuTab=function(t){
+    var s=document.getElementById("tab-salary"), d=document.getElementById("tab-direct");
+    if(s)s.classList.toggle("hidden",t!=="salary");
+    if(d)d.classList.toggle("hidden",t!=="direct");
+    document.getElementById("t-salary").classList.toggle("on",t==="salary");
+    document.getElementById("t-direct").classList.toggle("on",t==="direct");
+  };
+
+  function init(){ if(M && (M.status==="free"||(M.freePolicy&&M.freePolicy.firstChild))) renderFree(); else renderPaid(); }
+  if(document.readyState!=="loading")init(); else document.addEventListener("DOMContentLoaded",init);
+})();
+</script>
+</body>
+</html>

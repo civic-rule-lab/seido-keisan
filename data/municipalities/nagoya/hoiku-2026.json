@@ -1,0 +1,219 @@
+{
+  "slug": "nagoya",
+  "citySlug": "nagoya",
+  "cityCode": "23100",
+  "cityName": "名古屋市",
+  "pref": "aichi",
+  "prefSlug": "aichi",
+  "system": "hoiku",
+  "year": 2026,
+  "status": "verified",
+  "source": {
+    "name": "名古屋市 利用者負担額(保育料)基準月額表 2・3号認定 3歳未満児",
+    "page": "https://kodomokosodate.city.nagoya.jp/firstuse/cost/childcare_fee_simulation.html",
+    "pdf": "https://www.city.nagoya.jp/_res/projects/default_project/_page_/001/009/267/r7mimannjihoikuryou.pdf",
+    "asOf": "2026-07-06",
+    "note": "R7版基準額表。平成29年度から据置(公式ミラー明記)・名古屋公式シミュレータが現用。独立3ソースで全セル突合済。R8個別版は未確認だが現用の据置表。",
+    "verifiedSources": 3
+  },
+  "seireiConversion": false,
+  "inputBasis": "shotokuwari-direct",
+  "fiscalSwitch": 9,
+  "multiChild": {
+    "second": 0.5,
+    "third": 0,
+    "countScope": "age-desc",
+    "note": "C1-C5・C6<57,700=多子世帯軽減(自動) / C6≥57,700-C16=同時利用軽減(同時入所要件)。engineは2人目0.5/3人目0で共通"
+  },
+  "indexNote": "指数=父母(＋生計主宰者)合算の税源移譲前所得割課税額。均等割のみは0円入力=C1。",
+  "brackets": [
+    {
+      "level": 1,
+      "criteria": "seikatsuhogo",
+      "label": "A(生活保護等)",
+      "standard": 0,
+      "short": 0
+    },
+    {
+      "level": 2,
+      "criteria": "hikazei",
+      "label": "B(非課税)",
+      "standard": 0,
+      "short": 0
+    },
+    {
+      "level": 3,
+      "label": "C1(均等割のみ)",
+      "standard": 5700,
+      "short": 5700,
+      "maxShotokuwari": 0,
+      "hitorioya": {
+        "standard": 2850,
+        "short": 2850,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 4,
+      "label": "C2(所得割<10,000)",
+      "standard": 6400,
+      "short": 6300,
+      "maxShotokuwari": 9999,
+      "hitorioya": {
+        "standard": 3200,
+        "short": 3150,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 5,
+      "label": "C3(10,000〜40,800)",
+      "standard": 11200,
+      "short": 11100,
+      "maxShotokuwari": 40799,
+      "hitorioya": {
+        "standard": 5600,
+        "short": 5550,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 6,
+      "label": "C4(40,800〜43,800)",
+      "standard": 13900,
+      "short": 13700,
+      "maxShotokuwari": 43799,
+      "hitorioya": {
+        "standard": 3800,
+        "short": 3800,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 7,
+      "label": "C5(43,800〜55,200)",
+      "standard": 17500,
+      "short": 17300,
+      "maxShotokuwari": 55199,
+      "hitorioya": {
+        "standard": 3800,
+        "short": 3800,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 8,
+      "label": "C6(55,200〜67,000)",
+      "standard": 22100,
+      "short": 21800,
+      "maxShotokuwari": 66999,
+      "hitorioya": {
+        "standard": 3800,
+        "short": 3800,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 9,
+      "label": "C7a(67,000〜77,100)",
+      "standard": 25800,
+      "short": 25400,
+      "maxShotokuwari": 77100,
+      "hitorioya": {
+        "standard": 3800,
+        "short": 3800,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 10,
+      "label": "C7b(77,101〜88,800)",
+      "standard": 25800,
+      "short": 25400,
+      "maxShotokuwari": 88799
+    },
+    {
+      "level": 11,
+      "label": "C8(88,800〜110,000)",
+      "standard": 29400,
+      "short": 29000,
+      "maxShotokuwari": 109999
+    },
+    {
+      "level": 12,
+      "label": "C9(110,000〜131,600)",
+      "standard": 34900,
+      "short": 34400,
+      "maxShotokuwari": 131599
+    },
+    {
+      "level": 13,
+      "label": "C10(131,600〜180,000)",
+      "standard": 42700,
+      "short": 42000,
+      "maxShotokuwari": 179999
+    },
+    {
+      "level": 14,
+      "label": "C11(180,000〜236,800)",
+      "standard": 50300,
+      "short": 49500,
+      "maxShotokuwari": 236799
+    },
+    {
+      "level": 15,
+      "label": "C12(236,800〜281,000)",
+      "standard": 58300,
+      "short": 57400,
+      "maxShotokuwari": 280999
+    },
+    {
+      "level": 16,
+      "label": "C13(281,000〜351,500)",
+      "standard": 63400,
+      "short": 62400,
+      "maxShotokuwari": 351499
+    },
+    {
+      "level": 17,
+      "label": "C14(351,500〜411,800)",
+      "standard": 63900,
+      "short": 62900,
+      "maxShotokuwari": 411799
+    },
+    {
+      "level": 18,
+      "label": "C15(411,800〜518,000)",
+      "standard": 64000,
+      "short": 63000,
+      "maxShotokuwari": 517999
+    },
+    {
+      "level": 19,
+      "label": "C16(518,000円以上)",
+      "standard": 64000,
+      "short": 63000
+    }
+  ]
+}

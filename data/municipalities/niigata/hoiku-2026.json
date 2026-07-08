@@ -1,0 +1,259 @@
+{
+  "slug": "niigata",
+  "citySlug": "niigata",
+  "cityCode": "15100",
+  "cityName": "新潟市",
+  "pref": "niigata",
+  "prefSlug": "niigata",
+  "system": "hoiku",
+  "year": 2026,
+  "status": "verified",
+  "source": {
+    "name": "新潟市 令和8年4月 新潟市保育料等のお知らせ(保育料金額表①②③) 3歳未満児(3号認定)",
+    "page": "https://www.city.niigata.lg.jp/kosodate/ninshin/life_stage/azuketai/hoiku_sanntei.html",
+    "pdf": "https://www.city.niigata.lg.jp/kosodate/ninshin/life_stage/azuketai/hoiku_sanntei.files/R8hoikuryouhyou.pdf",
+    "asOf": "2026-07-06",
+    "raw": "data/municipalities/niigata/_source-r8.md",
+    "note": "令和8年4月版[確認済]。6%算定基準額で階層判定・8%通知は6/8換算[確認済]。第2子=表①第1子×1/4(新潟独自)[確認済]。第3子以降0[確認済]。表②(非在園の年上きょうだい=第2子×1/2)はchild2alt(selector:olderSiblingNotEnrolled)で実装済[確認済]。"
+  },
+  "seireiConversion": true,
+  "inputBasis": "salary",
+  "fiscalSwitch": 9,
+  "multiChild": {
+    "third": 0,
+    "note": "第3子以降=全階層無償。第2子は各階層 child2 の実額(表①=第1子×1/4)。表②は child2alt で実装(下記 selector)。"
+  },
+  "selector": {
+    "olderSiblingNotEnrolled": {
+      "label": "保育施設に在籍していない年上のきょうだいがいますか？(小学生以上等)",
+      "appliesTo": "child2alt",
+      "table": "表②",
+      "note": "表②=市民税76,900円未満(6%算定基準57,700円未満=C/D1/D2A)かつ非在園の年上きょうだいがいる世帯。第2子=表①第1子×1/2(C:5500/D1:6650/D2A:8150[標準])。UIでこの1問を聞き input.olderSiblingNotEnrolled=true を渡すと child2alt が適用される。該当階層(C/D1/D2A)のみ child2alt を持つため index 条件を内包。",
+      "wiringContract": "⚠️UI結線: child2alt は childOrder===2 のときだけ発火する。表②の趣旨は「非在園の年上きょうだいを多子カウントに含める」なので、当該児が在園児だけなら第1子でもフラグON時は childOrder を+1して2として渡すこと(=非在園きょうだいを1人目に数える)。フラグONのまま childOrder=1 で渡すと第1子=表①11,000を返し表②が無効化される(倍額誤請求リスク)。"
+    }
+  },
+  "brackets": [
+    {
+      "level": 1,
+      "criteria": "seikatsuhogo",
+      "label": "A(生活保護等)",
+      "standard": 0,
+      "short": 0
+    },
+    {
+      "level": 2,
+      "criteria": "hikazei",
+      "label": "B(市町村民税非課税)",
+      "standard": 0,
+      "short": 0
+    },
+    {
+      "level": 3,
+      "label": "C(所得割非課税)",
+      "standard": 11000,
+      "short": 10800,
+      "maxShotokuwari": 0,
+      "child2": {
+        "standard": 0,
+        "short": 0
+      },
+      "hitorioya": {
+        "standard": 5500,
+        "short": 5400,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      },
+      "child2alt": {
+        "selector": "olderSiblingNotEnrolled",
+        "standard": 5500,
+        "short": 5400
+      }
+    },
+    {
+      "level": 4,
+      "label": "D1(6%48,600未満)",
+      "standard": 13300,
+      "short": 13000,
+      "maxShotokuwari": 48599,
+      "child2": {
+        "standard": 0,
+        "short": 0
+      },
+      "hitorioya": {
+        "standard": 6650,
+        "short": 6500,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      },
+      "child2alt": {
+        "selector": "olderSiblingNotEnrolled",
+        "standard": 6650,
+        "short": 6500
+      }
+    },
+    {
+      "level": 5,
+      "label": "D2A(6%57,700未満)",
+      "standard": 16300,
+      "short": 16000,
+      "maxShotokuwari": 57699,
+      "child2": {
+        "standard": 4070,
+        "short": 4000
+      },
+      "hitorioya": {
+        "standard": 8150,
+        "short": 8000,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      },
+      "child2alt": {
+        "selector": "olderSiblingNotEnrolled",
+        "standard": 8150,
+        "short": 8000
+      }
+    },
+    {
+      "level": 6,
+      "label": "D2B(6%60,000未満)",
+      "standard": 16300,
+      "short": 16000,
+      "maxShotokuwari": 59999,
+      "child2": {
+        "standard": 4070,
+        "short": 4000
+      },
+      "hitorioya": {
+        "standard": 8150,
+        "short": 8000,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 7,
+      "label": "D3A(6%77,101未満)",
+      "standard": 20500,
+      "short": 20100,
+      "maxShotokuwari": 77100,
+      "child2": {
+        "standard": 5120,
+        "short": 5020
+      },
+      "hitorioya": {
+        "standard": 9000,
+        "short": 8850,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 8,
+      "label": "D3B(6%79,000未満)",
+      "standard": 20500,
+      "short": 20100,
+      "maxShotokuwari": 78999,
+      "child2": {
+        "standard": 5120,
+        "short": 5020
+      }
+    },
+    {
+      "level": 9,
+      "label": "D4(6%97,000未満)",
+      "standard": 25000,
+      "short": 24500,
+      "maxShotokuwari": 96999,
+      "child2": {
+        "standard": 6250,
+        "short": 6120
+      }
+    },
+    {
+      "level": 10,
+      "label": "D5(6%114,000未満)",
+      "standard": 29500,
+      "short": 28900,
+      "maxShotokuwari": 113999,
+      "child2": {
+        "standard": 7370,
+        "short": 7220
+      }
+    },
+    {
+      "level": 11,
+      "label": "D6(6%140,000未満)",
+      "standard": 33000,
+      "short": 32400,
+      "maxShotokuwari": 139999,
+      "child2": {
+        "standard": 8250,
+        "short": 8100
+      }
+    },
+    {
+      "level": 12,
+      "label": "D7(6%169,000未満)",
+      "standard": 37600,
+      "short": 36900,
+      "maxShotokuwari": 168999,
+      "child2": {
+        "standard": 9400,
+        "short": 9220
+      }
+    },
+    {
+      "level": 13,
+      "label": "D8(6%199,000未満)",
+      "standard": 43000,
+      "short": 42200,
+      "maxShotokuwari": 198999,
+      "child2": {
+        "standard": 10750,
+        "short": 10550
+      }
+    },
+    {
+      "level": 14,
+      "label": "D9(6%301,000未満)",
+      "standard": 48500,
+      "short": 47600,
+      "maxShotokuwari": 300999,
+      "child2": {
+        "standard": 12120,
+        "short": 11900
+      }
+    },
+    {
+      "level": 15,
+      "label": "D10(6%336,000未満)",
+      "standard": 53500,
+      "short": 52500,
+      "maxShotokuwari": 335999,
+      "child2": {
+        "standard": 13370,
+        "short": 13120
+      }
+    },
+    {
+      "level": 16,
+      "label": "D11(6%336,000以上)",
+      "standard": 57200,
+      "short": 56200,
+      "child2": {
+        "standard": 14300,
+        "short": 14050
+      }
+    }
+  ]
+}
