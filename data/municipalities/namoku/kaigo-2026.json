@@ -8,14 +8,14 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 69600,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.284,
-      "annual": 19800,
+      "rate": 0.285,
+      "annual": 19836,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.484,
-      "annual": 33700,
+      "rate": 0.485,
+      "annual": 33756,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.684,
-      "annual": 47600,
+      "rate": 0.685,
+      "annual": 47676,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -48,8 +48,8 @@
     {
       "level": "4",
       "label": "第4段階",
-      "rate": 0.899,
-      "annual": 62600,
+      "rate": 0.9,
+      "annual": 62640,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 69600,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 83500,
+      "annual": 83520,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -83,8 +83,8 @@
     {
       "level": "7",
       "label": "第7段階",
-      "rate": 1.299,
-      "annual": 90400,
+      "rate": 1.3,
+      "annual": 90480,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -108,7 +108,7 @@
       "level": "9",
       "label": "第9段階",
       "rate": 1.7,
-      "annual": 118300,
+      "annual": 118320,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -119,8 +119,8 @@
     {
       "level": "10",
       "label": "第10段階",
-      "rate": 1.899,
-      "annual": 132200,
+      "rate": 1.9,
+      "annual": 132240,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -131,8 +131,8 @@
     {
       "level": "11",
       "label": "第11段階",
-      "rate": 2.099,
-      "annual": 146100,
+      "rate": 2.1,
+      "annual": 146160,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -143,8 +143,8 @@
     {
       "level": "12",
       "label": "第12段階",
-      "rate": 2.299,
-      "annual": 160000,
+      "rate": 2.3,
+      "annual": 160080,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -155,8 +155,8 @@
     {
       "level": "13",
       "label": "第13段階",
-      "rate": 2.399,
-      "annual": 167000,
+      "rate": 2.4,
+      "annual": 167040,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -167,8 +167,8 @@
   "fallbackLevel": "5",
   "source": {
     "url": "https://nanmoku.ne.jp/wp-content/uploads/2024/09/介護保険料.docx",
-    "pageTitle": "南牧村 介護保険料（第9期・推計）",
-    "retrievedAt": "2026-06-16"
+    "pageTitle": "南牧村 介護保険料(令和6-8年度・13段階) 保健福祉課",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "南牧村・第9期基準額69,600円(県公式+厚労省001253798で確認)。段階表は公式Word(介護保険料.docx)にあるが取得不能のため国標準13段階×基準額で推計(floor100)＝inferred。境界120/210/320/420/520/620/720万。Word内容が読めたらverified化。"
+  "notes": "南牧村(13段・単独保険者)。基準69,600(月5,800)。村公式docxに率・年額を全段掲載(端数なし・率×基準の完全一致)。第1-3は軽減後19,836/33,756/47,676。★docx紙面は第2-3段を軽減後率0.485/0.685で直接表記・第1段は本則0.485→軽減0.285の2段書き(本則値は[未確認])、実賦課額は確定。★2026-07-07 村公式docxでverified昇格。"
 }

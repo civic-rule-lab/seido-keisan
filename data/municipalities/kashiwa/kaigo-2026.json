@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 69600,
   "brackets": [
     {
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 69600,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -226,9 +226,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kashiwa.lg.jp/kaigo/kaigohoken/hokenryo/index.html",
-    "pageTitle": "柏市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-25"
+    "url": "https://www.city.kashiwa.lg.jp/kourei/kaigo/kaigohoken/hokenryo/kaigohokenryoreiwa3nen.html",
+    "pageTitle": "柏市 介護保険料額の決まり方(第9期・18段階) R8.4.1更新",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "柏市18段。基準69600(月5800)。第1段階0.28。★inferred=公式HTMLが第8期のまま・段階別額は第三者集計値(条例別表が一次)→要条例確認。独自境界150/920万等。境界80万→R8=826500正規化。"
+  "notes": "柏市(★18段・独自境界)。基準69,600。市公式(R8.4.1更新)の率・年額・所得境界が既存データと完全一致で公式確認。第7=120-150万/第8=150-210万等の独自刻み。第1-3の軽減後率はR8年度表(0.28/0.39/0.685)。★2026-07-07 既存値を公式一次で照合しverified昇格。"
 }

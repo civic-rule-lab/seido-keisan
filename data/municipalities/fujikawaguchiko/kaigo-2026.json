@@ -8,14 +8,14 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 67200,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 19152,
+      "annual": 19160,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 32592,
+      "annual": 32600,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 46032,
+      "annual": 46040,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 67200,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.fujikawaguchiko.lg.jp/ka/info.php?if_id=364",
-    "pageTitle": "富士河口湖町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-16"
+    "url": "https://www1.g-reiki.net/fujikawaguchiko/reiki_honbun/r015RG00000273.html",
+    "pageTitle": "富士河口湖町介護保険条例 第2条(令和6年条例第10号・R6-8料率)",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "富士河口湖町(保険者明記)。13段階・基準額67,200円。第6-13は介護保険条例の各号年額を検算一致で確認(国標準)。第1-3は条例が軽減前(30,580/46,040/46,370)のため軽減後=0.285/0.485/0.685×67200で導出(inferred)。第1-5境界R8=826500に正規化。"
+  "notes": "富士河口湖町(13段・単独保険者)。基準67,200。介護保険条例第2条で年額確定(第1-3軽減後19,160/32,600/46,040・10円切上)。★町ページは制度概要のみ料額表なし・条例が正。率は号数規定=国標準推測。★2026-07-07 条例(公式)でverified昇格。"
 }

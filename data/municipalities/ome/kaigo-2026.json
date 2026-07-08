@@ -8,13 +8,13 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 69600,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.279,
+      "rate": 0.28,
       "annual": 19400,
       "criteria": {
         "householdAllNonTaxable": true,
@@ -48,7 +48,7 @@
     {
       "level": "4",
       "label": "第4段階",
-      "rate": 0.899,
+      "rate": 0.9,
       "annual": 62600,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 69600,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -83,7 +83,7 @@
     {
       "level": "7",
       "label": "第7段階",
-      "rate": 1.299,
+      "rate": 1.3,
       "annual": 90400,
       "criteria": {
         "selfTaxable": true,
@@ -119,7 +119,7 @@
     {
       "level": "10",
       "label": "第10段階",
-      "rate": 1.899,
+      "rate": 1.9,
       "annual": 132200,
       "criteria": {
         "selfTaxable": true,
@@ -131,7 +131,7 @@
     {
       "level": "11",
       "label": "第11段階",
-      "rate": 2.099,
+      "rate": 2.1,
       "annual": 146100,
       "criteria": {
         "selfTaxable": true,
@@ -143,7 +143,7 @@
     {
       "level": "12",
       "label": "第12段階",
-      "rate": 2.299,
+      "rate": 2.3,
       "annual": 160000,
       "criteria": {
         "selfTaxable": true,
@@ -155,7 +155,7 @@
     {
       "level": "13",
       "label": "第13段階",
-      "rate": 2.399,
+      "rate": 2.4,
       "annual": 167000,
       "criteria": {
         "selfTaxable": true,
@@ -179,7 +179,7 @@
     {
       "level": "15",
       "label": "第15段階",
-      "rate": 2.599,
+      "rate": 2.6,
       "annual": 180900,
       "criteria": {
         "selfTaxable": true,
@@ -202,9 +202,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.ome.tokyo.jp/soshiki/29/623.html",
-    "pageTitle": "青梅市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-25"
+    "url": "https://www.city.ome.tokyo.jp/uploaded/attachment/56014.pdf",
+    "pageTitle": "青梅市 第8期/第9期 所得段階別保険料(第9期計画書p.159抜粋・16段階)",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "青梅市16段。基準69600。第1段階0.28(軽減後)。★inferred=公式PDFが段階/料率/年額のみで課税層(第6+)の合計所得境界が非公表→標準枠で推定。年額・乗率は公式値。境界R8=826500。"
+  "notes": "青梅市(★16段・単独保険者)。基準69,600。市公式PDF(第9期計画抜粋)の率・年額が既存データと一致で公式確認、率表記を正規化(0.28/0.48/0.68…2.7)。第1-3軽減後19,400/33,400/47,300(100円未満切捨)。★第14-16段の所得境界は現行データ踏襲・条例未確認[未確認]。★自動取得は旧キャッシュ(第8期)が返る事があり注意。★2026-07-07 公式PDFでverified昇格。"
 }

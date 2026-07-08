@@ -8,14 +8,14 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 79200,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 22572,
+      "annual": 22500,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 38412,
+      "annual": 38400,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 54252,
+      "annual": 54200,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -49,7 +49,7 @@
       "level": "4",
       "label": "第4段階",
       "rate": 0.9,
-      "annual": 71280,
+      "annual": 71200,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 79200,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 95040,
+      "annual": 95000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -84,7 +84,7 @@
       "level": "7",
       "label": "第7段階",
       "rate": 1.3,
-      "annual": 102960,
+      "annual": 102900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -108,7 +108,7 @@
       "level": "9",
       "label": "第9段階",
       "rate": 1.7,
-      "annual": 134640,
+      "annual": 134600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -120,7 +120,7 @@
       "level": "10",
       "label": "第10段階",
       "rate": 1.9,
-      "annual": 150480,
+      "annual": 150400,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -132,7 +132,7 @@
       "level": "11",
       "label": "第11段階",
       "rate": 2.1,
-      "annual": 166320,
+      "annual": 166300,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -144,7 +144,7 @@
       "level": "12",
       "label": "第12段階",
       "rate": 2.3,
-      "annual": 182160,
+      "annual": 182100,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -156,7 +156,7 @@
       "level": "13",
       "label": "第13段階",
       "rate": 2.4,
-      "annual": 190080,
+      "annual": 190000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.kokuho-keisan.com/kaigohoken/detail/013641.html",
-    "pageTitle": "乙部町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://www.town.otobe.lg.jp/section/choumin/e0taal0000000eq3.html",
+    "pageTitle": "乙部町 介護保険制度 令和6-8年度 第1号被保険者の介護保険料",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "乙部町(二次)13段。基準79200。第1-3軽減後。境界R8=826500。 ★監査2026-06-27: 公式出典に辿れず(二次ソースのみ(集計サイト))→verified不可・inferred格下げ。"
+  "notes": "乙部町(13段)。基準79,200。町公式サイト(町民課介護保険係,最終更新2024-07-06)で年額を公式確認。率は非記載だが全段階が79,200×国標準乗率100円切捨てに一致[金額=確認済/率=標準推定]。第9段階の上限420万円未満が公表表で脱落(誤植)。★2026-07-07 二次(.com)→公式一次で再検証しverified昇格。"
 }

@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 67200,
   "brackets": [
     {
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 67200,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -132,7 +132,7 @@
       "level": "11",
       "label": "第11段階",
       "rate": 2.1,
-      "annual": 141120,
+      "annual": 141240,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.shinchi-town.jp/",
-    "pageTitle": "新地町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "url": "https://en3-jg.d1-law.com/shinchi/d1w_reiki/H412901010002/H412901010002_j.html",
+    "pageTitle": "新地町介護保険条例 第2条(令和6年条例第8号・R6-8料率)",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "新地町13段(inferred)。基準67200(月5600・確定)。例規集オンライン非掲載→二次(kokuho-keisan)の基準×標準乗率採用。要官公式突合。境界R8=826500。"
+  "notes": "新地町(13段・単独保険者)。基準67,200。介護保険条例第2条で年額確定(第1-3軽減後19,152/32,592/46,032)。★第11段=条例141,240で国標準乗率2.1×67,200=141,120と+120円差(他12段は標準一致)=条例転記ミスの可能性[未確認・町へ要照会]、条例原文どおり採用。率は号数規定=国標準推測。★2026-07-07 条例(公式)でverified昇格。"
 }

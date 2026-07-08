@@ -8,14 +8,14 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 70800,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 20178,
+      "annual": 20100,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 34338,
+      "annual": 34300,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 48498,
+      "annual": 48400,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -49,7 +49,7 @@
       "level": "4",
       "label": "第4段階",
       "rate": 0.9,
-      "annual": 63720,
+      "annual": 63700,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 70800,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 84960,
+      "annual": 84900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -84,7 +84,7 @@
       "level": "7",
       "label": "第7段階",
       "rate": 1.3,
-      "annual": 92040,
+      "annual": 92000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -108,7 +108,7 @@
       "level": "9",
       "label": "第9段階",
       "rate": 1.7,
-      "annual": 120360,
+      "annual": 120300,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -120,7 +120,7 @@
       "level": "10",
       "label": "第10段階",
       "rate": 1.9,
-      "annual": 134520,
+      "annual": 134500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -132,7 +132,7 @@
       "level": "11",
       "label": "第11段階",
       "rate": 2.1,
-      "annual": 148680,
+      "annual": 148600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -144,7 +144,7 @@
       "level": "12",
       "label": "第12段階",
       "rate": 2.3,
-      "annual": 162840,
+      "annual": 162800,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -156,7 +156,7 @@
       "level": "13",
       "label": "第13段階",
       "rate": 2.4,
-      "annual": 169920,
+      "annual": 169900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "http://houmu.h-chosonkai.gr.jp/~reikidb/?choson_no=118",
-    "pageTitle": "月形町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://www.town.tsukigata.hokkaido.jp/uploaded/attachment/2007.pdf",
+    "pageTitle": "広報 花の里つきがた 令和6年4月号 P31 65歳以上の方の介護保険料が変わります",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "月形町。基準70800・段階表未掲載(inferred・国標準13段推計)"
+  "notes": "月形町(13段。第9→13段に変更)。基準70,800据置。広報つきがた令和6年4月号(町公式PDF)に全13段階の対象要件・年額を掲載。第1-3は軽減後。annualは公表値(基準額×国標準率の100円切捨てと一致)。率は紙面非掲載のため国標準13段からの推測。★2026-07-07 公式一次で年額確定しverified昇格(率は推測明記)。"
 }

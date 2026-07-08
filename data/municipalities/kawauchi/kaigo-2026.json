@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 66000,
   "brackets": [
     {
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 66000,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.kawauchimura.net/",
-    "pageTitle": "川内村 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "url": "https://en3-jg.d1-law.com/kawauchi/d1w_reiki/H412901010011/H412901010011_j.html",
+    "pageTitle": "川内村介護保険条例 第14条(令和6年条例第6号・R6-8料率)",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "川内村13段(inferred・原発避難)。基準66000(月5500・確定)。公式料率が画像PDFのみ→二次(kokuho-keisan)の基準×標準乗率採用。要官公式突合。境界R8=826500。"
+  "notes": "川内村(13段・単独保険者)。基準66,000。介護保険条例第14条で年額確定(第1-3軽減後18,810/32,010/45,210)。双葉郡だが村単独賦課(広域運営でない)。率は号数規定=国標準推測。★2026-07-07 条例(公式)でverified昇格。"
 }

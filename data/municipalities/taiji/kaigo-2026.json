@@ -9,7 +9,7 @@
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
   "status": "needs_update",
-  "baseAmount": null,
+  "baseAmount": 85200,
   "brackets": [
     {
       "level": "1",
@@ -108,7 +108,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": null,
-    "retrievedAt": null
-  }
+    "url": "https://www.mhlw.go.jp/content/12303500/001253798.pdf",
+    "pageTitle": "厚労省 第9期第1号介護保険料 保険者別一覧(和歌山・太地町月7,100円)",
+    "retrievedAt": "2026-07-08"
+  },
+  "notes": "太地町(単独保険者)。基準85,200(月7,100・第8期6,800から+4.4%・南紀最高)=厚労省一覧で[確認済](町議会会議録とも一致)。段階表は町例規集Web非公開・条例アーカイブは第7期版・第9期計画未公表=[未確認・not_found]。★2026-07-08 基準額を新規確定。段階表は町照会(0735-59-2335)/情報公開要。needs_update維持。"
 }

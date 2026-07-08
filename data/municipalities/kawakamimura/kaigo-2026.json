@@ -8,7 +8,7 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 60000,
   "brackets": [
     {
@@ -60,7 +60,7 @@
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 60000,
       "criteria": {
         "householdAllNonTaxable": false,
@@ -167,8 +167,8 @@
   "fallbackLevel": "5",
   "source": {
     "url": "https://www.vill.kawakami.nara.jp/life/docs/2017013000369/file_contents/kaigohokenjigyoukeikaku9.pdf",
-    "pageTitle": "川上村 介護保険料（第9期）",
-    "retrievedAt": "2026-06-23"
+    "pageTitle": "川上村(奈良) 第9期介護保険事業計画 p.80 所得段階別保険料",
+    "retrievedAt": "2026-07-07"
   },
-  "notes": "川上村13段階(国標準・県内最低)。基準60,000(月5,000)。第1-3軽減後(0.285/0.485/0.685)。第9期計画PDFは乗率のみ掲載→年額=基準×乗率(端数なし)=inferred。境界120/210/320/420/520/620/720万。県PDF5,000と一致。"
+  "notes": "川上村(奈良・29452・13段・単独保険者)。基準60,000(月5,000)。第9期計画書p.80に月額・年額を全段明記(第1-3軽減後17,100/29,100/41,100)。★2026-07-07 公式計画でverified昇格。"
 }

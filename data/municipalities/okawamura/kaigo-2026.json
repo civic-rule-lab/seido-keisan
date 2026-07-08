@@ -9,7 +9,7 @@
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
   "status": "needs_update",
-  "baseAmount": null,
+  "baseAmount": 73560,
   "brackets": [
     {
       "level": "1",
@@ -108,7 +108,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": null,
-    "retrievedAt": null
-  }
+    "url": "https://www.mhlw.go.jp/content/12303500/001253798.pdf",
+    "pageTitle": "厚労省 第9期第1号介護保険料 保険者別一覧(高知・大川村月6,130円)",
+    "retrievedAt": "2026-07-07"
+  },
+  "notes": "大川村(単独保険者)。基準73,560(月6,130・第8期6,071から微増)=厚労省一覧で[確認済]。段階表は村が例規集・計画・広報とも全てWeb非公開=[未確認・not_found]、村HPは平成15-17年度の5段階旧情報。段階数も未確認。★2026-07-07 基準額のみ設定。段階表確定は村照会(0887-84-2211)要。needs_update維持。"
 }

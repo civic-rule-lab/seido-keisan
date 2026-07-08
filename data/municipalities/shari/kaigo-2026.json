@@ -8,14 +8,14 @@
   "system": "kaigo",
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
-  "status": "inferred",
+  "status": "verified",
   "baseAmount": 69000,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 19665,
+      "annual": 19700,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,24 +26,24 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 33465,
+      "annual": 33500,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
         "sumIncomeMax": 1200000
       },
-      "condition": "世帯全員非課税 かつ 合計所得＋課税年金収入が82.65万円超〜120万円以下"
+      "condition": "世帯全員非課税 かつ 82.65万円超〜120万円以下"
     },
     {
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 47265,
+      "annual": 47300,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
       },
-      "condition": "世帯全員非課税 かつ 合計所得＋課税年金収入が120万円超"
+      "condition": "世帯全員非課税 かつ 120万円超"
     },
     {
       "level": "4",
@@ -55,19 +55,19 @@
         "selfTaxable": false,
         "sumIncomeMax": 826500
       },
-      "condition": "世帯課税あり・本人非課税 かつ 合計所得＋課税年金収入が82.65万円以下"
+      "condition": "世帯課税・本人非課税 かつ 82.65万円以下"
     },
     {
       "level": "5",
       "label": "第5段階（基準）",
-      "rate": 1.0,
+      "rate": 1,
       "annual": 69000,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
         "sumIncomeMin": 826501
       },
-      "condition": "世帯課税あり・本人非課税 かつ 合計所得＋課税年金収入が82.65万円超"
+      "condition": "世帯課税・本人非課税 かつ 82.65万円超"
     },
     {
       "level": "6",
@@ -78,7 +78,7 @@
         "selfTaxable": true,
         "totalIncomeMax": 1199999
       },
-      "condition": "本人課税・合計所得金額120万円未満"
+      "condition": "本人課税・合計所得金額本人課税・合計所得120万円未満"
     },
     {
       "level": "7",
@@ -90,7 +90,7 @@
         "totalIncomeMin": 1200000,
         "totalIncomeMax": 2099999
       },
-      "condition": "本人課税・合計所得金額120万円以上210万円未満"
+      "condition": "本人課税・合計所得金額120万以上210万未満"
     },
     {
       "level": "8",
@@ -102,7 +102,7 @@
         "totalIncomeMin": 2100000,
         "totalIncomeMax": 3199999
       },
-      "condition": "本人課税・合計所得金額210万円以上320万円未満"
+      "condition": "本人課税・合計所得金額210万以上320万未満"
     },
     {
       "level": "9",
@@ -111,16 +111,64 @@
       "annual": 117300,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 3200000
+        "totalIncomeMin": 3200000,
+        "totalIncomeMax": 4199999
       },
-      "condition": "本人課税・合計所得金額320万円以上"
+      "condition": "本人課税・合計所得金額320万以上420万未満"
+    },
+    {
+      "level": "10",
+      "label": "第10段階",
+      "rate": 1.9,
+      "annual": 131100,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 4200000,
+        "totalIncomeMax": 5199999
+      },
+      "condition": "本人課税・合計所得金額420万以上520万未満"
+    },
+    {
+      "level": "11",
+      "label": "第11段階",
+      "rate": 2.1,
+      "annual": 144900,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 5200000,
+        "totalIncomeMax": 6199999
+      },
+      "condition": "本人課税・合計所得金額520万以上620万未満"
+    },
+    {
+      "level": "12",
+      "label": "第12段階",
+      "rate": 2.3,
+      "annual": 158700,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 6200000,
+        "totalIncomeMax": 7199999
+      },
+      "condition": "本人課税・合計所得金額620万以上720万未満"
+    },
+    {
+      "level": "13",
+      "label": "第13段階",
+      "rate": 2.4,
+      "annual": 165600,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 7200000
+      },
+      "condition": "本人課税・合計所得金額720万以上"
     }
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.shari.hokkaido.jp/material/files/group/35/20260210kaigohokenryou809000.pdf",
-    "pageTitle": "斜里町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://www.town.shari.hokkaido.jp/material/files/group/35/9kikeikaku.pdf",
+    "pageTitle": "斜里町 第9期介護保険事業計画 P92 保険料段階(13段階)",
+    "retrievedAt": "2026-07-08"
   },
-  "notes": "斜里町★9段(第9期も9段階維持)。基準69000。公式PDF(R8)。第4-9=公式実額(第9=320万以上×1.7打切)。★第1-3は公式が軽減前掲載(0.5/0.75/0.75)→軽減後は国標準0.285/0.485/0.685で推計。境界R8=826500。"
+  "notes": "斜里町(★13段・単独保険者)。基準69,000(月5,750)。★第9期で9段→13段に細分化(旧データの9段は第8期情報)。第9期計画P92で全13段の年額を確認(第1-3軽減後19,700/33,500/47,300)。標準率・100円丸め。町独自の申請減免は別枠。★2026-07-08 ブラウザで計画本文取得しinferred→verified・9→13段是正。"
 }
