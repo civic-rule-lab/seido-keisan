@@ -98,16 +98,14 @@ var CITY_INDEX = {"北海道":{"slug":"hokkaido","cities":[{"slug":"sapporo","na
   "use strict";
   var prefSel=document.getElementById("pref"), citySel=document.getElementById("city"), go=document.getElementById("go"), sysSel=document.getElementById("system");
   // 制度ごとの遷移先とボタン文言。国保は全国版（kokuho-keisan.jp）へ。
-  // shaho（社会保険）は県単位。県別ページ(/{pref}/)は現在「準備中・順次公開」のため、
-  // 当面は shaho-keisan.jp トップに固定する（リンク切れ回避）。
-  // 47県ページ公開後に url を function(p,c){return "https://shaho-keisan.jp/"+p+"/";} へ差し替える。
+  // shaho（社会保険）は県単位＝県別ページ /{pref}/ へ（47県公開済み・2026-07-12）。citySlug不要。
   var SYSTEMS={
     kakeibo:{label:"家計簿シミュレーターを開く", url:function(p,c){return "/"+p+"/"+c+"/kakeibo/";}},
     jumin:  {label:"住民税の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/jumin/";}},
     kokuho: {label:"国民健康保険の計算を開く",   url:function(p,c){return "https://kokuho-keisan.jp/"+p+"/"+c+"/";}},
     hoiku:  {label:"保育料の計算を開く",         url:function(p,c){return "/"+p+"/"+c+"/hoiku/";}},
     kaigo:  {label:"介護保険の計算を開く",       url:function(p,c){return "/"+p+"/"+c+"/kaigo/";}},
-    shaho:  {label:"社会保険（会社員）の計算を開く", prefOnly:true, url:function(p,c){return "https://shaho-keisan.jp/";}}
+    shaho:  {label:"社会保険（会社員）の計算を開く", prefOnly:true, url:function(p,c){return "https://shaho-keisan.jp/"+p+"/";}}
   };
   var prefNames=Object.keys(CITY_INDEX);
   prefNames.forEach(function(pn){
