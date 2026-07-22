@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0752,
-    "support": 0.0305,
-    "care": 0.0247
+    "medical": 0.085,
+    "support": 0.025,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 27122,
-    "support": 10683,
-    "care": 10817
+    "medical": 32100,
+    "support": 7700,
+    "care": 9800
   },
   "household": {
-    "medical": 18801,
-    "support": 7406,
-    "care": 5489
+    "medical": 28000,
+    "support": 6900,
+    "care": 5400
   },
   "caps": {
     "medical": 670000,
@@ -57,41 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.055Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-07-14T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "source_found_r8",
+      "r8Stage": "verified_r8",
       "watchUrls": [
         "https://www.city.gobo.lg.jp/sosiki/siminseikatu/kokuho/tanto/hoken/kokuhozei/1383026463919.html"
       ],
       "sourceUrls": [
+        "https://www.city.gobo.lg.jp/material/files/group/1/R80706.pdf",
         "https://www.city.gobo.lg.jp/sosiki/siminseikatu/kokuho/tanto/hoken/kokuhozei/1383026463919.html"
-      ]
+      ],
+      "verifiedAt": "2026-07-14",
+      "sourceStatus": "official_rate_pdf",
+      "r8Updated": true
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "広報ごぼう 令和8年7月号（令和8年度国民健康保険税の決定）",
+      "url": "https://www.city.gobo.lg.jp/material/files/group/1/R80706.pdf",
+      "publishedAt": "2026-07"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-07-14",
+      "method": "koho-pdf"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.9,
+      "completeness": "full"
     },
-    "notes": "公式ページはR7掲載のみ（2026-06-12実機確認）・R8未告示・子ども分なし。広報ごぼうR8年4月号も制度説明のみ。watchUrlsでR8告示を監視。和歌山は7月本算定が多い。"
+    "notes": "広報ごぼうR8年7月号で令和8年度税率を確認（医8.5%/32,100/28,000・支2.5%/7,700/6,900・介2.0%/9,800/5,400、子ども分0.3%/1,191/766を新設）。3方式・資産割なし。限度額は国R8基準の67万で採用（広報紙面には医療85万と印字されているがR8法定上限67万に反する誤植と判断→要市確認）。旧ドメインcity.gobo.wakayama.jpはSSL失効しcity.gobo.lg.jpへ移行。"
   },
   "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "rate": 0.003,
+    "perCapita": 1191,
+    "household": 766
   }
 }

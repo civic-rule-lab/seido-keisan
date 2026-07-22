@@ -21,7 +21,7 @@
     "care": 5800
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -60,14 +60,16 @@
     "status": "needs_update",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.058Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-07-14T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "extracted_r8",
       "sourceUrls": [
         "https://www.town.kimino.wakayama.jp/sagasu/zeimuka/aboutzeikin/2044.html"
-      ]
+      ],
+      "sourceStatus": "official_rate_page",
+      "r8Updated": true
     },
     "source": {
       "type": "official",
@@ -84,7 +86,7 @@
       "confidenceScore": 0.7,
       "completeness": "partial"
     },
-    "notes": "公式ページ（更新日2026-05-25）の税率表を反映（医8.2%/29,000/22,300・支3.0%/9,200/6,700・介2.5%/9,600/5,800・限度額67/26/17万=R8水準）。ただし子ども・子育て支援金分が未掲載のため verified 昇格は保留。納税通知書発送7/14 → 7月に子ども分掲載を change-detector で監視（standard_r8）。"
+    "notes": "公式ページ（更新日2026-05-25）の税率表を反映（医8.2%/29,000/22,300・支3.0%/9,200/6,700・介2.5%/9,600/5,800）。医療分限度額は条例（令和8年3月5日条例第6号・R8.4.1施行 第2条第2項ただし書）で66万と確認し660,000に確定（税率ページの67万は誤記の可能性・国R8上限67万に対し町独自に66万設定）。子ども・子育て支援金分は未掲載のため verified 昇格は保留。7月本算定で子ども分掲載を change-detector で監視。"
   },
   "childcare": {
     "rate": 0,

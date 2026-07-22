@@ -6,25 +6,30 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0795,
-    "support": 0.0308,
-    "care": 0.0254
+    "medical": 0.08,
+    "support": 0.025,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 28665,
-    "support": 10790,
-    "care": 11122
+    "medical": 26500,
+    "support": 10500,
+    "care": 11800
   },
   "household": {
-    "medical": 19871,
-    "support": 7480,
-    "care": 5644
+    "medical": 23000,
+    "support": 9500,
+    "care": 8000
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "assetLevy": {
+    "medical": 0.05,
+    "support": 0.02,
+    "care": 0.01
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,34 +62,44 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.065Z",
-      "updatedAt": "2026-04-08T01:03:23.065Z",
+      "updatedAt": "2026-07-14T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "verified_r8",
+      "verifiedAt": "2026-07-14",
+      "watchUrls": [
+        "https://www.town.wakayama-inami.lg.jp/0000000306.html"
+      ],
+      "sourceUrls": [
+        "https://www.town.wakayama-inami.lg.jp/cmsfiles/contents/0000000/306/inm372.pdf"
+      ],
+      "sourceStatus": "official_rate_pdf",
+      "r8Updated": true
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "広報いなみ 令和8年7月号 No.372（令和8年度国民健康保険税のお知らせ）",
+      "url": "https://www.town.wakayama-inami.lg.jp/cmsfiles/contents/0000000/306/inm372.pdf",
+      "publishedAt": "2026-07"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-07-14",
+      "method": "koho-pdf"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.85,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "広報いなみR8年7月号(No.372 p.4-5)を反映。4方式=資産割あり（医療 所得8.0/資産5.0/均等26,500/平等23,000、支援 所得2.5/資産2.0/均等10,500/平等9,500、介護 所得2.0/資産1.0/均等11,800/平等8,000）＋子ども・子育て支援金分0.3%/1,191/766を新設。資産割は assetRate フィールドに格納。旧R5から大幅改定(資産割17%→5%等)。縦書きPDFのOCR抽出のため要目視。旧税率ページ0000000401.htmlは404→200復活も内容R5のまま。限度額67/26/17/3万。"
   },
   "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+    "rate": 0.003,
+    "perCapita": 1191,
+    "household": 766
   }
 }

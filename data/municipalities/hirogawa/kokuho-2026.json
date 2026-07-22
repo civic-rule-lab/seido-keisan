@@ -6,25 +6,30 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0736,
-    "support": 0.0309,
-    "care": 0.0258
+    "medical": 0.07,
+    "support": 0.029,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 26532,
-    "support": 10808,
-    "care": 11295
+    "medical": 26200,
+    "support": 10000,
+    "care": 9400
   },
   "household": {
-    "medical": 18393,
-    "support": 7493,
-    "care": 5731
+    "medical": 22600,
+    "support": 9400,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "assetLevy": {
+    "medical": 0.1,
+    "support": 0.03,
+    "care": 0
   },
   "preschoolReduction": {
     "enabled": true,
@@ -60,31 +65,37 @@
     "status": "needs_update",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.061Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-07-14T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "source_found_r8",
+      "r8Stage": "extracted_r8",
       "sourceUrls": [
-        "https://www.town.hirogawa.wakayama.jp/reiki/reiki_honbun/k524RG00000166.html"
-      ]
+        "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html"
+      ],
+      "verifiedAt": "2026-07-14",
+      "watchUrls": [
+        "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html"
+      ],
+      "sourceStatus": "official_rate_page",
+      "r8Updated": true
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "広川町 国民健康保険税（令和8年度）",
+      "url": "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html",
+      "publishedAt": "2026-06-12"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-07-14",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
+      "confidenceScore": 0.85,
       "completeness": "partial"
     },
-    "notes": "例規集の国民健康保険税条例を確認（2026-06-12）: R8改正未登載（子ども・子育て支援納付金の条文なし）・現行条文はR7値で県公表実料率と完全一致。条例ページをsourceUrlsで監視しR8改正登載を検知する。資産割あり(R7条例で率確認済み)。"
+    "notes": "公式税率ページ（令和8年度・2026-06-12更新）を反映。4方式=資産割あり（医療 所得7.0/資産10.0/均等26,200/平等22,600、支援 所得2.9/資産3.0/均等10,000/平等9,400、介護 所得2.1/資産なし/均等9,400/平等6,500）。資産割は新設 assetRate フィールドに格納。子ども・子育て支援金分はページ未掲載のため childcare=0・verified保留、change-detectorで監視。限度額67/26/17万。"
   },
   "childcare": {
     "rate": 0,

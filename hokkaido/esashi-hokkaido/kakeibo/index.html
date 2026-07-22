@@ -87,6 +87,21 @@
     </div>
   </div>
 
+  <div class="field-grid">
+    <div>
+      <label for="employment">働き方</label>
+      <select id="employment">
+        <option value="kaishain" selected>会社員（社会保険）</option>
+        <option value="jiei">自営・退職など（国民健康保険）</option>
+      </select>
+    </div>
+    <div id="bonusField">
+      <label for="bonus">年間賞与（任意）</label>
+      <input id="bonus" type="text" inputmode="numeric" placeholder="例：1,000,000">
+    </div>
+  </div>
+  <div class="note" id="bonusHint" style="margin-top:6px;">会社員の方は、上の給与収入は<b>賞与を除いた額</b>を入力し、賞与は別欄へ。賞与は健康保険・厚生年金の保険料に反映します（税額は給与＋賞与で計算）。</div>
+
   <div id="hoikuBlock" style="display:none;margin-top:18px;padding:14px;border:1px solid #dbeafe;border-radius:12px;background:#f8fbff;">
     <label style="display:flex;align-items:center;gap:8px;margin:0;font-weight:600;cursor:pointer;">
       <input type="checkbox" id="hoikuOptIn" onchange="document.getElementById('hoikuDetail').style.display=this.checked?'block':'none';">
@@ -133,13 +148,15 @@
     
     <!-- 暫定: 国保は当面 kokuho-keisan.jp 側を参照（seido-keisan へ移行したら内部 "../" に戻す） -->
     <a href="https://kokuho-keisan.jp/hokkaido/esashi-hokkaido/" target="_blank" rel="noopener">国保だけ詳しく ↗</a>
-    <!-- 社保は別サイト shaho-keisan.jp。県別ページは準備中のため当面トップ／比較ページへ -->
-    <a href="https://shaho-keisan.jp/" target="_blank" rel="noopener">会社員の社会保険料 ↗</a>
+    <!-- 社保は別サイト shaho-keisan.jp。県別ページ公開済み（2026-07-12）＝県別リンク（PR#363 の seido/kokuho トップと同方針） -->
+    <a href="https://shaho-keisan.jp/hokkaido/" target="_blank" rel="noopener">会社員の社会保険料 ↗</a>
     <a href="https://shaho-keisan.jp/hikaku/" target="_blank" rel="noopener">任意継続 vs 国保 ↗</a>
   </div>
 
   <div class="note">
-    ※住民税：給与収入の約14.4%を社会保険料控除として概算。各種人的控除は未考慮。会社員の方は shaho-keisan.jp で協会けんぽ・厚生年金・雇用保険の正確な社会保険料を計算できます。<br>
+    ※働き方で社会保険料の扱いが変わります。<b>会社員</b>＝協会けんぽ（健康保険・介護第2号・子育て支援金）・厚生年金・雇用保険の本人負担を、都道府県別料率と標準報酬月額から実額で計算し、住民税・所得税の社会保険料控除にも反映します（賞与は任意入力）。<b>自営・退職など</b>＝国民健康保険を計算し、税の社会保険料控除は給与収入の約14.4%で概算します。<br>
+    ※所得税：全国一律。給与所得控除・基礎控除・社会保険料控除のみを反映した概算です（扶養・生命保険料控除・住宅ローン控除等は未考慮）。<br>
+    ※住民税：各種人的控除は未考慮の概算です。<br>
     ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。<br>
     ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
     ※75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（金額は後期高齢者医療のページで計算できます）。<br>
@@ -158,12 +175,14 @@
 
 </div>
 
-<script>const CITY_SLUG = "esashi-hokkaido";</script>
-<script src="/js/core/shared/income.js?v=055cd259"></script>
-<script src="/js/core/jumin.js?v=055cd259"></script>
-<script src="/js/core/kokuho.js?v=055cd259"></script>
-<script src="/js/core/kaigo.js?v=055cd259"></script>
-<script src="/js/core/hoiku.js?v=055cd259"></script>
+<script>const CITY_SLUG = "esashi-hokkaido"; const PREF_SLUG = "hokkaido";</script>
+<script src="/js/core/shared/income.js?v=27f1fcba"></script>
+<script src="/js/core/jumin.js?v=27f1fcba"></script>
+<script src="/js/core/kokuho.js?v=27f1fcba"></script>
+<script src="/js/core/kaigo.js?v=27f1fcba"></script>
+<script src="/js/core/hoiku.js?v=27f1fcba"></script>
+<script src="/js/core/shaho.js?v=27f1fcba"></script>
+<script src="/js/core/shotoku.js?v=27f1fcba"></script>
 <script>
 (function () {
   "use strict";
@@ -172,6 +191,47 @@
   var _cache = {};
   // 介護保険（第1号）は自治体ごとに段階的リリース。kaigo-{year}.json の status が
   // verified / inferred の自治体だけ点灯し、それ以外は「準備中」表示のまま（合計にも含めない）。
+
+  // ── 社会保険（会社員）／所得税 の結線（shaho.js＝window.Shaho・shotoku.js＝window.Shotoku） ──
+  // PREF_SLUG はテンプレ注入。未注入（テンプレ直開き等）は URL の先頭セグメントから解決。
+  var PREF = (typeof PREF_SLUG!=="undefined" && PREF_SLUG && PREF_SLUG.indexOf("__")!==0)
+    ? PREF_SLUG : (location.pathname.split("/").filter(Boolean)[0]||"");
+  var TAX_YEAR = 2026;          // 所得税・社保の年分（令和8年）
+  var SHAHO_MONTH = "2026-07";  // 社保料率の対象月（R8：健保3月分〜／雇用・支援金4月分〜が全て適用される月）
+  var _shaho=null, _shahoTried=false, _shotokuEng=null, _shotokuTried=false;
+  async function loadShaho(){
+    if(_shahoTried) return _shaho;
+    _shahoTried=true;
+    try{
+      var names=["kenpo-2026","kosei-nenkin","koyo-2026","standard-monthly"];
+      var r=await Promise.all(names.map(function(n){return fetch("/data/shaho/"+n+".json").then(function(x){if(!x.ok)throw 0;return x.json();});}));
+      var senpo=null; try{ var sp=await fetch("/data/shaho/senpo-2026.json"); if(sp.ok) senpo=await sp.json(); }catch(e){}
+      _shaho={kenpo:r[0],kosei:r[1],koyo:r[2],standard:r[3],senpo:senpo};
+    }catch(e){ _shaho=null; }
+    return _shaho;
+  }
+  async function loadShotoku(){
+    if(_shotokuTried) return _shotokuEng;
+    _shotokuTried=true;
+    try{
+      var db=await fetch("/data/national/shotokuzei-"+TAX_YEAR+".json").then(function(x){if(!x.ok)throw 0;return x.json();});
+      _shotokuEng=(window.Shotoku)?window.Shotoku.createEngineFromDB(TAX_YEAR, db):null;
+    }catch(e){ _shotokuEng=null; }
+    return _shotokuEng;
+  }
+  // 会社員の年間社会保険料（本人負担）＝月額本人負担×12＋賞与本人負担。null＝計算不可（データ未取得等）。
+  function shahoAnnual(salary, bonus, age){
+    if(!window.Shaho || !_shaho || !PREF) return null;
+    try{
+      var input={monthlySalary:Math.round(salary/12), targetMonth:SHAHO_MONTH, prefSlug:PREF, age:age, koyoCategory:"ippan"};
+      if(bonus>0){ input.bonus=bonus; input.bonusYearToDate=0; }
+      var r=window.Shaho.calculateShaho(input, _shaho);
+      var m=r.health.employee + r.care.employee + r.shienkin.employee + r.koseiNenkin.employee + r.koyo.employee;
+      var bE=0;
+      if(r.bonus){ var b=r.bonus; bE=b.health.employee+b.care.employee+b.shienkin.employee+b.koseiNenkin.employee+((b.koyo&&b.koyo.employee)||0); }
+      return { annual: Math.round(m*12+bE), r:r };
+    }catch(e){ return null; }
+  }
 
   function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id,min){var v=document.getElementById(id);var n=v?Number(toHalfWidth(v.value||"").replace(/[^\d]/g,"")):0;return Math.max(min||0, isFinite(n)?n:0);}
@@ -186,7 +246,13 @@
     el.addEventListener("blur",commit);
     el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
   }
-  function initInputs(){ setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false); setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); }
+  function initInputs(){
+    setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false);
+    setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); setupNumericInput("bonus",true);
+    var emp=document.getElementById("employment"), bf=document.getElementById("bonusField"), bh=document.getElementById("bonusHint");
+    function syncEmp(){ var jiei=(emp && emp.value==="jiei"); if(bf) bf.style.display = jiei ? "none" : "block"; if(bh) bh.style.display = jiei ? "none" : "block"; }
+    if(emp){ emp.addEventListener("change", syncEmp); syncEmp(); }
+  }
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);
   function yen(n){return Math.round(n).toLocaleString()+" 円";}
@@ -207,15 +273,31 @@
     var systemsEl=document.getElementById("systems");
     var grandEl=document.getElementById("grand");
     var salary=num("salary"), pension=num("pension"), age=num("age")||40, family=num("family",1)||1;
+    var employment=((document.getElementById("employment")||{}).value)||"kaishain";
+    var isKaishain=(employment==="kaishain");
+    var bonus=isKaishain?num("bonus"):0;
+    // 給与欄＝賞与を除く月給ベースの年額。税の給与収入は賞与込み（grossSalary）。
+    // 社保は monthlySalary=給与/12 と 賞与を別建てで計算（標準報酬月額＋標準賞与額）。
+    var grossSalary=salary+bonus;
     if(salary===0 && pension===0){systemsEl.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";grandEl.style.display="none";return;}
 
     systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
 
-    // 共有の所得計算
-    var totalIncome = calcSalaryIncome(salary) + calcPensionIncome(pension, age); // 総所得金額等
-    var socialInsurance = Math.round(salary*0.144);
+    // 共有の所得計算（賞与込みの給与収入で総所得金額等を出す）
+    var totalIncome = calcSalaryIncome(grossSalary) + calcPensionIncome(pension, age); // 総所得金額等
 
-    var settled = await Promise.allSettled([loadSystem("jumin"), loadSystem("kokuho"), loadSystem("kaigo"), loadSystem("hoiku")]);
+    // 社会保険料控除（住民税・所得税の控除額）。会社員=shaho実額／自営など=給与の約14.4%概算。
+    var socialInsurance, shahoRes=null;
+    if(isKaishain && salary>0){
+      await loadShaho();
+      var sa=shahoAnnual(salary, bonus, age);
+      if(sa){ socialInsurance=sa.annual; shahoRes=sa.r; }
+      else { socialInsurance=Math.round(grossSalary*0.144); } // データ未取得時のフォールバック（賞与込み給与で概算）
+    } else {
+      socialInsurance=Math.round(grossSalary*0.144); // 自営など＝概算（jiei は bonus=0 のため従来どおり）
+    }
+
+    var settled = await Promise.allSettled([loadSystem("jumin"), loadSystem("kokuho"), loadSystem("kaigo"), loadSystem("hoiku"), loadShotoku()]);
     var juminData  = settled[0].status==="fulfilled" ? settled[0].value : null;
     var kokuhoData = settled[1].status==="fulfilled" ? settled[1].value : null;
     var kaigoData  = settled[2].status==="fulfilled" ? settled[2].value : null;
@@ -225,7 +307,7 @@
 
     // ── 住民税（jumin-2026.json が無くても標準値で計算可） ──
     try{
-      var rj=calculateJumin(juminData, {salary:salary, pension:pension, age:age, socialInsurance:socialInsurance});
+      var rj=calculateJumin(juminData, {salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance});
       taxableJumin = !!rj.isTaxable;
       grand += rj.total;
       cards.push(card("住民税", rj.total, [
@@ -234,10 +316,43 @@
       if(juminData) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"#1d4ed8"});
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
-    // ── 医療保険：74歳以下は国民健康保険、75歳以上は後期高齢者医療（対象が異なる） ──
+    // ── 所得税（給与所得者・基礎控除＋社会保険料控除のみ反映の概算。全国一律。賞与込みの給与収入で計算） ──
+    if(grossSalary>0 && _shotokuEng){
+      try{
+        var st=_shotokuEng.calcShotokuzei({salary:grossSalary, socialInsurance:socialInsurance});
+        grand += st.annualTax;
+        cards.push(card("所得税", st.annualTax, [
+          ["課税所得（概算）", st.kazeiShotoku],
+          ["年税額（復興特別所得税込）", st.annualTax]
+        ], "#7c3aed"));
+      }catch(e){ cards.push(skip("所得税", "計算できませんでした")); }
+    }
+
+    // ── 医療・年金保険：75歳以上=後期高齢者医療／会社員=社会保険／自営など=国民健康保険 ──
     if(age>=75){
       // 75歳以上は国保の対象外。金額は個別ページに委ね、導線のみ示す。
       cards.push("<div class='ci-grp'><div class='ci-grp-head'>後期高齢者医療<span class='ci-sub'>75歳以上</span></div><div class='ci-sub' style='line-height:1.7;color:#6b7280;'>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です。</div><div style='margin-top:7px;text-align:right;'><a href='../kouki/' style='font-size:13px;color:#1d4ed8;text-decoration:none;font-weight:600;'>後期高齢者医療を計算する →</a></div></div>");
+    } else if(isKaishain){
+      // 会社員：協会けんぽ健保（介護第2号・子育て支援金含む）＋厚生年金＋雇用保険の本人負担（年額）。国保カードは出さない。
+      if(salary>0 && shahoRes){
+        var he=shahoRes.health.employee+shahoRes.care.employee+shahoRes.shienkin.employee;
+        var pe=shahoRes.koseiNenkin.employee, ke=shahoRes.koyo.employee;
+        var bH=0,bP=0,bK=0;
+        if(shahoRes.bonus){var bb=shahoRes.bonus; bH=bb.health.employee+bb.care.employee+bb.shienkin.employee; bP=bb.koseiNenkin.employee; bK=(bb.koyo&&bb.koyo.employee)||0;}
+        var annH=Math.round(he*12+bH), annP=Math.round(pe*12+bP), annK=Math.round(ke*12+bK);
+        var shahoTotal=annH+annP+annK;
+        grand += shahoTotal;
+        cards.push(card("社会保険（会社員）", shahoTotal, [
+          ["健康保険"+(shahoRes.care.applies?"（介護・子育て支援金含む）":"（子育て支援金含む）"), annH],
+          ["厚生年金", annP],
+          ["雇用保険", annK]
+        ], "#0d9488"));
+        detailLinks.push({href:"https://shaho-keisan.jp/"+PREF+"/", label:"社会保険を詳しく計算", color:"#0d9488", external:true});
+      } else if(salary===0){
+        cards.push(skip("社会保険（会社員）", "給与収入を入力すると会社員の社会保険料（協会けんぽ・厚生年金・雇用保険）を計算します"));
+      } else {
+        cards.push(skip("社会保険（会社員）", "社会保険料データを取得できませんでした（住民税・所得税は給与の約14.4%で概算）"));
+      }
     } else if(kokuhoData){
       try{
         var rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:0, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
@@ -291,7 +406,8 @@
             age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
             enrolled: Number((document.getElementById("hoikuSiblings")||{}).value)||0,
             hitorioya: !!(document.getElementById("hoikuHitorioya")||{}).checked,
-            honninPension: pension
+            honninPension: pension,
+            honninBonus: bonus   // 賞与も住民税課税＝保育料指数に反映（社保は月給と賞与を別建て計算）
           });
           var _hoikuAnnual = (rh.monthly||0)*12;
           grand += _hoikuAnnual;
@@ -305,7 +421,8 @@
     if(detailLinks.length){
       var _dl = detailLinks.map(function(l){
         var c=l.color||"#1d4ed8", t=l.textColor||c;   // 枠=c / 文字=t（保育料は枠ピンク・文字青）
-        return "<a href='"+l.href+"' style='display:inline-block;font-size:13px;color:"+t+";text-decoration:none;font-weight:600;border:1.5px solid "+c+";border-radius:999px;padding:6px 14px;margin:8px 8px 0 0;'>"+l.label+" →</a>";
+        var ext=l.external?" target='_blank' rel='noopener'":"";
+        return "<a href='"+l.href+"'"+ext+" style='display:inline-block;font-size:13px;color:"+t+";text-decoration:none;font-weight:600;border:1.5px solid "+c+";border-radius:999px;padding:6px 14px;margin:8px 8px 0 0;'>"+l.label+" →</a>";
       }).join("");
       cards.push("<div style='margin-top:8px;'>"+_dl+"</div>");
     }
@@ -328,20 +445,28 @@
     return "<div class='ci-grp' style='border-left:4px solid #cbd5e1;'><div class='ci-grp-head' style='color:#64748b;'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";
   }
   // ── 保育料 結線（独立ページ hoiku-simple.html と同方式。①〜⑤を家計簿に移植） ──
-  function _juminOf(sal, pen){
-    sal=sal||0; pen=pen||0;
-    if(!sal && !pen) return {shotokuwari:0, taxable:false};
-    var si=Math.round(sal*0.144);
-    var r=calculateJumin(null,{salary:sal,pension:pen,otherIncome:0,age:40,socialInsurance:si});
+  function _juminOf(sal, pen, bon){
+    sal=sal||0; pen=pen||0; bon=bon||0;
+    if(!sal && !pen && !bon) return {shotokuwari:0, taxable:false};
+    // 会社員世帯は父母それぞれ shaho 実額で社会保険料控除を推定（保育料指数の精度UP）。
+    // 就業形態は世帯単位。父母の年齢は不明のため 40 歳を仮定（既存挙動と整合）。shaho 未取得時は 0.144 概算にフォールバック。
+    // 賞与(bon)は住民税の給与収入に加算し、社保は 月給(sal) と 賞与 を別建てで計算（本体 calcAll と同方式）。
+    var emp=((document.getElementById("employment")||{}).value)||"kaishain";
+    var gross=sal+bon;
+    var si;
+    if(emp==="kaishain" && sal>0){ var sa=shahoAnnual(sal, bon, 40); si = sa ? sa.annual : Math.round(gross*0.144); }
+    else { si=Math.round(gross*0.144); }
+    var r=calculateJumin(null,{salary:gross,pension:pen,otherIncome:0,age:40,socialInsurance:si});
     return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable};
   }
   function calcHoikuFromSalaries(M, honninSalary, spouseSalary, opts){
     opts=opts||{};
     var honninPension=opts.honninPension||0;               // 世帯主(=保護者1)の年金も課税判定に反映
-    var f=_juminOf(honninSalary, honninPension), m=_juminOf(spouseSalary, 0);
+    var honninBonus=opts.honninBonus||0;                   // 世帯主の賞与（会社員）。配偶者の賞与は入力欄が無いため0（配偶者は給与年収に含めて入力）
+    var f=_juminOf(honninSalary, honninPension, honninBonus), m=_juminOf(spouseSalary, 0, 0);
     var input={ age:opts.age||"age1_2", hitorioya:!!opts.hitorioya, month:(M.fiscalSwitch||9),
       father:{shotokuwari:f.shotokuwari}, mother:{shotokuwari:m.shotokuwari}, isSeireiNotice:false };
-    var fe=(!honninSalary && !honninPension), me=(!spouseSalary);
+    var fe=(!honninSalary && !honninPension && !honninBonus), me=(!spouseSalary);
     var fTax=fe?false:f.taxable, mTax=me?false:m.taxable;
     input.hikazei = !(fe&&me) && !fTax && !mTax;   // ② 非課税=父母AND(年金課税も考慮)
     input.childOrder = (opts.enrolled||0)+1;        // ① 多子=在園兄姉+1
