@@ -47,6 +47,7 @@
   .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
   .result-placeholder{color:#9ca3af;font-size:14px;}
   .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .unit-warn{display:none;margin-top:6px;font-size:12.5px;line-height:1.6;color:#b45309;background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:8px 10px;}
 
   .ci-systems{margin:8px 0 0;}
   .ci-grp{margin:14px 0 0;background:#f8fafc;border:1px solid #eef2f7;border-radius:12px;padding:13px 15px;}
@@ -246,9 +247,24 @@
     el.addEventListener("blur",commit);
     el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
   }
+  // 円単位ガード：収入欄に万円のまま入力すると少額（最低等級）で計算されるため、5桁以下の入力に注意を表示（警告のみ・自動変換なし）
+  function setupUnitGuard(id){
+    var el=document.getElementById(id); if(!el)return;
+    var warn=document.createElement("div"); warn.className="unit-warn"; warn.id=id+"UnitWarn";
+    el.insertAdjacentElement("afterend", warn);
+    function check(){
+      var n=Number(toHalfWidth(el.value||"").replace(/[^\d]/g,""));
+      if(isFinite(n) && n>=1 && n<=99999){
+        warn.innerHTML="⚠️ この欄は<b>円単位</b>です（例：600万円 → 6,000,000）。今の入力のままだと <b>年 "+n.toLocaleString("ja-JP")+"円</b> として計算されます。";
+        warn.style.display="block";
+      } else { warn.style.display="none"; }
+    }
+    el.addEventListener("input",check); el.addEventListener("blur",check);
+  }
   function initInputs(){
     setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false);
     setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); setupNumericInput("bonus",true);
+    setupUnitGuard("salary"); setupUnitGuard("pension"); setupUnitGuard("bonus"); setupUnitGuard("hoikuSpouse");
     var emp=document.getElementById("employment"), bf=document.getElementById("bonusField"), bh=document.getElementById("bonusHint");
     function syncEmp(){ var jiei=(emp && emp.value==="jiei"); if(bf) bf.style.display = jiei ? "none" : "block"; if(bh) bh.style.display = jiei ? "none" : "block"; }
     if(emp){ emp.addEventListener("change", syncEmp); syncEmp(); }
