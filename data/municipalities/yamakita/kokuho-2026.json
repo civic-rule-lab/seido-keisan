@@ -1,106 +1,106 @@
 {
-  "cityCode": "14364",
-  "citySlug": "yamakita",
-  "cityName": "山北町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0584,
-    "support": 0.0252,
-    "care": 0.0239
+ "cityCode": "14364",
+ "citySlug": "yamakita",
+ "cityName": "山北町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.068,
+  "support": 0.0295,
+  "care": 0.028
+ },
+ "perCapita": {
+  "medical": 28000,
+  "support": 12000,
+  "care": 12500
+ },
+ "household": {
+  "medical": 41000,
+  "support": 8500,
+  "care": 7800
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 25720,
-    "support": 12220,
-    "care": 12088
-  },
-  "household": {
-    "medical": 38251,
-    "support": 8788,
-    "care": 7482
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "assetLevy": {
-    "medical": 0.103,
-    "support": 0.0155,
-    "care": 0.017
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:21.793Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f537560/index.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 神奈川県 市町村標準保険料率（各市町村の算定方式によるもの）算定結果表",
-      "url": "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、山北町が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
-  },
-  "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1727,
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:21.793Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.town.yamakita.kanagawa.jp/0000000310.html",
+    "https://www.town.yamakita.kanagawa.jp/0000007144.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.town.yamakita.kanagawa.jp/0000000310.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "国民健康保険 | 山北町",
+   "url": "https://www.town.yamakita.kanagawa.jp/0000000310.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.92,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険税・3方式。旧PR(#91/#144)の値は使わず独立再取得。公式ページ https://www.town.yamakita.kanagawa.jp/0000000310.html（山北町公式ドメイン）を WebFetch で計4回、それぞれ異なるURL（素のURL・?v=2・?check=3・?verify=4/?verify=5）で取得し、全回で数値が一致することを確認した。見出しに「令和8年度 国民健康保険税率」と明記、表注記に「子ども・子育て支援金分については令和8年度から開始」とあり r8Explicit=true。前年度(R7)値がカッコ書きで併記されており（医療所得割6.5%→6.8%、資産割 医療10.3%/支援1.55%/介護1.7%→ 子育て分は均等割1,727円+18歳以上均等割64円(18歳未満全額減免)を統括再取得で確認、R8で資産割廃止(全0%)のためassetLevy削除。"
+ },
+ "childcareLevy": {
+  "rate": 0.0027,
+  "perCapita": 1727,
+  "perCapitaAdult": 64,
+  "perCapitaAdultScope": "all_ages",
+  "household": 0,
+  "cap": 30000
+ }
 }

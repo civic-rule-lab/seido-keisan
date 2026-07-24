@@ -1,101 +1,105 @@
 {
-  "cityCode": "29201",
-  "citySlug": "nara",
-  "cityName": "奈良市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0764,
-    "support": 0.0327,
-    "care": 0.0303
+ "cityCode": "29201",
+ "citySlug": "nara",
+ "cityName": "奈良市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0764,
+  "support": 0.0327,
+  "care": 0.0303
+ },
+ "perCapita": {
+  "medical": 27600,
+  "support": 11500,
+  "care": 16900
+ },
+ "household": {
+  "medical": 20000,
+  "support": 8400,
+  "care": 0
+ },
+ "caps": {
+  "medical": 660000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 27600,
-    "support": 11500,
-    "care": 16900
-  },
-  "household": {
-    "medical": 20000,
-    "support": 8400,
-    "care": 0
-  },
-  "caps": {
-    "medical": 660000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:23.028Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
-      "sourceUrls": [
-        "https://www.pref.nara.lg.jp/n065/p012003.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 奈良県 市町村標準保険料率",
-      "url": "https://www.pref.nara.lg.jp/n065/p012003.html",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "奈良県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で奈良市の実告示と異なる場合あり。県内統一料率(混合方式: 医療/後期=3方式・介護/子ども=2方式平等割なし)・資産割なし・限度額医療66万。値は大和高田市公式(統一料率の代理source)由来→協議会資料PDFと要照合。子ども分は18歳未満均等割全額減額の特殊ルールあり(18+加算=200円・engine表現未対応)。市告示後 verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0031,
-    "perCapita": 1700,
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:23.028Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.nara.lg.jp/site/kokuminkenkouhoken/9305.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.nara.lg.jp/site/kokuminkenkouhoken/9305.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "保険料の算定 - 国民健康保険 - 奈良市ホームページ（国保年金課）（令和8年度保険料率、2026年6月1日更新）",
+   "url": "https://www.city.nara.lg.jp/site/kokuminkenkouhoken/9305.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.9,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。奈良市公式サイト（city.nara.lg.jp、国保年金課「保険料の算定」ページ）から取得。ページに「令和8年度保険料率」と明記、更新日2026年6月1日。キャッシュ回避のため ?v=2 付きURLでも再取得し、全数値が一致することを確認済。保険「料」（保険税ではない）。賦課方式は医療分・支援金分が3方式（所得割+均等割+平等割）、介護分・子ども分は平等割なし（2方式相当）。資産割の記載なし。令和8年度新設の子ども・子育て支援納付金分あり：所得割0.31%・均等割1,700円・限度額30,000円に加え「18歳以上均等割200円」の加算項目（原文の項目番号(15)）があり、18歳未満は子ども"
+ },
+ "childcareLevy": {
+  "rate": 0.0031,
+  "perCapita": 1700,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 0,
+  "cap": 30000
+ }
 }

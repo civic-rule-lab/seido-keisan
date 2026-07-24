@@ -1,101 +1,106 @@
 {
-  "cityCode": "14205",
-  "citySlug": "fujisawa",
-  "cityName": "藤沢市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0699,
-    "support": 0.0273,
-    "care": 0.026
+ "cityCode": "14205",
+ "citySlug": "fujisawa",
+ "cityName": "藤沢市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0699,
+  "support": 0.0299,
+  "care": 0.0257
+ },
+ "perCapita": {
+  "medical": 30240,
+  "support": 12720,
+  "care": 12120
+ },
+ "household": {
+  "medical": 15960,
+  "support": 6720,
+  "care": 4920
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 32005,
-    "support": 12312,
-    "care": 12448
-  },
-  "household": {
-    "medical": 19950,
-    "support": 7675,
-    "care": 5970
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:21.773Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f537560/index.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 神奈川県 市町村標準保険料率（各市町村の算定方式によるもの）算定結果表",
-      "url": "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、藤沢市が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1301,
-    "household": 811,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:21.773Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.fujisawa.kanagawa.jp/honen/kurashi/hoken/kokuho/hokenryo/kesan/r8hokenryo.html",
+    "https://www.city.fujisawa.kanagawa.jp/honen/kurashi/hoken/kokuho/hokenryo/kesan/kegen.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.fujisawa.kanagawa.jp/honen/kurashi/hoken/kokuho/hokenryo/kesan/r8hokenryo.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "令和8年度国民健康保険料｜藤沢市",
+   "url": "https://www.city.fujisawa.kanagawa.jp/honen/kurashi/hoken/kokuho/hokenryo/kesan/r8hokenryo.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。藤沢市公式サイト（city.fujisawa.kanagawa.jp）の「令和8年度国民健康保険料」ページ（r8hokenryo.html）から取得。本文に「令和8年度の国民健康保険料の料率が決定いたしました。」と明記、表題も「令和8年度国民健康保険料率と賦課限度額」でR8明示。取得経緯：コンテナからのcurl直接アクセスはプロキシで403拒否のためWebFetchを使用。素URLと ?v=2 付きURL（キャッシュ回避）の2回取得で全数値が完全一致、軽減ページも ?v=2/?v=3 で2回取得し一致。呼称は「保険料」（保険税の語なし）。賦課方式は所得割・均等割・平等割の3方式（資産割なし）。"
+ },
+ "childcareLevy": {
+  "rate": 0.003,
+  "perCapita": 1320,
+  "perCapitaAdult": 72,
+  "perCapitaAdultScope": "all_ages",
+  "household": 720,
+  "cap": 30000
+ }
 }

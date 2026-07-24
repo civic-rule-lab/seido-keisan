@@ -1,103 +1,105 @@
 {
-  "cityCode": "27215",
-  "citySlug": "neyagawa",
-  "cityName": "寝屋川市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.095,
-    "support": 0.0306,
-    "care": 0.026
+ "cityCode": "27215",
+ "citySlug": "neyagawa",
+ "cityName": "寝屋川市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.095,
+  "support": 0.0306,
+  "care": 0.026
+ },
+ "perCapita": {
+  "medical": 34990,
+  "support": 11191,
+  "care": 18682
+ },
+ "household": {
+  "medical": 33908,
+  "support": 10845,
+  "care": 0
+ },
+ "caps": {
+  "medical": 660000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 34990,
-    "support": 11191,
-    "care": 18682
-  },
-  "household": {
-    "medical": 33908,
-    "support": 10845,
-    "care": 0
-  },
-  "caps": {
-    "medical": 660000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.049Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_unified",
-      "sourceUrls": [
-        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 大阪府市町村標準保険料率（大阪府統一保険料率）",
-      "url": "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-unified"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "大阪府は令和6年度から府内完全統一料率。令和8年度 府統一保険料率を参考値として採用(医療/後期/介護は全43市町村共通)。介護・子ども分は2方式(平等割0)。子ども均等割は均等割1733円+18歳以上108円=1,841円統一(内訳は寝屋川市の年齢構成等で異なる)。限度額 医療66万(大阪統一)。市告示確定で verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1733,
-    "perCapitaAdult": 108,
-    "perCapitaAdultScope": "all_ages",
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.049Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.neyagawa.osaka.jp/organization_list/shiminservice/s_hoken/kokuminkenkouhoken/osirase/23026.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.neyagawa.osaka.jp/organization_list/shiminservice/s_hoken/kokuminkenkouhoken/osirase/23026.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "令和8年度の国民健康保険料率等が決定しました／寝屋川市",
+   "url": "https://www.city.neyagawa.osaka.jp/organization_list/shiminservice/s_hoken/kokuminkenkouhoken/osirase/23026.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.92,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。出典は寝屋川市公式サイト（city.neyagawa.osaka.jp）。ページタイトルが「令和8年度の国民健康保険料率等が決定しました」で年度明記、更新日2026年4月1日。WebFetchで3回取得（うち2回は ?v=2 / ?check=r8 のキャッシュ回避クエリ付き）し、全数値が3回とも一致。エージェントプロキシが自治体ドメインへの直接curlを403で遮断するため、raw HTMLの直接取得は不可でWebFetch経由（要約モデル）での抽出。quotesはWebFetchが返した原文抜粋であり、3回の独立取得で相互一致を確認済。数値は登録済の大阪府統一保険料率（standard_r"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 1733,
+  "perCapitaAdult": 108,
+  "perCapitaAdultScope": "18歳以上",
+  "household": 0,
+  "cap": 30000
+ }
 }

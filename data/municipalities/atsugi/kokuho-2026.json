@@ -1,101 +1,105 @@
 {
-  "cityCode": "14212",
-  "citySlug": "atsugi",
-  "cityName": "厚木市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0666,
-    "support": 0.0253,
-    "care": 0.0234
+ "cityCode": "14212",
+ "citySlug": "atsugi",
+ "cityName": "厚木市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0645,
+  "support": 0.0217,
+  "care": 0.0223
+ },
+ "perCapita": {
+  "medical": 26549,
+  "support": 9094,
+  "care": 10204
+ },
+ "household": {
+  "medical": 23967,
+  "support": 8209,
+  "care": 6929
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 29077,
-    "support": 11292,
-    "care": 11617
-  },
-  "household": {
-    "medical": 26634,
-    "support": 10343,
-    "care": 7821
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:21.776Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f537560/index.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 神奈川県 市町村標準保険料率（各市町村の算定方式によるもの）算定結果表",
-      "url": "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、厚木市が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
-  },
-  "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1180,
-    "household": 1081,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:21.776Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.atsugi.kanagawa.jp/soshiki/kokuhonenkinka/9/22689.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.atsugi.kanagawa.jp/soshiki/kokuhonenkinka/9/22689.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "国民健康保険料について／厚木市",
+   "url": "https://www.city.atsugi.kanagawa.jp/soshiki/kokuhonenkinka/9/22689.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。厚木市公式サイト（city.atsugi.kanagawa.jp、国保年金課ページ「国民健康保険料について」）から令和8年度の料率を取得。ページに「令和8年度の国民健康保険料の料率等は下表のとおりです」と明記あり（r8Explicit=true）。キャッシュ回避のため同一ページを ?v=2 付きURLで再取得し、全数値（所得割率4区分・均等割・平等割・賦課限度額）が完全一致することを確認済み。賦課方式は所得割＋均等割＋平等割の3方式（資産割の記載なし）。保険「料」方式。子ども・子育て支援金分は令和8年度新設で所得割0.23%・均等割1,067円・平等割911円・限度額30,000円（平等割あり"
+ },
+ "childcareLevy": {
+  "rate": 0.0023,
+  "perCapita": 1067,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 911,
+  "cap": 30000
+ }
 }

@@ -1,103 +1,105 @@
 {
-  "cityCode": "24201",
-  "citySlug": "tsu",
-  "cityName": "津市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0703,
-    "support": 0.0286,
-    "care": 0.0245
+ "cityCode": "24201",
+ "citySlug": "tsu",
+ "cityName": "津市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.08,
+  "support": 0.029,
+  "care": 0.029
+ },
+ "perCapita": {
+  "medical": 29100,
+  "support": 10500,
+  "care": 12500
+ },
+ "household": {
+  "medical": 21600,
+  "support": 7600,
+  "care": 6000
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 30585,
-    "support": 12363,
-    "care": 13004
-  },
-  "household": {
-    "medical": 20027,
-    "support": 8096,
-    "care": 6367
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.848Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
-      "sourceUrls": [
-        "https://www.pref.mie.lg.jp/common/content/001246287.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 三重県 市町村標準保険料率",
-      "url": "https://www.pref.mie.lg.jp/common/content/001246287.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で津市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=89円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1102,
-    "perCapitaAdult": 89,
-    "perCapitaAdultScope": "all_ages",
-    "household": 727,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.848Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.info.city.tsu.mie.jp/fukushi_kenkou/1003030/1010724/1003031.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.info.city.tsu.mie.jp/fukushi_kenkou/1003030/1010724/1003031.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "国民健康保険料｜津市公式ウェブサイト",
+   "url": "https://www.info.city.tsu.mie.jp/fukushi_kenkou/1003030/1010724/1003031.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.92,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。津市公式サイト（info.city.tsu.mie.jp、市公式ドメイン）の「国民健康保険料」ページから取得。「令和8年度保険料率」と明記、ページ更新日2026年6月11日。同一URLに ?v=2 を付けて2回取得し全数値の一致を確認（キャッシュ差異なし）。保険「料」・3方式（所得割+均等割+平等割、資産割なし）。現登録値（三重県標準料率: 医療7.03%等）とは大きく異なり、市実告示値は医療8.0%/支援2.9%/介護2.9%。子ども・子育て支援金分（R8新設）は所得割0.26%+均等割1,102円+18歳以上加算89円+平等割727円+限度額3万円で、県標準と同一値を市が採用。未就学児軽減"
+ },
+ "childcareLevy": {
+  "rate": 0.0026,
+  "perCapita": 1102,
+  "perCapitaAdult": 89,
+  "perCapitaAdultScope": "age18plus_addon",
+  "household": 727,
+  "cap": 30000
+ }
 }

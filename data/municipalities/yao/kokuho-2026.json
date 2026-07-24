@@ -1,103 +1,105 @@
 {
-  "cityCode": "27212",
-  "citySlug": "yao",
-  "cityName": "八尾市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.095,
-    "support": 0.0306,
-    "care": 0.026
+ "cityCode": "27212",
+ "citySlug": "yao",
+ "cityName": "八尾市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.095,
+  "support": 0.0306,
+  "care": 0.026
+ },
+ "perCapita": {
+  "medical": 34990,
+  "support": 11191,
+  "care": 18682
+ },
+ "household": {
+  "medical": 33908,
+  "support": 10845,
+  "care": 0
+ },
+ "caps": {
+  "medical": 660000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 34990,
-    "support": 11191,
-    "care": 18682
-  },
-  "household": {
-    "medical": 33908,
-    "support": 10845,
-    "care": 0
-  },
-  "caps": {
-    "medical": 660000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.048Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_unified",
-      "sourceUrls": [
-        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 大阪府市町村標準保険料率（大阪府統一保険料率）",
-      "url": "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-unified"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "大阪府は令和6年度から府内完全統一料率。令和8年度 府統一保険料率を参考値として採用(医療/後期/介護は全43市町村共通)。介護・子ども分は2方式(平等割0)。子ども均等割は均等割1735円+18歳以上106円=1,841円統一(内訳は八尾市の年齢構成等で異なる)。限度額 医療66万(大阪統一)。市告示確定で verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1735,
-    "perCapitaAdult": 106,
-    "perCapitaAdultScope": "all_ages",
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.048Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.yao.osaka.jp/kenkou_fukushi/kokuho/1001874/1001877.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.yao.osaka.jp/kenkou_fukushi/kokuho/1001874/1001877.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "国民健康保険料｜大阪府八尾市公式ホームページ",
+   "url": "https://www.city.yao.osaka.jp/kenkou_fukushi/kokuho/1001874/1001877.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.93,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。八尾市公式ページ（city.yao.osaka.jp、更新日「令和8年4月3日」）に「令和8年度八尾市国民健康保険料の計算方法」と明記。WebFetchで2回取得（2回目はキャッシュ回避のため ?v=2 付与）し全数値が一致。保険「料」。医療・支援は所得割+均等割+平等割の3方式、介護と子ども・子育て支援金分は平等割なし（2方式相当）。全値が大阪府統一保険料率と一致し、現登録値(yao.json)とも一致するが、子ども・子育て支援金分の均等割のみ相違：登録値は1,735円+18歳以上加算106円の内訳だが、公式ページは全被保険者一律「1人あたり 1,841円」で18歳未満は均等割全額軽減と記載"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 1841,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 0,
+  "cap": 30000
+ }
 }

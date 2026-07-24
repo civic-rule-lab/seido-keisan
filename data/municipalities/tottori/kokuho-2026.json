@@ -1,103 +1,105 @@
 {
-  "cityCode": "31201",
-  "citySlug": "tottori",
-  "cityName": "鳥取市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0713,
-    "support": 0.029,
-    "care": 0.0254
+ "cityCode": "31201",
+ "citySlug": "tottori",
+ "cityName": "鳥取市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.065,
+  "support": 0.027,
+  "care": 0.025
+ },
+ "perCapita": {
+  "medical": 22500,
+  "support": 9200,
+  "care": 9600
+ },
+ "household": {
+  "medical": 22500,
+  "support": 9000,
+  "care": 7100
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 31101,
-    "support": 12519,
-    "care": 13248
-  },
-  "household": {
-    "medical": 20032,
-    "support": 8064,
-    "care": 6409
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:23.633Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
-      "sourceUrls": [
-        "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で鳥取市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=94円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1209,
-    "perCapitaAdult": 94,
-    "perCapitaAdultScope": "all_ages",
-    "household": 776,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:23.633Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.tottori.lg.jp/page/31534.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.tottori.lg.jp/page/31534.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "令和8年度国民健康保険料について - 鳥取市公式ウェブサイト",
+   "url": "https://www.city.tottori.lg.jp/page/31534.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.9,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。鳥取市公式サイト(city.tottori.lg.jp、サイトリニューアル後の新URL /page/31534.html、更新日2026-06-11)の「令和8年度国民健康保険料について」から取得。旧URL(/www/contents/... genre)は404(サイト再構築済)のため、/life/2/16/ カテゴリから新URLを特定した。同一ページを素URL・?v=2・?nocache=3 の3回取得し、全数値が一致(キャッシュ回避確認済)。ページには「R7は6.1％」等の前年比較が併記されており、令和8年度の実告示値であることが確実(旧キャッシュではない)。方式=3方式(所得割+均等割"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 1000,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 1000,
+  "cap": 30000
+ }
 }

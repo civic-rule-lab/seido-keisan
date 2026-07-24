@@ -1,104 +1,106 @@
 {
-  "cityCode": "23201",
-  "citySlug": "toyohashi",
-  "cityName": "豊橋市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0785,
-    "support": 0.0272,
-    "care": 0.0252
+ "cityCode": "23201",
+ "citySlug": "toyohashi",
+ "cityName": "豊橋市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0717,
+  "support": 0.0259,
+  "care": 0.0235
+ },
+ "perCapita": {
+  "medical": 27300,
+  "support": 10000,
+  "care": 10500
+ },
+ "household": {
+  "medical": 23700,
+  "support": 8700,
+  "care": 6800
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 28761,
-    "support": 9920,
-    "care": 10182
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
+  }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.121Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.toyohashi.lg.jp/61704.htm"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.toyohashi.lg.jp/61704.htm"
+   ]
   },
-  "household": {
-    "medical": 26847,
-    "support": 9318,
-    "care": 7069
+  "source": {
+   "type": "official",
+   "title": "保険税の算出方法 - 豊橋市",
+   "url": "https://www.city.toyohashi.lg.jp/61704.htm",
+   "publishedAt": "2026"
   },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
   },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
+  "quality": {
+   "confidenceScore": 0.92,
+   "completeness": "full"
   },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.121Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
-      "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、豊橋市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=77円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1027,
-    "perCapitaAdult": 77,
-    "perCapitaAdultScope": "all_ages",
-    "cap": 30000,
-    "household": 967
-  },
-  "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、豊橋市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険税・3方式。出典は豊橋市公式 city.toyohashi.lg.jp/61704.htm「保険税の算出方法」。ページに「令和8年度税率」と明記され、[ ]内が令和7年度値として併記されている（r8Explicit=true）。キャッシュ回避のため ?v=2 と ?check=3 を付けて計3回取得し、全数値が一致することを確認。豊橋市は保険「税」・3方式（所得割+均等割+平等割、資産割なし）。子ども・子育て支援金分はR8新設で、全被保険者均等割1,000円に加え18歳以上被保険者1人につき55円の加算構造（perCapitaAdultScope=age18plus_addon）、平等割1,000円、限度"
+ },
+ "childcareLevy": {
+  "rate": 0.0026,
+  "perCapita": 1000,
+  "perCapitaAdult": 55,
+  "perCapitaAdultScope": "age18plus_addon",
+  "household": 1000,
+  "cap": 30000
+ },
+ "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、豊橋市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }

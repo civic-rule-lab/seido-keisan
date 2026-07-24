@@ -1,103 +1,106 @@
 {
-  "cityCode": "33202",
-  "citySlug": "kurashiki",
-  "cityName": "倉敷市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0763,
-    "support": 0.0284,
-    "care": 0.0258
+ "cityCode": "33202",
+ "citySlug": "kurashiki",
+ "cityName": "倉敷市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.075,
+  "support": 0.027,
+  "care": 0.023
+ },
+ "perCapita": {
+  "medical": 26690,
+  "support": 9470,
+  "care": 9470
+ },
+ "household": {
+  "medical": 21700,
+  "support": 6850,
+  "care": 5380
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 33154,
-    "support": 12285,
-    "care": 13246
-  },
-  "household": {
-    "medical": 21270,
-    "support": 7882,
-    "care": 6494
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.759Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
-      "sourceUrls": [
-        "https://www.pref.okayama.jp/page/484099.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岡山県 市町村標準保険料率",
-      "url": "https://www.pref.okayama.jp/page/484099.html",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "岡山県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で倉敷市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1225,
-    "perCapitaAdult": 74,
-    "perCapitaAdultScope": "all_ages",
-    "household": 793,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.759Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.kurashiki.okayama.jp/kurashi/hoken/1004520/1004533/1010947.html",
+    "https://www.city.kurashiki.okayama.jp/36887.htm"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.kurashiki.okayama.jp/kurashi/hoken/1004520/1004533/1010947.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "保険料の計算・料率｜倉敷市公式ホームページ(健康福祉部 国民健康保険課)",
+   "url": "https://www.city.kurashiki.okayama.jp/kurashi/hoken/1004520/1004533/1010947.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.92,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。倉敷市公式ページ（www.city.kurashiki.okayama.jp、更新日2026年7月9日）から取得。ページに「令和8年度の保険料は、令和7年1月から12月の収入から計算した所得で計算します」と明記されR8確定。同一URLを素のURLと ?v=2 / ?check=3 のキャッシュ回避クエリで計3回取得し、全数値が一致（旧キャッシュ返却の兆候なし）。保険「料」・3方式（資産割の記載なし）。現在の登録値（岡山県標準料率: 医療7.63%/33,154円等）とは全項目で乖離しており、市告示値への置換が必要。特記: 子ども・子育て支援金分の構造が県標準（全年齢均等割1,225円+18歳以"
+ },
+ "childcareLevy": {
+  "rate": 0.003,
+  "perCapita": 950,
+  "perCapitaAdult": 50,
+  "perCapitaAdultScope": "age18_plus_addition",
+  "household": 950,
+  "cap": 30000
+ }
 }

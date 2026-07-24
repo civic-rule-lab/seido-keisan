@@ -1,103 +1,105 @@
 {
-  "cityCode": "32201",
-  "citySlug": "matsue",
-  "cityName": "松江市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.082,
-    "support": 0.0281,
-    "care": 0.0256
+ "cityCode": "32201",
+ "citySlug": "matsue",
+ "cityName": "松江市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0798,
+  "support": 0.0261,
+  "care": 0.0238
+ },
+ "perCapita": {
+  "medical": 31380,
+  "support": 11560,
+  "care": 11280
+ },
+ "household": {
+  "medical": 19560,
+  "support": 7320,
+  "care": 5640
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 36019,
-    "support": 12263,
-    "care": 12904
-  },
-  "household": {
-    "medical": 22715,
-    "support": 7734,
-    "care": 6369
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:23.669Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
-      "sourceUrls": [
-        "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 島根県 市町村標準保険料率（運営協議会資料 別紙4）",
-      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で松江市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=57円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1216,
-    "perCapitaAdult": 57,
-    "perCapitaAdultScope": "all_ages",
-    "household": 772,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:23.669Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.matsue.lg.jp/soshikikarasagasu/kenkofukushibu_hokennenkinka/kokuho_kokuminnenkin/1/2/2246.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.matsue.lg.jp/soshikikarasagasu/kenkofukushibu_hokennenkinka/kokuho_kokuminnenkin/1/2/2246.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "国民健康保険料 - 松江市",
+   "url": "https://www.city.matsue.lg.jp/soshikikarasagasu/kenkofukushibu_hokennenkinka/kokuho_kokuminnenkin/1/2/2246.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険料・3方式。松江市公式サイト（city.matsue.lg.jp、公式lg.jpドメイン）の国民健康保険料ページを2回取得（2回目はURL末尾に?v=2を付与しキャッシュ回避）。両取得とも「令和8年度保険料の計算式」見出し下の同一数値を返し一致を確認。呼称は「保険料」（保険税でない）、賦課方式は所得割+均等割+平等割の3方式・資産割なし。現在の登録値（島根県標準料率: 医療8.20%/支援2.81%/介護2.56%、均等割36,019/12,263/12,904等）とは全区分で乖離があり、市の実告示値（医療7.98%/支援2.61%/介護2.38%、均等割31,380/11,560/11,280、平等割1"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 1200,
+  "perCapitaAdult": 60,
+  "perCapitaAdultScope": "add_on_18plus",
+  "household": 820,
+  "cap": 30000
+ }
 }

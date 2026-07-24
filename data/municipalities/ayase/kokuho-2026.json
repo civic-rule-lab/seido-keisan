@@ -1,102 +1,108 @@
 {
-  "cityCode": "14218",
-  "citySlug": "ayase",
-  "cityName": "綾瀬市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "note": "国民健康保険税方式",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0732,
-    "support": 0.0283,
-    "care": 0.0251
+ "cityCode": "14218",
+ "citySlug": "ayase",
+ "cityName": "綾瀬市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "note": "国民健康保険税方式",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.064,
+  "support": 0.026,
+  "care": 0.023
+ },
+ "perCapita": {
+  "medical": 22200,
+  "support": 8400,
+  "care": 9000
+ },
+ "household": {
+  "medical": 20400,
+  "support": 8400,
+  "care": 9000
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 28203,
-    "support": 10142,
-    "care": 10159
-  },
-  "household": {
-    "medical": 25371,
-    "support": 9926,
-    "care": 10109
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:21.782Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f537560/index.html"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 神奈川県 市町村標準保険料率（各市町村の算定方式によるもの）算定結果表",
-      "url": "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、綾瀬市が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
-  },
-  "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1778,
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:21.782Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.ayase.kanagawa.jp/soshiki/hokennenkinka/hokennenkintanto_hoken/2/5/23997.html",
+    "https://www.city.ayase.kanagawa.jp/soshiki/hokennenkinka/hokennenkintanto_hoken/2/5/24040.html",
+    "https://www.city.ayase.kanagawa.jp/material/files/group/17/r8kokuhorihureto.pdf"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.ayase.kanagawa.jp/soshiki/hokennenkinka/hokennenkintanto_hoken/2/5/23997.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "国民健康保険税の早見表(令和8年度版)／綾瀬市",
+   "url": "https://www.city.ayase.kanagawa.jp/soshiki/hokennenkinka/hokennenkintanto_hoken/2/5/23997.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.92,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険税・3方式。旧PR(#91/#144)の値は使わず独立再取得。【取得経緯】市公式ドメイン city.ayase.kanagawa.jp の3ソースから独立取得: (1)早見表ページ23997.html(タイトルに「令和8年度版」明記)を2回取得(2回目は ?v=2 のキャッシュ回避クエリ付き)し数値一致を確認、(2)説明ページ24040.html(「令和8年度版」、子ども分は18歳以上に所得割+均等割と説明)、(3)令和8年度リーフレットPDF r8kokuhorihureto.pdf(税率・限度額・軽減を明記)。全ソースで税率6.4%/2.6%/2.3%/0.29%、均等割22,200/8,400/9,000/1,800円、平等割20,400/8,40"
+ },
+ "childcareLevy": {
+  "rate": 0.0029,
+  "perCapita": 1800,
+  "perCapitaAdult": 200,
+  "perCapitaAdultScope": "18歳に達する日以後の最初の4月1日以後の加入者",
+  "household": 0,
+  "cap": 30000
+ }
 }

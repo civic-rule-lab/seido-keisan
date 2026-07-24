@@ -1,104 +1,107 @@
 {
-  "cityCode": "23211",
-  "citySlug": "toyota",
-  "cityName": "豊田市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0767,
-    "support": 0.0279,
-    "care": 0.0271
+ "cityCode": "23211",
+ "citySlug": "toyota",
+ "cityName": "豊田市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0678,
+  "support": 0.0246,
+  "care": 0.0224
+ },
+ "perCapita": {
+  "medical": 28800,
+  "support": 11000,
+  "care": 11800
+ },
+ "household": {
+  "medical": 22000,
+  "support": 7200,
+  "care": 5800
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 32097,
-    "support": 12047,
-    "care": 10868
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
+  }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.133Z",
+   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.city.toyota.aichi.jp/kurashi/koukikourei/1009088/1009123/1002907.html",
+    "https://www.city.toyota.aichi.jp/kurashi/koukikourei/1009088/1009123/1006403.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-07-24",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.city.toyota.aichi.jp/kurashi/koukikourei/1009088/1009123/1002907.html"
+   ]
   },
-  "household": {
-    "medical": 24342,
-    "support": 7067,
-    "care": 6080
+  "source": {
+   "type": "official",
+   "title": "国民健康保険税の算定方法等｜豊田市",
+   "url": "https://www.city.toyota.aichi.jp/kurashi/koukikourei/1009088/1009123/1002907.html",
+   "publishedAt": "2026"
   },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-24",
+   "method": "official-site"
   },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
+  "quality": {
+   "confidenceScore": 0.9,
+   "completeness": "full"
   },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.133Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
-      "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、豊田市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=63円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1170,
-    "perCapitaAdult": 63,
-    "perCapitaAdultScope": "all_ages",
-    "cap": 30000,
-    "household": 888
-  },
-  "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、豊田市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
+  "notes": "R8公式ページの実料率で県標準料率(参考値)から差替(2026-07-24検証バッチ2)。国民健康保険税・3方式。豊田市公式サイト（city.toyota.aichi.jp）の「国民健康保険税の算定方法等」ページ（1002907.html、更新日2026年4月1日）に「内容・税率等（令和8年度）」と令和8年度を明記。同ページを素のURLと ?v=2 付きURLの2回取得し、全数値が一致（キャッシュ差異なし）。保険「税」・3方式（所得割+均等割+平等割）・資産割の記載なし。子ども・子育て支援分は均等割1,166円に「18歳以上均等割額48円」の加算がある構造（18歳以上=1,166+48円と解釈、条例での正確な内訳は要確認）。軽減ページ（1006403.html、令和8年度・更新日2026年7月16日）で確"
+ },
+ "childcareLevy": {
+  "rate": 0.0027,
+  "perCapita": 1166,
+  "perCapitaAdult": 48,
+  "perCapitaAdultScope": "age18plus_add",
+  "household": 739,
+  "cap": 30000
+ },
+ "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、豊田市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }
