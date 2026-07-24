@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0595,
-    "support": 0.0303,
-    "care": 0.0252
+    "medical": 0.0922,
+    "support": 0.0251,
+    "care": 0.0288
   },
   "perCapita": {
-    "medical": 26400,
-    "support": 13372,
-    "care": 13009
+    "medical": 22960,
+    "support": 6620,
+    "care": 8950
   },
   "household": {
-    "medical": 16774,
-    "support": 8496,
-    "care": 6388
+    "medical": 28690,
+    "support": 7450,
+    "care": 8570
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.519Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_令和8年度秋田県国民健康保険標準保険税率一覧(HP掲載用).pdf"
+        "https://www.city.akita.lg.jp/kurashi/hoken-nenkin/1005311/1009999/1003970.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.akita.lg.jp/kurashi/hoken-nenkin/1005311/1009999/1003970.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 秋田県 国民健康保険標準保険税率（市町村標準・県内統一算定方式）",
-      "url": "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_令和8年度秋田県国民健康保険標準保険税率一覧(HP掲載用).pdf",
+      "type": "official",
+      "title": "国民健康保険税の課税について - 秋田市",
+      "url": "https://www.city.akita.lg.jp/kurashi/hoken-nenkin/1005311/1009999/1003970.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "秋田県公表の令和8年度 国民健康保険標準保険税率(市町村標準・県内統一算定方式)を参考値として採用。法定外繰入ゼロ前提の理論値で秋田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割0%。子ども子育て分は18歳以上均等割(=72円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一(大潟村は18+227円と県内突出)。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "R8市告示の実料率を市公式ページで確認し県標準料率(参考値)から差替(2026-07-23検証バッチ)。国民健康保険税・3方式。子ども分=1,380円+18歳以上70円(18歳以下全額軽減)。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1383,
-    "perCapitaAdult": 72,
+    "perCapita": 1380,
+    "perCapitaAdult": 70,
     "perCapitaAdultScope": "all_ages",
-    "household": 881,
+    "household": 880,
     "cap": 30000
   }
 }

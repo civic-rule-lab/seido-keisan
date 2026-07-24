@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0733,
-    "support": 0.0292,
-    "care": 0.0249
+    "medical": 0.0677,
+    "support": 0.0233,
+    "care": 0.0208
   },
   "perCapita": {
-    "medical": 45666,
-    "support": 18107,
-    "care": 18228
+    "medical": 40200,
+    "support": 13700,
+    "care": 15500
   },
   "household": {
     "medical": 0,
@@ -65,39 +65,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T00:00:00.000Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/r8hyouzyunhokenryouritsu"
+        "https://www.city.machida.tokyo.jp/kurashi/hoken/kokuho/hokenzei/hokenzeiritsu/kokuhozeinozeiritutou.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.machida.tokyo.jp/kurashi/hoken/kokuho/hokenzei/hokenzeiritsu/kokuhozeinozeiritutou.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 東京都 市町村標準保険料率（2方式）",
-      "url": "https://www.hokeniryo.metro.tokyo.lg.jp/kenkou/kokuho/nouhukinhyoujyunhokenryouritsu",
+      "type": "official",
+      "title": "町田市 国民健康保険税(令和8年度)",
+      "url": "https://www.city.machida.tokyo.jp/kurashi/hoken/kokuho/hokenzei/hokenzeiritsu/kokuhozeinozeiritutou.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site-browser-screenshot"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "町田市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=105円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。"
+    "notes": "R8実料率を市公式ページで確認し県標準料率(参考値)から差替。国民健康保険税・2方式。子ども分均等割1,960円は18歳以上均等割105円を含む(=1,855+105)・均等割は18歳以上のみ。市の計算例(350万給与→医療所得割131,338円)とも整合確認。 取得経緯: 公式ページはHTTPフェッチだと年度表記なしの旧内容が配信される(bot向けに旧キャッシュ配信の疑い)。本人がブラウザで実閲覧し2026年度(令和8年度)税率表をスクリーンショットで確認(2026-07-23)。"
   }
 }

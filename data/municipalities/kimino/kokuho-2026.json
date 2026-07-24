@@ -21,7 +21,7 @@
     "care": 5800
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,19 +57,24 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.058Z",
-      "updatedAt": "2026-07-14T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "extracted_r8",
+      "r8Stage": "verified_r8",
       "sourceUrls": [
         "https://www.town.kimino.wakayama.jp/sagasu/zeimuka/aboutzeikin/2044.html"
       ],
       "sourceStatus": "official_rate_page",
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kimino.wakayama.jp/sagasu/zeimuka/aboutzeikin/2044.html"
+      ]
     },
     "source": {
       "type": "official",
@@ -79,18 +84,21 @@
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-06-12",
-      "method": "official-site"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site+town-phone"
     },
     "quality": {
-      "confidenceScore": 0.7,
-      "completeness": "partial"
+      "confidenceScore": 0.9,
+      "completeness": "full"
     },
-    "notes": "公式ページ（更新日2026-05-25）の税率表を反映（医8.2%/29,000/22,300・支3.0%/9,200/6,700・介2.5%/9,600/5,800）。医療分限度額は条例（令和8年3月5日条例第6号・R8.4.1施行 第2条第2項ただし書）で66万と確認し660,000に確定（税率ページの67万は誤記の可能性・国R8上限67万に対し町独自に66万設定）。子ども・子育て支援金分は未掲載のため verified 昇格は保留。7月本算定で子ども分掲載を change-detector で監視。"
+    "notes": "公式ページ（更新日2026-05-25）の税率表を反映（医8.2%/29,000/22,300・支3.0%/9,200/6,700・介2.5%/9,600/5,800）。子ども・子育て支援金分は本人が税務課へ電話確認（2026-07-23 12:47）: 所得割0.3%・資産割なし・均等割1,191円・平等割766円・限度額3万円。医療分限度額も同電話で67万円と確認→670,000に修正（旧記録の条例66万読み（R8.3.5条例第6号ただし書）は電話回答と食い違うため電話（税率ページ67万とも整合）を正とした。条例側の再確認は任意）。均等割1,191円の18歳以上加算の内訳有無は未確認（賦課は18歳以上のみのため計算結果には影響なし）。"
   },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1191,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0718,
-    "support": 0.0266,
-    "care": 0.0259
+    "medical": 0.0746,
+    "support": 0.0285,
+    "care": 0.0277
   },
   "perCapita": {
-    "medical": 23348,
-    "support": 8671,
-    "care": 8648
+    "medical": 23170,
+    "support": 8940,
+    "care": 8960
   },
   "household": {
-    "medical": 35524,
-    "support": 13193,
-    "care": 9680
+    "medical": 34220,
+    "support": 13210,
+    "care": 10180
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.771Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f537560/index.html"
+        "https://www.city.yokosuka.kanagawa.jp/3155/kokuji/h26.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.yokosuka.kanagawa.jp/3155/kokuji/h26.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 神奈川県 市町村標準保険料率（各市町村の算定方式によるもの）算定結果表",
-      "url": "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
+      "type": "official",
+      "title": "令和8年度国民健康保険料率が決定されました - 横須賀市",
+      "url": "https://www.city.yokosuka.kanagawa.jp/3155/kokuji/h26.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、横須賀市が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "R8市告示の実料率を市公式ページで確認し県標準料率(参考値)から差替(2026-07-23検証バッチ)。国民健康保険料・3方式。所得割は千分率告示(74.6/1000等)を換算・本人再取得で一致確認済。子ども分=940円+18歳以上48円。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 912,
-    "household": 1388,
+    "rate": 0.003,
+    "perCapita": 940,
+    "perCapitaAdult": 48,
+    "perCapitaAdultScope": "all_ages",
+    "household": 1390,
     "cap": 30000
   }
 }

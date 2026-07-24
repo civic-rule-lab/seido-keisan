@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0645,
-    "support": 0.0254,
-    "care": 0.0232
+    "medical": 0.0597,
+    "support": 0.0216,
+    "care": 0.0211
   },
   "perCapita": {
-    "medical": 30441,
-    "support": 10483,
-    "care": 18198
+    "medical": 27100,
+    "support": 8800,
+    "care": 16600
   },
   "household": {
-    "medical": 29813,
-    "support": 10336,
+    "medical": 26300,
+    "support": 8600,
     "care": 0
   },
   "caps": {
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.023Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf"
+        "https://www.city.yachiyo.lg.jp/soshiki/29/3157.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.yachiyo.lg.jp/soshiki/29/3157.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 千葉県 市町村標準保険料率（市町村算定方式）",
-      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf",
+      "type": "official",
+      "title": "八千代市 国民健康保険料(令和8年度)",
+      "url": "https://www.city.yachiyo.lg.jp/soshiki/29/3157.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-method"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site-browser-screenshot"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、八千代市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=114円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "R8実料率を市公式ページで確認し県標準料率(参考値)から差替。国民健康保険料・3方式(介護・子ども分は平等割なし)。子ども分均等割1,900円は18歳以上均等割100円を含む(=1,800+100)・18歳到達年度末以前は全額軽減。ページ更新日2026-04-01。 取得経緯: 公式ページはHTTPフェッチが403(bot拒否)のため、本人がブラウザで実閲覧しスクリーンショットで数値確認(2026-07-23)。"
   },
   "childcareLevy": {
     "rate": 0.0027,
     "perCapita": 1800,
-    "perCapitaAdult": 114,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

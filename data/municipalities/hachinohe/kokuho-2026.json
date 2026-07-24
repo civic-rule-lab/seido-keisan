@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0668,
-    "support": 0.0306,
-    "care": 0.0294
+    "medical": 0.077,
+    "support": 0.024,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 29128,
-    "support": 13302,
-    "care": 15063
+    "medical": 21640,
+    "support": 7000,
+    "care": 8000
   },
   "household": {
-    "medical": 19180,
-    "support": 8759,
-    "care": 7552
+    "medical": 24160,
+    "support": 8000,
+    "care": 9000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.268Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/kokkuho.html"
+        "https://www.city.hachinohe.aomori.jp/kurashi_tetsuzuki/zeikin/kokuminkenkohokenzei/10212.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hachinohe.aomori.jp/kurashi_tetsuzuki/zeikin/kokuminkenkohokenzei/10212.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 青森県 市町村標準保険料率",
-      "url": "https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/kokkuho.html",
+      "type": "official",
+      "title": "国民健康保険税の計算について／八戸市",
+      "url": "https://www.city.hachinohe.aomori.jp/kurashi_tetsuzuki/zeikin/kokuminkenkohokenzei/10212.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "青森県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で八戸市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "R8市告示の実料率を市公式ページで確認し県標準料率(参考値)から差替(2026-07-23検証バッチ)。国民健康保険税・3方式。子ども分=1,300円+18歳以上60円(18歳以下10割軽減)。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1315,
-    "perCapitaAdult": 70,
+    "perCapita": 1300,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 864,
+    "household": 840,
     "cap": 30000
   }
 }

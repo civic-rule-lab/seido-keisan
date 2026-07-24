@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0759,
-    "support": 0.0299,
-    "care": 0.0256
+    "medical": 0.0628,
+    "support": 0.0204,
+    "care": 0.0182
   },
   "perCapita": {
-    "medical": 47306,
-    "support": 18487,
-    "care": 18699
+    "medical": 30800,
+    "support": 12600,
+    "care": 12900
   },
   "household": {
     "medical": 0,
@@ -28,8 +28,8 @@
   },
   "preschoolReduction": {
     "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
+    "medicalPerCapitaRate": 1.0,
+    "supportPerCapitaRate": 1.0
   },
   "reduction": {
     "enabled": true,
@@ -56,48 +56,50 @@
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1890,
-    "perCapitaAdult": 42,
-    "perCapitaAdultScope": "all_ages",
+    "perCapita": 1900,
+    "perCapitaAdult": 1900,
+    "perCapitaAdultScope": "adults_only",
     "household": 0,
     "cap": 30000
   },
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T00:00:00.000Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/r8hyouzyunhokenryouritsu"
+        "https://www.city.tama.lg.jp/kurashi/kokuho/hokenzei/1002017.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.tama.lg.jp/kurashi/kokuho/hokenzei/1002017.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 東京都 市町村標準保険料率（2方式）",
-      "url": "https://www.hokeniryo.metro.tokyo.lg.jp/kenkou/kokuho/nouhukinhyoujyunhokenryouritsu",
+      "type": "official",
+      "title": "多摩市 国民健康保険税(令和8年度)",
+      "url": "https://www.city.tama.lg.jp/kurashi/kokuho/hokenzei/1002017.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site-browser-screenshot"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "多摩市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=42円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。"
+    "notes": "R8実料率を市公式ページで確認し県標準料率(参考値)から差替。国民健康保険税・2方式。子ども分均等割1,900円は18歳到達年度末まで賦課なし(=実質18歳以上のみ)。R8変更点=医療限度額66→67万・軽減判定5割31万/2割57万へ引上げ・未就学児均等割は市独自減免で0(国5割+市独自5割)。 取得経緯: 公式ページはHTTPフェッチだとR6年度表記の旧内容のみ確認できた(bot向け旧キャッシュ疑い)。本人がブラウザで実閲覧し令和8年度税率表をスクリーンショットで確認(2026-07-23)。"
   }
 }

@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0867,
-    "support": 0.0263,
-    "care": 0.0234
+    "medical": 0.087,
+    "support": 0.0287,
+    "care": 0.0246
   },
   "perCapita": {
-    "medical": 43388,
-    "support": 16741,
-    "care": 17794
+    "medical": 47100,
+    "support": 16100,
+    "care": 16600
   },
   "household": {
     "medical": 0,
@@ -21,7 +21,7 @@
     "care": 0
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.943Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.city.kasukabe.lg.jp/soshikikarasagasu/kokuminkenkohokenka/gyomuannai/2/3/4710.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.kasukabe.lg.jp/soshikikarasagasu/kokuminkenkohokenka/gyomuannai/2/3/4710.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "国民健康保険税の計算方法／春日部市",
+      "url": "https://www.city.kasukabe.lg.jp/soshikikarasagasu/kokuminkenkohokenka/gyomuannai/2/3/4710.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、春日部市が実際に告示する税率とは異なる場合がある。後期・介護・子ども分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "R8市告示の実料率を市公式ページで確認し県標準料率(参考値)から差替(2026-07-23検証バッチ)。国民健康保険税・2方式。2方式。医療分限度額66万円(R7改正政令の限度額を採用と明記)。子ども分=1,500円+18歳以上100円。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1814,
-    "perCapitaAdult": 139,
+    "rate": 0.0026,
+    "perCapita": 1500,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

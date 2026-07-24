@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0763,
-    "support": 0.0296,
-    "care": 0.0235
+    "medical": 0.0796,
+    "support": 0.03,
+    "care": 0.0244
   },
   "perCapita": {
-    "medical": 33849,
-    "support": 13069,
-    "care": 12229
+    "medical": 27850,
+    "support": 10410,
+    "care": 9440
   },
   "household": {
-    "medical": 21807,
-    "support": 8420,
-    "care": 6028
+    "medical": 26700,
+    "support": 9980,
+    "care": 7070
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.135Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.city.sendai.jp/kenko-hoken/kurashi/tetsuzuki/kokumin/kenkohoken/hokenryo.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.sendai.jp/kenko-hoken/kurashi/tetsuzuki/kokumin/kenkohoken/hokenryo.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "保険料はいくら（令和8年度）｜仙台市",
+      "url": "https://www.city.sendai.jp/kenko-hoken/kurashi/tetsuzuki/kokumin/kenkohoken/hokenryo.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で仙台市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=84円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "R8市告示の実料率を市公式ページで確認し県標準料率(参考値)から差替(2026-07-23検証バッチ)。国民健康保険料・3方式。子ども分=均等割940円+18歳以上70円(18歳未満は全額軽減)。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1195,
-    "perCapitaAdult": 84,
+    "perCapita": 940,
+    "perCapitaAdult": 70,
     "perCapitaAdultScope": "all_ages",
-    "household": 769,
+    "household": 900,
     "cap": 30000
   }
 }

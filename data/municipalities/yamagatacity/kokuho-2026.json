@@ -21,7 +21,7 @@
     "care": 0
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.543Z",
-      "updatedAt": "2026-06-08T00:00:00.000Z",
+      "updatedAt": "2026-07-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "extracted_r8",
-      "sourceStatus": "council_bill",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
         "https://www.city.yamagata-yamagata.lg.jp/kurashi/kokuho/1006489/1006493/1003906.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "council_material_extracted",
+      "verifiedAt": "2026-07-23",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.yamagata-yamagata.lg.jp/kurashi/kokuho/1006489/1006493/1003906.html"
       ]
     },
     "source": {
-      "type": "council_bill",
-      "title": "山形市 令和8年度国民健康保険税（令和8年1月22日 国民健康保険運営協議会資料 r8.1.22siryou）",
+      "type": "official",
+      "title": "国民健康保険税について｜山形市",
       "url": "https://www.city.yamagata-yamagata.lg.jp/kurashi/kokuho/1006489/1006493/1003906.html",
-      "publishedAt": "2026-01-22"
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "council-material-extracted"
+      "verifiedAt": "2026-07-23",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.85,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "山形市 令和8年度国保税率（令和8年1月22日 国保運営協議会資料）。医療/後期/介護は令和7年度から据え置き（令和7 unverified値と完全一致で裏取り済み）、子ども・子育て支援金分のみ新設で県標準保険税率を採用。★医療限度額66万（令和7・令和8とも据え置き・政令67万への引上げを見送り＝栃木/鹿児島/大阪と同じ66万県）。介護分は2方式（平等割なし・household.care=0）。子ども分は18歳未満全額軽減・18歳以上1,100+100=1,200のall_ages型。県標準値(医療7.04%/限度67万)から実料率に置換。協議会議案段階のためextracted_r8。条例可決の確定告示後にverified_r8昇格。"
+    "notes": "R8市告示の実料率を市公式ページで確認し県標準料率(参考値)から差替(2026-07-23検証バッチ)。国民健康保険税・3方式。介護分は平等割なし。子ども分=1,200円+18歳以上100円。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1100,
+    "rate": 0.0029,
+    "perCapita": 1200,
     "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 800,
+    "household": 900,
     "cap": 30000
   }
 }
