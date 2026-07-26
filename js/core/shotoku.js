@@ -161,16 +161,7 @@ function createEngine(year = 2026, dbPath = DB_PATH) {
   return createEngineFromDB(year, loadDB(dbPath));
 }
 
-if (_isNode && require.main === module) {
-  const year = Number(process.argv[2]) || 2026;
-  const eng = createEngine(year);
-  console.log(`== shotoku-engine ${year}年分 アンカー ==`);
-  for (const c of [
-    { salary: 1780000 },
-    { salary: 1790000 },
-    { salary: 5000000, socialInsurance: 750000 },
-  ]) console.log(JSON.stringify(c), '→', eng.calcShotokuzei(c).annualTax, '円');
-}
+// ---- 自己テストは vendor 時に除去（scripts/vendor-shaho.mjs）。実行は正本側で: node js/core/shaho.js ----
 
 const _api = {
   createEngine, createEngineFromDB, calcShotokuzei, calcTedori, kyuyoShotoku, loadParams, loadDB, normalizeTable, DB_PATH,
