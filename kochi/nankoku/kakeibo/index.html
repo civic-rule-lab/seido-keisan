@@ -130,6 +130,43 @@
     </div>
   </div>
 
+  <div id="shogakuBlock" style="margin-top:18px;padding:14px;border:1px solid #dcfce7;border-radius:12px;background:#f7fdf9;">
+    <label style="display:flex;align-items:center;gap:8px;margin:0;font-weight:600;cursor:pointer;">
+      <input type="checkbox" id="shogakuOptIn" onchange="document.getElementById('shogakuDetail').style.display=this.checked?'block':'none';">
+      奨学金も判定する（大学・短大・専門・高専4,5年のお子さん）
+    </label>
+    <div id="shogakuDetail" style="display:none;margin-top:12px;">
+      <label for="shogakuSpouse">配偶者（生計維持者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄</span></label>
+      <input id="shogakuSpouse" type="text" inputmode="numeric" placeholder="例：3,000,000">
+      <div class="field-grid">
+        <div>
+          <label for="shogakuLevel">進学先</label>
+          <select id="shogakuLevel">
+            <option value="大学" selected>大学</option>
+            <option value="短期大学">短期大学</option>
+            <option value="専門学校">専門学校</option>
+            <option value="高等専門学校">高専（4・5年生）</option>
+          </select>
+        </div>
+        <div>
+          <label for="shogakuSetti">国公立・私立</label>
+          <select id="shogakuSetti"><option value="私立" selected>私立</option><option value="国公立">国公立</option></select>
+        </div>
+      </div>
+      <div class="field-grid">
+        <div>
+          <label for="shogakuAttend">通学形態</label>
+          <select id="shogakuAttend"><option value="自宅" selected>自宅通学</option><option value="自宅外">自宅外（下宿等）</option></select>
+        </div>
+        <div>
+          <label for="shogakuChildren">扶養する子の人数</label>
+          <select id="shogakuChildren"><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
+        </div>
+      </div>
+      <div class="note" style="margin-top:8px;">高等教育の修学支援新制度（給付型奨学金＋授業料等減免）の目安判定です。扶養控除などは反映しないため、実際は<b>これより支援が多い区分</b>になる場合があります。資産・本人収入・私立理工農系・貸与型は<a href="https://shogakukin-keisan.jp/" target="_blank" rel="noopener" style="color:#16a34a;font-weight:600;">奨学金かんたん計算 ↗</a>で反映できます。</div>
+    </div>
+  </div>
+
   <button onclick="calcAll()">まとめて計算する</button>
 
   <div class="result-title">計算結果</div>
@@ -163,6 +200,7 @@
     ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。<br>
     ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
     ※75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（金額は後期高齢者医療のページで計算できます）。<br>
+    ※奨学金：高等教育の修学支援新制度（給付型＋授業料等減免）の目安判定です。扶養控除・本人収入・資産・政令市の調整控除実額・私立理工農系は未反映のため、実際はこれより支援が多い区分になる場合があります。支援額のため年間負担の合計には含めません。<br>
     ※各制度の「詳しく計算 →」から個別ページに移動できます。<br>
     ※実際の金額は各自治体の通知・公式案内でご確認ください。
   </div>
@@ -179,13 +217,15 @@
 </div>
 
 <script>const CITY_SLUG = "nankoku"; const PREF_SLUG = "kochi";</script>
-<script src="/js/core/shared/income.js?v=27f1fcba"></script>
-<script src="/js/core/jumin.js?v=27f1fcba"></script>
-<script src="/js/core/kokuho.js?v=27f1fcba"></script>
-<script src="/js/core/kaigo.js?v=27f1fcba"></script>
-<script src="/js/core/hoiku.js?v=27f1fcba"></script>
-<script src="/js/core/shaho.js?v=27f1fcba"></script>
-<script src="/js/core/shotoku.js?v=27f1fcba"></script>
+<script src="/js/core/shared/income.js?v=3b7f569c"></script>
+<script src="/js/core/jumin.js?v=3b7f569c"></script>
+<script src="/js/core/kokuho.js?v=3b7f569c"></script>
+<script src="/js/core/kaigo.js?v=3b7f569c"></script>
+<script src="/js/core/hoiku.js?v=3b7f569c"></script>
+<script src="/js/core/shaho.js?v=3b7f569c"></script>
+<script src="/js/core/shotoku.js?v=3b7f569c"></script>
+<script src="/js/core/shogakukin.js?v=3b7f569c"></script>
+<script src="/js/core/shogakukin-bridge.js?v=3b7f569c"></script>
 <script>
 (function () {
   "use strict";
@@ -221,6 +261,14 @@
       _shotokuEng=(window.Shotoku)?window.Shotoku.createEngineFromDB(TAX_YEAR, db):null;
     }catch(e){ _shotokuEng=null; }
     return _shotokuEng;
+  }
+  // 奨学金（高等教育の修学支援新制度）＝全国共通スペック。js/core 同梱の JSON を読む。
+  var _shogakuSpec=null,_shogakuTried=false;
+  async function loadShogaku(){
+    if(_shogakuTried) return _shogakuSpec;
+    _shogakuTried=true;
+    try{ var r=await fetch("/js/core/shogakukin-2026.json"); if(r.ok) _shogakuSpec=await r.json(); }catch(e){ _shogakuSpec=null; }
+    return _shogakuSpec;
   }
   // 会社員の年間社会保険料（本人負担）＝月額本人負担×12＋賞与本人負担。null＝計算不可（データ未取得等）。
   function shahoAnnual(salary, bonus, age){
@@ -266,7 +314,9 @@
   function initInputs(){
     setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false);
     setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); setupNumericInput("bonus",true);
+    setupNumericInput("shogakuSpouse",true);
     setupUnitGuard("salary"); setupUnitGuard("pension"); setupUnitGuard("bonus"); setupUnitGuard("hoikuSpouse");
+    setupUnitGuard("shogakuSpouse");
     var emp=document.getElementById("employment"), bf=document.getElementById("bonusField"), bh=document.getElementById("bonusHint");
     function syncEmp(){ var jiei=(emp && emp.value==="jiei"); if(bf) bf.style.display = jiei ? "none" : "block"; if(bh) bh.style.display = jiei ? "none" : "block"; }
     if(emp){ emp.addEventListener("change", syncEmp); syncEmp(); }
@@ -433,6 +483,56 @@
           detailLinks.push({href:"../hoiku/", label:"保育料を詳しく計算", color:"#db2777", textColor:"#1d4ed8"});
         }catch(e){ cards.push(skip("保育料（認可・0〜2歳）", "計算できませんでした")); }
       } else { cards.push(skip("保育料（認可・0〜2歳）", "この自治体のデータは準備中")); }
+    }
+
+    // ── 奨学金（給付型＋授業料等減免・全国共通・opt-in）。「支援」なので年間負担の合計には加算しない ──
+    var _shogakuOptIn = document.getElementById("shogakuOptIn");
+    if(_shogakuOptIn && _shogakuOptIn.checked){
+      var _sgSpec = await loadShogaku();
+      var sgSpouse = num("shogakuSpouse");
+      if(!(salary>0 || pension>0 || sgSpouse>0)){
+        cards.push(skip("奨学金（給付型＋授業料減免）", "生計維持者（保護者）の収入を入力すると支援区分を判定します"));
+      } else if(_sgSpec && window.ShogakukinBridge && window.Shogakukin){
+        try{
+          var sgLevel=((document.getElementById("shogakuLevel")||{}).value)||"大学";
+          var sgSetti=((document.getElementById("shogakuSetti")||{}).value)||"私立";
+          var sgAttend=((document.getElementById("shogakuAttend")||{}).value)||"自宅";
+          var sgChildren=Number(((document.getElementById("shogakuChildren")||{}).value))||1;
+          var sgHasSpouse=(sgSpouse===0);   // 配偶者収入の入力なし＝配偶者控除ありの近似（奨学金サイトのかんたん判定と同方式）
+          // 生計維持者1=本人。社会保険料控除は本体と同じ（会社員=shaho実額／自営など=約14.4%概算）
+          //   ＝奨学金サイトのかんたん判定（15%概算）より会社員は正確側。賞与込み給与で課税判定。
+          var sgSup=[{ salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance,
+                       hasSpouseDeduction:sgHasSpouse, dependents:(sgHasSpouse?1:0)+sgChildren }];
+          if(sgSpouse>0){
+            var sgSpSi;
+            if(isKaishain){ var sgSa=shahoAnnual(sgSpouse, 0, 40); sgSpSi=sgSa?sgSa.annual:Math.round(sgSpouse*0.144); }
+            else { sgSpSi=Math.round(sgSpouse*0.144); }
+            sgSup.push({ salary:sgSpouse, age:40, socialInsurance:sgSpSi, dependents:sgChildren });
+          }
+          var rsg=window.ShogakukinBridge.calcFromIncome(_sgSpec, null, {
+            supportersIncome: sgSup,
+            student: { level:sgLevel, schoolType:sgSetti, attendance:sgAttend },
+            childrenCount: sgChildren
+          });
+          var sgShort = rsg.kubunCode
+            ? (rsg.kubun + "（" + (rsg.ratioLabel==="満額" ? "満額" : "支援"+rsg.ratioLabel) + "）")
+            : (rsg.isTashiSetai ? "多子世帯" : "対象外（目安）");
+          var sgRows=[];
+          if(rsg.grantMonthly>0) sgRows.push(["給付奨学金（月額）", rsg.grantMonthly]);
+          if(rsg.reductionCap && rsg.reductionCap.tuition>0) sgRows.push(["授業料減免（年額上限）", rsg.reductionCap.tuition]);
+          var sgInner=sgRows.map(function(r){return "<div class='result-row'><div class='result-label' style='font-size:15px;'>"+r[0]+"</div><div class='amount' style='font-size:16px;'>"+Math.round(r[1]).toLocaleString()+" 円</div></div>";}).join("");
+          if(rsg.isTashiSetai && !rsg.kubunCode){
+            sgInner+="<div class='ci-sub' style='line-height:1.7;'>扶養する子3人以上の多子世帯は、所得に関わらず授業料等減免が満額です（この所得帯では給付奨学金は支給なし）。</div>";
+          } else if(!rsg.kubunCode){
+            sgInner="<div class='ci-sub' style='line-height:1.7;'>この収入・人数の目安では支援区分の対象外です。扶養控除などを反映すると対象になる場合があります（下の「奨学金を詳しく判定」で確認できます）。</div>";
+          }
+          sgInner+="<div class='ci-sub' style='margin-top:6px;'>支援額のため、下の「年間負担の合計」には含めていません。</div>";
+          cards.push("<div class='ci-grp' style='border-left:4px solid #16a34a;'><div class='ci-grp-head' style='color:#16a34a;'>奨学金（給付型＋授業料減免）<span class='ci-sub'>"+sgShort+"</span></div>"+sgInner+"</div>");
+          detailLinks.push({href:"https://shogakukin-keisan.jp/", label:"奨学金を詳しく判定", color:"#16a34a", external:true});
+        }catch(e){ cards.push(skip("奨学金（給付型＋授業料減免）", "判定できませんでした")); }
+      } else {
+        cards.push(skip("奨学金（給付型＋授業料減免）", "奨学金データを取得できませんでした"));
+      }
     }
 
     // ── 「詳しく計算する」導線：カード枠は付けず、制度色のピルで並べる ──
