@@ -60,7 +60,7 @@
   "status": "verified",
   "lifecycle": {
    "createdAt": "2026-04-08T01:03:23.308Z",
-   "updatedAt": "2026-07-24T00:00:00.000Z",
+   "updatedAt": "2026-07-28T00:00:00.000Z",
    "validFrom": "2026-04-01",
    "validUntil": "2027-03-31",
    "expiresAt": "2027-04-30",
@@ -71,7 +71,7 @@
    ],
    "previousYearTemplate": false,
    "r8Updated": true,
-   "verifiedAt": "2026-07-24",
+   "verifiedAt": "2026-07-28",
    "verificationLevel": "official_source_checked",
    "watchUrls": [
     "https://www.sazacho-nagasaki.jp/kiji0036176/index.html"
@@ -85,14 +85,14 @@
   },
   "audit": {
    "verifiedBy": "civic-rule-lab",
-   "verifiedAt": "2026-07-24",
+   "verifiedAt": "2026-07-28",
    "method": "official-site+phone"
   },
   "quality": {
    "confidenceScore": 0.95,
    "completeness": "full"
   },
-  "notes": "R8公式告知ページ(税率表はPNG画像・ブラウザ読取・2回表示一致)で県標準料率から差替(2026-07-24検証バッチ2)。国民健康保険税・3方式。賦課限度額4区分(医療67万/支援26万/介護17万/子ども3万)は町税務担当へ本人電話確認(2026-07-24)。子ども分均等割は18歳未満全額軽減。旧PR#91の値とも全項目一致（取込はせず独立再取得）。"
+  "notes": "R8公式告知ページ(税率表はPNG画像・ブラウザ読取・2回表示一致)で県標準料率から差替(料率=2026-07-24検証バッチ2)。国民健康保険税・3方式。賦課限度額4区分(医療67万/支援26万/介護17万/子ども3万)は町税務担当へ本人電話確認(2026-07-28)。子ども分均等割は18歳未満全額軽減。旧PR#91の値とも全項目一致（取込はせず独立再取得）。"
  },
  "childcareLevy": {
   "rate": 0.0031,

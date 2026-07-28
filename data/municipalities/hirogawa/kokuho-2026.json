@@ -1,105 +1,115 @@
 {
-  "cityCode": "30362",
-  "citySlug": "hirogawa",
-  "cityName": "広川町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.07,
-    "support": 0.029,
-    "care": 0.021
+ "cityCode": "30362",
+ "citySlug": "hirogawa",
+ "cityName": "広川町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.07,
+  "support": 0.029,
+  "care": 0.021
+ },
+ "perCapita": {
+  "medical": 26200,
+  "support": 10000,
+  "care": 9400
+ },
+ "household": {
+  "medical": 22600,
+  "support": 9400,
+  "care": 6500
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "assetLevy": {
+  "medical": 0.1,
+  "support": 0.03,
+  "care": 0
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 26200,
-    "support": 10000,
-    "care": 9400
-  },
-  "household": {
-    "medical": 22600,
-    "support": 9400,
-    "care": 6500
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "assetLevy": {
-    "medical": 0.1,
-    "support": 0.03,
-    "care": 0
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.0.0",
-    "status": "needs_update",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:23.061Z",
-      "updatedAt": "2026-07-14T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "extracted_r8",
-      "sourceUrls": [
-        "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html"
-      ],
-      "verifiedAt": "2026-07-14",
-      "watchUrls": [
-        "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html"
-      ],
-      "sourceStatus": "official_rate_page",
-      "r8Updated": true
-    },
-    "source": {
-      "type": "official",
-      "title": "広川町 国民健康保険税（令和8年度）",
-      "url": "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html",
-      "publishedAt": "2026-06-12"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-07-14",
-      "method": "official-site"
-    },
-    "quality": {
-      "confidenceScore": 0.85,
-      "completeness": "partial"
-    },
-    "notes": "公式税率ページ（令和8年度・2026-06-12更新）を反映。4方式=資産割あり（医療 所得7.0/資産10.0/均等26,200/平等22,600、支援 所得2.9/資産3.0/均等10,000/平等9,400、介護 所得2.1/資産なし/均等9,400/平等6,500）。資産割は新設 assetRate フィールドに格納。子ども・子育て支援金分はページ未掲載のため childcare=0・verified保留、change-detectorで監視。限度額67/26/17万。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:23.061Z",
+   "updatedAt": "2026-07-28T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html"
+   ],
+   "verifiedAt": "2026-07-28",
+   "watchUrls": [
+    "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "広川町 税金（国民健康保険税） 令和8年度税率",
+   "url": "https://www.town.hirogawa.wakayama.jp/zeimu/kokuho.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-07-28",
+   "method": "official-site+phone+pdf"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページで全区分確認し子ども・子育て支援金分を追記してverified化(2026-07-28・本人が電話とPDFでも確認)。国民健康保険税・4方式(資産割 医療10%/支援3%・介護と子どもは資産割なし)。子ども分均等割1,191円は18歳以上被保険者均等割83円/人を含む込み表記で、18歳未満(高校生年代以下)の均等割は全額軽減(茅ヶ崎型)。平等割766円・所得割0.3%・限度額3万円。"
+ },
+ "childcare": {
+  "rate": 0,
+  "perCapita": 0,
+  "household": 0
+ },
+ "childcareLevy": {
+  "rate": 0.003,
+  "perCapita": 1191,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 766,
+  "cap": 30000
+ }
 }
