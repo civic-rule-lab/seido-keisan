@@ -96,9 +96,9 @@
  },
  "childcareLevy": {
   "rate": 0.0025,
-  "perCapita": 1100,
-  "perCapitaAdult": 83,
-  "perCapitaAdultScope": "adult_18_plus",
+  "perCapita": 1183,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
   "household": 722,
   "cap": 30000
  }

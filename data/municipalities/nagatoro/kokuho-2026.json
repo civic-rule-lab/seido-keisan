@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0822,
-    "support": 0.0275,
-    "care": 0.0252
+    "medical": 0.08,
+    "support": 0.026,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 19998,
-    "support": 13687,
-    "care": 13186
+    "medical": 39300,
+    "support": 14300,
+    "care": 14800
   },
   "household": {
-    "medical": 10095,
+    "medical": 2600,
     "support": 0,
     "care": 0
   },
@@ -57,53 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.007Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.town.nagatoro.saitama.jp/procedures/%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E7%A8%8E/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.nagatoro.saitama.jp/procedures/%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E7%A8%8E/"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "長瀞町 国民健康保険税 令和8年度税率",
+      "url": "https://www.town.nagatoro.saitama.jp/procedures/%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E7%A8%8E/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、長瀞町が実際に告示する税率とは異なる場合がある。医療分に資産割・平等割あり（その市町の算定方式）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "R8公式ページで全区分確認しverified化(2026-08-01・実ブラウザDOM取得)。子ども分: 均等割1,710円・18歳以下全額軽減。18歳以上加算の記載なし(込みの単一額)。★4方式維持: 資産割8.00%・平等割2,600円。医療限度67万。年度表記なしだが子ども分掲載=R8。後期移行の平等割半額(5年)→1/4軽減(3年)あり。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1450,
-    "perCapitaAdult": 56,
+    "rate": 0.0026,
+    "perCapita": 1710,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.3999,
+    "medical": 0.08,
     "support": 0,
     "care": 0
   }

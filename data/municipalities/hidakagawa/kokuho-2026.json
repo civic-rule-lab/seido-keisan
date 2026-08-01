@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0838,
-    "support": 0.0309,
-    "care": 0.0252
+    "medical": 0.083,
+    "support": 0.027,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 30221,
-    "support": 10814,
-    "care": 11048
+    "medical": 30000,
+    "support": 9000,
+    "care": 10000
   },
   "household": {
-    "medical": 20950,
-    "support": 7497,
-    "care": 5606
+    "medical": 25000,
+    "support": 8300,
+    "care": 6000
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -56,39 +56,50 @@
   },
   "meta": {
     "schemaVersion": "2.0",
-    "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "dataVersion": "2.1.0",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.063Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-07-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "source_found_r8",
+      "r8Stage": "verified_r8",
       "sourceUrls": [
-        "http://reiki.town.hidakagawa.lg.jp/reiki_int/reiki_honbun/r176RG00000116.html"
-      ]
+        "https://www.town.hidakagawa.lg.jp/kurashi/zeikin/kokuho/zei_kokuho.html"
+      ],
+      "watchUrls": [
+        "https://www.town.hidakagawa.lg.jp/kurashi/zeikin/kokuho/zei_kokuho.html"
+      ],
+      "verifiedAt": "2026-07-30",
+      "sourceStatus": "official_rate_page",
+      "r8Updated": true,
+      "previousYearTemplate": false,
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "日高川町 国民健康保険税「令和8年度 税率」",
+      "url": "https://www.town.hidakagawa.lg.jp/kurashi/zeikin/kokuho/zei_kokuho.html",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-07-30",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.95,
+      "completeness": "full"
     },
-    "notes": "例規集の国民健康保険税条例を確認（2026-06-12）: R8改正未登載（子ども・子育て支援納付金の条文なし）・現行条文はR7値で県公表実料率と完全一致。条例ページをsourceUrlsで監視しR8改正登載を検知する。"
+    "notes": "2026-07-30 公式ページ「令和8年度 税率」表をブラウザで直接確認しverified化。3方式(資産割なし)。⚠️医療分課税限度額は660,000円(66万)で県内多数の67万とは異なる（公式表の記載どおり）。子ども・子育て支援金分は加算型: 均等割1,123円＋18歳以上被保険者均等割68円(大人計1,191円)・平等割766円・所得割0.3%・限度3万円。公式注記「平成20年4月2日以降生まれ（高校生年代までの加入者）の子ども・子育て支援金分均等割額は全額減額」。07-29時点では同ページが令和7年度・3区分表記だったが07-30にR8へ更新済（7月本算定期は日単位で変わる）。旧値(8.38%/30,221円等)は県標準理論値だったため差し替え。"
   },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1123,
+    "perCapitaAdult": 68,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }

@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0847,
-    "support": 0.0278,
-    "care": 0.0281
+    "medical": 0.0808,
+    "support": 0.0282,
+    "care": 0.0241
   },
   "perCapita": {
-    "medical": 42227,
-    "support": 15735,
-    "care": 14457
+    "medical": 47500,
+    "support": 17000,
+    "care": 17100
   },
   "household": {
     "medical": 0,
@@ -21,7 +21,7 @@
     "care": 0
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,46 +57,46 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.975Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.city.kuki.lg.jp/kurashi/kokuho_nenkin/kokuho/1002170/1012633.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.city.kuki.lg.jp/kurashi/kokuho_nenkin/kokuho/1002170/1010492.html"
+        "https://www.city.kuki.lg.jp/kurashi/kokuho_nenkin/kokuho/1002170/1012633.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "久喜市 国民健康保険税 令和8年度税率",
+      "url": "https://www.city.kuki.lg.jp/kurashi/kokuho_nenkin/kokuho/1002170/1012633.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、久喜市が実際に告示する税率とは異なる場合がある。後期・介護・子ども分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "R8公式ページで全区分確認しverified化(2026-08-01・実ブラウザDOM取得)。子ども分: 加算型: 均等割1,600円+18歳以上100円。R7比較・県標準税率併記。医療限度65→66万・支援24→26万。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1591,
+    "rate": 0.0026,
+    "perCapita": 1600,
     "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,

@@ -98,7 +98,7 @@
   "rate": 0.0026,
   "perCapita": 1102,
   "perCapitaAdult": 89,
-  "perCapitaAdultScope": "age18plus_addon",
+  "perCapitaAdultScope": "all_ages",
   "household": 727,
   "cap": 30000
  }

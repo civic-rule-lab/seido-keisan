@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.085,
-    "support": 0.0347,
-    "care": 0.0314
+    "medical": 0.0726,
+    "support": 0.0283,
+    "care": 0.0233
   },
   "perCapita": {
-    "medical": 23946,
-    "support": 11825,
-    "care": 12933
+    "medical": 43054,
+    "support": 16372,
+    "care": 16534
   },
   "household": {
-    "medical": 19004,
+    "medical": 0,
     "support": 0,
     "care": 0
   },
@@ -57,54 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.942Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.city.honjo.lg.jp/soshiki/hoken/hoken/tantoujouhou/kokuho/kokuhozei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.honjo.lg.jp/soshiki/hoken/hoken/tantoujouhou/kokuho/kokuhozei.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "本庄市 国民健康保険税 令和8年度税率",
+      "url": "https://www.city.honjo.lg.jp/soshiki/hoken/hoken/tantoujouhou/kokuho/kokuhozei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、本庄市が実際に告示する税率とは異なる場合がある。医療分に資産割・平等割あり（その市町の算定方式）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "R8公式ページで全区分確認しverified化(2026-08-01・実ブラウザDOM取得)。子ども分: 加算型: 均等割1,772円+18歳以上均等割143円。資産割・平等割はR8廃止(令和7年度まで平等割/資産割ありの記載)。未就学児軽減表30,599=61,198/2でアンカー一致。⚠医療限度67万・子ども限度3万・軽減判定基準・18歳未満軽減に(予定)表記あり(更新日2026-01-30)。税率改定ページで確定確認推奨。賦課限度額と軽減基準はページ上(予定)表記(更新2026-01-30)のため confidence 0.9。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1622,
-    "perCapitaAdult": 131,
+    "perCapita": 1772,
+    "perCapitaAdult": 143,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
-  },
-  "assetLevy": {
-    "medical": 0.2431,
-    "support": 0,
-    "care": 0
   }
 }

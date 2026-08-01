@@ -13,7 +13,7 @@
   "perCapita": {
     "medical": 25200,
     "support": 9600,
-    "care": 9660
+    "care": 9960
   },
   "household": {
     "medical": 19920,
@@ -67,7 +67,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.205Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
@@ -78,7 +78,7 @@
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-06-12",
+      "verifiedAt": "2026-08-01",
       "verificationLevel": "official_source_checked"
     },
     "source": {
@@ -96,6 +96,6 @@
       "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "R8公式サイトで確認。子育て支援金分新設：0.22%・均等996円（18-74歳のみ）・平等600円。"
+    "notes": "R8公式サイトで確認。子育て支援金分新設：0.22%・均等996円（18-74歳のみ）・平等600円。2026-08-01 change-detector検知→本人目視で介護均等割を9,660→9,960円に訂正（当初の転記誤りか公表後改定かは不明・現行ページは9,960円）。"
   }
 }

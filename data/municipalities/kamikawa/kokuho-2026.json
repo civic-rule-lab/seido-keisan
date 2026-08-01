@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0766,
-    "support": 0.0316,
-    "care": 0.0245
+    "medical": 0.063,
+    "support": 0.024,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 29333,
-    "support": 12690,
-    "care": 14694
+    "medical": 25000,
+    "support": 10000,
+    "care": 15000
   },
   "household": {
-    "medical": 9725,
+    "medical": 8000,
     "support": 0,
     "care": 0
   },
@@ -57,42 +57,42 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.010Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.town.kamikawa.saitama.jp/soshiki/hokenkenko/kokuminkenkohoken/4216.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.kamikawa.saitama.jp/soshiki/hokenkenko/kokuminkenkohoken/4216.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "神川町 国民健康保険税 令和8年度税率",
+      "url": "https://www.town.kamikawa.saitama.jp/soshiki/hokenkenko/kokuminkenkohoken/4216.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、神川町が実際に告示する税率とは異なる場合がある。医療分に資産割・平等割あり（その市町の算定方式）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "R8公式ページで全区分確認しverified化(2026-08-01・実ブラウザDOM取得)。子ども分: 加算型: 均等割1,539円+18歳以上118円・18歳以下課税なし。★4方式維持: 医療に資産割15.0%・平等割8,000円あり。医療限度67万。R9準統一予定の記載。"
   },
   "childcareLevy": {
     "rate": 0.003,
@@ -103,7 +103,7 @@
     "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.1789,
+    "medical": 0.15,
     "support": 0,
     "care": 0
   }

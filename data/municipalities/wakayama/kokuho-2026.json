@@ -60,32 +60,33 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.054Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1001517.html"
+        "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1010552.html",
+        "https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/010/552/R8sansyutuho-ho-.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "2026-06-05",
+      "verifiedAt": "2026-08-01",
       "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1001517.html"
+        "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1010552.html"
       ]
     },
     "source": {
       "type": "official",
-      "title": "和歌山市公式「令和8年度の保険料が決定しました」国民健康保険料率表",
-      "url": "https://www.city.wakayama.wakayama.jp/kurashi/kokuho_nenkin/1001090/1001517.html",
+      "title": "和歌山市公式「国民健康保険料金のしくみ」令和8年度保険料の算出方法（PDF）",
+      "url": "https://www.city.wakayama.wakayama.jp/_res/projects/default_project/_page_/001/010/552/R8sansyutuho-ho-.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-06-05",
+      "verifiedAt": "2026-08-01",
       "method": "official-page"
     },
     "quality": {

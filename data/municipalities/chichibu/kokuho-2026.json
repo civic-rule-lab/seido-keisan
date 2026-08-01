@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0839,
-    "support": 0.0286,
-    "care": 0.0253
+    "medical": 0.073,
+    "support": 0.025,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 27028,
-    "support": 14595,
-    "care": 14503
+    "medical": 41000,
+    "support": 15500,
+    "care": 15500
   },
   "household": {
-    "medical": 14677,
+    "medical": 0,
     "support": 0,
     "care": 0
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,54 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.939Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.city.chichibu.lg.jp/1764.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.chichibu.lg.jp/1764.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "秩父市 国民健康保険税 令和8年度税率",
+      "url": "https://www.city.chichibu.lg.jp/1764.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、秩父市が実際に告示する税率とは異なる場合がある。医療分に資産割・平等割あり（その市町の算定方式）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "R8公式ページで全区分確認しverified化(2026-08-01・実ブラウザDOM取得)。子ども分: undefined。令和8年度課税分から資産割と平等割を廃止し子ども分新設と明記。軽減基準は標準(43万+31/57万・給与年金加算10万)。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1617,
-    "perCapitaAdult": 112,
+    "perCapita": 1905,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
-  },
-  "assetLevy": {
-    "medical": 0.2226,
-    "support": 0,
-    "care": 0
   }
 }

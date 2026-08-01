@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0843,
-    "support": 0.031,
-    "care": 0.0256
+    "medical": 0.083,
+    "support": 0.025,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 30418,
-    "support": 10853,
-    "care": 11206
+    "medical": 31000,
+    "support": 9000,
+    "care": 10000
   },
   "household": {
-    "medical": 21086,
-    "support": 7523,
-    "care": 5686
+    "medical": 22000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -56,39 +56,50 @@
   },
   "meta": {
     "schemaVersion": "2.0",
-    "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "dataVersion": "2.1.0",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.062Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-07-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "source_found_r8",
+      "r8Stage": "verified_r8",
       "sourceUrls": [
         "http://www.town.mihama.wakayama.jp/other-contents/reiki_int/reiki_honbun/k528RG00000102.html"
-      ]
+      ],
+      "watchUrls": [
+        "http://www.town.mihama.wakayama.jp/other-contents/reiki_int/reiki_honbun/k528RG00000102.html"
+      ],
+      "verifiedAt": "2026-07-30",
+      "sourceStatus": "ordinance_after_revision",
+      "r8Updated": true,
+      "previousYearTemplate": false,
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "美浜町国民健康保険税条例（例規集・最終改正 令和7年3月31日条例第12号）＋町税務課への電話確認",
+      "url": "http://www.town.mihama.wakayama.jp/other-contents/reiki_int/reiki_honbun/k528RG00000102.html",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-07-30",
+      "method": "municipal-ordinance-after-revision+phone"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.9,
+      "completeness": "full"
     },
-    "notes": "例規集の国民健康保険税条例を確認（2026-06-12）: R8改正未登載（子ども・子育て支援納付金の条文なし）・現行条文はR7値で県公表実料率と完全一致。条例ページをsourceUrlsで監視しR8改正登載を検知する。"
+    "notes": "2026-07-30 町へ電話照会し確定: 医療分賦課限度額67万円・子ども・子育て支援金分は所得割0.3%/均等割1,191円/平等割766円/限度額3万円・「その他はR7と同じ」との回答。R7実値は例規集の条例本文から抽出(医療8.3%/31,000円/22,000円・支援2.5%/9,000円/7,000円・介護2.4%/10,000円/6,000円)。3方式(資産割なし)。未就学児軽減は条例第23条第2項で医療15,500円・支援4,500円=各均等割の5割と一致。子ども分の1,191円/766円/0.3%は和歌山県内のverified5自治体(広川・紀美野・御坊・印南・那智勝浦)と完全一致し県内共通パターン。子ども分均等割の18歳以上加算の内訳は未確認のため総額1,191円をperCapitaに格納(18歳未満は全額軽減で計算結果は同一)。公式サイトに国保税率ページは存在せず条例が一次資料。旧値(8.43%/30,418円等)は県標準理論値だったため差し替え。"
   },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1191,
+    "perCapitaAdult": 0,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }
