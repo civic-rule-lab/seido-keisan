@@ -79,6 +79,6 @@
       "confidenceScore": 0,
       "completeness": "partial"
     },
-    "notes": "PLACEHOLDER: 群馬県太田市のR7値は未取得（5/11新規slug追加）。桐生市R7をベースにstructure保持目的で複製。次回Coworkで群馬太田R7を取得して上書き予定。"
+    "notes": "PLACEHOLDER: 群馬県太田市のR7値は未取得（5/11新規slug追加）。桐生市R7をベースにstructure保持目的で複製。次回 群馬太田R7を取得して上書き予定。"
   }
 }

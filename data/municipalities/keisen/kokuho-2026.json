@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0656,
-    "support": 0.0275,
-    "care": 0.0237
+    "medical": 0.078,
+    "support": 0.038,
+    "care": 0.0105
   },
   "perCapita": {
-    "medical": 25285,
-    "support": 10514,
-    "care": 10903
+    "medical": 25000,
+    "support": 6000,
+    "care": 6600
   },
   "household": {
-    "medical": 24992,
-    "support": 10392,
-    "care": 8427
+    "medical": 25000,
+    "support": 5000,
+    "care": 3700
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.094Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
+        "https://www.town.keisen.fukuoka.jp/kurashi/tetsuzuki/kokuho.php"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-05",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.keisen.fukuoka.jp/kurashi/tetsuzuki/kokuho.php"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
+      "type": "official",
+      "title": "桂川町 令和8年度 国民健康保険税の税率（公式サイト）",
+      "url": "https://www.town.keisen.fukuoka.jp/kurashi/tetsuzuki/kokuho.php",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-05",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、桂川町が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "桂川町公式ページ(r8-watch 08-05検知)から採用。ページの行ラベルは「18歳以上所得割（一人当たり）60円」だが実態は18歳以上一人当たりの定額加算＝均等割加算として格納(1,000+60・京都型)。18歳未満は子ども分均等割10割軽減とページ明記。県標準暫定からの昇格。"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1014,
-    "perCapitaAdult": 69,
+    "rate": 0.0028,
+    "perCapita": 1000,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 1002,
+    "household": 1000,
     "cap": 30000
   }
 }

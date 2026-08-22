@@ -79,6 +79,6 @@
       "confidenceScore": 1.0,
       "completeness": "full"
     },
-    "notes": "Cowork session 2026-05-18 にて R7 公式ページ (abiko 国保税改正告知 abk10003001020.html) と R7 JSON 値を 13 項目突合し完全一致を確認。値変更ゼロ、metadata only の verified retrofit (型 B 第 1 例)。突合内訳: 医療 7.46%/24,000/25,000/66万・後期 3.85%/12,000/0/26万・介護 2.04%/18,100/0/17万・reduction 5割 305,000・2割 560,000。"
+    "notes": "2026-05-18 に R7 公式ページ (abiko 国保税改正告知 abk10003001020.html) と R7 JSON 値を 13 項目突合し完全一致を確認。値変更ゼロ、metadata only の verified retrofit (型 B 第 1 例)。突合内訳: 医療 7.46%/24,000/25,000/66万・後期 3.85%/12,000/0/26万・介護 2.04%/18,100/0/17万・reduction 5割 305,000・2割 560,000。"
   }
 }

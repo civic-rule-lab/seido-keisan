@@ -1,105 +1,105 @@
 {
-  "cityCode": "40642",
-  "citySlug": "yoshitomi",
-  "cityName": "吉富町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0911,
-    "support": 0.0278,
-    "care": 0.0226
+ "cityCode": "40642",
+ "citySlug": "yoshitomi",
+ "cityName": "吉富町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.077,
+  "support": 0.031,
+  "care": 0.023
+ },
+ "perCapita": {
+  "medical": 27000,
+  "support": 10000,
+  "care": 10000
+ },
+ "household": {
+  "medical": 24000,
+  "support": 7000,
+  "care": 6000
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 35093,
-    "support": 10651,
-    "care": 10398
-  },
-  "household": {
-    "medical": 34686,
-    "support": 10527,
-    "care": 8037
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.103Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.town.yoshitomi.lg.jp/gyosei/chosei/v995/y209/zeimuka/g379/12/"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、吉富町が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1016,
-    "perCapitaAdult": 65,
-    "perCapitaAdultScope": "all_ages",
-    "household": 1004,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.103Z",
+   "updatedAt": "2026-08-02T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www.town.yoshitomi.lg.jp/gyosei/chosei/v995/y209/zeimuka/g379/12/"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-08-02",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.town.yoshitomi.lg.jp/gyosei/chosei/v995/y209/zeimuka/g379/12/"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "吉富町 国民健康保険税(料) 令和8年度税率",
+   "url": "https://www.town.yoshitomi.lg.jp/gyosei/chosei/v995/y209/zeimuka/g379/12/",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-02",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ(実ブラウザDOM)で全区分確認しverified化(2026-08-02)。込み型(高校生年代までを除く人数×1,100円=大人のみ)。税。★子ども分所得割0.26%。★町独自: 中学校修了前の均等割半額(医療13,500/支援5,000)→schoolReduction系の確認候補(鴻巣型・データ化は別バッチ)。軽減の給与所得者等定義: 給与65万円超・年金110万円超(65歳以上)=R7改正反映"
+ },
+ "childcareLevy": {
+  "rate": 0.0026,
+  "perCapita": 1100,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 1000,
+  "cap": 30000
+ }
 }

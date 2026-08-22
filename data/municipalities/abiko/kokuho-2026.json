@@ -98,6 +98,6 @@
       "confidenceScore": 1.0,
       "completeness": "full"
     },
-    "notes": "Cowork session 2026-05-18 にて我孫子市公式 R7→R8 改正告知ページ (abk10003001020.html) で全 4 区分 + caps + reduction + childcare を完全照合。R7 流用テンプレ値を R8 公式値に更新、childcare(空) → childcareLevy(akishima 同型 perCapitaAdult/scope all_ages) へ構造変更。R8 値: 医療 7.08%/24,400/25,100/67万・後期 3.38%/12,200/0/26万・介護 2.17%/20,000/0/17万・子育て 0.28%/1,800円+18歳以上100円/3万(新設)。reduction.standards (5割 310,000・2割 570,000) と caps (67/26/17/3万) は PR #19 / R8 移行時に投入済のため不変更。"
+    "notes": "2026-05-18 に我孫子市公式 R7→R8 改正告知ページ (abk10003001020.html) で全 4 区分 + caps + reduction + childcare を完全照合。R7 流用テンプレ値を R8 公式値に更新、childcare(空) → childcareLevy(akishima 同型 perCapitaAdult/scope all_ages) へ構造変更。R8 値: 医療 7.08%/24,400/25,100/67万・後期 3.38%/12,200/0/26万・介護 2.17%/20,000/0/17万・子育て 0.28%/1,800円+18歳以上100円/3万(新設)。reduction.standards (5割 310,000・2割 570,000) と caps (67/26/17/3万) は PR #19 / R8 移行時に投入済のため不変更。"
   }
 }

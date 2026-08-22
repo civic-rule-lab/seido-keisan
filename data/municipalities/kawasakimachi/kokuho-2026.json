@@ -1,105 +1,106 @@
 {
-  "cityCode": "40605",
-  "citySlug": "kawasakimachi",
-  "cityName": "川崎町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0681,
-    "support": 0.029,
-    "care": 0.0246
+ "cityCode": "40605",
+ "citySlug": "kawasakimachi",
+ "cityName": "川崎町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.1,
+  "support": 0.018,
+  "care": 0.016
+ },
+ "perCapita": {
+  "medical": 23000,
+  "support": 7000,
+  "care": 6000
+ },
+ "household": {
+  "medical": 24000,
+  "support": 11000,
+  "care": 4000
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 26252,
-    "support": 11109,
-    "care": 11286
-  },
-  "household": {
-    "medical": 25948,
-    "support": 10980,
-    "care": 8723
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.100Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.town-kawasaki.com/reiki_int/reiki_honbun/q085RG00000173.html"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、川崎町が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1022,
-    "perCapitaAdult": 67,
-    "perCapitaAdultScope": "all_ages",
-    "household": 1054,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.100Z",
+   "updatedAt": "2026-08-02T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceStatus": "official_rate_page",
+   "sourceUrls": [
+    "https://www1.g-reiki.net/town-kawasaki/reiki_honbun/q085RG00000173.html",
+    "https://www.town-kawasaki.com/reiki_int/reiki_honbun/q085RG00000173.html"
+   ],
+   "previousYearTemplate": false,
+   "r8Updated": true,
+   "verifiedAt": "2026-08-02",
+   "verificationLevel": "official_source_checked",
+   "watchUrls": [
+    "https://www.town-kawasaki.com/reiki_int/reiki_honbun/q085RG00000173.html"
+   ]
+  },
+  "source": {
+   "type": "official",
+   "title": "川崎町国民健康保険税条例(令和8年3月31日改正)",
+   "url": "https://www1.g-reiki.net/town-kawasaki/reiki_honbun/q085RG00000173.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-02",
+   "method": "official-ordinance"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ソースで全区分確認しverified化(2026-08-02)。加算型(第10条の4均等割1,000円+第10条の5 18歳以上均等割60円)。税。町サイトに料率ページなし→国保税条例(R8.3.31改正・R8年度から適用)を本人提供の例規全文で確認。医療所得割10%(第4条・R8改正)・平等割24,000円(第6条・R8改正)。第24条の軽減額が各額×0.7/0.5/0.2と完全整合(内部検算OK)。u18全額軽減=第24条4項。介護に平等割4,000円"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 1000,
+  "perCapitaAdult": 60,
+  "perCapitaAdultScope": "all_ages",
+  "household": 1000,
+  "cap": 30000
+ }
 }

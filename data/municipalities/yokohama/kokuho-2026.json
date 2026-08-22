@@ -91,7 +91,7 @@
       "confidenceScore": 1.0,
       "completeness": "full"
     },
-    "notes": "Cowork session 2026-05-20 にて横浜市公式 R8 料率ページ (r7hokennryouritu.html) と制度改正ページ (04seidokaisei.html) で全項目照合し verified_r8 化。前段 (医療/支援/介護/caps/reduction.standards) は R8 移行時に投入済のため不変更、子ども・子育て支援納付金分のみ誤ったフラット childcare (perCapita 1770 合算) を abiko/akishima 同型の childcareLevy (perCapita 1690 + perCapitaAdult 80, scope all_ages) に分解。18歳未満全額軽減を engine 上で正しく反映可能に。R8 子ども分値: 0.34%/1,690円+18歳以上80円/3万(新設)。神奈川県 R8 lifecycle 未設定の第 1 例。"
+    "notes": "2026-05-20 に横浜市公式 R8 料率ページ (r7hokennryouritu.html) と制度改正ページ (04seidokaisei.html) で全項目照合し verified_r8 化。前段 (医療/支援/介護/caps/reduction.standards) は R8 移行時に投入済のため不変更、子ども・子育て支援納付金分のみ誤ったフラット childcare (perCapita 1770 合算) を abiko/akishima 同型の childcareLevy (perCapita 1690 + perCapitaAdult 80, scope all_ages) に分解。18歳未満全額軽減を engine 上で正しく反映可能に。R8 子ども分値: 0.34%/1,690円+18歳以上80円/3万(新設)。神奈川県 R8 lifecycle 未設定の第 1 例。"
   },
   "childcareLevy": {
     "rate": 0.0034,

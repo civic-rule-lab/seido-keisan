@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0982,
-    "support": 0.0368,
+    "medical": 0.0575,
+    "support": 0.0285,
     "care": 0.0274
   },
   "perCapita": {
-    "medical": 18569,
-    "support": 6834,
-    "care": 7606
+    "medical": 14577,
+    "support": 8491,
+    "care": 8633
   },
   "household": {
-    "medical": 20426,
-    "support": 6727,
-    "care": 6277
+    "medical": 16956,
+    "support": 5424,
+    "care": 4272
   },
   "caps": {
     "medical": 670000,
@@ -56,10 +56,10 @@
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1171,
-    "perCapitaAdult": 192,
+    "perCapita": 1197,
+    "perCapitaAdult": 150,
     "perCapitaAdultScope": "all_ages",
-    "household": 814,
+    "household": 789,
     "cap": 30000
   },
   "meta": {
@@ -70,7 +70,7 @@
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-06-08T00:00:00.000Z",
+      "updatedAt": "2026-08-20T00:00:00.000Z",
       "r8Stage": "standard_r8",
       "sourceStatus": "prefecture_standard_municipal_method",
       "sourceUrls": [
@@ -94,5 +94,10 @@
       "completeness": "full"
     },
     "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+  },
+  "assetLevy": {
+    "medical": 0.2849,
+    "support": 0.1212,
+    "care": 0.0667
   }
 }

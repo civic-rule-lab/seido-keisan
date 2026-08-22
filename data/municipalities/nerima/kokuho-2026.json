@@ -23,7 +23,8 @@
   "caps": {
     "medical": 670000,
     "support": 260000,
-    "care": 170000
+    "care": 170000,
+    "childcare": 30000
   },
   "childcareLevy": {
     "rate": 0.0027,

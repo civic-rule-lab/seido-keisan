@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0851,
-    "support": 0.032,
-    "care": 0.026
+    "medical": 0.0859,
+    "support": 0.0316,
+    "care": 0.0255
   },
   "perCapita": {
-    "medical": 19041,
-    "support": 6771,
-    "care": 7929
+    "medical": 22048,
+    "support": 8072,
+    "care": 8264
   },
   "household": {
-    "medical": 19943,
-    "support": 8124,
-    "care": 5425
+    "medical": 19971,
+    "support": 6689,
+    "care": 5276
   },
   "caps": {
     "medical": 670000,
@@ -56,10 +56,10 @@
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1184,
-    "perCapitaAdult": 132,
+    "perCapita": 1136,
+    "perCapitaAdult": 200,
     "perCapitaAdultScope": "all_ages",
-    "household": 787,
+    "household": 800,
     "cap": 30000
   },
   "meta": {
@@ -70,7 +70,7 @@
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-06-08T00:00:00.000Z",
+      "updatedAt": "2026-08-20T00:00:00.000Z",
       "r8Stage": "standard_r8",
       "sourceStatus": "prefecture_standard_municipal_method",
       "sourceUrls": [

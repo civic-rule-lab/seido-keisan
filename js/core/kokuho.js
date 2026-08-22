@@ -56,13 +56,7 @@ function calculateKokuho(input, data) {
   // schoolReduction.enabled が true でない自治体は schoolReductionMedical/Support = 0 → 既存挙動完全維持。
   const u18Safe = Math.min(under18 || 0, familySafe);
   const schoolSafe = Math.max(u18Safe - preschoolSafe, 0);
-  const schoolReductionMedical = data.schoolReduction?.enabled ? Math.round(
-    schoolSafe * data.perCapita.medical * (data.schoolReduction?.medicalPerCapitaRate || 0)
-  ) : 0;
-  const schoolReductionSupport = data.schoolReduction?.enabled ? Math.round(
-    schoolSafe * data.perCapita.support * (data.schoolReduction?.supportPerCapitaRate || 0)
-  ) : 0;
-  const schoolReduction = schoolReductionMedical + schoolReductionSupport;
+  // 実際の減額計算は「軽減判定」で reductionRate が確定した後に行う（未就学児軽減と同じ）。
 
   // 軽減判定
   // ② salaryPensionCount > family 対策：family を上限として clamp
@@ -111,6 +105,21 @@ function calculateKokuho(input, data) {
     preschoolSafe * data.perCapita.support * (1 - reductionRate) * (data.preschoolReduction?.supportPerCapitaRate || 0)
   );
   const preschoolReduction = preschoolReductionMedical + preschoolReductionSupport;
+
+  // 学齢児軽減（自治体独自）
+  // 法定軽減（7/5/2割）が適用される世帯では「軽減後の均等割額」に対して独自減額率を掛ける。
+  //   例) 7割軽減世帯 × 独自5割 → 残り3割の5割(=1.5割)を軽減 → 合計8.5割軽減。
+  //   例) 7割軽減世帯 × 独自10割 → 残り3割を全部軽減 → 当該児の均等割は0円。
+  // 乗算なので「法定が先か独自が先か」で結果は変わらない。
+  // (1 - reductionRate) を掛けないと軽減率+独自率が100%を超え、他の被保険者分まで
+  //   食いつぶして区分合計が0円に張り付く（旧実装の不具合）。
+  const schoolReductionMedical = data.schoolReduction?.enabled ? Math.round(
+    schoolSafe * data.perCapita.medical * (1 - reductionRate) * (data.schoolReduction?.medicalPerCapitaRate || 0)
+  ) : 0;
+  const schoolReductionSupport = data.schoolReduction?.enabled ? Math.round(
+    schoolSafe * data.perCapita.support * (1 - reductionRate) * (data.schoolReduction?.supportPerCapitaRate || 0)
+  ) : 0;
+  const schoolReduction = schoolReductionMedical + schoolReductionSupport;
 
   // 子ども・子育て支援金分（R8新設・0なら無効）
   // childcareLevy（旧方式・under18Reduction/perCapitaAdult 対応）を優先、
