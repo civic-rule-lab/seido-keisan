@@ -7,13 +7,13 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.0582,
-    "support": 0.0299,
+    "support": 0.029,
     "care": 0.025
   },
   "perCapita": {
     "medical": 36295,
     "support": 17942,
-    "care": 18329
+    "care": 18230
   },
   "household": {
     "medical": 0,
@@ -68,7 +68,7 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T00:00:00.000Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-23T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",

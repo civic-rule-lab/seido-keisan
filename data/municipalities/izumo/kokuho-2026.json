@@ -6,7 +6,7 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0849,
+    "medical": 0.084,
     "support": 0.0284,
     "care": 0.0262
   },
@@ -60,7 +60,7 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.670Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-08-24T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
