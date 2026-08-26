@@ -72,20 +72,20 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://hyugacity.jp/sp/display.php?cont=140319143015"
+        "https://www.hyugacity.jp/sp/display.php?cont=140319143015"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-07",
       "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://hyugacity.jp/sp/display.php?cont=140319143015"
+        "https://www.hyugacity.jp/sp/display.php?cont=140319143015"
       ]
     },
     "source": {
       "type": "official",
       "title": "日向市「国民健康保険税」令和8年度の税率（display.php?cont=140319143015）",
-      "url": "https://hyugacity.jp/sp/display.php?cont=140319143015",
+      "url": "https://www.hyugacity.jp/sp/display.php?cont=140319143015",
       "publishedAt": "2026"
     },
     "audit": {

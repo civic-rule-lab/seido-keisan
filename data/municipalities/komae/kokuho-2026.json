@@ -80,7 +80,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-03",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.komae.tokyo.jp/index.cfm/41,135373,316,2011,html"
+      ]
     },
     "source": {
       "type": "official",

@@ -79,7 +79,10 @@
       "updatedAt": "2026-05-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.nishi.or.jp/kurashi/kokuminkenkohoken/hokenryo/about_hokenryo/r4-kokuhoritsu.html"
+      ]
     },
     "source": {
       "type": "official",

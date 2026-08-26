@@ -74,7 +74,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-15",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.suita.osaka.jp/kenko/1018391/1024421/1024423.html",
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+      ]
     },
     "source": {
       "type": "official",

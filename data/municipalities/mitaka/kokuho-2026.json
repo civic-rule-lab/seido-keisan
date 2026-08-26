@@ -72,7 +72,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-14",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.mitaka.lg.jp/c_service/000/000431.html"
+      ]
     },
     "source": {
       "type": "official",

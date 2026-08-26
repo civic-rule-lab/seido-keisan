@@ -74,7 +74,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-15",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
+        "https://www.city.osaka.lg.jp/fukushi/page/0000624098.html"
+      ]
     },
     "source": {
       "type": "official",

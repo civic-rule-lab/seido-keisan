@@ -81,7 +81,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.saitama.lg.jp/001/153/002/004/p010020.html",
+        "https://www.city.saitama.lg.jp/001/153/002/004/p053074.html"
+      ]
     },
     "source": {
       "type": "official",

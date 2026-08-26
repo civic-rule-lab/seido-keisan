@@ -74,7 +74,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/ryounosantei/hoken.html",
+        "https://www.city.matsudo.chiba.jp/kurashi/hoken_nenkin/kokuho/oshirase/korona_hokenyuuyo.html"
+      ]
     },
     "source": {
       "type": "official",

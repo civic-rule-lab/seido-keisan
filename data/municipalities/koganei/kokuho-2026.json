@@ -72,7 +72,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-14",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.koganei.lg.jp/kurashi/427/kokuhozei/hokenzei_keisan.html"
+      ]
     },
     "source": {
       "type": "official",

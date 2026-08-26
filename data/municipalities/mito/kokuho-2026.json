@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.mito.lg.jp/site/kokuho/3055.html"
+      ]
     },
     "source": {
       "type": "official",

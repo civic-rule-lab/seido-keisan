@@ -67,20 +67,20 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://town.shika.lg.jp/page/8016.html"
+        "https://www.town.shika.lg.jp/page/8016.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-05",
       "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://town.shika.lg.jp/page/8016.html"
+        "https://www.town.shika.lg.jp/page/8016.html"
       ]
     },
     "source": {
       "type": "official",
       "title": "志賀町公式「令和8年度から『子ども・子育て支援金制度』が始まります」国民健康保険税率表",
-      "url": "https://town.shika.lg.jp/page/8016.html",
+      "url": "https://www.town.shika.lg.jp/page/8016.html",
       "publishedAt": "2026"
     },
     "audit": {

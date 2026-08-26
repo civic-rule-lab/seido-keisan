@@ -73,7 +73,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-21",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.sakai.lg.jp/kurashi/honen/kokuho/hokenryo/shikumi.html"
+      ]
     },
     "source": {
       "type": "official",

@@ -73,7 +73,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-15",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1001872.html",
+        "https://www.city.fussa.tokyo.jp/life/procedure/insurance/1021041.html"
+      ]
     },
     "source": {
       "type": "official",

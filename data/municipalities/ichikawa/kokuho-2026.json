@@ -74,7 +74,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-15",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ichikawa.lg.jp/page/4191.html",
+        "https://www.city.ichikawa.lg.jp/pub04/1111000007.html"
+      ]
     },
     "source": {
       "type": "official",

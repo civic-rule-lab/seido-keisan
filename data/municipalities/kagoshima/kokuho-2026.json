@@ -80,7 +80,11 @@
       "updatedAt": "2026-05-21T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.city.kagoshima.lg.jp/shimin/shiminbunka/kokuho/kurashi/hoken/hoken/kokuho/ze.html",
+        "https://www.city.kagoshima.lg.jp/shimin/shiminbunka/kokuho/7kaitei.html"
+      ]
     },
     "source": {
       "type": "official",

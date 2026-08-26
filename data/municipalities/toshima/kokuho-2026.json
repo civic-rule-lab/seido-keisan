@@ -80,7 +80,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-11",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.tokyo23city-kuchokai.jp/katsudo/kokuho_20hoken.html",
+        "https://www.city.nerima.tokyo.jp/kurashi/nenkinhoken/kokuminkenkohoken/hoken_hokenryo/keisan_hoho.html"
+      ]
     },
     "source": {
       "type": "official",

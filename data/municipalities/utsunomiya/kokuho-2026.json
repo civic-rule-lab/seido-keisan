@@ -71,7 +71,7 @@
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
         "https://www.city.utsunomiya.lg.jp/kurashi/hokennenkin/kokuho/1003765.html",
-        "https://www.city.utsunomiya.lg.jp/kurashi/hokennenkin/kokuho/001/003/765/r8kokuhop.pdf"
+        "https://www.city.utsunomiya.lg.jp/_res/projects/default_project/_page_/001/003/765/r8kokuhop.pdf"
       ],
       "verifiedAt": "2026-05-30",
       "r8Updated": true,
@@ -80,7 +80,11 @@
       "updatedAt": "2026-05-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.city.utsunomiya.lg.jp/kurashi/hokennenkin/kokuho/1003765.html",
+        "https://www.city.utsunomiya.lg.jp/_res/projects/default_project/_page_/001/003/765/r8kokuhop.pdf"
+      ]
     },
     "source": {
       "type": "official",

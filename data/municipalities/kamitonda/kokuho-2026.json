@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "http://www.town.kamitonda.lg.jp/section/reiki/reiki_honbun/k541RG00000162.html"
+      ]
     },
     "source": {
       "type": "official",

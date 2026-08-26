@@ -71,7 +71,10 @@
       "sourceStatus": "ordinance_after_revision",
       "verifiedAt": "2026-06-15",
       "verificationLevel": "municipal_verified",
-      "r8Updated": true
+      "r8Updated": true,
+      "watchUrls": [
+        "https://www.town.katsuragi.wakayama.jp/reiki/reiki_honbun/k518RG00000210.html"
+      ]
     },
     "source": {
       "type": "municipal_ordinance",

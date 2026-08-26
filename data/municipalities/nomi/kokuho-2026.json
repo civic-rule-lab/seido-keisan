@@ -73,7 +73,9 @@
       "r8Updated": true,
       "verifiedAt": "2026-07-03",
       "verificationLevel": "municipal_verified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.city.nomi.lg.jp/docs/700.html"
+      ]
     },
     "source": {
       "type": "municipal_official",

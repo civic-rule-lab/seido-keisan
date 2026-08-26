@@ -80,7 +80,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.sagamihara.kanagawa.jp/kurashi/1026448/kokuho/1007820/1007822.html"
+      ]
     },
     "source": {
       "type": "official",

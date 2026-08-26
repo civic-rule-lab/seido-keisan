@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-11",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kasugai.lg.jp/kurashi/zei/kokuho/1036670/1036487/1039271.html"
+      ]
     },
     "source": {
       "type": "official",

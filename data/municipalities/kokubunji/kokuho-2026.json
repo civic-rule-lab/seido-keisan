@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kokubunji.tokyo.jp/kenkou-fukushi/iryou/1011822/1019962/index.html"
+      ]
     },
     "source": {
       "type": "official",

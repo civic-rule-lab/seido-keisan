@@ -81,7 +81,12 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.takasaki.gunma.jp/page/3606.html",
+        "https://www.city.takasaki.gunma.jp/page/3607.html",
+        "https://www.city.takasaki.gunma.jp/uploaded/attachment/37655.xlsx"
+      ]
     },
     "source": {
       "type": "official",

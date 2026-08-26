@@ -71,7 +71,10 @@
       ],
       "r8Updated": true,
       "verifiedAt": "2026-05-21",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.oita.oita.jp/o052/kurashi/kokumin/1193625759256.html"
+      ]
     },
     "source": {
       "type": "official",

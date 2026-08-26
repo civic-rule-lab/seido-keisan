@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hamamatsu.shizuoka.jp/kokuho/kokuho_nenkin/kokuho/hokenryou.html"
+      ]
     },
     "source": {
       "type": "official",

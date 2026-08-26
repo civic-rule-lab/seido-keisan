@@ -81,7 +81,12 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ome.tokyo.jp/soshiki/18/711.html",
+        "https://www.city.ome.tokyo.jp/uploaded/attachment/78897.pdf",
+        "https://www.city.ome.tokyo.jp/uploaded/attachment/75908.pdf"
+      ]
     },
     "source": {
       "type": "official",

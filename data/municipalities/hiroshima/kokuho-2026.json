@@ -70,7 +70,7 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://city.hiroshima.lg.jp/living/hoken-nenkin/1021143/1025566/1003464.html"
+        "https://www.city.hiroshima.lg.jp/living/hoken-nenkin/1021143/1025566/1003464.html"
       ],
       "verifiedAt": "2026-05-30",
       "r8Updated": true,
@@ -79,12 +79,15 @@
       "updatedAt": "2026-05-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.city.hiroshima.lg.jp/living/hoken-nenkin/1021143/1025566/1003464.html"
+      ]
     },
     "source": {
       "type": "official",
       "title": "広島市 令和8年度国民健康保険料 公式ページ",
-      "url": "https://city.hiroshima.lg.jp/living/hoken-nenkin/1021143/1025566/1003464.html",
+      "url": "https://www.city.hiroshima.lg.jp/living/hoken-nenkin/1021143/1025566/1003464.html",
       "publishedAt": "2026-04-01"
     },
     "audit": {

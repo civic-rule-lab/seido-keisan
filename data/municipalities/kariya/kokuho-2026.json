@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-11",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kariya.lg.jp/kurashi/hokennenkin/kokuho/1006952/1003238.html"
+      ]
     },
     "source": {
       "type": "official",

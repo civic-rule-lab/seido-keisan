@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.komaki.aichi.jp/admin/soshiki/fukushi/hokeniryou/4_1/3/2/5745.html"
+      ]
     },
     "source": {
       "type": "official",

@@ -81,7 +81,12 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-18",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.abiko.chiba.jp/kurashi/kokuho/kokuho_info/abk10003001020.html",
+        "https://www.city.abiko.chiba.jp/kurashi/kokuho/sanshutsu_noufu/calculating/index.html",
+        "https://www.city.abiko.chiba.jp/kurashi/kokuho/sanshutsu_noufu/gengakusochi.html"
+      ]
     },
     "source": {
       "type": "official",

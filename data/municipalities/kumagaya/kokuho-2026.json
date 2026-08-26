@@ -80,7 +80,11 @@
       ],
       "verifiedAt": "2026-05-21",
       "r8Updated": true,
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kumagaya.lg.jp/kurashi/kenkohoken/kokuminhoken/kokuhozei2026.html",
+        "https://www.city.kumagaya.lg.jp/kurashi/kenkohoken/kokuminhoken/kodomokosodate.html"
+      ]
     },
     "source": {
       "type": "official",

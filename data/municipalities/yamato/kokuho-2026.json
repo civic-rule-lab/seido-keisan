@@ -80,7 +80,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.yamato.lg.jp/gyosei/soshik/2020/kokuminkenkohoken/kokuho_zeikin/6920.html"
+      ]
     },
     "source": {
       "type": "official",

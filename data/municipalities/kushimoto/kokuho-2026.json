@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kushimoto.wakayama.jp/reiki_int/reiki_honbun/r218RG00000138.html"
+      ]
     },
     "source": {
       "type": "official",

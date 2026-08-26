@@ -70,7 +70,7 @@
       "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://city.sano.lg.jp/soshikiichiran/sougou/shiminzeika/gyomuannai/2/2/27246.html"
+        "https://www.city.sano.lg.jp/soshikiichiran/sougou/shiminzeika/gyomuannai/2/2/27246.html"
       ],
       "verifiedAt": "2026-05-30",
       "r8Updated": true,
@@ -79,12 +79,15 @@
       "updatedAt": "2026-05-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.city.sano.lg.jp/soshikiichiran/sougou/shiminzeika/gyomuannai/2/2/27246.html"
+      ]
     },
     "source": {
       "type": "official",
       "title": "佐野市 令和8年度国民健康保険税 公式ページ",
-      "url": "https://city.sano.lg.jp/soshikiichiran/sougou/shiminzeika/gyomuannai/2/2/27246.html",
+      "url": "https://www.city.sano.lg.jp/soshikiichiran/sougou/shiminzeika/gyomuannai/2/2/27246.html",
       "publishedAt": "2026-04-01"
     },
     "audit": {

@@ -80,7 +80,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.tomioka.lg.jp/www/contents/1773791213293/index.html",
+        "https://www.city.tomioka.lg.jp/www/contents/1450421495497/index.html"
+      ]
     },
     "source": {
       "type": "official",

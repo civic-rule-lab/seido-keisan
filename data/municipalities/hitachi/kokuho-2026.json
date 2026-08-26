@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hitachi.lg.jp/kurashi_tetsuzuki/kokuho_nenkin/1001939/1001957/1001958.html"
+      ]
     },
     "source": {
       "type": "official",

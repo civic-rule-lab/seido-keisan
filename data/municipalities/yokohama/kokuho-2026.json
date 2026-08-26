@@ -74,7 +74,12 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-20",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/r7hokennryouritu.html",
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/04seidokaisei.html",
+        "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/kokuho/hokenryo/04hokenryounituite.html"
+      ]
     },
     "source": {
       "type": "official",

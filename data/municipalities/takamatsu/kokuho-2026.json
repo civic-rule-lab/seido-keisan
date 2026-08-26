@@ -79,7 +79,10 @@
       "updatedAt": "2026-05-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "watchUrls": [
+        "https://www.city.takamatsu.kagawa.jp/kurashi/kurashi/nenkin/kokuho/hokenryo/ryoukin.html"
+      ]
     },
     "source": {
       "type": "official",

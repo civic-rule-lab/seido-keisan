@@ -73,7 +73,11 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-05-18",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.futtsu.lg.jp/0000000227.html",
+        "https://www.city.futtsu.lg.jp/0000007346.html"
+      ]
     },
     "source": {
       "type": "official",

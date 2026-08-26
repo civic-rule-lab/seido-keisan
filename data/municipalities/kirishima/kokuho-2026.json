@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city-kirishima.jp/zeimu/kurashi/zekin/hokenze/kokumin/index.html"
+      ]
     },
     "source": {
       "type": "official",

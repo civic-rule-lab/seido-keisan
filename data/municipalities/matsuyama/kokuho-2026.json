@@ -79,7 +79,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-08-01",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.matsuyama.ehime.jp/kurashi/tetsuzuki/kokuho/kokuhoryokinn/r8kokuhoryou.html"
+      ]
     },
     "source": {
       "type": "official",

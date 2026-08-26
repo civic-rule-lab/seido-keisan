@@ -82,7 +82,12 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "2026-06-12",
-      "verificationLevel": "official_source_checked"
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hadano.kanagawa.jp/soshiki/5/1038/5/4/5037.html",
+        "https://www.city.hadano.kanagawa.jp/soshiki/5/1038/5/4/3561.html",
+        "https://www.city.hadano.kanagawa.jp/material/files/group/39/R8sisan.pdf"
+      ]
     },
     "source": {
       "type": "official",
