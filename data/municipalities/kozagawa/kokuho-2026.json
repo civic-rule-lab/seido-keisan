@@ -1,97 +1,105 @@
 {
-  "cityCode": "30424",
-  "citySlug": "kozagawa",
-  "cityName": "古座川町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0761,
-    "support": 0.0315,
-    "care": 0.0264
+ "cityCode": "30424",
+ "citySlug": "kozagawa",
+ "cityName": "古座川町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.063,
+  "support": 0.0195,
+  "care": 0.0192
+ },
+ "perCapita": {
+  "medical": 20000,
+  "support": 6600,
+  "care": 6000
+ },
+ "household": {
+  "medical": 30000,
+  "support": 8000,
+  "care": 6000
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 27439,
-    "support": 11022,
-    "care": 11578
-  },
-  "household": {
-    "medical": 19021,
-    "support": 7641,
-    "care": 5875
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.0.0",
-    "status": "needs_update",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:23.070Z",
-      "updatedAt": "2026-04-08T01:03:23.070Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "watchUrls": [
-        "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html"
-      ],
-      "r8Stage": "source_found_r8",
-      "sourceUrls": [
-        "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html"
-      ]
-    },
-    "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
-    },
-    "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
-    },
-    "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
-    },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。 / 2026-07-02: 公式国保ページをwatchUrl登録(税率表HTML掲載)。R8告示待ち監視。"
-  },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:23.070Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "古座川町 暮らしの情報「国民健康保険」税率・賦課限度額(令和8年度)",
+   "url": "https://www.town.kozagawa.lg.jp/kurashi/sub002_05.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 注記で分解明記: 均等割1,139(u18全額軽減)+18歳以上均等割51円(表の1,190円=合算)。平等割766円。和歌山型(広川と同じ766円) 医療平等割30,000円は高め(実視確認済)。needs_update状態だった継続案件のクローズ材料。"
+ },
+ "childcareLevy": {
+  "rate": 0.003,
+  "perCapita": 1139,
+  "perCapitaAdult": 51,
+  "perCapitaAdultScope": "all_ages",
+  "household": 766,
+  "cap": 30000
+ }
 }
