@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0962,
+    "medical": 0.096,
     "support": 0.029,
-    "care": 0.0232
+    "care": 0.0181
   },
   "perCapita": {
-    "medical": 36238,
-    "support": 10810,
-    "care": 11890
+    "medical": 25800,
+    "support": 7900,
+    "care": 7400
   },
   "household": {
-    "medical": 38342,
-    "support": 11438,
-    "care": 5970
+    "medical": 28400,
+    "support": 8800,
+    "care": 5700
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.754Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.town.arita.lg.jp/kiji003677/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.arita.lg.jp/kiji003677/index.html",
+        "https://www.town.arita.lg.jp/reiki_int/reiki_honbun/r306RG00000174.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税の計算方法｜有田町",
+      "url": "https://www.town.arita.lg.jp/kiji003677/index.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で有田町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=64円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で有田町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=64円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 有田町公式ページ「国民健康保険税の計算方法」（kiji003677、最終更新日 2026年4月1日、Last-Modified 2026-08-14、「例)令和8年度(令和8年4月～令和9年3月)の国民健康保険税」の記載と子ども子育て支援納付金分の列あり）で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.60%／均等割25,800円／平等割28,400円・限度額670,000円、後期高齢者支援金分 2.90%／7,900円／8,800円・260,000円、介護分 1.81%／7,400円／5,700円・170,000円、子ども・子育て支援金分 0.26%／被保険者均等割900円／18歳以上被保険者均等割100円／平等割700円・30,000円。町ページは均等割900円の下に「※18歳以上 100円」を別記し「上段の金額に合算されます」と注記している（18歳以上の実負担1,000円・18歳未満は全額軽減）。エンジンの perCapita=900＋perCapitaAdult=100 で整合する。／ ★条例経路は令和7年度版のまま。有田町例規集（reiki_int、内容現在 令和7年12月31日）の国民健康保険税条例は限度額66万円・軽減判定30.5万/56万円・子ども分なしで令和8年3月の改正が未搭載であり、ページと割れたため日付の新しいページ側を採用した。所得割率3区分（9.60/2.90/1.81）は令和7年度条例と同率で据え置き。軽減判定所得（31万/57万円）は町の資料で未確認で、令和8年度政令基準の値を据え置いている。例規集の内容現在が更新されたら条例本文で附則減額額の検算と限度額・判定額の確認を行うこと（confidence 0.9）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 64,
+    "rate": 0.0026,
+    "perCapita": 900,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 700,
     "cap": 30000
   }
 }

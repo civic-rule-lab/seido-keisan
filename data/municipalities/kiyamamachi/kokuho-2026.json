@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0973,
-    "support": 0.029,
-    "care": 0.0228
+    "medical": 0.089,
+    "support": 0.026,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 36648,
-    "support": 10814,
-    "care": 11680
+    "medical": 24700,
+    "support": 8100,
+    "care": 8900
   },
   "household": {
-    "medical": 38775,
-    "support": 11442,
-    "care": 5865
+    "medical": 29800,
+    "support": 9600,
+    "care": 4500
   },
   "caps": {
     "medical": 670000,
@@ -28,8 +28,8 @@
   },
   "preschoolReduction": {
     "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
+    "medicalPerCapitaRate": 1.0,
+    "supportPerCapitaRate": 1.0
   },
   "reduction": {
     "enabled": true,
@@ -57,47 +57,59 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.752Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.town.kiyama.lg.jp/kiji00323/3_23_34187_up_6gqazwht.pdf",
+        "https://www.town.kiyama.lg.jp/kiji00323/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kiyama.lg.jp/kiji00323/index.html",
+        "https://www.town.kiyama.lg.jp/static/reiki/H412901010002/H412901010002_j.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.kiyama.lg.jp/static/reiki/H412901010002/H412901010002_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "令和8年度 町税のしおり（7. 国民健康保険税）｜基山町",
+      "url": "https://www.town.kiyama.lg.jp/kiji00323/3_23_34187_up_6gqazwht.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で基山町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1091円)＋18歳以上均等割(=46円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で基山町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1091円)＋18歳以上均等割(=46円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 基山町公式「令和8年度 町税のしおり」PDF（最終更新2026-06-01、Last-Modified 2026-06-03、p.21「(4) 税額」表。画像PDFのため目視読取）と基山町国民健康保険条例（町例規集 内容現在令和8年7月1日、附則(令和8年条例第9号・第12号)により令和8年4月1日施行・令和8年度分から適用）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 8.9%／均等割24,700円／平等割29,800円・限度額670,000円、後期高齢者支援金分 2.6%／8,100円／9,600円・260,000円、介護分 2.3%／8,900円／4,500円・170,000円、子ども・子育て支援金分 0.2%／被保険者均等割960円／18歳以上被保険者均等割40円／平等割600円・30,000円。軽減判定は31万円・57万円で令和8年度基準。3方式（所得＋均等＋平等）・資産割なし。／ 基山町には独立した国民健康保険税条例が無く、国保税の税率・減額規定は「基山町国民健康保険条例」第7条〜第31条に置かれている（町税条例には国保税の条文なし）。／ しおりの子ども分均等割は「960円」と「(18歳以上のみ) 40円」を別行で表示しており合算表記ではない。条例第17条の3（960円）・第17条の4（40円）と一致。18歳未満は子ども分均等割を全額軽減（しおり注記・条例）。／ 条例第31条の7割・5割・2割軽減額が本則×0.7／0.5／0.2 と全て一致することを検算した（医療均等割17,290／12,350／4,940、医療平等割20,860／14,900／5,960、支援均等割5,670／4,050／1,620、支援平等割6,720／4,800／1,920、介護均等割6,230／4,450／1,780、介護平等割3,150／2,250／900、子ども均等割672／480／192、18歳以上均等割28／20／8、子ども平等割420／300／120）。／ 注意: 町ページ「国民健康保険について」(kiji003279) は旧税率（8.70%/25,700/30,400・限度額63万）のまま残っているので参照しないこと。／ ★町独自減免: しおり p.22 に「国民健康保険に加入している18歳以下（年度末時点）すべての子どもの均等割額（医療分・後期高齢者支援金等分・子ども子育て支援金分）を減免（申請不要）」とあり、法定の未就学児1/2軽減を超えて18歳以下の医療分・支援分均等割を全額減免している。本JSONの12値には反映していないため、子どもがいる世帯の試算額は町の実額より高く出る可能性がある（要エンジン側対応）。 ／ ★基山町独自減免: 「令和8年度 町税のしおり」p.22「国民健康保険に加入する子どもの均等割の減免」に「国民健康保険に加入している18歳以下（年度末時点）すべての子どもの国民健康保険税の均等割額（医療分・後期高齢者支援金等分・子ども子育て支援金分）を減免します（申請不要）」とある。これを preschoolReduction（未就学児）1.0/1.0 と schoolReduction（未就学児を除く18歳未満）1.0/1.0 でデータ化した（国の未就学児5割軽減に町が上乗せして全額）。子ども分の18歳未満均等割は perCapitaAdultScope=all_ages により既に0円。介護分は18歳未満に賦課されないため対象外。減免の根拠規程（条例・要綱）は未確認で、しおりの記載のみに依拠する。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1091,
-    "perCapitaAdult": 46,
+    "rate": 0.002,
+    "perCapita": 960,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 742,
+    "household": 600,
     "cap": 30000
+  },
+  "schoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 1.0,
+    "supportPerCapitaRate": 1.0
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0948,
-    "support": 0.0287,
-    "care": 0.0227
+    "medical": 0.1019,
+    "support": 0.0306,
+    "care": 0.0234
   },
   "perCapita": {
-    "medical": 35724,
-    "support": 10703,
-    "care": 11670
+    "medical": 30500,
+    "support": 9200,
+    "care": 11400
   },
   "household": {
-    "medical": 37798,
-    "support": 11325,
-    "care": 5859
+    "medical": 32800,
+    "support": 9200,
+    "care": 5100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,55 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.747Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.taku.lg.jp/soshiki/2/9188.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.taku.lg.jp/soshiki/2/9188.html",
+        "https://www.city.taku.lg.jp/uploaded/attachment/21236.pdf",
+        "https://www.city.taku.lg.jp/uploaded/attachment/21682.pdf"
+      ],
+      "ordinanceUrls": [
+        "https://www.city.taku.lg.jp/uploaded/attachment/21236.pdf",
+        "https://www.city.taku.lg.jp/uploaded/attachment/21682.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険の税率を改定します｜多久市",
+      "url": "https://www.city.taku.lg.jp/soshiki/2/9188.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.92,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で多久市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=43円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で多久市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=43円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 多久市公式ページ「国民健康保険の税率を改定します」（更新日 2026-04-30、令和8年度多久市国民健康保険税の改定前(R7)/改定後(R8)表）と、多久市国民健康保険税条例の一部を改正する条例（令和8年3月定例会 議案甲第3号 議案PDF 21236.pdf、施行 令和8年4月1日）および専決第4号 専決処分書（令和8年3月31日、令和8年6月定例会 議案甲第13号 議案PDF 21682.pdf）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 10.19%／均等割30,500円／平等割32,800円（特定世帯16,400円・特定継続世帯24,600円）・限度額670,000円、後期高齢者支援金分 3.06%／9,200円／9,200円・260,000円、介護分 2.34%／11,400円／5,100円・170,000円、子ども・子育て支援金分 0.28%／被保険者均等割1,000円／18歳以上被保険者均等割100円／平等割700円・30,000円。軽減判定は31万円・57万円で令和8年度基準（専決第4号 第21条）。／ 市ページは子ども分の均等割1,000円と18歳以上均等割100円を別行で表示しており（合算表記ではない）、条例第9条の4・第9条の5と一致する。18歳未満は条例第21条の5で均等割相当額を全額減額（perCapita=1000＋perCapitaAdult=100、18歳未満0円・18歳以上1,100円）。／ 第21条の7割・5割・2割軽減額が本則×0.7/0.5/0.2と一致することを全区分で検算した（医療均等21,350／15,250／6,100、医療平等22,960／16,400／6,560、支援均等・平等6,440／4,600／1,840、介護均等7,980／5,700／2,280、介護平等3,570／2,550／1,020、子ども均等700／500／200、子ども平等490／350／140、18歳以上均等70／50／20）。未就学児（第21条の3）も整合。／ ★例規集（www1.g-reiki.net/city.taku）は2026-09-04時点で当方の経路から全URLが403のため統合条文は未確認。条例経路は市公開の改正条例本文（議案PDF・専決処分書）による。市ページ23048（更新日2025-09-17）の軽減判定 30.5万/56万 は令和7年度基準のまま残っているので参照しないこと。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 43,
+    "rate": 0.0028,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 700,
     "cap": 30000
   }
 }

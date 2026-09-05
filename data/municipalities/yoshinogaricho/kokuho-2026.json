@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0964,
-    "support": 0.0292,
-    "care": 0.0233
+    "medical": 0.0971,
+    "support": 0.0287,
+    "care": 0.0231
   },
   "perCapita": {
-    "medical": 36329,
-    "support": 10873,
-    "care": 11964
+    "medical": 32900,
+    "support": 9900,
+    "care": 10400
   },
   "household": {
-    "medical": 38438,
-    "support": 11504,
-    "care": 6007
+    "medical": 35300,
+    "support": 10600,
+    "care": 6800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.752Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.town.yoshinogari.lg.jp/lifeinfo/soshiki/zeimu/2/kokuho/421.html",
+        "https://www.town.yoshinogari.lg.jp/lifeinfo/soshiki/kodomo_hoken/3/1/kokuho/5457.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.yoshinogari.lg.jp/lifeinfo/soshiki/zeimu/2/kokuho/421.html",
+        "https://www.town.yoshinogari.lg.jp/section/reiki_int/reiki_honbun/r307RG00000130.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.yoshinogari.lg.jp/section/reiki_int/reiki_honbun/r307RG00000130.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税の概要｜吉野ヶ里町",
+      "url": "https://www.town.yoshinogari.lg.jp/lifeinfo/soshiki/zeimu/2/kokuho/421.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で吉野ヶ里町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=63円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で吉野ヶ里町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=63円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 吉野ヶ里町公式ページ「国民健康保険税の概要」（更新日2026-05-28、Last-Modified 2026-08-28）・「令和8年度の国民健康保険税率の改正について」（更新日2026-04-30）と吉野ヶ里町国民健康保険税条例（町例規集、附則(令和8年条例第5号・第8号)により令和8年4月1日施行・令和8年度分から適用）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.71%／均等割32,900円／平等割35,300円・限度額670,000円、後期高齢者支援金分 2.87%／9,900円／10,600円・260,000円、介護分 2.31%／10,400円／6,800円・170,000円、子ども・子育て支援金分 0.25%／被保険者均等割800円／18歳以上被保険者均等割100円／平等割900円・30,000円。軽減判定は31万円・57万円で令和8年度基準。3方式（所得＋均等＋平等）・資産割なし。／ ★町ページ「国民健康保険税の概要」の子ども分均等割は「900円」と表示され「18歳以上均等割100円を含みます」と注記されている合算表記。条例第9条の4（被保険者均等割800円）と第9条の5（18歳以上被保険者均等割100円）の細分値を採用した。改正案内ページ（5457）も均等割800円／均等割（18歳以上）100円と分けて表示しており整合する。18歳未満は子ども分均等割を全額軽減（町ページ・条例第23条第4項）。／ 附則（第23条）の7割・5割・2割軽減額が本則×0.7／0.5／0.2 と全て一致することを検算した（医療均等割23,030／16,450／6,580、医療平等割24,710／17,650／7,060、支援均等割6,930／4,950／1,980、支援平等割7,420／5,300／2,120、介護均等割7,280／5,200／2,080、介護平等割4,760／3,400／1,360、子ども均等割560／400／160、18歳以上均等割70／50／20、子ども平等割630／450／180）。／ 令和8年度は県標準税率に基づき税率改定（R7: 9.53%/26,100/29,400 → R8）。町ページ 5224「国民健康保険税の計算について」は令和7年度の計算例のまま（更新日2025-04-01）なので参照しないこと。"
   },
   "childcareLevy": {
     "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 63,
+    "perCapita": 800,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 900,
     "cap": 30000
   }
 }

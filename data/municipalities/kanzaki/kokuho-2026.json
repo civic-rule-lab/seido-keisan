@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0927,
-    "support": 0.029,
-    "care": 0.0228
+    "medical": 0.1016,
+    "support": 0.0294,
+    "care": 0.0233
   },
   "perCapita": {
-    "medical": 34927,
-    "support": 10788,
-    "care": 11694
+    "medical": 28700,
+    "support": 9000,
+    "care": 10600
   },
   "household": {
-    "medical": 36954,
-    "support": 11414,
-    "care": 5872
+    "medical": 33000,
+    "support": 10000,
+    "care": 5700
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.751Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.kanzaki.saga.jp/reiki_int/reiki_honbun/r305RG00000138.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kanzaki.saga.jp/reiki_int/reiki_honbun/r305RG00000138.html",
+        "https://www.city.kanzaki.saga.jp/main/9425.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.city.kanzaki.saga.jp/reiki_int/reiki_honbun/r305RG00000138.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "神埼市国民健康保険税条例（令和8年条例第4号・第13号改正後）｜神埼市例規集",
+      "url": "https://www.city.kanzaki.saga.jp/reiki_int/reiki_honbun/r305RG00000138.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "ordinance-after-revision"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で神埼市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=60円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で神埼市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=60円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 神埼市国民健康保険税条例（市例規集 reiki_int、内容現在 令和8年7月1日、附則に令和8年条例第4号・第13号）の本則から令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 10.16%／均等割28,700円／平等割33,000円・限度額670,000円、後期高齢者支援金分 2.94%／9,000円／10,000円・260,000円、介護分 2.33%／10,600円／5,700円・170,000円、子ども・子育て支援金分 0.25%／被保険者均等割1,000円（第9条の4）／18歳以上被保険者均等割57円（第9条の5）／平等割700円・30,000円。軽減判定は31万円・57万円（第23条）で令和8年度基準。条例第23条の減額額が本則×0.7と一致することを検算した（医療均等割20,090＝28,700×0.7、医療平等割23,100、支援均等割6,300、支援平等割7,000、介護均等割7,420、介護平等割3,990、子ども均等割700、18歳以上均等割39＝57×0.7切捨て）。／ ★市公式ページ「国民健康保険税」（main/9425）は令和7年度の内容のまま（医療9.6%／26,800円／32,000円・限度額660,000円・軽減判定305,000/560,000円・子ども分なし）で、条例と割れている。日付の新しい条例側（令和8年4月1日施行）を採用した。市ページが令和8年度に更新されたら値を照合し、一致すれば sourceStatus を official_rate_page に改めること（confidence 0.9 とした理由）。"
   },
   "childcareLevy": {
     "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 60,
+    "perCapita": 1000,
+    "perCapitaAdult": 57,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 700,
     "cap": 30000
   }
 }

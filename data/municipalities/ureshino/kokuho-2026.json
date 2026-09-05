@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0919,
-    "support": 0.0286,
-    "care": 0.0225
+    "medical": 0.1015,
+    "support": 0.0295,
+    "care": 0.0247
   },
   "perCapita": {
-    "medical": 34626,
-    "support": 10655,
-    "care": 11540
+    "medical": 25900,
+    "support": 6600,
+    "care": 9900
   },
   "household": {
-    "medical": 36636,
-    "support": 11273,
-    "care": 5794
+    "medical": 40600,
+    "support": 10600,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.751Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.ureshino.lg.jp/kurashi/zeikin/80.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ureshino.lg.jp/kurashi/zeikin/80.html",
+        "https://www1.g-reiki.net/city.ureshino/reiki_honbun/r277RG00000561.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.city.ureshino.lg.jp/var/rev0/0053/5025/126827152048.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税について｜嬉野市",
+      "url": "https://www.city.ureshino.lg.jp/kurashi/zeikin/80.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で嬉野市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=70円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で嬉野市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=70円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 嬉野市公式ページ「国民健康保険税について」（kurashi/zeikin/80、4区分の計算式と限度額、「令和8年度より子ども・子育て支援金制度が始まりました」の記載）で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 10.15%／均等割25,900円／平等割40,600円・限度額670,000円、後期高齢者支援金分 2.95%／6,600円／10,600円・260,000円、介護分 2.47%／9,900円／5,500円・170,000円、子ども・子育て支援金分 0.26%／被保険者均等割1,000円／18歳以上被保険者均等割100円／平等割700円・30,000円。軽減判定は31万円・57万円で令和8年度基準。市ページは「均等割額（1,000円）＋18歳以上均等割額（100円）」と別建てで合算表記ではない。／ 条例経路: 令和8年第3回嬉野市議会臨時会 議案PDF（var/rev0/0053/5025、画像PDF）の「専決処分第3号（令和8年3月31日）嬉野市国民健康保険税条例の一部を改正する条例」の改め文で、第9条の3 所得割100分の0.26、第9条の4 被保険者均等割1,000円、第9条の5 18歳以上被保険者均等割100円、第9条の6 平等割700円、第2条 限度額66万→67万円・子ども分3万円、第23条 軽減判定30万5千→31万円、子ども分の7割軽減額（700円/70円/490円＝本則×0.7）を確認した。★条例経路は本作業では未取得。例規集ホスト www1.g-reiki.net が取得環境から HTTP 403 で本文を読めなかった。医療・支援・介護の9値は条例本文で未照合（令和7・8年の議案目次に税率改定なし＝据え置きと解した）。条例本文で全区分の附則減額額の検算を行うこと（confidence 0.9）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 70,
+    "rate": 0.0026,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 700,
     "cap": 30000
   }
 }

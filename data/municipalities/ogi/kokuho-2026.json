@@ -7,18 +7,18 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.093,
-    "support": 0.0285,
-    "care": 0.0223
+    "support": 0.029,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 35014,
-    "support": 10616,
-    "care": 11448
+    "medical": 32500,
+    "support": 9400,
+    "care": 9000
   },
   "household": {
-    "medical": 37046,
-    "support": 11232,
-    "care": 5748
+    "medical": 34900,
+    "support": 9400,
+    "care": 5200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.750Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.ogi.lg.jp/main/16283.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ogi.lg.jp/main/16283.html",
+        "https://www.city.ogi.lg.jp/reiki_int/reiki_honbun/r104RG00000610.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.city.ogi.lg.jp/reiki_int/reiki_honbun/r104RG00000610.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税（税率・試算）｜小城市",
+      "url": "https://www.city.ogi.lg.jp/main/16283.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で小城市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=62円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で小城市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=62円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 小城市公式ページ「国民健康保険税（税率・試算）」（更新日 2026-07-07、「令和8年度 小城市国民健康保険税 税率表」）と小城市国民健康保険税条例（市例規集 reiki_int、内容現在 令和8年7月1日、令和8年条例第4号・第15号反映）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.3%／均等割32,500円／平等割34,900円・限度額670,000円、後期高齢者支援金分 2.9%／9,400円／9,400円・260,000円、介護分 2.5%／9,000円／5,200円・170,000円、子ども・子育て支援金分 0.3%／被保険者均等割1,100円／18歳以上被保険者均等割100円／平等割700円・30,000円（条例第10条の2〜第10条の5）。軽減判定は31万円・57万円（条例第22条）で令和8年度基準。／ 市ページの子ども分は均等割1,100円と「均等割額（18歳以上）」100円を別列で表示しており合算表記ではない（市の試算シートExcelでは18歳以上1人あたり1,200円＝1,100+100として計算）。条例の細分値 perCapita=1,100／perCapitaAdult=100 を採用。18歳未満は条例第22条第4項で子ども分均等割を全額軽減（perCapitaAdultScope=all_ages）。／ 条例第22条の7割・5割・2割軽減の減額額が本則×0.7/0.5/0.2 と全項目一致することを検算した（医療均等割 22,750/16,250/6,500、医療平等割 24,430/17,450/6,980、支援均等割 6,580/4,700/1,880、支援平等割 6,580/4,700/1,880、介護均等割 6,300/4,500/1,800、介護平等割 3,640/2,600/1,040、子ども均等割 770/550/220、18歳以上均等割 70/50/20、子ども平等割 490/350/140）。／ 3方式（所得＋均等＋平等）・資産割なし。特定世帯・特定継続世帯の平等割半額・3/4は条例どおり。／ 市ページ本文に軽減判定所得の記載はなく、ページ側の31万/57万は市の令和8年度試算シート（Excel）で確認した。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 62,
+    "rate": 0.003,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 749,
+    "household": 700,
     "cap": 30000
   }
 }

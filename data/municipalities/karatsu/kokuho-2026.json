@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0917,
-    "support": 0.0289,
-    "care": 0.0229
+    "medical": 0.101,
+    "support": 0.031,
+    "care": 0.026
   },
   "perCapita": {
-    "medical": 34529,
-    "support": 10776,
-    "care": 11761
+    "medical": 23600,
+    "support": 7600,
+    "care": 9800
   },
   "household": {
-    "medical": 36533,
-    "support": 11401,
-    "care": 5905
+    "medical": 31400,
+    "support": 9400,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,56 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.746Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.karatsu.lg.jp/page/2398.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.karatsu.lg.jp/page/2398.html",
+        "https://www.city.karatsu.lg.jp/uploaded/attachment/25627.pdf",
+        "https://www.city.karatsu.lg.jp/life/8/47/237/"
+      ],
+      "ordinanceUrls": [
+        "https://www.city.karatsu.lg.jp/uploaded/attachment/25627.pdf",
+        "https://www.city.karatsu.lg.jp/uploaded/attachment/4610.pdf",
+        "https://www.city.karatsu.lg.jp/uploaded/attachment/19392.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税とは｜唐津市",
+      "url": "https://www.city.karatsu.lg.jp/page/2398.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.92,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で唐津市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=81円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で唐津市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=81円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 唐津市公式ページ「国民健康保険税とは」（更新日 2026-05-22、4区分とも「（令和8年度）」表）と、唐津市国民健康保険税条例の一部を改正する条例（令和8年3月31日専決処分・令和8年6月定例会 議案第78号 議案PDF 25627.pdf＝子ども分新設・限度額・軽減判定、および令和6年3月定例会 議案第22号 議案PDF 4610.pdf＝令和6年4月1日施行の現行税率）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 10.1%／均等割23,600円／平等割31,400円（特定世帯15,700円・特定継続世帯23,550円）・限度額670,000円、後期高齢者支援金分 3.1%／7,600円／9,400円・260,000円、介護分 2.6%／9,800円／6,100円・170,000円、子ども・子育て支援金分 0.26%／被保険者均等割940円／18歳以上被保険者均等割60円／平等割600円・30,000円。軽減判定は31万円・57万円で令和8年度基準（ページ・条例とも）。／ ★市ページの子ども分均等割は「18歳以上国保加入者の人数×1,000円［注2］18歳以上均等割額を含みます」の合算表記で、条例第9条の4（940円）と第9条の5（60円）の合計である。佐賀市と同型なので、ページだけを見て perCapita=1,000／perCapitaAdult=0 と取らないこと。18歳未満は条例第23条第4項で均等割相当額を全額減額（perCapita=940＋perCapitaAdult=60、18歳以上1,000円・18歳未満0円でページ注記と整合）。／ 第23条の7割・5割・2割軽減額が本則×0.7/0.5/0.2と一致することを全区分で検算した（医療均等16,520／11,800／4,720、医療平等21,980／15,700／6,280、支援均等5,320／3,800／1,520、支援平等6,580／4,700／1,880、介護均等6,860／4,900／1,960、介護平等4,270／3,050／1,220、子ども均等658／470／188、18歳以上均等42／30／12、子ども平等420／300／120）。／ 医療・支援・介護分の税率は令和6年4月1日改正（提案理由「佐賀県が示す標準保険税率に準じ改正」）以降据置きで、令和6年6月・令和7年6月・令和8年6月の各専決は限度額・軽減判定（・子ども分）のみ。令和7年3月〜令和8年9月の各定例会に税率改正議案が無いことを議案一覧で確認した。／ ★例規集（www1.g-reiki.net/karatsu/reiki_honbun/r079RG00000162.html）は2026-09-04時点で当方の経路から403のため統合条文は未確認。条例経路は市公開の改正条例本文（議案PDF・専決処分書、令和6年3月分はスキャンPDFを画像で読取）による。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 81,
+    "rate": 0.0026,
+    "perCapita": 940,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 600,
     "cap": 30000
   }
 }

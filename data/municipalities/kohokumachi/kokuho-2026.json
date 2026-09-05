@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.1008,
-    "support": 0.0289,
-    "care": 0.023
+    "medical": 0.098,
+    "support": 0.028,
+    "care": 0.015
   },
   "perCapita": {
-    "medical": 37966,
-    "support": 10774,
-    "care": 11797
+    "medical": 27700,
+    "support": 8000,
+    "care": 9500
   },
   "household": {
-    "medical": 40169,
-    "support": 11400,
-    "care": 5923
+    "medical": 35600,
+    "support": 10000,
+    "care": 4900
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.755Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.town.kouhoku.saga.jp/kiji003677/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kouhoku.saga.jp/kiji003677/index.html",
+        "https://en3-jg.d1-law.com/kouhoku/d1w_reiki/H412901010008/H412901010008.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/kouhoku/d1w_reiki/H412901010008/H412901010008.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税｜江北町",
+      "url": "https://www.town.kouhoku.saga.jp/kiji003677/index.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で江北町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=95円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で江北町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=95円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 江北町公式ページ「国民健康保険税」（kiji003677、最終更新日 2026年4月1日、Last-Modified 2026-09-03）と江北町国民健康保険税条例（平成12年条例第8号、例規集 d1-law 内容現在 令和8年7月1日、末尾附則 令和8年4月1日条例第10号・令和8年4月1日施行）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.8%／均等割27,700円／平等割35,600円・限度額670,000円、後期高齢者支援金分 2.8%／8,000円／10,000円・260,000円、介護分 1.5%／9,500円／4,900円・170,000円、子ども・子育て支援金分 0.24%／被保険者均等割1,000円／18歳以上被保険者均等割100円／平等割700円・30,000円。軽減判定は31万円・57万円で令和8年度基準。／ ★町ページの子ども・子育て支援金分の均等割は「被保険者1人当たり 1,100円」と表示されているが、これは条例第9条の4の被保険者均等割1,000円と第9条の5の18歳以上被保険者均等割100円の合算値である。町ページだけを見て perCapita=1,100／perCapitaAdult=0 と取ると誤る。条例の細分値を採用した。／ 町ページには18歳未満の全額軽減の記載が無いが、条例が18歳以上被保険者均等割を別建てで定めていることから、全国共通の「18歳未満は子ども分均等割を全額軽減し、その相当分を18歳以上に加算」の構造である。エンジンの perCapita=1,000＋perCapitaAdult=100（18歳未満は全額軽減）は18歳以上1,100円・18歳未満0円となり、町ページの表示と整合する。／ 条例第23条の7割軽減の減額額が本則×0.7 と一致することを検算した（医療均等割19,390＝27,700×0.7、医療平等割24,920、支援均等割5,600、支援平等割7,000、介護均等割6,650、介護平等割3,430、子ども均等割700＝1,000×0.7、18歳以上均等割70＝100×0.7、子ども平等割490）。5割・2割の減額額も本則×0.5／×0.2 と一致。未就学児は均等割1/2。／ 注意: 町ページの軽減判定の注記に「給与収入が65万円を超える方」という旧表記が残るが、条例は55万円超で正しく、税率値には影響しない。条例第2条第5項に改正履歴由来の「資産割額」の重複表記が残るが資産割の条文は無く3方式。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 95,
+    "rate": 0.0024,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 700,
     "cap": 30000
   }
 }

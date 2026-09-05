@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.093,
-    "support": 0.0289,
-    "care": 0.0231
+    "medical": 0.0946,
+    "support": 0.0272,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 35031,
-    "support": 10755,
-    "care": 11827
+    "medical": 26700,
+    "support": 8100,
+    "care": 9500
   },
   "household": {
-    "medical": 37064,
-    "support": 11379,
-    "care": 5938
+    "medical": 30700,
+    "support": 9500,
+    "care": 6400
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.753Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.town.genkai.lg.jp/soshiki/20/1103.html",
+        "https://www.town.genkai.lg.jp/soshiki/20/1104.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.genkai.lg.jp/soshiki/20/1103.html",
+        "https://www.town.genkai.lg.jp/soshiki/20/1104.html",
+        "https://www1.g-reiki.net/genkai/reiki_menu.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税の計算方法｜玄海町",
+      "url": "https://www.town.genkai.lg.jp/soshiki/20/1103.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で玄海町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=98円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で玄海町の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=98円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 玄海町公式ページ「国民健康保険税の計算方法」（soshiki/20/1103、更新日 2026年4月1日、表題「令和8年度 玄海町国民健康保険税基準額」）と「国民健康保険税の減額及び減免」（1104、軽減判定 31万円・57万円、子ども・子育て支援納付金分を含む軽減額一覧）で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.46%／均等割26,700円／平等割30,700円・限度額670,000円、後期高齢者支援金分 2.72%／8,100円／9,500円・260,000円、介護分 2.20%／9,500円／6,400円・170,000円、子ども・子育て支援金分 0.24%／被保険者均等割1,000円／18歳以上被保険者均等割100円／平等割800円・30,000円。町ページは均等割1,000円と18歳以上均等割100円を別建てで表示しており合算表記ではない。1104の軽減額一覧でも均等割1,000→700円・18歳以上100→70円と別建てで、本則×0.7と整合する。／ ★条例経路は本作業では未取得。例規集ホスト www1.g-reiki.net が取得環境から HTTP 403 で本文を読めなかった。町議会定例会3月会議の結果（uploaded/attachment/7833.pdf）で「議案第15号 玄海町国民健康保険税条例の一部を改正する条例の制定」が令和8年3月13日に原案可決されたことのみ確認した。条例本文で附則の減額額（本則×0.7/0.5/0.2）の検算と細分値の照合を行うこと（confidence 0.9 とした理由）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 98,
+    "rate": 0.0024,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 800,
     "cap": 30000
   }
 }

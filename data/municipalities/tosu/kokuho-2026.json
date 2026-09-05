@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0917,
-    "support": 0.0288,
-    "care": 0.023
+    "medical": 0.0955,
+    "support": 0.0286,
+    "care": 0.0222
   },
   "perCapita": {
-    "medical": 34553,
-    "support": 10739,
-    "care": 11822
+    "medical": 31400,
+    "support": 9900,
+    "care": 11300
   },
   "household": {
-    "medical": 36559,
-    "support": 11363,
-    "care": 5936
+    "medical": 33800,
+    "support": 10600,
+    "care": 5600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.747Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-05T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.tosu.lg.jp/soshiki/15/1976.html",
+        "https://www.city.tosu.lg.jp/uploaded/attachment/39764.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-05",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.tosu.lg.jp/soshiki/15/1976.html",
+        "https://www1.g-reiki.net/city.tosu/reiki_menu.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "国民健康保険税率等の改定｜鳥栖市",
+      "url": "https://www.city.tosu.lg.jp/soshiki/15/1976.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-05",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で鳥栖市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1106円)＋18歳以上均等割(=59円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で鳥栖市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1106円)＋18歳以上均等割(=59円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-05に達成）。 / 2026-09-05: 鳥栖市公式ページ「国民健康保険税率等の改定」（保険年金課 soshiki/15/1976、更新日 2026年4月7日、改正前(令和7年度)／改正後(令和8年度)の対照表）と税務課PDF「令和8年度 国民健康保険税の算定について」（uploaded/attachment/39764.pdf）の2資料で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.55%／均等割31,400円／平等割33,800円・限度額670,000円（66万→67万）、後期高齢者支援金分 2.86%／9,900円／10,600円・260,000円、介護分 2.22%／11,300円／5,600円・170,000円、子ども・子育て支援金分 0.26%／被保険者均等割1,050円／18歳以上被保険者均等割50円／平等割600円・30,000円。軽減判定は31万円・57万円で令和8年度基準。改正前欄（医療9.76%・平等割33,500円等）は令和7年度の値。／ ★税務課PDFの子ども分均等割「1,100円/人」は 1,050円＋18歳以上50円の合算表記。保険年金課ページは1,050円と50円を別行で表示しており、細分値を採用した。／ 条例経路の補助資料: 市議会 令和8年6月定例会 総務常任委員会記録（uploaded/attachment/41217.pdf、議案甲第41号 専決処分承認）で「所得割率0.26％、被保険者均等割額1,050円、18歳以上被保険者均等割額50円、世帯別平等割額600円」、基礎課税額の限度額67万円、軽減判定30万5千→31万円・56万→57万円を確認。鳥栖市は税率を「鳥栖市国民健康保険条例」に規定しており、例規集ホスト www1.g-reiki.net が取得環境から HTTP 403 で条例本文を読めなかった。医療・支援・介護の9値は条例で未照合、附則減額額の検算も未実施（confidence 0.9）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1106,
-    "perCapitaAdult": 59,
+    "rate": 0.0026,
+    "perCapita": 1050,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 752,
+    "household": 600,
     "cap": 30000
   }
 }
