@@ -11,14 +11,14 @@
     "care": 0.0243
   },
   "perCapita": {
-    "medical": 37371,
-    "support": 11843,
-    "care": 12463
+    "medical": 30000,
+    "support": 11200,
+    "care": 12200
   },
   "household": {
-    "medical": 23972,
-    "support": 7597,
-    "care": 6069
+    "medical": 23000,
+    "support": 7300,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.343Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.city.wajima.ishikawa.jp/docs/2013030800098/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.wajima.ishikawa.jp/docs/2013030800098/",
+        "https://www.city.wajima.ishikawa.jp/docs/2019011100010/",
+        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "official",
+      "title": "輪島市 国民健康保険税（税率・税額（令和8年度））",
+      "url": "https://www.city.wajima.ishikawa.jp/docs/2013030800098/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で輪島市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=37円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で輪島市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=37円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-01: 輪島市公式の「国民健康保険税」ページ（公開日 2026年04月01日・税務課）の「税率・税額（令和8年度）」表で全項目を確認し、verified_r8 へ昇格した。医療分は所得割8.63%・均等割30,000円・平等割23,000円・課税限度額670,000円、後期高齢者支援金分は2.75%・11,200円・7,300円・260,000円、介護納付金分は2.43%・12,200円・6,000円・170,000円、子ども・子育て支援金分は0.29%・均等割1,200円・平等割800円・課税限度額30,000円。／ 子ども分の18歳以上加算は同ページに明記がある。「子ども・子育て支援金分の均等割は、18歳未満の方は全額軽減され、その軽減分として18歳以上の方の均等割にそれぞれ50円加算されます。（18歳以上の方は、子ども・子育て支援金分として均等割が1,250円となります。）」とあり、perCapita 1,200・perCapitaAdult 50・perCapitaAdultScope: all_ages（18歳以上1,250円・18歳未満0円）が市の説明どおりである。／ 同ページの未就学児軽減の表は子ども・子育て支援金分の均等割を1,200円→600円と半額で示しているが、これは二段階減額の中間段階である。未就学児は18歳未満でもあるため、上記の全額軽減により最終的な子ども分の均等割は0円になる。未就学児軽減の表だけを見て18歳未満に課税していると読まないこと（小野市・南あわじ市・香美町で同じ見え方があった）。医療分・後期高齢者支援金分の未就学児軽減は5割（30,000→15,000・11,200→5,600）で、本データの preschoolReduction と一致する。／ 本コミットにより、従前採用していた石川県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から市の公表値へ是正した。所得割は医療8.63%・支援2.75%・介護2.43%で県標準と同値のため変更なし。均等割は医療37,371→30,000・支援11,843→11,200・介護12,463→12,200、平等割は医療23,972→23,000・支援7,597→7,300・介護6,069→6,000、子ども分は所得割0.0029（変更なし）・均等割1,277→1,200・18歳以上加算37→50・平等割804→800。賦課限度額は市の公表値と同値のため変更なし。／ 石川県は各市町の実際の保険料（税）率の一覧を公表しておらず（令和8年度は標準保険料率のみ・r8hyouzyunhokenryouritu1.pdf。同2.pdf は404で存在しない・2026-09-01 実測）、市の公表ページが一次資料である。／ 軽減判定所得は市の別ページ「国民健康保険税の低所得世帯軽減制度」（公開日 2026年04月01日）の「軽減対象となる所得の基準・軽減割合（令和8年度）」表で確認した。7割は430,000円＋{(給与所得者等の数－1)×100,000円}、5割はこれに(被保険者および特定同一世帯所属者の数×310,000円)、2割は同×570,000円を加えた額以下。本データの reduction（基礎43万円・5割+31万円・2割+57万円・salaryPensionAdd 10万円）と一致する。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1277,
-    "perCapitaAdult": 37,
+    "perCapita": 1200,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 804,
+    "household": 800,
     "cap": 30000
   }
 }

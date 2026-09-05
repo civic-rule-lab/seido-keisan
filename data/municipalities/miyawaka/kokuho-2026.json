@@ -6,25 +6,30 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0761,
-    "support": 0.0282,
-    "care": 0.0226
+    "medical": 0.092,
+    "support": 0.03,
+    "care": 0.03
   },
   "perCapita": {
-    "medical": 29338,
-    "support": 10786,
-    "care": 10365
+    "medical": 22000,
+    "support": 7800,
+    "care": 7900
   },
   "household": {
-    "medical": 28998,
-    "support": 10661,
-    "care": 8012
+    "medical": 23500,
+    "support": 6500,
+    "care": 5600
   },
   "caps": {
     "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
+  },
+  "assetLevy": {
+    "medical": 0.15,
+    "support": 0,
+    "care": 0.0319
   },
   "preschoolReduction": {
     "enabled": true,
@@ -57,42 +62,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.078Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
+        "https://www.city.miyawaka.lg.jp/reikisyu/reiki_honbun/r317RG00000127.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+       "https://www.city.miyawaka.lg.jp/reikisyu/reiki_honbun/r317RG00000127.html"
+      ],
       "watchUrls": [
         "https://www.city.miyawaka.lg.jp/kiji003445874/index.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
+      "type": "official",
+      "title": "宮若市国民健康保険税条例（最終改正 令和8年7月3日条例第6号）",
+      "url": "https://www.city.miyawaka.lg.jp/reikisyu/reiki_honbun/r317RG00000127.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-31",
+      "method": "条例本文の全文照合(例規集インターネット版)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、宮若市が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "令和8年度の所得割率・資産割率・被保険者均等割額・世帯別平等割額・賦課限度額・軽減規定を、宮若市国民健康保険税条例（最終改正 令和8年7月3日条例第6号／公布の日から施行・令和8年度以後の年度分に適用。例規集の版は令和8年7月3日施行）の本文で確認した（2026-08-31）。宮若市は資産割を課す4方式である。基礎課税額は所得割9.2%（第4条）・資産割15.00%（第5条）・均等割22,000円（第6条）・平等割23,500円（第6条の2）、後期高齢者支援金等課税額は所得割3.0%（第7条）・均等割7,800円（第8条）・平等割6,500円（第8条の2）で資産割は課さない、介護納付金課税額は所得割3.0%（第9条）・資産割3.19%（第10条）・均等割7,900円（第10条の2）・平等割5,600円（第10条の3）、子ども・子育て支援納付金課税額は所得割0.27%（第10条の4）・均等割1,028円（第10条の5）・18歳以上被保険者均等割59円（第10条の6）・平等割1,012円（第10条の7）で資産割は課さない。資産割の課税標準は当該年度分の固定資産税額のうち土地及び家屋に係る部分の額である。賦課限度額は第3条第2項〜第5項ただし書に医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円と定めがある。18歳未満の被保険者は第24条第4項により子ども・子育て支援金分の均等割が全額減額される。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円で、給与所得者等が2以上の場合は1を減じた数×10万円を加算する。これらの値は福岡県が公表した「令和8年度 各市町村の実際の国民健康保険料（税）率」（293234.pdf の※2欄）とも一致する。／ 本コミットにより、従前採用していた同PDFの※1欄（県内統一の基準に基づく標準保険料率）から条例値へ是正し、あわせて従来まったく持っていなかった資産割（assetLevy）を追加した。所得割は医療0.0761→0.092・支援0.0282→0.03・介護0.0226→0.03、均等割は医療29,338→22,000・支援10,786→7,800・介護10,365→7,900、平等割は医療28,998→23,500・支援10,661→6,500・介護8,012→5,600。子ども・子育て支援納付金分は※1と※2および条例が同値のため変更なし。賦課限度額も条例と同値のため変更なし。／ 注記: 市公式サイトの国民健康保険税ページは令和7年度の内容のままで、賦課限度額を医療660,000円と記載し軽減判定の加算額も30.5万円・56万円（令和7年度の政令額）を用いている。条例では医療67万円・31万円・57万円であり、条例を採った。"
   },
   "childcareLevy": {
     "rate": 0.0027,

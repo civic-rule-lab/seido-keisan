@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0858,
-    "support": 0.0236,
-    "care": 0.0192
+    "medical": 0.08,
+    "support": 0.023,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 29661,
-    "support": 8746,
-    "care": 8808
+    "medical": 27960,
+    "support": 8280,
+    "care": 8160
   },
   "household": {
-    "medical": 29200,
-    "support": 8610,
-    "care": 6873
+    "medical": 28320,
+    "support": 8280,
+    "care": 6480
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.169Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.city.otaru.lg.jp/docs/2020103001122/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.otaru.lg.jp/docs/2020103001122/",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "小樽市 国民健康保険料（令和8年度 国民健康保険料率）",
+      "url": "https://www.city.otaru.lg.jp/docs/2020103001122/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、小樽市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、小樽市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 小樽市公式の「国民健康保険料」ページ（更新日 2026年06月01日）の「令和8年度 国民健康保険料率」表で全項目を確認し、verified_r8 へ昇格した。A医療分は所得割8.0%・均等割27,960円・平等割28,320円・賦課限度額67万円、B支援金分は2.3%・8,280円・8,280円・26万円、C介護分は2.1%・8,160円・6,480円・17万円、D子ども分は0.29%・均等割1,100円・平等割1,000円・3万円。／ 子ども分は本データの値と一致するため変更していない。同表の注記に「『子ども分』の均等割額には、18歳以上均等割額が含まれています。18歳未満の子どもについては、『子ども分』の均等割額の全額が軽減されています」とあり、1,100円が18歳以上の合計額であることが明示されている。本データは perCapita 1,000＋perCapitaAdult 100 の内訳で保持しており合計が一致する。／ 軽減判定所得は同ページの「低所得世帯に対する軽減基準額と軽減割合」表に7割43万円＋10万円×(給与所得者等の数-1)、5割43万円＋31万円×(国民健康保険加入者数＋特定同一世帯所属者数)＋同 と明記されており、本データの reduction と一致する。／ 本コミットにより、従前採用していた北海道の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から市の公表値へ是正した。所得割は医療0.0858→0.08・支援0.0236→0.023・介護0.0192→0.021、均等割は医療29,661→27,960・支援8,746→8,280・介護8,808→8,160、平等割は医療29,200→28,320・支援8,610→8,280・介護6,873→6,480。賦課限度額は市の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

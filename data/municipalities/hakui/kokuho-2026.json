@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0865,
-    "support": 0.0272,
-    "care": 0.0243
+    "medical": 0.08,
+    "support": 0.026,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 37445,
-    "support": 11698,
-    "care": 12474
+    "medical": 32000,
+    "support": 10000,
+    "care": 11000
   },
   "household": {
-    "medical": 24020,
-    "support": 7504,
-    "care": 6075
+    "medical": 20000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.353Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.city.hakui.lg.jp/soshiki/shiminfukushibu/shimin/5/2/2402.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hakui.lg.jp/soshiki/shiminfukushibu/shimin/5/2/2402.html",
+        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "official",
+      "title": "羽咋市 羽咋市の国民健康保険税について（国民健康保険税率の改正内容・令和8年度）",
+      "url": "https://www.city.hakui.lg.jp/soshiki/shiminfukushibu/shimin/5/2/2402.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で羽咋市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=40円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で羽咋市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=40円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-01: 羽咋市公式の「羽咋市の国民健康保険税について」ページの「国民健康保険税率の改正内容」表（令和7年度・令和8年度・増減・県から示された標準保険料率の4列）で全項目を確認し、verified_r8 へ昇格した。医療費給付分は所得割8.00%・均等割32,000円・平等割20,000円・賦課限度額670,000円、後期高齢者支援金分は2.60%・10,000円・7,000円・260,000円、介護納付金分は2.20%・11,000円・6,000円・170,000円、子ども・子育て支援金分は0.28%・均等割1,240円・平等割780円・18歳以上均等割額40円・賦課限度額30,000円。同ページは「18歳未満被保険者については均等割が全額軽減され、その軽減分を18歳以上の方に課税します」と明記しており、perCapita 1,240・perCapitaAdult 40・perCapitaAdultScope: all_ages と一致する。軽減判定所得は同ページの表に「令和8年度以降」として基礎43万円＋5割31万円×被保険者数・2割57万円×被保険者数＋10万円×(給与所得者等の数－1)と明記されている。未就学児は均等割半額。／ ★ページの表示日付に注意: 同ページの「更新日」表示は2025年04月01日だが、HTTP の Last-Modified は 2026-06-01 で、内容も令和7年度から令和8年度への改定を説明している。表示上の更新日は CMS 上の古い値であり、内容は令和8年度のものである（2026-09-01 実測）。／ 本コミットにより、従前採用していた石川県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から市の公表値へ是正した。所得割は医療0.0865→0.08・支援0.0272→0.026・介護0.0243→0.022、均等割は医療37,445→32,000・支援11,698→10,000・介護12,474→11,000、平等割は医療24,020→20,000・支援7,504→7,000・介護6,075→6,000、子ども分は均等割1,244→1,240・平等割783→780（所得割0.0028・18歳以上加算40は変更なし）。賦課限度額は市の公表値と同値のため変更なし。／ 是正前の値が正しく県標準であったことは、同ページが「県から示された標準保険料率」列に医療8.65%・37,445円・24,020円、後期2.72%・11,698円・7,504円、介護2.43%・12,474円・6,075円、子ども0.28%・1,244円・783円・40円と、本データの是正前の値と完全に同一の数値を載せていることで確認できた。／ 石川県は各市町の実際の保険料（税）率の一覧を公表しておらず（令和8年度は標準保険料率のみ・r8hyouzyunhokenryouritu1.pdf。同2.pdf は404で存在しない・2026-09-01 実測）、市の公表ページが一次資料である。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1244,
+    "perCapita": 1240,
     "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 783,
+    "household": 780,
     "cap": 30000
   }
 }

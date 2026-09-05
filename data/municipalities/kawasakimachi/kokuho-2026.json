@@ -65,10 +65,12 @@
    "validUntil": "2027-03-31",
    "expiresAt": "2027-04-30",
    "r8Stage": "verified_r8",
-   "sourceStatus": "official_rate_page",
+   "sourceStatus": "ordinance_after_revision",
    "sourceUrls": [
-    "https://www1.g-reiki.net/town-kawasaki/reiki_honbun/q085RG00000173.html",
     "https://www.town-kawasaki.com/reiki_int/reiki_honbun/q085RG00000173.html"
+   ],
+   "ordinanceUrls": [
+    "https://www1.g-reiki.net/town-kawasaki/reiki_honbun/q085RG00000173.html"
    ],
    "previousYearTemplate": false,
    "r8Updated": true,
@@ -81,7 +83,7 @@
   "source": {
    "type": "official",
    "title": "川崎町国民健康保険税条例(令和8年3月31日改正)",
-   "url": "https://www1.g-reiki.net/town-kawasaki/reiki_honbun/q085RG00000173.html",
+   "url": "https://www.town-kawasaki.com/reiki_int/reiki_honbun/q085RG00000173.html",
    "publishedAt": "2026"
   },
   "audit": {
@@ -93,7 +95,7 @@
    "confidenceScore": 0.95,
    "completeness": "full"
   },
-  "notes": "R8公式ソースで全区分確認しverified化(2026-08-02)。加算型(第10条の4均等割1,000円+第10条の5 18歳以上均等割60円)。税。町サイトに料率ページなし→国保税条例(R8.3.31改正・R8年度から適用)を本人提供の例規全文で確認。医療所得割10%(第4条・R8改正)・平等割24,000円(第6条・R8改正)。第24条の軽減額が各額×0.7/0.5/0.2と完全整合(内部検算OK)。u18全額軽減=第24条4項。介護に平等割4,000円"
+  "notes": "R8公式ソースで全区分確認しverified化(2026-08-02)。加算型(第10条の4均等割1,000円+第10条の5 18歳以上均等割60円)。税。町サイトに料率ページなし→国保税条例(R8.3.31改正・R8年度から適用)を本人提供の例規全文で確認。医療所得割10%(第4条・R8改正)・平等割24,000円(第6条・R8改正)。第24条の軽減額が各額×0.7/0.5/0.2と完全整合(内部検算OK)。u18全額軽減=第24条4項。介護に平等割4,000円 / 2026-09-03: 出典URLの置き場所を是正した（値の変更なし）。同町の令和8年度の根拠は川崎町国民健康保険税条例で、同一の条文が例規集ベンダー（www1.g-reiki.net）と町自身のドメイン（www.town-kawasaki.com）の両方で配信されている。2026-09-03 に両URLを取得して同一内容であること（いずれも306,024バイト・本文49,766字・「川崎町」「国民健康保険税」を含む）を確認した。／ 例規集ベンダーのホストは generate-official-pages.js の許可ホストに含まれないため出典として描画されず、生成時の「未登録ホスト」警告を汚していた。このため sourceUrls からは外して ordinanceUrls へ移し、source.url は町自身のドメイン側（許可ホスト登録済み）に差し替えた。／ あわせて sourceStatus を official_rate_page から ordinance_after_revision へ直した。出典は料率ページではなく条例本文である。／ 料率・均等割・平等割・賦課限度額は変更していない。"
  },
  "childcareLevy": {
   "rate": 0.0028,

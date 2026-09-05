@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0774,
-    "support": 0.0292,
-    "care": 0.0231
+    "medical": 0.075,
+    "support": 0.03,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 34311,
-    "support": 12900,
-    "care": 12019
+    "medical": 23000,
+    "support": 8000,
+    "care": 8500
   },
   "household": {
-    "medical": 22105,
-    "support": 8311,
-    "care": 5924
+    "medical": 18000,
+    "support": 8000,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.163Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.city.tome.miyagi.jp/reiki_int/reiki_honbun/r234RG00000516.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www.city.tome.miyagi.jp/reiki_int/reiki_honbun/r234RG00000516.html"
+      ],
+      "watchUrls": [
+        "https://www.city.tome.miyagi.jp/reiki_int/reiki_honbun/r234RG00000516.html",
+        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "登米市国民健康保険税条例（令和8年度）",
+      "url": "https://www.city.tome.miyagi.jp/reiki_int/reiki_honbun/r234RG00000516.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "ordinance-after-revision"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で登米市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=82円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で登米市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=82円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-01: 登米市国民健康保険税条例の本文で全項目を確認し、verified_r8 へ昇格した。基礎課税額は所得割7.50%（第3条）・均等割23,000円（第5条）・平等割18,000円（第5条の2第1号）、後期高齢者支援金等課税額は3.00%（第6条）・8,000円（第7条の2）・8,000円（第7条の3第1号）、介護納付金課税額は2.50%（第8条）・8,500円（第9条の2）・6,200円（第9条の3）、子ども・子育て支援納付金課税額は0.29%（第9条の4）・均等割1,000円（第9条の5）・18歳以上被保険者均等割100円（第9条の6）・平等割800円（第9条の7第1号）。賦課限度額は第2条に医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円と定めがある。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円で、給与所得者等が2以上の場合は1を減じた数×10万円を加算する。条例が令和8年度用であることは、子ども・子育て支援納付金課税額の区分の存在・賦課限度額67万円・軽減判定所得の加算額31万円/57万円の3点で確認した。18歳未満被保険者の子ども・子育て支援納付金分の均等割は全額減額される定めがあるため、perCapitaAdultScope は all_ages（18歳以上=均等割+18歳以上加算、18歳未満=0円）とした。未就学児の均等割は法定軽減後の額に対して5割軽減。資産割の定めは無い。／ 本コミットにより、従前採用していた宮城県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値。県ページにも「県が一定の基準のもと算定する理論値」と明記）から条例値へ是正した。所得割は医療0.0774・支援0.0292・介護0.0231、均等割は医療34,311・支援12,900・介護12,019、平等割は医療22,105・支援8,311・介護5,924、子ども分は所得割0.0027・均等割1,208・18歳以上加算82・平等割776→所得割 医療0.075・支援0.03・介護0.025、均等割 医療23,000・支援8,000・介護8,500、平等割 医療18,000・支援8,000・介護6,200、子ども分 所得割0.0029・均等割1,000・18歳以上加算100・平等割800。賦課限度額は条例と同値のため変更なし。／ 宮城県は各市町村の実際の保険料（税）率の一覧を公表しておらず（令和8年度は納付金と標準保険料率のみ・2026-09-01 実測）、条例が唯一の一次資料である。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1208,
-    "perCapitaAdult": 82,
+    "rate": 0.0029,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 776,
+    "household": 800,
     "cap": 30000
   }
 }

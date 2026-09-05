@@ -11,14 +11,14 @@
     "care": 0.0196
   },
   "perCapita": {
-    "medical": 27854,
-    "support": 9025,
-    "care": 8953
+    "medical": 27800,
+    "support": 9000,
+    "care": 8900
   },
   "household": {
-    "medical": 27421,
-    "support": 8885,
-    "care": 6986
+    "medical": 27400,
+    "support": 8800,
+    "care": 6900
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.288Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.town.teshikaga.hokkaido.jp/kurashi/kurashi_tetsuzuki/zeikin/1044.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.teshikaga.hokkaido.jp/kurashi/kurashi_tetsuzuki/zeikin/1044.html",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "弟子屈町 国民健康保険税について（税率及び限度額・令和8年度）",
+      "url": "https://www.town.teshikaga.hokkaido.jp/kurashi/kurashi_tetsuzuki/zeikin/1044.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、弟子屈町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、弟子屈町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 弟子屈町公式の「国民健康保険税について」ページの「国民健康保険税の税率及び限度額」で全項目を確認し、verified_r8 へ昇格した。基礎課税額（医療分）は所得割率8.05%・平等割27,400円・均等割27,800円・限度額670,000円、後期高齢者支援金等課税額は2.44%・8,800円・9,000円・260,000円、介護納付金税額は1.96%・6,900円・8,900円・170,000円、子ども・子育て支援納付金は0.29%・平等割1,000円・均等割1,000円・18歳以上均等割1,000円あたり100円・30,000円。限度額合計1,130,000円。／ 子ども分は本データの値と一致するため変更していない。同ページは「18歳以上均等割（1人）100円」を独立した行に置き、「※子育て世帯を支援するという制度の趣旨から、18歳未満の均等割額は10割軽減されますが、この軽減を補うものとして18歳以上の被保険者は通常の均等割額（1,000円）に加えて「18歳以上均等割」（100円）をご負担いただきます」と仕組みを明示し、「18歳未満とは18歳以上に達する日以後の最初の3月31日以前である被保険者です」と定義も書いている。perCapita 1,000＋perCapitaAdult 100・all_ages と正確に一致する。／ 限度額合計1,130,000円の明記があり、67万＋26万＋17万＋3万＝113万と一致する。／ ★同町は道の標準保険料率に近い。所得割は医療8.05%（標準8.05%で同値）・支援2.44%（標準2.44%で同値）・介護1.96%（標準1.96%で同値）と3区分とも一致し、均等割・平等割のみが百円単位に丸めた額で異なる（医療 27,854→27,800・27,421→27,400 など）。羅臼町と同型で、標準料率を基に百円単位へ丸めた額を採用しているとみられる。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から町の公表値へ是正した。所得割は3区分とも道標準と同値のため変更なし。均等割は医療27,854→27,800・支援9,025→9,000・介護8,953→8,900、平等割は医療27,421→27,400・支援8,885→8,800・介護6,986→6,900。限度額は町の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

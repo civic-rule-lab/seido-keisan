@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0842,
-    "support": 0.0286,
-    "care": 0.023
+    "medical": 0.078,
+    "support": 0.025,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 35670,
-    "support": 12101,
-    "care": 16708
+    "medical": 34000,
+    "support": 10000,
+    "care": 16000
   },
   "household": {
-    "medical": 23009,
-    "support": 7806,
+    "medical": 21200,
+    "support": 6800,
     "care": 0
   },
   "caps": {
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.627Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf"
+        "https://www.city.omaezaki.shizuoka.jp/material/files/group/6/r8kokuhozei.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.omaezaki.shizuoka.jp/soshiki/zeimu/zeikin/kokuhozei/hokennzei.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 静岡県 市町村標準保険料率算定結果（市町村標準保険料率）",
-      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf",
+      "type": "official",
+      "title": "令和8年度の国民健康保険税について(r8kokuhozei.pdf・2頁)",
+      "url": "https://www.city.omaezaki.shizuoka.jp/material/files/group/6/r8kokuhozei.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "PDF実視(ユーザー提供スクリーンショット・本文PDF全2頁+広報4月号で相互一致)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、御前崎市が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "限度額計113万(医療66→67万+子ども3万新設)。介護分は平等割なし。納期は普通徴収7月〜翌3月の9期。未就学児均等割5割軽減。※広報p21の後期高齢者医療保険料(R8・9: 医療分9.35%等)は別制度のため未収載"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1879,
-    "perCapitaAdult": 162,
+    "rate": 0.0024,
+    "perCapita": 1650,
+    "perCapitaAdult": 150,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

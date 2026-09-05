@@ -1,105 +1,105 @@
 {
-  "cityCode": "11362",
-  "citySlug": "minano",
-  "cityName": "皆野町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0845,
-    "support": 0.0263,
-    "care": 0.0261
+ "cityCode": "11362",
+ "citySlug": "minano",
+ "cityName": "皆野町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0825,
+  "support": 0.028,
+  "care": 0.0255
+ },
+ "perCapita": {
+  "medical": 46200,
+  "support": 16400,
+  "care": 16200
+ },
+ "household": {
+  "medical": 0,
+  "support": 0,
+  "care": 0
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 42887,
-    "support": 16136,
-    "care": 14614
-  },
-  "household": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.007Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.town.minano.saitama.jp/section/zeimu/46/"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、皆野町が実際に告示する税率とは異なる場合がある。後期・介護・子ども分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1595,
-    "perCapitaAdult": 80,
-    "perCapitaAdultScope": "all_ages",
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.007Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.town.minano.saitama.jp/section/zeimu/46/"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.town.minano.saitama.jp/section/zeimu/46/"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "皆野町 国民健康保険税(令和8年度)",
+   "url": "https://www.town.minano.saitama.jp/section/zeimu/46/",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 加算型: 1,820+18歳以上90=大人1,910(R7/R8比較表の1,910と整合)。子ども分は18歳以上のみ 2方式(平等割なし・household全区分0)。R8大幅引上げ(医療6.85→8.25%・均等37,800→46,200)。多子世帯減免(3人目以降均等割減免)あり→schoolReduction系候補。"
+ },
+ "childcareLevy": {
+  "rate": 0.0029,
+  "perCapita": 1820,
+  "perCapitaAdult": 90,
+  "perCapitaAdultScope": "all_ages",
+  "household": 0,
+  "cap": 30000
+ }
 }

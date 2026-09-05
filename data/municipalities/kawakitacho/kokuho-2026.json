@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0697,
-    "support": 0.0288,
-    "care": 0.0231
+    "medical": 0.063,
+    "support": 0.025,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 30796,
-    "support": 12628,
-    "care": 11732
+    "medical": 26200,
+    "support": 10400,
+    "care": 11100
   },
   "household": {
-    "medical": 20359,
-    "support": 8348,
-    "care": 5812
+    "medical": 19200,
+    "support": 7600,
+    "care": 5100
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.554Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.kahoku.yamagata.jp/material/files/group/7/20260428.pdf",
+        "https://www.town.kahoku.yamagata.jp/soshiki/zei/tyouminzei/kokuminkenkohokenzei/383.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kahoku.yamagata.jp/soshiki/zei/tyouminzei/kokuminkenkohokenzei/383.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税｜河北町（町公式PDF）",
+      "url": "https://www.town.kahoku.yamagata.jp/material/files/group/7/20260428.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で河北町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で河北町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 河北町公式PDF「令和8年度 国民健康保険税」（町ページ『国民健康保険税』からリンク・material/files/group/7/20260428.pdf）で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療保険分 6.3%／均等割26,200円／平等割19,200円・課税限度額670,000円、後期高齢者支援金分 2.5%／10,400円／7,600円・260,000円、介護保険分 2.1%／11,100円／5,100円・170,000円、子ども・子育て支援納付金分 0.3%／均等割1,300円／18歳以上均等割100円／平等割900円・30,000円。PDFに「18歳未満被保険者の子ども子育て支援納付金分の均等割額は減額されます」と明記。／ 医療分の3値（6.3%・26,200円・19,200円）は山形県公表の令和7年度実税率一覧（r7kokuhozeikaiseijoukyouitiran.pdf）の河北町行と完全一致し、介護分も 2.10%／11,100円／5,100円 で一致、支援分の所得割率2.50%と平等割7,600円も一致する。医療・介護は据え置きである。／ ★注意: 同県資料の河北町行は後期高齢者支援金分の均等割額を「0」（前年度欄は空欄）と記載しており、明らかな異常値である。町のR8 PDFは10,400円としており、こちらを採用した。県資料のこのセルは照合に使えない。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、町PDFは670,000円である。山形県内でこれで18件目の反証となる。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1281,
-    "perCapitaAdult": 65,
+    "rate": 0.003,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 900,
     "cap": 30000
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0948,
-    "support": 0.0277,
-    "care": 0.0245
+    "medical": 0.0865,
+    "support": 0.026,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 41046,
-    "support": 11892,
-    "care": 12578
+    "medical": 36000,
+    "support": 11400,
+    "care": 12200
   },
   "household": {
-    "medical": 26330,
-    "support": 7629,
-    "care": 6125
+    "medical": 24000,
+    "support": 7500,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.363Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.town.noto.lg.jp/kakuka/1004/gyomu/2/4/1108.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.noto.lg.jp/kakuka/1004/gyomu/2/4/1108.html",
+        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "official",
+      "title": "能登町 国民健康保険税について（令和8年度の税率）",
+      "url": "https://www.town.noto.lg.jp/kakuka/1004/gyomu/2/4/1108.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で能登町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=36円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で能登町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=36円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-01: 能登町公式の「国民健康保険税について」ページ（更新日 2026年04月23日・税務課。HTTP の Last-Modified は 2026-08-02）の「令和8年度の税率」表で全項目を確認し、verified_r8 へ昇格した。医療給付費分は所得割8.65%・均等割36,000円（未就学児18,000円）・平等割24,000円・限度額670,000円、後期支援金分は2.60%・11,400円（未就学児5,700円）・7,500円・260,000円、介護分は2.40%・12,200円・6,000円・170,000円、子ども支援金分は0.28%・均等割1,260円（18歳以上20円加算）・平等割780円・限度額30,000円。同ページは「18歳未満の加入者に対する子ども支援金分の均等割は全額軽減されます」と明記しており、perCapita 1,260・perCapitaAdult 20・perCapitaAdultScope: all_ages と一致する。軽減判定所得は同ページに7割＝43万円＋10万円×(給与所得者等の数－1)、5割＝43万円＋(31万円×被保険者数)＋10万円×(給与所得者等の数－1)、2割＝43万円＋(57万円×被保険者数)＋10万円×(給与所得者等の数－1) と明記されている。未就学児の均等割は医療分・後期支援金分とも半額で、本データの preschoolReduction と一致する。／ 本コミットにより、従前採用していた石川県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から町の公表値へ是正した。所得割は医療0.0948→0.0865・支援0.0277→0.026・介護0.0245→0.024、均等割は医療41,046→36,000・支援11,892→11,400・介護12,578→12,200、平等割は医療26,330→24,000・支援7,629→7,500・介護6,125→6,000、子ども分は均等割1,225→1,260・18歳以上加算36→20・平等割770→780（所得割0.0028は変更なし）。賦課限度額は町の公表値と同値のため変更なし。医療分の所得割は県標準9.48%に対し町は8.65%と0.83ポイント低く、均等割も41,046円に対し36,000円で、理論値との差が大きい区分である。／ 石川県は各市町の実際の保険料（税）率の一覧を公表しておらず（令和8年度は標準保険料率のみ・r8hyouzyunhokenryouritu1.pdf。同2.pdf は404で存在しない・2026-09-01 実測）、町の公表ページが一次資料である。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1225,
-    "perCapitaAdult": 36,
+    "perCapita": 1260,
+    "perCapitaAdult": 20,
     "perCapitaAdultScope": "all_ages",
-    "household": 770,
+    "household": 780,
     "cap": 30000
   }
 }

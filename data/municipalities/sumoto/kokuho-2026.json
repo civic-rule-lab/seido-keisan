@@ -1,105 +1,105 @@
 {
-  "cityCode": "28205",
-  "citySlug": "sumoto",
-  "cityName": "洲本市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0743,
-    "support": 0.0311,
-    "care": 0.0274
+ "cityCode": "28205",
+ "citySlug": "sumoto",
+ "cityName": "洲本市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.07,
+  "support": 0.03,
+  "care": 0.027
+ },
+ "perCapita": {
+  "medical": 28000,
+  "support": 11000,
+  "care": 11800
+ },
+ "household": {
+  "medical": 19000,
+  "support": 7500,
+  "care": 5500
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 32292,
-    "support": 13433,
-    "care": 13982
-  },
-  "household": {
-    "medical": 20765,
-    "support": 8638,
-    "care": 6962
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.574Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.city.sumoto.lg.jp/soshiki/5/2301.html"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 兵庫県 国民健康保険 標準保険料率（市町村標準保険料率）",
-      "url": "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "兵庫県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、洲本市が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。後期・介護分は県内ほぼ統一値。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujunnhokennryouritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1276,
-    "perCapitaAdult": 64,
-    "perCapitaAdultScope": "all_ages",
-    "household": 824,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.574Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.city.sumoto.lg.jp/soshiki/5/2301.html"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.city.sumoto.lg.jp/soshiki/5/2301.html"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "洲本市 国民健康保険税の税額計算(令和8年度分)",
+   "url": "https://www.city.sumoto.lg.jp/soshiki/5/2301.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 加算型+平等割900円。u18全額軽減を明記 介護分に平等割5,500円。"
+ },
+ "childcareLevy": {
+  "rate": 0.0029,
+  "perCapita": 1300,
+  "perCapitaAdult": 100,
+  "perCapitaAdultScope": "all_ages",
+  "household": 900,
+  "cap": 30000
+ }
 }

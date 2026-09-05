@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0726,
-    "support": 0.0293,
-    "care": 0.0236
+    "medical": 0.06,
+    "support": 0.02,
+    "care": 0.013
   },
   "perCapita": {
-    "medical": 32217,
-    "support": 12951,
-    "care": 12257
+    "medical": 22000,
+    "support": 7000,
+    "care": 5900
   },
   "household": {
-    "medical": 20756,
-    "support": 8344,
-    "care": 6042
+    "medical": 12400,
+    "support": 4000,
+    "care": 3100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.167Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.town.zao.miyagi.jp/kurashi_guide/seikatsu_kankyo/zeikin/kokuhozei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.zao.miyagi.jp/kurashi_guide/seikatsu_kankyo/zeikin/kokuhozei.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "蔵王町 国民健康保険税",
+      "url": "https://www.town.zao.miyagi.jp/kurashi_guide/seikatsu_kankyo/zeikin/kokuhozei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-15",
+      "method": "claude-in-chrome 実ブラウザ実視"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で蔵王町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "「国保税率等(令和8年度)」明記=更新日表記が古いだけ。特定世帯=医支子の平等割半額・特定継続世帯=4分の3(子ども分も350/525と明記)。★高3まで半額はschoolReduction系(半額型・栗原/松島の全額型と異なる) / [未確認]子ども分u18全額軽減の明文なし(18歳以上均等割100円の行はある) / 軽減判定: 43万/31万/57万+10万 / 2026-08-28訂正: 学齢児(未就学児を除く18歳未満)への自治体独自の均等割軽減が schoolReduction.enabled=false のままで、医療分・支援分の均等割を過大計算していた。実ブラウザで公表ページを目視確認のうえ有効化。根拠= 蔵王町「町独自の制度として、高校3年生まで均等割の2分の1を減免します」（令和7年度から）"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1176,
-    "perCapitaAdult": 73,
+    "rate": 0.003,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 751,
+    "household": 700,
     "cap": 30000
+  },
+  "schoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 0.5,
+    "supportPerCapitaRate": 0.5
   }
 }

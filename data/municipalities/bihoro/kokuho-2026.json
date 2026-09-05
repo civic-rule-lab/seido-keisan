@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.089,
-    "support": 0.0247,
-    "care": 0.02
+    "medical": 0.084,
+    "support": 0.027,
+    "care": 0.018
   },
   "perCapita": {
-    "medical": 30774,
-    "support": 9124,
-    "care": 9179
+    "medical": 26000,
+    "support": 8000,
+    "care": 8000
   },
   "household": {
-    "medical": 30296,
-    "support": 8983,
-    "care": 7163
+    "medical": 27600,
+    "support": 9200,
+    "care": 7200
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.251Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.town.bihoro.hokkaido.jp/page/2469.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.bihoro.hokkaido.jp/page/2469.html",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "美幌町 まちの税金のしくみ（国民健康保険税の計算方法・令和8年度）",
+      "url": "https://www.town.bihoro.hokkaido.jp/page/2469.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、美幌町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、美幌町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 美幌町公式の「まちの税金のしくみ」ページ（更新日 2026年7月1日）の国民健康保険税の節「国民健康保険税の計算方法」表で全項目を確認し、verified_r8 へ昇格した。医療分は所得割8.4%・均等割26,000円・平等割27,600円・最高限度額670,000円、後期高齢者支援金分は2.7%・8,000円・9,200円・260,000円、介護保険分は1.8%・8,000円・7,200円・170,000円、子ども・子育て支援納付金分は0.29%・均等割1,000円（※2 18歳以上被保険者は＋100円）・平等割1,000円・30,000円。／ 子ども分は本データの値と一致するため変更していない。※1「18歳未満の被保険者の均等割額は全額軽減されます」・※2「18歳以上被保険者は＋100円」の2注記により、perCapita 1,000＋perCapitaAdult 100・all_ages と一致する。／ 同ページは令和8年度の税率について「令和8年度においては、税率を改定せずとも運営が可能と判断し、税率の改定は行わないこととしましたが、全国的な『子ども・子育て支援金制度』の開始に伴う改定などを行いました」と明記しており、掲載表が令和8年度の適用値であることが本文から確認できる。軽減判定の5割加算額が31万円である点も令和8年度と整合する。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から町の公表値へ是正した。所得割は医療0.089→0.084・支援0.0247→0.027・介護0.02→0.018、均等割は医療30,774→26,000・支援9,124→8,000・介護9,179→8,000、平等割は医療30,296→27,600・支援8,983→9,200・介護7,163→7,200。最高限度額は町の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

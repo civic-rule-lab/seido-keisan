@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0644,
-    "support": 0.0285,
-    "care": 0.0237
+    "medical": 0.0639,
+    "support": 0.0237,
+    "care": 0.0171
   },
   "perCapita": {
-    "medical": 28453,
-    "support": 12529,
-    "care": 11997
+    "medical": 24300,
+    "support": 8800,
+    "care": 7400
   },
   "household": {
-    "medical": 18810,
-    "support": 8283,
-    "care": 5943
+    "medical": 18200,
+    "support": 6600,
+    "care": 7000
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,40 +57,46 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.546Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.city.shinjo.yamagata.jp/s004/20200626091803.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.shinjo.yamagata.jp/s004/20200626091803.html",
+        "https://www1.g-reiki.net/shinjo/reiki_honbun/c406RG00000213.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/shinjo/reiki_honbun/c406RG00000213.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税｜新庄市（令和8年度）",
+      "url": "https://www.city.shinjo.yamagata.jp/s004/20200626091803.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で新庄市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=120円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で新庄市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=120円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。（2026-09-04に達成） ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 新庄市公式ページ「国民健康保険税」の令和8年度表で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療 6.39%／均等割24,300円／平等割18,200円・限度額67万円、後期高齢者支援金等分 2.37%／8,800円／6,600円、介護納付金分 1.71%／7,400円／7,000円、子ども・子育て支援金分 0.29%／均等割1,245円／18歳以上均等割120円／平等割849円／限度額3万円。／ 新庄市例規集（g-reiki・内容現在 令和8年7月1日）の新庄市国民健康保険税条例と2経路で照合し、12値すべて一致した（100分の6.39／24,300円／18,200円、100分の2.37／8,800円／6,600円、100分の1.71／7,400円／7,000円、100分の0.29／1,245円／18歳以上被保険者均等割120円／849円）。限度額も条例本文の67万円・26万円・17万円・3万円と一致し、軽減判定加算額も31万円・57万円で令和8年度基準である。／ 子ども・子育て支援金分の3値（1,245円・120円・849円）は県標準値のままで変更が無かった。市が新設区分に県標準をそのまま採用したためで、医療・支援・介護の3区分のみが実額へ変わっている。／ 医療分の6.39%・24,300円・18,200円は山形県の令和7年度実税率一覧の新庄市行と完全一致しており、医療分は令和8年度も据え置きである。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、条例本文は67万円である。山形市・鶴岡市・酒田市・米沢市も670,000円であり、この判断は誤りだった。"
   },
   "childcareLevy": {
     "rate": 0.0029,

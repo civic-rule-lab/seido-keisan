@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0722,
-    "support": 0.0286,
-    "care": 0.0226
+    "medical": 0.07,
+    "support": 0.025,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 32010,
-    "support": 12639,
-    "care": 11745
+    "medical": 27200,
+    "support": 9700,
+    "care": 10000
   },
   "household": {
-    "medical": 20623,
-    "support": 8143,
-    "care": 5789
+    "medical": 18100,
+    "support": 6400,
+    "care": 4800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.138Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.city.shiogama.miyagi.jp/soshiki/8/51770.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.shiogama.miyagi.jp/soshiki/8/51770.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "塩竈市 国民健康保険税",
+      "url": "https://www.city.shiogama.miyagi.jp/soshiki/8/51770.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-15",
+      "method": "claude-in-chrome 実ブラウザ実視"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で塩竈市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=90円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "旧ページ2901.html(R2)が残存=watchUrlは51770へ。基礎控除逓減(2400万超29万/2450万超15万/2500万超0)明記 / 全額(10割)軽減・軽減7/5/2割も適用と注記 / 軽減判定: 43万/31万/57万+給与年金者10万"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1171,
-    "perCapitaAdult": 90,
+    "rate": 0.0024,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 758,
+    "household": 700,
     "cap": 30000
   }
 }

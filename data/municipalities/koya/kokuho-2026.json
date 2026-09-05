@@ -60,16 +60,19 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.059Z",
-      "updatedAt": "2026-07-02T00:06:41Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "watchUrls": [
         "https://www.town.koya.wakayama.jp/kurashi/zeikin/38632.html"
       ],
-      "r8Stage": "extracted_r8",
+      "r8Stage": "verified_r8",
       "sourceStatus": "official_rate_page",
+      "previousYearTemplate": false,
       "r8Updated": true,
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
       "sourceUrls": [
         "https://www.town.koya.wakayama.jp/kurashi/zeikin/38632.html"
       ]
@@ -89,7 +92,7 @@
       "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。 / 2026-07-02: 公式国保税ページでR8完全告示を確認(医8.65%/支2.52%/介2.24%/子0.30%・限度67/26/17/3万・子育て支援金分あり)。watchUrl登録。verified_r8化候補。 / 2026-07-02: verified_r8化。高野町公式国保税ページ(official_rate_page)から医8.65/支2.52/介2.24/子0.30・均等29200/8750/10200/子1150(+18歳以上41)・平等23300/6500/5500/子766・限度67/26/17/3万を反映。"
+    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。 / 2026-07-02: 公式国保税ページでR8完全告示を確認(医8.65%/支2.52%/介2.24%/子0.30%・限度67/26/17/3万・子育て支援金分あり)。watchUrl登録。verified_r8化候補。 / 2026-07-02: verified_r8化。高野町公式国保税ページ(official_rate_page)から医8.65/支2.52/介2.24/子0.30・均等29200/8750/10200/子1150(+18歳以上41)・平等23300/6500/5500/子766・限度67/26/17/3万を反映。 / 2026-09-01: r8Stage が extracted_r8 のまま notes と食い違っていたため、公式国保税ページを再取得して全項目を再照合し verified_r8 へ整合させた。再照合の結果、所得割8.65/2.52/2.24/0.30・均等割29,200/8,750/10,200・平等割23,300/6,500/5,500・限度額67/26/17/3万・軽減判定加算31万/57万・給与所得者等10万・未就学児5割のすべてが一致。子ども・子育て支援金分の均等割はページ記載の1,191円が18歳以上の額で、内訳は被保険者均等割1,150円＋18歳以上均等割41円（perCapitaAdultScope: all_ages）。18歳未満は全世帯一律に全額減額＝0円と明記されており、エンジンの all_ages の扱いと一致する。"
   },
   "childcareLevy": {
     "rate": 0.003,

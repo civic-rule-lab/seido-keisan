@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0635,
-    "support": 0.0277,
-    "care": 0.0224
+    "medical": 0.085,
+    "support": 0.03,
+    "care": 0.03
   },
   "perCapita": {
-    "medical": 24477,
-    "support": 10610,
-    "care": 10293
+    "medical": 21800,
+    "support": 6800,
+    "care": 9000
   },
   "household": {
-    "medical": 24194,
-    "support": 10487,
-    "care": 7956
+    "medical": 25000,
+    "support": 7800,
+    "care": 6600
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.101Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
+        "https://www.akamura.net/img/government/815_1.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-20",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.akamura.net/government/"
+        "https://www.akamura.net/img/government/815_1.pdf"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
+      "type": "official",
+      "title": "赤村「令和8年度国民健康保険税率について」(815_1.pdf)",
+      "url": "https://www.akamura.net/img/government/815_1.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-20",
+      "method": "オーナー実視(Chrome PDFビューア・全項目+合計行の検算まで突合)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、赤村が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "赤村公式PDFで全項目一致を確認[確認済 2026-08-20]。医8.50/21,800/25,000/67万・支3.00/6,800/7,800/26万・介3.00/9,000/6,600/17万・子0.26/1,000+18歳以上50/1,000/3万。合計行(14.76%/38,600/40,400/113万)まで検算一致。★令和8年度から資産割を廃止し4方式→3方式へ(福岡県内の保険料(税)率の統一に向けた措置とPDF本文に明記)。現行データの県標準理論値(医6.35%)から医8.50%へ上がるのはこの改定による"
   },
   "childcareLevy": {
     "rate": 0.0026,
-    "perCapita": 1029,
+    "perCapita": 1000,
     "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 995,
+    "household": 1000,
     "cap": 30000
   }
 }

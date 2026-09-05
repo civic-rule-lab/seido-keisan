@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.091,
-    "support": 0.0247,
-    "care": 0.0199
+    "medical": 0.0907,
+    "support": 0.0295,
+    "care": 0.019
   },
   "perCapita": {
-    "medical": 31485,
-    "support": 9134,
-    "care": 9120
+    "medical": 25500,
+    "support": 8300,
+    "care": 11600
   },
   "household": {
-    "medical": 30996,
-    "support": 8992,
-    "care": 7117
+    "medical": 27600,
+    "support": 9000,
+    "care": 6400
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.180Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.city.nemuro.hokkaido.jp/lifeinfo/kurashi/zeikin/8/3080.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.nemuro.hokkaido.jp/lifeinfo/kurashi/zeikin/8/3080.html",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "根室市 令和8年度課税の根拠について",
+      "url": "https://www.city.nemuro.hokkaido.jp/lifeinfo/kurashi/zeikin/8/3080.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、根室市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、根室市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 根室市公式の「令和8年度課税の根拠について」ページの「国民健康保険税を表した表」で全項目を確認し、verified_r8 へ昇格した。医療分は所得割9.07%・均等割25,500円・平等割27,600円・限度額660,000円、支援金分は2.95%・8,300円・9,000円・260,000円、介護分は1.90%・11,600円・6,400円・170,000円、子ども分は0.29%・均等割1,000円・18歳以上均等割100円・平等割1,000円・30,000円。／ ★医療分の限度額は660,000円である（令和8年度の国の政令額670,000円ではない）。同ページに「令和8年度より課税限度額が変更されており、医療分は、「65万円」から「66万円」、支援金分は、「24万円」から「26万円」となります」と引上げとして明記されている。市が意図して政令上限より低い額を定めているものであり、国基準で埋めてはならない。／ 子ども分は本データの値と一致するため変更していない。同表は18歳以上均等割額を独立した行として持ち、医療・支援金・介護は「－」としている。「子ども分は、18歳に達する日以降の最初の3月31日までにある被保険者の均等割額全額が軽減されます」と明記されており、all_ages（18歳未満0円）と一致する。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から市の公表値へ是正した。所得割は医療0.091→0.0907・支援0.0247→0.0295・介護0.0199→0.019、均等割は医療31,485→25,500・支援9,134→8,300・介護9,120→11,600、平等割は医療30,996→27,600・支援8,992→9,000・介護7,117→6,400、医療分の限度額は670,000→660,000。／ 未確定: 軽減判定所得の具体的な金額は本ページの引用範囲では確認していない（同ページに「低所得世帯に対する減額について」の節があり、5割・2割の判定基準額を改定した旨は明記されている）。本データは国の令和8年度基準を用いている。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

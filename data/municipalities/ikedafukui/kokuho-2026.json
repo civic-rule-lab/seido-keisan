@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0558,
-    "support": 0.0278,
-    "care": 0.0237
+    "medical": 0.055,
+    "support": 0.022,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 24753,
-    "support": 12308,
-    "care": 12561
+    "medical": 24600,
+    "support": 10500,
+    "care": 11400
   },
   "household": {
-    "medical": 16070,
-    "support": 7991,
-    "care": 6093
+    "medical": 17000,
+    "support": 7200,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.516Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukui.lg.jp/doc/016250/hyojunhokenryoritsu_d/fil/r8santeikekka.pdf"
+        "https://www.town.ikeda.fukui.jp/contents/reiki/reiki_honbun/i221RG00000119.html",
+        "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu_d/fil/R8HOKENRYO.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www.town.ikeda.fukui.jp/contents/reiki/reiki_honbun/i221RG00000119.html"
+      ],
+      "watchUrls": [
+        "https://www.town.ikeda.fukui.jp/contents/reiki/reiki_honbun/i221RG00000119.html",
+        "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福井県 市町村標準保険料率（算定結果）",
-      "url": "https://www.pref.fukui.lg.jp/doc/016250/hyojunhokenryoritsu_d/fil/r8santeikekka.pdf",
+      "type": "official",
+      "title": "池田町国民健康保険税条例（最終改正 令和8年3月18日条例第5号）",
+      "url": "https://www.town.ikeda.fukui.jp/contents/reiki/reiki_honbun/i221RG00000119.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "ordinance-after-revision"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福井県公表の令和8年度 市町村標準保険料率(算定結果・最終更新2026-03-19)を参考値として採用。法定外繰入ゼロ前提の理論値で池田町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は全国最低水準(所得割0.15-0.16%・均等割643-698円)で県公表通り。18歳以上均等割(=38円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "福井県公表の令和8年度 市町村標準保険料率(算定結果・最終更新2026-03-19)を参考値として採用。法定外繰入ゼロ前提の理論値で池田町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は全国最低水準(所得割0.15-0.16%・均等割643-698円)で県公表通り。18歳以上均等割(=38円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-01: 池田町国民健康保険税条例（最終改正 令和8年3月18日条例第5号）の本文で全項目を確認し、verified_r8 へ昇格した。基礎課税額は所得割5.5%（第3条）・均等割24,600円（第4条）・平等割17,000円（第4条の2第1号）、後期高齢者支援金等課税額は2.2%（第5条）・10,500円（第6条）・7,200円（第7条第1号）、介護納付金課税額は2.0%（第8条）・11,400円（第9条）・6,100円（第9条の2）、子ども・子育て支援納付金課税額は0.16%（第9条の3）・均等割700円（第9条の4）・18歳以上被保険者均等割50円（第9条の5）・平等割400円（第9条の6第1号）。賦課限度額は医療670,000円・支援260,000円・介護170,000円・子ども子育て支援金分30,000円。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円で、給与所得者等が2以上の場合は1を減じた数×10万円を加算する。条例が令和8年度用であることは、子ども・子育て支援納付金課税額の区分の存在・限度額67万円・軽減加算31万/57万円の3点で確認した。18歳未満被保険者の子ども分均等割は全額減額されるため perCapitaAdultScope は all_ages。資産割の定めは無い。／ 本コミットにより、従前採用していた福井県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から条例値へ是正した。所得割は医療0.0558→0.055・支援0.0278→0.022・介護0.0237→0.02、均等割は医療24,753→24,600・支援12,308→10,500・介護12,561→11,400、平等割は医療16,070→17,000・支援7,991→7,200・介護6,093→6,100、子ども分は均等割698→700・18歳以上加算38→50・平等割447→400（所得割0.0016は変更なし）。賦課限度額は条例と同値のため変更なし。／ 福井県公表の「令和8年度各市町国民健康保険税率」（R8HOKENRYO.pdf）の池田町行は5.50/24,600/17,000・2.20/10,500/7,200・2.00/11,400/6,100・0.16/700/400/50 で、条例値と全項目一致する（独立した2資料での突合）。"
   },
   "childcareLevy": {
     "rate": 0.0016,
-    "perCapita": 698,
-    "perCapitaAdult": 38,
+    "perCapita": 700,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 447,
+    "household": 400,
     "cap": 30000
   }
 }

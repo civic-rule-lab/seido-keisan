@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0698,
-    "support": 0.0287,
-    "care": 0.023
+    "medical": 0.061,
+    "support": 0.025,
+    "care": 0.0185
   },
   "perCapita": {
-    "medical": 30940,
-    "support": 12681,
-    "care": 11961
+    "medical": 21500,
+    "support": 8000,
+    "care": 8000
   },
   "household": {
-    "medical": 19933,
-    "support": 8170,
-    "care": 5896
+    "medical": 23500,
+    "support": 9000,
+    "care": 4500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.175Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.town.shibata.miyagi.jp/index.cfm/75,26682,132,361,html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.shibata.miyagi.jp/index.cfm/75,26682,132,361,html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "柴田町 国民健康保険税",
+      "url": "https://www.town.shibata.miyagi.jp/index.cfm/75,26682,132,361,html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-15",
+      "method": "claude-in-chrome 実ブラウザ実視"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で柴田町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=75円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "資産割H30廃止 / 10割軽減・上乗せ18歳以上100円の構造明記 / 軽減判定: 43万/31万/57万+10万"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1172,
-    "perCapitaAdult": 75,
+    "rate": 0.0027,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 800,
     "cap": 30000
   }
 }

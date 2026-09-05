@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0965,
-    "support": 0.0279,
-    "care": 0.0243
+    "medical": 0.0915,
+    "support": 0.027,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 41788,
-    "support": 12002,
-    "care": 12471
+    "medical": 39000,
+    "support": 11500,
+    "care": 12300
   },
   "household": {
-    "medical": 26806,
-    "support": 7699,
-    "care": 6073
+    "medical": 25500,
+    "support": 7500,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.357Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.town.tsubata.lg.jp/page/1142.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+       "https://www1.g-reiki.net/tsubata/reiki_honbun/i123RG00000297.html"
+      ],
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "official",
+      "title": "津幡町 国民健康保険税について",
+      "url": "https://www.town.tsubata.lg.jp/page/1142.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-31",
+      "method": "条例本文の全文照合(例規集インターネット版)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で津幡町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=43円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "令和8年度の所得割率・被保険者均等割額・世帯別平等割額・賦課限度額・軽減規定を、津幡町国民健康保険税条例（最終改正 令和8年3月31日条例第14号／令和8年度以後の年度分に適用。例規集の版は令和8年4月1日施行）の本文で確認した（2026-09-01）。基礎課税額は所得割9.15%・均等割39,000円・平等割25,500円、後期高齢者支援金等課税額は2.7%・11,500円・7,500円、介護納付金課税額は2.4%・12,300円・6,000円、子ども・子育て支援納付金課税額は0.28%・均等割1,200円・18歳以上被保険者均等割50円・平等割700円。賦課限度額は医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円。18歳未満の被保険者は子ども・子育て支援金分の均等割が全額減額される。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円、給与所得者等が2以上なら1を減じた数×10万円を加算。／ 本コミットにより、従前採用していた石川県の令和8年度市町村標準保険料率（法令等で定められた統一のルールに基づく理論値・3方式）を町の条例値へ是正した。所得割は医療0.0965→0.0915・支援0.0279→0.027・介護0.0243→0.024、均等割は医療41,788→39,000・支援12,002→11,500・介護12,471→12,300、平等割は医療26,806→25,500・支援7,699→7,500・介護6,073→6,000、子ども分は均等割1,250→1,200・18歳以上加算43→50・平等割785→700。子ども分の所得割0.0028と賦課限度額は条例と同値のため変更なし。出典は町の公式ページを置き、条例本文のURLは lifecycle.ordinanceUrls に入れた。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1250,
-    "perCapitaAdult": 43,
+    "perCapita": 1200,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 785,
+    "household": 700,
     "cap": 30000
   }
 }

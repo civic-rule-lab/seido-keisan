@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0669,
-    "support": 0.029,
-    "care": 0.0226
+    "medical": 0.0721,
+    "support": 0.0251,
+    "care": 0.0224
   },
   "perCapita": {
-    "medical": 29674,
-    "support": 12825,
-    "care": 11762
+    "medical": 31000,
+    "support": 10000,
+    "care": 13000
   },
   "household": {
-    "medical": 19118,
-    "support": 8263,
-    "care": 5798
+    "medical": 25400,
+    "support": 8200,
+    "care": 8200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.136Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.city.ishinomaki.lg.jp/cont/10353000/1453/1453.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-14",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ishinomaki.lg.jp/cont/10353000/1453/1453.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "保険税率・税額",
+      "url": "https://www.city.ishinomaki.lg.jp/cont/10353000/1453/1453.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-14",
+      "method": "claude-in-chrome get_page_text(実ブラウザ全文取得)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で石巻市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=97円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "課税限度額は法令改正により引上げと明記。基礎控除最大43万"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1171,
-    "perCapitaAdult": 97,
+    "rate": 0.0024,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 763,
+    "household": 900,
     "cap": 30000
   }
 }

@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0677,
-    "support": 0.0282,
-    "care": 0.0231
+    "medical": 0.071,
+    "support": 0.027,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 29916,
-    "support": 12388,
-    "care": 11742
+    "medical": 25100,
+    "support": 8400,
+    "care": 10800
   },
   "household": {
-    "medical": 19777,
-    "support": 8190,
-    "care": 5816
+    "medical": 18200,
+    "support": 7200,
+    "care": 5200
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.545Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.city.tsuruoka.lg.jp/zeikin/kokuhozei/tax-kokuho.html",
+        "https://www.city.tsuruoka.lg.jp/zeikin/kokuhozei/tax-kokuho.files/R8kokuhozeishiori.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.tsuruoka.lg.jp/zeikin/kokuhozei/tax-kokuho.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税について｜鶴岡市（令和8年度）",
+      "url": "https://www.city.tsuruoka.lg.jp/zeikin/kokuhozei/tax-kokuho.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で鶴岡市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=83円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で鶴岡市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=83円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。（2026-09-04に達成） ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 鶴岡市公式ページ「国民健康保険税について」（更新日2026年7月1日）で令和8年度の実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療 7.10%／均等割25,100円／平等割18,200円・限度額670,000円、後期支援 2.70%／8,400円／7,200円、介護 2.20%／10,800円／5,200円、子ども・子育て支援金分 0.20%／均等割1,200円／18歳以上均等割100円／平等割800円／限度額30,000円。同じ値を市公式の「令和8年度鶴岡市国民健康保険税のしおり」PDF の納税通知書記載例（所得割率7.10/2.70/2.20/0.20、均等割25,100/8,400/10,800/1,200、平等割18,200/7,200/5,200/800）でも機械照合した。／ 子ども分の均等割は18歳未満に対して二段階で減額される（しおりの記載例では未就学児1人につき未就学児軽減600円＋残額600円の全額軽減＝実質0円）。エンジンの perCapita=1,200＋perCapitaAdult=100（18歳未満は全額軽減）と同値になる。／ ★限度額の訂正: 本ファイルは2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、鶴岡市は令和8年度に660,000円→670,000円へ引き上げており、この判断は誤りだった。山形市（verified_r8）も670,000円である。山形県内の他の standard_r8 自治体33件も同じ理由で660,000円のままになっているため、昇格時に各自治体の一次資料で限度額を必ず確認すること。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1297,
-    "perCapitaAdult": 83,
+    "rate": 0.002,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 859,
+    "household": 800,
     "cap": 30000
   }
 }

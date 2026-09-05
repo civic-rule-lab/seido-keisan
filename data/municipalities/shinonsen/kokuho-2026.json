@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0672,
-    "support": 0.0311,
-    "care": 0.0274
+    "medical": 0.0536,
+    "support": 0.0274,
+    "care": 0.0294
   },
   "perCapita": {
-    "medical": 29221,
-    "support": 13430,
-    "care": 13978
+    "medical": 19200,
+    "support": 11500,
+    "care": 14500
   },
   "household": {
-    "medical": 18791,
-    "support": 8636,
-    "care": 6960
+    "medical": 14400,
+    "support": 7400,
+    "care": 7500
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.614Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf"
+        "https://www.town.shinonsen.hyogo.jp/page/?mode=detail&page_id=3299697d5b342b23576f5b9ab0d16bba"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.town.shinonsen.hyogo.jp/page/?mode=detail&page_id=724e53535a07f2c51ee5d68d306f75a9"
+        "https://www.town.shinonsen.hyogo.jp/page/?mode=detail&page_id=3299697d5b342b23576f5b9ab0d16bba"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 兵庫県 国民健康保険 標準保険料率（市町村標準保険料率）",
-      "url": "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf",
+      "type": "official",
+      "title": "新温泉町 令和8年度国民健康保険税について",
+      "url": "https://www.town.shinonsen.hyogo.jp/page/?mode=detail&page_id=3299697d5b342b23576f5b9ab0d16bba",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-31",
+      "method": "町公式サイトの令和8年度国保税率表の照合"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "兵庫県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、新温泉町が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。後期・介護分は県内ほぼ統一値。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujunnhokennryouritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "令和8年度の所得割率・均等割額・平等割額・賦課限度額・軽減規定を、新温泉町公式サイト「令和8年度国民健康保険税について」の税率表で確認した（2026-08-31）。医療分（0〜74歳）5.36%・均等割19,200円・平等割14,400円・課税限度額670,000円、後期高齢者支援金分（0〜74歳）2.74%・11,500円・7,400円・260,000円、介護納付金分（40〜64歳）2.94%・14,500円・7,500円・170,000円、子ども・子育て支援納付金分（0〜74歳）0.29%・均等割1,300円・18歳以上均等割50円・平等割800円・30,000円。18歳未満の子ども・子育て支援納付金分の均等割は全額軽減される旨が同表の注記2に明記されている。未就学児は均等割額の2分の1を減額（令和8年度分の対象は令和2年4月2日以降に生まれた方）。軽減判定所得は43万円を基礎とし、5割は被保険者数＋特定同一世帯所属者1人につき31万円、2割は57万円を加算し、いずれも給与所得者等の数−1につき10万円を加算する。／ 本コミットにより、従前採用していた兵庫県の令和8年度標準保険料率（法定外繰入ゼロ前提の理論値）を町の実際の告示値へ是正した。所得割は医療0.0672→0.0536・支援0.0311→0.0274・介護0.0274→0.0294、均等割は医療29,221→19,200・支援13,430→11,500・介護13,978→14,500、平等割は医療18,791→14,400・支援8,636→7,400・介護6,960→7,500、子ども分は均等割1,302→1,300・18歳以上加算57→50・平等割823→800。賦課限度額は県標準と同額のため変更なし。あわせて、登録されていた watchUrl が令和7年度のページを指したままだったため令和8年度のページへ差し替えた。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1302,
-    "perCapitaAdult": 57,
+    "perCapita": 1300,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 823,
+    "household": 800,
     "cap": 30000
   }
 }

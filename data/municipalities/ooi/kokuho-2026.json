@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0482,
+    "medical": 0.0461,
     "support": 0.0269,
     "care": 0.0233
   },
   "perCapita": {
-    "medical": 21383,
-    "support": 11900,
-    "care": 12346
+    "medical": 19000,
+    "support": 11000,
+    "care": 12000
   },
   "household": {
-    "medical": 13883,
-    "support": 7726,
-    "care": 5989
+    "medical": 13000,
+    "support": 7000,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-06-05T00:00:00.000Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukui.lg.jp/doc/016250/hyojunhokenryoritsu_d/fil/r8santeikekka.pdf"
+        "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu_d/fil/R8HOKENRYO.pdf",
+        "https://www.town.ohi.fukui.jp/1001/1203/25/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/ohi/reiki_honbun/r369RG00000113.html"
+      ],
+      "watchUrls": [
+        "https://www.town.ohi.fukui.jp/1001/1203/25/index.html",
+        "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福井県 市町村標準保険料率（算定結果）",
-      "url": "https://www.pref.fukui.lg.jp/doc/016250/hyojunhokenryoritsu_d/fil/r8santeikekka.pdf",
+      "type": "official",
+      "title": "福井県 令和8年度各市町国民健康保険税率（おおい町国民健康保険税条例と突合済み）",
+      "url": "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu_d/fil/R8HOKENRYO.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "ordinance-after-revision"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福井県公表の令和8年度 市町村標準保険料率を参考値として採用。3方式（所得割+均等割+平等割）・子ども分も平等割あり・資産割なし。子ども分は全国最低水準（所得割0.15%・均等割644円）。子ども子育て分は18歳以上均等割(=46円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。"
+    "notes": "福井県公表の令和8年度 市町村標準保険料率を参考値として採用。3方式（所得割+均等割+平等割）・子ども分も平等割あり・資産割なし。子ども分は全国最低水準（所得割0.15%・均等割644円）。子ども子育て分は18歳以上均等割(=46円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。 / 2026-09-01: おおい町国民健康保険税条例（附則の最終は令和8年3月31日条例第9号）の本文で全項目を確認し、verified_r8 へ昇格した。基礎課税額は所得割4.61%（第3条）・均等割19,000円（第5条）・平等割13,000円（第5条の2第1号）、後期高齢者支援金等課税額は2.69%（第6条）・11,000円（第7条の2）・7,000円（第7条の3第1号）、介護納付金課税額は2.33%（第8条）・12,000円（第9条の2）・5,000円（第9条の3）、子ども・子育て支援納付金課税額は0.13%（第9条の4）・均等割650円（第9条の5）・18歳以上被保険者均等割40円（第9条の6）・平等割430円（第9条の7第1号）。賦課限度額は第2条第2項〜第5項ただし書に医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円と定めがある。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円で、給与所得者等が2以上の場合は1を減じた数×10万円を加算する。条例が令和8年度用であることは、子ども・子育て支援納付金課税額の区分の存在・限度額67万円・軽減加算31万/57万円の3点で確認した。18歳未満被保険者の子ども分均等割は全額減額されるため perCapitaAdultScope は all_ages。／ 資産割について: 第2条第2項〜第4項は「所得割額及び資産割額並びに被保険者均等割額及び世帯別平等割額」と資産割額に言及するが、資産割率を定める第4条・第7条・第9条はいずれも「削除」となっており、実際に課される資産割は存在しない。したがって assetLevy は置かない。／ 子ども分の値は条例の7割軽減規定（均等割の減額額455円・18歳以上28円）とも整合する（650×0.7=455、40×0.7=28）。／ 本コミットにより、従前採用していた福井県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から条例値へ是正した。所得割は医療0.0482→0.0461（支援0.0269・介護0.0233は変更なし）、均等割は医療21,383→19,000・支援11,900→11,000・介護12,346→12,000、平等割は医療13,883→13,000・支援7,726→7,000・介護5,989→5,000、子ども分は所得割0.0015→0.0013・均等割644→650・18歳以上加算46→40・平等割419→430。賦課限度額は条例と同値のため変更なし。／ ★県資料との差異: 福井県公表の「令和8年度各市町国民健康保険税率」（R8HOKENRYO.pdf・県ページの最終更新 2026年4月1日）のおおい町行は子ども・子育て支援納付金分の被保険者均等割を590円としているが、例規集の条例本文（第9条の5）は650円である。他の12項目（所得割3区分・均等割3区分・平等割3区分・子ども分所得割・子ども分平等割・18歳以上均等割）はすべて一致する。条例の650円は同条例の7割軽減規定455円（=650×0.7）と内部整合しており、おおい町には令和8年の改正が2本（令和8年3月17日条例第6号・同3月31日条例第9号）あるため、県の集計後に後者で改定された可能性がある。自治体の条例が一次資料として上位であるため、本データは条例の650円を採用した。町へ照会するか県資料の更新を待って再確認すること。／ おおい町の公式サイトの国民健康保険税ページには令和8年度の税率表が無く（記事一覧の最新は令和7年11月1日「子ども・子育て支援金制度について」・2026-09-01 実測）、条例が一次資料である。例規集ホスト（www1.g-reiki.net）の URL は ordinanceUrls に置き、sourceUrls には置いていない（出典許可ホストに当たらず、公開ページの来歴節が描画されなくなるため）。"
   },
   "childcareLevy": {
-    "rate": 0.0015,
-    "perCapita": 644,
-    "perCapitaAdult": 46,
+    "rate": 0.0013,
+    "perCapita": 650,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 419,
+    "household": 430,
     "cap": 30000
   }
 }

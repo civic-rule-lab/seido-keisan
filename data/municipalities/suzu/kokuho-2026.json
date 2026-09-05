@@ -6,23 +6,23 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0901,
-    "support": 0.0276,
-    "care": 0.0242
+    "medical": 0.08,
+    "support": 0.024,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 38984,
-    "support": 11852,
-    "care": 12421
+    "medical": 31000,
+    "support": 9800,
+    "care": 11000
   },
   "household": {
-    "medical": 25008,
-    "support": 7603,
-    "care": 6049
+    "medical": 21300,
+    "support": 6800,
+    "care": 5500
   },
   "caps": {
-    "medical": 670000,
-    "support": 260000,
+    "medical": 650000,
+    "support": 220000,
     "care": 170000,
     "childcare": 30000
   },
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.343Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.city.suzu.lg.jp/soshiki/4/1282.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.suzu.lg.jp/soshiki/4/1282.html",
+        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "official",
+      "title": "珠洲市 国民健康保険税（令和8年度国民健康保険税の計算方法）",
+      "url": "https://www.city.suzu.lg.jp/soshiki/4/1282.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で珠洲市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=55円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "本データの値は、石川県が公表した令和8年度の市町村標準保険料率を採用した参考値であり、市が実際に告示する税率ではない。／ 昇格保留の理由（2026-09-01 調査）: 例規集の珠洲市国民健康保険税条例（最終改正 令和8年条例第21号／令和8年度以後の年度分に適用。例規集の版は令和8年4月1日施行）は、子ども・子育て支援納付金課税額の区分・18歳未満被保険者の減額規定を備え、軽減判定の加算額も5割310,000円・2割570,000円と令和8年度の額になっている一方で、賦課限度額が基礎課税額65万円・後期高齢者支援金等課税額22万円のままである（介護17万円・子ども子育て支援金分3万円）。65万円・22万円は令和5年度の政令額であり、令和8年度の額（67万円・26万円）にも令和7年度の額（66万円・26万円）にも一致しない。市が政令上限より低い額を意図して定めている可能性と、限度額の条項だけ改正が漏れている可能性の両方があり、条文だけでは判別できない。／ 次にやること: 市へ照会するか、市の令和8年度料率ページで限度額の公表値を確認する。珠洲市は令和6年能登半島地震の被災地であり、条例整備や公表の遅れがある可能性も考慮する。 / 2026-09-01: 昇格保留を解消した。珠洲市公式の「国民健康保険税」ページ（HTTP の Last-Modified は 2026-09-01）に「※令和8年度国民健康保険税の計算方法は次のとおりです」として全項目が掲載されており、条例で判別できなかった賦課限度額の疑義が解けた。医療保険分は所得割8.0%・均等割31,000円・平等割21,300円・課税限度額65万円、後期高齢者支援金分は2.4%・9,800円・6,800円・課税限度額22万円、介護保険分は2.1%・11,000円・5,500円・課税限度額17万円、子ども・子育て支援金分は0.2%・均等割1,273円・18歳以上均等割27円・平等割700円・課税限度額3万円。／ ★前回の未確定（賦課限度額が基礎65万円・後期支援22万円のままである理由）は解消した。前回は「市が政令上限より低い額を意図して定めている可能性」と「限度額の条項だけ改正が漏れている可能性」の両方があり条文だけでは判別できないとしていたが、市の公表ページが令和8年度の計算方法として65万円・22万円を明示しているため、これは意図した市の定めであると確定した。本データの caps を医療670,000→650,000・後期支援260,000→220,000 へ是正する。国の令和8年度政令額（67万円・26万円）で埋めてはならない。朝日町（富山）・久山町（福岡）・小松市（石川）と同型である。／ 子ども分は同ページが「チ 均等割 被保険者1人につき、1,273円」「ツ 18歳以上均等割 18歳以上の被保険者1人につき、27円」と分けて掲げており、perCapita 1,273・perCapitaAdult 27・perCapitaAdultScope: all_ages と一致する。／ 軽減判定所得は同ページの表に7割43万円＋(年金・給与所得者の数－1)×10万円、5割はこれに31万円×加入者数、2割は57万円×加入者数を加えた額と明記されており、本データの reduction と一致する。未就学児は「低所得世帯の軽減措置（7割・5割・2割軽減）対象の未就学児の場合は、適用後の残りの均等割額の5割を軽減します」と法定軽減後の5割であることも明記されており、本サイトのエンジンの実装と一致する。／ 本コミットにより、従前採用していた石川県の令和8年度市町村標準保険料率から市の公表値へ是正した。所得割は医療0.0901→0.08・支援0.0276→0.024・介護0.0242→0.021、均等割は医療38,984→31,000・支援11,852→9,800・介護12,421→11,000、平等割は医療25,008→21,300・支援7,603→6,800・介護6,049→5,500、子ども分は所得割0.0029→0.002・均等割1,258→1,273・18歳以上加算55→27・平等割808→700。／ 珠洲市は令和6年能登半島地震の被災地であり、限度額を政令上限より低く据えていることは被災地の負担軽減とも整合する（ただしページに理由の記載は無く、これは推測である）。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1258,
-    "perCapitaAdult": 55,
+    "rate": 0.002,
+    "perCapita": 1273,
+    "perCapitaAdult": 27,
     "perCapitaAdultScope": "all_ages",
-    "household": 808,
+    "household": 700,
     "cap": 30000
   }
 }

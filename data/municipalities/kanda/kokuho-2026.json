@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0815,
-    "support": 0.0287,
-    "care": 0.0229
+    "medical": 0.081,
+    "support": 0.031,
+    "care": 0.0245
   },
   "perCapita": {
-    "medical": 31400,
-    "support": 10980,
-    "care": 10538
+    "medical": 27500,
+    "support": 11000,
+    "care": 11000
   },
   "household": {
-    "medical": 31036,
-    "support": 10853,
-    "care": 8145
+    "medical": 28000,
+    "support": 10000,
+    "care": 8500
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.101Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
+        "https://www.town.kanda.lg.jp/page/1148.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.town.kanda.lg.jp/_1021/_1046/_1061/_5727.html"
+        "https://www.town.kanda.lg.jp/page/1148.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
+      "type": "official",
+      "title": "国民健康保険税",
+      "url": "https://www.town.kanda.lg.jp/page/1148.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "claude-in-chrome DOM(サブエージェントWebFetch発見→実ブラウザアンカー検証PASS)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、苅田町が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "「令和8年度国民健康保険税より税額改定」明記。新CMSのURL。貼替候補"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1071,
+    "perCapita": 1000,
     "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 1055,
+    "household": 1000,
     "cap": 30000
   }
 }

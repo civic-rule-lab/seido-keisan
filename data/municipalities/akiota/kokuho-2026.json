@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0784,
-    "support": 0.026,
-    "care": 0.0252
+    "medical": 0.0835,
+    "support": 0.0306,
+    "care": 0.0259
   },
   "perCapita": {
-    "medical": 35544,
-    "support": 11508,
-    "care": 12699
+    "medical": 33800,
+    "support": 12100,
+    "care": 12800
   },
   "household": {
-    "medical": 22679,
-    "support": 7610,
-    "care": 6069
+    "medical": 21800,
+    "support": 8000,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -60,46 +60,50 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.661Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "extracted_r8",
       "sourceUrls": [
-        "https://www.pref.hiroshima.lg.jp/uploaded/life/1113288_9614203_misc.pdf"
+        "https://www.akiota.jp/soshiki/7/16025.html"
       ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
       "watchUrls": [
         "https://www.akiota.jp/soshiki/7/16025.html"
-      ]
+      ],
+      "sourceStatus": "official_rate_page",
+      "r8Updated": true,
+      "previousYearTemplate": false,
+      "verificationLevel": "official_source_extracted",
+      "ordinanceUrls": [
+        "https://www.akiota.jp/reiki/H416901010054/H416901010054_j.html"
+      ],
+      "reflectionPending": "medical_cap,reduction_thresholds"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 広島県 標準保険料率算定結果一覧（③市町村の算定基準に基づく標準保険料率）",
-      "url": "https://www.pref.hiroshima.lg.jp/uploaded/life/1113288_9614203_misc.pdf",
+      "type": "official",
+      "title": "安芸太田町 令和8年度国民健康保険税の税率について",
+      "url": "https://www.akiota.jp/soshiki/7/16025.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
       "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": "広島県公表の令和8年度標準保険料率(③市町村の算定基準による)を参考値として採用。法定外繰入ゼロ前提の理論値で、安芸太田町が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割を県標準PDF(1113288_9614203)のblock2市町別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "令和8年度の所得割・均等割・平等割・基礎控除・後期高齢者支援金等分および介護納付金分の賦課限度額・未就学児軽減（法定軽減後の5割）を、安芸太田町国民健康保険税条例の本文で確認した（2026-08-31）。税率改正は令和8年3月18日条例第7号（令和8年度以後の年度分に適用）。18歳未満という区分および18歳以上の均等割加算は条例に存在せず、本サイトの取扱いと整合する。／ 未確定: 例規集の内容現在が令和8年3月30日で、令和8年3月31日付の専決処分による改正が未収録である。このため医療分の賦課限度額670,000円および軽減判定所得310,000円/570,000円を条文で確認できていない（条文は66万円・305,000円・560,000円のまま）。町議会 令和8年4月17日第3回臨時会の会議録（承認第3号）により、同専決処分で子ども・子育て支援納付金の新設・基礎課税額に係る課税限度額の引上げ・子ども分の課税限度額3万円・軽減判定所得基準の引上げが行われたことは確認したが、引上げ後の金額は会議録に記載がない。例規集の更新後に再照合が必要。"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1201,
-    "perCapitaAdult": 71,
+    "rate": 0.0028,
+    "perCapita": 1200,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 766,
+    "household": 800,
     "cap": 30000
   }
 }

@@ -11,14 +11,14 @@
     "care": 0.0232
   },
   "perCapita": {
-    "medical": 29909,
-    "support": 10809,
-    "care": 10645
+    "medical": 30000,
+    "support": 10900,
+    "care": 17500
   },
   "household": {
-    "medical": 29562,
-    "support": 10683,
-    "care": 8227
+    "medical": 29600,
+    "support": 10700,
+    "care": 0
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.082Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
+        "https://www.city.nakagawa.lg.jp/soshiki/6/kokuhozei08.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.city.nakagawa.lg.jp/soshiki/6/kenpozei.html"
+        "https://www.city.nakagawa.lg.jp/soshiki/6/kokuhozei08.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
+      "type": "official",
+      "title": "令和8年度国民健康保険税の税率を改定します",
+      "url": "https://www.city.nakagawa.lg.jp/soshiki/6/kokuhozei08.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "claude-in-chrome DOM(サブエージェントWebFetch発見→実ブラウザアンカー検証PASS)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、那珂川市が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "R7比較表つき改定告知。旧URL(kenpozei.html)はR4のまま。貼替候補"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1009,
-    "perCapitaAdult": 58,
+    "perCapita": 1010,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 1033,
+    "household": 1040,
     "cap": 30000
   }
 }

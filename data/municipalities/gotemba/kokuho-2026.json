@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0853,
-    "support": 0.0296,
-    "care": 0.024
+    "medical": 0.06,
+    "support": 0.023,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 36133,
-    "support": 12525,
-    "care": 17389
+    "medical": 24000,
+    "support": 9600,
+    "care": 14400
   },
   "household": {
-    "medical": 23308,
-    "support": 8080,
+    "medical": 21600,
+    "support": 7800,
     "care": 0
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.623Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf"
+        "https://www.city.gotemba.lg.jp/kurashi/kanri/assets/uploads/2026/07/R8kokuhozeiritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.gotemba.lg.jp/kurashi/b-3/b-3-2/6164.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 静岡県 市町村標準保険料率算定結果（市町村標準保険料率）",
-      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税率(R8kokuhozeiritsu.pdf・1頁)",
+      "url": "https://www.city.gotemba.lg.jp/kurashi/kanri/assets/uploads/2026/07/R8kokuhozeiritsu.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "PDF実視(ユーザー提供スクリーンショット)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、御殿場市が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "★医療分の限度額は66万円のまま(67万円に引き上げていない)。限度計112万(標準113万でない)。介護・子ども分は平等割なし。同時提供の3659.htmlは後期高齢者医療保険料(静岡県広域連合・医9.35%/51,100/85万等)で別制度のため未収載"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1924,
-    "perCapitaAdult": 141,
+    "rate": 0.0026,
+    "perCapita": 1800,
+    "perCapitaAdult": 140,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

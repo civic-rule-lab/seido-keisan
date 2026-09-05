@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.079,
-    "support": 0.0277,
-    "care": 0.0235
+    "medical": 0.082,
+    "support": 0.0285,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 34033,
-    "support": 9879,
-    "care": 11156
+    "medical": 31600,
+    "support": 10200,
+    "care": 9500
   },
   "household": {
-    "medical": 22977,
-    "support": 7918,
-    "care": 6032
+    "medical": 21500,
+    "support": 7600,
+    "care": 5300
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.665Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hiroshima.lg.jp/uploaded/life/1113288_9614203_misc.pdf"
+        "https://www.jinsekigun.jp/site/reiki/reiki_int/reiki_honbun/r076RG00000156.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.jinsekigun.jp/town/formation/jyumin/03/zeikin/"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 広島県 標準保険料率算定結果一覧（③市町村の算定基準に基づく標準保険料率）",
-      "url": "https://www.pref.hiroshima.lg.jp/uploaded/life/1113288_9614203_misc.pdf",
+      "type": "official",
+      "title": "神石高原町国民健康保険税条例(R8.3.4条例5号反映)",
+      "url": "https://www.jinsekigun.jp/site/reiki/reiki_int/reiki_honbun/r076RG00000156.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "例規集(条例本文)→実ブラウザアンカー検証PASS"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "広島県公表の令和8年度標準保険料率(③市町村の算定基準による)を参考値として採用。法定外繰入ゼロ前提の理論値で、神石高原町が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割を県標準PDF(1113288_9614203)のblock2市町別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "条例ソース(高確度)。特定世帯/特定継続世帯の平等割減額も条文あり。サイトに税率ページなし→watchUrl候補は条例ページ(更新頻度低い点に注意)。子ども分平等割700円=10例目"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1147,
-    "perCapitaAdult": 38,
+    "rate": 0.0028,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 774,
+    "household": 700,
     "cap": 30000
   }
 }

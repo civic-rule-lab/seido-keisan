@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0766,
-    "support": 0.0288,
-    "care": 0.0228
+    "medical": 0.076,
+    "support": 0.032,
+    "care": 0.026
   },
   "perCapita": {
-    "medical": 33974,
-    "support": 12720,
-    "care": 11829
+    "medical": 29600,
+    "support": 12600,
+    "care": 12300
   },
   "household": {
-    "medical": 21888,
-    "support": 8195,
-    "care": 5831
+    "medical": 22000,
+    "support": 8400,
+    "care": 7800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.195Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.shichigahama.com/benricho/joho/reiki/reiki_honbun/c222RG00000134.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www.shichigahama.com/benricho/joho/reiki/reiki_honbun/c222RG00000134.html"
+      ],
+      "watchUrls": [
+        "https://www.shichigahama.com/benricho/joho/reiki/reiki_honbun/c222RG00000134.html",
+        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "七ケ浜町国民健康保険税条例（令和8年3月31日条例第11号による改正後）",
+      "url": "https://www.shichigahama.com/benricho/joho/reiki/reiki_honbun/c222RG00000134.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "ordinance-after-revision"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で七ヶ浜町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=102円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で七ヶ浜町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=102円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-01: 七ヶ浜町国民健康保険税条例の本文で全項目を確認し、verified_r8 へ昇格した。基礎課税額は所得割7.6%（第3条）・均等割29,600円（第5条）・平等割22,000円（第5条の2第1号）、後期高齢者支援金等課税額は3.2%（第6条）・12,600円（第7条の2）・8,400円（第7条の3第1号）、介護納付金課税額は2.6%（第8条）・12,300円（第9条の2）・7,800円（第9条の3）、子ども・子育て支援納付金課税額は0.25%（第9条の4）・均等割1,200円（第9条の5）・18歳以上被保険者均等割100円（第9条の6）・平等割720円（第9条の7第1号）。賦課限度額は第2条に医療670,000円・支援260,000円・介護170,000円・子ども子育て支援金分30,000円と定めがある。軽減判定所得は基礎430,000円・5割は1人につき+310,000円・2割は+570,000円で、給与所得者等が2以上の場合は1を減じた数×100,000円を加算する。子ども分の4条（第9条の4〜第9条の7）はいずれも「令8条例11・追加」と付記されており、附則の最終も令和8年3月31日条例第11号である。条例が令和8年度用であることは、子ども・子育て支援納付金課税額の区分の存在・賦課限度額67万円・軽減判定所得の加算額31万円/57万円の3点で確認した。18歳未満被保険者の子ども・子育て支援納付金分の均等割は全額減額される定めがあるため、perCapitaAdultScope は all_ages（18歳以上=均等割+18歳以上加算、18歳未満=0円）とした。未就学児の均等割は法定軽減後の額に対して5割軽減。資産割の定めは無い。／ 本コミットにより、従前採用していた宮城県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値。県ページにも「県が一定の基準のもと算定する理論値」と明記）から条例値へ是正した。所得割は医療0.0766・支援0.0288・介護0.0228、均等割は医療33,974・支援12,720・介護11,829、平等割は医療21,888・支援8,195・介護5,831、子ども分は所得割0.0027・均等割1,166・18歳以上加算102・平等割763→所得割 医療0.076・支援0.032・介護0.026、均等割 医療29,600・支援12,600・介護12,300、平等割 医療22,000・支援8,400・介護7,800、子ども分 所得割0.0025・均等割1,200・18歳以上加算100・平等割720。賦課限度額は条例と同値のため変更なし。／ 宮城県は各市町村の実際の保険料（税）率の一覧を公表しておらず（令和8年度は納付金と標準保険料率のみ・2026-09-01 実測）、条例が唯一の一次資料である。／ 七ヶ浜町の公式サイトは独自ドメイン www.shichigahama.com が唯一で、town.shichigahama.miyagi.jp は名前解決せず .lg.jp も存在しない（2026-09-01 実測）。このため 2026-09-01 にオーナー承認のうえ、同ホストを generate-official-pages.js のPROVENANCE_HOST_EXTRA と registry/provenance-host-watch.json へ登録した。登録前は出典URLが許可ホストに当たらず、公開ページの来歴節が丸ごと描画されない状態だった。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1166,
-    "perCapitaAdult": 102,
+    "rate": 0.0025,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 763,
+    "household": 720,
     "cap": 30000
   }
 }

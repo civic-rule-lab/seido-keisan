@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0827,
-    "support": 0.0244,
-    "care": 0.0201
+    "medical": 0.093,
+    "support": 0.024,
+    "care": 0.018
   },
   "perCapita": {
-    "medical": 28612,
-    "support": 9022,
-    "care": 9211
+    "medical": 23000,
+    "support": 6200,
+    "care": 10000
   },
   "household": {
-    "medical": 28167,
-    "support": 8882,
-    "care": 7188
+    "medical": 29000,
+    "support": 7600,
+    "care": 0
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.191Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.city.hokuto.hokkaido.jp/docs/1690.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hokuto.hokkaido.jp/docs/1690.html",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "北斗市 国民健康保険税（令和8年度の税率）",
+      "url": "https://www.city.hokuto.hokkaido.jp/docs/1690.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、北斗市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、北斗市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 北斗市公式の国民健康保険税ページの「税率」表と「国民健康保険税の算出方法」の計算式で全項目を確認し、verified_r8 へ昇格した。同ページは「令和8年度は以下のとおりの税率で算定されます」と明記している。基礎課税分（医療分・0歳から74歳）は所得割9.3%・均等割23,000円・平等割29,000円・限度額67万円、後期高齢者支援金等分（0歳から74歳）は2.4%・6,200円・7,600円・26万円、介護納付金分（40歳から64歳）は1.8%・10,000円・**平等割なし**・17万円、子ども・子育て支援納付金分（0歳から74歳）は0.29%・均等割1,000円・18歳以上均等割100円・平等割1,000円・3万円。／ ★介護納付金分に平等割が無い。同ページの計算式は「介護納付金分【40から64歳】（2号被保険者分）所得割：課税標準額×1.8％＝(7)／均等割：2号保険者数×10,000円＝(8)／(7)＋(8)＝介護納付金分 年税額」と2項目だけで完結しており、他の3区分（医療・後期・子ども）が所得割・均等割・平等割の3項目で書かれているのと明確に異なる。税率表の介護納付金分の行にも平等割の欄が無い。このため household.care を 0 とした（同型は他都道府県を含め462自治体に前例がある）。道の標準保険料率は3方式で示されるため従前は7,188円が入っていたが、市の実際の課税に平等割は無い。／ 子ども分は本データの値と一致するため変更していない。税率表は「18歳以上均等割」を独立した行に置いて100円を記載し、計算式では「均等割：国保加入者数×1,100円＝(10)※」と合計額で書いたうえで「※子ども・子育て支援金について、18歳未満の均等割額は、10割が軽減される」と注記している。perCapita 1,000＋perCapitaAdult 100（合計1,100円）・all_ages と一致する。／ 令和8年度であることは軽減表でも裏が取れる。同表は令和8年度と令和7年度を並記し、5割軽減の加算額を令和8年度310,000円・令和7年度305,000円、2割軽減を570,000円・560,000円としている。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から市の公表値へ是正した。所得割は医療0.0827→0.093・支援0.0244→0.024・介護0.0201→0.018、均等割は医療28,612→23,000・支援9,022→6,200・介護9,211→10,000、平等割は医療28,167→29,000・支援8,882→7,600・介護7,188→0。限度額は市の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

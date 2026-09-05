@@ -131,9 +131,6 @@ function calculateKokuho(input, data) {
   const childcareIncome     = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
 
   // 均等割の計算
-  // 新方式: perCapitaAdult が定義されている場合 → 18歳未満は perCapita、18歳以上は perCapitaAdult
-  // 旧方式: under18Reduction=true の場合 → 18歳未満は0、18歳以上は perCapita
-  // 均等割の計算
   // 新方式(perCapitaAdult あり):
   //   18歳以上 → perCapita + perCapitaAdult（例: 京都市 1,110 + 60 = 1,170円）
   //   18歳未満 → 0（under18Reductionで全額減額）
@@ -145,7 +142,9 @@ function calculateKokuho(input, data) {
   let childcarePerCapitaTotal;
   if (childcareCfg?.perCapitaAdult !== undefined) {
     // perCapitaAdultScope で均等割の計算方式を切り替える（電話確認後にフラグを確定）
-    //   "all_ages"    : 全員に perCapita 適用＋大人に perCapitaAdult 加算（大人 = perCapita+perCapitaAdult）
+    //   "all_ages"    : 大人 = perCapita + perCapitaAdult、18歳未満 = 0
+    //                     （「全員に perCapita 適用」ではない。18歳未満は下の adults 計算から除外される。
+    //                       2026-08-30: この記述が実装と食い違っており、条例照合で誤読の原因になった）
     //   "adults_only" : 大人のみ perCapitaAdult、perCapita は 18歳未満向け名目額（全額減額で実質0）
     const scope = childcareCfg.perCapitaAdultScope;
     if (scope === undefined) {

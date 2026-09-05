@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0725,
-    "support": 0.0271,
-    "care": 0.025
+    "medical": 0.076,
+    "support": 0.019,
+    "care": 0.012
   },
   "perCapita": {
-    "medical": 31325,
-    "support": 11633,
-    "care": 12543
+    "medical": 23400,
+    "support": 6000,
+    "care": 5100
   },
   "household": {
-    "medical": 20050,
-    "support": 7446,
-    "care": 6156
+    "medical": 24600,
+    "support": 6300,
+    "care": 5100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.369Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html"
+        "https://www.city.oyabe.toyama.jp/_res/projects/default_project/_page_/001/002/075/r8kokuhozeidayori.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 富山県 市町村標準保険料率",
-      "url": "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html",
+      "type": "official",
+      "title": "小矢部市 令和8年度 国保税だより",
+      "url": "https://www.city.oyabe.toyama.jp/_res/projects/default_project/_page_/001/002/075/r8kokuhozeidayori.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-31",
+      "method": "市公表の令和8年度国保税だより(PDF)の照合"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "富山県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で小矢部市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=66円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "令和8年度の所得割率・均等割額・18歳以上均等割額・平等割額・賦課限度額・軽減規定を、小矢部市が公表した「令和8年度 国保税だより」（市公式サイト「国民健康保険税の計算方法等」からリンクされているPDF・r8kokuhozeidayori.pdf・2頁）で確認した（2026-08-31）。医療分は所得割7.6%・均等割23,400円・平等割24,600円・限度額67万円、後期高齢者支援分は1.9%・6,000円・6,300円・26万円、介護分（40〜64歳該当）は1.2%・5,100円・5,100円・17万円、子ども・子育て支援金分は0.3%・均等割1,320円・18歳以上均等割60円・平等割840円・限度額3万円。基礎控除額は430,000円（加入者個人の合計所得金額が2,400万円を超える場合は減額）。軽減判定所得は7割が基礎控除額（43万円）＋10万円×（給与所得者等の人数−1）、5割が43万円＋（被保険者・特定同一世帯所属者の人数×31万円）＋10万円×（給与所得者等の人数−1）、2割が同じく57万円。18歳未満の取扱いは「子育て世帯に対する軽減措置について」の項に「『子ども・子育て支援金分』に係る18歳未満の被保険者（高校生世代まで）の均等割額を全額軽減します」と明記されている。未就学児は均等割額の2分の1を減額（令和2年4月2日以降生まれ）。／ 本コミットにより、従前採用していた富山県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）を市の告示値へ是正した。所得割は医療0.0725→0.076・支援0.0271→0.019・介護0.025→0.012、均等割は医療31,325→23,400・支援11,633→6,000・介護12,543→5,100、平等割は医療20,050→24,600・支援7,446→6,300・介護6,156→5,100、子ども分は均等割1,312→1,320・18歳以上加算66→60・平等割832→840。子ども分の所得割0.003と賦課限度額は県標準値が市の告示値と一致していたため変更なし。なお当該PDFはテキストを持たない画像PDFのため、記載内容は画像を直接読んで確認した。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1312,
-    "perCapitaAdult": 66,
+    "perCapita": 1320,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 832,
+    "household": 840,
     "cap": 30000
   }
 }

@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0607,
+    "medical": 0.066,
     "support": 0.028,
-    "care": 0.023
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 26812,
-    "support": 12314,
-    "care": 11659
+    "medical": 26900,
+    "support": 12300,
+    "care": 11400
   },
   "household": {
-    "medical": 17726,
-    "support": 8141,
-    "care": 5776
+    "medical": 19000,
+    "support": 8200,
+    "care": 5800
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.563Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.shirataka.lg.jp/secure/2397/%E4%BB%A4%E5%92%8C%EF%BC%98%E5%B9%B4%E5%BA%A6%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E7%A8%8E%E3%81%AE%E3%81%97%E3%81%8A%E3%82%8A.pdf",
+        "https://www.town.shirataka.lg.jp/1217.htm"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.shirataka.lg.jp/1217.htm",
+        "http://www.town.shirataka.lg.jp/sreiki/reiki_honbun/c432RG00000168.html"
+      ],
+      "ordinanceUrls": [
+        "http://www.town.shirataka.lg.jp/sreiki/reiki_honbun/c432RG00000168.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税のしおり｜白鷹町",
+      "url": "https://www.town.shirataka.lg.jp/secure/2397/%E4%BB%A4%E5%92%8C%EF%BC%98%E5%B9%B4%E5%BA%A6%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E7%A8%8E%E3%81%AE%E3%81%97%E3%81%8A%E3%82%8A.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-pdf-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で白鷹町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で白鷹町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 白鷹町公式「令和8年度 国民健康保険税のしおり」PDF（町ページ 1217.htm からリンク）と、白鷹町国民健康保険税条例（町サイト内例規集・内容現在 令和8年6月25日）の2経路で令和8年度の実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療分 6.60%／均等割26,900円／平等割19,000円・限度額67万円、後期高齢者支援金分 2.80%／12,300円／8,200円・26万円、介護納付金分 2.20%／11,400円／5,800円・17万円、子ども・子育て支援金分 0.29%／均等割1,200円／18歳以上均等割100円／平等割900円・3万円。／ しおりは限度額欄に「67万円（前年度 66万円）」と明記しており、令和8年度に引き上げられたことが読み取れる。均等割・平等割の各欄にも前年度値が併記されている（医療均等割 前年度26,900円・平等割 前年度21,800円）。／ しおりの※5「子ども分の均等割は、18歳未満の被保険者は全額軽減されます」、※8「※5で軽減された均等割の総額を18歳以上の被保険者で負担します」が、エンジンの perCapita＋perCapitaAdult（18歳未満は全額軽減）と同じ構造である。／ 条例側は本則の各条から抽出し、附則の軽減額が本則×0.7／×0.5／×0.2 と一致することを8値すべてで検算した。しおりの5割軽減額（平等割 9,500／4,100／2,900／450）とも一致する。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、しおり・条例とも67万円である。山形市・鶴岡市・酒田市・米沢市・新庄市・長井市・南陽市・西川町・大江町も670,000円であり、この判断は誤りだった。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1276,
-    "perCapitaAdult": 70,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 900,
     "cap": 30000
   }
 }

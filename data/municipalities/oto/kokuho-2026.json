@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0758,
-    "support": 0.0287,
-    "care": 0.0234
+    "medical": 0.105,
+    "support": 0.024,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 29216,
-    "support": 11003,
-    "care": 10740
+    "medical": 24000,
+    "support": 9000,
+    "care": 8000
   },
   "household": {
-    "medical": 28877,
-    "support": 10876,
-    "care": 8301
+    "medical": 27000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -60,27 +60,27 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.100Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf"
+        "https://www.pref.fukuoka.lg.jp/uploaded/attachment/293234.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verificationLevel": "official_source_extracted",
       "watchUrls": [
         "https://www.town.oto.fukuoka.jp/list00009.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福岡県 市町村標準保険料率（別紙1）",
-      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/275320.pdf",
+      "type": "prefecture_official_pdf",
+      "title": "福岡県 令和8年度 各市町村の実際の国民健康保険料(税)率（293234.pdf・※2）",
+      "url": "https://www.pref.fukuoka.lg.jp/uploaded/attachment/293234.pdf",
       "publishedAt": "2026"
     },
     "audit": {
@@ -89,10 +89,10 @@
       "method": "prefecture-standard-table"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": "福岡県公表の令和8年度 市町村標準保険料率(別紙1)を参考値として採用。法定外繰入ゼロ前提の理論値で、大任町が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8 hyoujun 275320)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "令和8年度の所得割率・被保険者均等割額・世帯別平等割額を、福岡県が公表した「令和8年度 各市町村の実際の国民健康保険料（税）率」（293234.pdf の※2欄）で確認し、従前採用していた同PDFの※1欄（県内統一の基準に基づき県が算定した標準保険料率）から是正した（2026-08-31）。医療分は所得割10.50%・均等割24,000円・平等割27,000円、後期分は2.40%・9,000円・7,000円、介護分は2.10%・8,000円・6,000円。子ども・子育て支援納付金分（0.28%・均等割988円・平等割1,055円・18歳以上均等割88円）は※1と※2が同値のため変更なし。／ 未確定: 賦課限度額と18歳未満の均等割の取扱いは同PDFの対象外であり、条例で確認できていない。大任町は例規集をインターネット上で公開しておらず（2026-08-31 時点で到達できず）、町公式サイトにも令和8年度の税率ページが見当たらない。本データの賦課限度額は国の基準額（医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円）を用いているが、条例上の根拠は未確認である（久山町のように医療分を66万円に留める自治体が実在する）。このため verified_r8 には昇格させず extracted_r8 とする。町へ照会するか例規集の公開を待つ。／ 2026-09-03 論点の解消（値・lifecycle の変更なし）: 本データが保留理由に挙げていた「18歳未満被保険者の子ども・子育て支援金分均等割を全額減額する取扱いが条例・公表資料で確認できない」は、国の一次資料により解消した。こども家庭庁「国民健康保険・後期高齢者医療制度加入者向けリーフレット」（令和8年3月24日版・cfa.go.jp、sha256 cb6580b68cf13a25bb224c0263123c59a756f826d726bc608e24e103e452cf74）に「こども(18歳に達する日以後の最初の3月31日以前である者。高校生年代)については、均等割額が全額軽減されます」と明記されている。＝自治体ごとの裁量ではなく全国共通の取扱いであり、perCapitaAdultScope=all_ages（18歳未満0円・18歳以上は均等割＋加算）は正しい。所在: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/fb3dbb28-102a-4840-90a5-00ad2e0d117f/419b6d0e/20260324policies-kodomokosodateshienkinseido-13.pdf ／ ただし本自治体は他の理由（下記）でなお昇格できないため、r8Stage は据え置く。"
   },
   "childcareLevy": {
     "rate": 0.0028,

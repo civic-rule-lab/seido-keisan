@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0638,
-    "support": 0.0278,
-    "care": 0.0229
+    "medical": 0.066,
+    "support": 0.028,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 28167,
-    "support": 12189,
-    "care": 11641
+    "medical": 27300,
+    "support": 11000,
+    "care": 10500
   },
   "household": {
-    "medical": 18621,
-    "support": 8058,
-    "care": 5767
+    "medical": 20000,
+    "support": 7000,
+    "care": 6500
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.552Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.city.obanazawa.yamagata.jp/files/original/2026051511235737614e2f9cd.pdf",
+        "https://www.city.obanazawa.yamagata.jp/files/original/2026051511241452269c2a3d2.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.obanazawa.yamagata.jp/kurashi/zeikin-nenkin/kokuho-zei/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "令和8年度税率改正について｜尾花沢市（市公式PDF）",
+      "url": "https://www.city.obanazawa.yamagata.jp/files/original/2026051511235737614e2f9cd.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で尾花沢市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=83円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で尾花沢市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=83円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 尾花沢市公式PDF「令和8年度税率改正について」（国民健康保険税の税率や算定方法が変わります）で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療給付費分 6.6%／均等割27,300円／平等割20,000円・課税限度額670,000円、後期高齢者支援金等分 2.8%／11,000円／7,000円・260,000円、介護納付金分 2.1%／10,500円／6,500円・170,000円、子ども子育て支援金分 0.3%／均等割1,200円／18歳以上均等割75円／平等割750円・30,000円。PDFの※2に「子ども子育て支援金分のうち、18歳未満の加入者の均等割は全額軽減となります」と明記。／ ★同PDFは改正前後を並べており、医療給付費分の課税限度額を『改正前（令和7年度）660,000円 → 改正後（令和8年度）670,000円』と明記している。所得割も 8.5%→6.6%、平等割 26,000→20,000円 と大幅に改定された。／ 2経路目として同ページの「国民健康保険税の概要」PDFの税率表を照合し、12値すべて一致することを確認した。3経路目として、改正前の値（医療 8.5%／26,900円／26,000円、支援 2.6%／8,500円／7,000円、介護 1.8%／9,400円／6,000円）が山形県公表の令和7年度実税率一覧の尾花沢市行と完全一致することも確認した。／ ★注意: 尾花沢市国民健康保険税条例（例規集）は令和7年度版のままで限度額66万円・子ども分の区分なし。また `/fukushi/kokuho/950`（国民健康保険 > 国民健康保険税）は2022年07月21日更新の滞納注意の記事で税率を載せていない。税率は税金セクション側の `/kurashi/zeikin-nenkin/kokuho-zei/` にあり、同名ページが2箇所にある点に注意。／ 18歳以上均等割は75円で、山形県内で多い100円とは異なる。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、市PDFは改正前後を並べて『660,000円→670,000円』と明示している。山形県内でこれで31件目の反証となる。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1263,
-    "perCapitaAdult": 83,
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 75,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 750,
     "cap": 30000
   }
 }

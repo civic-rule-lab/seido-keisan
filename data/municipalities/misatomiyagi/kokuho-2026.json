@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0779,
-    "support": 0.0286,
-    "care": 0.0226
+    "medical": 0.08,
+    "support": 0.031,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 34555,
-    "support": 12657,
-    "care": 11752
+    "medical": 34000,
+    "support": 13000,
+    "care": 13000
   },
   "household": {
-    "medical": 22263,
-    "support": 8154,
-    "care": 5793
+    "medical": 23000,
+    "support": 9000,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.204Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.town.misato.miyagi.jp/03zeikin/2010-0830-1346-5.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.misato.miyagi.jp/03zeikin/2010-0830-1346-5.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "国民健康保険税の税率と限度額",
+      "url": "https://www.town.misato.miyagi.jp/03zeikin/2010-0830-1346-5.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-09",
+      "method": "★Excel試算表(ユーザーがMS Excelで開いて実視)+公式ページ実ブラウザ検証の2ソース一致"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で美里町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=71円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "★取得経緯: PENDING『美里町(埼玉)』を検索した際に宮城県美里町へ到達=新規取得。台帳に美里町は4件(宮城04505/埼玉11381/熊本43348/会津美里07447)あり取り違え注意。宮城県は台帳35件中34件未完了→本件が宮城初の1件。介護分は40〜65歳。納期10期(1期4月末〜10期2月末)+随時1期(3月末)・随時2期(4月末)の珍しい構成。子ども分平等割700円=13例目"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1193,
-    "perCapitaAdult": 71,
-    "perCapitaAdultScope": "all_ages",
-    "household": 760,
+    "rate": 0.0025,
+    "perCapita": 1170,
+    "household": 700,
     "cap": 30000
   }
 }

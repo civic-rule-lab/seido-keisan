@@ -1,105 +1,105 @@
 {
-  "cityCode": "11349",
-  "citySlug": "tokigawa",
-  "cityName": "ときがわ町",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0876,
-    "support": 0.0228,
-    "care": 0.0209
+ "cityCode": "11349",
+ "citySlug": "tokigawa",
+ "cityName": "ときがわ町",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.079,
+  "support": 0.022,
+  "care": 0.02
+ },
+ "perCapita": {
+  "medical": 41900,
+  "support": 14500,
+  "care": 15400
+ },
+ "household": {
+  "medical": 0,
+  "support": 0,
+  "care": 0
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 40742,
-    "support": 18406,
-    "care": 17784
-  },
-  "household": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.006Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.town.tokigawa.lg.jp/info/353"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、ときがわ町が実際に告示する税率とは異なる場合がある。後期・介護・子ども分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1560,
-    "perCapitaAdult": 99,
-    "perCapitaAdultScope": "all_ages",
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.006Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.town.tokigawa.lg.jp/info/353"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.town.tokigawa.lg.jp/info/353"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "ときがわ町 令和8年度国民健康保険税の算出方法について",
+   "url": "https://www.town.tokigawa.lg.jp/info/353",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 加算型・円単位: 1,532+18歳以上97円。『18歳未満は子ども分の均等割額が両方とも軽減』と明記 2方式(平等割なし)。r8_year継続案件のクローズ材料。円単位=転記注意。"
+ },
+ "childcareLevy": {
+  "rate": 0.0025,
+  "perCapita": 1532,
+  "perCapitaAdult": 97,
+  "perCapitaAdultScope": "all_ages",
+  "household": 0,
+  "cap": 30000
+ }
 }

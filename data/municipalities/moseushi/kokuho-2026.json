@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0773,
-    "support": 0.0258,
-    "care": 0.0203
+    "medical": 0.0142,
+    "support": 0.0071,
+    "care": 0.0067
   },
   "perCapita": {
-    "medical": 26746,
-    "support": 9548,
-    "care": 9316
+    "medical": 27000,
+    "support": 12200,
+    "care": 15500
   },
   "household": {
-    "medical": 26330,
-    "support": 9400,
-    "care": 7270
+    "medical": 27500,
+    "support": 12400,
+    "care": 9400
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,44 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.221Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.town.moseushi.hokkaido.jp/kosodate_iryou_fukushi/kokuho/files/R8hokenryouritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.moseushi.hokkaido.jp/kosodate_iryou_fukushi/kokuho/files/R8hokenryouritsu.pdf",
+        "https://www.town.moseushi.hokkaido.jp/kosodate_iryou_fukushi/kokuho/",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "妹背牛町 令和8年度 国民健康保険料の料率（PDF）",
+      "url": "https://www.town.moseushi.hokkaido.jp/kosodate_iryou_fukushi/kokuho/files/R8hokenryouritsu.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、妹背牛町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、妹背牛町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 妹背牛町公式の国民健康保険ページからリンクされるPDF「令和8年度の国民健康保険料の額は下記の料率をもとに計算します」（R8hokenryouritsu.pdf）で全項目を確認し、verified_r8 へ昇格した。★同町は料率を HTML ではなく PDF で公表している。医療給付費分は所得割1.42%・均等割27,000円・平等割27,500円・限度額67万円、後期高齢者支援金分は0.71%・12,200円・12,400円・26万円、介護納付金分は0.67%・15,500円・9,400円・17万円、子ども子育て支援金分は0.29%・均等割1,100円・平等割1,000円・3万円。／ ★同町は「保険税」ではなく「保険料」方式である（PDF は一貫して「国民健康保険料」と表記する）。本データの構造上の扱いは変わらない。／ ★所得割が際立って低く、均等割・平等割が高い構成である。所得割は医療1.42%（道標準7.73%）・後期0.71%（標準2.58%）・介護0.67%（標準2.03%）でいずれも標準の5分の1から4分の1にとどまる。一方 後期の均等割12,200円は標準9,548円の1.28倍、介護の均等割15,500円は標準9,316円の1.66倍である。いずれも町の公表資料の記載どおりで、所得に依らない負担を厚くする構成といえる。／ 子ども分は本データの合計額と一致するため変更していない。同PDFは均等割を1,100円と一本で示し内訳を分けていないが、「子ども分の均等割額については、子どもがいる世帯の負担が増えないよう、高校生年代までの子どもの人数分は加算されません」と述べており、本データの perCapita 900＋perCapitaAdult 200（合計1,100円）・all_ages と合計額および18歳未満0円の扱いが一致する。内訳の900/200は同PDF単独では裏が取れていない。合計額が一致するため税額計算に差は生じない。／ 令和8年度であることは、PDF 冒頭の「令和8年度の国民健康保険料の額は下記の料率をもとに計算します」と、子ども子育て支援金分の区分があること（同区分は令和8年度に新設）、限度額が医療67万円であること、納期が令和8年度のもの（1期 7月27日（月）など）であることで確認した。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から町の公表値へ是正した。所得割は医療0.0773→0.0142・支援0.0258→0.0071・介護0.0203→0.0067、均等割は医療26,746→27,000・支援9,548→12,200・介護9,316→15,500、平等割は医療26,330→27,500・支援9,400→12,400・介護7,270→9,400。限度額は町の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

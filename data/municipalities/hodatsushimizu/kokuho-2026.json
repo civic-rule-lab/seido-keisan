@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.093,
-    "support": 0.0278,
-    "care": 0.024
+    "medical": 0.0725,
+    "support": 0.0215,
+    "care": 0.0175
   },
   "perCapita": {
-    "medical": 40250,
-    "support": 11934,
-    "care": 12318
+    "medical": 25000,
+    "support": 8500,
+    "care": 11000
   },
   "household": {
-    "medical": 25819,
-    "support": 7655,
-    "care": 5999
+    "medical": 20800,
+    "support": 6100,
+    "care": 1900
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.360Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf"
+        "https://www.hodatsushimizu.jp/gyosei/iryo_kenko_fukushi/1/1/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+       "https://www1.g-reiki.net/hodatsushimizu/reiki_honbun/r286RG00000124.html"
+      ],
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 石川県 市町村標準保険料率",
-      "url": "https://www.pref.ishikawa.lg.jp/iryou/kokuho-kaikaku/documents/r8hyouzyunhokenryouritu1.pdf",
+      "type": "official",
+      "title": "宝達志水町 国民健康保険",
+      "url": "https://www.hodatsushimizu.jp/gyosei/iryo_kenko_fukushi/1/1/index.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-31",
+      "method": "条例本文の全文照合(例規集インターネット版)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "石川県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宝達志水町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=55円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "令和8年度の所得割率・被保険者均等割額・世帯別平等割額・賦課限度額・軽減規定を、宝達志水町国民健康保険税条例（最終改正 令和8年3月31日条例第16号／令和8年度以後の年度分に適用。例規集の版は令和8年4月1日施行）の本文で確認した（2026-09-01）。基礎課税額は所得割7.25%・均等割25,000円（第5条）・平等割20,800円（第5条の2第1号）、後期高齢者支援金等課税額は2.15%・8,500円（第8条）・6,100円（第9条）、介護納付金課税額は1.75%・11,000円（第11条）・1,900円（第11条の2）、子ども・子育て支援納付金課税額は0.28%・均等割1,250円（第11条の4）・18歳以上被保険者均等割40円（第11条の5）・平等割800円（第11条の6）。賦課限度額は医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円。18歳未満の被保険者は子ども・子育て支援金分の均等割が全額減額される。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円。／ 本コミットにより、石川県の令和8年度市町村標準保険料率を町の条例値へ是正した。所得割は医療0.093→0.0725・支援0.0278→0.0215・介護0.024→0.0175、均等割は医療40,250→25,000・支援11,934→8,500・介護12,318→11,000、平等割は医療25,819→20,800・支援7,655→6,100・介護5,999→1,900、子ども分は均等割1,219→1,250・18歳以上加算55→40・平等割784→800。子ども分の所得割0.0028と賦課限度額は条例と同値のため変更なし。／ ★要オーナー判断: 出典に置いた町公式ページのホスト www.hodatsushimizu.jp は独自ドメインで、scripts/generate-official-pages.js の PROVENANCE_HOST_PATTERNS のどれにも当たらず PROVENANCE_HOST_EXTRA にも未登録である。このままページを再生成すると、宝達志水町の来歴節が描画されない（日向市・佐々町と同型）。町の公式サイトであることを確認のうえ PROVENANCE_HOST_EXTRA へ追加するかどうかは、同リストの注記どおりオーナーの判断事項のため本セッションでは変更していない。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1219,
-    "perCapitaAdult": 55,
+    "perCapita": 1250,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 784,
+    "household": 800,
     "cap": 30000
   }
 }

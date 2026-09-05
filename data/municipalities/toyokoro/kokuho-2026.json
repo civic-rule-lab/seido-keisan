@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0793,
-    "support": 0.0255,
-    "care": 0.0204
+    "medical": 0.077,
+    "support": 0.022,
+    "care": 0.016
   },
   "perCapita": {
-    "medical": 27433,
-    "support": 9425,
-    "care": 9359
+    "medical": 27500,
+    "support": 8700,
+    "care": 8500
   },
   "household": {
-    "medical": 27007,
-    "support": 9279,
-    "care": 7303
+    "medical": 28500,
+    "support": 8500,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.281Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.toyokoro.jp/page/1035.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.toyokoro.jp/page/1035.html",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "豊頃町 国民健康保険税（国民健康保険税額（年額）令和8年度）",
+      "url": "https://www.toyokoro.jp/page/1035.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、豊頃町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、豊頃町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 豊頃町公式の「国民健康保険税」ページ（更新日：2026年4月1日）の「国民健康保険税額（年額）令和8年度」の4区分の表で全項目を確認し、verified_r8 へ昇格した。医療給付費分は所得割7.7%・均等割27,500円・平等割28,500円・賦課限度額670,000円、後期高齢者支援金分は2.2%・8,700円・8,500円・260,000円、介護納付金分は1.6%・8,500円・7,000円・170,000円、子ども・子育て支援納付金分は0.29%・均等割900円・18歳以上均等割200円・平等割1,000円・30,000円。／ 子ども分は本データの値と一致するため変更していない。同表は「18歳以上均等割り額」を独立した行に置き、賦課基準を「18歳以上の被保険者1人につき」として200円を記載している。perCapita 900＋perCapitaAdult 200・all_ages と正確に一致する。／ 医療分・後期高齢者支援金分の表は「特定世帯の平等割」の行を持ち、医療分が最初の5年間14,250円（1/2）・その後3年間21,375円（1/4軽減の表記だが額は3/4）、後期分が4,250円・6,375円を明示している。／ 資産割は「※資産割は、令和5年度から廃止しました」と本文に明記されており、令和8年度は課されない。assetLevy は置かない。／ ★出典ホストは www.toyokoro.jp である。2026-09-01 に www.town.toyokoro.hokkaido.jp / www.town.toyokoro.lg.jp / town.toyokoro.hokkaido.jp / toyokoro.lg.jp の名前解決を実測し、いずれも応答が無いことを確認した。トップページの町役場の所在地・代表電話を照合して自己同定の一致を確認し、法人番号が本データの cityCode と対応することも確認した。乗っ取りを示す語句は0件である。このため PROVENANCE_HOST_EXTRA への追加が必要で、別ブランチ fix/provenance-host-extra-watch で対応する（merge 順の依存あり）。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から町の公表値へ是正した。所得割は医療0.0793→0.077・支援0.0255→0.022・介護0.0204→0.016、均等割は医療27,433→27,500・支援9,425→8,700・介護9,359→8,500、平等割は医療27,007→28,500・支援9,279→8,500・介護7,303→7,000。賦課限度額は町の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0881,
-    "support": 0.025,
-    "care": 0.0202
+    "medical": 0.085,
+    "support": 0.03,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 30461,
-    "support": 9259,
-    "care": 9236
+    "medical": 19900,
+    "support": 5900,
+    "care": 7000
   },
   "household": {
-    "medical": 29988,
-    "support": 9115,
-    "care": 7207
+    "medical": 18300,
+    "support": 6500,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.182Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.city.sunagawa.hokkaido.jp/shisei/zei/kokuminkenkouhokenzei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.sunagawa.hokkaido.jp/shisei/zei/kokuminkenkouhokenzei.html",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "砂川市 国民健康保険税（国保税の算出方法・令和8年度）",
+      "url": "https://www.city.sunagawa.hokkaido.jp/shisei/zei/kokuminkenkouhokenzei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、砂川市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、砂川市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 砂川市公式の「国民健康保険税」ページの「国保税の算出方法」で全項目を確認し、verified_r8 へ昇格した。医療分は所得割8.5%・均等割19,900円・平等割18,300円・限度額67万円、支援金分は3.0%・5,900円・6,500円・26万円、介護分は2.5%・7,000円・5,000円・17万円、子ども分は0.29%・均等割1,000円＋18歳以上均等割100円・平等割1,000円・3万円。／ ★同ページの計算例が本データの childcareLevy の構造を裏づけている。4人世帯（世帯主50歳・妻49歳・子17歳・父73歳）の例で、子ども分の均等割を「1,000円×3人＝3,000円」、18歳以上均等割を「100円×3人＝300円」としており、17歳の子を**両方の均等割から除いている**。注3にも「子ども分（18歳未満は均等割額がかかりません）」とある。本データの子ども分は「18歳以上は perCapita + perCapitaAdult、18歳未満は0円」という扱いで、この計算例と完全に一致する。子ども分は変更していない。／ 同ページは子ども分について「納めていただく税率については、全道統一保険料率を用いて徴収いたします」と述べており、北海道で子ども分が全道一律であることの市側からの裏づけになる。／ 医療分の均等割19,900円・平等割18,300円は道の標準料率（30,461円・29,988円）の6割ほどで、所得割8.5%は標準0.0881をわずかに下回る。支援金分の所得割3.0%は標準2.50%を大きく上回る。いずれも市の公表値の記載どおりで、同ページの計算例（医療分合計302,700円など）とも整合する。／ 資産割の記載は無く、算出方法は所得割・均等割・平等割の3方式である。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から市の公表値へ是正した。所得割は医療0.0881→0.085・支援0.025→0.03・介護0.0202→0.025、均等割は医療30,461→19,900・支援9,259→5,900・介護9,236→7,000、平等割は医療29,988→18,300・支援9,115→6,500・介護7,207→5,000。限度額は市の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

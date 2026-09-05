@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0618,
-    "support": 0.0283,
-    "care": 0.0229
+    "medical": 0.061,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 27316,
-    "support": 12408,
-    "care": 11636
+    "medical": 23500,
+    "support": 10600,
+    "care": 11100
   },
   "household": {
-    "medical": 18059,
-    "support": 8203,
-    "care": 5764
+    "medical": 16500,
+    "support": 7500,
+    "care": 5700
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.546Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.city.sakata.lg.jp/kurashi/zeikin/kokuminkenkou/kokuhoaramashi.html",
+        "https://www.city.sakata.lg.jp/kurashi/zeikin/kokuminkenkou/kokuhozeishisan.files/R80716_kokuhoshisan.xlsx"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.sakata.lg.jp/kurashi/zeikin/kokuminkenkou/kokuhoaramashi.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税に関するあらまし｜酒田市（令和8年度）",
+      "url": "https://www.city.sakata.lg.jp/kurashi/zeikin/kokuminkenkou/kokuhoaramashi.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で酒田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=72円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で酒田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=72円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。（2026-09-04に達成） ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 酒田市公式ページ「国民健康保険税に関するあらまし」（更新日2026年5月1日）で令和8年度の実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療 6.1%／均等割23,500円／平等割16,500円・限度額670,000円、支援金等分 2.7%／10,600円／7,500円、介護 2.3%／11,100円／5,700円、子ども・子育て支援分 0.3%／均等割1,300円／18歳以上均等割100円／平等割900円／限度額30,000円。同じ値を市公式の試算エクセル「R80716_kokuhoshisan.xlsx」（試算ページ・更新日2026年7月21日）のセル値でも機械照合した（所得割率 J5=0.061／K5=0.027／L5=0.023／M5=0.003、均等割 J6=23,500／K6=10,600／L6=11,100／M6=1,300／N6=100、平等割 J7=16,500／K7=7,500／L7=5,700／M7=900、限度額 J8=670,000／K8=260,000／L8=170,000／M8=30,000）。／ 子ども分均等割は市ページに「18歳未満の被保険者については全額軽減されます」と明記があり、18歳以上均等割100円は別建て。エンジンの perCapita=1,300＋perCapitaAdult=100（18歳未満は全額軽減）と一致する。／ ★限度額の訂正: 本ファイルは2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、酒田市の令和8年度は670,000円である。山形市・鶴岡市も670,000円であり、この判断は誤りだった。山形県内で660,000円のまま残る自治体は昇格時に一次資料で必ず確認すること。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1299,
-    "perCapitaAdult": 72,
+    "rate": 0.003,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 853,
+    "household": 900,
     "cap": 30000
   }
 }

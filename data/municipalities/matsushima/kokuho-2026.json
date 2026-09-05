@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0735,
+    "medical": 0.0734,
     "support": 0.0294,
-    "care": 0.0232
+    "care": 0.0234
   },
   "perCapita": {
-    "medical": 32606,
-    "support": 12998,
-    "care": 12037
+    "medical": 21200,
+    "support": 7800,
+    "care": 8900
   },
   "household": {
-    "medical": 21007,
-    "support": 8374,
-    "care": 5933
+    "medical": 16200,
+    "support": 6200,
+    "care": 4700
   },
   "caps": {
     "medical": 670000,
@@ -28,8 +28,8 @@
   },
   "preschoolReduction": {
     "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
+    "medicalPerCapitaRate": 1,
+    "supportPerCapitaRate": 1
   },
   "reduction": {
     "enabled": true,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.194Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
+        "https://www.town.miyagi-matsushima.lg.jp/page/1222.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.miyagi-matsushima.lg.jp/page/1222.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
+      "type": "official",
+      "title": "松島町 国民健康保険税",
+      "url": "https://www.town.miyagi-matsushima.lg.jp/page/1222.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-15",
+      "method": "claude-in-chrome 実ブラウザ実視"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で松島町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=67円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "★町独自: R3年度から18歳未満の均等割を全区分で全額免除→schoolReduction系(栗原・涌谷と同型)。本算定7月中旬通知から反映と注記 / 18歳未満均等割全額免除(町独自R3〜) / 軽減判定: 43万/31万/57万+10万 / 2026-08-28訂正: 学齢児(未就学児を除く18歳未満)への自治体独自の均等割軽減が schoolReduction.enabled=false のままで、医療分・支援分の均等割を過大計算していた。実ブラウザで公表ページを目視確認のうえ有効化。根拠= 松島町「令和3年度から…国民健康保険に加入している18歳未満の子どもの均等割額について全額免除を実施しています。なお、対象者に該当する場合は減免後の金額で通知を行いますので、手続きは不要です」"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1178,
-    "perCapitaAdult": 67,
+    "rate": 0.003,
+    "perCapita": 900,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 749,
+    "household": 700,
     "cap": 30000
+  },
+  "schoolReduction": {
+    "enabled": true,
+    "medicalPerCapitaRate": 1.0,
+    "supportPerCapitaRate": 1.0
   }
 }

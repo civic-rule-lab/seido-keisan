@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0695,
-    "support": 0.0279,
-    "care": 0.0227
+    "medical": 0.0655,
+    "support": 0.0277,
+    "care": 0.0226
   },
   "perCapita": {
-    "medical": 30678,
-    "support": 12236,
-    "care": 11538
+    "medical": 29300,
+    "support": 12200,
+    "care": 13400
   },
   "household": {
-    "medical": 20281,
-    "support": 8089,
-    "care": 5716
+    "medical": 19300,
+    "support": 8100,
+    "care": 6300
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.563Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.iide.yamagata.jp/014/kokuho.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.iide.yamagata.jp/014/kokuho.html",
+        "https://www.town.iide.yamagata.jp/reiki_int/reiki_honbun/c433RG00000146.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.iide.yamagata.jp/reiki_int/reiki_honbun/c433RG00000146.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税について｜飯豊町（国民健康保険税の税率等（令和8年度））",
+      "url": "https://www.town.iide.yamagata.jp/014/kokuho.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で飯豊町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で飯豊町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 飯豊町公式ページ「国民健康保険税について」（Last-Modified 2026-08-20）の表『1 国民健康保険税の税率等（令和8年度）』で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療分 6.55%／均等割29,300円／平等割19,300円・限度額67万円、支援金分 2.77%／12,200円／8,100円・26万円、介護分 2.26%／13,400円／6,300円・17万円、子ども分 0.26%／均等割1,100円／18歳以上均等割100円／平等割700円・3万円。軽減判定は31万円・57万円で令和8年度基準。／ 飯豊町国民健康保険税条例（町サイト内例規集）も同じ12値を定めており2経路で一致する。ただし★条例側は限度額を66万円、5割軽減の加算額を56万円と定めたままで令和7年度基準である。料率だけが令和8年度に改正され、限度額と軽減判定所得の改正が例規集に反映されていない混在状態にある。町ページ側（限度額67万円・軽減31万円/57万円）を採用した。／ ★注意: 条例の介護分は「の被保険者均等割は、介護納付金課税被保険者1人について13,400円とする」と『均等割額』でなく『均等割』と表記しており、『被保険者均等割額は』で機械抽出すると取りこぼす。／ 令和7年度からは全区分が改定されている（県の令和7年度実税率一覧の飯豊町行は 医療 6.53%相当・支援 2.53%／10,100円／7,300円、介護 2.27%／11,300円）。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、町ページは67万円である。山形県内でこれで27件目の反証となる。なお本件は条例だけを見ると66万円で、町ページを見なければ誤りに気づけなかった。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1281,
-    "perCapitaAdult": 65,
+    "rate": 0.0026,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 700,
     "cap": 30000
   }
 }

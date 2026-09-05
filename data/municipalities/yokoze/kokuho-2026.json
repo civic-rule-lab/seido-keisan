@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0808,
-    "support": 0.0264,
-    "care": 0.0283
+    "medical": 0.07,
+    "support": 0.028,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 42086,
-    "support": 15279,
-    "care": 12913
+    "medical": 41000,
+    "support": 16000,
+    "care": 16000
   },
   "household": {
     "medical": 0,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.006Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.town.yokoze.saitama.jp/kurashi/kenko-hoken/62850"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.yokoze.saitama.jp/kurashi/kenko-hoken/8016"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "令和8年度国民健康保険税について",
+      "url": "https://www.town.yokoze.saitama.jp/kurashi/kenko-hoken/62850",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "HTML実視(ユーザー提供スクリーンショット・R8/R7/県標準の3列比較表)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、横瀬町が実際に告示する税率とは異なる場合がある。後期・介護・子ども分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "★R7で資産割・平等割を廃止済=2方式。医療所得割6.20→7.00%・均等割31,000→41,000円の大幅増。県標準(8.11%/49,305円)にはまだ届かず。限度額は同ページ『賦課限度額の引き上げ』節にあるがスクショ範囲外=[未目視](抽出値67/26/17/3万を暫定採用)"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1682,
-    "perCapitaAdult": 108,
+    "rate": 0.0026,
+    "perCapita": 1570,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

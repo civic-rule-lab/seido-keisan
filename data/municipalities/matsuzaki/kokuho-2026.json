@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0812,
-    "support": 0.0285,
-    "care": 0.0231
+    "medical": 0.0595,
+    "support": 0.024,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 34407,
-    "support": 12049,
-    "care": 16759
+    "medical": 20400,
+    "support": 8000,
+    "care": 14000
   },
   "household": {
-    "medical": 22194,
-    "support": 7772,
+    "medical": 14800,
+    "support": 6200,
     "care": 0
   },
   "caps": {
@@ -60,27 +60,32 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.631Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf"
+        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8hokenryouritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verificationLevel": "official_source_extracted",
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/matsuzaki/d1w_reiki/H333901010004/H333901010004_j.html"
+      ],
       "watchUrls": [
-        "https://www.town.matsuzaki.shizuoka.jp/docs/2023032700012/"
+        "https://www.pref.shizuoka.jp/kenkofukushi/iryo/kenkohoken/1024897.html",
+        "https://www.town.matsuzaki.shizuoka.jp/docs/2023032700012/",
+        "https://en3-jg.d1-law.com/matsuzaki/d1w_reiki/H333901010004/H333901010004_j.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 静岡県 市町村標準保険料率算定結果（市町村標準保険料率）",
-      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf",
+      "type": "prefecture_official_pdf",
+      "title": "静岡県 令和8年度 国民健康保険市町保険料（税）率（r8hokenryouritsu.pdf・松崎町の行）",
+      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8hokenryouritsu.pdf",
       "publishedAt": "2026"
     },
     "audit": {
@@ -92,12 +97,12 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、松崎町が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、松崎町が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。 / 2026-09-01: 前回セッションで「例規集がインターネット上に見当たらない」と記録したが、実際には d1-law に松崎町例規集が公開されていた（内容現在 令和8年3月31日）。ただし収録されている松崎町国民健康保険税条例（昭和33年10月1日条例第4号）は令和7年度の内容で、令和8年度用ではない。判定の3点はいずれも古い版を示す。(1)本則に「子ども・子育て」「18歳」の語が1件も無く、子ども・子育て支援納付金課税額の区分が存在しない。(2)第2条第2項の基礎課税額の賦課限度額が660,000円（令和8年度は670,000円）。後期支援は260,000円・介護は170,000円。(3)軽減判定所得の加算額が5割305,000円・2割560,000円（令和8年度は310,000円・570,000円）。附則の最終は令和7年6月4日条例第19号で、令和8年3月の改正が未収録である。／ 同条例が定める令和7年度の税率は、医療分 所得割5.95%・均等割20,400円・平等割14,800円、後期支援分 2.40%・8,000円・6,200円、介護分 2.30%・14,000円・平等割なし（2方式）で、これは静岡県公表の「令和7年度国民健康保険市町保険料（税）率」（r7hokenryouritsu.pdf）の松崎町行と完全に一致する。つまり例規集の在版は令和7年度の実際の料率であって、令和8年度の値ではない。／ 静岡県の各市町の実際の料率一覧は令和7年度分（r7hokenryouritsu.pdf）までで、令和8年度分は 2026-09-01 時点で未公開（r8hokenryouritsu.pdf / r8hokenryouritsu2.pdf とも404）。町サイトの国民健康保険ページにも料率の記載は無い。／ 注意: 本データが採用している県標準保険料率（医療 所得割8.12%・均等割34,407円・平等割22,194円）は、町が令和7年度に実際に告示していた値（5.95%・20,400円・14,800円）と大きく離れている。法定外繰入ゼロ前提の理論値であるためで、令和8年度の実際の値が判明したら差が縮む可能性が高い。／ 昇格の条件: 令和8年度の改正条例が例規集に収録されるか、静岡県が令和8年度の実料率一覧を公表するか、町が料率ページを掲載すること。いずれかが起きるまで standard_r8 のまま据え置く。 / 2026-09-04: 静岡県が令和8年度の実料率一覧（r8hokenryouritsu.pdf・sha256 798ff086e86765a242491c3a01f264419f754c49237178561c002777ef6049e2）を公表したため、県標準保険料率（理論値）から松崎町の実際の料率へ差し替えた。医療 5.95%/20,400円/14,800円・支援 2.40%/8,000円/6,200円・介護 2.30%/14,000円（平等割なし＝2方式）・子ども 0.27%/1,600円/18歳以上均等割100円（平等割は空欄）。列の対応は pdftotext -layout のヘッダ桁位置で機械的に確定した（子ども均等割=122桁、18歳以上均等割=130/131桁、子ども平等割=136桁は空欄）。医療・支援・介護の3区分は例規集の令和7年度条例の値と完全に一致しており、令和8年度は子ども・子育て支援納付金分の新設のみで既存3区分は据え置きと読める。 / 昇格が verified_r8 でなく extracted_r8 に留まる理由: 出典が県公表の実料率一覧のみで、町自身の一次資料（料率ページ・広報）が無く、例規集の在版も令和7年度のままで突合できないため。前例（久山町・大任町・北山村・太地町）と同じ扱い。 / 昇格の条件: 町が令和8年度の料率ページを掲載するか、例規集が令和8年3月の改正を収録すること。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1926,
-    "perCapitaAdult": 118,
+    "rate": 0.0027,
+    "perCapita": 1600,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

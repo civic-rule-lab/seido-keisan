@@ -60,25 +60,28 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.521Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
       "r8Stage": "standard_r8",
       "sourceStatus": "prefecture_standard_municipal_list",
       "sourceUrls": [
-        "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_令和8年度秋田県国民健康保険標準保険税率一覧(HP掲載用).pdf"
+        "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_%E4%BB%A4%E5%92%8C%EF%BC%98%E5%B9%B4%E5%BA%A6%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E6%A8%99%E6%BA%96%E4%BF%9D%E9%99%BA%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A7%EF%BC%88HP%E6%8E%B2%E8%BC%89%E7%94%A8%EF%BC%89.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.pref.akita.lg.jp/pages/archive/94480",
+        "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/03_%E4%BB%A4%E5%92%8C%EF%BC%97%E5%B9%B4%E5%BA%A6%E5%B8%82%E7%94%BA%E6%9D%91%E5%9B%BD%E4%BF%9D%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A7.pdf"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
       "title": "令和8年度 秋田県 国民健康保険標準保険税率（市町村標準・県内統一算定方式）",
-      "url": "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_令和8年度秋田県国民健康保険標準保険税率一覧(HP掲載用).pdf",
+      "url": "https://www.pref.akita.lg.jp/uploads/public/archive_0000094480_00/02_%E4%BB%A4%E5%92%8C%EF%BC%98%E5%B9%B4%E5%BA%A6%E7%A7%8B%E7%94%B0%E7%9C%8C%E5%9B%BD%E6%B0%91%E5%81%A5%E5%BA%B7%E4%BF%9D%E9%99%BA%E6%A8%99%E6%BA%96%E4%BF%9D%E9%99%BA%E7%A8%8E%E7%8E%87%E4%B8%80%E8%A6%A7%EF%BC%88HP%E6%8E%B2%E8%BC%89%E7%94%A8%EF%BC%89.pdf",
       "publishedAt": "2026"
     },
     "audit": {
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "秋田県公表の令和8年度 国民健康保険標準保険税率(市町村標準・県内統一算定方式)を参考値として採用。法定外繰入ゼロ前提の理論値で大館市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割0%。子ども子育て分は18歳以上均等割(=54円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一(大潟村は18+227円と県内突出)。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "秋田県公表の令和8年度 国民健康保険標準保険税率(市町村標準・県内統一算定方式)を参考値として採用。法定外繰入ゼロ前提の理論値で大館市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割0%。子ども子育て分は18歳以上均等割(=54円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一(大潟村は18+227円と県内突出)。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-04: 出典URLを訂正した。旧URLは半角の「8」と半角括弧「(HP掲載用)」を含んでおり404だったが、秋田県サイトの実際のリンクは全角の「８」と全角括弧「（HP掲載用）」である。文字種の違いだけが原因で、資料は消えていない（訂正後URLは HTTP 200・1,702,478バイト）。掲載ページは『令和8年度秋田県国民健康保険標準保険税率の公表』（pages/archive/94480）。 / ★採用した系列: 同PDF「令和8年度 秋田県国民健康保険標準保険税率一覧（令和8年3月25日）」は1保険者につき2系統を並べている。左＝『市町村標準保険料率』、右＝『市町村標準保険料率（市町村算定方式）』。本データが採用しているのは**左の『市町村標準保険料率』**である。大館市（5.3%／23,532円／14,952円・子ども 0.26%／1,329円／838円／18歳以上54円）、鹿角市、由利本荘市、潟上市、大仙市の5市について医療3値と子ども4値がPDFの左系列と完全一致することを確認した。右系列（市町村算定方式）とは一致しない。 / 本PDFはテキストレイヤを持たない画像PDF（5ページ・スキャン）であり、pdftotext では値が取れない。照合には画像として読む必要がある。 / 秋田県は令和8年度については標準保険税率のみを公表しており、市町村の実税率一覧は令和7年度分（03_令和７年度市町村国保税率一覧.pdf・同ページ）までである。したがって本データは令和8年度の実税率ではなく県標準の理論値であり、r8Stage は standard_r8 のまま据え置く。昇格には各市町村自身の一次資料が要る。"
   },
   "childcareLevy": {
     "rate": 0.0026,

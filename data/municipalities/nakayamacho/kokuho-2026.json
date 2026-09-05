@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.061,
-    "support": 0.0276,
-    "care": 0.0225
+    "medical": 0.074,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 26933,
-    "support": 12110,
-    "care": 11391
+    "medical": 29700,
+    "support": 10000,
+    "care": 11500
   },
   "household": {
-    "medical": 17805,
-    "support": 8006,
-    "care": 5643
+    "medical": 21800,
+    "support": 7400,
+    "care": 5400
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.553Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.nakayama.yamagata.jp/material/files/group/6/R8kokuhozeiritu.pdf",
+        "https://www.town.nakayama.yamagata.jp/soshiki/jumin_zeimu/zeimu/283.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.nakayama.yamagata.jp/soshiki/jumin_zeimu/zeimu/283.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "令和8年度保険税率｜中山町（町公式PDF）",
+      "url": "https://www.town.nakayama.yamagata.jp/material/files/group/6/R8kokuhozeiritu.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で中山町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で中山町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 中山町公式PDF「令和8年度保険税率」（R8kokuhozeiritu.pdf・町ページ『国民健康保険税』更新日2026年07月15日からリンク）で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療給付費分 7.4%／均等割29,700円／平等割21,800円・限度額670,000円、後期高齢者支援金分 2.7%／10,000円／7,400円・260,000円、介護給付金分 2.3%／11,500円／5,400円・170,000円、子ども・子育て支援納付金分 0.3%／均等割1,200円／18歳以上被保険者100円／平等割800円・30,000円。／ 2経路目として同ページの「軽減後の税額（1人あたり）」PDF（R8kokuhokeigen.pdf）を照合した。7割軽減世帯の軽減後額が本則×0.3 と一致することを9値で検算している（医療 均等割8,910＝29,700×0.3・平等割6,540＝21,800×0.3、支援 3,000・2,220、介護 3,450・1,620、子ども 360・240、18歳以上30）。5割・2割の各段も同様に整合する。／ 3経路目として、医療・支援・介護の3区分9値が山形県公表の令和7年度実税率一覧の中山町行と完全一致することも確認した。令和8年度は子ども分の新設のみで既存3区分は据え置きである。／ ★注意: 中山町国民健康保険税条例（町サイト内例規集）は令和7年度版のままで、限度額66万円・子ども分の区分なしである。条例だけを見ると保留になるが、町が令和8年度の料率PDFを公表している。例規集の反映遅れは自治体ページで補える。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、町PDFは670,000円である。山形県内でこれで28件目の反証となる。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1273,
-    "perCapitaAdult": 73,
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 800,
     "cap": 30000
   }
 }

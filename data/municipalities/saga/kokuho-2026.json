@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0917,
-    "support": 0.0287,
-    "care": 0.0227
+    "medical": 0.092,
+    "support": 0.027,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 34533,
-    "support": 10701,
-    "care": 11665
+    "medical": 30500,
+    "support": 10000,
+    "care": 10700
   },
   "household": {
-    "medical": 36537,
-    "support": 11322,
-    "care": 5857
+    "medical": 32500,
+    "support": 8800,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.746Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.saga.lg.jp/kiji00387524/index.html"
+        "https://www.city.saga.lg.jp/kenko-fukushi/hoken-nenkin/1/4/7570.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.saga.lg.jp/kenko-fukushi/hoken-nenkin/1/4/7570.html",
+        "http://www1.g-reiki.net/city.saga/reiki_honbun/r276RG00000757.html"
+      ],
+      "ordinanceUrls": [
+        "http://www1.g-reiki.net/city.saga/reiki_honbun/r276RG00000757.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 佐賀県 国民健康保険標準保険税率（市町村標準）",
-      "url": "https://www.pref.saga.lg.jp/kiji00387524/index.html",
+      "type": "official",
+      "title": "令和8年度国民健康保険税の算出方法について｜佐賀市",
+      "url": "https://www.city.saga.lg.jp/kenko-fukushi/hoken-nenkin/1/4/7570.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で佐賀市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=70円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "佐賀県公表の令和8年度 国民健康保険標準保険税率(市町村標準)を参考値として採用。法定外繰入ゼロ前提の理論値で佐賀市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割(=1102円)＋18歳以上均等割(=70円)で、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。子ども所得割は県内一律0.25%。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-04に達成）。 / 2026-09-04: 佐賀市公式ページ「令和8年度国民健康保険税の算出方法について」（Last-Modified 2026-07-31）と佐賀市国民健康保険税条例（g-reiki）の2経路で令和8年度の実税率を確認し、佐賀県標準保険料率（理論値）から差し替えた。医療分 9.2%／均等割30,500円／平等割32,500円・限度額670,000円、後期高齢者支援金分 2.7%／10,000円／8,800円・260,000円、介護分 2.1%／10,700円／5,500円・170,000円、子ども・子育て支援金分 0.2%／均等割940円／18歳以上被保険者均等割60円／平等割600円・30,000円。軽減判定は31万円・57万円で令和8年度基準。／ ★市ページの子ども・子育て支援金分の均等割は「被保険者1人当たり1,000円」と表示されているが、これは条例の被保険者均等割940円（第7条の5相当）と18歳以上被保険者均等割60円（同）の合算値である。鶴岡市・米沢市のしおりと同じ合算表記であり、市ページだけを見て perCapita=1,000／perCapitaAdult=0 と取ると誤る。条例の細分値を採用した。／ 市ページには18歳未満の全額軽減についての記載が無いが、条例が18歳以上被保険者均等割を別建てで定めていることから、全国共通の「18歳未満は子ども分均等割を全額軽減し、その相当分を18歳以上に加算」の構造である。エンジンの perCapita=940＋perCapitaAdult=60（18歳未満は全額軽減）は18歳以上1,000円・18歳未満0円となり、市ページの表示と整合する。／ 附則の7割軽減の減額額が本則×0.7 と一致することを検算した（医療均等割21,350＝30,500×0.7、医療平等割22,750、支援均等割7,000、支援平等割6,160、介護均等割7,490、介護平等割3,850、子ども均等割658＝940×0.7、18歳以上均等割42＝60×0.7）。／ ★佐賀県が公表していた納付金・標準保険料率のページ（kiji00387524）は2026-09-04時点で404であり、県サイト内に代替の公表ページを見つけられなかった。本差し替えにより本ファイルは県資料に依拠しなくなった。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1102,
-    "perCapitaAdult": 70,
+    "rate": 0.002,
+    "perCapita": 940,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 600,
     "cap": 30000
   }
 }

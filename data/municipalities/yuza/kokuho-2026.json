@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0636,
-    "support": 0.028,
-    "care": 0.0225
+    "medical": 0.07,
+    "support": 0.025,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 28098,
-    "support": 12289,
-    "care": 11436
+    "medical": 26000,
+    "support": 9000,
+    "care": 12100
   },
   "household": {
-    "medical": 18576,
-    "support": 8124,
-    "care": 5665
+    "medical": 20600,
+    "support": 7400,
+    "care": 6500
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.565Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.yuza.yamagata.jp/uploads/public/archive_0000000205_00/%E6%96%B0%E8%A6%8F%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC/R8.%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E5%90%88%E4%BD%93%E7%89%88%E3%80%80.pdf",
+        "https://www.town.yuza.yamagata.jp/ou/chomin/kazei/kokuminkenkouhoken.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.yuza.yamagata.jp/ou/chomin/kazei/kokuminkenkouhoken.html",
+        "https://www.town.yuza.yamagata.jp/reiki/reiki_honbun/c442RG00000187.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.yuza.yamagata.jp/reiki/reiki_honbun/c442RG00000187.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税・介護保険料・後期高齢者医療保険料のお知らせ｜遊佐町",
+      "url": "https://www.town.yuza.yamagata.jp/uploads/public/archive_0000000205_00/%E6%96%B0%E8%A6%8F%E3%83%95%E3%82%A9%E3%83%AB%E3%83%80%E3%83%BC/R8.%E3%81%8A%E7%9F%A5%E3%82%89%E3%81%9B%E5%90%88%E4%BD%93%E7%89%88%E3%80%80.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-pdf-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で遊佐町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=66円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で遊佐町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=66円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 遊佐町公式PDF「令和8年度 国民健康保険税・介護保険料・後期高齢者医療保険料のお知らせ」と、遊佐町国民健康保険税条例（町サイト内例規集・内容現在 令和8年7月10日）の2経路で令和8年度の実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療保険分 7.00%／均等割26,000円／平等割20,600円・限度額67万円、後期高齢者支援金分 2.50%／9,000円／7,400円・26万円、介護納付金分 2.40%／12,100円／6,500円・17万円、子ども・子育て支援分 0.29%／均等割1,200円／18歳以上均等割100円／平等割800円・3万円。／ PDFは課税限度額欄に「67万円（旧：66万円）」と明記し、冒頭に「課税限度額について、医療保険分が引き上げられました」と書いている。世帯合計の上限は113万円。／ PDFの＊2「18歳未満被保険者の均等割は10割軽減され、その軽減相当分は18歳以上被保険者に1人100円加算されます」が、エンジンの perCapita=1,200＋perCapitaAdult=100（18歳未満は全額軽減）と同じ構造である。／ 条例側は本則の各条から抽出し、附則の軽減額が本則×0.7／×0.5／×0.2 と一致することを8値すべてで検算した。PDFの2割軽減額（均等割5,200／1,800、平等割4,120／1,480）とも一致する。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、PDF・条例とも67万円である。山形市・鶴岡市・酒田市・米沢市・新庄市・長井市・南陽市・西川町・大江町・白鷹町も670,000円であり、この判断は誤りだった。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1280,
-    "perCapitaAdult": 66,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 800,
     "cap": 30000
   }
 }

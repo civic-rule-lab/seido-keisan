@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0854,
-    "support": 0.0279,
+    "medical": 0.061,
+    "support": 0.028,
     "care": 0.023
   },
   "perCapita": {
-    "medical": 36190,
-    "support": 11820,
-    "care": 16692
+    "medical": 18900,
+    "support": 8100,
+    "care": 14000
   },
   "household": {
-    "medical": 23344,
-    "support": 7625,
+    "medical": 17000,
+    "support": 8000,
     "care": 0
   },
   "caps": {
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.631Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf"
+        "https://www.town.nishiizu.shizuoka.jp/kakuka/zeimu/kazei/kenkohoken.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.nishiizu.shizuoka.jp/kakuka/zeimu/kazei/kenkohoken.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 静岡県 市町村標準保険料率算定結果（市町村標準保険料率）",
-      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税 算出のしくみ",
+      "url": "https://www.town.nishiizu.shizuoka.jp/kakuka/zeimu/kazei/kenkohoken.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "HTML実視(ユーザー提供スクリーンショット全ページ)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、西伊豆町が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "税率数値そのものに年度ラベルはないが、上記2点によりR8適用中の税率と判断(仮に率がR7から据置でもR8有効税率として正)。本算定日7月1日・納期9期。介護分・子ども分は平等割なし。※同時提供のkouki_hokenryou.html(後期高齢者医療・限度64万/均等割42,100/8.07%)は別制度のため未収載。なお同ページの数値は現行の広域連合R8改定(85万等)より古い可能性あり"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1954,
-    "perCapitaAdult": 71,
+    "rate": 0.0028,
+    "perCapita": 1500,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

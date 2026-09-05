@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0722,
-    "support": 0.0272,
-    "care": 0.0249
+    "medical": 0.068,
+    "support": 0.02,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 31193,
-    "support": 11699,
-    "care": 12468
+    "medical": 25500,
+    "support": 6000,
+    "care": 8000
   },
   "household": {
-    "medical": 19966,
-    "support": 7488,
-    "care": 6119
+    "medical": 23400,
+    "support": 6600,
+    "care": 7500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.367Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html"
+        "https://www.city.namerikawa.toyama.jp/soshiki/7/4/2/768.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+       "https://www1.g-reiki.net/city.namerikawa/reiki_honbun/i007RG00000276.html"
+      ],
+      "watchUrls": [
+       "https://www.city.namerikawa.toyama.jp/soshiki/7/4/2/768.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 富山県 市町村標準保険料率",
-      "url": "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html",
+      "type": "official",
+      "title": "滑川市 国民健康保険税について",
+      "url": "https://www.city.namerikawa.toyama.jp/soshiki/7/4/2/768.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-08-31",
+      "method": "条例本文の全文照合(例規集インターネット版)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "富山県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で滑川市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=78円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "令和8年度の所得割率・被保険者均等割額・世帯別平等割額・賦課限度額・軽減規定を、滑川市国民健康保険税条例（最終改正 令和8年条例第15号／令和8年度以後の年度分に適用。例規集の版は令和8年6月23日施行）の本文で確認した（2026-08-31）。基礎課税額は所得割6.8%（第3条）・均等割25,500円（第4条）・平等割23,400円（第5条）、後期高齢者支援金等課税額は2.0%（第6条）・6,000円（第7条）・6,600円（第7条の2）、介護納付金課税額は2.0%（第8条）・8,000円（第9条）・7,500円（第9条の2）、子ども・子育て支援納付金課税額は0.3%（第9条の3）・均等割1,300円（第9条の4）・18歳以上被保険者均等割70円（第9条の5）・平等割800円（第9条の6）。賦課限度額は医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円。18歳未満の被保険者は子ども・子育て支援金分の均等割が全額減額される。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円で、給与所得者等が2以上の場合は1を減じた数×10万円を加算する。／ 本コミットにより、従前採用していた富山県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）を市の条例値へ是正した。所得割は医療0.0722→0.068・支援0.0272→0.02・介護0.0249→0.02、均等割は医療31,193→25,500・支援11,699→6,000・介護12,468→8,000、平等割は医療19,966→23,400・支援7,488→6,600・介護6,119→7,500、子ども分は均等割1,316→1,300・18歳以上加算78→70・平等割842→800。子ども分の所得割0.003と賦課限度額は条例と同値のため変更なし。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1316,
-    "perCapitaAdult": 78,
+    "perCapita": 1300,
+    "perCapitaAdult": 70,
     "perCapitaAdultScope": "all_ages",
-    "household": 842,
+    "household": 800,
     "cap": 30000
   }
 }

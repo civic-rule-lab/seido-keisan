@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0796,
-    "support": 0.0257,
-    "care": 0.0208
+    "medical": 0.057,
+    "support": 0.023,
+    "care": 0.012
   },
   "perCapita": {
-    "medical": 27549,
-    "support": 9491,
-    "care": 9543
+    "medical": 24400,
+    "support": 7400,
+    "care": 8100
   },
   "household": {
-    "medical": 27120,
-    "support": 9344,
-    "care": 7447
+    "medical": 27000,
+    "support": 7500,
+    "care": 6400
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.278Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.sarabetsu.jp/kurashi/tax_hoken/hoken/hokenzei/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.sarabetsu.jp/kurashi/tax_hoken/hoken/hokenzei/",
+        "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "更別村 国民健康保険税（税率表（令和8年4月1日現在））",
+      "url": "https://www.sarabetsu.jp/kurashi/tax_hoken/hoken/hokenzei/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、更別村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、更別村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-01: 更別村公式（住民生活課）の「国民健康保険税」ページの「税率表（令和8年4月1日現在）」で全項目を確認し、verified_r8 へ昇格した。医療費分は所得割5.70%・均等割24,400円・平等割27,000円・賦課限度額670,000円、後期支援分は2.30%・7,400円・7,500円・260,000円、介護分は1.20%・8,100円・6,400円・170,000円、子ども・子育て支援納付金分は0.29%・均等割900円・18歳以上均等割200円・平等割1,000円・30,000円。／ 子ども分は本データの値と一致するため変更していない。同表は「18歳以上均等割（注3）」を独立した行に置き、注3で「18歳以上の被保険者に上乗せ分として加算されます」と述べている。本データの perCapita 900＋perCapitaAdult 200・all_ages と正確に一致する。／ 同表は「特定世帯平等割」の行も持ち、医療13,500円・後期3,750円・子ども500円（いずれも平等割の半額）を明示している。／ 資産割額の行は全区分「0%」で、注1に「資産割額による算出は令和6年度から廃止されました」と明記されている。assetLevy は置かない。／ 未就学児軽減は注2に「令和4年度から未就学児（小学校入学前の子ども）である被保険者がいる場合は、その未就学児に係る均等割額が5割軽減されます。（申請は不要）」と明記されている。／ ★出典ホストは www.sarabetsu.jp である。2026-09-01 に www.vill.sarabetsu.hokkaido.jp / www.vill.sarabetsu.lg.jp / vill.sarabetsu.hokkaido.jp / sarabetsu.lg.jp / www.village.sarabetsu.hokkaido.jp の名前解決を実測し、いずれも応答が無いことを確認した。トップページの村役場の所在地・代表電話を照合して自己同定の一致を確認し、法人番号が本データの cityCode と対応することも確認した。乗っ取りを示す語句は0件である。このため PROVENANCE_HOST_EXTRA への追加が必要で、別ブランチ fix/provenance-host-extra-watch で対応する（merge 順の依存あり）。／ 本コミットにより、道の令和8年度市町村標準保険料率（理論値）から村の公表値へ是正した。所得割は医療0.0796→0.057・支援0.0257→0.023・介護0.0208→0.012、均等割は医療27,549→24,400・支援9,491→7,400・介護9,543→8,100、平等割は医療27,120→27,000・支援9,344→7,500・介護7,447→6,400。賦課限度額は村の公表値と同値のため変更なし。／ 北海道は各市町村の実際の保険料（税）率の一覧を公表しているが、2026-09-01 時点で最新版は令和7年度分（「令和7年度国民健康保険料（税）の賦課状況等に関する調査」に基づく市町村別保険料率一覧・XLSX。ページ更新は2026年6月2日）であり、令和8年度分は未公開である。令和8年度について道が公表しているのは納付金額・都道府県標準保険料率・市町村標準保険料率の3種のみで、いずれも理論値である。このため市町村ごとの公表ページが一次資料となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

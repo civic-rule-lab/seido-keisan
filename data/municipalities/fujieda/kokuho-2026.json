@@ -1,105 +1,110 @@
 {
-  "cityCode": "22214",
-  "citySlug": "fujieda",
-  "cityName": "藤枝市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.078,
-    "support": 0.029,
-    "care": 0.023
+ "cityCode": "22214",
+ "citySlug": "fujieda",
+ "cityName": "藤枝市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.061,
+  "support": 0.021,
+  "care": 0.018
+ },
+ "perCapita": {
+  "medical": 31000,
+  "support": 11000,
+  "care": 15000
+ },
+ "household": {
+  "medical": 22000,
+  "support": 7000,
+  "care": 0
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "assetLevy": {
+  "medical": 0.1,
+  "support": 0,
+  "care": 0
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 33037,
-    "support": 12283,
-    "care": 16730
-  },
-  "household": {
-    "medical": 21311,
-    "support": 7923,
-    "care": 0
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.622Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.city.fujieda.shizuoka.jp/kenko/kokuho/1450486481939.html"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 静岡県 市町村標準保険料率算定結果（市町村標準保険料率）",
-      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、藤枝市が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
-  },
-  "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1899,
-    "perCapitaAdult": 141,
-    "perCapitaAdultScope": "all_ages",
-    "household": 0,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.622Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.city.fujieda.shizuoka.jp/kenko/kokuho/1450486481939.html"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.city.fujieda.shizuoka.jp/kenko/kokuho/1450486481939.html"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "藤枝市 国民健康保険税",
+   "url": "https://www.city.fujieda.shizuoka.jp/kenko/kokuho/1450486481939.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 18歳未満は均等割全額軽減=大人のみ実負担。18歳以上加算の別記なし(込み型) R8から算定方式を段階的に変更と明記。R7参考表あり(医療5.3/資産20/24,000/20,000等)。資産割ありのため4方式。"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 2000,
+  "perCapitaAdult": 0,
+  "perCapitaAdultScope": "all_ages",
+  "household": 0,
+  "cap": 30000
+ }
 }

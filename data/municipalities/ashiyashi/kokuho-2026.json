@@ -1,105 +1,105 @@
 {
-  "cityCode": "28206",
-  "citySlug": "ashiyashi",
-  "cityName": "芦屋市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0756,
-    "support": 0.0311,
-    "care": 0.0274
+ "cityCode": "28206",
+ "citySlug": "ashiyashi",
+ "cityName": "芦屋市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.076,
+  "support": 0.031,
+  "care": 0.028
+ },
+ "perCapita": {
+  "medical": 33480,
+  "support": 12720,
+  "care": 13920
+ },
+ "household": {
+  "medical": 20460,
+  "support": 8640,
+  "care": 6960
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 32876,
-    "support": 13430,
-    "care": 13978
-  },
-  "household": {
-    "medical": 21141,
-    "support": 8636,
-    "care": 6960
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.575Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.city.ashiya.lg.jp/josei/newpage/kokuho0311.html"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 兵庫県 国民健康保険 標準保険料率（市町村標準保険料率）",
-      "url": "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "兵庫県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、芦屋市が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。後期・介護分は県内ほぼ統一値。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujunnhokennryouritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
-  },
-  "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1287,
-    "perCapitaAdult": 62,
-    "perCapitaAdultScope": "all_ages",
-    "household": 823,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.575Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.city.ashiya.lg.jp/josei/newpage/kokuhor8_ryoritu.html"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.city.ashiya.lg.jp/josei/newpage/kokuho0311.html"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "芦屋市 令和8年度国民健康保険料が決まりました",
+   "url": "https://www.city.ashiya.lg.jp/josei/newpage/kokuhor8_ryoritu.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 加算型: 均等割1,260(u18負担なし)+平等割780+18歳以上均等割60円 介護分に平等割あり。子ども分平等割780円=兵庫型。"
+ },
+ "childcareLevy": {
+  "rate": 0.003,
+  "perCapita": 1260,
+  "perCapitaAdult": 60,
+  "perCapitaAdultScope": "all_ages",
+  "household": 780,
+  "cap": 30000
+ }
 }

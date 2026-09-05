@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0712,
-    "support": 0.0282,
-    "care": 0.0234
+    "medical": 0.058,
+    "support": 0.027,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 31444,
-    "support": 12386,
-    "care": 11851
+    "medical": 21300,
+    "support": 9500,
+    "care": 9900
   },
   "household": {
-    "medical": 20788,
-    "support": 8188,
-    "care": 5871
+    "medical": 17000,
+    "support": 7600,
+    "care": 5400
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,40 +57,42 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.555Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.asahi.yamagata.jp/portal/life/zeikin/kakuzeinogoannai/10836.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.asahi.yamagata.jp/portal/life/zeikin/kakuzeinogoannai/10836.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税(令和8年度)｜朝日町",
+      "url": "https://www.town.asahi.yamagata.jp/portal/life/zeikin/kakuzeinogoannai/10836.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で朝日町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=75円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で朝日町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=75円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 朝日町公式ページ「国民健康保険税(令和8年度)」（更新日 2026年07月16日）の税率表で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療分 5.80%／均等割21,300円／平等割17,000円、支援分 2.70%／9,500円／7,600円、介護分 2.00%／9,900円／5,400円、子ども分 0.29%／均等割1,271円／18歳以上均等割75円／平等割838円。限度額は注意書きに「医療分67万円、支援分26万円、介護分17万円、子ども分3万円です。合算額は、最高113万円」と明記。所得割の基礎は「令和7年中の所得－基礎控除43万円」で令和8年度分、軽減判定も31万円・57万円。／ 町は令和7年度分のページ（10379.html）と令和8年度分のページ（10836.html）を別々に持っており、年度の取り違えが起きにくい。／ 医療・支援・介護の3区分9値は、山形県公表の令和7年度実税率一覧（r7kokuhozeikaiseijoukyouitiran.pdf）の朝日町行（医療 5.80%／21,300円／17,000円、支援 2.70%／9,500円／7,600円、介護 2.00%／9,900円／5,400円）と完全一致しており、令和8年度は子ども分の新設のみで既存3区分は据え置きである。県資料という独立経路で裏づけられた。／ 子ども分の3値（1,271円・75円・838円）は県標準値のままで、町が新設区分に県標準をそのまま採用している。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、町ページは67万円である。山形県内でこれで19件目の反証となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,

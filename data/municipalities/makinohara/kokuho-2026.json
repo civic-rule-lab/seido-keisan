@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.082,
-    "support": 0.0284,
-    "care": 0.0225
+    "medical": 0.067,
+    "support": 0.025,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 34751,
-    "support": 11999,
-    "care": 16352
+    "medical": 21600,
+    "support": 7200,
+    "care": 16000
   },
   "household": {
-    "medical": 22416,
-    "support": 7740,
+    "medical": 21600,
+    "support": 7200,
     "care": 0
   },
   "caps": {
@@ -57,48 +57,46 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.629Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf"
+        "https://www.city.makinohara.shizuoka.jp/soshiki/11/58092.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.city.makinohara.shizuoka.jp/soshiki/11/1761.html"
+        "https://www.city.makinohara.shizuoka.jp/soshiki/11/58092.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 静岡県 市町村標準保険料率算定結果（市町村標準保険料率）",
-      "url": "https://www.pref.shizuoka.jp/_res/projects/default_project/_page_/001/024/897/r8santeikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税の算定方法・税率など",
+      "url": "https://www.city.makinohara.shizuoka.jp/soshiki/11/58092.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "claude-in-chrome DOM(サブエージェントWebFetch発見→実ブラウザアンカー検証PASS)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "静岡県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、牧之原市が実際に告示する料率とは異なる場合がある。介護分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8santeikekka)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
+    "notes": "旧watchUrl(1761.html)はR4のまま残存。新ページ58092.htmlへ貼替候補"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1904,
-    "perCapitaAdult": 158,
-    "perCapitaAdultScope": "all_ages",
+    "rate": 0.0025,
+    "perCapita": 1700,
     "household": 0,
     "cap": 30000
   }

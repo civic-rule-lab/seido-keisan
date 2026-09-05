@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0744,
-    "support": 0.0247,
-    "care": 0.0221
+    "medical": 0.0739,
+    "support": 0.0298,
+    "care": 0.0196
   },
   "perCapita": {
-    "medical": 43685,
-    "support": 16416,
-    "care": 16290
+    "medical": 42100,
+    "support": 13200,
+    "care": 16000
   },
   "household": {
     "medical": 0,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.008Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-31T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf"
+        "https://www.town.ogano.lg.jp/reiki_int/reiki_honbun/r232RG00000154.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-31",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+       "https://www.town.ogano.lg.jp/reiki_int/reiki_honbun/r232RG00000154.html"
+      ],
       "watchUrls": [
         "https://www.town.ogano.lg.jp/kurashi-tetsuzuki/zeikin/"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 埼玉県 国民健康保険に係る標準保険税率（③各市町村の算定方式による市町村標準保険税率）",
-      "url": "https://www.pref.saitama.lg.jp/documents/122647/r8hyoujyunnhokenzeiritu.pdf",
+      "type": "official",
+      "title": "小鹿野町国民健康保険税条例（最終改正 令和8年6月11日条例第16号）",
+      "url": "https://www.town.ogano.lg.jp/reiki_int/reiki_honbun/r232RG00000154.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-31",
+      "method": "条例本文の全文照合(例規集インターネット版)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "埼玉県公表の令和8年度 標準保険税率(③各市町村の算定方式による)を参考値として採用。法定外繰入ゼロ前提の理論値で、小鹿野町が実際に告示する税率とは異なる場合がある。後期・介護・子ども分は2方式（平等割なし）。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujyunnhokenzeiritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "令和8年度の所得割率・被保険者均等割額・賦課限度額・軽減規定を、小鹿野町国民健康保険税条例（最終改正 令和8年6月11日条例第16号／令和8年4月1日施行・令和8年度以後の年度分に適用。例規集の版は令和8年4月1日施行）の本文で確認した（2026-08-31）。小鹿野町は2方式（世帯別平等割を設けない）で、基礎課税額は所得割7.39%（第3条）・均等割42,100円（第5条）、後期高齢者支援金等課税額は2.98%（第6条）・13,200円（第7条）、介護納付金課税額は1.96%（第8条）・16,000円（第9条）、子ども・子育て支援納付金課税額は0.27%（第9条の2）・均等割1,600円（第9条の3）・18歳以上被保険者均等割90円（第9条の4）。賦課限度額は第2条第2項〜第5項ただし書に医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円と定めがある。18歳未満の被保険者は第21条第4項により子ども・子育て支援金分の均等割が全額減額される。未就学児軽減は第21条第2項。軽減判定所得は基礎43万円・5割は1人につき+31万円・2割は+57万円で、給与所得者等が2以上の場合は1を減じた数×10万円を加算。／ 本コミットにより、従前採用していた埼玉県の令和8年度標準保険税率（③各市町村の算定方式による市町村標準保険税率）を町の条例値へ是正した。所得割は医療0.0744→0.0739・支援0.0247→0.0298・介護0.0221→0.0196、均等割は医療43,685→42,100・支援16,416→13,200・介護16,290→16,000、子ども分は均等割1,614→1,600・18歳以上加算94→90。所得割率0.0027と賦課限度額は条例と同値のため変更なし。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1614,
-    "perCapitaAdult": 94,
+    "perCapita": 1600,
+    "perCapitaAdult": 90,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

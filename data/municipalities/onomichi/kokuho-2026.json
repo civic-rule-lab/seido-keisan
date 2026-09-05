@@ -1,105 +1,105 @@
 {
-  "cityCode": "34205",
-  "citySlug": "onomichi",
-  "cityName": "尾道市",
-  "fiscalYear": 2026,
-  "system": "kokuho",
-  "basicDeduction": 430000,
-  "rate": {
-    "medical": 0.0771,
-    "support": 0.0251,
-    "care": 0.0234
+ "cityCode": "34205",
+ "citySlug": "onomichi",
+ "cityName": "尾道市",
+ "fiscalYear": 2026,
+ "system": "kokuho",
+ "basicDeduction": 430000,
+ "rate": {
+  "medical": 0.0841,
+  "support": 0.0278,
+  "care": 0.025
+ },
+ "perCapita": {
+  "medical": 33760,
+  "support": 11120,
+  "care": 12200
+ },
+ "household": {
+  "medical": 22920,
+  "support": 7560,
+  "care": 6160
+ },
+ "caps": {
+  "medical": 670000,
+  "support": 260000,
+  "care": 170000,
+  "childcare": 30000
+ },
+ "preschoolReduction": {
+  "enabled": true,
+  "medicalPerCapitaRate": 0.5,
+  "supportPerCapitaRate": 0.5
+ },
+ "reduction": {
+  "enabled": true,
+  "standards": {
+   "sevenTenths": {
+    "base": 430000,
+    "perPersonAdd": 0
+   },
+   "fiveTenths": {
+    "base": 430000,
+    "perPersonAdd": 310000
+   },
+   "twoTenths": {
+    "base": 430000,
+    "perPersonAdd": 570000
+   }
   },
-  "perCapita": {
-    "medical": 37097,
-    "support": 12141,
-    "care": 12902
-  },
-  "household": {
-    "medical": 23783,
-    "support": 7575,
-    "care": 6237
-  },
-  "caps": {
-    "medical": 670000,
-    "support": 260000,
-    "care": 170000,
-    "childcare": 30000
-  },
-  "preschoolReduction": {
-    "enabled": true,
-    "medicalPerCapitaRate": 0.5,
-    "supportPerCapitaRate": 0.5
-  },
-  "reduction": {
-    "enabled": true,
-    "standards": {
-      "sevenTenths": {
-        "base": 430000,
-        "perPersonAdd": 0
-      },
-      "fiveTenths": {
-        "base": 430000,
-        "perPersonAdd": 310000
-      },
-      "twoTenths": {
-        "base": 430000,
-        "perPersonAdd": 570000
-      }
-    },
-    "salaryPensionAdd": 100000,
-    "ratios": {
-      "sevenTenths": 0.7,
-      "fiveTenths": 0.5,
-      "twoTenths": 0.2
-    }
-  },
-  "meta": {
-    "schemaVersion": "2.0",
-    "dataVersion": "2.1.0",
-    "status": "provisional",
-    "lifecycle": {
-      "createdAt": "2026-04-08T01:03:22.651Z",
-      "updatedAt": "2026-06-02T00:00:00.000Z",
-      "validFrom": "2026-04-01",
-      "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
-      "sourceUrls": [
-        "https://www.pref.hiroshima.lg.jp/uploaded/life/1113288_9614203_misc.pdf"
-      ],
-      "previousYearTemplate": false,
-      "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": [
-        "https://www.city.onomichi.hiroshima.jp/soshiki/4/2272.html"
-      ]
-    },
-    "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 広島県 標準保険料率算定結果一覧（③市町村の算定基準に基づく標準保険料率）",
-      "url": "https://www.pref.hiroshima.lg.jp/uploaded/life/1113288_9614203_misc.pdf",
-      "publishedAt": "2026"
-    },
-    "audit": {
-      "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
-    },
-    "quality": {
-      "confidenceScore": 0.6,
-      "completeness": "full"
-    },
-    "notes": "広島県公表の令和8年度標準保険料率(③市町村の算定基準による)を参考値として採用。法定外繰入ゼロ前提の理論値で、尾道市が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割を県標準PDF(1113288_9614203)のblock2市町別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。"
-  },
-  "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1261,
-    "perCapitaAdult": 39,
-    "perCapitaAdultScope": "all_ages",
-    "household": 808,
-    "cap": 30000
+  "salaryPensionAdd": 100000,
+  "ratios": {
+   "sevenTenths": 0.7,
+   "fiveTenths": 0.5,
+   "twoTenths": 0.2
   }
+ },
+ "meta": {
+  "schemaVersion": "2.0",
+  "dataVersion": "2.1.0",
+  "status": "verified",
+  "lifecycle": {
+   "createdAt": "2026-04-08T01:03:22.651Z",
+   "updatedAt": "2026-08-08T00:00:00.000Z",
+   "validFrom": "2026-04-01",
+   "validUntil": "2027-03-31",
+   "expiresAt": "2027-04-30",
+   "r8Stage": "verified_r8",
+   "sourceUrls": [
+    "https://www.city.onomichi.hiroshima.jp/soshiki/4/2272.html"
+   ],
+   "verifiedAt": "2026-08-08",
+   "watchUrls": [
+       "https://www.city.onomichi.hiroshima.jp/soshiki/4/2272.html"
+   ],
+   "sourceStatus": "official_rate_page",
+   "r8Updated": true,
+   "previousYearTemplate": false,
+   "verificationLevel": "official_source_checked"
+  },
+  "source": {
+   "type": "official",
+   "title": "尾道市 国民健康保険料の計算方法(令和8年度)",
+   "url": "https://www.city.onomichi.hiroshima.jp/soshiki/4/2272.html",
+   "publishedAt": "2026"
+  },
+  "audit": {
+   "verifiedBy": "civic-rule-lab",
+   "verifiedAt": "2026-08-08",
+   "method": "official-site"
+  },
+  "quality": {
+   "confidenceScore": 0.95,
+   "completeness": "full"
+  },
+  "notes": "R8公式ページ実視(claude-in-chrome DOM/画像実視)で全区分確認しverified化(2026-08-08取得・凍結中のためrepo外ステージング生成)。 子ども分: 加算型: 表の1,300円=均等割1,260+18歳以上40の合算と明記。平等割760円 R8で所得割率・均等割・平等割・医療限度額が変更+子ども分追加と明記。介護分平等割6,160円あり。"
+ },
+ "childcareLevy": {
+  "rate": 0.0028,
+  "perCapita": 1260,
+  "perCapitaAdult": 40,
+  "perCapitaAdultScope": "all_ages",
+  "household": 760,
+  "cap": 30000
+ }
 }

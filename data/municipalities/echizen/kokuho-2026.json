@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0611,
-    "support": 0.0273,
-    "care": 0.0235
+    "medical": 0.063,
+    "support": 0.027,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 27101,
-    "support": 12097,
-    "care": 12468
+    "medical": 27000,
+    "support": 10000,
+    "care": 11000
   },
   "household": {
-    "medical": 17595,
-    "support": 7854,
-    "care": 6049
+    "medical": 21000,
+    "support": 6000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.515Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukui.lg.jp/doc/016250/hyojunhokenryoritsu_d/fil/r8santeikekka.pdf"
+        "https://www.city.echizen.lg.jp/office/010/050/kokuhozei.html",
+        "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu_d/fil/R8HOKENRYO.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-01",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.echizen.lg.jp/office/010/050/kokuhozei.html",
+        "https://www.pref.fukui.lg.jp/doc/016250/kokuhozeiritsu.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福井県 市町村標準保険料率（算定結果）",
-      "url": "https://www.pref.fukui.lg.jp/doc/016250/hyojunhokenryoritsu_d/fil/r8santeikekka.pdf",
+      "type": "official",
+      "title": "越前市 国民健康保険税について（国民健康保険税率（令和8年度））",
+      "url": "https://www.city.echizen.lg.jp/office/010/050/kokuhozei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-01",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "福井県公表の令和8年度 市町村標準保険料率(算定結果・最終更新2026-03-19)を参考値として採用。法定外繰入ゼロ前提の理論値で越前市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は全国最低水準(所得割0.15-0.16%・均等割643-698円)で県公表通り。18歳以上均等割(=49円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "福井県公表の令和8年度 市町村標準保険料率(算定結果・最終更新2026-03-19)を参考値として採用。法定外繰入ゼロ前提の理論値で越前市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は全国最低水準(所得割0.15-0.16%・均等割643-698円)で県公表通り。18歳以上均等割(=49円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-01: 越前市公式の「国民健康保険税について」（最終更新 2026年7月15日・税務課）の「国民健康保険税率（令和8年度）」表で全項目を確認し、verified_r8 へ昇格した。医療分は所得割6.3%・均等割27,000円・平等割21,000円・賦課限度額67万円、後期高齢者支援金分は2.7%・10,000円・6,000円・26万円、介護納付金分は2.1%・11,000円・6,000円・17万円、子ども・子育て支援納付金分は0.2%・均等割650円・平等割400円・賦課限度額3万円。同ページは令和8年度の改正点として「子ども・子育て支援納付金分を新設（18歳になる年の年度末までは課税されません）」および「税率及び賦課限度額を改正」と明記し、子ども分の均等割650円には注記で「18歳以上被保険者均等割も含まれています」としている。内訳は福井県公表の「令和8年度各市町国民健康保険税率」（R8HOKENRYO.pdf）の越前市行が均等割600円・18歳以上50円としており、600＋50＝650で一致する。よって perCapita 600・perCapitaAdult 50・perCapitaAdultScope: all_ages（18歳未満は0円）とした。軽減判定所得は基礎43万円・5割は+31万円×被保険者数・2割は+57万円×被保険者数、給与所得者等が2以上の場合は1を減じた数×10万円を加算（同ページに「【令和8年度の改正点】5割軽減及び2割軽減の計算方法を下記のとおり変更しました」と明記）。未就学児の均等割は5割軽減。基礎控除は合計所得2,400万円以下で43万円。資産割は令和5年度をもって廃止済みで assetLevy は置かない。／ 本コミットにより、従前採用していた福井県の令和8年度市町村標準保険料率（法定外繰入ゼロ前提の理論値）から市の公表値へ是正した。所得割は医療0.0611→0.063・支援0.0273→0.027・介護0.0235→0.021、均等割は医療27,101→27,000・支援12,097→10,000・介護12,468→11,000、平等割は医療17,595→21,000・支援7,854→6,000・介護6,049→6,000、子ども分は所得割0.0015→0.002・均等割674→600・18歳以上加算49→50・平等割439→400。賦課限度額は市の公表値と同値のため変更なし。／ 県の実料率表の越前市行は 6.30/27,000/21,000・2.70/10,000/6,000・2.10/11,000/6,000・0.20/600/400/50 で、市の公表値と全項目一致する（独立した2資料での突合）。"
   },
   "childcareLevy": {
-    "rate": 0.0015,
-    "perCapita": 674,
-    "perCapitaAdult": 49,
+    "rate": 0.002,
+    "perCapita": 600,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 439,
+    "household": 400,
     "cap": 30000
   }
 }

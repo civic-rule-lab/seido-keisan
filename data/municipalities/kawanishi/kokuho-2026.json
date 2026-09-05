@@ -6,23 +6,23 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0748,
-    "support": 0.0311,
-    "care": 0.0274
+    "medical": 0.0707,
+    "support": 0.0276,
+    "care": 0.0269
   },
   "perCapita": {
-    "medical": 32512,
-    "support": 13430,
-    "care": 13978
+    "medical": 29000,
+    "support": 10200,
+    "care": 11600
   },
   "household": {
-    "medical": 20907,
-    "support": 8636,
-    "care": 6960
+    "medical": 20800,
+    "support": 8000,
+    "care": 6000
   },
   "caps": {
-    "medical": 670000,
-    "support": 260000,
+    "medical": 650000,
+    "support": 200000,
     "care": 170000,
     "childcare": 30000
   },
@@ -57,49 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.588Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-08-19T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf"
+        "https://www.city.kawanishi.hyogo.jp/kurashi/nenkin_hoken/hoken/1017806.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-08-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.city.kawanishi.hyogo.jp/kurashi/nenkin_hoken/hoken/1002700.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 兵庫県 国民健康保険 標準保険料率（市町村標準保険料率）",
-      "url": "https://web.pref.hyogo.lg.jp/kf07/documents/r8hyoujunnhokennryouritu.pdf",
+      "type": "official",
+      "title": "令和8年度の国民健康保険税率",
+      "url": "https://www.city.kawanishi.hyogo.jp/kurashi/nenkin_hoken/hoken/1017806.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-08-09",
+      "method": "HTML表+PDF実視(ユーザー提供スクリーンショット・3資料で相互一致)"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "兵庫県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、川西市が実際に告示する料率とは異なる場合がある。全4区分3方式（平等割あり）。後期・介護分は県内ほぼ統一値。子ども・子育て支援金分は18歳以上均等割を県標準PDF(r8hyoujunnhokennryouritu)の市町村別値で perCapitaAdult に計上（18歳以上=base+加算）・新スキーマ統一。市町告示が出たら verified_r8 へ昇格。"
+    "notes": "★R8はR5税率据置+限度額はR4額据置=医療65万・支援20万(県標準67万/26万より大幅低)。★子ども分に平等割900円あり(相生・上郡と同型)。R9以降は県標準保険料率へ移行し大幅増見込みと明記(参考掲載のR8県標準: 医7.48/32,512/20,907/67万・支3.11/13,430/8,636/26万・介2.74/13,978/6,960/17万)。※9kihokenryou.pdf(介護保険料R6-R8・17段階)は別制度のため未収載"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1293,
-    "perCapitaAdult": 63,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 823,
+    "household": 900,
     "cap": 30000
   }
 }

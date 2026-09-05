@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.059,
-    "support": 0.0276,
-    "care": 0.0232
+    "medical": 0.055,
+    "support": 0.027,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 26065,
-    "support": 12104,
-    "care": 11774
+    "medical": 22900,
+    "support": 11300,
+    "care": 10500
   },
   "household": {
-    "medical": 17232,
-    "support": 8002,
-    "care": 5833
+    "medical": 16100,
+    "support": 7800,
+    "care": 5200
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.555Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.oe.yamagata.jp/life/insurance/kokuho/131"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.oe.yamagata.jp/life/insurance/kokuho/131",
+        "https://www1.g-reiki.net/town.oe.yamagata/reiki_honbun/c420RG00000325.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/town.oe.yamagata/reiki_honbun/c420RG00000325.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税について｜大江町（令和8年度の税率等）",
+      "url": "https://www.town.oe.yamagata.jp/life/insurance/kokuho/131",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site-and-ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で大江町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で大江町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 大江町公式ページ「国民健康保険税について」の表『令和8年度の国民健康保険税の税率等』と、大江町国民健康保険税条例（g-reiki・内容現在 令和8年6月4日）の2経路で令和8年度の実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療給付費分 5.5%／均等割22,900円／平等割16,100円・限度額670,000円、後期高齢者支援金分 2.7%／11,300円／7,800円・260,000円、介護納付金分 2.1%／10,500円／5,200円・170,000円、子ども・子育て支援納付金分 0.3%／均等割1,300円／18歳以上均等割100円／平等割900円・30,000円。町ページは軽減判定基準を令和7年度（30.5万円）と令和8年度（31万円）の対比表で示しており、令和8年度基準であることが確認できる。／ 条例側は本則の各条（所得割・被保険者均等割・18歳以上被保険者均等割・世帯別平等割）から抽出し、附則の軽減額が本則×0.7／×0.5／×0.2 と一致することを8値すべてで検算した。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、町ページ・条例とも670,000円である。山形市・鶴岡市・酒田市・米沢市・新庄市・長井市・南陽市・西川町も670,000円であり、この判断は誤りだった。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1272,
-    "perCapitaAdult": 74,
+    "rate": 0.003,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 900,
     "cap": 30000
   }
 }

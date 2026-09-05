@@ -379,6 +379,11 @@ button:active{
   background:#f9fafb;
   border:1px solid #e5e7eb;
 }
+.result-note__badge--ordinance{
+  color:#115e59;
+  background:#f0fdfa;
+  border:1px solid #99f6e4;
+}
 .result-note__badge--standard{
   color:#1e40af;
   background:#eff6ff;

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.075,
-    "support": 0.0296,
-    "care": 0.0263
+    "medical": 0.086,
+    "support": 0.028,
+    "care": 0.0265
   },
   "perCapita": {
-    "medical": 27048,
-    "support": 10374,
-    "care": 11528
+    "medical": 27500,
+    "support": 10500,
+    "care": 11000
   },
   "household": {
-    "medical": 18750,
-    "support": 7192,
-    "care": 5850
+    "medical": 24000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,34 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "needs_update",
+    "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.069Z",
-      "updatedAt": "2026-04-08T01:03:23.069Z",
+      "updatedAt": "2026-09-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
-      "expiresAt": "2027-04-30"
+      "expiresAt": "2027-04-30",
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "official_rate_pdf",
+      "sourceUrls": [
+        "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/Insurancefee_d/fil/R8.pdf"
+      ],
+      "previousYearTemplate": false,
+      "r8Updated": true,
+      "verifiedAt": "",
+      "verificationLevel": "official_source_extracted",
+      "watchUrls": [
+        "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/Insurancefee.html",
+        "https://www.town.taiji.wakayama.jp/fukushi/kokuho/index.html"
+      ]
     },
     "source": {
-      "type": "estimated",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "prefecture_official_pdf",
+      "title": "和歌山県 令和8年度 各市町村が実際に定める保険料（税）率（R8.pdf・2ページ目）",
+      "url": "https://www.pref.wakayama.lg.jp/prefg/050600/kokuho/Insurancefee_d/fil/R8.pdf",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
+      "verifiedBy": "civic-rule-lab",
       "verifiedAt": "",
-      "method": ""
+      "method": "prefecture-actual-rate-table"
     },
     "quality": {
-      "confidenceScore": 0.5,
-      "completeness": "partial"
+      "confidenceScore": 0.8,
+      "completeness": "full"
     },
-    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。"
+    "notes": "R7→R8移行。医療分上限+1万円。子ども・子育て支援金分新設（料率要確認）。 / 2026-09-01: 令和8年度の所得割率・被保険者均等割額・世帯別平等割額を、和歌山県が公表した「令和8年度各市町村が実際に定める保険料（税）率」（Insurancefee.html からリンクされる R8.pdf の2ページ目）で確認し、出所不明の初期生成値から是正した。医療分は所得割8.60%・均等割27,500円・平等割24,000円、後期支援分は2.80%・10,500円・7,000円、介護分は2.65%・11,000円・6,000円、子ども・子育て支援金分は0.30%・均等割1,154円・18歳以上被保険者均等割37円・平等割766円。是正前は医療0.075/27,048/18,750・支援0.0296/10,374/7,192・介護0.0263/11,528/5,850で、いずれも県公表値と一致しなかった。／ 資産割は令和7年度に4方式（医療14.00%・支援3.00%・介護3.00%）だったが、令和8年度の同表では資産割欄がすべて「－」で3方式になっている。本データに assetLevy は置かない。／ 同表の列の読み方は、令和7年度版（R7ryoritsu.pdf）の太地町行が本データのR7値（医療8.50%・資産割14.00%・均等割26,500円・平等割25,000円ほか）と完全に一致すること、および令和8年度版の高野町行（8.65%・29,200円・23,300円・子ども分1,150円＋18歳以上41円・平等割766円）が高野町公式ページの告示値と完全に一致することの2点で検証した。／ 未確定: 賦課限度額と18歳未満の均等割の取扱いは同表の対象外で、条例で確認できていない。太地町は例規集をインターネット上で公開しておらず（RILG「全国自治体例規集」リンク集の和歌山県欄27自治体に太地町の掲載が無く、g-reiki.net・d1-law.com の slug 探索もすべて404または接続不可）、町公式サイトも260ページを巡回したが「国民健康保険税」の語を含むページは0件だった（いずれも2026-09-01 実測）。本データの賦課限度額は国の基準額（医療67万円・支援26万円・介護17万円・子ども子育て支援金分3万円）を用いているが、条例上の根拠は未確認である（久山町のように医療分を66万円に留める自治体が実在する）。このため verified_r8 には昇格させず extracted_r8 とする。町へ照会するか例規集の公開を待つ。／ 2026-09-03 論点の解消（値・lifecycle の変更なし）: 本データが保留理由に挙げていた「18歳未満被保険者の子ども・子育て支援金分均等割を全額減額する取扱いが条例・公表資料で確認できない」は、国の一次資料により解消した。こども家庭庁「国民健康保険・後期高齢者医療制度加入者向けリーフレット」（令和8年3月24日版・cfa.go.jp、sha256 cb6580b68cf13a25bb224c0263123c59a756f826d726bc608e24e103e452cf74）に「こども(18歳に達する日以後の最初の3月31日以前である者。高校生年代)については、均等割額が全額軽減されます」と明記されている。＝自治体ごとの裁量ではなく全国共通の取扱いであり、perCapitaAdultScope=all_ages（18歳未満0円・18歳以上は均等割＋加算）は正しい。所在: https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/fb3dbb28-102a-4840-90a5-00ad2e0d117f/419b6d0e/20260324policies-kodomokosodateshienkinseido-13.pdf ／ ただし本自治体は他の理由（下記）でなお昇格できないため、r8Stage は据え置く。"
   },
-  "childcare": {
-    "rate": 0,
-    "perCapita": 0,
-    "household": 0
+  "childcareLevy": {
+    "rate": 0.003,
+    "perCapita": 1154,
+    "perCapitaAdult": 37,
+    "perCapitaAdultScope": "all_ages",
+    "household": 766,
+    "cap": 30000
   }
 }

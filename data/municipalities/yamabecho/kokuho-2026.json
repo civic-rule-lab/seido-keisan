@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0589,
-    "support": 0.0276,
-    "care": 0.0228
+    "medical": 0.0735,
+    "support": 0.0245,
+    "care": 0.015
   },
   "perCapita": {
-    "medical": 26036,
-    "support": 12141,
-    "care": 11563
+    "medical": 23500,
+    "support": 6500,
+    "care": 10000
   },
   "household": {
-    "medical": 17213,
-    "support": 8026,
-    "care": 5728
+    "medical": 27000,
+    "support": 7000,
+    "care": 4500
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,44 +57,46 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.553Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf"
+        "https://www.town.yamanobe.yamagata.jp/soshiki/6/kokuminkenkouhokenzei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-04",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.yamanobe.yamagata.jp/soshiki/6/kokuminkenkouhokenzei.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山形県 市町村標準保険税率",
-      "url": "https://www.pref.yamagata.jp/documents/2846/r8nouhukinsanteikekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税｜山辺町（令和8年度税率）",
+      "url": "https://www.town.yamanobe.yamagata.jp/soshiki/6/kokuminkenkouhokenzei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-04",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で山辺町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=71円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。"
+    "notes": "山形県公表の令和8年度 市町村標準保険税率を参考値として採用。法定外繰入ゼロ前提の理論値で山辺町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし・子ども所得割0.29%県内統一。子ども子育て分は18歳以上均等割(=71円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-04に達成）。 ★2026-06-08限度額医療を67→66万に修正(山形市協議会資料・最上広域連合R7実料率がいずれも66万＝山形県内66万据え置きで確定)。 / 2026-09-04: 山辺町公式ページ「国民健康保険税」（掲載日 2026年7月1日更新）の表『令和8年度税率』で実税率を確認し、山形県標準保険税率（理論値）から差し替えた。医療保険分 7.35%／均等割23,500円／平等割27,000円・課税限度額670,000円、後期高齢者支援金分 2.45%／6,500円／7,000円・260,000円、介護納付金分 1.50%／10,000円／4,500円・170,000円、子ども・子育て支援納付金分 0.29%／均等割1,346円／18歳以上被保険者均等割71円／平等割838円・30,000円。軽減判定は『令和8年度軽減基準所得』として31万円・57万円が明記されている。／ 医療・支援・介護の3区分9値は、山形県公表の令和7年度実税率一覧（r7kokuhozeikaiseijoukyouitiran.pdf）の山辺町行（医療 7.35%／23,500円／27,000円、支援 2.45%／6,500円／7,000円、介護 1.50%／10,000円／4,500円）と完全一致しており、令和8年度は子ども・子育て支援納付金分の新設のみで既存3区分は据え置きである。県資料という独立経路で裏づけられた。／ 町ページの※2に「18歳未満の均等割額は全額軽減されます。軽減された分を補填するため、18歳以上の被保険者には『18歳以上被保険者均等割額』（71円）が加算されています」と明記があり、エンジンの perCapita＋perCapitaAdult（18歳未満は全額軽減）と同じ構造である。／ 子ども分の3値（1,346円・71円・838円）は県標準値のままで、町が新設区分に県標準をそのまま採用している。／ ★限度額の訂正: 本ファイルも2026-06-08に医療分限度額を67→66万へ「山形県内66万据え置きで確定」として修正していたが、町ページは670,000円である。山形県内でこれで17件目の反証となる。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1275,
+    "perCapita": 1346,
     "perCapitaAdult": 71,
     "perCapitaAdultScope": "all_ages",
     "household": 838,
