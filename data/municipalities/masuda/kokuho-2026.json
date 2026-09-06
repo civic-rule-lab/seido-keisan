@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0702,
-    "support": 0.0277,
-    "care": 0.0254
+    "medical": 0.0785,
+    "support": 0.0302,
+    "care": 0.0275
   },
   "perCapita": {
-    "medical": 30826,
-    "support": 12098,
-    "care": 12811
+    "medical": 27300,
+    "support": 11080,
+    "care": 11420
   },
   "household": {
-    "medical": 19440,
-    "support": 7630,
-    "care": 6323
+    "medical": 18760,
+    "support": 7400,
+    "care": 6620
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.671Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.city.masuda.lg.jp/soshikikarasagasu/fukushikankyobu/hokenka/3/2521.html",
         "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.masuda.lg.jp/soshikikarasagasu/fukushikankyobu/hokenka/3/2521.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 島根県 市町村標準保険料率（運営協議会資料 別紙4）",
-      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険税の計算",
+      "url": "https://www.city.masuda.lg.jp/soshikikarasagasu/fukushikankyobu/hokenka/3/2521.html",
+      "publishedAt": "2026-04-01"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で益田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=53円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で益田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=53円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 益田市公式「国民健康保険税の計算」（更新日 2026年04月01日、Last-Modified 2026-09-03）https://www.city.masuda.lg.jp/soshikikarasagasu/fukushikankyobu/hokenka/3/2521.html の「1．令和8年度の税率・税額」表で13値を確認: 医療 7.85%・27,300円・18,760円／後期支援 3.02%・11,080円・7,400円／介護 2.75%・11,420円・6,620円／子ども分 0.27%・1,200円・18歳以上均等割60円・760円。賦課限度額 67万／26万／17万／3万円（医療は「(+1万円)」）。軽減判定は同市「国民健康保険税の軽減・減免措置について」/hokenka/3/2530.html の令和8年度表で 5割31万円・2割57万円（令和7年度は30.5万／56万と併記）を確認。子ども分所得割0.27%は県標準と同値、他は相違＝市公表値へ差し替え。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1207,
-    "perCapitaAdult": 53,
+    "perCapita": 1200,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 762,
+    "household": 760,
     "cap": 30000
   }
 }

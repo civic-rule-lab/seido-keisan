@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0676,
-    "support": 0.029,
-    "care": 0.0256
+    "medical": 0.053,
+    "support": 0.022,
+    "care": 0.0175
   },
   "perCapita": {
-    "medical": 29476,
-    "support": 12531,
-    "care": 13313
+    "medical": 22800,
+    "support": 9600,
+    "care": 10000
   },
   "household": {
-    "medical": 18986,
-    "support": 8071,
-    "care": 6440
+    "medical": 18400,
+    "support": 7800,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.634Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
+        "https://www.city.kurayoshi.lg.jp/12453.htm",
+        "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kurayoshi.lg.jp/12453.htm"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
+      "type": "official",
+      "title": "令和8年度　国民健康保険料率の改定および保険料の算定方法",
+      "url": "https://www.city.kurayoshi.lg.jp/12453.htm",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で倉吉市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で倉吉市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 倉吉市「令和8年度　国民健康保険料率の改定および保険料の算定方法」https://www.city.kurayoshi.lg.jp/12453.htm で実料率を確認し verified_r8 へ。所得割「5.3%」「2.2 %」「1.75%」「0.26%」、均等割「22,800 円」「9,600 円」「10,000 円」、子ども分「1,100円 × 18歳以上の人数（うち100円は18歳以上均等割額）」→perCapita 1000＋perCapitaAdult 100、平等割「18,400 円」「7,800 円」「6,000 円」「1,000円」、限度額「670,000 円（令和7年度：660,000円）」「260,000円」「170,000円」「30,000円」、軽減判定「430,000円+ 310,000 円×被保険者数」「430,000円+ 570,000 円×被保険者数」。県「令和8年度国民健康保険料(税)率決定状況」https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf の倉吉市行と全項目一致。ページ内の「更新日:2025年3月10日」は前年度ページの流用と思われ、本文は令和8年政令第2号を引く令和8年度の内容。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1204,
+    "rate": 0.0026,
+    "perCapita": 1000,
     "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 777,
+    "household": 1000,
     "cap": 30000
   }
 }

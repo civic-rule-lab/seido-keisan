@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0755,
-    "support": 0.0276,
-    "care": 0.024
+    "medical": 0.075,
+    "support": 0.029,
+    "care": 0.0246
   },
   "perCapita": {
-    "medical": 33064,
-    "support": 12027,
-    "care": 12340
+    "medical": 28000,
+    "support": 10200,
+    "care": 11000
   },
   "household": {
-    "medical": 20914,
-    "support": 7608,
-    "care": 6087
+    "medical": 20600,
+    "support": 7400,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.947Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/hoken/310172.html"
+        "https://www.kouratown.jp/section/reiki_int/reiki_honbun/k032RG00000123.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.kouratown.jp/section/reiki_int/reiki_honbun/k032RG00000123.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 滋賀県 市町村標準保険料率",
-      "url": "https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/hoken/310172.html",
+      "type": "official",
+      "title": "甲良町国民健康保険税条例（甲良町例規集・内容現在 令和8年3月31日）",
+      "url": "https://www.kouratown.jp/section/reiki_int/reiki_honbun/k032RG00000123.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "滋賀県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で甲良町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・★県内完全統一料率(大阪型)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "滋賀県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で甲良町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・★県内完全統一料率(大阪型)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 甲良町例規集の条例「甲良町国民健康保険税条例（甲良町例規集・内容現在 令和8年3月31日）」（Last-Modified 2026-07-13）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.5%／均等割28,000円／平等割20,600円・賦課限度額67万円、後期支援分 所得割2.9%／均等割10,200円／平等割7,400円・26万円、介護分 所得割2.46%／均等割11,000円／平等割5,800円・17万円、子ども・子育て支援金分 所得割0.27%／均等割1,081円／18歳以上均等割67円／平等割756円・3万円。／ ★甲良町は町公式サイトに令和8年度の税率ページを持たない（syozeisyomukakari/zeikin/1386051542877.html は2021年付けで税率表なし）。令和8年度の一次資料は町ドメイン上でホストされている例規集の条例のみ。最終附則＝令和8年条例第3号（令和8年4月1日施行・令和8年度以後適用）で、子ども・子育て支援納付金の条（第9条の4〜7）と軽減判定31万円／57万円を含む。7割軽減の医療均等割19,600円＝28,000×0.7 で検算一致。資産割の条は無し（3方式）。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1153,
-    "perCapitaAdult": 74,
+    "perCapita": 1081,
+    "perCapitaAdult": 67,
     "perCapitaAdultScope": "all_ages",
-    "household": 744,
+    "household": 756,
     "cap": 30000
   }
 }

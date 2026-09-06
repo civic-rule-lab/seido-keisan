@@ -6,23 +6,23 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0593,
-    "support": 0.0268,
-    "care": 0.0206
+    "medical": 0.064,
+    "support": 0.026,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 24105,
-    "support": 10218,
-    "care": 11042
+    "medical": 23000,
+    "support": 9000,
+    "care": 10500
   },
   "household": {
-    "medical": 18395,
-    "support": 7749,
-    "care": 5983
+    "medical": 18000,
+    "support": 7000,
+    "care": 5600
   },
   "caps": {
-    "medical": 660000,
-    "support": 260000,
+    "medical": 650000,
+    "support": 240000,
     "care": 170000,
     "childcare": 30000
   },
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.559Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.town.mashiko.lg.jp/page/page001610.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.mashiko.lg.jp/page/page001610.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "国民健康保険税のしくみ｜益子町",
+      "url": "https://www.town.mashiko.lg.jp/page/page001610.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で益子町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で益子町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-07: 益子町公式ページ「国民健康保険税のしくみ｜益子町」で令和8年度の実税率を確認し、栃木県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.4%／均等割23,000円／平等割18,000円・賦課限度額65万円、後期支援分 所得割2.6%／均等割9,000円／平等割7,000円・24万円、介護分 所得割2%／均等割10,500円／平等割5,600円・17万円、子ども・子育て支援金分 所得割0.27%／均等割1,200円／18歳以上均等割100円／平等割900円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 ★賦課限度額が医療65万円・後期支援24万円で、令和8年度の国基準（67万・26万）より低い。町ページ・町例規集の条例本文（第2条第2項〜第5項）・栃木県の実税率一覧の3つで同値を確認しており、町独自の据え置きである。条例第9条の5＝均等割1,200円、第9条の6＝18歳以上被保険者均等割100円で別建て。軽減判定は条例第21条で31万／57万。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1223,
-    "perCapitaAdult": 0,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 875,
+    "household": 900,
     "cap": 30000
   }
 }

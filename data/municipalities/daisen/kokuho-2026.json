@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0668,
-    "support": 0.029,
-    "care": 0.0254
+    "medical": 0.0679,
+    "support": 0.0238,
+    "care": 0.0207
   },
   "perCapita": {
-    "medical": 29141,
-    "support": 12496,
-    "care": 13206
+    "medical": 25300,
+    "support": 8900,
+    "care": 10600
   },
   "household": {
-    "medical": 18770,
-    "support": 8048,
-    "care": 6389
+    "medical": 22800,
+    "support": 8000,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.643Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.daisen.jp/10/3/1/5/",
+        "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
         "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.daisen.jp/10/3/1/5/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "令和8年度国民健康保険料（税）率決定状況（鳥取県）",
+      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
+      "publishedAt": "2026-07-13"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大山町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=102円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大山町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=102円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 大山町公式「国民健康保険税」ページ（https://www.daisen.jp/10/3/1/5/ 更新：2026年06月12日）の「令和8年度大山町国民健康保険税について」税率表で13値を確認し verified_r8 へ昇格。同ページは「子ども・子育て支援給付金分以外の区分の税率については据え置きとし、変更はありません。ただし、賦課限度額について医療給付費分が1万円引き上げとなります」と記す。所得割 医療6.79％・支援2.38％・介護2.07％・子ども0.28％、均等割 25,300円・8,900円・10,600円・子ども1,100円（「18歳以上均等割 該当加入者1人につき」100円を perCapitaAdult に計上）、平等割（特定世帯以外）22,800円・8,000円・6,500円・700円、課税限度額 67万・26万・17万・3万円。軽減判定は「5割軽減は31万円…2割軽減は57万円」で JSON と一致。県標準料率（医療6.68％等）とは全区分で相違。介護分平等割は町ページ上、特定世帯・特定継続世帯は0円だが特定世帯以外は6,500円で計上。未就学児軽減表の均等割34,200円＝25,300+8,900 と整合。 / 2026-09-06 出典表示の是正: 町の独自ドメインは生成器の許可ホストに入れない判断となったため、町ページ（または町例規集）を meta.source.url に置いたままでは、町の題名を掲げながら別のURLへ飛ぶ食い違いが生じる。表示されるURLとその実題名が一致するよう、meta.source を鳥取県「令和8年度国民健康保険料（税）率決定状況」（https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf・2026-07-13）へ差し替えた。同PDFは県が公表した各市町村の実料率一覧であり、本データの17値（医療・支援・介護・子どもの所得割／資産割／均等割／18歳以上均等割／平等割）が全て一致することを機械照合で確認した。値の根拠が町の一次資料である点は変わらず、町のURLは sourceUrls と watchUrls に残してある。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1198,
-    "perCapitaAdult": 102,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 774,
+    "household": 700,
     "cap": 30000
   }
 }

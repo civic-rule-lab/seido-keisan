@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0672,
-    "support": 0.0272,
-    "care": 0.0228
+    "medical": 0.0809,
+    "support": 0.0332,
+    "care": 0.0359
   },
   "perCapita": {
-    "medical": 29890,
-    "support": 12054,
-    "care": 11803
+    "medical": 24200,
+    "support": 10600,
+    "care": 12000
   },
   "household": {
-    "medical": 19298,
-    "support": 7783,
-    "care": 5904
+    "medical": 15700,
+    "support": 6900,
+    "care": 5900
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.478Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.tokushima-naka.lg.jp/soshiki/1004/hoken/2096639.html",
+        "https://www1.g-reiki.net/town.tokushima-naka/reiki_honbun/r093RG00000150.html",
+        "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/town.tokushima-naka/reiki_honbun/r093RG00000150.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "令和８年度 国民健康保険料（税）率（徳島県・県内24保険者の実料率一覧）",
+      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で那賀町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=24円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で那賀町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=24円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 那賀町公式サイト掲載のPDF「令和８年度 国民健康保険料（税）率（徳島県・県内24保険者の実料率一覧）」で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.09%／均等割24,200円／平等割15,700円・賦課限度額67万円、後期支援分 所得割3.32%／均等割10,600円／平等割6,900円・26万円、介護分 所得割3.59%／均等割12,000円／平等割5,900円・17万円、子ども・子育て支援金分 所得割0.26%／均等割1,300円／18歳以上均等割30円／平等割800円・3万円。／ ★那賀町は町公式サイトに税率表を持たず（国保ページは資格・給付手続きのみ）、例規集もベンダーホスト（www1.g-reiki.net）で許可ホスト外のため、徳島県が公表する令和8年度の実料率一覧（県内24保険者ぶんの所得割・資産割・均等割・平等割・18歳以上均等割）を出典とした。これは県標準保険料率（理論値）ではなく各保険者が実際に賦課する料率の一覧である。町条例（令和8年3月25日条例第11号・令和8年3月31日条例第17号で改正、令和8年4月1日施行・令和8年度以後適用）の値とも一致することを確認し、条例URLは ordinanceUrls に置いた。3方式（資産割の条項なし）。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1250,
-    "perCapitaAdult": 24,
+    "rate": 0.0026,
+    "perCapita": 1300,
+    "perCapitaAdult": 30,
     "perCapitaAdultScope": "all_ages",
-    "household": 779,
+    "household": 800,
     "cap": 30000
   }
 }

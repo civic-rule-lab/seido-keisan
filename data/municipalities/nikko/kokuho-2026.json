@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0694,
-    "support": 0.0274,
-    "care": 0.0235
+    "medical": 0.07,
+    "support": 0.026,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 24055,
-    "support": 9348,
-    "care": 7802
+    "medical": 22000,
+    "support": 8000,
+    "care": 7000
   },
   "household": {
-    "medical": 25722,
-    "support": 11455,
-    "care": 9265
+    "medical": 24000,
+    "support": 10000,
+    "care": 8500
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.553Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.city.nikko.lg.jp/kurashi_tetsuzuki/shizei/7/4189.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.nikko.lg.jp/kurashi_tetsuzuki/shizei/7/4189.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "国民健康保険税／日光市",
+      "url": "https://www.city.nikko.lg.jp/kurashi_tetsuzuki/shizei/7/4189.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で日光市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で日光市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 日光市公式ページ「国民健康保険税／日光市」（Last-Modified （更新日 2026-05-26））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7%／均等割22,000円／平等割24,000円・賦課限度額67万円、後期支援分 所得割2.6%／均等割8,000円／平等割10,000円・26万円、介護分 所得割2.1%／均等割7,000円／平等割8,500円・17万円、子ども・子育て支援金分 所得割0.3%／均等割1,300円／18歳以上均等割100円／平等割800円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 軽減判定は令和7年度（30.5万／56万）と令和8年度（31万／57万）を対比表で明示。旧URL（/zeimu/ 配下）は2024年2月のリニューアルで無効。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1356,
-    "perCapitaAdult": 0,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 880,
+    "household": 800,
     "cap": 30000
   }
 }

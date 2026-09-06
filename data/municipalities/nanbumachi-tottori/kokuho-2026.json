@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.08,
-    "support": 0.0291,
-    "care": 0.025
+    "medical": 0.0718,
+    "support": 0.0235,
+    "care": 0.0223
   },
   "perCapita": {
-    "medical": 34881,
-    "support": 12539,
-    "care": 13026
+    "medical": 26900,
+    "support": 8800,
+    "care": 11300
   },
   "household": {
-    "medical": 22466,
-    "support": 8076,
-    "care": 6301
+    "medical": 19400,
+    "support": 6300,
+    "care": 5600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.644Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.town.nanbu.tottori.jp/admin/zeimuka/v154/",
         "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.nanbu.tottori.jp/admin/zeimuka/v154/",
+        "https://www.town.nanbu.tottori.jp/reiki/reiki_honbun/r049RG00000494.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険税について | 鳥取県西伯郡・南部町(なんぶちょう)行政サイト",
+      "url": "https://www.town.nanbu.tottori.jp/admin/zeimuka/v154/",
+      "publishedAt": "2026-07-17"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で南部町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=88円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で南部町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=88円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 南部町（鳥取県西伯郡）公式「国民健康保険税について」ページ（https://www.town.nanbu.tottori.jp/admin/zeimuka/v154/ Last-Modified 2026-07-17）の「令和８年度国民健康保険税率」表で13値を確認し verified_r8 へ昇格。同ページは「令和8年度は、医療給付費分、後期高齢者支援金等分、介護納付金分の保険税率に変更はありませんが…『子ども・子育て支援納付金分』を新設します」と記す。所得割 医療7.18％・支援2.35％・介護2.23％・子ども0.27％、均等割 26,900円・8,800円・11,300円・子ども1,073円＋「18歳以上被保険者均等割」77円（perCapita=1073・perCapitaAdult=77）、平等割 19,400円・6,300円・5,600円・764円、課税限度額 670,000円・260,000円・170,000円・30,000円。軽減判定は「31万円×被保険者及び特定同一世帯所属者の数」「57万円×…」で JSON と一致。町のモデルケース（4人家族・給与所得276万円）年税額479,800円を掲載。例規集の南部町国民健康保険税条例（https://www.town.nanbu.tottori.jp/reiki/reiki_honbun/r049RG00000494.html）は令和7年度改正止まり（基礎課税額66万円・子ども分なし）で R8 未反映のため watchUrls に追加。県標準料率（医療8.00％等）とは全区分で相違。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1216,
-    "perCapitaAdult": 88,
+    "rate": 0.0027,
+    "perCapita": 1073,
+    "perCapitaAdult": 77,
     "perCapitaAdultScope": "all_ages",
-    "household": 776,
+    "household": 764,
     "cap": 30000
   }
 }

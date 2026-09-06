@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0717,
-    "support": 0.0305,
-    "care": 0.0244
+    "medical": 0.063,
+    "support": 0.03,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 21127,
-    "support": 8094,
-    "care": 8637
+    "medical": 17700,
+    "support": 7900,
+    "care": 9400
   },
   "household": {
-    "medical": 17737,
-    "support": 7101,
-    "care": 5686
+    "medical": 14800,
+    "support": 6900,
+    "care": 6300
   },
   "caps": {
     "medical": 660000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.566Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.town.nasu.lg.jp/0071/info-0000000109-1.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.nasu.lg.jp/0071/info-0000000109-1.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "保険税の決め方｜那須町",
+      "url": "https://www.town.nasu.lg.jp/0071/info-0000000109-1.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で那須町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で那須町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 那須町公式ページ「保険税の決め方｜那須町」（Last-Modified （掲載日 令和8年6月1日））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.3%／均等割17,700円／平等割14,800円・賦課限度額66万円、後期支援分 所得割3%／均等割7,900円／平等割6,900円・26万円、介護分 所得割2.5%／均等割9,400円／平等割6,300円・17万円、子ども・子育て支援金分 所得割0.23%／均等割1,200円／18歳以上均等割100円／平等割800円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 ★決め方ページは子ども分の均等割を「18歳以上1人につき1,300円」と表示し注記※6で「18歳以上均等割100円を含む」としているため、内訳（1,200円＋100円）は町の改正ページ（0071/info-0000003151-1.html）と栃木県の実税率一覧に拠る。★賦課限度額の医療分は65万→66万で国基準の67万円より低い。資産割は平成30年度に廃止。町独自に医療分・後期分の18歳以下均等割を5割軽減している（エンジン未対応・未反映）。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1268,
-    "perCapitaAdult": 0,
+    "rate": 0.0023,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 908,
+    "household": 800,
     "cap": 30000
   }
 }

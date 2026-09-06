@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0648,
-    "support": 0.0283,
-    "care": 0.0236
+    "medical": 0.06,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 26324,
-    "support": 11103,
-    "care": 10889
+    "medical": 23000,
+    "support": 10000,
+    "care": 10500
   },
   "household": {
-    "medical": 20872,
-    "support": 8759,
-    "care": 6291
+    "medical": 18500,
+    "support": 8000,
+    "care": 6000
   },
   "caps": {
     "medical": 660000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.554Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.city.moka.lg.jp/kakuka/kokuhonenkin/gyomu/kenko_hoken/hokenryo/19661.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.moka.lg.jp/kakuka/kokuhonenkin/gyomu/kenko_hoken/hokenryo/19661.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "国民健康保険税の計算方法｜真岡市",
+      "url": "https://www.city.moka.lg.jp/kakuka/kokuhonenkin/gyomu/kenko_hoken/hokenryo/19661.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で真岡市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で真岡市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 真岡市公式ページ「国民健康保険税の計算方法｜真岡市」（Last-Modified 2026-06-22（更新日 2026-04-01））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6%／均等割23,000円／平等割18,500円・賦課限度額66万円、後期支援分 所得割2.7%／均等割10,000円／平等割8,000円・26万円、介護分 所得割2.3%／均等割10,500円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.2%／均等割1,200円／18歳以上均等割100円／平等割800円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 子ども分は均等割1（1,200円・18歳未満全額軽減）と均等割2（18歳以上100円）の別建て。未就学児は医療・後期・介護の均等割が半額。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1398,
-    "perCapitaAdult": 0,
+    "rate": 0.002,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 968,
+    "household": 800,
     "cap": 30000
   }
 }

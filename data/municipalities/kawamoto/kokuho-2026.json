@@ -73,7 +73,9 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.shimane-kawamoto.lg.jp/gyosei/gyosei_living/tax/3940"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +92,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で川本町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=29円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で川本町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=29円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 据え置き。川本町「国民健康保険税」https://www.town.shimane-kawamoto.lg.jp/gyosei/gyosei_living/tax/3940(Last-Modified ヘッダなし・年度表記なし)は「所得割率 7.80%／2.70%／2.10%」「均等割額 21,000／8,000／9,000」「平等割額 17,000／7,000／5,000」の3区分のみで子ども・子育て支援金分の区分が無く、軽減判定が「30.5万円」「56万円」のため令和7年度以前の内容と判断。町サイトの税金一覧(/gyosei/gyosei_living/tax/)に令和8年度の税率ページ無し。例規集ページ(/gyosei/town_administration/regulations/)から外部例規集への到達は未確認[未確認]。町ページの令和8年度更新を watchUrls で検知する。"
   },
   "childcareLevy": {
     "rate": 0.0027,

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0277,
-    "support": 0.0279,
-    "care": 0.024
+    "medical": 0.0991,
+    "support": 0.032,
+    "care": 0.0295
   },
   "perCapita": {
-    "medical": 12064,
-    "support": 12021,
-    "care": 12489
+    "medical": 28500,
+    "support": 9500,
+    "care": 10400
   },
   "household": {
-    "medical": 7771,
-    "support": 7743,
-    "care": 6041
+    "medical": 24000,
+    "support": 8000,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.653Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
+        "https://www.town-kofu.jp/reiki/reiki_honbun/m039RG00000145.html",
+        "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
         "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town-kofu.jp/reiki/reiki_honbun/m039RG00000145.html",
+        "https://www.town-kofu.jp/2/1/4/21/11/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "令和8年度国民健康保険料（税）率決定状況（鳥取県）",
+      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
+      "publishedAt": "2026-07-13"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で江府町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=64円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で江府町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=64円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 江府町例規集（Reiki-Base・町公式ドメイン town-kofu.jp）「江府町国民健康保険税条例」(Last-Modified 2026-05-19、附則 令和8年条例第8号「この条例は、令和8年4月1日から施行する」「令和8年度以後の年度分の国民健康保険税について適用」) https://www.town-kofu.jp/reiki/reiki_honbun/m039RG00000145.html で確認。第3条「100分の9.91」・第5条「28,500円」・第5条の2(1) 24,000円（7割減額16,800円・特定世帯12,000円から確認）／第6条「100分の3.20」・第7条の2「9,500円」・第7条の3(1)「8,000円」／第8条「100分の2.95」・第9条の2「10,400円」・第9条の3「6,200円」／子ども・子育て支援納付金 第9条の4「100分の0.30」・第9条の5「936円」・第9条の6 18歳以上「51円」・第9条の7(1)「738円」。限度額 第2条「67万円」「26万円」「17万円」「3万円」。軽減判定 第15条「1人につき31万円」「1人につき57万円」（R8 3点セット充足）。第4条・第7条・第9条(資産割)は「削除」＝3方式。町サイト「国民健康保険税」https://www.town-kofu.jp/2/1/4/21/11/ には税率表なし（watchUrls に追加）。県標準（医療2.77％等）と大きく相違し町条例値へ差し替え。出典ホスト town-kofu.jp は独自ドメインのため要 PROVENANCE_HOST_EXTRA 追加。 / 2026-09-06 出典表示の是正: 町の独自ドメインは生成器の許可ホストに入れない判断となったため、町ページ（または町例規集）を meta.source.url に置いたままでは、町の題名を掲げながら別のURLへ飛ぶ食い違いが生じる。表示されるURLとその実題名が一致するよう、meta.source を鳥取県「令和8年度国民健康保険料（税）率決定状況」（https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf・2026-07-13）へ差し替えた。同PDFは県が公表した各市町村の実料率一覧であり、本データの17値（医療・支援・介護・子どもの所得割／資産割／均等割／18歳以上均等割／平等割）が全て一致することを機械照合で確認した。値の根拠が町の一次資料である点は変わらず、町のURLは sourceUrls と watchUrls に残してある。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1187,
-    "perCapitaAdult": 64,
+    "rate": 0.003,
+    "perCapita": 936,
+    "perCapitaAdult": 51,
     "perCapitaAdultScope": "all_ages",
-    "household": 745,
+    "household": 738,
     "cap": 30000
   }
 }

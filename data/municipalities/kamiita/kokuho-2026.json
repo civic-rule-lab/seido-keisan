@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0686,
-    "support": 0.0281,
-    "care": 0.0243
+    "medical": 0.095,
+    "support": 0.028,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 30523,
-    "support": 12467,
-    "care": 12592
+    "medical": 25000,
+    "support": 8000,
+    "care": 7000
   },
   "household": {
-    "medical": 19707,
-    "support": 8049,
-    "care": 6299
+    "medical": 20000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.509Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.townkamiita.jp/docs/2015062900012/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.townkamiita.jp/docs/2015062900012/",
+        "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "国民健康保険税について（令和８年度の税率）／上板町",
+      "url": "https://www.townkamiita.jp/docs/2015062900012/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で上板町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=53円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で上板町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=53円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 上板町公式ページ「国民健康保険税について（令和８年度の税率）／上板町」（Last-Modified 2026-04-09）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割9.5%／均等割25,000円／平等割20,000円・賦課限度額67万円、後期支援分 所得割2.8%／均等割8,000円／平等割7,000円・26万円、介護分 所得割2%／均等割7,000円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.28%／均等割1,200円／18歳以上均等割50円／平等割700円・3万円。／ 3方式。資産割は令和5年度で廃止（表に0%と明示）。ページの数字は全角。18歳以上均等割50円は別建て。徳島県公表の令和8年度実料率一覧（pref.tokushima.lg.jp/file/attachment/1067694.pdf）の上板町行（9.50／25,000／20,000、2.80／8,000／7,000、2.00／7,000／6,000、0.28／1,200／700／50）と全17項目が完全一致することを機械照合で確認した。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1233,
-    "perCapitaAdult": 53,
+    "perCapita": 1200,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 798,
+    "household": 700,
     "cap": 30000
   }
 }

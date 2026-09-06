@@ -57,51 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.661Z",
-      "updatedAt": "2026-08-31T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "extracted_r8",
+      "r8Stage": "verified_r8",
       "sourceUrls": [
+        "https://www.akiota.jp/reiki/H416901010054/H416901010054_j.html",
         "https://www.akiota.jp/soshiki/7/16025.html"
       ],
-      "verifiedAt": "",
+      "verifiedAt": "2026-09-06",
       "watchUrls": [
-        "https://www.akiota.jp/soshiki/7/16025.html"
-      ],
-      "sourceStatus": "official_rate_page",
-      "r8Updated": true,
-      "previousYearTemplate": false,
-      "verificationLevel": "official_source_extracted",
-      "ordinanceUrls": [
+        "https://www.akiota.jp/soshiki/7/16025.html",
         "https://www.akiota.jp/reiki/H416901010054/H416901010054_j.html"
       ],
-      "reflectionPending": "medical_cap,reduction_thresholds"
+      "sourceStatus": "ordinance_after_revision",
+      "r8Updated": true,
+      "previousYearTemplate": false,
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www.akiota.jp/reiki/H416901010054/H416901010054_j.html"
+      ]
     },
     "source": {
       "type": "official",
-      "title": "安芸太田町 令和8年度国民健康保険税の税率について",
-      "url": "https://www.akiota.jp/soshiki/7/16025.html",
-      "publishedAt": "2026"
+      "title": "安芸太田町国民健康保険税条例",
+      "url": "https://www.akiota.jp/reiki/H416901010054/H416901010054_j.html",
+      "publishedAt": "2026-04-01"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
+      "verifiedAt": "2026-09-06",
       "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "令和8年度の所得割・均等割・平等割・基礎控除・後期高齢者支援金等分および介護納付金分の賦課限度額・未就学児軽減（法定軽減後の5割）を、安芸太田町国民健康保険税条例の本文で確認した（2026-08-31）。税率改正は令和8年3月18日条例第7号（令和8年度以後の年度分に適用）。18歳未満という区分および18歳以上の均等割加算は条例に存在せず、本サイトの取扱いと整合する。／ 未確定: 例規集の内容現在が令和8年3月30日で、令和8年3月31日付の専決処分による改正が未収録である。このため医療分の賦課限度額670,000円および軽減判定所得310,000円/570,000円を条文で確認できていない（条文は66万円・305,000円・560,000円のまま）。町議会 令和8年4月17日第3回臨時会の会議録（承認第3号）により、同専決処分で子ども・子育て支援納付金の新設・基礎課税額に係る課税限度額の引上げ・子ども分の課税限度額3万円・軽減判定所得基準の引上げが行われたことは確認したが、引上げ後の金額は会議録に記載がない。例規集の更新後に再照合が必要。"
+    "notes": "令和8年度の所得割・均等割・平等割・基礎控除・後期高齢者支援金等分および介護納付金分の賦課限度額・未就学児軽減（法定軽減後の5割）を、安芸太田町国民健康保険税条例の本文で確認した（2026-08-31）。税率改正は令和8年3月18日条例第7号（令和8年度以後の年度分に適用）。18歳未満という区分および18歳以上の均等割加算は条例に存在せず、本サイトの取扱いと整合する。／ 未確定: 例規集の内容現在が令和8年3月30日で、令和8年3月31日付の専決処分による改正が未収録である。このため医療分の賦課限度額670,000円および軽減判定所得310,000円/570,000円を条文で確認できていない（条文は66万円・305,000円・560,000円のまま）。町議会 令和8年4月17日第3回臨時会の会議録（承認第3号）により、同専決処分で子ども・子育て支援納付金の新設・基礎課税額に係る課税限度額の引上げ・子ども分の課税限度額3万円・軽減判定所得基準の引上げが行われたことは確認したが、引上げ後の金額は会議録に記載がない。例規集の更新後に再照合が必要。 / 2026-09-06: verified_r8 へ昇格。例規集の安芸太田町国民健康保険税条例（https://www.akiota.jp/reiki/H416901010054/H416901010054_j.html、本文の Last-Modified 2026-09-03）に令和8年3月31日条例第15号の附則（「この条例は、令和８年４月１日から施行する」「令和８年度以後の年度分の国民健康保険税について適用」）が収録され、保留していた3点を本文で確認した: ①第2条第2項「当該合算額が67万円を超える場合においては、基礎課税額は、67万円とする」 ②第23条第1項第2号「１人につき31万円」・第3号「１人につき57万円」 ③第2条第1項第4号・第5項に子ども・子育て支援納付金課税額の区分（「加算後の額が３万円を超える場合においては、子ども・子育て支援納付金課税額は、３万円とする」）。税率は第3条 100分の8.35・第4条 33,800円・第5条 21,800円、第6条 100分の3.06・第7条 12,100円・第7条の2 8,000円、第8条 100分の2.59・第9条 12,800円・第9条の2 6,200円、第9条の3 100分の0.28・第9条の4 1,200円・第9条の6 800円で、町の税率ページ「令和8年度国民健康保険税の税率について」（https://www.akiota.jp/soshiki/7/16025.html、更新日 2026年4月1日）の13値と一致。第23条の減額（5割 均等割16,900円＝33,800×0.5、2割 6,760円＝33,800×0.2）とも整合。後期支援26万円・介護17万円は条文どおり。／ 値の変更: 第9条の5「第２条第５項の18歳以上被保険者均等割額は、18歳以上被保険者１人について74円とする」により childcareLevy.perCapitaAdult を 0→74 に改めた（2026-08-31 時点の条文は専決処分前で同条が無く 0 としていた）。税率ページはこの74円を掲載しておらず、条例を優先した。／ 未確認: 例規集の「内容現在」表示は索引ページが Incapsula の JS 認証で取得できず読めていない（本文の Last-Modified と附則の収録で代替）。"
   },
   "childcareLevy": {
     "rate": 0.0028,
     "perCapita": 1200,
-    "perCapitaAdult": 0,
+    "perCapitaAdult": 74,
     "perCapitaAdultScope": "all_ages",
     "household": 800,
     "cap": 30000

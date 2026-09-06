@@ -6,24 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0665,
-    "support": 0.0266,
-    "care": 0.0228
+    "medical": 0.069,
+    "support": 0.022,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 24071,
-    "support": 11269,
-    "care": 9521
+    "medical": 25500,
+    "support": 9600,
+    "care": 10500
   },
   "household": {
-    "medical": 20491,
-    "support": 8124,
-    "care": 5522
+    "medical": 22000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
-    "medical": 660000,
-    "support": 260000,
-    "care": 170000,
+    "medical": 610000,
+    "support": 190000,
+    "care": 160000,
     "childcare": 30000
   },
   "preschoolReduction": {
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.564Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.town.nogi.lg.jp/kurashi/zeikin/page000106.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.nogi.lg.jp/kurashi/zeikin/page000106.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "国民健康保険税｜野木町",
+      "url": "https://www.town.nogi.lg.jp/kurashi/zeikin/page000106.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で野木町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で野木町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-07: 野木町公式ページ「国民健康保険税｜野木町」（更新日 2026-04-23）で令和8年度の実税率を確認し、栃木県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.9%／均等割25,500円／平等割22,000円・賦課限度額61万円、後期支援分 所得割2.2%／均等割9,600円／平等割7,000円・19万円、介護分 所得割2.2%／均等割10,500円／平等割6,000円・16万円、子ども・子育て支援金分 所得割0.3%／均等割1,400円／18歳以上均等割100円／平等割1,000円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 ★賦課限度額が医療61万円・後期支援19万円・介護16万円で、栃木県内で唯一いずれも国基準（67万・26万・17万）を下回る。町ページと栃木県の実税率一覧の双方で同値を確認しており、町独自の額である。資産割は令和4年度に廃止。★町ページは子ども分の均等割を「1,500円（18歳以上のみ）」と1本で表示し内訳を出していないため、内訳（1,400円＋18歳以上100円）は県一覧に拠る。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1315,
-    "perCapitaAdult": 0,
+    "rate": 0.003,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 895,
+    "household": 1000,
     "cap": 30000
   }
 }

@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.wakasa.tottori.jp/iryo_kenko_fukushi/iryo_kenko/7/644.html",
+        "https://www.town.wakasa.tottori.jp/section/reiki_int/reiki_honbun/m013RG00000202.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で若桜町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で若桜町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 若桜町「国民健康保険」https://www.town.wakasa.tottori.jp/iryo_kenko_fukushi/iryo_kenko/7/644.html（更新日2026-08-20）は「国民健康保険税は下記のリンクをご覧ください。」とあるがリンク先が置かれておらず、検索結果に出る税務課ページ /soshikikarasagasu/zeimuka/2/3/2/513.html は404（サイト再編）。例規集「若桜町国民健康保険税条例」https://www.town.wakasa.tottori.jp/section/reiki_int/reiki_honbun/m013RG00000202.html（Last-Modified 2025-02-14、最終附則 令和6年6月14日条例第15号）は基礎課税額限度65万円・軽減判定29万5千円/54万5千円・子ども分なし＝令和8年度改正が未収録。県「令和8年度国民健康保険料(税)率決定状況」https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf には若桜町の実料率（医療9.50%/27,200円/24,700円・支援2.00%/6,000円/5,200円・介護1.40%/8,000円/4,800円・子ども0.30%/1,260円/18歳以上70円/880円）が載っているが、町自身の一次資料が無いため据え置き。"
   },
   "childcareLevy": {
     "rate": 0.0028,

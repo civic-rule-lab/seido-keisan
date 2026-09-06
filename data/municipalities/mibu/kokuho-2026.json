@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0732,
-    "support": 0.0289,
-    "care": 0.0239
+    "medical": 0.073,
+    "support": 0.029,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 24707,
-    "support": 10159,
-    "care": 10120
+    "medical": 24900,
+    "support": 8200,
+    "care": 8400
   },
   "household": {
-    "medical": 22795,
-    "support": 8688,
-    "care": 6195
+    "medical": 23600,
+    "support": 7200,
+    "care": 5100
   },
   "caps": {
     "medical": 660000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.563Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.town.mibu.tochigi.jp/docs/2026040200017/file_contents/R8kaitei.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.mibu.tochigi.jp/docs/2026040200017/",
+        "https://www.town.mibu.tochigi.jp/docs/2026040200017/file_contents/R8kaitei.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "令和８年度から国民健康保険税の税率等が変わります（壬生町・リーフレット）",
+      "url": "https://www.town.mibu.tochigi.jp/docs/2026040200017/file_contents/R8kaitei.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で壬生町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で壬生町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 壬生町公式サイト掲載のリーフレットPDF「令和８年度から国民健康保険税の税率等が変わります」（Last-Modified 2026-04-10）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.3%／均等割24,900円／平等割23,600円・賦課限度額66万円、後期支援分 所得割2.9%／均等割8,200円／平等割7,200円・26万円、介護分 所得割2.4%／均等割8,400円／平等割5,100円・17万円、子ども・子育て支援金分 所得割0.29%／均等割1,400円／18歳以上均等割100円／平等割900円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 改正前→改正後で 医療7.3%（旧8.4%）・後期2.9%（旧2.7%）・介護2.4%（旧2.1%）。★賦課限度額の医療分は65万→66万で国基準の67万円より低い。子ども分の均等割1,400円は18歳から74歳が対象で、18歳以上被保険者均等割100円を別建てで加算。詳細は同ページ掲載のPDF（R8kaitei.pdf）。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。／ ★町のランディングページ（docs/2026040200017/）は本文に税率表を持たず、リーフレットPDF（R8kaitei.pdf）へのリンクのみ。そのため出典URLはPDFを指し、ランディングページは watchUrls に置いた。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1421,
-    "perCapitaAdult": 0,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 973,
+    "household": 900,
     "cap": 30000
   }
 }

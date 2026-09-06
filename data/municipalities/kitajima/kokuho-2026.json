@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0811,
-    "support": 0.0283,
-    "care": 0.0239
+    "medical": 0.0736,
+    "support": 0.0302,
+    "care": 0.0253
   },
   "perCapita": {
-    "medical": 36076,
-    "support": 12552,
-    "care": 12395
+    "medical": 28600,
+    "support": 10000,
+    "care": 10200
   },
   "household": {
-    "medical": 23292,
-    "support": 8105,
+    "medical": 23200,
+    "support": 7200,
     "care": 6200
   },
   "caps": {
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.507Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.town.kitajima.lg.jp/docs/3989194.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kitajima.lg.jp/docs/3989194.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "令和８年度　国民健康保険税｜北島町",
+      "url": "https://www.town.kitajima.lg.jp/docs/3989194.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で北島町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=67円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で北島町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=67円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 北島町公式ページ「令和８年度　国民健康保険税｜北島町」で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.36%／均等割28,600円／平等割23,200円・賦課限度額67万円、後期支援分 所得割3.02%／均等割10,000円／平等割7,200円・26万円、介護分 所得割2.53%／均等割10,200円／平等割6,200円・17万円、子ども・子育て支援金分 所得割0.3%／均等割1,200円／18歳以上均等割100円／平等割800円・3万円。／ 3方式（資産割なし）。子ども分の均等割1,200円は18歳未満10割軽減で、18歳以上は別途100円を加算。未就学児は法定軽減後の残額にさらに5割。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1197,
-    "perCapitaAdult": 67,
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 782,
+    "household": 800,
     "cap": 30000
   }
 }

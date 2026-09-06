@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0824,
-    "support": 0.028,
-    "care": 0.0239
+    "medical": 0.082,
+    "support": 0.027,
+    "care": 0.0265
   },
   "perCapita": {
-    "medical": 36657,
-    "support": 12421,
-    "care": 12387
+    "medical": 32100,
+    "support": 11700,
+    "care": 11100
   },
   "household": {
-    "medical": 23668,
-    "support": 8019,
-    "care": 6196
+    "medical": 21300,
+    "support": 7500,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.419Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.city.anan.tokushima.jp/docs/2025032600040/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.anan.tokushima.jp/docs/2025032600040/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "税務課諸税係からのお知らせ（令和８年度国民健康保険税の税率等について）｜阿南市",
+      "url": "https://www.city.anan.tokushima.jp/docs/2025032600040/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で阿南市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=39円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で阿南市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=39円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 阿南市公式ページ「税務課諸税係からのお知らせ（令和８年度国民健康保険税の税率等について）｜阿南市」（Last-Modified 2026-06-01）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.2%／均等割32,100円／平等割21,300円・賦課限度額67万円、後期支援分 所得割2.7%／均等割11,700円／平等割7,500円・26万円、介護分 所得割2.65%／均等割11,100円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.28%／均等割1,160円／18歳以上均等割40円／平等割800円・3万円。／ 3方式（資産割なし）。子ども分の均等割は市ページが『1,200円（うち40円は18歳以上均等割）』と合算表示のため、均等割1,160円＋18歳以上均等割40円として計上した（県公表の令和8年度実料率一覧の内訳と一致）。未就学児は均等割5割軽減。★料率は国保のトップページ（docs/2017062800040）ではなく税務課のページに載っている。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1213,
-    "perCapitaAdult": 39,
+    "rate": 0.0028,
+    "perCapita": 1160,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 774,
+    "household": 800,
     "cap": 30000
   }
 }

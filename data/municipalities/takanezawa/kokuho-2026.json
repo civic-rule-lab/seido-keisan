@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0637,
-    "support": 0.0266,
-    "care": 0.0206
+    "medical": 0.072,
+    "support": 0.03,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 23455,
-    "support": 9214,
-    "care": 9508
+    "medical": 26000,
+    "support": 9000,
+    "care": 8000
   },
   "household": {
-    "medical": 20684,
-    "support": 8387,
-    "care": 6900
+    "medical": 23500,
+    "support": 8400,
+    "care": 6000
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.565Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf"
+        "https://www.town.takanezawa.tochigi.jp/life/zei/others/kokuho/overview.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.takanezawa.tochigi.jp/life/zei/others/kokuho/overview.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 栃木県 市町村標準保険料率",
-      "url": "https://www.pref.tochigi.lg.jp/e09/houdou/kouhou/documents/documents/20260326102624.pdf",
+      "type": "official",
+      "title": "国民健康保険税の課税・税率について｜高根沢町",
+      "url": "https://www.town.takanezawa.tochigi.jp/life/zei/others/kokuho/overview.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で高根沢町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格。"
+    "notes": "栃木県公表の令和8年度 市町村標準保険料率(各市町算定基準)を参考値として採用。法定外繰入ゼロ前提の理論値で高根沢町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり(18歳以上加算の別枠なし→perCapitaAdult:0/all_ages・新スキーマ統一)・資産割なし・限度額医療66万(県内verified市の告示と整合)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 高根沢町公式ページ「国民健康保険税の課税・税率について｜高根沢町」（Last-Modified 2026-05-20）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.2%／均等割26,000円／平等割23,500円・賦課限度額67万円、後期支援分 所得割3%／均等割9,000円／平等割8,400円・26万円、介護分 所得割2%／均等割8,000円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.25%／均等割1,383円／18歳以上均等割83円／平等割945円・3万円。／ 栃木県公表の令和8年度「市町別国民健康保険税率の状況（令和８年４月１日現在）」（pref.tochigi.lg.jp/e09/documents/r8_hokenzeiritu.pdf）の当該市町行と、所得割・資産割・均等割・平等割・賦課限度額・18歳以上均等割の全21項目が一致することを機械照合した。資産割は栃木県内25市町すべてで0（3方式）。 ★ページに年度表記が無い。令和8年度と判断した根拠は、子ども・子育て支援金分の欄が存在すること（令和8年度新設）・軽減判定31万／57万・医療分限度額67万で、いずれも栃木県の実税率一覧の高根沢町行と一致する。子ども分は「（全員）1,383円／（18歳以上）83円」の2段表示で、県内で唯一100円でない端数額。軽減後の実額表の子ども分7割軽減後414円も 1,383×0.3=414.9 と整合。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0025,
     "perCapita": 1383,
-    "perCapitaAdult": 0,
+    "perCapitaAdult": 83,
     "perCapitaAdultScope": "all_ages",
     "household": 945,
     "cap": 30000

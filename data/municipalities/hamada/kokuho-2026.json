@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0786,
-    "support": 0.0276,
-    "care": 0.0253
+    "medical": 0.0822,
+    "support": 0.0302,
+    "care": 0.029
   },
   "perCapita": {
-    "medical": 34549,
-    "support": 12067,
-    "care": 12725
+    "medical": 27800,
+    "support": 11000,
+    "care": 13000
   },
   "household": {
-    "medical": 21788,
-    "support": 7610,
-    "care": 6280
+    "medical": 17000,
+    "support": 6200,
+    "care": 5600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.669Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.city.hamada.shimane.jp/www/contents/1782106807989/index.html",
         "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.hamada.shimane.jp/www/contents/1782106807989/index.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 島根県 市町村標準保険料率（運営協議会資料 別紙4）",
-      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "令和８年度国民健康保険料",
+      "url": "https://www.city.hamada.shimane.jp/www/contents/1782106807989/index.html",
+      "publishedAt": "2026-06-02"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で浜田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=44円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で浜田市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=44円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 浜田市公式「令和８年度国民健康保険料」（登録日 2026年6月2日、Last-Modified 2026-09-03）https://www.city.hamada.shimane.jp/www/contents/1782106807989/index.html の料率表画像（260820162717_1.png）と「モデル世帯による試算例（PDF）」R8moderusetai.pdf で13値を確認: 医療 8.22%・27,800円・17,000円／後期支援 3.02%・11,000円・6,200円／介護 2.90%・13,000円・5,600円／子ども分 0.30%・1,040円・800円（18歳以上均等割の別枠表記なし。表の子ども分は「18歳年代から74歳まで」の列で、試算例PDFでも子ども分均等割は18歳以上2人分のみ計上のため perCapita=1040・perCapitaAdult=0 とした）。限度額 670,000／260,000／170,000／30,000円。軽減判定は同ページの《令和8年度》表画像で 5割31万円・2割57万円を確認。県標準（8.22%ではなく7.86%等）とは全区分で相違＝市実告示へ差し替え。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1213,
-    "perCapitaAdult": 44,
+    "rate": 0.003,
+    "perCapita": 1040,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 758,
+    "household": 800,
     "cap": 30000
   }
 }

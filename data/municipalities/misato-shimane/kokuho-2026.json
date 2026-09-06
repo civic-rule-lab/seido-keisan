@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0833,
-    "support": 0.0275,
-    "care": 0.0251
+    "medical": 0.0825,
+    "support": 0.029,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 36588,
-    "support": 12009,
-    "care": 12669
+    "medical": 25000,
+    "support": 8300,
+    "care": 6900
   },
   "household": {
-    "medical": 23073,
-    "support": 7573,
-    "care": 6253
+    "medical": 17300,
+    "support": 6600,
+    "care": 5200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.678Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://gov.town.shimane-misato.lg.jp/kurasi/zeikin/6135",
         "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://gov.town.shimane-misato.lg.jp/kurasi/zeikin/6135"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 島根県 市町村標準保険料率（運営協議会資料 別紙4）",
-      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf",
+      "type": "official",
+      "title": "国民健康保険税",
+      "url": "https://gov.town.shimane-misato.lg.jp/kurasi/zeikin/6135",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で美郷町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=53円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で美郷町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=53円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 美郷町公式サイト「国民健康保険税」(https://gov.town.shimane-misato.lg.jp/kurasi/zeikin/6135) の税率表で令和8年度の実税率を確認し県標準の理論値から差し替え（「令和８年７月より…子ども子育て支援金分の４分野の合算額が年税額」の記載。ページに更新日表記なし・Last-Modifiedヘッダなし・Imperva配信）。医療 8.25%/均等割25,000円/平等割17,300円、後期支援 2.90%/8,300円/6,600円、介護 2.40%/6,900円/5,200円、子ども子育て支援金分 0.25%/790円/18歳以上均等割30円/平等割480円。賦課限度額 67万/26万/17万/3万、軽減判定加算 5割31万円・2割57万円はページ記載と一致（変更なし）。「18歳未満の方については均等割は全額免除」の記載は perCapitaAdultScope=all_ages のまま。県標準料率とは所得割・均等割・平等割の全項目で相違。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1199,
-    "perCapitaAdult": 53,
+    "rate": 0.0025,
+    "perCapita": 790,
+    "perCapitaAdult": 30,
     "perCapitaAdultScope": "all_ages",
-    "household": 756,
+    "household": 480,
     "cap": 30000
   }
 }

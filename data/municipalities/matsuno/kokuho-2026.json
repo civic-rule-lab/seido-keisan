@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.059,
+    "medical": 0.061,
     "support": 0.029,
-    "care": 0.0276
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 25673,
-    "support": 12427,
-    "care": 13209
+    "medical": 23000,
+    "support": 9400,
+    "care": 10000
   },
   "household": {
-    "medical": 16864,
-    "support": 8163,
-    "care": 6469
+    "medical": 21000,
+    "support": 8100,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,61 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.253Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.ehime.jp/page/4387.html"
+        "https://www1.g-reiki.net/town.matsuno.ehime/reiki_honbun/o264RG00000626.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/town.matsuno.ehime/reiki_honbun/o264RG00000626.html"
+      ],
+      "watchUrls": [
+        "https://www.town.matsuno.ehime.jp/soshiki/6/9383.html",
+        "https://www1.g-reiki.net/town.matsuno.ehime/reiki_honbun/o264RG00000626.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/town.matsuno.ehime/reiki_honbun/o264RG00000626.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛媛県 市町村標準保険料率",
-      "url": "https://www.pref.ehime.jp/page/4387.html",
+      "type": "official",
+      "title": "松野町国民健康保険税条例（松野町例規集・内容現在 令和8年6月18日）",
+      "url": "https://www1.g-reiki.net/town.matsuno.ehime/reiki_honbun/o264RG00000626.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で松野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=32円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で松野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=32円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 松野町は公式サイトに令和8年度の税率ページを持たないため、例規集の「松野町国民健康保険税条例」（平成30年条例第6号・令和8年6月17日施行版・Last-Modified 2026-08-05）で令和8年度の実税率を確認し、愛媛県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.1%／均等割23,000円／平等割21,000円・賦課限度額67万円、後期支援分 所得割2.9%／均等割9,400円／平等割8,100円・26万円、介護分 所得割2.7%／均等割10,000円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.23%／均等割1,028円／18歳以上均等割32円／平等割650円・3万円。資産割は医療8.75%／支援2.25%／介護2.0%（4方式）。／ 令和8年度版であることの根拠: 附則（令和8年3月31日条例第17号・令和8年6月17日条例第18号）が「令和8年度以後の年度分の国民健康保険税について適用」と定め、例規集の目次に「令和8年6月17日施行」と表示されている。第2条第5項に子ども・子育て支援納付金課税額（18歳以上被保険者均等割を加算した額・3万円上限）の規定があり、軽減判定は31万円／57万円。／ ★出典URLの扱い: 例規集ホスト www1.g-reiki.net はベンダードメインで生成器の許可ホストに当たらないため、sourceUrls には町公式サイトの国民健康保険ページ（soshiki/6/9383.html）を置き、条例URLは ordinanceUrls に置いた（安芸太田町・上小阿仁村・東成瀬村と同じ型）。町サイトには税率表そのものは無く、条例が唯一の一次資料である。／ 特定世帯・特定継続世帯の平等割（10,500円／15,750円 等）も条例に規定がある。 / 2026-09-07 出典URLの訂正: meta.source.url が松野町「国民健康保険の加入・脱退について」（https://www.town.matsuno.ehime.jp/soshiki/6/9383.html）を指していたが、このページに税率は載っていない（本文に「税率」「所得割」「均等割」の語が0件、本データの 6.10%／23,000円／21,000円 もいずれも0件）。題名は「松野町国民健康保険税条例」となっており、題名と中身が食い違っていた。値の実際の根拠である松野町例規集の条例本文へ差し替えた（https://www1.g-reiki.net/town.matsuno.ehime/reiki_honbun/o264RG00000626.html・内容現在 令和8年6月18日・Last-Modified 2026-08-05）。同条例で 医療 所得割6.1%／均等割23,000円／平等割21,000円（特定世帯10,500円）、後期支援 2.9%／9,400円、介護 2.7%／10,000円／6,000円、子ども・子育て支援納付金課税額の区分と均等割1,028円、基礎課税額の限度額67万円を確認した。 / なお例規集のホスト www1.g-reiki.net はベンダードメインで生成器の許可ホストに当たらないため、本自治体の生成ページには来歴節が出ない。町サイトに税率を載せたページが無く、愛媛県も令和8年度の実料率一覧を公表していない（県ページ pref.ehime.jp/page/4387.html は標準保険料率のみ・令和7年度まで）ため、許可ホストで示せる出典が存在しない。誤った出典を掲げるより出典を示さない方を採る（津和野町と同じ扱い）。町が税率ページを公表したら watchUrls で検知して差し替える。"
   },
   "childcareLevy": {
     "rate": 0.0023,
-    "perCapita": 1025,
+    "perCapita": 1028,
     "perCapitaAdult": 32,
     "perCapitaAdultScope": "all_ages",
-    "household": 656,
+    "household": 650,
     "cap": 30000
+  },
+  "assetLevy": {
+    "medical": 0.0875,
+    "support": 0.0225,
+    "care": 0.02
   }
 }

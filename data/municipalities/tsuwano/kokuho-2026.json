@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0725,
-    "support": 0.0272,
-    "care": 0.0246
+    "medical": 0.076,
+    "support": 0.0285,
+    "care": 0.0245
   },
   "perCapita": {
-    "medical": 31849,
-    "support": 11901,
-    "care": 12400
+    "medical": 27500,
+    "support": 10000,
+    "care": 11100
   },
   "household": {
-    "medical": 20085,
-    "support": 7505,
-    "care": 6120
+    "medical": 17500,
+    "support": 6700,
+    "care": 6300
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.680Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf"
+        "https://www1.g-reiki.net/tsuwano/reiki_honbun/r129RG00000271.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/tsuwano/reiki_honbun/r129RG00000271.html"
+      ],
+      "watchUrls": [
+        "https://www.town.tsuwano.lg.jp/www/contents/1000000159000/index.html",
+        "https://www1.g-reiki.net/tsuwano/reiki_honbun/r129RG00000271.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 島根県 市町村標準保険料率（運営協議会資料 別紙4）",
-      "url": "https://www.pref.shimane.lg.jp/medical/kenko/iryo/iryo_seido/kenpo/unkyou/R8317siryou.data/siryou.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "津和野町国民健康保険税条例",
+      "url": "https://www1.g-reiki.net/tsuwano/reiki_honbun/r129RG00000271.html",
+      "publishedAt": "2026-06-19"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で津和野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=29円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で津和野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=29円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 例規集「津和野町国民健康保険税条例」(https://www1.g-reiki.net/tsuwano/reiki_honbun/r129RG00000271.html、Last-Modified 2026-09-02、令和8年3月31日条例第12号・令和8年6月19日条例第17号で改正、附則「この条例は、令和8年4月1日から施行する」「令和8年度以後の年度分の国民健康保険税について適用」) の本則から令和8年度の実税率を読み取り県標準の理論値から差し替え。医療 100分の7.60/均等割2万7,500円/平等割1万7,500円、後期支援 100分の2.85/1万円/6,700円、介護 100分の2.45/1万1,100円/6,300円、子ども・子育て支援納付金 100分の0.27/1,100円/18歳以上被保険者均等割30円/平等割700円。限度額 67万/26万/17万/3万、軽減判定加算 5割31万円・2割57万円を条例本文で確認（変更なし）。町公式サイト「保険税について」(https://www.town.tsuwano.lg.jp/www/contents/1000000159000/index.html、登録日2025-09-12) は令和7年度税率（医療8.00%/28,000円/19,000円・限度額66万 等）のまま未更新のため watchUrls に残す。旧ホスト www.tsuwano.net は当環境から接続不可。 / 2026-09-06 出典表示の是正: 生成器 generate-official-pages.js は meta.source.title を題名として表示する一方、リンク先には候補のうち最初の「許可ホスト」のURLを使う。例規集ベンダーのホスト（d1-law / g-reiki / joureikun）は許可されないため、条例を meta.source.url に置くと「条例の題名で別のURLへ飛ぶ」食い違いが生じていた。表示されるURLとその実題名が一致するよう meta.source を差し替え、条例は ordinanceUrls に置いた。値の根拠が条例である点は変わらない。 津和野町については、許可ホストにある唯一の候補が島根県の『令和8年度 市町村標準保険料率』（法定外繰入ゼロ前提の理論値）で、本データの値と一致しない。誤った出典を表示するより出典を示さない方がよいため、これを sourceUrls から外した（watchUrls には残る）。結果として本自治体の生成ページには来歴節が出ない。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1218,
-    "perCapitaAdult": 29,
+    "perCapita": 1100,
+    "perCapitaAdult": 30,
     "perCapitaAdultScope": "all_ages",
-    "household": 750,
+    "household": 700,
     "cap": 30000
   }
 }

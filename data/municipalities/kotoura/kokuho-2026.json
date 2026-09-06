@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0736,
-    "support": 0.0288,
-    "care": 0.0252
+    "medical": 0.082,
+    "support": 0.028,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 32098,
-    "support": 12425,
-    "care": 13109
+    "medical": 24000,
+    "support": 8400,
+    "care": 9100
   },
   "household": {
-    "medical": 20674,
-    "support": 8003,
-    "care": 6341
+    "medical": 23300,
+    "support": 8100,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.639Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.town.kotoura.tottori.jp/docs/2024060400028/",
+        "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
         "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kotoura.tottori.jp/docs/2024060400028/",
+        "https://www.town.kotoura.tottori.jp/docs/2024060400035/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "令和８年度 国民健康保険税について",
+      "url": "https://www.town.kotoura.tottori.jp/docs/2024060400028/",
+      "publishedAt": "2026-07-13"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で琴浦町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=106円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で琴浦町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=106円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 琴浦町公式「令和８年度 国民健康保険税について」（税務課、2026年7月13日、Last-Modified 2026-07-13）の「税率及び課税限度額」表で実税率を確認し差し替え https://www.town.kotoura.tottori.jp/docs/2024060400028/ 。医療給付費分 所得割8.2％・均等割24,000円・平等割23,300円（限度額670,000円「令和7年度より１万円引き上げ」）／後期高齢者支援金分 2.8％・8,400円・8,100円（260,000円）／介護納付金分 2.3％・9,100円・6,100円（170,000円）／子ども・子育て支援納付金分 0.26％・均等割1,200円・18歳以上均等割100円・平等割1,000円（30,000円）。資産割なし（3方式）。軽減判定加算は同町「令和８年度 国民健康保険税の軽減制度について」（2026-07-10）で 5割「３１万円」・2割「５７万円」を確認 https://www.town.kotoura.tottori.jp/docs/2024060400035/ 。県「令和8年度国民健康保険料(税)率決定状況」（R8ketteijokyo.pdf）の琴浦町行と13値すべて一致。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1186,
-    "perCapitaAdult": 106,
+    "rate": 0.0026,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 770,
+    "household": 1000,
     "cap": 30000
   }
 }

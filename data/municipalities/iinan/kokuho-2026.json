@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.iinan.jp/soshiki/8/1289.html",
+        "https://www.iinan.jp/reiki/reiki_int/reiki_honbun/r120RG00000277.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で飯南町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=45円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "島根県の令和7年度第2回国保運営協議会(2026-03-17)配布資料 別紙4『令和8年度 市町村標準保険料率』を参考値として採用。法定外繰入ゼロ前提の理論値で飯南町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=45円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 据え置き。飯南町は保険料方式で、料率は条例に額を置かず「町長は…保険料率を決定したときは、速やかに告示しなければならない」(飯南町国民健康保険条例 第13条第3項, https://www.iinan.jp/reiki/reiki_int/reiki_honbun/r120RG00000277.html, Last-Modified 2026-06-19。子ども・子育て支援納付金賦課額の区分・基礎賦課限度額67万円・軽減判定31万/57万は収録済み=令和8年度改正反映)。町サイト「国民健康保険料のしくみ」https://www.iinan.jp/soshiki/8/1289.htmlは「2022年1月4日更新」で料率の数値なし。税金・保険の一覧(/life/1/1/3/, /soshiki/8/, /soshiki/12/)にも令和8年度料率の告示・お知らせなし。告示値が町サイトに掲出されるまで県標準を据え置く。独自ドメイン www.iinan.jp のため昇格時は PROVENANCE_HOST_EXTRA への追加が必要。"
   },
   "childcareLevy": {
     "rate": 0.0028,

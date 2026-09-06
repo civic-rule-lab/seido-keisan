@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0754,
-    "support": 0.0279,
-    "care": 0.0234
+    "medical": 0.075,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 33551,
-    "support": 12335,
-    "care": 12109
+    "medical": 33000,
+    "support": 12000,
+    "care": 12000
   },
   "household": {
-    "medical": 21662,
-    "support": 7964,
-    "care": 6057
+    "medical": 21000,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.477Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.town.kamiyama.lg.jp/docs/2025092500021/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kamiyama.lg.jp/docs/2025092500021/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "令和8年度の国民健康保険税について｜神山町",
+      "url": "https://www.town.kamiyama.lg.jp/docs/2025092500021/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で神山町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=57円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で神山町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=57円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 神山町公式ページ「令和8年度の国民健康保険税について｜神山町」（Last-Modified 2026-04-27）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.5%／均等割33,000円／平等割21,000円・賦課限度額67万円、後期支援分 所得割2.7%／均等割12,000円／平等割7,000円・26万円、介護分 所得割2.3%／均等割12,000円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.2%／均等割1,000円／18歳以上均等割50円／平等割700円・3万円。／ 3方式（資産割なし）。18歳以上均等割は子ども分のみ50円で、医療・後期・介護は『－』。子ども分の均等割1,000円とは別建て。県標準保険料率を参考に改正したとページに明記。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1202,
-    "perCapitaAdult": 57,
+    "rate": 0.002,
+    "perCapita": 1000,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 779,
+    "household": 700,
     "cap": 30000
   }
 }

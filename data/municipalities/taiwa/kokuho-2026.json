@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0792,
-    "support": 0.0286,
-    "care": 0.0227
+    "medical": 0.063,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 35137,
-    "support": 12619,
-    "care": 11797
+    "medical": 24400,
+    "support": 10700,
+    "care": 11100
   },
   "household": {
-    "medical": 22637,
-    "support": 8130,
-    "care": 5815
+    "medical": 17900,
+    "support": 7800,
+    "care": 5900
   },
   "caps": {
     "medical": 670000,
@@ -57,53 +57,57 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.197Z",
-      "updatedAt": "2026-09-01T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/1230.html",
+        "https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/4570.html",
         "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
       "ordinanceUrls": [
         "https://www.town.taiwa.miyagi.jp/section/reiki_int/reiki_honbun/s300RG00000161.html"
       ],
       "watchUrls": [
+        "https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/1230.html",
+        "https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/4570.html",
         "https://www.town.taiwa.miyagi.jp/section/reiki_int/reiki_honbun/s300RG00000161.html",
         "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮城県 市町村標準保険料率",
-      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/nouhukin.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険税の税率等について",
+      "url": "https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/1230.html",
+      "publishedAt": "2026-04-10"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大和町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=96円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-01: 大和町国民健康保険税条例の本文を確認したが、例規集の在版は令和7年度の内容で、令和8年度用ではない。判定の3点はいずれも古い版を示す。(1)本文に「子ども・子育て」「18歳」の語が1件も無く、子ども・子育て支援納付金課税額の区分が存在しない。(2)第2条第2項の基礎課税額の賦課限度額が66万円（令和8年度は67万円）。後期支援26万円・介護17万円。(3)軽減判定所得の2割の加算額が56万円（令和8年度は57万円）。附則の最終は令和7年3月31日大和町条例第16号で、令和8年の改正が未収録である。／ 同条例が定める令和7年度の税率は、医療分 所得割6.3%・後期支援分 2.7%・介護分 2.3%で、本データの令和7年度分（kokuho-2025.json）と一致する。／ ★資産割について（誤読しやすい点）: 本文中に「資産割」の語が18回現れるが、これらはすべて附則第15項の「平成30年度分及び平成31年度分における国民健康保険税の課税の特例」の読替表の中にある経過措置であり、当該2年度限りのものである。現行の本則は第2条第2項〜第4項が「所得割額並びに被保険者均等割額及び世帯別平等割額」と定めて資産割額を含まず、資産割率を定める第4条・第7条・第9条はいずれも「削除」である。したがって大和町は3方式であり、assetLevy は置かない（附則の読替表に現れる100分の24.6／12.3・5.4／2.8・3.4／1.7 は平成30・31年度限りの値である）。／ 昇格の条件: 令和8年度の改正条例が例規集に収録されること。宮城県は各市町村の実際の保険料（税）率の一覧を公表しておらず（令和8年度は納付金と標準保険料率のみ・2026-09-01 実測）、県資料からは埋められない。"
+    "notes": "宮城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大和町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=96円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-01: 大和町国民健康保険税条例の本文を確認したが、例規集の在版は令和7年度の内容で、令和8年度用ではない。判定の3点はいずれも古い版を示す。(1)本文に「子ども・子育て」「18歳」の語が1件も無く、子ども・子育て支援納付金課税額の区分が存在しない。(2)第2条第2項の基礎課税額の賦課限度額が66万円（令和8年度は67万円）。後期支援26万円・介護17万円。(3)軽減判定所得の2割の加算額が56万円（令和8年度は57万円）。附則の最終は令和7年3月31日大和町条例第16号で、令和8年の改正が未収録である。／ 同条例が定める令和7年度の税率は、医療分 所得割6.3%・後期支援分 2.7%・介護分 2.3%で、本データの令和7年度分（kokuho-2025.json）と一致する。／ ★資産割について（誤読しやすい点）: 本文中に「資産割」の語が18回現れるが、これらはすべて附則第15項の「平成30年度分及び平成31年度分における国民健康保険税の課税の特例」の読替表の中にある経過措置であり、当該2年度限りのものである。現行の本則は第2条第2項〜第4項が「所得割額並びに被保険者均等割額及び世帯別平等割額」と定めて資産割額を含まず、資産割率を定める第4条・第7条・第9条はいずれも「削除」である。したがって大和町は3方式であり、assetLevy は置かない（附則の読替表に現れる100分の24.6／12.3・5.4／2.8・3.4／1.7 は平成30・31年度限りの値である）。／ 昇格の条件: 令和8年度の改正条例が例規集に収録されること。宮城県は各市町村の実際の保険料（税）率の一覧を公表しておらず（令和8年度は納付金と標準保険料率のみ・2026-09-01 実測）、県資料からは埋められない。 / 2026-09-06: 町公式サイト 税務課住民税係「国民健康保険税の税率等について」（https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/1230.html 更新日 2026年04月10日・Last-Modified 2026-06-24）に「令和8年度の保険税率・課税限度額は以下のとおりです」として、医療保険分 所得割6.3%・均等割24,400円・平等割17,900円・限度額67万円／後期高齢者支援分 2.7%・10,700円・7,800円・26万円／介護納付分 2.3%・11,100円・5,900円・17万円が掲載されており、県標準の理論値から差し替えて verified_r8 へ昇格した。子ども・子育て支援金分は同係「国民健康保険税・後期高齢者医療保険料に新たに『子ども・子育て支援金分』が追加されます」（https://www.town.taiwa.miyagi.jp/soshiki/zeimu/juminzei/4570.html 更新日 2026年04月14日）に「所得割 0.30％・均等割 1,300円・平等割 800円・課税限度額 3万円」「※18歳未満の被保険者は均等割が免除されます」とあり、perCapita=1300・perCapitaAdult=0・household=800（年齢別の額は無い）。軽減判定基準は税率ページに令和7年度と令和8年度の2列があり、令和8年度は5割31万円・2割57万円で本データと一致。所得割率（6.3%・2.7%・2.3%）は令和7年度条例と同率で据え置き、均等割・平等割は改定されている。県標準（医療7.92%・35,137円・22,637円 等）とは全項目で相違する＝町独自の実税率。「改正後の税率などの適用については、7月の確定賦課（本算定）からとなります」との注記あり。例規集の条例（Last-Modified 2026-02-18）は依然として令和7年条例第16号までで令和8年改正が未収録＝ページが条例より新しい。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1171,
-    "perCapitaAdult": 96,
+    "rate": 0.003,
+    "perCapita": 1300,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 762,
+    "household": 800,
     "cap": 30000
   }
 }

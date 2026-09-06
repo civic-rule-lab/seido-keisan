@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0676,
-    "support": 0.0287,
-    "care": 0.024
+    "medical": 0.063,
+    "support": 0.025,
+    "care": 0.0195
   },
   "perCapita": {
-    "medical": 30054,
-    "support": 12699,
-    "care": 12434
+    "medical": 18000,
+    "support": 3000,
+    "care": 5000
   },
   "household": {
-    "medical": 19404,
-    "support": 8199,
-    "care": 6219
+    "medical": 19000,
+    "support": 3000,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.475Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.kamikatsu.jp/docs/2011030700011/",
+        "http://www.kamikatsu.jp/reiki/reiki_honbun/o007RG00000105.html",
+        "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf"
+      ],
+      "ordinanceUrls": [
+        "http://www.kamikatsu.jp/reiki/reiki_honbun/o007RG00000105.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "令和８年度 国民健康保険料（税）率（徳島県・県内24保険者の実料率一覧）",
+      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1067694.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で上勝町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=58円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で上勝町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=58円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 上勝町公式サイト掲載のPDF「令和８年度 国民健康保険料（税）率（徳島県・県内24保険者の実料率一覧）」で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.3%／均等割18,000円／平等割19,000円・賦課限度額67万円、後期支援分 所得割2.5%／均等割3,000円／平等割3,000円・26万円、介護分 所得割1.95%／均等割5,000円／平等割5,000円・17万円、子ども・子育て支援金分 所得割0.27%／均等割1,100円／18歳以上均等割50円／平等割700円・3万円。／ ★上勝町は町公式サイトに税率表を持たない（税・保険カテゴリを全件確認。国保ページは届出・高額療養費・非自発的失業軽減のみ）ため、徳島県公表の令和8年度実料率一覧を出典とした。町条例（例規集は町ドメイン上。最終附則＝令和8年3月31日条例第9号で令和8年度分から適用）は ordinanceUrls に置いた。資産割は第4条・第9条とも『削除』＝なし。★子ども・子育て支援納付金分の所得割率について条例と県一覧が食い違う: 条例第9条の4は『100分の0.0027』（＝0.0027%）と書かれているが、県の実料率一覧は0.27%であり、県内の他23保険者も0.12〜0.35%の範囲にある。0.0027%では子ども分の所得割がほぼ発生せず制度の趣旨に合わないため、条例側の桁の誤記と判断し県一覧の0.27%を採用した。均等割1,100円・18歳以上均等割50円・平等割700円は条例と県一覧で一致している。町への照会は未実施。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1191,
-    "perCapitaAdult": 58,
+    "perCapita": 1100,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 773,
+    "household": 700,
     "cap": 30000
   }
 }

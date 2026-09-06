@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0711,
-    "support": 0.0269,
-    "care": 0.0235
+    "medical": 0.08,
+    "support": 0.04,
+    "care": 0.03
   },
   "perCapita": {
-    "medical": 31614,
-    "support": 11921,
-    "care": 12186
+    "medical": 24000,
+    "support": 10000,
+    "care": 12000
   },
   "household": {
-    "medical": 20411,
-    "support": 7697,
-    "care": 6096
+    "medical": 23000,
+    "support": 9000,
+    "care": 0
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.504Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf"
+        "https://www.town.tokushima-mugi.lg.jp/reiki/reiki_honbun/o020RG00000075.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.tokushima-mugi.lg.jp/reiki/reiki_honbun/o020RG00000075.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 徳島県 市町村標準保険料率（納付金及び標準保険料率）",
-      "url": "https://www.pref.tokushima.lg.jp/file/attachment/1038435.pdf",
+      "type": "official",
+      "title": "牟岐町国民健康保険税条例",
+      "url": "https://www.town.tokushima-mugi.lg.jp/reiki/reiki_honbun/o020RG00000075.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で牟岐町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=56円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "徳島県公表の令和8年度 市町村標準保険料率(令和8年2月9日公表)を参考値として採用。法定外繰入ゼロ前提の理論値で牟岐町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=56円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-06: 牟岐町例規集の条例「牟岐町国民健康保険税条例」（Last-Modified 2026-07-24）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8%／均等割24,000円／平等割23,000円・賦課限度額67万円、後期支援分 所得割4%／均等割10,000円／平等割9,000円・26万円、介護分 所得割3%／均等割12,000円／平等割0円・17万円、子ども・子育て支援金分 所得割0.3%／均等割1,200円／18歳以上均等割51円／平等割800円・3万円。／ 町公式サイトの「国民健康保険税について」（更新2026-04-21）は制度説明のみで税率表を持たないため、例規集の条例を一次資料とした。例規集は町ドメイン内（/reiki/）にホストされており許可ホストに当たる。令和8年3月31日条例第7号・令和8年4月1日施行・令和8年度以後適用。★介護分は世帯別平等割の条自体が無く0円。附則の7割軽減額（医療 均等割16,800円／平等割16,100円、後期 7,000円／6,300円、介護 8,400円、子ども 840円／18歳以上35円／平等割560円）がいずれも本則×0.7と一致し、介護平等割の項が無いことも確認できた。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1212,
-    "perCapitaAdult": 56,
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 51,
     "perCapitaAdultScope": "all_ages",
-    "household": 782,
+    "household": 800,
     "cap": 30000
   }
 }
