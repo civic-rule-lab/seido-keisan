@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.065,
-    "support": 0.0297,
-    "care": 0.028
+    "medical": 0.072,
+    "support": 0.022,
+    "care": 0.0167
   },
   "perCapita": {
-    "medical": 28262,
-    "support": 12747,
-    "care": 13432
+    "medical": 19700,
+    "support": 6600,
+    "care": 7300
   },
   "household": {
-    "medical": 18564,
-    "support": 8373,
-    "care": 6579
+    "medical": 22500,
+    "support": 7100,
+    "care": 5100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.207Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ehime.jp/page/4387.html"
+        "https://www.city.uwajima.ehime.jp/soshiki/12/r8kokuminnkennkouhokennryou.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.uwajima.ehime.jp/soshiki/12/r8kokuminnkennkouhokennryou.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛媛県 市町村標準保険料率",
-      "url": "https://www.pref.ehime.jp/page/4387.html",
+      "type": "official",
+      "title": "令和8年度 国民健康保険料 - 宇和島市ホームページ",
+      "url": "https://www.city.uwajima.ehime.jp/soshiki/12/r8kokuminnkennkouhokennryou.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宇和島市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=51円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宇和島市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=51円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 宇和島市公式ページ「令和8年度 国民健康保険料 - 宇和島市ホームページ」（Last-Modified （更新日 2026-07-27））で令和8年度の実料率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.2%／均等割19,700円／平等割22,500円・賦課限度額67万円、後期支援分 所得割2.2%／均等割6,600円／平等割7,100円・26万円、介護分 所得割1.67%／均等割7,300円／平等割5,100円・17万円、子ども・子育て支援金分 所得割0.24%／均等割1,042円／18歳以上均等割47円／平等割709円・3万円。／ 料方式・4方式（子ども分の資産割は『ー』＝なし）。子ども分は均等割1,042円と18歳以上均等割47円を別掲（18歳以上は1,089円）。医療・支援・介護は愛媛県の令和7年度実料率一覧と同一＝据え置き。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1087,
-    "perCapitaAdult": 51,
+    "rate": 0.0024,
+    "perCapita": 1042,
+    "perCapitaAdult": 47,
     "perCapitaAdultScope": "all_ages",
-    "household": 719,
+    "household": 709,
     "cap": 30000
+  },
+  "assetLevy": {
+    "medical": 0.275,
+    "support": 0.07,
+    "care": 0.063
   }
 }
