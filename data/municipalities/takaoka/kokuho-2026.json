@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.073,
-    "support": 0.0267,
-    "care": 0.0245
+    "medical": 0.072,
+    "support": 0.022,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 31532,
-    "support": 11463,
-    "care": 12281
+    "medical": 24500,
+    "support": 8000,
+    "care": 9500
   },
   "household": {
-    "medical": 20183,
-    "support": 7337,
-    "care": 6028
+    "medical": 23500,
+    "support": 8000,
+    "care": 7500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.365Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html"
+        "https://www.city.takaoka.toyama.jp/soshiki/hokennenkinka/2/3/2/3/2639.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.takaoka.toyama.jp/soshiki/hokennenkinka/2/3/2/3/2639.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 富山県 市町村標準保険料率",
-      "url": "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html",
+      "type": "official",
+      "title": "国民健康保険税／高岡市公式ホームページ",
+      "url": "https://www.city.takaoka.toyama.jp/soshiki/hokennenkinka/2/3/2/3/2639.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "本データの値は、富山県が公表した令和8年度の市町村標準保険料率（法定外繰入ゼロ前提の理論値）を採用した参考値であり、市が実際に告示する税率ではない。／ 昇格保留の理由（2026-08-31 調査）: 例規集（Reiki-Base インターネット版）に収録されている高岡市国民健康保険税条例は、版が令和7年6月19日施行・最終改正が令和7年6月19日条例第24号であり、令和8年度の改正をまったく収録していない。令和8年度から全国で必須となる子ども・子育て支援納付金課税額の区分が存在せず、軽減判定所得の加算額も5割305,000円・2割560,000円と令和7年度の政令額のままである。／ 参考（例規集の在版＝令和7年度の額）: 支援2.2%・均等割8,000円、介護2.1%・均等割9,500円・平等割7,500円、基礎均等割24,500円。／ 次にやること: 例規集の更新を待つか、市公式サイトの令和8年度国保税ページを探す。"
+    "notes": "本データの値は、富山県が公表した令和8年度の市町村標準保険料率（法定外繰入ゼロ前提の理論値）を採用した参考値であり、市が実際に告示する税率ではない。／ 昇格保留の理由（2026-08-31 調査）: 例規集（Reiki-Base インターネット版）に収録されている高岡市国民健康保険税条例は、版が令和7年6月19日施行・最終改正が令和7年6月19日条例第24号であり、令和8年度の改正をまったく収録していない。令和8年度から全国で必須となる子ども・子育て支援納付金課税額の区分が存在せず、軽減判定所得の加算額も5割305,000円・2割560,000円と令和7年度の政令額のままである。／ 参考（例規集の在版＝令和7年度の額）: 支援2.2%・均等割8,000円、介護2.1%・均等割9,500円・平等割7,500円、基礎均等割24,500円。／ 次にやること: 例規集の更新を待つか、市公式サイトの令和8年度国保税ページを探す。 / 2026-09-06: 高岡市公式ページ「国民健康保険税／高岡市公式ホームページ」（Last-Modified 2026-08-30）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.2%／均等割24,500円／平等割23,500円・賦課限度額67万円、後期支援分 所得割2.2%／均等割8,000円／平等割8,000円・26万円、介護分 所得割2.1%／均等割9,500円／平等割7,500円・17万円、子ども・子育て支援金分 所得割0.31%／均等割1,330円／18歳以上均等割90円／平等割850円・3万円。／ 均等割1,330円と18歳以上均等割90円は別建て（18歳以上は計1,420円）。限度額・軽減判定額（令和8年度31万／57万、令和7年度30.5万／56万）は市の改正告知ページ hokennenkinka/2/3/2/3/13937.html「令和8年度国民健康保険税の改正について」で確認。税率は据え置き。富山県の令和8年度市町村保険料（税）一覧（r8hyojunhokenryoritu2.pdf 第3節）と全項目一致。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0031,
-    "perCapita": 1327,
-    "perCapitaAdult": 85,
+    "perCapita": 1330,
+    "perCapitaAdult": 90,
     "perCapitaAdultScope": "all_ages",
-    "household": 853,
+    "household": 850,
     "cap": 30000
   }
 }

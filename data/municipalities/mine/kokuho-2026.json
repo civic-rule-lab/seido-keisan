@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.07,
-    "support": 0.0289,
-    "care": 0.0263
+    "medical": 0.062,
+    "support": 0.025,
+    "care": 0.019
   },
   "perCapita": {
-    "medical": 30752,
-    "support": 12620,
-    "care": 13399
+    "medical": 27200,
+    "support": 10800,
+    "care": 9800
   },
   "household": {
-    "medical": 19504,
-    "support": 8004,
-    "care": 6513
+    "medical": 17200,
+    "support": 6800,
+    "care": 4800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.262Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html"
+        "https://www2.city.mine.lg.jp/soshiki/shiminfukushibu/shiminka/hoken_nenkin/hoken/hoken_zei/1461.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www2.city.mine.lg.jp/soshiki/shiminfukushibu/shiminka/hoken_nenkin/hoken/hoken_zei/1461.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山口県 市町村標準保険料率",
-      "url": "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html",
+      "type": "official",
+      "title": "国民健康保険税／美祢市ホームページ",
+      "url": "https://www2.city.mine.lg.jp/soshiki/shiminfukushibu/shiminka/hoken_nenkin/hoken/hoken_zei/1461.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で美祢市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=55円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で美祢市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=55円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 美祢市公式ページ「国民健康保険税／美祢市ホームページ」（Last-Modified 2026-07-17）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.2%／均等割27,200円／平等割17,200円・賦課限度額67万円、後期支援分 所得割2.5%／均等割10,800円／平等割6,800円・26万円、介護分 所得割1.9%／均等割9,800円／平等割4,800円・17万円、子ども・子育て支援金分 所得割0.28%／均等割1,400円／18歳以上均等割50円／平等割860円・3万円。／ 3方式・資産割なし。「令和8年度の課税額」表。注記※2『均等割額1,450円は18歳以上均等割額（1人あたり年間50円）を含んでいます』により、均等割1,400円＋18歳以上均等割50円として計上。市の別ページ 6597.html は『税率等は決まり次第お知らせ』の旧文言のまま。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0032,
-    "perCapita": 1455,
-    "perCapitaAdult": 55,
+    "rate": 0.0028,
+    "perCapita": 1400,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 898,
+    "household": 860,
     "cap": 30000
   }
 }

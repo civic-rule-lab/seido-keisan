@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0694,
-    "support": 0.029,
-    "care": 0.0269
+    "medical": 0.085,
+    "support": 0.032,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 30210,
-    "support": 12442,
-    "care": 12883
+    "medical": 25000,
+    "support": 8500,
+    "care": 9700
   },
   "household": {
-    "medical": 19844,
-    "support": 8173,
-    "care": 6310
+    "medical": 20000,
+    "support": 7000,
+    "care": 5600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.234Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.ehime.jp/page/4387.html"
+        "https://www.town.tobe.ehime.jp/material/files/group/6/20260421.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.tobe.ehime.jp/material/files/group/6/20260421.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛媛県 市町村標準保険料率",
-      "url": "https://www.pref.ehime.jp/page/4387.html",
+      "type": "official",
+      "title": "令和8年度の税率等一覧表（砥部町・国民健康保険税）",
+      "url": "https://www.town.tobe.ehime.jp/material/files/group/6/20260421.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で砥部町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=56円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で砥部町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=56円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 砥部町公式サイト掲載のPDF「令和8年度の税率等一覧表（砥部町・国民健康保険税）」（Last-Modified 2026-04-21（親ページ soshikikarasagasu/zeimuka/hokenzei/1007.html・更新日 2026-05-01））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.5%／均等割25,000円／平等割20,000円・賦課限度額67万円、後期支援分 所得割3.2%／均等割8,500円／平等割7,000円・26万円、介護分 所得割2.7%／均等割9,700円／平等割5,600円・17万円、子ども・子育て支援金分 所得割0.31%／均等割800円／18歳以上均等割65円／平等割650円・3万円。／ 3方式（資産割なし）。限度額『670,000円（旧660,000円）』、5割31万（旧30万5千）・2割57万（旧56万）と旧値併記＝令和8年度確定。18歳未満は均等割全額軽減。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1050,
-    "perCapitaAdult": 56,
+    "rate": 0.0031,
+    "perCapita": 800,
+    "perCapitaAdult": 65,
     "perCapitaAdultScope": "all_ages",
-    "household": 711,
+    "household": 650,
     "cap": 30000
   }
 }

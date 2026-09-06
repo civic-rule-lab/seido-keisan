@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0631,
-    "support": 0.0303,
-    "care": 0.0268
+    "medical": 0.084,
+    "support": 0.022,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 27718,
-    "support": 13231,
-    "care": 13685
+    "medical": 24240,
+    "support": 6000,
+    "care": 6960
   },
   "household": {
-    "medical": 17580,
-    "support": 8392,
-    "care": 6652
+    "medical": 20160,
+    "support": 4800,
+    "care": 4200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.259Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html"
+        "https://www.city.iwakuni.lg.jp/soshiki/32/3122.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.iwakuni.lg.jp/soshiki/32/3122.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山口県 市町村標準保険料率",
-      "url": "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html",
+      "type": "official",
+      "title": "今年度の国民健康保険料が決定しました - 岩国市",
+      "url": "https://www.city.iwakuni.lg.jp/soshiki/32/3122.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で岩国市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=124円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で岩国市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=124円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 岩国市公式ページ「今年度の国民健康保険料が決定しました - 岩国市」で令和8年度の実料率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.4%／均等割24,240円／平等割20,160円・賦課限度額67万円、後期支援分 所得割2.2%／均等割6,000円／平等割4,800円・26万円、介護分 所得割2.2%／均等割6,960円／平等割4,200円・17万円、子ども・子育て支援金分 所得割0.32%／均等割1,040円／18歳以上均等割0円／平等割880円・3万円。／ 料方式・資産割なし。見出し「令和8年度（令和8年4月～令和9年3月）の保険料が決定しました」。子育て分均等割『1,040円×国保被保険者の人数』で18歳未満は全額免除、18歳以上加算の別表示なし＝均等割1,040円・18歳以上均等割0円として計上。5割31万・2割57万への引上げを本文で明記。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0033,
-    "perCapita": 1421,
-    "perCapitaAdult": 124,
+    "rate": 0.0032,
+    "perCapita": 1040,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 917,
+    "household": 880,
     "cap": 30000
   }
 }

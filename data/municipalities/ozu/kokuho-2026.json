@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0607,
-    "support": 0.0287,
-    "care": 0.027
+    "medical": 0.061,
+    "support": 0.0249,
+    "care": 0.0211
   },
   "perCapita": {
-    "medical": 26406,
-    "support": 12302,
-    "care": 12913
+    "medical": 25700,
+    "support": 8300,
+    "care": 8900
   },
   "household": {
-    "medical": 17346,
-    "support": 8081,
-    "care": 6324
+    "medical": 17500,
+    "support": 7800,
+    "care": 5600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.211Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.ehime.jp/page/4387.html"
+        "https://www.city.ozu.ehime.jp/uploaded/attachment/47941.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ozu.ehime.jp/uploaded/attachment/47941.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛媛県 市町村標準保険料率",
-      "url": "https://www.pref.ehime.jp/page/4387.html",
+      "type": "official",
+      "title": "令和８年度 大洲市国民健康保険税課税要領（税務課）",
+      "url": "https://www.city.ozu.ehime.jp/uploaded/attachment/47941.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大洲市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=43円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大洲市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=43円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 大洲市公式サイト掲載のPDF「令和８年度 大洲市国民健康保険税課税要領（税務課）」（Last-Modified 2026-06-30（リンク元 soshiki/zeimu/0462.html・更新日 2026-07-01））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.1%／均等割25,700円／平等割17,500円・賦課限度額67万円、後期支援分 所得割2.49%／均等割8,300円／平等割7,800円・26万円、介護分 所得割2.11%／均等割8,900円／平等割5,600円・17万円、子ども・子育て支援金分 所得割0.24%／均等割1,100円／18歳以上均等割50円／平等割700円・3万円。／ 令和8年度から資産割を廃止し3方式へ（令和7年度は4方式 8.40%／資産割17.25% 等）。※1『18歳以上均等割額の50円（1人あたり）を含む』により、均等割1,100円＋18歳以上均等割50円として計上。市ページ側（soshiki/zeimu/0462.html）には料率表なし。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0024,
-    "perCapita": 1057,
-    "perCapitaAdult": 43,
+    "perCapita": 1100,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 689,
+    "household": 700,
     "cap": 30000
   }
 }

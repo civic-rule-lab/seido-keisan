@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0755,
-    "support": 0.0276,
-    "care": 0.024
+    "medical": 0.0715,
+    "support": 0.026,
+    "care": 0.0225
   },
   "perCapita": {
-    "medical": 33064,
-    "support": 12027,
-    "care": 12340
+    "medical": 30500,
+    "support": 11000,
+    "care": 11600
   },
   "household": {
-    "medical": 20914,
-    "support": 7608,
-    "care": 6087
+    "medical": 20500,
+    "support": 7500,
+    "care": 5700
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,42 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.909Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/hoken/310172.html"
+        "https://www.city.shiga-konan.lg.jp/soshiki/somu/zeimu/4/23811.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.shiga-konan.lg.jp/soshiki/somu/zeimu/4/23811.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 滋賀県 市町村標準保険料率",
-      "url": "https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/hoken/310172.html",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税の税率について／湖南市",
+      "url": "https://www.city.shiga-konan.lg.jp/soshiki/somu/zeimu/4/23811.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "滋賀県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で湖南市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・★県内完全統一料率(大阪型)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=49円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "滋賀県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で湖南市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・★県内完全統一料率(大阪型)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=49円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 湖南市公式ページ「令和8年度 国民健康保険税の税率について／湖南市」（Last-Modified 2026-07-31（更新日 2026-04-01））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.15%／均等割30,500円／平等割20,500円・賦課限度額67万円、後期支援分 所得割2.6%／均等割11,000円／平等割7,500円・26万円、介護分 所得割2.25%／均等割11,600円／平等割5,700円・17万円、子ども・子育て支援金分 所得割0.27%／均等割1,178円／18歳以上均等割49円／平等割744円・3万円。／ 同ページはカッコ内に令和7年度値（医療 6.74%／27,900円／20,000円、支援 2.44%／9,900円／7,300円、介護 2.09%／10,800円／5,300円）を併記。令和9年度の県統一へ向けた段階的改定。計算例で18歳以上均等割49円が1,178円に上乗せされることを確認。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0027,

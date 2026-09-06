@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0709,
-    "support": 0.0263,
-    "care": 0.0242
+    "medical": 0.063,
+    "support": 0.026,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 30642,
-    "support": 11296,
-    "care": 12108
+    "medical": 24000,
+    "support": 9600,
+    "care": 10200
   },
   "household": {
-    "medical": 19613,
-    "support": 7230,
-    "care": 5942
+    "medical": 16800,
+    "support": 7200,
+    "care": 6600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.372Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html"
+        "https://www.town.kamiichi.toyama.jp/page/1921.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.kamiichi.toyama.jp/page/1921.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 富山県 市町村標準保険料率",
-      "url": "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html",
+      "type": "official",
+      "title": "国民健康保険税について - 富山県上市町公式ホームページ（財務課）",
+      "url": "https://www.town.kamiichi.toyama.jp/page/1921.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "本データの値は、富山県が公表した令和8年度の市町村標準保険料率（法定外繰入ゼロ前提の理論値）を採用した参考値であり、町が実際に告示する税率ではない。／ 昇格保留の理由（2026-08-31 調査）: 例規集（上市町例規集・d1-law。内容現在 令和8年4月16日）に収録されている上市町国民健康保険税条例は、最終改正が令和7年3月31日条例第18号であり、令和8年度の改正を収録していない。令和8年度から全国で必須となる子ども・子育て支援納付金課税額の区分が存在せず（「子ども」「18歳」の語が本則に1件も無い）、基礎課税額の賦課限度額も660,000円、軽減判定所得の加算額も5割305,000円・2割560,000円と令和7年度の額のままである。町公式サイトにも令和8年度の料率ページを確認できなかった。／ 参考（例規集の在版＝令和7年度の額）: 医療6.3%・支援2.6%・介護2.5%。／ 次にやること: 例規集の更新（内容現在が令和8年6月以降になるのを待つ）か、町の令和8年度料率ページの公開を待つ。いずれも得られない場合は町へ照会する。"
+    "notes": "本データの値は、富山県が公表した令和8年度の市町村標準保険料率（法定外繰入ゼロ前提の理論値）を採用した参考値であり、町が実際に告示する税率ではない。／ 昇格保留の理由（2026-08-31 調査）: 例規集（上市町例規集・d1-law。内容現在 令和8年4月16日）に収録されている上市町国民健康保険税条例は、最終改正が令和7年3月31日条例第18号であり、令和8年度の改正を収録していない。令和8年度から全国で必須となる子ども・子育て支援納付金課税額の区分が存在せず（「子ども」「18歳」の語が本則に1件も無い）、基礎課税額の賦課限度額も660,000円、軽減判定所得の加算額も5割305,000円・2割560,000円と令和7年度の額のままである。町公式サイトにも令和8年度の料率ページを確認できなかった。／ 参考（例規集の在版＝令和7年度の額）: 医療6.3%・支援2.6%・介護2.5%。／ 次にやること: 例規集の更新（内容現在が令和8年6月以降になるのを待つ）か、町の令和8年度料率ページの公開を待つ。いずれも得られない場合は町へ照会する。 / 2026-09-06: 上市町公式ページ「国民健康保険税について - 富山県上市町公式ホームページ（財務課）」（Last-Modified （ページ記載 調査日 令和8年8月31日現在））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割6.3%／均等割24,000円／平等割16,800円・賦課限度額67万円、後期支援分 所得割2.6%／均等割9,600円／平等割7,200円・26万円、介護分 所得割2.5%／均等割10,200円／平等割6,600円・17万円、子ども・子育て支援金分 所得割0.3%／均等割1,300円／18歳以上均等割90円／平等割800円・3万円。／ 注記※2『均等割額には18歳以上均等割額90円を含む』により、1,390円＝均等割1,300円＋18歳以上均等割90円として計上。富山県の令和8年度一覧（1,300／90）と整合。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1311,
-    "perCapitaAdult": 75,
+    "perCapita": 1300,
+    "perCapitaAdult": 90,
     "perCapitaAdultScope": "all_ages",
-    "household": 838,
+    "household": 800,
     "cap": 30000
   }
 }

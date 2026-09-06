@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0621,
-    "support": 0.0293,
-    "care": 0.0256
+    "medical": 0.073,
+    "support": 0.027,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 27296,
-    "support": 12800,
-    "care": 13071
+    "medical": 23000,
+    "support": 7500,
+    "care": 8900
   },
   "household": {
-    "medical": 17312,
-    "support": 8118,
-    "care": 6353
+    "medical": 20000,
+    "support": 7500,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.258Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html"
+        "https://www.city.kudamatsu.lg.jp/zeimu/kikaku/zeimu/zei/kokuminnkennkouhokennzei21.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kudamatsu.lg.jp/zeimu/kikaku/zeimu/zei/kokuminnkennkouhokennzei21.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山口県 市町村標準保険料率",
-      "url": "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html",
+      "type": "official",
+      "title": "山口県下松市／国民健康保険税に関すること",
+      "url": "https://www.city.kudamatsu.lg.jp/zeimu/kikaku/zeimu/zei/kokuminnkennkouhokennzei21.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で下松市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=105円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で下松市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=105円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 下松市公式ページ「山口県下松市／国民健康保険税に関すること」（Last-Modified 2026-07-03（更新日 2026-04-01））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.3%／均等割23,000円／平等割20,000円・賦課限度額67万円、後期支援分 所得割2.7%／均等割7,500円／平等割7,500円・26万円、介護分 所得割2.7%／均等割8,900円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.32%／均等割1,200円／18歳以上均等割0円／平等割970円・3万円。／ 税方式（山口県内で唯一）・資産割なし。見出し「保険税額について（令和8年度税額）」。子ども支援分均等割『1人当たり1,200円』で18歳以上加算の別表示なし＝均等割1,200円・18歳以上均等割0円として計上（内訳は市の公表なし）。18歳未満（高校生年代）は10割軽減。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0032,
-    "perCapita": 1406,
-    "perCapitaAdult": 105,
+    "perCapita": 1200,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 897,
+    "household": 970,
     "cap": 30000
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0726,
-    "support": 0.0294,
-    "care": 0.0257
+    "medical": 0.093,
+    "support": 0.03,
+    "care": 0.031
   },
   "perCapita": {
-    "medical": 31904,
-    "support": 12832,
-    "care": 13122
+    "medical": 24600,
+    "support": 8200,
+    "care": 9200
   },
   "household": {
-    "medical": 20234,
-    "support": 8139,
-    "care": 6378
+    "medical": 23000,
+    "support": 7400,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.256Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html"
+        "https://www.city.yamaguchi.lg.jp/soshiki/59/190013.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.yamaguchi.lg.jp/soshiki/59/190013.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山口県 市町村標準保険料率",
-      "url": "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html",
+      "type": "official",
+      "title": "国民健康保険料の計算方法 - 山口市ウェブサイト",
+      "url": "https://www.city.yamaguchi.lg.jp/soshiki/59/190013.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で山口市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で山口市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 山口市公式ページ「国民健康保険料の計算方法 - 山口市ウェブサイト」（Last-Modified （更新日 2026-06-01））で令和8年度の実料率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割9.3%／均等割24,600円／平等割23,000円・賦課限度額67万円、後期支援分 所得割3%／均等割8,200円／平等割7,400円・26万円、介護分 所得割3.1%／均等割9,200円／平等割6,100円・17万円、子ども・子育て支援金分 所得割0.33%／均等割1,000円／18歳以上均等割40円／平等割900円・3万円。／ 料方式・資産割なし。見出し「令和８年度国民健康保険料の計算方法」。子育て分均等割1,040円は※2『18歳以上均等割額40円を含む』（計算例で3人×1,000円＋2人×40円と明示）により、均等割1,000円＋18歳以上均等割40円として計上。18歳未満は10割軽減。"
   },
   "childcareLevy": {
-    "rate": 0.0032,
-    "perCapita": 1422,
-    "perCapitaAdult": 100,
+    "rate": 0.0033,
+    "perCapita": 1000,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 903,
+    "household": 900,
     "cap": 30000
   }
 }

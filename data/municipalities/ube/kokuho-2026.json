@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0711,
-    "support": 0.0302,
-    "care": 0.0276
+    "medical": 0.095,
+    "support": 0.03,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 31234,
-    "support": 13182,
-    "care": 14066
+    "medical": 25700,
+    "support": 8500,
+    "care": 8500
   },
   "household": {
-    "medical": 19810,
-    "support": 8361,
-    "care": 6837
+    "medical": 21900,
+    "support": 7300,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,42 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.255Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html"
+        "https://www.city.ube.yamaguchi.jp/kurashi/hoken/kokuminkenkou/1010466/1001839.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ube.yamaguchi.jp/kurashi/hoken/kokuminkenkou/1010466/1001839.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山口県 市町村標準保険料率",
-      "url": "https://www.pref.yamaguchi.lg.jp/soshiki/46/131196.html",
+      "type": "official",
+      "title": "国民健康保険料の決まり方｜宇部市公式ウェブサイト",
+      "url": "https://www.city.ube.yamaguchi.jp/kurashi/hoken/kokuminkenkou/1010466/1001839.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宇部市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=117円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "山口県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宇部市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=117円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 宇部市公式ページ「国民健康保険料の決まり方｜宇部市公式ウェブサイト」（Last-Modified （更新日 2026-05-29））で令和8年度の実料率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割9.5%／均等割25,700円／平等割21,900円・賦課限度額67万円、後期支援分 所得割3%／均等割8,500円／平等割7,300円・26万円、介護分 所得割2.5%／均等割8,500円／平等割5,500円・17万円、子ども・子育て支援金分 所得割0.34%／均等割1,475円／18歳以上均等割117円／平等割945円・3万円。／ 料方式・資産割なし。見出し「令和8年度保険料率」。子育て分均等割1,592円は『18歳以上均等割額117円を含む』により、均等割1,475円＋18歳以上均等割117円として計上。18歳未満は全額軽減。特定世帯／特定継続世帯の平等割半額・3/4額を併記。"
   },
   "childcareLevy": {
     "rate": 0.0034,

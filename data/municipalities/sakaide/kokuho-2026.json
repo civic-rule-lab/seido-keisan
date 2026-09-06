@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0935,
-    "support": 0.029,
-    "care": 0.0256
+    "medical": 0.088,
+    "support": 0.027,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 35821,
-    "support": 11039,
-    "care": 11233
+    "medical": 28000,
+    "support": 8300,
+    "care": 9000
   },
   "household": {
-    "medical": 23134,
-    "support": 7129,
-    "care": 5509
+    "medical": 28000,
+    "support": 7000,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,42 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.686Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kagawa.lg.jp/documents/1935/r8hyoujyunnhokenryouritu.pdf"
+        "https://www.city.sakaide.lg.jp/soshiki/zeimu/kokuhozei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.sakaide.lg.jp/soshiki/zeimu/kokuhozei.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 香川県 市町村標準保険料率",
-      "url": "https://www.pref.kagawa.lg.jp/documents/1935/r8hyoujyunnhokenryouritu.pdf",
+      "type": "official",
+      "title": "国民健康保険税について - 坂出市ホームページ",
+      "url": "https://www.city.sakaide.lg.jp/soshiki/zeimu/kokuhozei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "香川県公表の令和8年度 市町村標準保険料率(健康政策課・2026-04-28公開)を参考値として採用。法定外繰入ゼロ前提の理論値で坂出市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=49円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "香川県公表の令和8年度 市町村標準保険料率(健康政策課・2026-04-28公開)を参考値として採用。法定外繰入ゼロ前提の理論値で坂出市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=49円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 坂出市公式ページ「国民健康保険税について - 坂出市ホームページ」（Last-Modified （更新日 2026-04-01・本文は令和8年4月1日より））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.8%／均等割28,000円／平等割28,000円・賦課限度額67万円、後期支援分 所得割2.7%／均等割8,300円／平等割7,000円・26万円、介護分 所得割2.4%／均等割9,000円／平等割5,500円・17万円、子ども・子育て支援金分 所得割0.29%／均等割1,133円／18歳以上均等割49円／平等割729円・3万円。／ 3方式。18歳以上均等割49円は別列で表示。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0029,

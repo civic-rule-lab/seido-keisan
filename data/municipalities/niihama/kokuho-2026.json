@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0622,
-    "support": 0.0285,
-    "care": 0.0266
+    "medical": 0.085,
+    "support": 0.033,
+    "care": 0.034
   },
   "perCapita": {
-    "medical": 27063,
-    "support": 12214,
-    "care": 12760
+    "medical": 24800,
+    "support": 9900,
+    "care": 10500
   },
   "household": {
-    "medical": 17777,
-    "support": 8023,
-    "care": 6249
+    "medical": 15550,
+    "support": 6300,
+    "care": 4950
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.209Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ehime.jp/page/4387.html"
+        "https://www.city.niihama.lg.jp/soshiki/kokuho/2026hokenryou.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.niihama.lg.jp/soshiki/kokuho/2026hokenryou.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛媛県 市町村標準保険料率",
-      "url": "https://www.pref.ehime.jp/page/4387.html",
+      "type": "official",
+      "title": "令和８年度新居浜市国民健康保険料について（お知らせ）",
+      "url": "https://www.city.niihama.lg.jp/soshiki/kokuho/2026hokenryou.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で新居浜市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=37円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で新居浜市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=37円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 新居浜市公式ページ「令和８年度新居浜市国民健康保険料について（お知らせ）」（Last-Modified （更新日 2026-04-27））で令和8年度の実料率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.5%／均等割24,800円／平等割15,550円・賦課限度額67万円、後期支援分 所得割3.3%／均等割9,900円／平等割6,300円・26万円、介護分 所得割3.4%／均等割10,500円／平等割4,950円・17万円、子ども・子育て支援金分 所得割0.3%／均等割950円／18歳以上均等割0円／平等割570円・3万円。／ 料方式・3方式。子ども分均等割950円は『(18歳～74歳)』と付記のみで18歳以上加算の内訳なし＝均等割950円・18歳以上均等割0円として計上。令和7年度（9.70%／26,290円／17,480円）から医療分を引き下げ。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1077,
-    "perCapitaAdult": 37,
+    "rate": 0.003,
+    "perCapita": 950,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 711,
+    "household": 570,
     "cap": 30000
   }
 }

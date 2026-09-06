@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0755,
-    "support": 0.0276,
-    "care": 0.024
+    "medical": 0.072,
+    "support": 0.029,
+    "care": 0.0235
   },
   "perCapita": {
-    "medical": 33064,
-    "support": 12027,
-    "care": 12340
+    "medical": 28000,
+    "support": 11000,
+    "care": 11500
   },
   "household": {
-    "medical": 20914,
-    "support": 7608,
-    "care": 6087
+    "medical": 20000,
+    "support": 8500,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.945Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/hoken/310172.html"
+        "https://www.town.shiga-hino.lg.jp/0000001706.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.shiga-hino.lg.jp/0000001706.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 滋賀県 市町村標準保険料率",
-      "url": "https://www.pref.shiga.lg.jp/ippan/kenkouiryouhukushi/hoken/310172.html",
+      "type": "official",
+      "title": "国民健康保険税のあらまし | 日野町役場",
+      "url": "https://www.town.shiga-hino.lg.jp/0000001706.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "滋賀県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で日野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・★県内完全統一料率(大阪型)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=72円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "滋賀県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で日野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・★県内完全統一料率(大阪型)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=72円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格（2026-09-06に達成）。 / 2026-09-06: 日野町公式ページ「国民健康保険税のあらまし | 日野町役場」（Last-Modified 2026-09-05（更新日 2026-05-19））で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.2%／均等割28,000円／平等割20,000円・賦課限度額67万円、後期支援分 所得割2.9%／均等割11,000円／平等割8,500円・26万円、介護分 所得割2.35%／均等割11,500円／平等割6,500円・17万円、子ども・子育て支援金分 所得割0.27%／均等割1,150円／18歳以上均等割70円／平等割740円・3万円。／ 表は子ども・子育て支援納付金分を含む令和8年度版。18歳以上は1,150円＋70円＝1,220円、18歳未満は均等割全額軽減。資産割なし。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1155,
-    "perCapitaAdult": 72,
+    "perCapita": 1150,
+    "perCapitaAdult": 70,
     "perCapitaAdultScope": "all_ages",
-    "household": 744,
+    "household": 740,
     "cap": 30000
   }
 }

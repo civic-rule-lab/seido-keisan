@@ -6,23 +6,23 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0746,
-    "support": 0.0272,
-    "care": 0.0248
+    "medical": 0.075,
+    "support": 0.028,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 32203,
-    "support": 11686,
-    "care": 12416
+    "medical": 32200,
+    "support": 11600,
+    "care": 12400
   },
   "household": {
-    "medical": 20612,
-    "support": 7480,
-    "care": 6094
+    "medical": 20600,
+    "support": 7400,
+    "care": 6000
   },
   "caps": {
-    "medical": 670000,
-    "support": 260000,
+    "medical": 650000,
+    "support": 240000,
     "care": 170000,
     "childcare": 30000
   },
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.372Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-06T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html"
+        "https://www.town.nyuzen.toyama.jp/gyosei/soshiki/zeimu/2/1/1060.html",
+        "https://www.town.nyuzen.toyama.jp/gyosei/soshiki/zeimu/2/1/6701.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-06",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.nyuzen.toyama.jp/gyosei/soshiki/zeimu/2/1/1060.html",
+        "https://www.town.nyuzen.toyama.jp/gyosei/soshiki/zeimu/2/1/6701.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 富山県 市町村標準保険料率",
-      "url": "https://www.pref.toyama.jp/1200/kurashi/kenkou/kenkou/r8hyojunhokenryoritu.html",
+      "type": "official",
+      "title": "国民健康保険税について／入善町",
+      "url": "https://www.town.nyuzen.toyama.jp/gyosei/soshiki/zeimu/2/1/1060.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-06",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "本データの値は、富山県が公表した令和8年度の市町村標準保険料率（法定外繰入ゼロ前提の理論値）を採用した参考値であり、町が実際に告示する税率ではない。／ 昇格保留の理由（2026-08-31 調査）: 例規集に収録されている入善町国民健康保険税条例（最終改正 令和8年3月19日条例第8号。例規集の版は令和8年4月1日施行）は、子ども・子育て支援納付金課税額の区分と18歳未満被保険者の減額規定を備えている一方で、賦課限度額と軽減判定所得が令和8年度の政令額になっていない。具体的には基礎課税額の限度額が第2条第2項ただし書で65万円（令和8年度は67万円）、後期高齢者支援金等課税額が24万円（同26万円）、子ども・子育て支援納付金課税額の限度額を定めるただし書は見当たらず、軽減判定所得の加算額も2割の56万円しか置かれていない（令和8年度は5割31万円・2割57万円）。3月19日より後の専決処分等が例規集に未収録である可能性が高い。／ 参考（例規集の在版が定める額）: 医療7.5%・均等割32,200円・平等割20,600円、支援2.8%・11,600円・7,400円、介護2.5%・12,400円・6,000円、子ども0.3%・均等割1,200円・18歳以上加算100円・平等割800円。／ 次にやること: 例規集の更新を待って専決処分後の条文を確認するか、町の令和8年度料率ページを探す。"
+    "notes": "本データの値は、富山県が公表した令和8年度の市町村標準保険料率（法定外繰入ゼロ前提の理論値）を採用した参考値であり、町が実際に告示する税率ではない。／ 昇格保留の理由（2026-08-31 調査）: 例規集に収録されている入善町国民健康保険税条例（最終改正 令和8年3月19日条例第8号。例規集の版は令和8年4月1日施行）は、子ども・子育て支援納付金課税額の区分と18歳未満被保険者の減額規定を備えている一方で、賦課限度額と軽減判定所得が令和8年度の政令額になっていない。具体的には基礎課税額の限度額が第2条第2項ただし書で65万円（令和8年度は67万円）、後期高齢者支援金等課税額が24万円（同26万円）、子ども・子育て支援納付金課税額の限度額を定めるただし書は見当たらず、軽減判定所得の加算額も2割の56万円しか置かれていない（令和8年度は5割31万円・2割57万円）。3月19日より後の専決処分等が例規集に未収録である可能性が高い。／ 参考（例規集の在版が定める額）: 医療7.5%・均等割32,200円・平等割20,600円、支援2.8%・11,600円・7,400円、介護2.5%・12,400円・6,000円、子ども0.3%・均等割1,200円・18歳以上加算100円・平等割800円。／ 次にやること: 例規集の更新を待って専決処分後の条文を確認するか、町の令和8年度料率ページを探す。 / 2026-09-06: 入善町公式ページ「国民健康保険税について」（Last-Modified 2026-08-31）と改正告知ページ zeimu/2/1/6701.html で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割7.5%／均等割32,200円／平等割20,600円・賦課限度額65万円、後期支援分 所得割2.8%／均等割11,600円／平等割7,400円・24万円、介護分 所得割2.5%／均等割12,400円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.3%／均等割1,200円／18歳以上均等割100円／平等割800円・3万円。／ ★賦課限度額は町独自に 医療65万／支援24万／介護17万／子ども3万円（政令上限67万／26万より低い。改正告知ページ zeimu/2/1/6701.html で令和7年度 65／22／17 → 令和8年度 65／24／17 を確認）。注2『1,300円には18歳以上均等割額100円が含まれる』により、均等割1,200円＋18歳以上均等割100円として計上。同告知ページに令和7→8年度の改定（医療 6.9→7.5% 等、軽減判定 30.5／56→31／57万）。富山県の令和8年度一覧と一致。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1315,
-    "perCapitaAdult": 53,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 826,
+    "household": 800,
     "cap": 30000
   }
 }
