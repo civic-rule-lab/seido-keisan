@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0625,
-    "support": 0.0285,
-    "care": 0.0237
+    "medical": 0.079,
+    "support": 0.026,
+    "care": 0.028
   },
   "perCapita": {
-    "medical": 22795,
-    "support": 10654,
-    "care": 9905
+    "medical": 20000,
+    "support": 6500,
+    "care": 7000
   },
   "household": {
-    "medical": 23261,
-    "support": 9577,
-    "care": 7953
+    "medical": 22000,
+    "support": 5500,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.865Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-13T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill.ogawa.nagano.jp/docs/6238.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-13",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.vill.ogawa.nagano.jp/docs/6238.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険｜小川村「令和8年度の税率及び限度額について」",
+      "url": "https://www.vill.ogawa.nagano.jp/docs/6238.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-13",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で小川村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で小川村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-13: 小川村の令和8年度の実税率を「国民健康保険｜小川村「令和8年度の税率及び限度額について」」で確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 ★子ども・子育て支援金分の均等割1,070円・平等割1,103円は端数付きで、18歳以上加算の別掲がページに無い。この2値は長野県の市町村標準保険料率の小川村行（均等割1,070円・平等割1,103円・18歳以上101円）と一致するため、村が県標準をそのまま採用したと読めるが、18歳以上加算の有無はページから確認できない。本データは perCapitaAdult=0 とし、ページの記載どおり18歳以上に1,070円が課される形にした（18歳未満は全額軽減で0）。★内訳は未確認であり、村への照会が要る。／未就学児は均等割2分の1と明記。18歳未満の全額軽減の記載はページに無い。"
   },
   "childcareLevy": {
     "rate": 0.003,
     "perCapita": 1070,
-    "perCapitaAdult": 101,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 1103,
     "cap": 30000
   }
 }

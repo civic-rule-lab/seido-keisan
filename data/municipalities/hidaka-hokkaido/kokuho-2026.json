@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.hidaka.hokkaido.jp/life/?category=19",
+        "https://www.town.hidaka.hokkaido.jp/administration/?category=78"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、日高町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、日高町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 据え置き（限度額・軽減判定は確認できたが税率が非公表）。広報ひだか2026年7月号 P7「令和８年度 国民健康保険税改正のお知らせ」（https://www.town.hidaka.hokkaido.jp/administration/?content=4012 の全ページPDF）に「国民健康保険法施行令の改正に合わせ、日高町においても国民健康保険税（国保税）を改正しました。」とあり、令和8年度から「基礎（医療）分」「介護給付金分」「後期高齢者支援金分」「子ども・子育て支援金」の4区分になったこと、賦課限度額が基礎（医療）分66万円→67万円・介護17万円据え置き・後期支援26万円据え置き・子ども子育て支援金分3万円（新設）＝合計113万円になったこと、軽減判定が5割「43万円＋31万円×被保険者数＋10万円×（給与所得者の数－1）」・2割「43万円＋57万円×被保険者数＋10万円×（給与所得者の数－1）」に改正されたことを確認した。これらは JSON の caps・reduction.standards と一致する。ただし所得割率・均等割額・平等割額の実額はこの記事にも町サイトの税金カテゴリ（https://www.town.hidaka.hokkaido.jp/life/?category=19 全3ページを確認）にも掲載が無く、13値を突合できないため県標準の理論値を据え置いた。例規集は未確認。"
   },
   "childcareLevy": {
     "rate": 0.0029,

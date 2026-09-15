@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.089,
-    "support": 0.0238,
-    "care": 0.0192
+    "medical": 0.0742,
+    "support": 0.0268,
+    "care": 0.0226
   },
   "perCapita": {
-    "medical": 30788,
-    "support": 8816,
-    "care": 8779
+    "medical": 22400,
+    "support": 8000,
+    "care": 9000
   },
   "household": {
-    "medical": 30309,
-    "support": 8679,
-    "care": 6850
+    "medical": 21600,
+    "support": 7700,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,44 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.178Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
+        "https://www.city.akabira.hokkaido.jp/reiki_int/reiki_honbun/a019RG00000297.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.akabira.hokkaido.jp/reiki_int/reiki_honbun/a019RG00000297.html",
+        "https://www.city.akabira.hokkaido.jp/kurashi/kokuho/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "赤平市国民健康保険条例（昭和43年3月25日条例第18号・令和8年6月26日施行）",
+      "url": "https://www.city.akabira.hokkaido.jp/reiki_int/reiki_honbun/a019RG00000297.html",
+      "publishedAt": "2026-06-26"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、赤平市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、赤平市が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 市サイトのくらし＞国保（https://www.city.akabira.hokkaido.jp/kurashi/kokuho/）と くらし＞税（https://www.city.akabira.hokkaido.jp/kurashi/zei/）を全件見たが、令和8年度の税率を載せたページは存在しない（国保の一覧は届出・給付・高額療養費のみ、税の一覧は市民税・固定資産税等のみ）。市サイト内蔵の例規集（Reiki-Base）にある「赤平市国民健康保険条例」（https://www.city.akabira.hokkaido.jp/reiki_int/reiki_honbun/a019RG00000297.html ・Last-Modified 2026-08-27）が「令和8年6月26日施行」と表示し、沿革の最新が「令和8年6月26日 条例第7号」、その附則が「この条例による改正後の赤平市国民健康保険条例の規定は、令和8年度以後の年度分の国民健康保険税について適用し、令和7年度分までの国民健康保険税については、なお従前の例による。」と定めるため、本則の税率を令和8年度の実税率として採用した。赤平市は国保税方式だが、税率は独立した税条例ではなく国民健康保険条例第5章に置かれている。／ 条文の実値: 第10条 医療分所得割「100分の7.42」、第11条 医療分均等割「被保険者1人について22,400円」、第12条 医療分平等割「特定世帯及び特定継続世帯以外の世帯 21,600円」、第13条 支援分所得割「100分の2.68」、第14条 支援分均等割「8,000円」、第14条の2 支援分平等割「7,700円」、第15条 介護分所得割「100分の2.26」、第16条 介護分均等割「9,000円」、第16条の2 介護分平等割「1世帯について6,000円」、第16条の3 子ども分所得割「100分の0.29」、第16条の4 子ども分均等割「1,000円」、第16条の5 18歳以上被保険者均等割「100円」、第16条の6 子ども分平等割「1,000円」。／ 限度額は第9条で医療67万円・支援26万円・介護17万円・子ども3万円と JSON と一致。軽減判定の加算は第30条で5割「31万円」・2割「57万円」と一致。子ども分の4値は道の標準料率と偶然一致していたため変更なし。医療・支援・介護の9値は道の理論値から実税率へ差し替えた。／ 未確認: 市の広報・料率一覧ページでの再確認はできていない（該当ページが存在しないため）。特定世帯・特定継続世帯の平等割減額はエンジン未対応。"
   },
   "childcareLevy": {
     "rate": 0.0029,

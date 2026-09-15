@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0942,
-    "support": 0.0334,
-    "care": 0.0287
+    "medical": 0.0844,
+    "support": 0.0261,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 16830,
-    "support": 7252,
-    "care": 7835
+    "medical": 25800,
+    "support": 9300,
+    "care": 9900
   },
   "household": {
-    "medical": 22345,
-    "support": 6216,
-    "care": 4284
+    "medical": 23200,
+    "support": 5400,
+    "care": 3700
   },
   "caps": {
     "medical": 670000,
@@ -65,34 +65,44 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "standard",
+    "status": "verified",
     "lifecycle": {
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-08-20T00:00:00.000Z",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/541/01r8hyoujunhokennryouritu.pdf"
+        "https://www.city.tomigusuku.lg.jp/material/files/group/12/R8gaido.pdf",
+        "https://www.city.tomigusuku.lg.jp/soshiki/2/1011/gyomuannai/1/2/522.html",
+        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "watchUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html"
+        "https://www.city.tomigusuku.lg.jp/material/files/group/12/R8gaido.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "previousYearTemplate": false,
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "沖縄県 令和8年度 標準保険料率算定結果（市町村算定方式）",
-      "url": "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-      "publishedAt": "2026-03-31"
+      "type": "official",
+      "title": "令和8年度国保税ガイドブック（豊見城市）",
+      "url": "https://www.city.tomigusuku.lg.jp/material/files/group/12/R8gaido.pdf",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。 / 2026-09-15: 沖縄県「令和8年度 国民健康保険税（料）率 市町村一覧表」（r08kokuhozei.pdf・Last-Modified 2026-07-07・sha256 28d05b2e…）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた。豊見城市「令和8年度国保税ガイドブック」（市ページ「国民健康保険税（国保税）について」から配布・画像PDFのため目視で照合）3ページ「保険税の決め方」（医療分8.44%／25,800円／23,200円、支援分2.61%／9,300円／5,400円、介護分2.10%／9,900円／3,700円、子ども分0.27%／1,178円＋18歳以上157円／801円・限度額67万/26万/17万/3万円）。賦課限度額は医療67万／支援26万／介護17万／子ども3万円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   }
 }

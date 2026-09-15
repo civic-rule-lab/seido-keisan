@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0617,
-    "support": 0.0286,
-    "care": 0.0239
+    "medical": 0.059,
+    "support": 0.023,
+    "care": 0.0215
   },
   "perCapita": {
-    "medical": 22514,
-    "support": 10714,
-    "care": 9995
+    "medical": 19300,
+    "support": 8500,
+    "care": 9000
   },
   "household": {
-    "medical": 22974,
-    "support": 9632,
-    "care": 8025
+    "medical": 18400,
+    "support": 7500,
+    "care": 7500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.851Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill.otaki.nagano.jp/kurashi/zei/zei/kokuminkenkohokenzei.html",
+        "https://en3-jg.d1-law.com/otaki/d1w_reiki/H341901010030/H341901010030_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-11",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.vill.otaki.nagano.jp/kurashi/zei/zei/kokuminkenkohokenzei.html",
+        "https://en3-jg.d1-law.com/otaki/d1w_reiki/H341901010030/H341901010030_j.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/otaki/d1w_reiki/H341901010030/H341901010030_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税 | 王滝村",
+      "url": "https://www.vill.otaki.nagano.jp/kurashi/zei/zei/kokuminkenkohokenzei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-11",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で王滝村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=36円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で王滝村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=36円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-11: 王滝村国民健康保険税条例の本文で令和8年度の実税率を確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 医療分 所得割5.9%／均等割19,300円／平等割18,400円・限度額670,000円、後期支援分 2.3%／8,500円／7,500円・260,000円、介護分 2.15%／9,000円／7,500円・170,000円、子ども・子育て支援金分 0.25%／均等割600円／18歳以上均等割24円／平等割900円・30,000円。 資産割は率を定める条が無く3方式。 条例の最終改正は令和8年3月31日条例第13号。 適用条項:「1 この条例は、令和8年4月1日から施行する。／（適用区分）2 この条例による改正後の王滝村国民健康保険税条例の規定は、令和8年度以後の年度分の国民健康保険税について適用し、令和7年度までの国民健康保険税については、なお従前の例による。」 例規集の内容現在は令和8年6月26日。 値の裏づけ: 第一次（7割）軽減の減額額が本則×0.7 と全区分で一致することを算術照合した。 18歳未満は第23条第4項により子ども・子育て支援納付金分の被保険者均等割額を全額減額。 出典として添えた村公式ページは「国民健康保険税 | 王滝村」。"
   },
   "childcareLevy": {
-    "rate": 0.0024,
-    "perCapita": 907,
-    "perCapitaAdult": 36,
+    "rate": 0.0025,
+    "perCapita": 600,
+    "perCapitaAdult": 24,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 900,
     "cap": 30000
   }
 }

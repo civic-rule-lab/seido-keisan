@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.shihoro.jp/life/category/?category=51",
+        "https://www.shihoro.jp/life/category/?category=50"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、士幌町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、士幌町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 据え置き（自治体の令和8年度税率が見つからず）。①士幌町「税金」カテゴリ（https://www.shihoro.jp/life/category/?category=51）の記事一覧は町民税・法人町民税・固定資産税・軽自動車税・町たばこ税・入湯税・森林環境税・税務証明・納付のみで、国民健康保険税の税率ページが無い。②「保険・年金」カテゴリ（https://www.shihoro.jp/life/category/?category=50）にも税率表は無く、「保険税に関する相談・お問い合わせ」（同 detail.php?content=290）は口座振替の案内のみ、「その他国民健康保険について」（同 content=771）は本文が空。③広報しほろ令和8年6月号（https://www.shihoro.jp/common/img/content/content_20260525_153052.pdf）・7月号（同 content_20260630_093753.pdf）を pdftotext で全文検索したが「所得割」「均等割」「平等割」「資産割」は0件だった。例規集は未確認。なお町の公式ドメインは shihoro.jp で、town.shihoro.hokkaido.jp は DNS 解決しない。"
   },
   "childcareLevy": {
     "rate": 0.0029,

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0793,
-    "support": 0.0362,
-    "care": 0.0253
+    "medical": 0.072,
+    "support": 0.032,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 20165,
-    "support": 5494,
-    "care": 8293
+    "medical": 20900,
+    "support": 6700,
+    "care": 6600
   },
   "household": {
-    "medical": 25082,
-    "support": 6617,
-    "care": 5814
+    "medical": 22300,
+    "support": 6300,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -65,34 +65,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "standard",
+    "status": "verified",
     "lifecycle": {
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-08-20T00:00:00.000Z",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/541/01r8hyoujunhokennryouritu.pdf"
+        "https://www.town.yonabaru.okinawa.jp/uploaded/attachment/6488.pdf",
+        "https://www.town.yonabaru.okinawa.jp/soshiki/12/100.html",
+        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "watchUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html"
+        "https://www.town.yonabaru.okinawa.jp/uploaded/attachment/6488.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "previousYearTemplate": false,
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/yonabaru/reiki_honbun/q935RG00000890.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "沖縄県 令和8年度 標準保険料率算定結果（市町村算定方式）",
-      "url": "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-      "publishedAt": "2026-03-31"
+      "type": "official",
+      "title": "令和８年度　国民健康保険税について（与那原町）",
+      "url": "https://www.town.yonabaru.okinawa.jp/uploaded/attachment/6488.pdf",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-15",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。 / 2026-09-15: 沖縄県「令和8年度 国民健康保険税（料）率 市町村一覧表」（r08kokuhozei.pdf・Last-Modified 2026-07-07・sha256 28d05b2e…）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた。与那原町国民健康保険税条例（g-reiki・附則 令和7年条例第29号・令和8年4月1日施行）の本文で令和8年度の税率を確認（医療分100分の7.2／20,900円・限度額670,000円、支援分100分の3.2／6,700円、介護分100分の2.1／6,600円／6,500円、子ども分100分の0.27／1,172円／18歳以上169円）。平等割の医療分22,300円・支援分6,300円・子ども分796円は県一覧表による。町の「令和８年度 国民健康保険税について」PDF（令和8年6月発行・画像）も併記。賦課限度額は医療67万／支援26万／介護17万／子ども3万円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   }
 }

@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.vill.tomari.hokkaido.jp/docs/4363.html",
+        "https://www.vill.tomari.hokkaido.jp/kurashi/zei/"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、泊村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、泊村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 昇格見送り（据え置き）。泊村（北海道古宇郡・cityCode 01403）公式サイトのドメインは www.vill.tomari.hokkaido.jp（vill.tomari.hokkaido.jp は名前解決せず）。「くらし・手続き＞税」一覧（ https://www.vill.tomari.hokkaido.jp/kurashi/zei/ ）にある「国民健康保険税について」（ https://www.vill.tomari.hokkaido.jp/docs/4363.html ）は「公開日：2019年8月7日」で、区分は「医療給付金」「後期高齢者支援金分」「介護納付金分」の3種、しかも「所得割額・資産割額・均等割額・平等割額の４つ」の4方式のまま。所得割「12.3％／0.88％／1.30％」、資産割「84.3％／4.41％／9.2％」、均等割「19,700円／4,800円／3,600円」、平等割「7,200円／6,200円／2,200円」と、子ども・子育て支援納付金分も課税限度額も無い旧年度の内容。村サイト内に令和8年度の税率資料は見当たらなかった。村の例規集（ https://www.vill.tomari.hokkaido.jp/reiki/reiki.html ・/reiki_int/reiki_menu.html は HTTP 200）は今回の時間内で本文まで未確認＝令和8年度改正の収録有無は不明。よって道の令和8年度標準保険料率のままとし、上記2URLを watchUrls に追加。"
   },
   "childcareLevy": {
     "rate": 0.0029,

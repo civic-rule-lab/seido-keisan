@@ -73,7 +73,9 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.nakatombetsu.hokkaido.jp/bunya/7490/"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +92,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、中頓別町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、中頓別町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 町公式「国民健康保険について」（https://www.town.nakatombetsu.hokkaido.jp/bunya/7490/ ）を取得。ページ内の構造化データ（JSON-LD）の dateModified は 2022-03-03 で、税率表そのものが掲載されていない（一部負担金の割合・高額療養費・出産育児一時金など給付の説明のみ）。国民健康保険カテゴリ（/bunya/9504/）、サイトマップ（/sitemap）、サイト内検索（?s=国民健康保険税）も走査したが令和8年度の税率ページは無し。例規集（北海道町村会 例規DB）は今回未確認。据え置き（standard_r8 のまま）。"
   },
   "childcareLevy": {
     "rate": 0.0029,

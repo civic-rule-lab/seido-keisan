@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0862,
-    "support": 0.0249,
-    "care": 0.0194
+    "medical": 0.0751,
+    "support": 0.0245,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 29809,
-    "support": 9203,
-    "care": 8894
+    "medical": 27000,
+    "support": 9500,
+    "care": 10000
   },
   "household": {
-    "medical": 29346,
-    "support": 9060,
-    "care": 6941
+    "medical": 20500,
+    "support": 6500,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.287Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://town.shibecha.hokkaido.jp/kurashi/sougou/zeikin/kokuminkenkouhokenzei/kokuminkenkouhokenzei.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://town.shibecha.hokkaido.jp/kurashi/sougou/zeikin/kokuminkenkouhokenzei/kokuminkenkouhokenzei.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険税について｜くらしの情報｜標茶町ホームページ",
+      "url": "https://town.shibecha.hokkaido.jp/kurashi/sougou/zeikin/kokuminkenkouhokenzei/kokuminkenkouhokenzei.html",
+      "publishedAt": "2026-07-01"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、標茶町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、標茶町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 標茶町公式「国民健康保険税について｜くらしの情報｜標茶町ホームページ」（https://town.shibecha.hokkaido.jp/kurashi/sougou/zeikin/kokuminkenkouhokenzei/kokuminkenkouhokenzei.html ・Last-Modified 2026-07-30 ・表下に「※令和８年７月１日現在」と明記）の「国民健康保険税額一覧表」で令和8年度の実税率を確認し、県標準の理論値から差し替えて verified_r8 へ昇格。医療給付費分 所得割7.51%・資産割2.20%・均等割27,000円・平等割20,500円・課税限度額670,000円、後期高齢者支援金分 2.45%・9,500円・6,500円・260,000円、介護納付金分 2.20%・10,000円・6,500円・170,000円、子ども・子育て支援金 0.29%・均等割900円・18歳以上均等割200円・平等割1,000円・限度額30,000円。**上の「資産割なし」という記述は誤りで、標茶町は令和8年度も医療給付費分にのみ資産割2.20%を課している**（令和7年度の4.4%から半減）。同ページの計算例で検算済み: 医療小計425,494円＝394万円×7.51%(295,894)＋固定資産税50,000円×2.2%(1,100)＋27,000円×4人(108,000)＋20,500円、支援141,030円＝394万円×2.45%＋9,500円×4人＋6,500円、介護67,760円＝233万円×2.20%＋10,000円×1人＋6,500円（資産割欄は「-」＝介護・支援・子ども分に資産割なし）、子ども15,726円＝394万円×0.29%＋900円×3人＋200円×3人＋1,000円。よって assetLevy は medical 0.022 のみ。軽減判定は同ページ「軽減割合と基準額一覧表（※令和8年7月1日現在）」で5割31万円・2割57万円を確認、既存値と一致。子ども分均等割は「18歳未満（18歳に達する日以降最初の3月31日までの子ども）の被保険者が全額軽減され18歳以上の被保険者は均等割額900円に18歳以上均等割額200円を加算した1,100円となります」と明記され、perCapita 900／perCapitaAdult 200 の既存値と一致。県標準（医療8.62%/29,809/29,346、支援2.49%/9,203/9,060、介護1.94%/8,894/6,941）とは13値すべてが相違していた。未確認: 未就学児の均等割半減については同ページに明示がなく、法定措置として既存値（medical/support 0.5）のまま据え置いた。出典ホスト town.shibecha.hokkaido.jp は PROVENANCE_HOST_PATTERNS の town.*.*.jp に該当し許可リスト追加は不要。"
   },
   "childcareLevy": {
     "rate": 0.0029,
@@ -99,5 +102,10 @@
     "perCapitaAdultScope": "all_ages",
     "household": 1000,
     "cap": 30000
+  },
+  "assetLevy": {
+    "medical": 0.022,
+    "support": 0,
+    "care": 0
   }
 }

@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.mukawa.lg.jp/2654.htm",
+        "https://www.town.mukawa.lg.jp/1200.htm"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、むかわ町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、むかわ町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 据え置き（自治体の令和8年度税率が見つからず）。①むかわ町「税について」（https://www.town.mukawa.lg.jp/2654.htm）を全文確認したが、個人町民税・法人町民税・固定資産税・軽自動車税・納期限・税務証明のみで国民健康保険税の項が無い。②「国民健康保険について」（https://www.town.mukawa.lg.jp/1200.htm）配下の子ページは加入手続・高額療養費・療養費・様式・医療費通知のみで税率表が無い。③広報むかわ 2026年6月号（https://www.town.mukawa.lg.jp/secure/9585/202606_kouhoumukawa.pdf）と2026年7月号（同 202607_kouhoumukawa.pdf）を pdftotext で全文検索したが「所得割」「均等割」「平等割」「資産割」はいずれも0件で、税率改正の記事は無かった。町サイトの検索は Google Custom Search 依存で機械的に叩けなかった。例規集は未確認。"
   },
   "childcareLevy": {
     "rate": 0.0029,

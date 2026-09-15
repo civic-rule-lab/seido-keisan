@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0752,
+    "medical": 0.076,
     "support": 0.028,
-    "care": 0.0257
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 23994,
-    "support": 8872,
-    "care": 9306
+    "medical": 26900,
+    "support": 9100,
+    "care": 9800
   },
   "household": {
-    "medical": 21528,
-    "support": 8214,
-    "care": 5680
+    "medical": 22600,
+    "support": 8100,
+    "care": 5700
   },
   "caps": {
     "medical": 670000,
@@ -56,43 +56,55 @@
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1228,
-    "perCapitaAdult": 122,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 805,
+    "household": 800,
     "cap": 30000
   },
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "standard",
+    "status": "verified",
     "lifecycle": {
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-08-20T00:00:00.000Z",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/541/01r8hyoujunhokennryouritu.pdf"
+        "https://www.town.nishihara.okinawa.jp/soshiki/9/13097.html",
+        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "watchUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html"
+        "https://www.town.nishihara.okinawa.jp/soshiki/9/13097.html",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "previousYearTemplate": false,
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/nishihara/reiki_honbun/q928RG00000196.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "沖縄県 令和8年度 標準保険料率算定結果（市町村算定方式）",
-      "url": "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-      "publishedAt": "2026-03-31"
+      "type": "official",
+      "title": "令和8年度　西原町国民健康保険税の税率改定について - 西原町ホームページ（健康保険課）",
+      "url": "https://www.town.nishihara.okinawa.jp/soshiki/9/13097.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。 / 2026-09-15: 沖縄県「令和8年度 国民健康保険税（料）率 市町村一覧表」（r08kokuhozei.pdf・Last-Modified 2026-07-07・sha256 28d05b2e…）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた。西原町公式ページ「令和8年度 西原町国民健康保険税の税率改定について」（更新日 2026-04-28）の令和8年度税率表（医療分7.60%／26,900円／22,600円、支援分2.80%／9,100円／8,100円、介護分2.30%／9,800円／5,700円、子ども分0.27%／1,200円／18歳以上100円／800円・限度額67万/26万/17万/3万円）。医療分の所得割8.00%→7.60%・平等割23,400円→22,600円の引下げ。賦課限度額は医療67万／支援26万／介護17万／子ども3万円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   }
 }

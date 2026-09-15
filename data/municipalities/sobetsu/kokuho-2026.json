@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.sobetsu.lg.jp/kurashi/joho/zeikin.html",
+        "https://www.town.sobetsu.lg.jp/kurashi/joho/nenkin-kokuho.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、壮瞥町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、壮瞥町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: 壮瞥町公式「税金」ページ（暮らし情報＞くらしの情報＞税金 / https://www.town.sobetsu.lg.jp/kurashi/joho/zeikin.html ）内の「国民健康保険税」節は見出しが「国保税の税率（令和4年度から）」で、内容も令和4年度のまま更新されていない。医療分 所得割5.64%・資産割23.50%・均等割16,000円・平等割31,500円・課税限度額65万円、支援金分 3.00%・15.00%・11,000円・9,500円・20万円、介護分 1.70%・12.00%・11,000円・7,000円・17万円。所得割の算定に「基礎控除33万円」と書かれており、43万円化（令和3年度）以前の記述である。公式「年金・国民健康保険・後期高齢者医療制度」ページ（https://www.town.sobetsu.lg.jp/kurashi/joho/nenkin-kokuho.html ）には税率の記載が無い。広報そうべつ令和8年6月号（No.750）・7月号（No.751）の PDF を pdftotext で全文検索したが、国保税の所得割・均等割・平等割・資産割・賦課限度額はいずれも記載が無かった。したがって令和8年度の実税率は未公表と判断し、道の令和8年度市町村標準保険料率のまま standard_r8 を維持する。★資産割は令和4年度の表には存在するが、令和8年度の資料が無いため assetLevy は追加しない。"
   },
   "childcareLevy": {
     "rate": 0.0029,

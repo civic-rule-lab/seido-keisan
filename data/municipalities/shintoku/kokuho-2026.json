@@ -11,14 +11,14 @@
     "care": 0.02
   },
   "perCapita": {
-    "medical": 27502,
-    "support": 9086,
-    "care": 9166
+    "medical": 27500,
+    "support": 9000,
+    "care": 9100
   },
   "household": {
-    "medical": 27075,
-    "support": 8945,
-    "care": 7152
+    "medical": 27000,
+    "support": 8900,
+    "care": 7100
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.273Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.shintoku-town.jp/kurashi-tetuduki/zeikin/kokuhozei/",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.shintoku-town.jp/kurashi-tetuduki/zeikin/kokuhozei/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "国民健康保険税（令和8年度 税率表）",
+      "url": "https://www.shintoku-town.jp/kurashi-tetuduki/zeikin/kokuhozei/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、新得町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、新得町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 新得町公式サイト（独自ドメイン www.shintoku-town.jp）の「国民健康保険税」ページ（https://www.shintoku-town.jp/kurashi-tetuduki/zeikin/kokuhozei/）に「令和8年度 税率表」があり、医療 所得割7.95%・平等割27,000円・均等割27,500円／後期支援 2.46%・8,900円・9,000円／介護 2.00%・7,100円・9,100円／子ども・子育て支援金分 0.29%・平等割1,000円・均等割1,000円、「※上記の他に、18歳以上被保険者均等割として1人につき100円が加算されます。」を確認した。軽減判定（43万円＋31万円×加入者数／43万円＋57万円×加入者数）も JSON と一致。資産割の行は無く3方式。所得割率と子ども分は県標準と一致するが、均等割・平等割は県標準（27,502／9,086／9,166・27,075／8,945／7,152）と数十円ずつ相違する。課税限度額はページに記載が無く未確認。ホスト www.shintoku-town.jp は生成器の PROVENANCE_HOST_EXTRA に未登録で、出典に立てると来歴節が消えるため、許可ホスト追加（オーナー判断）まで昇格を保留する。 / 2026-09-07（解禁回）: 出典ホスト www.shintoku-town.jp が生成器の PROVENANCE_HOST_EXTRA に登録済みとなったため昇格した。新得町「国民健康保険税」ページ（https://www.shintoku-town.jp/kurashi-tetuduki/zeikin/kokuhozei/）の「令和8年度　税率表」を再取得して照合（HTTP 200・Last-Modified ヘッダ無し）。表の値は「所得割 7.95％／2.46％／2.00%／0.29%」「平等割 27,000円／8,900円／7,100円／1,000円」「均等割 27,500円／9,000円／9,100円／1,000円」、注記に「※上記の他に、18歳以上被保険者均等割として1人につき100円が加算されます。」。これに合わせ均等割 27,502→27,500・9,086→9,000・9,166→9,100、平等割 27,075→27,000・8,945→8,900・7,152→7,100 を差し替えた（所得割率と子ども分は県標準と一致していたため変更なし）。軽減判定は同ページに「43万円 ＋（31万円 × 加入者数）」「43万円 ＋（57万円 × 加入者数）」「10万円 × （給与所得者等の数－1）」とあり JSON と一致。未就学児5割減額も記載あり。税率表に資産割の行は無く3方式（北海道の令和7年度 市町村別保険料率一覧でも新得町の資産割は0）。令和7年度（医療7.90%・26,279円・26,084円／支援2.60%・9,117円・9,050円／介護2.02%・9,202円・7,218円）からの引き上げ改定（介護所得割のみ2.02→2.00に微減）。未確認: 課税限度額はこのページに記載が無く、JSON の 67万／26万／17万／3万は国の法定額のままで自治体資料による確認をしていない。"
   },
   "childcareLevy": {
     "rate": 0.0029,

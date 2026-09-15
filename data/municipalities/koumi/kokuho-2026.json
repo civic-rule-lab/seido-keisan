@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0649,
-    "support": 0.0285,
-    "care": 0.0239
+    "medical": 0.066,
+    "support": 0.031,
+    "care": 0.023
+  },
+  "assetLevy": {
+    "medical": 0.07,
+    "support": 0.02,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 23692,
-    "support": 10674,
-    "care": 10004
+    "medical": 21000,
+    "support": 7900,
+    "care": 9600
   },
   "household": {
-    "medical": 24176,
-    "support": 9595,
-    "care": 8033
+    "medical": 21000,
+    "support": 7900,
+    "care": 7600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +62,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.810Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-13T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.koumi-town.jp/office2/archives/2ce6be469cc42afb5aedd56049b2871ab65912fb.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-13",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.koumi-town.jp/office2/archives/2ce6be469cc42afb5aedd56049b2871ab65912fb.pdf"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "広報こうみ 第569号（令和8年7月24日発行）14ページ「国民健康保険税の税率について」",
+      "url": "https://www.koumi-town.jp/office2/archives/2ce6be469cc42afb5aedd56049b2871ab65912fb.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-13",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で小海町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=88円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で小海町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=88円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-13: 小海町の令和8年度の実税率を「広報こうみ 第569号（令和8年7月24日発行）14ページ「国民健康保険税の税率について」」で確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 ★本自治体は4方式で、資産割が現役である（医療7%／後期支援2%／介護2%／子ども0%。令和7年度は13%／4%／4%）。従前のデータは長野県の市町村標準保険料率（3方式）をそのまま採用していたため assetLevy を持っておらず、今回追加した。限度額合計は113万円（令和7年度は109万円）。／軽減判定所得と未就学児軽減は同記事に記載が無く未確認。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1022,
-    "perCapitaAdult": 88,
+    "rate": 0.003,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 1300,
     "cap": 30000
   }
 }

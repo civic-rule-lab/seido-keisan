@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0593,
-    "support": 0.0241,
-    "care": 0.0199
+    "medical": 0.063,
+    "support": 0.026,
+    "care": 0.019
   },
   "perCapita": {
-    "medical": 20499,
-    "support": 8924,
-    "care": 9094
+    "medical": 22000,
+    "support": 8000,
+    "care": 7800
   },
   "household": {
-    "medical": 20181,
-    "support": 8785,
-    "care": 7096
+    "medical": 22000,
+    "support": 8000,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.198Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "http://www.town.suttu.lg.jp/life/detail.php?id=8",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "http://www.town.suttu.lg.jp/life/detail.php?id=8"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険（国保）",
+      "url": "http://www.town.suttu.lg.jp/life/detail.php?id=8",
+      "publishedAt": "2026-08"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、寿都町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、寿都町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 寿都町公式サイト「国民健康保険（国保）」（http://www.town.suttu.lg.jp/life/detail.php?id=8 ）の「国民健康保険の税率」節に掲載された税率表画像（http://www.town.suttu.lg.jp/common/img/content/cassette_74_img_20260806_114129.png ・HTTP Last-Modified: Sun, 09 Aug 2026 22:36:22 GMT）を読み取り、町公表値へ差し替えた。表の値は 所得割 医療6.30%・後期高齢者支援金2.60%・介護納付金1.90%・子ども子育て支援納付金0.29%、均等割（被保険者一人につき）22,000円/8,000円/7,800円/1,000円、18歳以上均等割（18歳以上の被保険者一人につき）は子ども分のみ100円、平等割（一世帯につき）22,000円/8,000円/5,800円/1,000円。医療・後期・介護の均等割/平等割欄は斜線で18歳以上加算なし。childcareLevy は perCapita 1,000＋perCapitaAdult 100（all_ages）で表と一致するため変更なし。限度額は本文に「医療分の課税限度額は６７万円、後期高齢者分の課税限度額は２６万円、介護分の課税限度額は１７万円、子ども分の課税限度額は３万円となっています。」とあり caps と一致。軽減判定は本文の「４３万円（基礎控除額）＋（給与所得者等の数－１）×１０万円＋３１万円×（被保険者数）　５割軽減」「…＋５７万円×（被保険者数）　２割軽減」で reduction.standards と一致。資産割の記載は無く3方式。道の標準保険料率（医療5.93%/20,499円/20,181円 ほか）とは全区分で相違した。★未確認: ページ本文に「令和8年度」の年度表記は無い（表画像も年度を書いていない）。子ども・子育て支援納付金分の区分があること・限度額67万円・軽減加算31万/57万の3点と、画像の更新日が2026年8月であることから令和8年度分と判断した。"
   },
   "childcareLevy": {
     "rate": 0.0029,

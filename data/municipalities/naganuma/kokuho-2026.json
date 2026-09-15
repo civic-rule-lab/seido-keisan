@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0864,
-    "support": 0.0248,
-    "care": 0.02
+    "medical": 0.081,
+    "support": 0.025,
+    "care": 0.018
   },
   "perCapita": {
-    "medical": 29881,
-    "support": 9181,
-    "care": 9164
+    "medical": 28000,
+    "support": 8000,
+    "care": 8000
   },
   "household": {
-    "medical": 29417,
-    "support": 9038,
-    "care": 7151
+    "medical": 21000,
+    "support": 6000,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.218Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keisan.html",
+        "https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keigen_gemmen.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keisan.html",
+        "https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険料の計算と納め方",
+      "url": "https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keisan.html",
+      "publishedAt": "2026-09-01"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、長沼町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、長沼町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 長沼町公式サイト（まおいネット）の「国民健康保険料の計算と納め方」（https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keisan.html ・HTTP Last-Modified: 2026-09-01）に「国民健康保険料の計算方法(令和8年度)」として実料率が掲載されていることを確認した。掲載値は 医療給付費分 所得割8.1／100・均等割28,000円・平等割21,000円・限度額67万円、後期高齢者支援金分 2.5／100・8,000円・6,000円・26万円、介護納付金分 1.8／100・8,000円・5,000円・17万円、子ども・子育て支援納付金分 0.29／100・均等割1,100円・平等割1,000円・限度額3万円（「18歳に達する日以後の最初の3月31日以前までの子どもに係る均等割額は0円です」と明記）。医療・支援・介護の9値は北海道公表の市町村別保険料率一覧にある令和7年度の値と完全一致（据え置き改定）。現在の県標準理論値（医療8.64％・29,881円・29,417円ほか）とは異なる。ただし長沼町の公式サイトは独自ドメイン maoi-net.jp で運用されており、生成器の許可ホストに未登録だと来歴節が消えるため、今回は値を差し替えず据え置いた（PROVENANCE_HOST_EXTRA への maoi-net.jp 追加はオーナー判断）。許可後に上記値へ差し替えれば verified_r8 に昇格できる。watchUrls に上記2ページを追加した。 / 2026-09-07（解禁回）: 出典ホスト www.maoi-net.jp が PROVENANCE_HOST_EXTRA に登録済みとなったため昇格した。「国民健康保険料の計算と納め方」（https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keisan.html ・HTTP 200・Last-Modified: Tue, 01 Sep 2026 02:33:42 GMT）を再取得し「国民健康保険料の計算方法(令和8年度)」の4区分を読み直した。医療給付費分「(総所得金額等－基礎控除額)×8.1／100」「被保険者(加入者)1人につき28,000円」「1世帯につき21,000円」「限度額は年額67万円」、後期高齢者支援金分「2.5／100」「8,000円」「6,000円」「26万円」、介護納付金分「1.8／100」「8,000円」「5,000円」「17万円」、子ども・子育て支援納付金分「0.29／100」「1,100円」「1,000円」「3万円」。前回の notes と完全一致。これに合わせ所得割 0.0864→0.081・0.0248→0.025・0.02→0.018、均等割 29,881→28,000・9,181→8,000・9,164→8,000、平等割 29,417→21,000・9,038→6,000・7,151→5,000 を差し替えた。子ども分の均等割はページが「被保険者(加入者)1人につき1,100円」の一本値で「※18歳に達する日以後の最初の3月31日以前までの子どもに係る均等割額は0円です」としているため、perCapita 900+perCapitaAdult 200 の分割をやめ perCapita 1,100・perCapitaAdult 0 に是正した（18歳以上の負担額 1,100円は変わらない）。限度額 67万／26万／17万／3万はページ記載と一致（変更なし）。軽減判定は「国民健康保険料の軽減・減免制度」（https://www.maoi-net.jp/kenko_fukushi/kokuho/hokenryo/kokuho_keigen_gemmen.html ・Last-Modified 同上）に「43万円＋31万円×被保険者数＋10万円×(給与所得者等の数－1)」「43万円＋57万円×被保険者数＋10万円×(給与所得者等の数－1)」とあり JSON と一致。未就学児5割軽減も記載あり。税率表に資産割の行は無く3方式。北海道公表の令和7年度 市町村別保険料率一覧の長沼町（医療8.1%・28,000円・21,000円／支援2.5%・8,000円・6,000円／介護1.8%・8,000円・5,000円・資産割0）と9値すべて一致＝据え置き改定。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 900,
-    "perCapitaAdult": 200,
+    "perCapita": 1100,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 1000,
     "cap": 30000

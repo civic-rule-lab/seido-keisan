@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.shiraoi.hokkaido.jp/kurashi/2/",
+        "https://www.town.shiraoi.hokkaido.jp/docs/page2013012400247.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、白老町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、白老町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: 白老町公式サイト（Shirasagi CMS）の「暮らし＞国保」カテゴリ（https://www.town.shiraoi.hokkaido.jp/kurashi/2/ ）には給付・加入手続き等9本のみが並び、国民健康保険税の税率ページが存在しない。「暮らし＞税金」カテゴリ（https://www.town.shiraoi.hokkaido.jp/kurashi/5/ ）も全27本を確認したが国保税の税率ページは無い。税率を含みうる「町税概要一覧」（https://www.town.shiraoi.hokkaido.jp/docs/page2013012400247.html ・2025年11月17日更新）に添付されている最新の PDF は「令和7年度ー町税概要」（/fs/5/7/3/6/9/_/R7_chozei_gaiyo.pdf）で、令和8年度版は未掲載。町の例規集（reiki_int）には「白老町国民健康保険税条例施行規則」（昭和61年規則第19号）が載っているが、税率を定める「白老町国民健康保険税条例」（昭和34年条例第12号）本体の頁 ID を特定できず本文を確認できなかった。したがって令和8年度の実税率は未確認とし、道の令和8年度市町村標準保険料率のまま standard_r8 を維持する。未確認: 例規集本体と広報「げんき」バックナンバーは未確認。"
   },
   "childcareLevy": {
     "rate": 0.0029,

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.055,
-    "support": 0.0256,
-    "care": 0.0206
+    "medical": 0.0547,
+    "support": 0.0144,
+    "care": 0.0108
   },
   "perCapita": {
-    "medical": 19014,
-    "support": 9452,
-    "care": 9411
+    "medical": 20300,
+    "support": 5000,
+    "care": 6700
   },
   "household": {
-    "medical": 18718,
-    "support": 9305,
-    "care": 7344
+    "medical": 25700,
+    "support": 6400,
+    "care": 4900
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-06-03T00:00:00.000Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.town.nakagawa.hokkaido.jp/section/shiawasesuishin/b02d3l000000172d.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.nakagawa.hokkaido.jp/section/shiawasesuishin/b02d3l000000172d.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険税｜住民課｜中川町",
+      "url": "https://www.town.nakagawa.hokkaido.jp/section/shiawasesuishin/b02d3l000000172d.html",
+      "publishedAt": "2026-08-25"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、中川町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、中川町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 中川町公式サイト「国民健康保険税」（住民課・https://www.town.nakagawa.hokkaido.jp/section/shiawasesuishin/b02d3l000000172d.html・HTTP Last-Modified 2026-08-25）で令和8年度の実税率を確認し、県標準の理論値から差し替えた。同ページは「令和8年度の税率は下表の通りです（令和8年4月1日現在）。」として、医療給付分 所得割5.47％・均等割20,300円・平等割25,700円・課税限度額670,000円／後期高齢者支援金分 1.44％・5,000円・6,400円・260,000円／介護納付金分 1.08％・6,700円・4,900円・170,000円／子ども・子育て支援金分 0.29％・1,000円・1,000円・30,000円 を掲げる。限度額4区分は県標準と同値のため変更なし。子ども分は「18歳未満の子どもは、子ども・子育て支援金分の均等割額が10割軽減されます。」とあり、均等割は年齢による区分がない一律1,000円なので、perCapita を1,000円・perCapitaAdult を0円に改めた（従来は県標準に合わせ900＋200＝1,100円としていた）。同ページは「未就学児（小学校入学前の子供）である被保険者がいる場合は、その未就学児にかかる均等割額が5割軽減されます。」とし preschoolReduction と整合。資産割については「中川町国民健康保険税は令和5年度から資産割を廃止し」とあり、3方式のままで正しい。[未確認] 軽減判定所得の加算額（5割31万円・2割57万円）は同ページに数値の記載がなく（「2割・5割・7割軽減制度があります」とのみ）、令和8年度の国基準どおりの値を据え置いた。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 900,
-    "perCapitaAdult": 200,
+    "perCapita": 1000,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 1000,
     "cap": 30000

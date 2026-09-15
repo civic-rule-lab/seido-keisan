@@ -73,7 +73,9 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.kembuchi.hokkaido.jp/kurashi/%e5%9b%bd%e6%b0%91%e5%81%a5%e5%ba%b7%e4%bf%9d%e9%99%ba%e3%83%bb%e5%be%8c%e6%9c%9f%e9%ab%98%e9%bd%a2%e8%80%85%e5%8c%bb%e7%99%82/%e5%9b%bd%e6%b0%91%e5%81%a5%e5%ba%b7%e4%bf%9d%e9%99%ba/"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +92,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、剣淵町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、剣淵町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 令和8年度の町公表値が見つからず据え置き。剣淵町公式サイト「国民健康保険」（https://www.town.kembuchi.hokkaido.jp/kurashi/%e5%9b%bd%e6%b0%91%e5%81%a5%e5%ba%b7%e4%bf%9d%e9%99%ba%e3%83%bb%e5%be%8c%e6%9c%9f%e9%ab%98%e9%bd%a2%e8%80%85%e5%8c%bb%e7%99%82/%e5%9b%bd%e6%b0%91%e5%81%a5%e5%ba%b7%e4%bf%9d%e9%99%ba/ ・WordPress REST API の modified は 2026-08-04）内に「国民健康保険税の計算のしかた（令和6年度～）」の表があり、医療給付費分 5.10％・29,800円・31,500円・660,000円／後期高齢者支援金分 1.90％・10,400円・11,200円・260,000円／介護納付金分 1.40％・13,100円・10,200円・170,000円。子ども・子育て支援金分の欄がなく、軽減判定も「43万円＋30.5万円×…」「43万円＋56万円×…」のため令和8年度の内容ではない。町サイト内には他に国保税率のページ・PDF が見当たらず（WordPress REST API の pages / search で「国民健康保険税」「国保税」「税率」を検索、/kurashi/juumin/町税/ も国保税を扱わない）、令和8年度の掲載は未確認。掲載検知用に上記ページを watchUrls に追加した。"
   },
   "childcareLevy": {
     "rate": 0.0029,

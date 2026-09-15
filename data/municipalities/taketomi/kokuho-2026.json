@@ -6,24 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0488,
-    "support": 0.026,
-    "care": 0.0232
+    "medical": 0.0615,
+    "support": 0.0218,
+    "care": 0.0182
   },
   "assetLevy": {
-    "medical": 0.2081,
-    "support": 0.109,
-    "care": 0.076
+    "medical": 0.2574,
+    "support": 0.0896,
+    "care": 0.0603
   },
   "perCapita": {
-    "medical": 15801,
-    "support": 8060,
-    "care": 8897
+    "medical": 18100,
+    "support": 6100,
+    "care": 7000
   },
   "household": {
-    "medical": 12345,
-    "support": 6271,
-    "care": 4825
+    "medical": 14300,
+    "support": 4800,
+    "care": 3800
   },
   "caps": {
     "medical": 670000,
@@ -70,34 +70,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "standard",
+    "status": "verified",
     "lifecycle": {
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-06-08T00:00:00.000Z",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/541/01r8hyoujunhokennryouritu.pdf"
+        "https://www.town.taketomi.lg.jp/guide/nenkin_hoken/kenkouhoken/1727933879/",
+        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "watchUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html"
+        "https://www.town.taketomi.lg.jp/guide/nenkin_hoken/kenkouhoken/1727933879/",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "previousYearTemplate": false,
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "沖縄県 令和8年度 標準保険料率算定結果（市町村算定方式）",
-      "url": "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-      "publishedAt": "2026-03-31"
+      "type": "official",
+      "title": "竹富町 国民健康保険税 計算方法について | 竹富町ホームページ",
+      "url": "https://www.town.taketomi.lg.jp/guide/nenkin_hoken/kenkouhoken/1727933879/",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。 / 2026-09-15: 沖縄県「令和8年度 国民健康保険税（料）率 市町村一覧表」（r08kokuhozei.pdf・Last-Modified 2026-07-07・sha256 28d05b2e…）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた。竹富町公式ページ「竹富町 国民健康保険税 計算方法について」の「令和8年度 税率・賦課限度額表」（医療分6.15%／資産割25.74%／18,100円／14,300円、支援分2.18%／8.96%／6,100円／4,800円、介護分1.82%／6.03%／7,000円／3,800円、子ども分0.26%／1,275円／777円）。★町ページの注記は「均等割1,079円と…199円を合わせた額」と書くが 1,079＋199＝1,278≠1,275 で、県一覧表の 1,076円＋199円＝1,275円 と整合するため均等割は1,076円を採用（町ページの1,079円は誤記と見られる［未確認・推測］）。賦課限度額は医療67万／支援26万／介護17万／子ども3万円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   }
 }

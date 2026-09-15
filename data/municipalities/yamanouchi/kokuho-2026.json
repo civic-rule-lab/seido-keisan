@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0647,
-    "support": 0.0294,
-    "care": 0.0233
+    "medical": 0.049,
+    "support": 0.019,
+    "care": 0.017
   },
   "perCapita": {
-    "medical": 23602,
-    "support": 11005,
-    "care": 9714
+    "medical": 22000,
+    "support": 10100,
+    "care": 9600
   },
   "household": {
-    "medical": 24085,
-    "support": 9894,
-    "care": 7799
+    "medical": 21800,
+    "support": 9100,
+    "care": 7800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.862Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.town.yamanouchi.nagano.jp/soshiki/kazei/gyomu/zeikin/kokuminkenkouhoken/651.html",
+        "https://www1.g-reiki.net/town.yamanouchi.nagano/reiki_honbun/e808RG00000307.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-11",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.yamanouchi.nagano.jp/soshiki/kazei/gyomu/zeikin/kokuminkenkouhoken/651.html",
+        "https://www1.g-reiki.net/town.yamanouchi.nagano/reiki_honbun/e808RG00000307.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/town.yamanouchi.nagano/reiki_honbun/e808RG00000307.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税について",
+      "url": "https://www.town.yamanouchi.nagano.jp/soshiki/kazei/gyomu/zeikin/kokuminkenkouhoken/651.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-11",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で山ノ内町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=86円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で山ノ内町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=86円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-11: 山ノ内町国民健康保険税条例の本文で令和8年度の実税率を確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 医療分 所得割4.9%／均等割22,000円／平等割21,800円・限度額670,000円、後期支援分 1.9%／10,100円／9,100円・260,000円、介護分 1.7%／9,600円／7,800円・170,000円、子ども・子育て支援金分 0.25%／均等割914円／18歳以上均等割86円／平等割941円・30,000円。 資産割は率を定める条が無く3方式。 条例の最終改正は令和8年3月31日条例第12号。 適用条項:「1 この条例は、令和8年4月1日から施行する。／(適用区分)2 この条例による改正後の山ノ内町国民健康保険税条例の規定は、令和8年度以後の年度分の国民健康保険税について適用し、令和7年度分までの国民健康保険税については、なお従前の例による。」 例規集の内容現在は令和8年6月30日。 値の裏づけ: 第一次（7割）軽減の減額額が本則×0.7 と全区分で一致することを算術照合した。 18歳未満は第21条第4項により子ども・子育て支援納付金分の被保険者均等割額を全額減額。 出典として添えた町公式ページは「国民健康保険税について」。"
   },
   "childcareLevy": {
     "rate": 0.0025,
     "perCapita": 914,
     "perCapitaAdult": 86,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 941,
     "cap": 30000
   }
 }

@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.vill.nishiokoppe.lg.jp/section/juuminseikatu/feeuub0000002d6r.html",
+        "https://www.vill.nishiokoppe.lg.jp/section/kikaku/vi2gvk0000003pkk.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、西興部村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、西興部村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 据え置き。村公式サイトの「各税目別税率」 https://www.vill.nishiokoppe.lg.jp/section/juuminseikatu/feeuub0000002d6r.html （last-modified 2026-03-31・本文は「令和6年10月30日現在の情報です。」／最終更新日 2024年10月30日）は、国民健康保険税として所得割 医療4.5%／介護1.5%／支援分2.0%、資産割 いずれも0%（「※資産割は令和4年度より廃止になりました。」）、均等割 25,000/10,000/9,000円、平等割 25,000/11,000/8,000円 を掲げるが令和8年度の値ではない。広報にしおこっぺ令和8年夏号（No.343） https://www.vill.nishiokoppe.lg.jp/section/kikaku/vi2gvk0000003pkk.html をpdftotext で全文検索したが税率表は無く、議会通信に「議案第2号 西興部村国民健康保険税条例の一部を改正する条例」（令和8年5月8日 第1回臨時会・原案可決／国民健康保険法施行令改正に伴う改正）の記載があるのみで税率は読めない。例規集は未確認。"
   },
   "childcareLevy": {
     "rate": 0.0029,

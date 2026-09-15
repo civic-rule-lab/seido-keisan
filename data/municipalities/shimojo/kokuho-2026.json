@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0639,
-    "support": 0.0284,
-    "care": 0.024
+    "medical": 0.055,
+    "support": 0.025,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 23310,
-    "support": 10611,
-    "care": 10041
+    "medical": 19500,
+    "support": 9100,
+    "care": 9500
   },
   "household": {
-    "medical": 23787,
-    "support": 9539,
-    "care": 8062
+    "medical": 18900,
+    "support": 8000,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,56 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.835Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill-shimojo.jp/gyousei/kouhou/catetemp8_kouhou/kouhousimojyou241.pdf",
+        "https://www.vill-shimojo.jp/gyousei/kurashi/hoken/",
+        "https://en3-jg.d1-law.com/shimojo/d1w_reiki/H337901010034/H337901010034_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-11",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.vill-shimojo.jp/gyousei/kouhou/catetemp8_kouhou/kouhousimojyou241.pdf",
+        "https://www.vill-shimojo.jp/gyousei/kurashi/hoken/",
+        "https://en3-jg.d1-law.com/shimojo/d1w_reiki/H337901010034/H337901010034_j.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/shimojo/d1w_reiki/H337901010034/H337901010034_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "広報志もじょう 第241号（2026年7月）「令和8年度国民健康保険の保険税率などの変更点について」",
+      "url": "https://www.vill-shimojo.jp/gyousei/kouhou/catetemp8_kouhou/kouhousimojyou241.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-11",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で下條村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で下條村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-11: 下條村国民健康保険税条例の本文で令和8年度の実税率を確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 医療分 所得割5.5%／均等割19,500円／平等割18,900円・限度額670,000円、後期支援分 2.5%／9,100円／8,000円・260,000円、介護分 2%／9,500円／5,500円・170,000円、子ども・子育て支援金分 0.22%／均等割1,200円／18歳以上均等割100円／平等割900円・30,000円。 資産割は率を定める条が無く3方式。 条例の最終改正は令和8年6月17日条例第14号。 適用条項:「2 この条例による改正後の下條村国民健康保険税条例の規定は、令和8年度以後の年度分の国民健康保険税について適用し、令和7年度分までの国民健康保険税については、なお従前の例による。（附 則（令和8年6月17日条例第14号）／同附則1「この条例」 値の裏づけ: 第一次（7割）軽減の減額額が本則×0.7 と全区分で一致することを算術照合した。 18歳未満は第23条第4項により子ども・子育て支援納付金分の被保険者均等割額を全額減額。 出典として添えた村公式ページは「国民健康保険｜くらしの情報｜下條村ホームページ」。 ★令和8年度の全13項目を、村の広報誌「広報志もじょう 第241号」（2026年7月・4ページ）の「令和8年度の下條村国民健康保険税については表のとおりです」の税率表と突き合わせ、**完全に一致**することを確認した（医療5.50%／19,500円／18,900円／67万円、後期支援2.50%／9,100円／8,000円／26万円、介護2.00%／9,500円／5,500円／17万円、子ども0.22%／均等割1,200円／18歳以上100円／平等割900円／3万円）。同紙は「18歳未満被保険者は子ども・子育て支援金分の均等割額が全額（10割）軽減されます」とも明記しており、本データの perCapitaAdultScope=all_ages の扱いと整合する。また同紙は「基礎課税（医療）分の均等割額を200円、平等割額を800円引き上げました」と改定内容も記している。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 985,
-    "perCapitaAdult": 74,
+    "rate": 0.0022,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 900,
     "cap": 30000
   }
 }

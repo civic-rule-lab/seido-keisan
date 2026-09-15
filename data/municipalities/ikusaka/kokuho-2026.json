@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0519,
-    "support": 0.0287,
-    "care": 0.0243
+    "medical": 0.068,
+    "support": 0.022,
+    "care": 0.018
   },
   "perCapita": {
-    "medical": 18951,
-    "support": 10748,
-    "care": 10137
+    "medical": 23000,
+    "support": 7400,
+    "care": 8000
   },
   "household": {
-    "medical": 19339,
-    "support": 9662,
-    "care": 8139
+    "medical": 20800,
+    "support": 6500,
+    "care": 5300
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.853Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-13T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://en3-jg.d1-law.com/ikusaka/d1w_reiki/H338901010011/H338901010011_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-13",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://en3-jg.d1-law.com/ikusaka/d1w_reiki/H338901010011/H338901010011_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "生坂村国民健康保険税条例（昭和38年3月25日条例第11号・最終改正 令和8年4月1日条例第13号）",
+      "url": "https://en3-jg.d1-law.com/ikusaka/d1w_reiki/H338901010011/H338901010011_j.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-13",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で生坂村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=139円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で生坂村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=139円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-13: 生坂村の令和8年度の実税率を「生坂村国民健康保険税条例（昭和38年3月25日条例第11号・最終改正 令和8年4月1日条例第13号）」で確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 附則（令和8年3月19日条例第7号／令和8年4月1日条例第13号）がいずれも「令和8年度以降の年度分の国民健康保険税について適用」と定める。医療 第3条6.8/100・第5条23,000円・第5条の2 20,800円、後期支援 第6条2.20/100・第7条の2 7,400円・第7条の3 6,500円、介護 第8条1.80/100・第9条の2 8,000円・第9条の3 5,300円、子ども 第9条の4 0.2/100・第9条の5 900円・第9条の6 18歳以上100円・第9条の7 900円。資産割は第4条「削除」で3方式。／値の裏づけ: 第24条第1項（7割軽減）の減額額が本則×0.7 と9項目すべて一致する（医療16,100・14,560／支援5,180・4,550／介護5,600・3,710／子ども630・18歳以上70・平等630）。未就学児は第24条第2項で法定軽減後の額の5割（軽減なし世帯 医療11,500＝23,000×0.5・支援3,700・子ども450）。18歳未満は第24条第4項で全額減額。★村の公式サイトは www.village.ikusaka.nagano.jp（www.vill. 形は別ホストで全パス403）。村サイト内に令和8年度の料率一覧ページは見つかっていない。★前回「例規集の索引が404」としたのはパスの取り違えで、正しくは /ikusaka/d1w_reiki/index_010.html（内容現在 令和8年6月18日）。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 991,
-    "perCapitaAdult": 139,
+    "rate": 0.002,
+    "perCapita": 900,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 900,
     "cap": 30000
   }
 }

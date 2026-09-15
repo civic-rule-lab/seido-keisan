@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0919,
-    "support": 0.0346,
-    "care": 0.0274
+    "medical": 0.089,
+    "support": 0.0323,
+    "care": 0.0247
   },
   "perCapita": {
-    "medical": 31067,
-    "support": 11727,
-    "care": 11374
+    "medical": 27040,
+    "support": 10770,
+    "care": 9940
   },
   "household": {
-    "medical": 20489,
-    "support": 7734,
-    "care": 5925
+    "medical": 21250,
+    "support": 8870,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.298Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagasaki.jp/doc/45035.html"
+        "https://www.city.omura.nagasaki.jp/kokuhozei/kurashi/zekin/kokuhozei/kokuhozei-kaitei2.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.omura.nagasaki.jp/kokuhozei/kurashi/zekin/kokuhozei/kokuhozei-kaitei2.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長崎県 市町村標準保険料率（別添・3方式）",
-      "url": "https://www.pref.nagasaki.jp/doc/45035.html",
+      "type": "official",
+      "title": "令和8年度国民健康保険の税率｜大村市",
+      "url": "https://www.city.omura.nagasaki.jp/kokuhozei/kurashi/zekin/kokuhozei/kokuhozei-kaitei2.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "長崎県公表(令和8年3月11日・国保健康増進課)の令和8年度 市町村標準保険料率(3方式)を参考値として採用。法定外繰入ゼロ前提の理論値で大村市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割を(A)基本(=1104円)＋(B)18歳以上加算(=75円)で構成、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "長崎県公表(令和8年3月11日・国保健康増進課)の令和8年度 市町村標準保険料率(3方式)を参考値として採用。法定外繰入ゼロ前提の理論値で大村市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割を(A)基本(=1104円)＋(B)18歳以上加算(=75円)で構成、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-07: 大村市公式ページ「令和8年度国民健康保険の税率｜大村市」（Last-Modified 2026-08-28）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.9%／均等割27,040円／平等割21,250円・賦課限度額67万円、後期支援分 所得割3.23%／均等割10,770円／平等割8,870円・26万円、介護分 所得割2.47%／均等割9,940円／平等割6,000円・17万円、子ども・子育て支援金分 所得割0.32%／均等割1,190円／18歳以上均等割0円／平等割740円・3万円。／ 3方式（資産割なし）。平成21年度以来の税率改定で、県の標準保険料率を基に令和8年度から改定（医療 8.6→8.9%、均等割23,000→27,040円、平等割22,000→21,250円、限度額66→67万円。令和7年度との比較を併記）。★子ども分の均等割1,190円は『18歳以下（高校生世代まで）は全額軽減』とあり18歳以上加算の内訳表示が無いため、均等割1,190円・18歳以上均等割0円として計上した。4月の暫定賦課には新税率を適用せず7月の本算定から適用。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
     "rate": 0.0032,
-    "perCapita": 1104,
-    "perCapitaAdult": 75,
+    "perCapita": 1190,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 740,
     "cap": 30000

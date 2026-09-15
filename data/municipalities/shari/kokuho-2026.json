@@ -57,40 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.252Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/479.html",
+        "https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/477.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/479.html",
+        "https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/477.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "保険料の計算／斜里町",
+      "url": "https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/479.html",
+      "publishedAt": "2026-09-04"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、斜里町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-02 調査（昇格せず）: 斜里町公式の「保険料の計算」ページ（民生部 住民生活課 医療年金係・更新日 2025年07月09日）を確認したところ、掲載されているのは**令和7年度**の保険料率だった。同ページの「令和7年度の保険料率一覧」は医療分 所得割9.04%・均等割30,056円・平等割29,833円、後期支援分 2.67%・9,360円・9,291円、介護分 2.05%・9,362円・7,343円で、賦課限度額は「医療分66万円＋後期高齢者支援分26万円＋介護分17万円 合計106万円」と令和7年度の額のままである。子ども・子育て支援分の区分も無い。／ 令和8年度について同町が公表しているのは、「【重要】令和8年4月1日から国民健康保険料に「子ども・子育て支援分」が導入されます」（令和8年3月・PDF リーフレット）のみで、子ども分の所得割0.29%・均等割900円・18歳以上均等割200円・平等割1,000円は分かるが、医療分・後期支援分・介護分の令和8年度料率は記載が無い。本データの子ども分（perCapita 900＋perCapitaAdult 200）は同リーフレットと一致する。／ このため医療・後期・介護は道の令和8年度市町村標準保険料率のまま据え置き、standard_r8 を維持する。同町が令和8年度の料率一覧を公表したら昇格させること。／ なお同町は「保険税」ではなく「保険料」方式で、資産割は令和4年度から廃止されている。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、斜里町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-02 調査（昇格せず）: 斜里町公式の「保険料の計算」ページ（民生部 住民生活課 医療年金係・更新日 2025年07月09日）を確認したところ、掲載されているのは**令和7年度**の保険料率だった。同ページの「令和7年度の保険料率一覧」は医療分 所得割9.04%・均等割30,056円・平等割29,833円、後期支援分 2.67%・9,360円・9,291円、介護分 2.05%・9,362円・7,343円で、賦課限度額は「医療分66万円＋後期高齢者支援分26万円＋介護分17万円 合計106万円」と令和7年度の額のままである。子ども・子育て支援分の区分も無い。／ 令和8年度について同町が公表しているのは、「【重要】令和8年4月1日から国民健康保険料に「子ども・子育て支援分」が導入されます」（令和8年3月・PDF リーフレット）のみで、子ども分の所得割0.29%・均等割900円・18歳以上均等割200円・平等割1,000円は分かるが、医療分・後期支援分・介護分の令和8年度料率は記載が無い。本データの子ども分（perCapita 900＋perCapitaAdult 200）は同リーフレットと一致する。／ このため医療・後期・介護は道の令和8年度市町村標準保険料率のまま据え置き、standard_r8 を維持する。同町が令和8年度の料率一覧を公表したら昇格させること。／ なお同町は「保険税」ではなく「保険料」方式で、資産割は令和4年度から廃止されている。 / 2026-09-07: 昇格（verified_r8）。前回（2026-09-02）令和7年度止まりだった「保険料の計算」ページが 2026年09月04日 に更新され、令和8年度の料率一覧が掲載された（https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/479.html ・民生部 住民生活課 医療年金係）。同ページの「令和8年度の保険料率一覧」は 医療分 所得割「8.82％」・均等割「30,498円」・平等割「30,024円」、後期支援分「2.49％」「9,208円」「9,065円」、介護分「2.03.％」（原文ママ・小数点の誤記と判断し2.03%）「9,275円」「7,238円」、子ども分「0.29％」「900円×加入者数」「200円×18歳以上加入者数」「1,000円」で、本データの13値と全て一致した（値の変更なし）。賦課限度額は「医療分（A）の賦課限度額67万円+後期高齢者支援分（B）の賦課限度額26万円+介護分（C）の賦課限度額17万円+子ども分（D）の賦課限度額3万円 合計113万円」で JSON の caps と一致。軽減判定は「保険料の軽減」ページ（更新日 2026年09月04日・https://www.town.shari.hokkaido.jp/hoken_fukushi_iryo/kokuminkenkohokenseido/hokenryo/477.html ）に「7割軽減 総所得金額 43万円+10万円×（給与所得者等の数-1）以下」「5割軽減 …+31万円×被保険者数…」「2割軽減 …+57万円×被保険者数…」とあり、reduction.standards（base 43万・5割31万・2割57万・salaryPensionAdd 10万）と一致。資産割は同ページに「令和4年度から資産割を廃止しました」とあり assetLevy 不要（3方式）。／ 未確認: 同ページの子ども分の説明に「均等割額を5割軽減」とあるが、これが未就学児軽減を指すのか子ども分全体の扱いを指すのか本文からは判別できず、preschoolReduction（医療・後期のみ5割）は道標準どおり据え置いた。"
   },
   "childcareLevy": {
     "rate": 0.0029,

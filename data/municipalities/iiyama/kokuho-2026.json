@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0622,
-    "support": 0.0273,
-    "care": 0.0236
+    "medical": 0.0651,
+    "support": 0.029,
+    "care": 0.0277
   },
   "perCapita": {
-    "medical": 22689,
-    "support": 10220,
-    "care": 9842
+    "medical": 19000,
+    "support": 8100,
+    "care": 7000
   },
   "household": {
-    "medical": 23153,
-    "support": 9187,
-    "care": 7903
+    "medical": 18800,
+    "support": 7900,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.807Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-13T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.city.iiyama.nagano.jp/soshiki/shiminkankyou/kokuhonennkin/kokuho/kokuho-hp-6.htm",
+        "https://www1.g-reiki.net/city.iiyama.nagano/reiki_honbun/e714RG00000276.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-13",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.iiyama.nagano.jp/soshiki/shiminkankyou/kokuhonennkin/kokuho/kokuho-hp-6.htm",
+        "https://www1.g-reiki.net/city.iiyama.nagano/reiki_honbun/e714RG00000276.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/city.iiyama.nagano/reiki_honbun/e714RG00000276.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税｜飯山市「国民健康保険税の税率・税額と計算方法(令和8(2026)年度)」",
+      "url": "https://www.city.iiyama.nagano.jp/soshiki/shiminkankyou/kokuhonennkin/kokuho/kokuho-hp-6.htm",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-13",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で飯山市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=82円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で飯山市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=82円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-13: 飯山市の令和8年度の実税率を「国民健康保険税｜飯山市「国民健康保険税の税率・税額と計算方法(令和8(2026)年度)」」で確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 ★本市は保険税方式で、料率は「飯山市国民健康保険税条例」ではなく**飯山市税条例 第150条〜第159条**に定められている。市の改定ページも「市議会の議決（飯山市税条例の改正）を経て、令和8年度から適用する『税率・額』を決定しました」と記す。資産割は令和7年度に廃止。／★税率ページの表は子ども・子育て分の均等割を「1,000円」と書くが、同ページの計算方法欄は「国保に加入している人数(18歳以上)×1,000円」で、これは均等割900円＋18歳以上加算100円の合算表示である。改定ページと税条例は900円＋100円に分解しており、本データも分解して保持する（合算値をそのまま入れると二重計上になる）。軽減表の子ども分均等割（7割700円/5割500円/2割200円）も同じく合算値で、条例は均等割630/450/180円＋18歳以上加算70/50/20円。／18歳未満は「18歳未満の被保険者の子ども・子育て支援金の均等割はかかりません」と明記され、税条例第159条第4項で全額減額。未就学児は均等割5割軽減（低所得軽減後の額からさらに5割）。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1091,
-    "perCapitaAdult": 82,
+    "rate": 0.0031,
+    "perCapita": 900,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 900,
     "cap": 30000
   }
 }

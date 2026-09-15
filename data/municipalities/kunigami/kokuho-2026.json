@@ -6,24 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0681,
-    "support": 0.0379,
-    "care": 0
+    "medical": 0.078,
+    "support": 0.02,
+    "care": 0.02
   },
   "assetLevy": {
-    "medical": 0.2209,
-    "support": 0.0043,
-    "care": 0.0886
+    "medical": 0.37,
+    "support": 0.08,
+    "care": 0.08
   },
   "perCapita": {
-    "medical": 10307,
-    "support": 4627,
-    "care": 7728
+    "medical": 14500,
+    "support": 3000,
+    "care": 6800
   },
   "household": {
-    "medical": 11747,
-    "support": 8243,
-    "care": 6008
+    "medical": 17000,
+    "support": 5500,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -61,43 +61,53 @@
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1268,
-    "perCapitaAdult": 92,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 797,
+    "household": 700,
     "cap": 30000
   },
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "standard",
+    "status": "verified",
     "lifecycle": {
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-08-20T00:00:00.000Z",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/541/01r8hyoujunhokennryouritu.pdf"
+        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "watchUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html"
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "previousYearTemplate": false,
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "ordinanceUrls": [
+        "https://lg.joureikun.jp/kunigami_vill/reiki/act/110000184.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "沖縄県 令和8年度 標準保険料率算定結果（市町村算定方式）",
-      "url": "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-      "publishedAt": "2026-03-31"
+      "type": "official",
+      "title": "沖縄県 令和8年度 国民健康保険税（料）率 市町村一覧表",
+      "url": "https://lg.joureikun.jp/kunigami_vill/reiki/act/110000184.html",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-15",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。 / 2026-09-15: 沖縄県「令和8年度 国民健康保険税（料）率 市町村一覧表」（r08kokuhozei.pdf・Last-Modified 2026-07-07・sha256 28d05b2e…）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた。国頭村国民健康保険税条例（村例規集・最終改正 令和8年3月31日条例第11号）の本文で令和8年度の税率を確認（医療分100分の7.80／資産割100分の37.00／14,500円、支援分100分の2.00／100分の8.00／3,000円、介護分100分の2.00／100分の8.00／6,800円／5,500円、子ども分100分の0.27／資産割0／1,000円／18歳以上100円）。平等割の医療分17,000円・支援分5,500円・子ども分700円は県一覧表による。村サイトに税率ページなし。賦課限度額は医療67万／支援26万／介護17万／子ども3万円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   }
 }

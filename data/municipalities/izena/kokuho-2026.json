@@ -6,24 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.092,
-    "support": 0.0389,
-    "care": 0.0188
+    "medical": 0.054,
+    "support": 0.014,
+    "care": 0.012
   },
   "assetLevy": {
-    "medical": 0.4509,
-    "support": 0.1837,
-    "care": 0.1403
+    "medical": 0.36,
+    "support": 0.09,
+    "care": 0.066
   },
   "perCapita": {
-    "medical": 13860,
-    "support": 5651,
-    "care": 10890
+    "medical": 11200,
+    "support": 2800,
+    "care": 5200
   },
   "household": {
-    "medical": 18079,
-    "support": 7616,
-    "care": 6067
+    "medical": 15100,
+    "support": 3900,
+    "care": 2800
   },
   "caps": {
     "medical": 670000,
@@ -70,34 +70,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "standard",
+    "status": "verified",
     "lifecycle": {
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "updatedAt": "2026-06-08T00:00:00.000Z",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/541/01r8hyoujunhokennryouritu.pdf"
+        "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "watchUrls": [
-        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html"
+        "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006489/1006494.html"
       ],
       "previousYearTemplate": false,
-      "r8Updated": true
+      "r8Updated": true,
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "沖縄県 令和8年度 標準保険料率算定結果（市町村算定方式）",
-      "url": "https://www.pref.okinawa.jp/iryokenko/iryo/1006488/1006541.html",
-      "publishedAt": "2026-03-31"
+      "type": "official",
+      "title": "沖縄県 令和8年度 国民健康保険税（料）率 市町村一覧表",
+      "url": "https://www.pref.okinawa.jp/_res/projects/default_project/_page_/001/006/494/r08kokuhozei.pdf",
+      "publishedAt": "2026"
+    },
+    "audit": {
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-15",
+      "method": "prefecture-actual-list"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.85,
       "completeness": "full"
     },
-    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。"
+    "notes": "沖縄県公表の市町村算定方式(実採用)を収録。資産割は固定資産税額に対する率。標準保険料率(参考値)。 / 2026-09-15: 沖縄県「令和8年度 国民健康保険税（料）率 市町村一覧表」（r08kokuhozei.pdf・Last-Modified 2026-07-07・sha256 28d05b2e…）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた。県一覧表の値を採用（医療分5.40%／資産割36.00%／11,200円／15,100円、支援分1.40%／9.00%／2,800円／3,900円、介護分1.20%／6.60%／5,200円／2,800円、子ども分0.27%／1,261円／18歳以上120円／804円）。村ページ「国民健康保険」に税率表が無く、例規集はオンライン未整備。3区分の税率は令和7年度一覧表と同値。賦課限度額は医療67万／支援26万／介護17万／子ども3万円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0977,
-    "support": 0.0348,
-    "care": 0.0272
+    "medical": 0.089,
+    "support": 0.031,
+    "care": 0.026
   },
   "perCapita": {
-    "medical": 33031,
-    "support": 11788,
-    "care": 11267
+    "medical": 28700,
+    "support": 11000,
+    "care": 11000
   },
   "household": {
-    "medical": 21784,
-    "support": 7774,
-    "care": 5869
+    "medical": 27800,
+    "support": 9600,
+    "care": 7600
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.303Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagasaki.jp/doc/45035.html"
+        "https://www.city.unzen.nagasaki.jp/kiji0031487/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.unzen.nagasaki.jp/kiji0031487/index.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長崎県 市町村標準保険料率（別添・3方式）",
-      "url": "https://www.pref.nagasaki.jp/doc/45035.html",
+      "type": "official",
+      "title": "国民健康保険税とは｜雲仙市",
+      "url": "https://www.city.unzen.nagasaki.jp/kiji0031487/index.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "長崎県公表(令和8年3月11日・国保健康増進課)の令和8年度 市町村標準保険料率(3方式)を参考値として採用。法定外繰入ゼロ前提の理論値で雲仙市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割を(A)基本(=1062円)＋(B)18歳以上加算(=89円)で構成、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格。"
+    "notes": "長崎県公表(令和8年3月11日・国保健康増進課)の令和8年度 市町村標準保険料率(3方式)を参考値として採用。法定外繰入ゼロ前提の理論値で雲仙市の実告示と異なる場合あり。3方式(所得+均等+平等)・資産割なし。子ども子育て分は均等割を(A)基本(=1062円)＋(B)18歳以上加算(=89円)で構成、18歳未満は均等割全額軽減(perCapitaAdultScope=all_ages)。限度額医療はPDF未記載のため67万踏襲(R8政令)。市告示後 verified_r8 昇格（2026-09-07に達成）。 / 2026-09-07: 雲仙市公式ページ「国民健康保険税とは｜雲仙市」（Last-Modified 2026-08-24）で令和8年度の実税率を確認し、県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割8.9%／均等割28,700円／平等割27,800円・賦課限度額67万円、後期支援分 所得割3.1%／均等割11,000円／平等割9,600円・26万円、介護分 所得割2.6%／均等割11,000円／平等割7,600円・17万円、子ども・子育て支援金分 所得割0.28%／均等割1,200円／18歳以上均等割100円／平等割900円・3万円。／ 見出しが「令和8年度区分税率（額）」で年度を明示。3方式。子ども分の表示値1,300円は内訳『均等割1,200円＋18歳以上均等割100円』で加算込み表示のため分けて計上した。18歳未満は1,200円が全額軽減。限度額の合計113万円と明記。未就学児軽減表の『軽減なし39,700円』が医療28,700＋後期11,000と一致し検算OK。／ 軽減判定所得の加算額 5割310000・2割570000（令和8年度基準）。"
   },
   "childcareLevy": {
-    "rate": 0.0031,
-    "perCapita": 1062,
-    "perCapitaAdult": 89,
+    "rate": 0.0028,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 724,
+    "household": 900,
     "cap": 30000
   }
 }

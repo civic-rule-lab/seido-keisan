@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.rikubetsu.jp/kurashi/zeikin/",
+        "https://www.rikubetsu.jp/shokai/kouhou/kouhou2026/"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、陸別町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、陸別町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 令和8年度の実税率は取れず据え置き。調べた経路（すべて 2026-09-07 実測）: ①町サイトの税金一覧 https://www.rikubetsu.jp/kurashi/zeikin/ には個人町道民税・法人町民税・固定資産税・軽自動車税しか無く、国民健康保険税のページが存在しない。②健康・介護・福祉 https://www.rikubetsu.jp/kurashi/kenko_kaigo_fukushi/ も介護保険・予防接種のみで国保の項目が無い。③サイトマップ https://www.rikubetsu.jp/sitemaps/ に国保関連の下位ページなし。④広報りくべつ令和8年6月号(No.783) https://www.rikubetsu.jp/file/contents/3557/26824/riku2026.6.pdf と7月号(No.784) https://www.rikubetsu.jp/file/contents/3557/26997/riku2026.7.pdf を取得したが、埋め込みフォントに ToUnicode が無く pdftotext でのテキスト抽出が文字化けする（「保険」「税」の語が0件）ため税率表を読み取れなかった＝人手か OCR での再確認が要る。⑤町サイト内に例規集へのリンクを発見できず。値は北海道の令和8年度市町村標準保険料率（理論値）のまま。なお出典に町ページを採る場合、ホスト www.rikubetsu.jp は独自ドメインで PROVENANCE_HOST_EXTRA 未登録（town.rikubetsu.hokkaido.jp / rikubetsu.lg.jp / town.rikubetsu.lg.jp はいずれも名前解決しない＝実測）。"
   },
   "childcareLevy": {
     "rate": 0.0029,

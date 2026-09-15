@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0659,
-    "support": 0.0276,
-    "care": 0.0222
+    "medical": 0.059,
+    "support": 0.025,
+    "care": 0.0225
   },
   "perCapita": {
-    "medical": 22200,
-    "support": 9100,
-    "care": 9300
+    "medical": 21500,
+    "support": 9500,
+    "care": 9500
   },
   "household": {
-    "medical": 23000,
-    "support": 8800,
-    "care": 7100
+    "medical": 21500,
+    "support": 8500,
+    "care": 7400
   },
   "caps": {
     "medical": 660000,
@@ -65,10 +65,10 @@
       "expiresAt": "2026-04-30"
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "令和7年度国民健康保険料（税）率等の状況について（長野県・資料3）",
+      "url": "https://www.pref.nagano.lg.jp/kokuho/documents/shiryou3.pdf",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "",
@@ -79,6 +79,6 @@
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-13 是正: 本ファイル（木曽町・cityCode 20432）には木祖村（cityCode 20425）の令和7年度の値が入っていた。kiso/kokuho-2025.json と9値がそっくり入れ替わっていたため相互に入れ替えた。／根拠 [確認済]: ①長野県「令和7年度国民健康保険料（税）率等の状況について」（資料3・https://www.pref.nagano.lg.jp/kokuho/documents/shiryou3.pdf）の医療分税率比較表に「53 木曽町 R6 5.80／21,000／21,000 → R7 5.90／21,500／21,500」「57 木祖村 R6 6.54／21,100／21,900 → R7 6.59／22,200／23,000」とある。②同表で R7 医療 5.90%・均等割21,500円・平等割21,500円 の組は長野県内で木曽町のみ（大町市は5.90%だが資産割ありで平等割24,000円、王滝村は19,300／18,400）。③木祖村サイトの年度別一覧（https://www.vill.kiso.nagano.jp/kenko_fukushi/kokuminkenkohoken/zeiritu.html・更新 2026-09-02）の R7 列が 医療6.59%／22,200／23,000・支援2.76%／9,100／8,800・介護2.22%／9,300／7,100 で、是正前に本ファイルへ入っていた9値と完全一致した。／[未確認]: 県資料は医療分のみの比較表であり、木曽町の支援分・介護分（2.50%／9,500／8,500・2.25%／9,500／7,400）は kiso/kokuho-2025.json に入っていた値をそのまま移したもので、木曽町自身の一次資料では裏づけていない。町サイトは令和8年度版に更新済みで令和7年度の値を載せておらず、Web アーカイブにも残っていなかった（2026-09-13 実測）。／なお令和8年度（kokuho-2026.json）は町ページで検証済みで本是正の影響を受けない。"
   }
 }

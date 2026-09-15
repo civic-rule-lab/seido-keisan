@@ -73,7 +73,11 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.mashike.hokkaido.jp/division/zeimu/chozei/shurui/index.html",
+        "https://www.town.mashike.hokkaido.jp/division/chomin/hokennenkin/index.html",
+        "https://www.town.mashike.hokkaido.jp/division/chomin/chominkankyo/kouho/index.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +94,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、増毛町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、増毛町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: ①増毛町公式サイトの税率掲載ページは税務課「町税の種類」（https://www.town.mashike.hokkaido.jp/division/zeimu/chozei/shurui/index.html ）の「国民健康保険税」節のみで、そこに載っているのは令和7年度の値だった。医療分「（前年の総所得金額-基礎控除額〈43万円〉）×8.30％」・均等割「被保険者1人につき 24,000円」・平等割「1世帯当たりにつき 18,000円」・賦課限度額「最高 660,000円」、支援分 2.15％・8,000円・6,000円・260,000円、介護分 1.10％・7,000円・6,000円・170,000円。医療分の限度額が660,000円（令和8年度政令は670,000円）で、子ども・子育て支援金分の区分も無いことから令和7年度と判断した（税務課トップの記事一覧では「町税について（令和3年4月1日更新）」表示。同ページは Last-Modified ヘッダを返さない）。②町民課保険年金係の一覧（https://www.town.mashike.hokkaido.jp/division/chomin/hokennenkin/index.html ）を全件たどったが、税率を載せるページは無く、医療費助成・後期高齢者医療・データヘルス計画等のみだった。③広報ましけ 令和8年（2026年）5月号・6月号・7月号・8月号の全ページ版PDFを pdftotext で検索したが、「国民健康保険税」の語は納期カレンダー（第1期・第2期）にしか現れず、令和8年度の税率表は載っていなかった。7月号8頁の税率表は後期高齢者医療制度のものである。④例規類集は北海道町村会の例規DB（http://houmu.h-chosonkai.gr.jp/~reikidb/?choson_no=181 ）でセッション方式のため条例本文へ到達できなかった＝未確認。／以上より自治体の令和8年度一次資料が確認できないので、道の令和8年度市町村標準保険料率のまま据え置き standard_r8 を維持する。watchUrls に上記①②③を追加した。／⚠️ 未確認: 令和7年度の道の一覧では増毛町に資産割は無いが、令和8年度に資産割があるかどうかは町の資料が無いため確認できていない。"
   },
   "childcareLevy": {
     "rate": 0.0029,

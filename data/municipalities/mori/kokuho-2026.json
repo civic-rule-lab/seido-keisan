@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.hokkaido-mori.lg.jp/soshiki/hokenfukushi/iryoujosei/kokuminkenkohoken/index.html",
+        "https://www.town.hokkaido-mori.lg.jp/soshiki/hokenfukushi/iryoujosei/kokuminkenkohoken/1695.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、森町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、森町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 令和8年度の実料率を探したが見つからず、据え置き。調べた経路: ①森町公式サイト（https://www.town.hokkaido-mori.lg.jp/ ）の「税金」一覧（/seikatsunobamen/zeikin/index.html ）配下は 町民税・法人町民税・固定資産税・軽自動車税・その他税金・税の証明書・納付・町税Q&A の8本のみで、国保税の税率ページは無い。②保健福祉子育て課の国民健康保険インデックス（https://www.town.hokkaido-mori.lg.jp/soshiki/hokenfukushi/iryoujosei/kokuminkenkohoken/index.html ）に載る税率ページは「令和7年度国民健康保険税について」（https://www.town.hokkaido-mori.lg.jp/soshiki/hokenfukushi/iryoujosei/kokuminkenkohoken/1695.html ・ページID 1695・更新日 2025年08月29日・Last-Modified 2026-08-05）1本だけで、令和8年度版は未掲載。同ページの内容は医療分 所得割8.53%・均等割28,400円・平等割28,200円／後期支援分 2.57%・9,000円・9,000円／介護保険分 1.99%・9,100円・7,100円で、これは令和7年度の値（data/municipalities/mori/kokuho-2025.json と一致）であり令和8年度の根拠には使えない。子ども・子育て支援金分の記載も無い。③site: 検索でも令和8年度の国保税率ページ・広報PDFは見つからなかった。watchUrls に国保インデックスと当該税率ページを追加した（令和8年度版の掲載または1695番の年度差し替えを検知する狙い）。未確認: 広報もりのバックナンバーPDFを号ごとには当たっていない。"
   },
   "childcareLevy": {
     "rate": 0.0029,

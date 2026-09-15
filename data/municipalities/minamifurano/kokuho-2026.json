@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.minamifurano.hokkaido.jp/kurashi-info/%e7%a8%8e%e9%87%91-2/%e5%9b%bd%e6%b0%91%e4%bf%9d%e9%99%ba%e7%a8%8e/",
+        "https://www.town.minamifurano.hokkaido.jp/kurashi-info/%e5%9b%bd%e6%b0%91%e5%81%a5%e5%ba%b7%e4%bf%9d%e9%99%ba-2/"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、南富良野町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、南富良野町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 令和8年度の町公表値が見つからず据え置き。南富良野町公式サイト「国民健康保険税」（https://www.town.minamifurano.hokkaido.jp/kurashi-info/%e7%a8%8e%e9%87%91-2/%e5%9b%bd%e6%b0%91%e4%bf%9d%e9%99%ba%e7%a8%8e/ ・WordPress REST API の modified は 2025-12-10）は「医療分 前年の所得×6.9％／固定資産税(土地・家屋)×26.0％／加入者数×20千円／24千円／660千円」「支援金分 1.9％・6.0％・5.6千円・7千円・260千円」「介護分 1.1％・6.0％・6.4千円・4.4千円・170千円」を掲げ、軽減判定は「43万円 ＋（30万5千円×加入者数）」「43万円 ＋（56万円×加入者数）」。子ども・子育て支援金分の記載がなく、医療分の限度額も660千円のため令和7年度以前の内容と判断した。町サイトの WordPress REST API（pages 検索）でも令和8年度の税率ページ・PDF は見つからなかった。なお同ページは資産割を含む4方式を掲げており、県標準に基づく当データの3方式・資産割なしとは方式そのものが異なる。町が令和8年度分を公表したら、資産割の有無を含めて全面的に見直すこと。掲載検知用に上記2ページを watchUrls に追加した。"
   },
   "childcareLevy": {
     "rate": 0.0029,

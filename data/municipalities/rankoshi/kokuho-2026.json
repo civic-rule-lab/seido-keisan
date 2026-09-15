@@ -73,7 +73,11 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.rankoshi.hokkaido.jp/administration/life/detail.html?content=847",
+        "https://www.town.rankoshi.hokkaido.jp/administration/life/detail.html?content=116",
+        "https://www.town.rankoshi.hokkaido.jp/administration/welfare/detail.html?content=806"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +94,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、蘭越町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、蘭越町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: 蘭越町公式サイトに「令和８年度蘭越町国民健康保険税変更内容について」（https://www.town.rankoshi.hokkaido.jp/administration/life/detail.html?content=847 ）があり、本文は画像1枚（https://www.town.rankoshi.hokkaido.jp/common/img/content/content_20260102_140959.jpg ・HTTP last-modified: Fri, 02 Jan 2026 05:11:30 GMT）で構成される。同画像は「令和8年度　蘭越町国民健康保険税変更内容」と題し、(1)納税通知書様式の変更 (2)納期限を第5期から「第8期に分けて」納付へ変更 (3)納税通知書送付を6月15日から7月15日へ変更 (4)子ども・子育て納付金制度の創設、の4点のみを告知する。税率については「子ども子育て支援金の税率については、北海道が示す標準保険料率を予定していますが、現在、標準保険料率が示されていないため、標準保険料率が提示され次第お知らせいたします。」と書くにとどまり、令和8年度の医療分・後期分・介護分・子ども分の税率も限度額も掲載していない。町の常設ページ「国民健康保険税」（同 content=116）は「税率（令和５年度）」の見出しのまま更新されておらず、4方式（資産割 一般医療45%・後期支援15%・介護7%、均等割 11,400/7,400/10,900円、平等割 19,000/7,400/7,600円、限度額 63万/21万/15万円）を掲げている。「国保だより」（同 welfare content=806）も最新号が令和7年5月15日発行で、令和7年度の限度額（医療66万・後期26万・介護17万）までしか載らない。令和8年度の実料率が自治体一次資料に無いため、道の令和8年度市町村標準保険料率のまま据え置き、standard_r8 を維持する。★未解消の食い違い: 町ページ（令和5年度）は資産割のある4方式だが、本データは道の標準保険料率に倣い資産割なしの3方式である。令和8年度の告示で3方式へ移行するかは確認できていない。watchUrls に上記3件を追加した。"
   },
   "childcareLevy": {
     "rate": 0.0029,

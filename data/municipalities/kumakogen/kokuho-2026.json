@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0762,
-    "support": 0.0286,
-    "care": 0.0263
+    "medical": 0.092,
+    "support": 0.0282,
+    "care": 0.0246
   },
   "perCapita": {
-    "medical": 33143,
-    "support": 12254,
-    "care": 12579
+    "medical": 26500,
+    "support": 10000,
+    "care": 10500
   },
   "household": {
-    "medical": 21771,
-    "support": 8050,
-    "care": 6161
+    "medical": 24400,
+    "support": 8000,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.230Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-10T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.ehime.jp/page/4387.html"
+        "https://www1.g-reiki.net/kumakogen/reiki_honbun/r032RG00000701.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-10",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.kumakogen.jp/soshiki/4/16721.html",
+        "https://www1.g-reiki.net/kumakogen/reiki_menu.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/kumakogen/reiki_honbun/r032RG00000701.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛媛県 市町村標準保険料率",
-      "url": "https://www.pref.ehime.jp/page/4387.html",
+      "type": "official",
+      "title": "久万高原町国民健康保険税条例（久万高原町例規集・内容現在 令和8年8月1日）",
+      "url": "https://www1.g-reiki.net/kumakogen/reiki_honbun/r032RG00000701.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-10",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で久万高原町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=48円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "愛媛県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で久万高原町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=48円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-10: 久万高原町は公式サイトに令和8年度の税率ページを持たない（最新は「令和7年度 国民健康保険税」ページID:0016721・2025年4月1日更新で、医療9.20%／均等割25,100円／平等割24,400円・限度額66万円の3区分のみ、子ども・子育て支援納付金分の記載なし）ため、例規集の「久万高原町国民健康保険税条例」（平成17年4月1日条例第26号・最終改正 令和8年3月25日条例第18号／令和8年4月1日施行・令和8年度以後の年度分に適用。例規集の内容現在 令和8年8月1日）の本文で令和8年度の実税率を確認し、愛媛県標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。医療分 所得割9.2%／均等割26,500円／平等割24,400円・賦課限度額67万円（第3条・第5条・第5条の2・第2条第2項）、後期支援分 所得割2.82%／均等割10,000円／平等割8,000円・26万円（第6条・第7条の2・第7条の3）、介護分 所得割2.46%／均等割10,500円／平等割6,200円・17万円（第8条・第9条の2・第9条の3）、子ども・子育て支援金分 所得割0.25%／均等割1,100円／18歳以上均等割50円／平等割800円・3万円（第9条の4〜第9条の7）。資産割は条文に0件＝3方式。／ 値の裏づけ: 第15条第1号（7割軽減）の減額額が本則×0.7 と全区分で一致する（医療 均等18,550・平等17,080／支援 7,000・5,600／介護 7,350・4,340／子ども 770・35・560）。／ 18歳未満は第15条第4項により子ども・子育て支援納付金課税額の被保険者均等割額を全額減額（perCapitaAdultScope=all_ages と整合）。未就学児軽減は第15条第2項で法定軽減後の額の5割（軽減なし世帯 医療13,250＝26,500×0.5・支援5,000・子ども550）。軽減判定の加算額は5割31万円・2割57万円、給与所得者等2人以上で+10万円（第15条第1号・第2号・第3号）。／ ★出典ホストの制約: 久万高原町の例規集はベンダー（ぎょうせい www1.g-reiki.net）にのみ存在し、町ドメイン www.kumakogen.jp 側のミラー（/reiki/…）は404（2026-09-10 実測）。ベンダーホストは PROVENANCE_HOST_EXTRA に入れないため、表示できる出典URLが1本も無く、生成ページは ✓ ではなく ◔「一次資料照合中」バッジになり来歴節も出ない。これは 2026-09-09 のオーナー判断で用意された扱いで（generate-official-pages.js の buildTrustBadge。既存の該当は深川市・松野町・津和野町の3件）、「値は一次資料で照合済みだが、その一次資料がベンダー例規集にしか無く出典URLを掲載できない」状態を指す。r8Stage は verified_r8 に据え置き、表示だけを実態に合わせる型である。本自治体もこれに該当する。／ 参考: 愛媛県の出典ページ https://www.pref.ehime.jp/page/4387.html は更新日2025年9月17日で令和6・7年度分しか掲載しておらず、令和8年度の標準保険料率を含んでいない（2026-09-10 実測）。"
   },
   "childcareLevy": {
     "rate": 0.0025,
-    "perCapita": 1063,
-    "perCapitaAdult": 48,
+    "perCapita": 1100,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 705,
+    "household": 800,
     "cap": 30000
   }
 }

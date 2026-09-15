@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.059,
-    "support": 0.025,
-    "care": 0.0225
+    "medical": 0.0659,
+    "support": 0.0276,
+    "care": 0.0222
   },
   "perCapita": {
-    "medical": 21500,
-    "support": 9500,
-    "care": 9500
+    "medical": 22200,
+    "support": 9100,
+    "care": 9300
   },
   "household": {
-    "medical": 21500,
-    "support": 8500,
-    "care": 7400
+    "medical": 23000,
+    "support": 8800,
+    "care": 7100
   },
   "caps": {
     "medical": 660000,
@@ -65,10 +65,10 @@
       "expiresAt": "2026-04-30"
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "国民健康保険税率について｜木祖村（年度別一覧・更新 2026年09月02日）",
+      "url": "https://www.vill.kiso.nagano.jp/kenko_fukushi/kokuminkenkohoken/zeiritu.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "",
@@ -79,6 +79,6 @@
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-13 是正: 本ファイル（木祖村・cityCode 20425）には木曽町（cityCode 20432）の令和7年度の値が入っていた。kisomachi/kokuho-2025.json と9値がそっくり入れ替わっていたため相互に入れ替えた。／根拠 [確認済]: 村サイトの年度別一覧（https://www.vill.kiso.nagano.jp/kenko_fukushi/kokuminkenkohoken/zeiritu.html・更新 2026-09-02）の R7 列が 医療 6.59%／22,200円／23,000円、支援 2.76%／9,100円／8,800円、介護 2.22%／9,300円／7,100円 で、9値すべてが是正後の本ファイルと一致する。同ページは R1〜R8 の年度別表で、R8 列は 医療6.65%／23,300／24,000（kokuho-2026.json と一致）。長野県「令和7年度国民健康保険料（税）率等の状況について」（資料3・https://www.pref.nagano.lg.jp/kokuho/documents/shiryou3.pdf）の「57 木祖村 R7 6.59／22,200／23,000」とも一致する。／★木曽町（きそまち）と木祖村（きそむら）は同じ木曽郡の別自治体で、slug も kisomachi / kiso と紛らわしい。取り違え注意。"
   }
 }

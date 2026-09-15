@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0637,
-    "support": 0.0289,
-    "care": 0.0242
+    "medical": 0.065,
+    "support": 0.022,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 23265,
-    "support": 10803,
-    "care": 10115
+    "medical": 20200,
+    "support": 8500,
+    "care": 9000
   },
   "household": {
-    "medical": 23740,
-    "support": 9711,
-    "care": 8121
+    "medical": 21200,
+    "support": 7500,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.813Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.town.sakuho.nagano.jp/kurashi_tetsuzuki/zeikin/kokuminkenkohokenzei/juminzeimu_7862.html",
+        "https://en3-jg.d1-law.com/sakuho/d1w_reiki/H417901010095/H417901010095_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-11",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.sakuho.nagano.jp/kurashi_tetsuzuki/zeikin/kokuminkenkohokenzei/juminzeimu_7862.html",
+        "https://en3-jg.d1-law.com/sakuho/d1w_reiki/H417901010095/H417901010095_j.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/sakuho/d1w_reiki/H417901010095/H417901010095_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税",
+      "url": "https://www.town.sakuho.nagano.jp/kurashi_tetsuzuki/zeikin/kokuminkenkohokenzei/juminzeimu_7862.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-11",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で佐久穂町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=90円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で佐久穂町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=90円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-11: 佐久穂町国民健康保険税条例の本文で令和8年度の実税率を確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 医療分 所得割6.5%／均等割20,200円／平等割21,200円・限度額670,000円、後期支援分 2.2%／8,500円／7,500円・260,000円、介護分 2%／9,000円／7,000円・170,000円、子ども・子育て支援金分 0.27%／均等割800円／18歳以上均等割80円／平等割800円・30,000円。 資産割は率を定める条が無く3方式。 条例の最終改正は令和8年6月24日条例第16号。 適用条項:「1 この条例は、公布の日から施行し、令和8年4月1日から適用する。 / 2 この条例による改正後の佐久穂町国民健康保険税条例の規定は、令和8年度以後の年度分の国民健康保険税について適用し、令和7年度分までの国民健康保険税については、なお従前」 例規集の内容現在は令和8年6月26日。 値の裏づけ: 第一次（7割）軽減の減額額が本則×0.7 と全区分で一致することを算術照合した。 18歳未満は第23条第4項により子ども・子育て支援納付金分の被保険者均等割額を全額減額。 出典として添えた町公式ページは「国民健康保険税」。 ★未就学児軽減（第23条第2項第1号）の基礎課税額の額が第5条の被保険者均等割額20,200円と整合しない。条文の額は ア3,150／イ5,250／ウ8,400／エ10,500 で、これは均等割20,200円ではなく21,000円を前提にした額（20,200円なら ア3,030／イ5,050／ウ8,080／エ10,100）。後期高齢者支援金等分（8,500円→エ4,250円）と子ども・子育て分（800円→エ400円）は整合しているため、基礎課税額分だけが旧額のまま残っている疑い。本文どおりの値を記録しており補正はしていない ★条例の第23条第2項第1号（未就学児軽減・基礎課税額分）の額が ア3,150円／イ5,250円／ウ8,400円／エ10,500円 で、第5条の被保険者均等割額20,200円（×0.5＝10,100円）と整合しない。これは21,000円を前提にした額である。後期高齢者支援金等分（8,500→4,250）と子ども・子育て分（800→400）は整合し、7割軽減14,140円も20,200×0.7と一致するため、基礎課税額分の未就学児軽減だけが旧額のまま残っていると読める。エンジンは本則に軽減率を乗じるため本データへの影響は無い。なお市公式ページの子ども分均等割880円は本則800円＋18歳以上均等割80円の合計である。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 989,
-    "perCapitaAdult": 90,
+    "perCapita": 800,
+    "perCapitaAdult": 80,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 800,
     "cap": 30000
   }
 }

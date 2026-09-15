@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0856,
-    "support": 0.0252,
-    "care": 0.0205
+    "medical": 0.074,
+    "support": 0.022,
+    "care": 0.014
   },
   "perCapita": {
-    "medical": 29609,
-    "support": 9326,
-    "care": 9402
+    "medical": 30000,
+    "support": 9000,
+    "care": 9000
   },
   "household": {
-    "medical": 29148,
-    "support": 9181,
-    "care": 7337
+    "medical": 28000,
+    "support": 7500,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.255Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
+        "https://www.town.saroma.hokkaido.jp/kouhoushi/kouhou/2026_koho/files/07/202607.pdf",
+        "https://www.town.saroma.hokkaido.jp/kouhoushi/kouhou/2026_koho/koho202607.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.saroma.hokkaido.jp/machi/zeikin/kokuminkenkouhokenzei.html",
+        "https://www.town.saroma.hokkaido.jp/kouhoushi/kouhou/2026_koho/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "広報サロマ 2026年7月号（No.825）「国民健康保険税率を改正しました」",
+      "url": "https://www.town.saroma.hokkaido.jp/kouhoushi/kouhou/2026_koho/files/07/202607.pdf",
+      "publishedAt": "2026-07"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、佐呂間町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、佐呂間町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 広報サロマ2026年7月号（No.825）9〜10ページ「国民健康保険税率を改正しました」（https://www.town.saroma.hokkaido.jp/kouhoushi/kouhou/2026_koho/files/07/202607.pdf ・掲載ページ https://www.town.saroma.hokkaido.jp/kouhoushi/kouhou/2026_koho/koho202607.html ）の令和7年度／令和8年度対照表で実税率を確認し、県標準の理論値から差し替えた。「今回の税率改正では、一部の所得割税率および限度額を引き上げ、資産税割は廃止となります。」とあり、令和7年度に医療1.9%・後期支援0.7%・介護0.4%であった資産割は令和8年度に廃止＝3方式のため assetLevy は追加しない。所得割 医療7.4%／後期支援2.2%／介護1.4%／子ども分0.29%、均等割 医療30,000円／後期支援9,000円／介護9,000円／子ども分1,100円、平等割 医療28,000円／後期支援7,500円／介護5,500円／子ども分1,000円。限度額は医療670,000円（66万→67万に引上げ）・後期支援260,000円・介護170,000円・子ども分30,000円で既存値と一致。軽減判定は「5割軽減：43万円＋31万×被保険者数＋10万円×（給与所得者の数－1）」「2割軽減：43万円＋57万円×被保険者数＋10万円×（給与所得者の数－1）」で既存値と一致。子ども分均等割は町公表が1,100円の単一額（「『こども分』について、18歳に達する方までは全額軽減」と注記）のため、県標準由来の900+200の分割をやめ perCapita=1100 / perCapitaAdult=0（scope=all_ages、18歳未満は0円）に是正した（大人1人あたりの額は1,100円で変更前と同値）。県標準の理論値（医療8.56%／後期支援2.52%／介護2.05%等）とは全項目で相違。未確認: 町サイトの税金ページ https://www.town.saroma.hokkaido.jp/machi/zeikin/kokuminkenkouhokenzei.html は賦課方式を「4方式（資産割あり）」・限度額を65万/22万/17万と書いたままで令和8年度に未更新（2026-09-01 last-modified）。広報の方が新しいため広報を採った。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 900,
-    "perCapitaAdult": 200,
+    "perCapita": 1100,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 1000,
     "cap": 30000

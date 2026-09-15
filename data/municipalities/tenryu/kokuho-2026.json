@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0395,
-    "support": 0.0281,
-    "care": 0.0239
+    "medical": 0.0572,
+    "support": 0.0265,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 14424,
-    "support": 10499,
-    "care": 9984
+    "medical": 21200,
+    "support": 10000,
+    "care": 11000
   },
   "household": {
-    "medical": 14719,
-    "support": 9438,
-    "care": 8016
+    "medical": 22000,
+    "support": 10000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,56 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.837Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill-tenryu.jp/wp-content/uploads/2026/08/4e548e64daf34ad8101ae4d234fe7b60.pdf",
+        "https://www.vill-tenryu.jp/category/administrative/health-welfare/health-insurance/",
+        "https://www1.g-reiki.net/vill-tenryu/reiki_honbun/e761RG00000198.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-11",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.vill-tenryu.jp/wp-content/uploads/2026/08/4e548e64daf34ad8101ae4d234fe7b60.pdf",
+        "https://www.vill-tenryu.jp/category/administrative/health-welfare/health-insurance/",
+        "https://www1.g-reiki.net/vill-tenryu/reiki_honbun/e761RG00000198.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/vill-tenryu/reiki_honbun/e761RG00000198.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "広報天龍 第229号（2026年8月）「国民健康保険税の税率が変わります」",
+      "url": "https://www.vill-tenryu.jp/wp-content/uploads/2026/08/4e548e64daf34ad8101ae4d234fe7b60.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-11",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で天龍村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=21円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で天龍村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=21円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-11: 天龍村国民健康保険税条例の本文で令和8年度の実税率を確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 医療分 所得割5.72%／均等割21,200円／平等割22,000円・限度額670,000円、後期支援分 2.65%／10,000円／10,000円・260,000円、介護分 2.1%／11,000円／6,000円・170,000円、子ども・子育て支援金分 0.25%／均等割750円／18歳以上均等割75円／平等割1,000円・30,000円。 資産割は率を定める条が無く3方式。 条例の最終改正は令和8年6月15日条例第16号。 適用条項:「1 この条例は、公布の日から施行し、令和8年4月1日から適用する。 / 2 この条例による改正後の天龍村国民健康保険税条例の規定は、令和8年度以後の年度分の国民健康保険税について適用し、令和7年度分までの国民健康保険税については、なお従前の」 例規集の内容現在は令和8年6月15日。 値の裏づけ: 第一次（7割）軽減の減額額が本則×0.7 と全区分で一致することを算術照合した。 18歳未満は第23条第4項により子ども・子育て支援納付金分の被保険者均等割額を全額減額。 出典として添えた村公式ページは「国民健康保険 – 天龍村（カテゴリ一覧ページ）」。 ★令和8年度の全13項目を、村の広報誌「広報天龍 第229号」（2026年8月・11ページ）の「国民健康保険税の税率が変わります」の税率表と突き合わせ、**完全に一致**することを確認した（医療5.72%／21,200円／22,000円／670,000円、介護2.10%／11,000円／6,000円／170,000円、後期高齢者支援2.65%／10,000円／10,000円／260,000円、子ども・子育て支援0.25%／均等割750円／18歳以上均等割75円／平等割1,000円／30,000円）。同紙は「村では、6月議会での議決を受け下記のとおり税率が決定しました」と記し、「医療・介護・後期高齢者支援分の税率について昨年度から変更はありません」としている。／★18歳以上均等割75円は県標準21円の3.57倍で機械検査では外れ値として検出されるが、村の公表資料で確定した正しい値である。同紙の説明「18歳以上均等割：こども（18歳未満）の均等割負担を全額免除する代わりに、その減額分を18歳以上の加入者で公平に負担し合う仕組みです」は、本データの perCapitaAdultScope=all_ages（18歳以上＝均等割＋18歳以上均等割、18歳未満＝0）の扱いと一致する。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1031,
-    "perCapitaAdult": 21,
+    "rate": 0.0025,
+    "perCapita": 750,
+    "perCapitaAdult": 75,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 1000,
     "cap": 30000
   }
 }

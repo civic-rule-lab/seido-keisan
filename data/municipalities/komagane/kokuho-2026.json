@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0667,
-    "support": 0.0286,
-    "care": 0.0241
+    "medical": 0.0669,
+    "support": 0.0279,
+    "care": 0.0227
   },
   "perCapita": {
-    "medical": 24350,
-    "support": 10718,
-    "care": 10067
+    "medical": 20200,
+    "support": 8800,
+    "care": 8700
   },
   "household": {
-    "medical": 24848,
-    "support": 9635,
-    "care": 8083
+    "medical": 21300,
+    "support": 7700,
+    "care": 7200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.805Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-13T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.city.komagane.nagano.jp/soshikiichiran/zeimuka/shiminzeigakari/1/1/4/1669.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-13",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.komagane.nagano.jp/soshikiichiran/zeimuka/shiminzeigakari/1/1/4/1669.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税の概要｜駒ヶ根市「令和8年度 駒ヶ根市の税率」",
+      "url": "https://www.city.komagane.nagano.jp/soshikiichiran/zeimuka/shiminzeigakari/1/1/4/1669.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-13",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で駒ヶ根市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=69円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で駒ヶ根市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=69円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-13: 駒ヶ根市の令和8年度の実税率を「国民健康保険税の概要｜駒ヶ根市「令和8年度 駒ヶ根市の税率」」で確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 ★子ども・子育て支援納付金分の課税の型が他自治体と異なる。市ページは「均等割額（18歳以上の加入者のみ課税）1,039円」「（注意）子ども・子育て支援金分の均等割は18歳以上の方にのみ課税されます」と明記しており、本則＋18歳以上加算の形ではない。本データは perCapita=1,039／perCapitaAdult=0（scope=all_ages）として18歳以上のみに1,039円が課され18歳未満は0になるようにした。松浦市・辰野町と同じ形。分解済みの値に加算を重ねると二重計上になる。／医療分の限度額は66万円→67万円、最大113万円。5割軽減は30万5千円→31万円、2割軽減は56万円→57万円へ変更と明記。未就学児は低所得軽減適用後にさらに5割軽減。"
   },
   "childcareLevy": {
     "rate": 0.0026,
-    "perCapita": 970,
-    "perCapitaAdult": 69,
+    "perCapita": 1039,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 979,
     "cap": 30000
   }
 }

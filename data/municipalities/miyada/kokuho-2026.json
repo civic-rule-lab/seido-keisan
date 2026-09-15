@@ -7,18 +7,18 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.0653,
-    "support": 0.0292,
-    "care": 0.0248
+    "support": 0.0233,
+    "care": 0.0225
   },
   "perCapita": {
-    "medical": 23836,
-    "support": 10911,
-    "care": 10378
+    "medical": 23800,
+    "support": 8700,
+    "care": 9800
   },
   "household": {
-    "medical": 24323,
-    "support": 9809,
-    "care": 8333
+    "medical": 24900,
+    "support": 7800,
+    "care": 7200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.823Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-11T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill.miyada.nagano.jp/life-pages/c-11869",
+        "http://www1.g-reiki.net/miyada/reiki_honbun/e750RG00000196.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-11",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.vill.miyada.nagano.jp/life-pages/c-11869",
+        "http://www1.g-reiki.net/miyada/reiki_honbun/e750RG00000196.html"
+      ],
+      "ordinanceUrls": [
+        "http://www1.g-reiki.net/miyada/reiki_honbun/e750RG00000196.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険税について（HTMLのtitleはSPA共通の「宮田村公式サイト」）",
+      "url": "https://www.vill.miyada.nagano.jp/life-pages/c-11869",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-11",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宮田村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宮田村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-11: 宮田村国民健康保険税条例の本文で令和8年度の実税率を確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 医療分 所得割6.53%／均等割23,800円／平等割24,900円・限度額670,000円、後期支援分 2.33%／8,700円／7,800円・260,000円、介護分 2.25%／9,800円／7,200円・170,000円、子ども・子育て支援金分 0.29%／均等割1,000円／18歳以上均等割95円／平等割1,000円・30,000円。 資産割は率を定める条が無く3方式。 条例の最終改正は令和8年5月12日条例第13号。 適用条項:「付 則 (令和8年5月12日 条例第13号)「この条例は、公布の日から施行し、令和8年4月1日から適用する。」／その直前の 附 則 (令和8年3月17日 条例第8号)「この条例は、令和8年4月1日から施行する。」「この条例による改正後の宮田」 例規集の内容現在は令和8年6月26日。 値の裏づけ: 第一次（7割）軽減の減額額が本則×0.7 と全区分で一致することを算術照合した。 18歳未満は第21条第4項により子ども・子育て支援納付金分の被保険者均等割額を全額減額。 出典として添えた村公式ページは「国民健康保険税について（HTMLのtitleはSPA共通の「宮田村公式サイト」）」。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1065,
-    "perCapitaAdult": 101,
+    "perCapita": 1000,
+    "perCapitaAdult": 95,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 1000,
     "cap": 30000
   }
 }

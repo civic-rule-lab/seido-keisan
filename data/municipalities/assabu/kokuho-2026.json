@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0703,
-    "support": 0.0241,
-    "care": 0.0195
+    "medical": 0.0775,
+    "support": 0.025,
+    "care": 0.0164
   },
   "perCapita": {
-    "medical": 24306,
-    "support": 8905,
-    "care": 8925
+    "medical": 31000,
+    "support": 10500,
+    "care": 10000
   },
   "household": {
-    "medical": 23928,
-    "support": 8766,
-    "care": 6965
+    "medical": 29000,
+    "support": 8000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,43 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.195Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-07T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.town.assabu.lg.jp/page/1038.html",
         "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-07",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.assabu.lg.jp/page/1038.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "国民健康保険税について",
+      "url": "https://www.town.assabu.lg.jp/page/1038.html",
+      "publishedAt": "2026-05-22"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-07",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、厚沢部町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、厚沢部町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 厚沢部町公式サイト「国民健康保険税について」（ページID 0001038・更新日 2026年5月22日 / https://www.town.assabu.lg.jp/page/1038.html ）の「現行の厚沢部町国民健康保険税の税率等と限度額について」表で令和8年度の実税率を確認し、道の標準保険料率（理論値）から差し替えた。表の値は 所得割率 医療7.75%／支援2.50%／介護1.64%／子ども0.29%、均等割額 31,000円／10,500円／10,000円／1,000円、18歳以上均等割額（子ども分の列のみ）100円、平等割額 29,000円／8,000円／6,000円／1,000円、課税限度額 670,000円／260,000円／170,000円／30,000円。3方式（所得割+均等割+平等割）で資産割の記載はない。限度額と子ども・子育て支援金分（rate 0.0029 / perCapita 1000 / perCapitaAdult 100 / household 1000 / cap 30000）はいずれも既存値と一致（変更なし）。同ページに「令和8年度国民健康保険税の納付期限」（第1期 令和8年7月31日〜第6期 令和8年12月25日）が載り、令和8年度のページであることを確認した。軽減判定は同ページが「５割… 43万円＋31万5千円×加入者数」「２割… 43万円＋57万円×加入者数」と記載し、2割は本データ（570,000円）と一致するが5割は本データ（310,000円）と 1万5千円 ずれる。軽減判定所得の加算額は地方税法施行令で全国一律に定まり町が独自に定めうるものではないこと、本リポの verified_r8 744件が例外なく 310,000／570,000 であることから、町ページ側の誤記と判断して 310,000 を据え置いた（未確認・要再検証）。厚沢部町の例規集（北海道町村会 法規データベース）は未確認。"
   },
   "childcareLevy": {
     "rate": 0.0029,

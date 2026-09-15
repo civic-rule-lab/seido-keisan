@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.town.matsumae.hokkaido.jp/hotnews/detail/00000125.html",
+        "https://www.town.matsumae.hokkaido.jp/hotnews/detail/00000151.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +93,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、松前町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、松前町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 松前町公式「国民健康保険税」（https://www.town.matsumae.hokkaido.jp/hotnews/detail/00000151.html ）は本文に税率を持たず「町税」ページ（https://www.town.matsumae.hokkaido.jp/hotnews/detail/00000125.html#kokuho ）へ誘導している。その町税ページの「国民健康保険税」表は医療 所得割8.5％・均等割27,000円・平等割28,000円／後期支援 2.4％・8,000円・8,000円／介護 1.7％・8,000円・6,000円、限度額は「660,000円／260,000円／170,000円」で、子ども・子育て支援金分の区分が無く、限度額も67万円でないため令和8年度改正が未反映（年度表記そのものが無い）。資産割は「0%（令和5年度より廃止）」。軽減判定は43万円＋31万円／57万円の記載あり。令和8年度の町公表値が確認できないため据え置き。町の例規集は北海道町村会の外部DB（houmu.h-chosonkai.gr.jp、choson_no=183）にあり、独自ドメインのため出典には採用しない方針で未参照。上記2URLを watchUrls に追加。"
   },
   "childcareLevy": {
     "rate": 0.0029,

@@ -73,7 +73,11 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/",
+        "https://www.vill.shosanbetsu.lg.jp/topics/jumin/",
+        "https://www.vill.shosanbetsu.lg.jp/koho/koho.php"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
@@ -90,7 +94,7 @@
       "confidenceScore": 0.6,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、初山別村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、初山別村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: ①初山別村公式サイト（https://www.vill.shosanbetsu.lg.jp/ ）には国民健康保険の税率を載せるページが存在しない。サイトマップ（https://www.vill.shosanbetsu.lg.jp/siemap/ ）の全リンク文字列を機械検索したところ「保険」「国民健康保険」を含む項目は0件で、「税」を含むのはふるさと納税・森林環境譲与税のみだった。「くらし＞医療」（https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/ ）は重度心身障害者・ひとり親家庭・乳幼児の医療費助成のみを扱っている。②広報しょさんべつ 2026年5月号(191)・6月号(192)・7月号(193) の全ページPDFを pdftotext で検索したが「国民健康保険税」「所得割」「資産割」「均等割」はいずれもヒットせず（6月号の「②国民健康保険 1」は決算関係の表）、令和8年度の税率表は載っていなかった。③例規集は北海道町村会の例規DB（http://houmu.h-chosonkai.gr.jp/~reikidb/?choson_no=96 ）にあり村名までは表示できたが、検索フォームが村を限定せず全町村473件を返す挙動で、初山別村国民健康保険税条例の本文に到達できなかった＝未確認。／以上より自治体の令和8年度一次資料が確認できないので、道の令和8年度市町村標準保険料率のまま据え置き standard_r8 を維持する。watchUrls に村サイトの該当区画と広報一覧を追加した。／⚠️ 未確認・重要: 令和7年度の道の一覧では初山別村に資産割（医療30%）があった。令和8年度に廃止されたかどうかは村の資料が無いため確認できていない。本データは県標準の3方式のままなので、資産割が存続していれば賦課方式ごと誤っている可能性がある。"
   },
   "childcareLevy": {
     "rate": 0.0029,

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0669,
-    "support": 0.0292,
-    "care": 0.0239
+    "medical": 0.078,
+    "support": 0.021,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 24414,
-    "support": 10934,
-    "care": 10004
+    "medical": 21700,
+    "support": 5800,
+    "care": 8000
   },
   "household": {
-    "medical": 24913,
-    "support": 9829,
-    "care": 8033
+    "medical": 21200,
+    "support": 5800,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,54 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.861Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-13T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill.takayama.nagano.jp/docs/226.html",
+        "https://en3-jg.d1-law.com/takayama/d1w_reiki/H332901010009/H332901010009_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-13",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.vill.takayama.nagano.jp/docs/226.html",
+        "https://en3-jg.d1-law.com/takayama/d1w_reiki/H332901010009/H332901010009_j.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/takayama/d1w_reiki/H332901010009/H332901010009_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "国民健康保険：国民健康保険税｜高山村",
+      "url": "https://www.vill.takayama.nagano.jp/docs/226.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-13",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で高山村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=93円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で高山村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=93円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-13: 高山村の令和8年度の実税率を「国民健康保険：国民健康保険税｜高山村」で確認し、長野県の市町村標準保険料率（法定外繰入ゼロ前提の理論値）から差し替えた。 ★本村は保険税方式で、料率は「高山村国民健康保険税条例」ではなく**高山村村税条例 第149条〜第153条の8**に定められている（https://en3-jg.d1-law.com/takayama/d1w_reiki/H332901010009/H332901010009_j.html ・例規集の内容現在 令和8年6月17日）。例規集の全カナ索引を確認したが『高山村国民健康保険税条例』は存在せず、「高山村国民健康保険条例」は給付等の条例で料率規定を持たない。第152条21,700円・第152条の2 21,200円・第152条の3 2.1/100・第152条の5 5,800円・第152条の6 5,800円・第153条 2.4/100・第153条の3 8,000円・第153条の4 7,000円・第153条の5 0.26/100・第153条の6 1,100円・第153条の7 18歳以上100円・第153条の8 1,100円、基礎課税額の所得割は7.8/100。資産割は本文に0件で3方式。限度額67万/26万/17万/3万、軽減判定31万/57万。／★村ページ（更新日2025年8月1日）は医療7.80%／21,700円／21,200円、支援2.10%／5,800円／5,800円、介護2.40%／8,000円／7,000円を載せており村税条例と一致する。子ども・子育て支援金分と賦課限度額を載せていないだけで、3区分の値は令和8年度のものである。／★本自治体は全国自治体例規集リンク集（RILG）が**群馬県高山村**の例規集（www1.g-reiki.net/takayama）を指していたため、長野県53件の一括昇格（PR #571）から漏れていた。長野県高山村の例規集は en3-jg.d1-law.com/takayama で、**同じ slug が別ベンダーに存在する**。村ページの所在地「長野県上高井郡高山村大字高井4972」で同定した。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1103,
-    "perCapitaAdult": 93,
+    "rate": 0.0026,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 1100,
     "cap": 30000
   }
 }
