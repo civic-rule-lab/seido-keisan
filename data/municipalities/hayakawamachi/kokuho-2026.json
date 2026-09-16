@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0504,
-    "support": 0.0288,
-    "care": 0.0237
+    "medical": 0.0426,
+    "support": 0.0238,
+    "care": 0.0192
   },
   "perCapita": {
-    "medical": 22437,
-    "support": 12740,
-    "care": 12495
+    "medical": 18608,
+    "support": 12054,
+    "care": 10263
   },
   "household": {
-    "medical": 14692,
-    "support": 8342,
-    "care": 6274
+    "medical": 17398,
+    "support": 8138,
+    "care": 6023
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.603Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-16T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf"
+        "https://www.town.hayakawa.yamanashi.jp/people/health/Health_Tax/payment.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-16",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.hayakawa.yamanashi.jp/people/health/Health_Tax/payment.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山梨県 市町村標準保険料率（納付金算定PDF参考資料・暫定）",
-      "url": "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf",
+      "type": "official",
+      "title": "国民健康保険税の税率と納期｜早川町役場",
+      "url": "https://www.town.hayakawa.yamanashi.jp/people/health/Health_Tax/payment.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-16",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で早川町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=48円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。"
+    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で早川町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=48円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。 / 2026-09-16: 町側の一次資料「国民健康保険税の税率と納期｜早川町役場」（https://www.town.hayakawa.yamanashi.jp/people/health/Health_Tax/payment.html・更新日 2026-07-03）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分4.26%／18,608円／17,398円、支援分2.38%／12,054円／8,138円、介護分1.92%／10,263円／6,023円、子ども分0.22%／1,266円＋18歳以上48円／782円、限度額67万円／26万円／17万円／3万円）。山梨県は令和8年度の市町村別実料率一覧を公表しておらず（最新は令和7年度・https://www.pref.yamanashi.jp/documents/80891/r7_hokenryo_sei.pdf）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし（山梨県は資産割を賦課しない）。子ども分は均等割 1,266円＋18歳以上均等割 48円（18歳以上の負担 1,314円）。町ページに年度表記は無いが、13項目すべてが山梨県「令和8年度国民健康保険事業費納付金の算定について」（pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf・2026-03-31）の参考資料「市町村の算定基準に基づく保険料率」の早川町の行と完全に一致しており、令和8年度版と確認した。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1269,
+    "rate": 0.0022,
+    "perCapita": 1266,
     "perCapitaAdult": 48,
     "perCapitaAdultScope": "all_ages",
-    "household": 800,
+    "household": 782,
     "cap": 30000
   }
 }

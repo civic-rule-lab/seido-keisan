@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0647,
-    "support": 0.028,
-    "care": 0.0225
+    "medical": 0.0618,
+    "support": 0.0207,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 28793,
-    "support": 12411,
-    "care": 11867
+    "medical": 26000,
+    "support": 9000,
+    "care": 11000
   },
   "household": {
-    "medical": 18854,
-    "support": 8127,
-    "care": 5958
+    "medical": 19000,
+    "support": 6000,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.568Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-16T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf"
+        "https://www.city.otsuki.yamanashi.jp/kurashi/zeikin/kokuminkenkouhokenzei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-16",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.otsuki.yamanashi.jp/kurashi/zeikin/kokuminkenkouhokenzei.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山梨県 市町村標準保険料率（納付金算定PDF参考資料・暫定）",
-      "url": "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf",
+      "type": "official",
+      "title": "大月市 国民健康保険税",
+      "url": "https://www.city.otsuki.yamanashi.jp/kurashi/zeikin/kokuminkenkouhokenzei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-16",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.5,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で大月市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=28円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。"
+    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で大月市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=28円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。 / 2026-09-16: 市側の一次資料「大月市 国民健康保険税」（https://www.city.otsuki.yamanashi.jp/kurashi/zeikin/kokuminkenkouhokenzei.html・更新日 2026-06-15）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分6.18%／26,000円／19,000円、支援分2.07%／9,000円／6,000円、介護分2.1%／11,000円／7,000円、子ども分0.27%／1,200円＋18歳以上100円／800円、限度額67万円／26万円／17万円／3万円）。山梨県は令和8年度の市町村別実料率一覧を公表しておらず（最新は令和7年度・https://www.pref.yamanashi.jp/documents/80891/r7_hokenryo_sei.pdf）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし（山梨県は資産割を賦課しない）。子ども分は均等割 1,200円＋18歳以上均等割 100円（18歳以上の負担 1,300円）。市ページは税率表で「均等割1,200円／18歳以上均等割100円」と分けて示し、脚注でも「（18歳以上は1,200円+加算分100円）」と明記している。同ページの軽減額表は合計の 1,300円 で記載されており表記が異なるが、内訳は一致する。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1256,
-    "perCapitaAdult": 28,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 786,
+    "household": 800,
     "cap": 30000
   }
 }

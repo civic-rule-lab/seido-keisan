@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0765,
-    "support": 0.029,
-    "care": 0.0238
+    "medical": 0.055,
+    "support": 0.01,
+    "care": 0.015
   },
   "perCapita": {
-    "medical": 34057,
-    "support": 12859,
-    "care": 12544
+    "medical": 20000,
+    "support": 4000,
+    "care": 8000
   },
   "household": {
-    "medical": 22301,
-    "support": 8420,
-    "care": 6298
+    "medical": 24000,
+    "support": 5000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,53 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.632Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-16T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf"
+        "https://www1.g-reiki.net/vill.kosuge/reiki_honbun/e664RG00000124.html",
+        "http://www.vill.kosuge.yamanashi.jp/living/jyumin/kokuminkenkouhoken.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-16",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "http://www.vill.kosuge.yamanashi.jp/living/jyumin/kokuminkenkouhoken.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/vill.kosuge/reiki_honbun/e664RG00000124.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 山梨県 市町村標準保険料率（納付金算定PDF参考資料・暫定）",
-      "url": "https://www.pref.yamanashi.jp/documents/80891/r8noufukin_hp.pdf",
+      "type": "official",
+      "title": "小菅村国民健康保険税条例（令和8年条例第2号による改正後・令和8年4月1日施行）",
+      "url": "https://www1.g-reiki.net/vill.kosuge/reiki_honbun/e664RG00000124.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-16",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.5,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で小菅村の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=52円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。"
+    "notes": "山梨県の令和8年度国民健康保険事業費納付金算定PDF末尾の参考資料(市町村標準保険料率)を暫定値として採用。県独立のR8標準保険料率PDFは未公表で、見出しは『令和7年度』だがPDF本体がR8納付金算定・R8新設の子ども子育て支援分を含むため暫定採用。法定外繰入ゼロ前提の理論値で小菅村の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=52円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療67万踏襲(R8政令準拠だが要PDF確認)。★県確定版R8標準PDF公表後に再検証必須・市告示後 verified_r8 昇格。 / 2026-09-16: 村側の一次資料「小菅村国民健康保険税条例（令和8年条例第2号による改正後・令和8年4月1日施行）」（https://www1.g-reiki.net/vill.kosuge/reiki_honbun/e664RG00000124.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分5.5%／20,000円／24,000円、支援分1%／4,000円／5,000円、介護分1.5%／8,000円／6,000円、子ども分0.25%／1,200円＋18歳以上50円／800円、限度額67万円／26万円／17万円／3万円）。山梨県は令和8年度の市町村別実料率一覧を公表しておらず（最新は令和7年度・https://www.pref.yamanashi.jp/documents/80891/r7_hokenryo_sei.pdf）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし（山梨県は資産割を賦課しない）。子ども分は均等割 1,200円＋18歳以上均等割 50円（18歳以上の負担 1,250円）。村の国保ページは手続きの案内のみで料率を載せず、広報こすげの令和8年度各号は画像PDFで本文抽出ができないため、例規集（内容現在 令和8年7月10日）の条例本文で確認した。18歳以上均等割は 50円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1247,
-    "perCapitaAdult": 52,
+    "rate": 0.0025,
+    "perCapita": 1200,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 803,
+    "household": 800,
     "cap": 30000
   }
 }
