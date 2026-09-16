@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0797,
-    "support": 0.0281,
-    "care": 0.0233
+    "medical": 0.0745,
+    "support": 0.025,
+    "care": 0.0218
   },
   "perCapita": {
-    "medical": 34896,
-    "support": 12247,
-    "care": 11983
+    "medical": 32500,
+    "support": 11200,
+    "care": 11400
   },
   "household": {
-    "medical": 23477,
-    "support": 8240,
-    "care": 6041
+    "medical": 21200,
+    "support": 7300,
+    "care": 5400
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.675Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
+        "https://www.city.kakamigahara.lg.jp/kenkofukushi/kokuhonenkin/1002373/1002380.html",
+        "https://www.pref.gifu.lg.jp/uploaded/attachment/508269.pdf",
         "https://www.pref.gifu.lg.jp/page/14987.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kakamigahara.lg.jp/kenkofukushi/kokuhonenkin/1002373/1002380.html",
+        "https://www.pref.gifu.lg.jp/page/14987.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岐阜県 市町村標準保険料率",
-      "url": "https://www.pref.gifu.lg.jp/page/14987.html",
+      "type": "official",
+      "title": "保険料について｜各務原市公式ウェブサイト",
+      "url": "https://www.city.kakamigahara.lg.jp/kenkofukushi/kokuhonenkin/1002373/1002380.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岐阜県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で各務原市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "岐阜県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で各務原市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-15: 岐阜県「国民健康保険 市町村別の保険料（税）率の状況【令和８年度分】」（uploaded/attachment/508269.pdf・Last-Modified 2026-08-02・sha256 9bc2dd87…・県の国保制度改革ページ page/14987.html から配布）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた（医療分7.45%／32,500円／21,200円、支援分2.5%／11,200円／7,300円、介護分2.18%／11,400円／5,400円、子ども分0.2%／900円＋18歳以上100円／600円）。自治体側の一次資料「保険料について｜各務原市公式ウェブサイト」（https://www.city.kakamigahara.lg.jp/kenkofukushi/kokuhonenkin/1002373/1002380.html）の令和8年度の表と3区分・子ども分・賦課限度額（67万／26万／17万／3万円）がすべて一致することを機械照合した。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1304,
-    "perCapitaAdult": 101,
+    "rate": 0.002,
+    "perCapita": 900,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 870,
+    "household": 600,
     "cap": 30000
   }
 }

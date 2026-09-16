@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0626,
-    "support": 0.0327,
-    "care": 0.0265
+    "medical": 0.067,
+    "support": 0.029,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 39025,
-    "support": 20255,
-    "care": 19362
+    "medical": 45000,
+    "support": 19000,
+    "care": 19000
   },
   "household": {
     "medical": 0,
@@ -57,45 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.504Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-16T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/hokenryouritsu.html"
+        "https://www.city.kashima.ibaraki.jp/soshiki/38/90667.html",
+        "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/documents/kokuhoryou09.pdf",
+        "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/hukahousiki.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-16",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kashima.ibaraki.jp/soshiki/38/90667.html",
+        "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/hukahousiki.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 茨城県 市町村標準保険料率",
-      "url": "https://www.pref.ibaraki.jp/hokenfukushi/koso/kokumin/koso/guide/hokenryouritsu.html",
+      "type": "official",
+      "title": "令和8年度の国民健康保険税について｜鹿嶋市ホームページ",
+      "url": "https://www.city.kashima.ibaraki.jp/soshiki/38/90667.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-16",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "茨城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で鹿嶋市の実告示と異なる場合あり。2方式(所得割+均等割)・平等割なし・資産割なし。子ども子育て分は18歳以上均等割(=163円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "茨城県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で鹿嶋市の実告示と異なる場合あり。2方式(所得割+均等割)・平等割なし・資産割なし。子ども子育て分は18歳以上均等割(=163円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-16: 市側の一次資料「令和8年度の国民健康保険税について｜鹿嶋市ホームページ」（https://www.city.kashima.ibaraki.jp/soshiki/38/90667.html・更新日 2026-05-15）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分6.7%／45,000円、支援分2.9%／19,000円、介護分2.2%／19,000円、子ども分0.35%／2,500円＋18歳以上100円、限度額67万／26万／17万／3万円）。茨城県「令和８年度 国保保険料(税)率一覧（茨城県）（暫定版）※令和８年５月時点」（kokuhoryou09.pdf・Last-Modified 2026-07-27・sha256 71301410…・県の「県内市町村の国民健康保険料（税）賦課方式・税率等」ページ hukahousiki.html から配布） の値と3区分・子ども分・賦課限度額のすべてが一致することを機械照合した。2方式（所得割＋均等割・平等割なし）・資産割なし。子ども分は均等割 2,500円＋18歳以上均等割 100円（18歳以上の負担 2,600円）。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1577,
-    "perCapitaAdult": 163,
+    "rate": 0.0035,
+    "perCapita": 2500,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0761,
-    "support": 0.0313,
-    "care": 0.0284
+    "medical": 0.088,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 27602,
-    "support": 11393,
-    "care": 18631
+    "medical": 28000,
+    "support": 8500,
+    "care": 9000
   },
   "household": {
-    "medical": 18261,
-    "support": 7538,
-    "care": 0
+    "medical": 25000,
+    "support": 6400,
+    "care": 5200
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.005Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kumamoto.jp/soshiki/43/262736.html"
+        "https://www.city.tamana.lg.jp/q/aview/275/32587.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.tamana.lg.jp/q/aview/275/32587.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 熊本県 市町村標準保険料率",
-      "url": "https://www.pref.kumamoto.jp/soshiki/43/262736.html",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税｜玉名市",
+      "url": "https://www.city.tamana.lg.jp/q/aview/275/32587.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で玉名市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=83円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で玉名市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=83円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-15: 「令和8年度 国民健康保険税｜玉名市」（https://www.city.tamana.lg.jp/q/aview/275/32587.html）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた（医療分8.8%／28,000円／25,000円、支援分2.7%／8,500円／6,400円、介護分2.3%／9,000円／5,200円、子ども分0.27%／1,400円＋18歳以上100円／平等割なし、限度額67万／26万／17万／3万円）。市ページ（更新日 2026-05-16）。介護分に平等割 5,200円あり。子ども分均等割 1,500円は「18歳以上均等割額(100円)を含んでいます」（注1）のため 1,400円＋100円 に分解。熊本県の市町村別実税率一覧は令和7年度版（2025-08-08）が最新のため自治体の一次資料で確認。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
     "perCapita": 1400,
-    "perCapitaAdult": 83,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

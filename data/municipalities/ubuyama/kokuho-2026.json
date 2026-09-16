@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0632,
-    "support": 0.0313,
-    "care": 0.0261
+    "medical": 0.075,
+    "support": 0.029,
+    "care": 0.0145
   },
   "perCapita": {
-    "medical": 22902,
-    "support": 11384,
-    "care": 17132
+    "medical": 23000,
+    "support": 9000,
+    "care": 11000
   },
   "household": {
-    "medical": 15152,
-    "support": 7532,
+    "medical": 23000,
+    "support": 8000,
     "care": 0
   },
   "caps": {
@@ -57,45 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.016Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.kumamoto.jp/soshiki/43/262736.html"
+        "https://public1.legalcrud.com/ubuyama_vill/reiki/act/110000189.html",
+        "https://www.ubuyama-v.jp/soshikikarasagasu/juminka/hoken_nenkin/1/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.ubuyama-v.jp/soshikikarasagasu/juminka/hoken_nenkin/1/"
+      ],
+      "ordinanceUrls": [
+        "https://public1.legalcrud.com/ubuyama_vill/reiki/act/110000189.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 熊本県 市町村標準保険料率",
-      "url": "https://www.pref.kumamoto.jp/soshiki/43/262736.html",
+      "type": "official",
+      "title": "産山村国民健康保険税条例（例規集・2026/09/14 内容現在）",
+      "url": "https://public1.legalcrud.com/ubuyama_vill/reiki/act/110000189.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-15",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で産山村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=123円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で産山村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=123円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-15: 「産山村国民健康保険税条例（例規集・2026/09/14 内容現在）」（https://public1.legalcrud.com/ubuyama_vill/reiki/act/110000189.html）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた（医療分7.5%／23,000円／23,000円、支援分2.9%／9,000円／8,000円、介護分1.45%／11,000円／平等割なし、子ども分0.26%／1,300円＋18歳以上100円／平等割なし、限度額67万／26万／17万／3万円）。村サイト（www.ubuyama-v.jp）に税率ページが無く、条例（令和8年3月31日条例第8号）の本則で確認。村サイト内の旧例規集（JoureiV5）は令和6年条例第24号止まりで限度額65万円のまま＝古い。村公式ページ「国民健康保険／産山村」（https://www.ubuyama-v.jp/soshikikarasagasu/juminka/hoken_nenkin/1/）を出典に添える（税率の記載は無い。来歴表示用）。熊本県の市町村別実税率一覧は令和7年度版（2025-08-08）が最新のため自治体の一次資料で確認。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0026,
-    "perCapita": 1276,
-    "perCapitaAdult": 123,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

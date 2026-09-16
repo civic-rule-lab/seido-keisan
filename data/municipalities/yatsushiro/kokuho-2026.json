@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0705,
-    "support": 0.031,
-    "care": 0.0281
+    "medical": 0.106,
+    "support": 0.033,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 25543,
-    "support": 11277,
-    "care": 18432
+    "medical": 29600,
+    "support": 9300,
+    "care": 14900
   },
   "household": {
-    "medical": 16899,
-    "support": 7461,
+    "medical": 20000,
+    "support": 6900,
     "care": 0
   },
   "caps": {
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.950Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kumamoto.jp/soshiki/43/262736.html"
+        "https://www.city.yatsushiro.lg.jp/kiji0031795/index.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.yatsushiro.lg.jp/kiji0031795/index.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 熊本県 市町村標準保険料率",
-      "url": "https://www.pref.kumamoto.jp/soshiki/43/262736.html",
+      "type": "official",
+      "title": "国民健康保険税の計算方法 / 八代市",
+      "url": "https://www.city.yatsushiro.lg.jp/kiji0031795/index.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で八代市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で八代市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-15: 「国民健康保険税の計算方法 / 八代市」（https://www.city.yatsushiro.lg.jp/kiji0031795/index.html）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた（医療分10.6%／29,600円／20,000円、支援分3.3%／9,300円／6,900円、介護分2.7%／14,900円／平等割なし、子ども分0.27%／1,450円（18歳以上加算の内訳表記なし）／平等割なし、限度額67万／26万／17万／3万円）。市ページ（令和8年4月1日改定）。子ども分の均等割は「国保加入者数（18歳以上）×1,450円」と一体表記のため perCapita に計上し 18歳以上加算は 0。熊本県の市町村別実税率一覧は令和7年度版（2025-08-08）が最新のため自治体の一次資料で確認。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1413,
-    "perCapitaAdult": 65,
+    "perCapita": 1450,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

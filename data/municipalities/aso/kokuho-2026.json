@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0783,
-    "support": 0.0313,
-    "care": 0.0284
+    "medical": 0.099,
+    "support": 0.0306,
+    "care": 0.031
   },
   "perCapita": {
-    "medical": 28379,
-    "support": 11379,
-    "care": 18604
+    "medical": 25700,
+    "support": 9100,
+    "care": 14200
   },
   "household": {
-    "medical": 18776,
-    "support": 7529,
+    "medical": 26600,
+    "support": 7100,
     "care": 0
   },
   "caps": {
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.010Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-15T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kumamoto.jp/soshiki/43/262736.html"
+        "http://www.city.aso.kumamoto.jp/citizens/tax/national_health_insurance/"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-15",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "http://www.city.aso.kumamoto.jp/citizens/tax/national_health_insurance/"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 熊本県 市町村標準保険料率",
-      "url": "https://www.pref.kumamoto.jp/soshiki/43/262736.html",
+      "type": "official",
+      "title": "国民健康保険税 – 阿蘇市ホームページ",
+      "url": "http://www.city.aso.kumamoto.jp/citizens/tax/national_health_insurance/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-15",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で阿蘇市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=107円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "熊本県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で阿蘇市の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=107円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-15: 「国民健康保険税 – 阿蘇市ホームページ」（http://www.city.aso.kumamoto.jp/citizens/tax/national_health_insurance/）で令和8年度の実税率を確認し、県標準保険料率（理論値）から差し替えた（医療分9.9%／25,700円／26,600円、支援分3.06%／9,100円／7,100円、介護分3.1%／14,200円／平等割なし、子ども分0.27%／1,400円＋18歳以上100円／平等割なし、限度額67万／26万／17万／3万円）。市ページ（令和8年度・増減表記つき）。子ども分は均等割 1,400円＋18歳以上均等割 100円。熊本県の市町村別実税率一覧は令和7年度版（2025-08-08）が最新のため自治体の一次資料で確認。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1415,
-    "perCapitaAdult": 107,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
