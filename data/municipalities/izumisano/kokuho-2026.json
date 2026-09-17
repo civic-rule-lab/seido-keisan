@@ -57,40 +57,42 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.048Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-17T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_unified",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html"
+        "https://www.city.izumisano.lg.jp/kakuka/kenkou/kokuho/menu/kokuho_keisan.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-17",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.izumisano.lg.jp/kakuka/kenkou/kokuho/menu/kokuho_keisan.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 大阪府市町村標準保険料率（大阪府統一保険料率）",
-      "url": "https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html",
+      "type": "official",
+      "title": "国民健康保険料の計算について／泉佐野市",
+      "url": "https://www.city.izumisano.lg.jp/kakuka/kenkou/kokuho/menu/kokuho_keisan.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-unified"
+      "verifiedAt": "2026-09-17",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "大阪府は令和6年度から府内完全統一料率。令和8年度 府統一保険料率を参考値として採用(医療/後期/介護は全43市町村共通)。介護・子ども分は2方式(平等割0)。子ども均等割は均等割1743円+18歳以上98円=1,841円統一(内訳は泉佐野市の年齢構成等で異なる)。限度額 医療66万(大阪統一)。市告示確定で verified_r8 昇格。"
+    "notes": "大阪府は令和6年度から府内完全統一料率。令和8年度 府統一保険料率を参考値として採用(医療/後期/介護は全43市町村共通)。介護・子ども分は2方式(平等割0)。子ども均等割は均等割1743円+18歳以上98円=1,841円統一(内訳は泉佐野市の年齢構成等で異なる)。限度額 医療66万(大阪統一)。市告示確定で verified_r8 昇格。 / 2026-09-17: 市側の一次資料「国民健康保険料の計算について／泉佐野市」（https://www.city.izumisano.lg.jp/kakuka/kenkou/kokuho/menu/kokuho_keisan.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分9.5%／34,990円／33,908円、支援分3.06%／11,191円／10,845円、介護分2.6%／18,682円／平等割なし、子ども分0.28%／1,743円＋18歳以上98円／平等割なし、限度額66万円／26万円／17万円／3万円）。大阪府は令和6年度から府内市町村の国民健康保険料を統一しており、府が公表する「令和8年度大阪府市町村標準保険料率（大阪府統一保険料率）」https://www.pref.osaka.lg.jp/o100080/kokuho/iryouseido/hokenryouritsu/hokenryouritsu2.html がそのまま各市町村の料率になる。子ども分均等割は合計1,841円が統一され、均等割と18歳以上均等割の内訳は府の算定結果別紙https://www.pref.osaka.lg.jp/documents/125887/r8ryouritsu.xlsx に市町村ごとに載る。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 1,743円＋18歳以上均等割 98円（18歳以上の負担 1,841円）。自治体ページの料率表と府の統一保険料率は14項目すべて一致する。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0028,
