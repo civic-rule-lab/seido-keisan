@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.068,
-    "support": 0.0246,
-    "care": 0.0194
+    "medical": 0.075,
+    "support": 0.018,
+    "care": 0.014
   },
   "perCapita": {
-    "medical": 23537,
-    "support": 9103,
-    "care": 8884
+    "medical": 24000,
+    "support": 7500,
+    "care": 9400
   },
   "household": {
-    "medical": 23172,
-    "support": 8961,
-    "care": 6933
+    "medical": 38000,
+    "support": 6300,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,42 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.212Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-17T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.town.shakotan.lg.jp/contents/content0502.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-17",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.shakotan.lg.jp/contents/content0502.html"
+      ],
+      "ordinanceUrls": [
+        "http://houmu.h-chosonkai.gr.jp/~reikidb/data/94/48/reiki_honbun/a080RG00000123.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "町の税金について - 積丹町役場",
+      "url": "https://www.town.shakotan.lg.jp/contents/content0502.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-17",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、積丹町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 町公式サイトに令和8年度の国保税率を載せたページを発見できず、据え置き。調べた経路＝①サイトマップ https://www.town.shakotan.lg.jp/sitemap.html （上位6セクションのみ）②「町の税金について」 https://www.town.shakotan.lg.jp/contents/content0502.html （Last-Modified: 2026-01-14）＝国保税の記述は「国民健康保険に加入している世帯の世帯主に対し課税されます。」「40歳以上65歳未満の方には、介護納付金課税額が合わせて課税されます。」のみで税率・限度額の記載なし ③税金セクション content0131 配下の5ページ（税の納付期限・納税について・税の各種証明等・個人住民税の特別徴収の取組）に料率なし ④健康福祉 content0132 は介護保険2本のみ ⑤site:town.shakotan.lg.jp の検索でも料率ページに到達せず。②を watchUrls に追加。町サイトに国保料率の常設ページが存在しない可能性があり、次回は広報誌・例規集からの確認が要る（未実施）。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、積丹町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 町公式サイトに令和8年度の国保税率を載せたページを発見できず、据え置き。調べた経路＝①サイトマップ https://www.town.shakotan.lg.jp/sitemap.html （上位6セクションのみ）②「町の税金について」 https://www.town.shakotan.lg.jp/contents/content0502.html （Last-Modified: 2026-01-14）＝国保税の記述は「国民健康保険に加入している世帯の世帯主に対し課税されます。」「40歳以上65歳未満の方には、介護納付金課税額が合わせて課税されます。」のみで税率・限度額の記載なし ③税金セクション content0131 配下の5ページ（税の納付期限・納税について・税の各種証明等・個人住民税の特別徴収の取組）に料率なし ④健康福祉 content0132 は介護保険2本のみ ⑤site:town.shakotan.lg.jp の検索でも料率ページに到達せず。②を watchUrls に追加。町サイトに国保料率の常設ページが存在しない可能性があり、次回は広報誌・例規集からの確認が要る（未実施）。 / 2026-09-17: 町側の一次資料「町の税金について - 積丹町役場」（https://www.town.shakotan.lg.jp/contents/content0502.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分7.5%／24,000円／38,000円、支援分1.8%／7,500円／6,300円、介護分1.4%／9,400円／6,000円、子ども分0.29%／1,000円＋18歳以上100円／1,000円、限度額67万円／26万円／17万円／3万円）。北海道は令和8年度の市町村別実料率一覧を公表しておらず（道の「道内市町村の国民健康保険料（税）率について」https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html は令和7年度の賦課状況調査）、自治体の一次資料で1件ずつ確認した。4方式（所得割＋資産割＋均等割＋平等割）。資産割は医療分60%、支援分19%、介護分13%。子ども分は均等割 1,000円＋18歳以上均等割 100円（18歳以上の負担 1,100円）。自治体ページに令和8年度の税率表が無いため、条例本文で確認した。資産割の課税標準は医療分＝土地及び家屋に係る部分、支援分＝固定資産税額（全額）、介護分＝土地及び家屋に係る部分。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0029,
@@ -101,5 +104,10 @@
     "perCapitaAdultScope": "all_ages",
     "household": 1000,
     "cap": 30000
+  },
+  "assetLevy": {
+    "medical": 0.6,
+    "support": 0.19,
+    "care": 0.13
   }
 }

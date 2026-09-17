@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0869,
-    "support": 0.0253,
-    "care": 0.0205
+    "medical": 0.0598,
+    "support": 0.0243,
+    "care": 0.0122
   },
   "perCapita": {
-    "medical": 30056,
-    "support": 9372,
-    "care": 9408
+    "medical": 29800,
+    "support": 10700,
+    "care": 12100
   },
   "household": {
-    "medical": 29589,
-    "support": 9226,
-    "care": 7342
+    "medical": 27100,
+    "support": 9600,
+    "care": 8100
   },
   "caps": {
     "medical": 670000,
@@ -57,43 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.271Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-17T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.shihoro.jp/life/category/?category=51"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-17",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.shihoro.jp/life/category/?category=51",
-        "https://www.shihoro.jp/life/category/?category=50"
+        "https://www.shihoro.jp/life/category/?category=51"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/shihoro/reiki_honbun/m000RG00000287.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "税金 | 士幌町",
+      "url": "https://www.shihoro.jp/life/category/?category=51",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-17",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、士幌町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 据え置き（自治体の令和8年度税率が見つからず）。①士幌町「税金」カテゴリ（https://www.shihoro.jp/life/category/?category=51）の記事一覧は町民税・法人町民税・固定資産税・軽自動車税・町たばこ税・入湯税・森林環境税・税務証明・納付のみで、国民健康保険税の税率ページが無い。②「保険・年金」カテゴリ（https://www.shihoro.jp/life/category/?category=50）にも税率表は無く、「保険税に関する相談・お問い合わせ」（同 detail.php?content=290）は口座振替の案内のみ、「その他国民健康保険について」（同 content=771）は本文が空。③広報しほろ令和8年6月号（https://www.shihoro.jp/common/img/content/content_20260525_153052.pdf）・7月号（同 content_20260630_093753.pdf）を pdftotext で全文検索したが「所得割」「均等割」「平等割」「資産割」は0件だった。例規集は未確認。なお町の公式ドメインは shihoro.jp で、town.shihoro.hokkaido.jp は DNS 解決しない。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、士幌町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 据え置き（自治体の令和8年度税率が見つからず）。①士幌町「税金」カテゴリ（https://www.shihoro.jp/life/category/?category=51）の記事一覧は町民税・法人町民税・固定資産税・軽自動車税・町たばこ税・入湯税・森林環境税・税務証明・納付のみで、国民健康保険税の税率ページが無い。②「保険・年金」カテゴリ（https://www.shihoro.jp/life/category/?category=50）にも税率表は無く、「保険税に関する相談・お問い合わせ」（同 detail.php?content=290）は口座振替の案内のみ、「その他国民健康保険について」（同 content=771）は本文が空。③広報しほろ令和8年6月号（https://www.shihoro.jp/common/img/content/content_20260525_153052.pdf）・7月号（同 content_20260630_093753.pdf）を pdftotext で全文検索したが「所得割」「均等割」「平等割」「資産割」は0件だった。例規集は未確認。なお町の公式ドメインは shihoro.jp で、town.shihoro.hokkaido.jp は DNS 解決しない。 / 2026-09-17: 町側の一次資料「税金 | 士幌町」（https://www.shihoro.jp/life/category/?category=51）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分5.98%／29,800円／27,100円、支援分2.43%／10,700円／9,600円、介護分1.22%／12,100円／8,100円、子ども分0.29%／900円＋18歳以上200円／1,000円、限度額67万円／26万円／17万円／3万円）。北海道は令和8年度の市町村別実料率一覧を公表しておらず（道の「道内市町村の国民健康保険料（税）率について」https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html は令和7年度の賦課状況調査）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 900円＋18歳以上均等割 200円（18歳以上の負担 1,100円）。自治体ページに令和8年度の税率表が無いため、条例本文で確認した。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0029,

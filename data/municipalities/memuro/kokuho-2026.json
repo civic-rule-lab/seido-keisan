@@ -57,43 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.276Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-17T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-17",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html",
-        "https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/index.html"
+        "https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html"
+      ],
+      "ordinanceUrls": [
+        "https://houmu.h-chosonkai.gr.jp/~reikidb/data/192/56/H328901010023/H328901010023_j.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "国民健康保険税の計算と納め方｜組織情報｜北海道芽室町公式ホームページ",
+      "url": "https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-17",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、芽室町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 芽室町公式サイト（独自ドメイン www.memuro.net）の「国民健康保険税の計算と納め方」（https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html、更新日2024年12月19日）には税率表が無く、所得割・平等割・均等割の構成を説明するのみ。同サイトの「「子ども・子育て支援金制度」が始まります。」（.../2026-0306-1415-32.html、更新日2026年03月09日、Last-Modified 2026-06-29）に「※芽室町国民健康保険税率関しては、決定次第お知らせいたします。」と明記されており、令和8年度の税率は町として未公表である。よって県標準の理論値のまま据え置く。ホスト www.memuro.net は PROVENANCE_HOST_EXTRA に未登録。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、芽室町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=200円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 芽室町公式サイト（独自ドメイン www.memuro.net）の「国民健康保険税の計算と納め方」（https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html、更新日2024年12月19日）には税率表が無く、所得割・平等割・均等割の構成を説明するのみ。同サイトの「「子ども・子育て支援金制度」が始まります。」（.../2026-0306-1415-32.html、更新日2026年03月09日、Last-Modified 2026-06-29）に「※芽室町国民健康保険税率関しては、決定次第お知らせいたします。」と明記されており、令和8年度の税率は町として未公表である。よって県標準の理論値のまま据え置く。ホスト www.memuro.net は PROVENANCE_HOST_EXTRA に未登録。 / 2026-09-17: 町側の一次資料「国民健康保険税の計算と納め方｜組織情報｜北海道芽室町公式ホームページ」（https://www.memuro.net/administration/soshiki/kenkoufukushi/hoken-nenkin/kokuho-tetsuduki/kokuho-keisan.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分8.33%／28,824円／28,376円、支援分2.48%／9,158円／9,016円、介護分2%／9,159円／7,147円、子ども分0.29%／900円＋18歳以上200円／1,000円、限度額67万円／26万円／17万円／3万円）。北海道は令和8年度の市町村別実料率一覧を公表しておらず（道の「道内市町村の国民健康保険料（税）率について」https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html は令和7年度の賦課状況調査）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 900円＋18歳以上均等割 200円（18歳以上の負担 1,100円）。自治体ページに令和8年度の税率表が無いため、条例本文で確認した。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0029,

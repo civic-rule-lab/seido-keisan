@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0809,
-    "support": 0.0252,
-    "care": 0.0201
+    "medical": 0.073,
+    "support": 0.026,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 27992,
-    "support": 9310,
-    "care": 9209
+    "medical": 30000,
+    "support": 9000,
+    "care": 9000
   },
   "household": {
-    "medical": 27557,
-    "support": 9165,
-    "care": 7186
+    "medical": 31000,
+    "support": 9000,
+    "care": 9000
   },
   "caps": {
     "medical": 670000,
@@ -57,42 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.241Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-17T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "http://www.town.hamatonbetsu.hokkaido.jp/life/detail.php?content=244"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-17",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "http://www.town.hamatonbetsu.hokkaido.jp/life/detail.php?content=244"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/hamatonbetsu/reiki_honbun/a132RG00000156.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "国民健康保険税 | くらし・子育て | 浜頓別町",
+      "url": "http://www.town.hamatonbetsu.hokkaido.jp/life/detail.php?content=244",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-17",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、浜頓別町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 町公式「国民健康保険税」（http://www.town.hamatonbetsu.hokkaido.jp/life/detail.php?content=244 ）を取得。表題が「国保税率≪令和７年度≫」で令和8年度は未掲載。令和7年度は所得割 医療6.8％・支援2.6％・介護2.0％、均等割 30,000円/9,000円/9,000円、平等割 32,000円/9,000円/9,000円、賦課限度額 660,000円/260,000円/170,000円。「※資産割は令和５年度より廃止されました。」と明記されており4方式ではない。子ども・子育て支援金分の欄なし。町サイトの税カテゴリ（/category/?category=8）を走査したが令和8年度の記事は無し。当該ホストは https が TLS unrecognized name で接続できず http のみ到達（curl 実測）。据え置き（standard_r8 のまま）。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、浜頓別町が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 町公式「国民健康保険税」（http://www.town.hamatonbetsu.hokkaido.jp/life/detail.php?content=244 ）を取得。表題が「国保税率≪令和７年度≫」で令和8年度は未掲載。令和7年度は所得割 医療6.8％・支援2.6％・介護2.0％、均等割 30,000円/9,000円/9,000円、平等割 32,000円/9,000円/9,000円、賦課限度額 660,000円/260,000円/170,000円。「※資産割は令和５年度より廃止されました。」と明記されており4方式ではない。子ども・子育て支援金分の欄なし。町サイトの税カテゴリ（/category/?category=8）を走査したが令和8年度の記事は無し。当該ホストは https が TLS unrecognized name で接続できず http のみ到達（curl 実測）。据え置き（standard_r8 のまま）。 / 2026-09-17: 町側の一次資料「国民健康保険税 | くらし・子育て | 浜頓別町」（http://www.town.hamatonbetsu.hokkaido.jp/life/detail.php?content=244）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分7.3%／30,000円／31,000円、支援分2.6%／9,000円／9,000円、介護分2%／9,000円／9,000円、子ども分0.29%／1,000円＋18歳以上100円／1,000円、限度額67万円／26万円／17万円／3万円）。北海道は令和8年度の市町村別実料率一覧を公表しておらず（道の「道内市町村の国民健康保険料（税）率について」https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html は令和7年度の賦課状況調査）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 1,000円＋18歳以上均等割 100円（18歳以上の負担 1,100円）。自治体ページにも税率表があるが条例と全項目は一致しない（限度額など）。条例を上位に採った。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0029,

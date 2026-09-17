@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0549,
-    "support": 0.025,
-    "care": 0.02
+    "medical": 0.0855,
+    "support": 0.0189,
+    "care": 0.0136
   },
   "perCapita": {
-    "medical": 18992,
-    "support": 9237,
-    "care": 9163
+    "medical": 18200,
+    "support": 6900,
+    "care": 5800
   },
   "household": {
-    "medical": 18697,
-    "support": 9093,
-    "care": 7150
+    "medical": 24700,
+    "support": 7000,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,43 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.211Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-09-17T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.vill.tomari.hokkaido.jp/docs/4363.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-17",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
-        "https://www.vill.tomari.hokkaido.jp/docs/4363.html",
-        "https://www.vill.tomari.hokkaido.jp/kurashi/zei/"
+        "https://www.vill.tomari.hokkaido.jp/docs/4363.html"
+      ],
+      "ordinanceUrls": [
+        "http://houmu.h-chosonkai.gr.jp/~reikidb/data/131/43/H426901010016/H426901010016_j.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
+      "type": "official",
+      "title": "国民健康保険税について - 泊村公式ホームページ - Tomari Village",
+      "url": "https://www.vill.tomari.hokkaido.jp/docs/4363.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-17",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、泊村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 昇格見送り（据え置き）。泊村（北海道古宇郡・cityCode 01403）公式サイトのドメインは www.vill.tomari.hokkaido.jp（vill.tomari.hokkaido.jp は名前解決せず）。「くらし・手続き＞税」一覧（ https://www.vill.tomari.hokkaido.jp/kurashi/zei/ ）にある「国民健康保険税について」（ https://www.vill.tomari.hokkaido.jp/docs/4363.html ）は「公開日：2019年8月7日」で、区分は「医療給付金」「後期高齢者支援金分」「介護納付金分」の3種、しかも「所得割額・資産割額・均等割額・平等割額の４つ」の4方式のまま。所得割「12.3％／0.88％／1.30％」、資産割「84.3％／4.41％／9.2％」、均等割「19,700円／4,800円／3,600円」、平等割「7,200円／6,200円／2,200円」と、子ども・子育て支援納付金分も課税限度額も無い旧年度の内容。村サイト内に令和8年度の税率資料は見当たらなかった。村の例規集（ https://www.vill.tomari.hokkaido.jp/reiki/reiki.html ・/reiki_int/reiki_menu.html は HTTP 200）は今回の時間内で本文まで未確認＝令和8年度改正の収録有無は不明。よって道の令和8年度標準保険料率のままとし、上記2URLを watchUrls に追加。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、泊村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07: 昇格見送り（据え置き）。泊村（北海道古宇郡・cityCode 01403）公式サイトのドメインは www.vill.tomari.hokkaido.jp（vill.tomari.hokkaido.jp は名前解決せず）。「くらし・手続き＞税」一覧（ https://www.vill.tomari.hokkaido.jp/kurashi/zei/ ）にある「国民健康保険税について」（ https://www.vill.tomari.hokkaido.jp/docs/4363.html ）は「公開日：2019年8月7日」で、区分は「医療給付金」「後期高齢者支援金分」「介護納付金分」の3種、しかも「所得割額・資産割額・均等割額・平等割額の４つ」の4方式のまま。所得割「12.3％／0.88％／1.30％」、資産割「84.3％／4.41％／9.2％」、均等割「19,700円／4,800円／3,600円」、平等割「7,200円／6,200円／2,200円」と、子ども・子育て支援納付金分も課税限度額も無い旧年度の内容。村サイト内に令和8年度の税率資料は見当たらなかった。村の例規集（ https://www.vill.tomari.hokkaido.jp/reiki/reiki.html ・/reiki_int/reiki_menu.html は HTTP 200）は今回の時間内で本文まで未確認＝令和8年度改正の収録有無は不明。よって道の令和8年度標準保険料率のままとし、上記2URLを watchUrls に追加。 / 2026-09-17: 村側の一次資料「国民健康保険税について - 泊村公式ホームページ - Tomari Village」（https://www.vill.tomari.hokkaido.jp/docs/4363.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分8.55%／18,200円／24,700円、支援分1.89%／6,900円／7,000円、介護分1.36%／5,800円／5,500円、子ども分0.29%／1,000円＋18歳以上100円／1,000円、限度額67万円／26万円／17万円／3万円）。北海道は令和8年度の市町村別実料率一覧を公表しておらず（道の「道内市町村の国民健康保険料（税）率について」https://www.pref.hokkaido.lg.jp/hf/kki/kokuho_hokennryouzeiritu.html は令和7年度の賦課状況調査）、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 1,000円＋18歳以上均等割 100円（18歳以上の負担 1,100円）。自治体ページに令和8年度の税率表が無いため、条例本文で確認した。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0029,
