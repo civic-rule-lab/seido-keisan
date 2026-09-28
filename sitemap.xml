@@ -12571,6 +12571,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/gifu/tomika/kaigo/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/gifu/tomika/kakeibo/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/gifu/kawabe/kaigo/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>
@@ -13911,6 +13923,18 @@
   <url>
     <loc>https://seido-keisan.jp/mie/asahicho/kakeibo/</loc>
     <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/mie/kawagoemachi/kaigo/</loc>
+    <lastmod>2026-09-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/mie/kawagoemachi/kakeibo/</loc>
+    <lastmod>2026-09-28</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
