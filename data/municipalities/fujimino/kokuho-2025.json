@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.saitama.lg.jp/a0702/fukahoushiki.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "埼玉県「令和７年度 保険税率等の状況」",
+      "url": "https://www.pref.saitama.lg.jp/a0702/fukahoushiki.html",
+      "publishedAt": "2025-06-11"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 埼玉県「令和７年度 保険税率等の状況」（https://www.pref.saitama.lg.jp/documents/37629/r7kokuhozeiritu.pdf）のふじみ野市の行で照合し verified 化。所得割・均等割・平等割の医療・支援・介護分がすべて一致（値の変更なし）。同表は賦課限度額（万円）の列を含み、限度額も同表と一致。"
   }
 }
