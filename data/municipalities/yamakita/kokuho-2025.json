@@ -22,7 +22,7 @@
   },
   "caps": {
     "medical": 660000,
-    "support": 260000,
+    "support": 220000,
     "care": 170000
   },
   "preschoolReduction": {
@@ -62,29 +62,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f7093/p25926.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "神奈川県「令和７年度 神奈川県内の市町村における国民健康保険料（税）率等の状況」",
+      "url": "https://www.pref.kanagawa.jp/docs/n5p/cnt/f7093/p25926.html",
+      "publishedAt": "2026-02-18"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 神奈川県「令和７年度 神奈川県内の市町村における国民健康保険料（税）率等の状況」（https://www.pref.kanagawa.jp/documents/23428/r7_hokennryou.pdf）の山北町の行で照合し verified 化。所得割・均等割・平等割の医療・支援・介護分がすべて一致（値の変更なし）。賦課限度額を同表の値へ差し替えた（旧 66万／26万／17万 → 66万／22万／17万）。同表は賦課限度額（万円単位）と資産割の列を含み、限度額・資産割も同表と一致することを確認した。"
   }
 }

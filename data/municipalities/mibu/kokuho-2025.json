@@ -6,23 +6,23 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0681,
-    "support": 0.0286,
-    "care": 0.0236
+    "medical": 0.084,
+    "support": 0.027,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 29752,
-    "support": 12338,
-    "care": 12171
+    "medical": 24900,
+    "support": 8200,
+    "care": 8400
   },
   "household": {
-    "medical": 20014,
-    "support": 8300,
-    "care": 6119
+    "medical": 23600,
+    "support": 7200,
+    "care": 5100
   },
   "caps": {
-    "medical": 660000,
-    "support": 260000,
+    "medical": 650000,
+    "support": 240000,
     "care": 170000
   },
   "preschoolReduction": {
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.tochigi.lg.jp/e09/r2nofukinhyoujyunhokeryouritsukokho.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "栃木県「市町別国民健康保険税率の状況（令和７年４月１日現在）」",
+      "url": "https://www.pref.tochigi.lg.jp/e09/r2nofukinhyoujyunhokeryouritsukokho.html",
+      "publishedAt": "2025-04-22"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 栃木県「市町別国民健康保険税率の状況（令和７年４月１日現在）」（https://www.pref.tochigi.lg.jp/e09/documents/20250430115700.pdf）の壬生町の行で照合し verified 化。旧値（医療 6.81%／29,752円／20,014円・支援 2.86%／12,338円／8,300円・介護 2.36%／12,171円／6,119円）は同表と不一致で（出典が空。端数つきの値で県標準保険料率＝理論値とみられる）のため、同表の値（医療 8.4%／24,900円／23,600円・支援 2.7%／8,200円／7,200円・介護 2.1%／8,400円／5,100円）へ差し替えた。賦課限度額を同表の値へ差し替えた（旧 66万／26万／17万 → 65万／24万／17万）。同表は令和７年４月１日現在で、賦課限度額（千円単位）の列を含む。県内には限度額を法定上限より1年遅れで引き上げる市町が多い（例: 茂木町は R8 の町ページで 医療65万→66万・支援24万→26万 と明記）。"
   }
 }

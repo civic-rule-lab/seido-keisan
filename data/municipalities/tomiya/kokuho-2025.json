@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.miyagi.jp/soshiki/kkh-iryou/kokuho04.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "宮城県「令和７年度国民健康保険料(税）率等の状況について（実際の保険料(税)率）」",
+      "url": "https://www.pref.miyagi.jp/soshiki/kkh-iryou/kokuho04.html",
+      "publishedAt": "2025-09-03"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 宮城県「令和７年度国民健康保険料(税）率等の状況について（実際の保険料(税)率）」（https://www.pref.miyagi.jp/documents/14957/2025_jissai.pdf）の富谷市の行で照合し verified 化。所得割・均等割・平等割の医療・支援・介護分がすべて一致（値の変更なし）。同表に資産割・賦課限度額の列は無い（県内の R8 データにも資産割を課す市町村は無い）。限度額66万／26万／17万は令和7年度の法定上限で、県内の R8 限度額が川崎町を除きすべて法定上限であることからの推定（川崎町は R8 で法定未満の66万を定めているため本照合の対象外とした）。"
   }
 }

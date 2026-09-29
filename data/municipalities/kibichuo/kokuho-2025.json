@@ -61,29 +61,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.okayama.jp/uploaded/attachment/395645.pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "岡山県「令和７年度国民健康保険料(税)率」（資料１・岡山県子ども・福祉部長寿社会課）",
+      "url": "https://www.pref.okayama.jp/uploaded/attachment/395645.pdf",
+      "publishedAt": "2025-08-22"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 岡山県「令和７年度国民健康保険料(税)率」（資料１・岡山県子ども・福祉部長寿社会課）（https://www.pref.okayama.jp/uploaded/attachment/395645.pdf）の吉備中央町の行で照合し verified 化。所得割・均等割・平等割の医療・支援・介護分がすべて一致（値の変更なし）。同資料の表は賦課限度額と資産割の列を含み、限度額・資産割も一致。同資料は「国の法改正にあわせた賦課限度額（医療給付費分、後期高齢者支援金等分）の引き上げ ２７市町村」と記している。"
   }
 }

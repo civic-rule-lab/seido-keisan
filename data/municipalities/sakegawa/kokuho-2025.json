@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.081,
-    "support": 0.029,
-    "care": 0.024
+    "medical": 0.07,
+    "support": 0.023,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 28000,
-    "support": 10000,
-    "care": 10500
+    "medical": 24000,
+    "support": 8300,
+    "care": 9700
   },
   "household": {
-    "medical": 22000,
-    "support": 7800,
-    "care": 5600
+    "medical": 24800,
+    "support": 8400,
+    "care": 6600
   },
   "preschoolReduction": {
     "enabled": true,
@@ -51,30 +51,33 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.yamagata.jp/090001/kenfuku/iryo/hoken/noufukin.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "山形県「令和７年度 国民健康保険税（料）の改正状況一覧」（令和７年８月６日現在）",
+      "url": "https://www.pref.yamagata.jp/090001/kenfuku/iryo/hoken/noufukin.html",
+      "publishedAt": "2026-02-02"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 山形県「令和７年度 国民健康保険税（料）の改正状況一覧」（令和７年８月６日現在）（https://www.pref.yamagata.jp/documents/2846/r7kokuhozeikaiseijoukyouitiran.pdf）の鮭川村の行で照合し verified 化。旧値（医療 8.1%／28,000円／22,000円・支援 2.9%／10,000円／7,800円・介護 2.4%／10,500円／5,600円）は同表と不一致で（出典が空。27,000円／22,000円 のような切りのよい共通値や令和6年度の値が混在していた）のため、同表の値（医療 7.00%／24,000円／24,800円・支援 2.3%／8,300円／8,400円・介護 2.00%／9,700円／6,600円）へ差し替えた。同表（上段＝令和7年度・下段＝令和6年度）に賦課限度額の列は無い。限度額66万／26万／17万は令和7年度の法定上限で、県内の R8 確認済み31市町村の限度額がすべて法定上限であることからの推定。限度額について: 最上地区広域連合（保険者）の4町村は R8 料率が未公表で R8 からの推定もできないため、限度額66万／26万／17万は法定上限を置いたもので未照合。値は同表の「最上地区広域連合」の行（4町村共通）による。"
   },
   "caps": {
     "medical": 660000,
