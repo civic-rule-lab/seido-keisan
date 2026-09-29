@@ -6,24 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0769,
-    "support": 0.0282,
-    "care": 0.0231
+    "medical": 0.0938,
+    "support": 0.0213,
+    "care": 0.0143
   },
   "perCapita": {
-    "medical": 31200,
-    "support": 10560,
-    "care": 11040
+    "medical": 31000,
+    "support": 7300,
+    "care": 9500
   },
   "household": {
-    "medical": 21400,
-    "support": 6900,
-    "care": 6200
-  },
-  "assetLevy": {
-    "medical": 0.2505,
-    "support": 0.0752,
-    "care": 0.0918
+    "medical": 21000,
+    "support": 5000,
+    "care": 0
   },
   "caps": {
     "medical": 660000,
@@ -64,26 +59,32 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kumamoto.jp/soshiki/43/144561.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.kumamoto-misato.lg.jp/section/reiki_int/reiki_honbun/r164RG00000160.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」",
+      "url": "https://www.pref.kumamoto.jp/soshiki/43/144561.html",
+      "publishedAt": "2025-08-08"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-list-and-ordinance"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": "HTMLページの料率テーブルより作成"
+    "notes": "HTMLページの料率テーブルより作成 / 2026-09-29: 旧値（医療 7.69%／31,200円／21,400円・資産割25.05% ほか）は出典不明で、県の令和7年度一覧・令和6年度一覧・町条例のいずれとも一致しなかったため差し替えた。熊本県「令和7年度 国民健康保険料（税）率等の状況」（2025-08-08、PDF /uploaded/life/243226_707454_misc.pdf）の美里町の行＝医療 3方式 9.38%／31,000円／21,000円・支援 3方式 2.13%／7,300円／5,000円・介護 2方式 1.43%／9,500円・限度額66万／26万／17万。美里町国民健康保険税条例（令和7年3月31日条例第18号までの内容）の第3条・第5条・第5条の2・第6条・第7条・第7条の2・第8条・第9条と全項目一致。資産割は第4条が削除されており課さない（assetLevy を削除）。"
   }
 }

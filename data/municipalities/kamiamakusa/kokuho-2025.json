@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0831,
-    "support": 0.0309,
-    "care": 0.0242
+    "medical": 0.089,
+    "support": 0.025,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 29018,
-    "support": 10763,
-    "care": 15808
+    "medical": 29000,
+    "support": 10000,
+    "care": 10000
   },
   "household": {
-    "medical": 19612,
-    "support": 7274,
-    "care": 0
+    "medical": 18000,
+    "support": 3000,
+    "care": 3000
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kumamoto.jp/soshiki/43/144561.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」",
+      "url": "https://www.pref.kumamoto.jp/soshiki/43/144561.html",
+      "publishedAt": "2025-08-08"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」（2025-08-08 更新、PDF https://www.pref.kumamoto.jp/uploaded/life/243226_707454_misc.pdf）の上天草市の行へ差し替えて verified 化。旧値は出典が空で、同表と全件不一致だった（県標準保険料率＝理論値とみられる）。医療分 8.9%／29,000円／18,000円、支援分 2.5%／10,000円／3,000円、介護分 2.00%／10,000円／3,000円（3方式）、限度額66万／26万／17万、資産割なし。"
   }
 }

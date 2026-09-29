@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0765,
-    "support": 0.025,
-    "care": 0.0152
+    "medical": 0.079,
+    "support": 0.026,
+    "care": 0.0202
   },
   "perCapita": {
-    "medical": 31600,
-    "support": 9300,
-    "care": 8700
+    "medical": 26279,
+    "support": 9117,
+    "care": 9202
   },
   "household": {
-    "medical": 23300,
-    "support": 8000,
-    "care": 4500
+    "medical": 26084,
+    "support": 9050,
+    "care": 7218
   },
   "caps": {
     "medical": 660000,
@@ -59,7 +59,7 @@
     "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-06-14T00:00:00.000Z",
+      "updatedAt": "2026-09-29T00:00:00.000Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30",
@@ -75,13 +75,13 @@
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "2026-06-14",
+      "verifiedAt": "2026-09-29",
       "method": "prefecture-official-xlsx-recheck"
     },
     "quality": {
       "confidenceScore": 0.95,
       "completeness": "full"
     },
-    "notes": "道公表R7実料率一覧（新得町修正版・2026-06-02。道が新得町分を再公表した最新版）と再突合し、前回の推計/旧値を公式実料率へ修正。変更: medical所得割 7.9→7.65・support所得割 2.6→2.5・care所得割 2.02→1.52・medical均等割 26279→31600・support均等割 9117→9300・care均等割 9202→8700・medical平等割 26084→23300・support平等割 9050→8000・care平等割 7218→4500。"
+    "notes": "道公表R7実料率一覧（新得町修正版・2026-06-02。道が新得町分を再公表した最新版）と再突合し、前回の推計/旧値を公式実料率へ修正。変更: medical所得割 7.9→7.65・support所得割 2.6→2.5・care所得割 2.02→1.52・medical均等割 26279→31600・support均等割 9117→9300・care均等割 9202→8700・medical平等割 26084→23300・support平等割 9050→8000・care平等割 7218→4500。 / 2026-09-29: 上記の修正は誤り（道一覧の「令和６年度」列の値を R7 として読んでいた）。道「市町村別保険料率一覧（内訳）」xlsx（Last-Modified 2026-09-14）の令和７年度列は 7.90%／26,279円／26,084円・2.60%／9,117円／9,050円・2.02%／9,202円／7,218円で、新得町「国民健康保険税」ページ（https://www.shintoku-town.jp/kurashi-tetuduki/zeikin/kokuhozei/ 、令和8年度改定前の 2026-05-13 時点の Internet Archive 保存版）の税率表とも全項目一致。31,600円等は同 xlsx の令和６年度列と全項目一致。R7 値へ戻した。"
   }
 }

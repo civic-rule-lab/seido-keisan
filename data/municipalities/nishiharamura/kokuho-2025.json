@@ -11,13 +11,13 @@
     "care": 0.0242
   },
   "perCapita": {
-    "medical": 30685,
-    "support": 10718,
-    "care": 15804
+    "medical": 30600,
+    "support": 10700,
+    "care": 15800
   },
   "household": {
-    "medical": 20738,
-    "support": 7244,
+    "medical": 20700,
+    "support": 7200,
     "care": 0
   },
   "caps": {
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kumamoto.jp/soshiki/43/144561.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」",
+      "url": "https://www.pref.kumamoto.jp/soshiki/43/144561.html",
+      "publishedAt": "2025-08-08"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」（2025-08-08 更新、PDF https://www.pref.kumamoto.jp/uploaded/life/243226_707454_misc.pdf）の西原村の行へ差し替えて verified 化。旧値は出典が空で、同表と全件不一致だった（県標準保険料率＝理論値とみられる）。医療分 8.78%／30,600円／20,700円、支援分 3.08%／10,700円／7,200円、介護分 2.42%／15,800円／平等割なし（3方式）、限度額66万／26万／17万、資産割なし。介護分は同表の賦課方式欄が「3」だが平等割欄が空欄。村「国民健康保険税」ページ（https://www.vill.nishihara.kumamoto.jp/kiji003109/index.html）の令和7年度版（Internet Archive 2025-10-12 保存版）で介護分平等割「-」と確認し、平等割なしとした（他の値も同ページと一致）。"
   }
 }

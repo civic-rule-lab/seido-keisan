@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0846,
-    "support": 0.0328,
-    "care": 0.0259
+    "medical": 0.0834,
+    "support": 0.0262,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 29577,
-    "support": 11419,
-    "care": 16922
+    "medical": 35100,
+    "support": 11300,
+    "care": 17800
   },
   "household": {
-    "medical": 19989,
-    "support": 7718,
+    "medical": 25600,
+    "support": 7800,
     "care": 0
   },
   "caps": {
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kumamoto.jp/soshiki/43/144561.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」",
+      "url": "https://www.pref.kumamoto.jp/soshiki/43/144561.html",
+      "publishedAt": "2025-08-08"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 熊本県「令和7年度（2025年度）熊本県内市町村における国民健康保険料（税）率等の状況」（2025-08-08 更新、PDF https://www.pref.kumamoto.jp/uploaded/life/243226_707454_misc.pdf）の熊本市の行へ差し替えて verified 化。旧値は出典が空で、同表と全件不一致だった（県標準保険料率＝理論値とみられる）。医療分 8.34%／35,100円／25,600円、支援分 2.62%／11,300円／7,800円、介護分 2.4%／17,800円／平等割なし（2方式）、限度額66万／26万／17万、資産割なし。"
   }
 }
