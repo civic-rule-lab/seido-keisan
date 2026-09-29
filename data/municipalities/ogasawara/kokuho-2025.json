@@ -11,14 +11,14 @@
     "care": 0.014
   },
   "perCapita": {
-    "medical": 22600,
-    "support": 10000,
+    "medical": 7800,
+    "support": 6400,
     "care": 10000
   },
   "household": {
-    "medical": 0,
-    "support": 0,
-    "care": 0
+    "medical": 22600,
+    "support": 10000,
+    "care": 10000
   },
   "caps": {
     "medical": 660000,
@@ -61,29 +61,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson20250430-pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "東京都「令和７年度国民健康保険料（税）率等の状況」（令和7年4月1日現在）",
+      "url": "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson20250430-pdf",
+      "publishedAt": "2025-04-08"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 東京都「令和７年度国民健康保険料（税）率等の状況」（令和7年4月1日現在）（https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson20250430-pdf）の小笠原村の行で照合し verified 化。旧値（医療 4.5%／22,600円／平等割なし・支援 1.5%／10,000円／平等割なし・介護 1.4%／10,000円／平等割なし）は同表と不一致で（出典が空）のため、同表の値（医療 4.5%／7,800円／22,600円・支援 1.5%／6,400円／10,000円・介護 1.4%／10,000円／10,000円）へ差し替えた。同表は賦課限度額（万円）の列を含み、限度額は同表の値とした。旧値は同表の平等割の額が均等割の欄に入り平等割が0になっていた（令和8年度の同種の表も均等割7,800円・平等割22,600円）。"
   }
 }

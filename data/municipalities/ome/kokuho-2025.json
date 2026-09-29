@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0637,
-    "support": 0.0217,
-    "care": 0.0203
+    "medical": 0.0625,
+    "support": 0.0207,
+    "care": 0.0195
   },
   "perCapita": {
-    "medical": 34400,
-    "support": 12700,
-    "care": 13800
+    "medical": 33000,
+    "support": 12000,
+    "care": 13100
   },
   "household": {
     "medical": 0,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson20250430-pdf"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "東京都「令和７年度国民健康保険料（税）率等の状況」（令和7年4月1日現在）",
+      "url": "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson20250430-pdf",
+      "publishedAt": "2025-04-08"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 東京都「令和７年度国民健康保険料（税）率等の状況」（令和7年4月1日現在）（https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson20250430-pdf）の青梅市の行で照合し verified 化。旧値（医療 6.37%／34,400円／平等割なし・支援 2.17%／12,700円／平等割なし・介護 2.03%／13,800円／平等割なし）は同表と不一致で（出典が空）のため、同表の値（医療 6.25%／33,000円／平等割なし・支援 2.07%／12,000円／平等割なし・介護 1.95%／13,100円／平等割なし）へ差し替えた。同表は賦課限度額（万円）の列を含み、限度額は同表の値とした。旧値は令和8年度の値（R8 ファイル・東京都 令和8年度表と同値）が入っていた。"
   }
 }
