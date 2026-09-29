@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.068,
+    "medical": 0.07,
     "support": 0.026,
-    "care": 0.022
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 25800,
-    "support": 10300,
-    "care": 10900
+    "medical": 25000,
+    "support": 10600,
+    "care": 11400
   },
   "household": {
-    "medical": 19600,
-    "support": 7600,
-    "care": 5600
+    "medical": 23000,
+    "support": 7700,
+    "care": 5400
   },
   "caps": {
     "medical": 660000,
@@ -56,13 +56,16 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "needs_update",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.gunma.jp/page/3163.html"
+      ]
     },
     "source": {
       "type": "estimated",
@@ -71,14 +74,14 @@
       "publishedAt": ""
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": ""
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0,
       "completeness": "partial"
     },
-    "notes": "PLACEHOLDER: 群馬県太田市のR7値は未取得（5/11新規slug追加）。桐生市R7をベースにstructure保持目的で複製。次回 群馬太田R7を取得して上書き予定。"
+    "notes": "PLACEHOLDER: 群馬県太田市のR7値は未取得（5/11新規slug追加）。桐生市R7をベースにstructure保持目的で複製。次回 群馬太田R7を取得して上書き予定。 / 2026-09-29: 群馬県「令和７年度 実際の市町村別国民健康保険税率」（https://www.pref.gunma.jp/uploaded/attachment/662282.pdf）の太田市の行で照合し verified 化。旧値（医療 6.8%／25,800円／19,600円・支援 2.6%／10,300円／7,600円・介護 2.2%／10,900円／5,600円）は同表と不一致のため、同表の値（医療 7.00%／25,000円／23,000円・支援 2.6%／10,600円／7,700円・介護 2.1%／11,400円／5,400円）へ差し替えた。同表に賦課限度額の列は無く、限度額は未照合（R7 の法定上限 66万／26万／17万を置いている。県内の R8 確認済みは35件中4件で、いずれも法定上限）。旧値は桐生市の R7 値を構造保持のため複製した仮置き（旧 notes の PLACEHOLDER 参照）だった。"
   }
 }
