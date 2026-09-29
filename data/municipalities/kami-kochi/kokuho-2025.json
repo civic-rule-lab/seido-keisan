@@ -7,18 +7,18 @@
   "basicDeduction": 430000,
   "rate": {
     "medical": 0.085,
-    "support": 0.027,
+    "support": 0.03,
     "care": 0.024
   },
   "perCapita": {
-    "medical": 30000,
-    "support": 9500,
-    "care": 10500
+    "medical": 26400,
+    "support": 8400,
+    "care": 9000
   },
   "household": {
-    "medical": 23000,
-    "support": 7000,
-    "care": 5500
+    "medical": 20000,
+    "support": 8000,
+    "care": 7000
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kochi.lg.jp/doc/kokuho-index/"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "高知県「高知県の国民健康保険料（税）率及び賦課限度額の状況」令和７年度",
+      "url": "https://www.pref.kochi.lg.jp/doc/kokuho-index/",
+      "publishedAt": "2025-07-29"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 高知県「高知県の国民健康保険料（税）率及び賦課限度額の状況」令和７年度（https://www.pref.kochi.lg.jp/doc/kokuho-index/file_contents/file_2025729218418_1.pdf）の香美市の行で照合し verified 化。旧値（医療 8.5%／30,000円／23,000円・支援 2.7%／9,500円／7,000円・介護 2.4%／10,500円／5,500円）は同表と不一致で（出典が空で、同表と合わない切りのよい値が複数町村で共通していた）のため、同表の値（医療 8.5%／26,400円／20,000円・支援 3.00%／8,400円／8,000円・介護 2.4%／9,000円／7,000円）へ差し替えた。限度額66万／26万／17万は同資料「③県内の市町村における令和７年度の賦課限度額」（令和７年７月時点・県内一律）と一致。"
   }
 }

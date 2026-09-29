@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.049,
-    "support": 0.0255,
-    "care": 0.0278
+    "medical": 0.0434,
+    "support": 0.0231,
+    "care": 0.0236
   },
   "perCapita": {
-    "medical": 27100,
-    "support": 14000,
-    "care": 14400
+    "medical": 29100,
+    "support": 15500,
+    "care": 16000
   },
   "household": {
-    "medical": 18500,
-    "support": 9800,
-    "care": 7800
+    "medical": 18700,
+    "support": 9900,
+    "care": 7900
   },
   "preschoolReduction": {
     "enabled": true,
@@ -51,30 +51,33 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.yamanashi.jp/kokuho/kokuhoseidokaikaku/201706.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "山梨県「令和7年度国民健康保険料（税）率」",
+      "url": "https://www.pref.yamanashi.jp/kokuho/kokuhoseidokaikaku/201706.html",
+      "publishedAt": "2026-03-24"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 山梨県「令和7年度国民健康保険料（税）率」（https://www.pref.yamanashi.jp/documents/80891/r7_hokenryo_sei.pdf）の道志村の行で照合し verified 化。旧値（医療 4.9%／27,100円／18,500円・支援 2.55%／14,000円／9,800円・介護 2.78%／14,400円／7,800円）は同表と不一致で、県の「令和6年度国民健康保険料（税）率」（r6hokenryo_zei.pdf）の同町村の行と一致する＝前年度の値が残っていたのため、同表の値（医療 4.34%／29,100円／18,700円・支援 2.31%／15,500円／9,900円・介護 2.36%／16,000円／7,900円）へ差し替えた。同表に賦課限度額の列は無い。限度額66万／26万／17万は令和7年度の法定上限で、県内26市町村の R8 限度額（確認済み）がすべて法定上限であることからの推定。山梨県は資産割を賦課しない（県納付金資料に明記）。"
   },
   "caps": {
     "medical": 660000,

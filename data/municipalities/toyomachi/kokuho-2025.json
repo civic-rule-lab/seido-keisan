@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.083,
-    "support": 0.026,
-    "care": 0.024
+    "medical": 0.0733,
+    "support": 0.0241,
+    "care": 0.0197
   },
   "perCapita": {
-    "medical": 27000,
-    "support": 8500,
-    "care": 10000
+    "medical": 26600,
+    "support": 9200,
+    "care": 16200
   },
   "household": {
-    "medical": 22000,
-    "support": 6000,
-    "care": 5000
+    "medical": 17200,
+    "support": 5800,
+    "care": 0
   },
   "caps": {
     "medical": 660000,
@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.kochi.lg.jp/doc/kokuho-index/"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "高知県「高知県の国民健康保険料（税）率及び賦課限度額の状況」令和７年度",
+      "url": "https://www.pref.kochi.lg.jp/doc/kokuho-index/",
+      "publishedAt": "2025-07-29"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 高知県「高知県の国民健康保険料（税）率及び賦課限度額の状況」令和７年度（https://www.pref.kochi.lg.jp/doc/kokuho-index/file_contents/file_2025729218418_1.pdf）の東洋町の行で照合し verified 化。旧値（医療 8.3%／27,000円／22,000円・支援 2.6%／8,500円／6,000円・介護 2.4%／10,000円／5,000円）は同表と不一致で（出典が空で、同表と合わない切りのよい値が複数町村で共通していた）のため、同表の値（医療 7.33%／26,600円／17,200円・支援 2.41%／9,200円／5,800円・介護 1.97%／16,200円／平等割なし）へ差し替えた。限度額66万／26万／17万は同資料「③県内の市町村における令和７年度の賦課限度額」（令和７年７月時点・県内一律）と一致。"
   }
 }

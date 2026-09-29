@@ -56,29 +56,32 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.nagano.lg.jp/kokuho/kokuho/kokuho_nouhukinsanteikekka.html"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "長野県「令和7年度実際の市町村別保険料（税）率」",
+      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/kokuho_nouhukinsanteikekka.html",
+      "publishedAt": "2026-02-12"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 長野県「令和7年度実際の市町村別保険料（税）率」（https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r7zeiritu.pdf・Last-Modified 2026-02-12。掲載ページ「国保事業費納付金及び標準保険料率の算定結果について」）の阿智村の行と、所得割・資産割・均等割・平等割の医療・支援・介護分12項目すべて一致したため verified 化（値の変更なし）。同表に賦課限度額の列は無い。限度額66万／26万／17万は令和7年度の法定上限で、県内73市町村の R8 限度額（条例で確認済み）がすべて法定上限であることからの推定。"
   }
 }
