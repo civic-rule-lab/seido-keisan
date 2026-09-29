@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0571,
-    "support": 0.0292,
-    "care": 0.0249
+    "medical": 0.085,
+    "support": 0.025,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 24770,
-    "support": 12449,
-    "care": 12849
+    "medical": 22000,
+    "support": 10000,
+    "care": 10000
   },
   "household": {
-    "medical": 16335,
-    "support": 8200,
-    "care": 6179
+    "medical": 20000,
+    "support": 7000,
+    "care": 7000
+  },
+  "assetLevy": {
+    "medical": 0.15,
+    "support": 0.095,
+    "care": 0.095
   },
   "preschoolReduction": {
     "enabled": true,
@@ -51,30 +56,33 @@
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",
-    "status": "unverified",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-09-29T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
-      "expiresAt": "2026-04-30"
+      "expiresAt": "2026-04-30",
+      "sourceUrls": [
+        "https://www.pref.tottori.lg.jp/70904.htm"
+      ]
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "鳥取県「令和7年度国民健康保険料(税)率決定状況」",
+      "url": "https://www.pref.tottori.lg.jp/70904.htm",
+      "publishedAt": "2025-08-01"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-09-29",
+      "method": "prefecture-official-list"
     },
     "quality": {
       "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-09-29: 鳥取県「令和7年度国民健康保険料(税)率決定状況」（https://www.pref.tottori.lg.jp/secure/210656/ketteijokyo.pdf）の三朝町の行で照合し verified 化。旧値（医療 5.71%／24,770円／16,335円・支援 2.92%／12,449円／8,200円・介護 2.49%／12,849円／6,179円）は同表と不一致で（出典が空。端数つきの値が多く県標準保険料率＝理論値とみられる）のため、同表の値（医療 8.5%／22,000円／20,000円・支援 2.5%／10,000円／7,000円・介護 2.5%／10,000円／7,000円）へ差し替えた。資産割（医療15%・支援9.5%・介護9.5%）が同表にあり旧ファイルに無かったため assetLevy を追加（固定資産税額に対する割合）。同表に賦課限度額の列は無い。限度額66万／26万／17万は令和7年度の法定上限で、県内の R8 限度額が日南町を除きすべて法定上限であることからの推定（日南町は R8 で法定未満の66万を定めているため本照合の対象外とした）。"
   },
   "caps": {
     "medical": 660000,
