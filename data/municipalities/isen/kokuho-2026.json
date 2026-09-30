@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.04,
-    "support": 0.0304,
-    "care": 0.0248
+    "medical": 0.1,
+    "support": 0.02,
+    "care": 0.037
   },
   "perCapita": {
-    "medical": 17480,
-    "support": 13176,
-    "care": 12513
+    "medical": 25000,
+    "support": 8000,
+    "care": 5500
   },
   "household": {
-    "medical": 11177,
-    "support": 8425,
-    "care": 6202
+    "medical": 20000,
+    "support": 8000,
+    "care": 3500
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.111Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.kagoshima.jp/ae02/documents/64057_20260402141120-1.pdf"
+        "https://www.pref.kagoshima.jp/ae02/documents/55348_20260928133427-1.pdf",
+        "https://www.pref.kagoshima.jp/ae02/kokuhozeinaiyou.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-30",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鹿児島県 市町村標準保険料率",
-      "url": "https://www.pref.kagoshima.jp/ae02/documents/64057_20260402141120-1.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "鹿児島県「令和８年度 国民健康保険税率一覧（医療分・後期支援分・介護分・子ども分）」",
+      "url": "https://www.pref.kagoshima.jp/ae02/documents/55348_20260928133427-1.pdf",
+      "publishedAt": "2026-09-29"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-30",
+      "method": "prefecture-official-list"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "鹿児島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で伊仙町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・4制度すべて3方式(子ども分も平等割)・資産割なし・限度額医療66万(国基準準拠)。子ども子育て分は18歳以上均等割(=121円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "鹿児島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で伊仙町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・4制度すべて3方式(子ども分も平等割)・資産割なし・限度額医療66万(国基準準拠)。子ども子育て分は18歳以上均等割(=121円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-30: 鹿児島県「令和８年度 国民健康保険税率一覧（医療分・後期支援分・介護分・子ども分）」（https://www.pref.kagoshima.jp/ae02/documents/55348_20260928133427-1.pdf）の伊仙町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 4%／17,480円／11,177円・支援 3.04%／13,176円／8,425円・介護 2.48%／12,513円／6,202円・子ども 0.3%／1,280円＋18歳以上121円／836円 → 新値 医療 10%／25,000円／20,000円・支援 2%／8,000円／8,000円・介護 3.7%／5,500円／3,500円・子ども 0.3%／1,300円＋18歳以上200円／900円。同表の読み取りは既に verified_r8 の鹿児島市・霧島市で全項目一致を確認して検証。本件は町村のウェブページに令和8年度の料率が無いため、町村の国民健康保険税条例（令和8年の改正附則付き・子ども・子育て支援納付金分あり）を取得し、県表の料率・均等割・平等割と限度額 67万／26万／17万／3万が条例と一致することを照合した（龍郷町・伊仙町・大和村は d1-law 例規集、与論町は町の例規集、喜界町は d1-law 例規集）。大和村の条例は子ども分を「18歳以上被保険者均等割額 1,300円」のみで定めており、県表の 1,000円＋18歳以上300円と合計が同じ（18歳未満は全額軽減のため計算結果は同じ）。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1280,
-    "perCapitaAdult": 121,
+    "perCapita": 1300,
+    "perCapitaAdult": 200,
     "perCapitaAdultScope": "all_ages",
-    "household": 836,
+    "household": 900,
     "cap": 30000
   }
 }
