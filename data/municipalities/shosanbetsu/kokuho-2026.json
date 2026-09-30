@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0594,
-    "support": 0.025,
-    "care": 0.0205
+    "medical": 0.072,
+    "support": 0.016,
+    "care": 0.008
   },
   "perCapita": {
-    "medical": 20533,
-    "support": 9236,
-    "care": 9408
+    "medical": 27000,
+    "support": 7100,
+    "care": 7000
   },
   "household": {
-    "medical": 20214,
-    "support": 9093,
-    "care": 7342
+    "medical": 36000,
+    "support": 8500,
+    "care": 4500
   },
   "caps": {
     "medical": 670000,
@@ -57,22 +57,25 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.236Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.hokkaido.lg.jp/fs/1/3/0/1/4/1/1/2/_/03_市町村標準保険料率(市町村別一覧).pdf"
+        "https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/"
+      ],
+      "ordinanceUrls": [
+        "https://houmu.h-chosonkai.gr.jp/~reikidb/data/96/14/reiki_honbun/a127RG00000119.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/",
         "https://www.vill.shosanbetsu.lg.jp/topics/jumin/",
@@ -80,21 +83,21 @@
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 北海道 市町村標準保険料率（市町村別一覧）",
-      "url": "https://www.pref.hokkaido.lg.jp/hf/kki/101133.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "医療｜北海道初山別村",
+      "url": "https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/",
+      "publishedAt": "2026-03-31"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、初山別村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: ①初山別村公式サイト（https://www.vill.shosanbetsu.lg.jp/ ）には国民健康保険の税率を載せるページが存在しない。サイトマップ（https://www.vill.shosanbetsu.lg.jp/siemap/ ）の全リンク文字列を機械検索したところ「保険」「国民健康保険」を含む項目は0件で、「税」を含むのはふるさと納税・森林環境譲与税のみだった。「くらし＞医療」（https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/ ）は重度心身障害者・ひとり親家庭・乳幼児の医療費助成のみを扱っている。②広報しょさんべつ 2026年5月号(191)・6月号(192)・7月号(193) の全ページPDFを pdftotext で検索したが「国民健康保険税」「所得割」「資産割」「均等割」はいずれもヒットせず（6月号の「②国民健康保険 1」は決算関係の表）、令和8年度の税率表は載っていなかった。③例規集は北海道町村会の例規DB（http://houmu.h-chosonkai.gr.jp/~reikidb/?choson_no=96 ）にあり村名までは表示できたが、検索フォームが村を限定せず全町村473件を返す挙動で、初山別村国民健康保険税条例の本文に到達できなかった＝未確認。／以上より自治体の令和8年度一次資料が確認できないので、道の令和8年度市町村標準保険料率のまま据え置き standard_r8 を維持する。watchUrls に村サイトの該当区画と広報一覧を追加した。／⚠️ 未確認・重要: 令和7年度の道の一覧では初山別村に資産割（医療30%）があった。令和8年度に廃止されたかどうかは村の資料が無いため確認できていない。本データは県標準の3方式のままなので、資産割が存続していれば賦課方式ごと誤っている可能性がある。"
+    "notes": "北海道公表の令和8年度 市町村標準保険料率（市町村別一覧）を参考値として採用。法定外繰入ゼロ前提の理論値で、初山別村が実際に告示する料率とは異なる場合がある。3方式（所得割+均等割+平等割）・資産割なし。子ども・子育て支援金分は18歳以上均等割(=100円・合計1100円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-09-07 調査（昇格せず）: ①初山別村公式サイト（https://www.vill.shosanbetsu.lg.jp/ ）には国民健康保険の税率を載せるページが存在しない。サイトマップ（https://www.vill.shosanbetsu.lg.jp/siemap/ ）の全リンク文字列を機械検索したところ「保険」「国民健康保険」を含む項目は0件で、「税」を含むのはふるさと納税・森林環境譲与税のみだった。「くらし＞医療」（https://www.vill.shosanbetsu.lg.jp/kurashi/iryo/ ）は重度心身障害者・ひとり親家庭・乳幼児の医療費助成のみを扱っている。②広報しょさんべつ 2026年5月号(191)・6月号(192)・7月号(193) の全ページPDFを pdftotext で検索したが「国民健康保険税」「所得割」「資産割」「均等割」はいずれもヒットせず（6月号の「②国民健康保険 1」は決算関係の表）、令和8年度の税率表は載っていなかった。③例規集は北海道町村会の例規DB（http://houmu.h-chosonkai.gr.jp/~reikidb/?choson_no=96 ）にあり村名までは表示できたが、検索フォームが村を限定せず全町村473件を返す挙動で、初山別村国民健康保険税条例の本文に到達できなかった＝未確認。／以上より自治体の令和8年度一次資料が確認できないので、道の令和8年度市町村標準保険料率のまま据え置き standard_r8 を維持する。watchUrls に村サイトの該当区画と広報一覧を追加した。／⚠️ 未確認・重要: 令和7年度の道の一覧では初山別村に資産割（医療30%）があった。令和8年度に廃止されたかどうかは村の資料が無いため確認できていない。本データは県標準の3方式のままなので、資産割が存続していれば賦課方式ごと誤っている可能性がある。 / 2026-10-01: 初山別村税条例 第2節 国民健康保険税（https://houmu.h-chosonkai.gr.jp/~reikidb/data/96/14/reiki_honbun/a127RG00000119.html）で令和8年度の実税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 5.94%／20,533円／20,214円・支援 2.5%／9,236円／9,093円・介護 2.05%／9,408円／7,342円・子ども 0.29%／1,000円＋18歳以上100円／1,000円 → 新値 医療 7.2%／27,000円／36,000円・支援 1.6%／7,100円／8,500円・介護 0.8%／7,000円／4,500円・子ども 0.29%／1,000円＋18歳以上100円／1,000円。村の国保ページ・広報に令和8年度の料率が無いため、北海道町村会 例規集データベースの初山別村税条例（https://houmu.h-chosonkai.gr.jp/~reikidb/data/96/14/reiki_honbun/a127RG00000119.html ・内容現在 令和8年6月19日）第2節 国民健康保険税の本文を一次資料とした。附則（令和8年3月31日条例第10号）第5条が「新条例の規定中国民健康保険税に関する部分は、令和8年度以後の年度分の国民健康保険税について適用」と定める。所得割 100分の7.2／1.6／0.8／0.29、均等割 27,000円／7,100円／7,000円／1,000円、18歳以上被保険者均等割 100円、平等割 36,000円（特定世帯18,000・特定継続27,000）／8,500円／4,500円／1,000円、限度額 670,000円／260,000円／170,000円／30,000円。資産割の条は無い（3方式）。令和7年度の道の一覧にあった資産割（医療30%）は令和8年度の条文には無い。"
   },
   "childcareLevy": {
     "rate": 0.0029,
