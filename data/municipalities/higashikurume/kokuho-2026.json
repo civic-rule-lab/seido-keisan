@@ -6,14 +6,14 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0765,
-    "support": 0.0294,
-    "care": 0.0253
+    "medical": 0.0592,
+    "support": 0.0223,
+    "care": 0.0199
   },
   "perCapita": {
-    "medical": 47701,
-    "support": 18214,
-    "care": 18502
+    "medical": 39300,
+    "support": 13600,
+    "care": 14700
   },
   "household": {
     "medical": 0,
@@ -56,8 +56,8 @@
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1870,
-    "perCapitaAdult": 100,
+    "perCapita": 1900,
+    "perCapitaAdult": 200,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
@@ -65,39 +65,40 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T00:00:00.000Z",
-      "updatedAt": "2026-08-23T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/r8hyouzyunhokenryouritsu"
+        "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson_20260518-pdf",
+        "https://www.hokeniryo.metro.tokyo.lg.jp/kenkou/kokuho/aramashi/hokennryou/h30hokenryougaku"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-30",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 東京都 市町村標準保険料率（2方式）",
-      "url": "https://www.hokeniryo.metro.tokyo.lg.jp/kenkou/kokuho/nouhukinhyoujyunhokenryouritsu",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "東京都「令和８年度国民健康保険料（税）率等の状況（市町村・令和8年4月1日現在）」",
+      "url": "https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson_20260518-pdf",
+      "publishedAt": "2026-05-18"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-30",
+      "method": "prefecture-official-list"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "東久留米市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=100円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。"
+    "notes": "東久留米市は令和8実告示が未掲載/未確定のため、東京都公表の市町村標準保険料率(2方式)を参考値として採用。法定外繰入ゼロ前提の理論値で実告示と異なる。子ども子育て分の18歳以上均等割=100円はフラット暫定で省略。市告示確認後 verified_r8 へ昇格。 / 2026-09-30: 東京都「令和８年度国民健康保険料（税）率等の状況（市町村・令和8年4月1日現在）」（https://www.hokeniryo.metro.tokyo.lg.jp/documents/d/hokeniryo/shicyouson_20260518-pdf）の東久留米市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.65%／47,701円／平等割なし・支援 2.94%／18,214円／平等割なし・介護 2.53%／18,502円／平等割なし・子ども 0.3%／1,870円＋18歳以上100円／0円 → 新値 医療 5.92%／39,300円／平等割なし・支援 2.23%／13,600円／平等割なし・介護 1.99%／14,700円／平等割なし・子ども 0.3%／1,900円＋18歳以上200円／0円。表はテキスト抽出で読み取り、同表で既に verified_r8 の八王子市ほか17市町村の医療・支援・介護9項目が全一致することで読み取りを検証した。対象12件の限度額は表で 67万／26万／17万／3万。平等割・子ども分平等割は表で「-」（0）。"
   }
 }
