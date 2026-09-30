@@ -650,7 +650,7 @@ function loadData(dir) {
   const read = (f) => JSON.parse(fs.readFileSync(path.resolve(base, f), 'utf8'));
   const readOpt = (f) => {
     // 任意ファイル（senpo/kumiai 等の provider 追加分）。ファイル不在(ENOENT)のみ null＝既定 kyoukai は無影響。
-    // JSON構文エラー等は握りつぶさず throw（データ破損を「provider消失」として静かに扱わない＝SEC-STOP）。
+    // JSON構文エラー等は握りつぶさず throw（データ破損を「provider消失」として静かに扱わない）。
     try {
       return read(f);
     } catch (e) {
@@ -675,6 +675,7 @@ const _api = {
 if (_isNode) module.exports = _api;                              // Node: require で使う
 if (typeof window !== 'undefined') window.Shaho = _api;          // ブラウザ: window.Shaho で使う
 
-// ---- 自己テストは vendor 時に除去（scripts/vendor-shaho.mjs）。実行は正本側で: node js/core/shaho.js ----
+
+// ---- 自己テストは tests/test-shaho-selftest.js に分離（配信JSに死にコードを載せないため・2026-07-26）----
 
 })();
