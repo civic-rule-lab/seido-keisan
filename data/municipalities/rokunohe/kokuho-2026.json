@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0712,
-    "support": 0.0296,
-    "care": 0.0289
+    "medical": 0.085,
+    "support": 0.027,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 31089,
-    "support": 12868,
-    "care": 14835
+    "medical": 28000,
+    "support": 11000,
+    "care": 12000
   },
   "household": {
-    "medical": 20470,
-    "support": 8473,
-    "care": 7437
+    "medical": 32000,
+    "support": 10000,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.284Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
+        "https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/files/R8hokenryou.pdf",
         "https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/kokkuho.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-30",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 青森県 市町村標準保険料率",
-      "url": "https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/kokkuho.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "青森県「令和８年度国民健康保険料（税）率等一覧」",
+      "url": "https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/files/R8hokenryou.pdf",
+      "publishedAt": "2026-07-03"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-30",
+      "method": "prefecture-official-list"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "青森県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で六戸町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=89円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "青森県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で六戸町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=89円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-30: 青森県「令和８年度国民健康保険料（税）率等一覧」（https://www.pref.aomori.lg.jp/soshiki/kenko/koreihoken/files/R8hokenryou.pdf）の六戸町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.12%／31,089円／20,470円・支援 2.96%／12,868円／8,473円・介護 2.89%／14,835円／7,437円・子ども 0.3%／1,266円＋18歳以上89円／851円 → 新値 医療 8.5%／28,000円／32,000円・支援 2.7%／11,000円／10,000円・介護 2.3%／12,000円／7,000円・子ども 0.26%／1,105円＋18歳以上67円／742円。同表は図形化された PDF で文字を抽出できないため画像から読み取り、市ページで確認済みの青森市・八戸市の13項目との全一致で読み取りを検証した。限度額は同表で県内一律 67万／26万／17万／3万。同表に資産割の列は無い。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1266,
-    "perCapitaAdult": 89,
+    "rate": 0.0026,
+    "perCapita": 1105,
+    "perCapitaAdult": 67,
     "perCapitaAdultScope": "all_ages",
-    "household": 851,
+    "household": 742,
     "cap": 30000
   }
 }
