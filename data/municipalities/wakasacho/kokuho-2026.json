@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0662,
-    "support": 0.029,
-    "care": 0.0256
+    "medical": 0.095,
+    "support": 0.02,
+    "care": 0.014
   },
   "perCapita": {
-    "medical": 28887,
-    "support": 12521,
-    "care": 13334
+    "medical": 27200,
+    "support": 6000,
+    "care": 8000
   },
   "household": {
-    "medical": 18606,
-    "support": 8065,
-    "care": 6450
+    "medical": 24700,
+    "support": 5200,
+    "care": 4800
   },
   "caps": {
     "medical": 670000,
@@ -57,50 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.636Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf"
+        "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
+        "https://www.pref.tottori.lg.jp/70904.htm"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-30",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.wakasa.tottori.jp/iryo_kenko_fukushi/iryo_kenko/7/644.html",
         "https://www.town.wakasa.tottori.jp/section/reiki_int/reiki_honbun/m013RG00000202.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鳥取県 市町村標準保険料率",
-      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8hyojunhokenryoritsu.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "鳥取県「令和８年度国民健康保険料（税）率決定状況」",
+      "url": "https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf",
+      "publishedAt": "2026-07-13"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-30",
+      "method": "prefecture-official-list"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で若桜町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 若桜町「国民健康保険」https://www.town.wakasa.tottori.jp/iryo_kenko_fukushi/iryo_kenko/7/644.html（更新日2026-08-20）は「国民健康保険税は下記のリンクをご覧ください。」とあるがリンク先が置かれておらず、検索結果に出る税務課ページ /soshikikarasagasu/zeimuka/2/3/2/513.html は404（サイト再編）。例規集「若桜町国民健康保険税条例」https://www.town.wakasa.tottori.jp/section/reiki_int/reiki_honbun/m013RG00000202.html（Last-Modified 2025-02-14、最終附則 令和6年6月14日条例第15号）は基礎課税額限度65万円・軽減判定29万5千円/54万5千円・子ども分なし＝令和8年度改正が未収録。県「令和8年度国民健康保険料(税)率決定状況」https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf には若桜町の実料率（医療9.50%/27,200円/24,700円・支援2.00%/6,000円/5,200円・介護1.40%/8,000円/4,800円・子ども0.30%/1,260円/18歳以上70円/880円）が載っているが、町自身の一次資料が無いため据え置き。"
+    "notes": "鳥取県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で若桜町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(R8政令67万で妥当だがdeploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-09-06: 若桜町「国民健康保険」https://www.town.wakasa.tottori.jp/iryo_kenko_fukushi/iryo_kenko/7/644.html（更新日2026-08-20）は「国民健康保険税は下記のリンクをご覧ください。」とあるがリンク先が置かれておらず、検索結果に出る税務課ページ /soshikikarasagasu/zeimuka/2/3/2/513.html は404（サイト再編）。例規集「若桜町国民健康保険税条例」https://www.town.wakasa.tottori.jp/section/reiki_int/reiki_honbun/m013RG00000202.html（Last-Modified 2025-02-14、最終附則 令和6年6月14日条例第15号）は基礎課税額限度65万円・軽減判定29万5千円/54万5千円・子ども分なし＝令和8年度改正が未収録。県「令和8年度国民健康保険料(税)率決定状況」https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf には若桜町の実料率（医療9.50%/27,200円/24,700円・支援2.00%/6,000円/5,200円・介護1.40%/8,000円/4,800円・子ども0.30%/1,260円/18歳以上70円/880円）が載っているが、町自身の一次資料が無いため据え置き。 / 2026-09-30: 鳥取県「令和８年度国民健康保険料（税）率決定状況」（https://www.pref.tottori.lg.jp/secure/210656/R8ketteijokyo.pdf）の若桜町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.62%／28,887円／18,606円・支援 2.9%／12,521円／8,065円・介護 2.56%／13,334円／6,450円・子ども 0.28%／1,232円＋18歳以上73円／777円 → 新値 医療 9.5%／27,200円／24,700円・支援 2%／6,000円／5,200円・介護 1.4%／8,000円／4,800円・子ども 0.3%／1,260円＋18歳以上70円／880円。読み取りは既に verified_r8 の県内14市町村（13件全項目一致）で検証。県表に限度額の列が無いため、料率と限度額 67万／26万／17万／3万を町の公式資料（ページ・広報誌・議案説明資料）でも照合した。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1232,
-    "perCapitaAdult": 73,
+    "rate": 0.003,
+    "perCapita": 1260,
+    "perCapitaAdult": 70,
     "perCapitaAdultScope": "all_ages",
-    "household": 777,
+    "household": 880,
     "cap": 30000
   }
 }
