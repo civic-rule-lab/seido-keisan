@@ -6,19 +6,25 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0758,
-    "support": 0.0284,
-    "care": 0.0254
+    "medical": 0.071,
+    "support": 0.02,
+    "care": 0.018
+  },
+  "assetLevy": {
+    "medical": 0.166,
+    "support": 0.043,
+    "care": 0.045,
+    "childcare": 0.0048
   },
   "perCapita": {
-    "medical": 32931,
-    "support": 12288,
-    "care": 13027
+    "medical": 27000,
+    "support": 7800,
+    "care": 9400
   },
   "household": {
-    "medical": 21127,
-    "support": 7884,
-    "care": 6386
+    "medical": 20400,
+    "support": 6000,
+    "care": 5200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +63,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.781Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
+        "https://www.pref.okayama.jp/uploaded/attachment/419973.pdf",
         "https://www.pref.okayama.jp/page/484099.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-09-30",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岡山県 市町村標準保険料率",
-      "url": "https://www.pref.okayama.jp/page/484099.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "岡山県 国民健康保険運営協議会資料「令和８年度国民健康保険料（税）率について（資料１）」",
+      "url": "https://www.pref.okayama.jp/uploaded/attachment/419973.pdf",
+      "publishedAt": "2026-08-27"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-30",
+      "method": "prefecture-official-list"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岡山県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で真庭市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=59円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "岡山県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で真庭市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=59円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-30: 岡山県 国民健康保険運営協議会資料「令和８年度国民健康保険料（税）率について（資料１）」（https://www.pref.okayama.jp/uploaded/attachment/419973.pdf）の真庭市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.58%／32,931円／21,127円・支援 2.84%／12,288円／7,884円・介護 2.54%／13,027円／6,386円・子ども 0.28%／1,208円＋18歳以上59円／768円 → 新値 医療 7.1%／27,000円／20,400円・支援 2%／7,800円／6,000円・介護 1.8%／9,400円／5,200円・子ども 0.28%／800円＋18歳以上100円／900円。同資料の「令和８年度の国民健康保険料(税)率」表（県内27保険者・賦課限度額あり）をテキスト抽出で読み取り、既に verified_r8 の岡山市・倉敷市で全項目が一致すること（岡山市の子ども分は 18歳以上のみ1,200円＝均等割1,140円＋18歳以上60円 と同額）で読み取りを検証した。限度額は表の値（67万／26万／17万／3万）。（令和8年度は資産割あり：医療16.6%・支援4.3%・介護4.5%・子ども0.48%。assetLevy を新設）"
   },
   "childcareLevy": {
     "rate": 0.0028,
-    "perCapita": 1208,
-    "perCapitaAdult": 59,
+    "perCapita": 800,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 768,
+    "household": 900,
     "cap": 30000
   }
 }
