@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0938,
-    "support": 0.0317,
-    "care": 0.0297
+    "medical": 0.0755,
+    "support": 0.0229,
+    "care": 0.0242
   },
   "perCapita": {
-    "medical": 34880,
-    "support": 11665,
-    "care": 12450
+    "medical": 32959,
+    "support": 9709,
+    "care": 13899
   },
   "household": {
-    "medical": 21601,
-    "support": 7224,
-    "care": 6134
+    "medical": 23512,
+    "support": 6110,
+    "care": 7407
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.112Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-18T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html"
+        "https://www.city.kyotanabe.lg.jp/0000000425.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-18",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kyotanabe.lg.jp/0000000425.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 京都府 市町村標準保険料率",
-      "url": "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html",
+      "type": "official",
+      "title": "国民健康保険税の計算方法 | 京田辺市ホームページ",
+      "url": "https://www.city.kyotanabe.lg.jp/0000000425.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-18",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で京田辺市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で京田辺市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=73円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-18: 市側の一次資料「国民健康保険税の計算方法 | 京田辺市ホームページ」（https://www.city.kyotanabe.lg.jp/0000000425.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分7.55%／32,959円／23,512円、支援分2.29%／9,709円／6,110円、介護分2.42%／13,899円／7,407円、子ども分0.28%／1,070円＋18歳以上70円／750円、限度額67万円／26万円／17万円／3万円）。京都府は市町村標準保険料率（理論値）しか公表しておらず（https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html）、市町村別の実料率一覧が無いため、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 1,070円＋18歳以上均等割 70円（18歳以上の負担 1,140円）。市ページ※4に「1,140円のうち70円が18歳以上均等割額」と明記。内訳は1,070円＋70円。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1116,
-    "perCapitaAdult": 73,
+    "rate": 0.0028,
+    "perCapita": 1070,
+    "perCapitaAdult": 70,
     "perCapitaAdultScope": "all_ages",
-    "household": 696,
+    "household": 750,
     "cap": 30000
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0947,
-    "support": 0.0309,
-    "care": 0.0298
+    "medical": 0.0785,
+    "support": 0.0245,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 35223,
-    "support": 11363,
-    "care": 12496
+    "medical": 26000,
+    "support": 9000,
+    "care": 9500
   },
   "household": {
-    "medical": 21813,
-    "support": 7037,
-    "care": 6156
+    "medical": 25000,
+    "support": 7000,
+    "care": 5500
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.117Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-18T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html"
+        "https://www.town.seika.kyoto.jp/kakuka/kokuho/3/1_1/kokuhozei.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-18",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.seika.kyoto.jp/kakuka/kokuho/3/1_1/kokuhozei.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 京都府 市町村標準保険料率",
-      "url": "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html",
+      "type": "official",
+      "title": "国民健康保険税について／精華町",
+      "url": "https://www.town.seika.kyoto.jp/kakuka/kokuho/3/1_1/kokuhozei.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-18",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で精華町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=60円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で精華町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=60円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-18: 町側の一次資料「国民健康保険税について／精華町」（https://www.town.seika.kyoto.jp/kakuka/kokuho/3/1_1/kokuhozei.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分7.85%／26,000円／25,000円、支援分2.45%／9,000円／7,000円、介護分2.2%／9,500円／5,500円、子ども分0.31%／1,183円（18歳以上加算なし）／725円、限度額67万円／26万円／17万円／3万円）。京都府は市町村標準保険料率（理論値）しか公表しておらず（https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html）、市町村別の実料率一覧が無いため、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。町ページ表1「令和8年度国保税の内訳」。子ども分均等割1,183円は「『均等割』と『18歳以上均等割』の合計」と注記があるのみで内訳は未公表。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0031,
     "perCapita": 1183,
-    "perCapitaAdult": 60,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 725,
     "cap": 30000

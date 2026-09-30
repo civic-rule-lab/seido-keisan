@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0872,
-    "support": 0.031,
-    "care": 0.0298
+    "medical": 0.0813,
+    "support": 0.0284,
+    "care": 0.0274
   },
   "perCapita": {
-    "medical": 32404,
-    "support": 11405,
-    "care": 12503
+    "medical": 31600,
+    "support": 11100,
+    "care": 16400
   },
   "household": {
-    "medical": 20067,
-    "support": 7063,
-    "care": 6160
+    "medical": 20100,
+    "support": 7200,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.107Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-18T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html"
+        "https://www.city.ayabe.lg.jp/0000002426.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-18",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.ayabe.lg.jp/0000002426.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 京都府 市町村標準保険料率",
-      "url": "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html",
+      "type": "official",
+      "title": "国保料 | 綾部市",
+      "url": "https://www.city.ayabe.lg.jp/0000002426.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-18",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で綾部市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=62円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で綾部市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=62円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-18: 市側の一次資料「国保料 | 綾部市」（https://www.city.ayabe.lg.jp/0000002426.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分8.13%／31,600円／20,100円、支援分2.84%／11,100円／7,200円、介護分2.74%／16,400円／6,100円、子ども分0.39%／1,520円＋18歳以上80円／940円、限度額67万円／26万円／17万円／3万円）。京都府は市町村標準保険料率（理論値）しか公表しておらず（https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html）、市町村別の実料率一覧が無いため、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。子ども分は均等割 1,520円＋18歳以上均等割 80円（18歳以上の負担 1,600円）。市ページが4区分を内訳つきで明示。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
-    "rate": 0.0032,
-    "perCapita": 1208,
-    "perCapitaAdult": 62,
+    "rate": 0.0039,
+    "perCapita": 1520,
+    "perCapitaAdult": 80,
     "perCapitaAdultScope": "all_ages",
-    "household": 740,
+    "household": 940,
     "cap": 30000
   }
 }

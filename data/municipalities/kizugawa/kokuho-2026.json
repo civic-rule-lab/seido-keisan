@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0917,
-    "support": 0.0318,
+    "medical": 0.091,
+    "support": 0.0305,
     "care": 0.03
   },
   "perCapita": {
-    "medical": 34081,
-    "support": 11686,
-    "care": 12584
+    "medical": 32000,
+    "support": 11200,
+    "care": 12000
   },
   "household": {
-    "medical": 21106,
-    "support": 7237,
-    "care": 6200
+    "medical": 23800,
+    "support": 7000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,45 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.113Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-09-18T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html"
+        "https://www.city.kizugawa.lg.jp/0000000815.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-09-18",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.city.kizugawa.lg.jp/0000000815.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 京都府 市町村標準保険料率",
-      "url": "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html",
+      "type": "official",
+      "title": "国民健康保険税とは | 木津川市",
+      "url": "https://www.city.kizugawa.lg.jp/0000000815.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-09-18",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で木津川市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=111円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で木津川市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=111円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-09-18: 市側の一次資料「国民健康保険税とは | 木津川市」（https://www.city.kizugawa.lg.jp/0000000815.html）で令和8年度の税率を確認し、県標準保険料率（理論値）から差し替えた（医療分9.1%／32,000円／23,800円、支援分3.05%／11,200円／7,000円、介護分3%／12,000円／6,000円、子ども分0.32%／1,257円（18歳以上加算なし）／733円、限度額67万円／26万円／17万円／3万円）。京都府は市町村標準保険料率（理論値）しか公表しておらず（https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html）、市町村別の実料率一覧が無いため、自治体の一次資料で1件ずつ確認した。3方式（所得割＋均等割＋平等割）・資産割なし。市ページは子ども分均等割を1,257円「（18歳以上均等割を含む）」と合計のみ表示し、内訳を公表していない。18歳未満は全額軽減のため合計額で登録した（内訳は未確認）。軽減判定の加算額は令和8年度基準（31万円／57万円）。18歳未満の子ども分均等割は全額軽減（全国共通）。"
   },
   "childcareLevy": {
     "rate": 0.0032,
-    "perCapita": 1146,
-    "perCapitaAdult": 111,
+    "perCapita": 1257,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "household": 733,
     "cap": 30000
