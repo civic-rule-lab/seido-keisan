@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0544,
-    "support": 0.0242,
-    "care": 0.0219
+    "medical": 0.0612,
+    "support": 0.0177,
+    "care": 0.0252
   },
   "perCapita": {
-    "medical": 27695,
-    "support": 12321,
-    "care": 11875
+    "medical": 29180,
+    "support": 8710,
+    "care": 12640
   },
   "household": {
-    "medical": 23435,
-    "support": 10403,
-    "care": 5980
+    "medical": 24110,
+    "support": 7180,
+    "care": 6360
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,40 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.796Z",
-      "updatedAt": "2026-09-03T00:00:00.000Z",
+      "updatedAt": "2026-09-30T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_p3",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f537560/index.html"
+        "https://www.pref.kanagawa.jp/documents/23428/r8_hokennryou.pdf",
+        "https://www.pref.kanagawa.jp/docs/n5p/cnt/f7093/p25926.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-09-30",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 神奈川県 市町村標準保険料率（各市町村の算定方式によるもの）算定結果表",
-      "url": "https://www.pref.kanagawa.jp/documents/23409/r8hyouzyunnhokennryouritu.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "神奈川県「令和８年度 神奈川県内の市町村における国民健康保険料（税）率等の状況」",
+      "url": "https://www.pref.kanagawa.jp/documents/23428/r8_hokennryou.pdf",
+      "publishedAt": "2026-09-10"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-table"
+      "verifiedAt": "2026-09-30",
+      "method": "prefecture-official-list"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、真鶴町が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。／ 2026-09-03、子ども・子育て支援金分の18歳以上均等割額を県資料から取り込んだ（値の追加のみ）。県公表の令和8年度市町村標準保険料率（各市町村の算定方式によるもの）算定結果表 p3 には「子ども分（18歳以上均等割額）」列があり、本自治体には71円が記載されている。従前は同列を省いたフラット均等割で暫定設定していたため、エンジンが18歳以上にも均等割のみを課しており、18歳以上1人あたり年71円ぶん低く算定されていた。perCapitaAdult=71・perCapitaAdultScope=all_ages を追加し、18歳以上は均等割＋加算、18歳未満は全額軽減で0円となる形に合わせた。所得割・均等割・平等割・限度額その他の値は変更していない。列の対応は、同表で県標準と一致することが既知の verified_r8 3件（平塚市56円・中井町91円・山北町64円）がデータの perCapitaAdult と完全一致することで裏付けた。"
+    "notes": "県公表の令和8年度標準保険料率(p3=各市町村の算定方式によるもの)を参考値として採用。法定外繰入ゼロ前提の理論値で、真鶴町が実際に告示する料率とは異なる場合がある。子ども・子育て支援金分は18歳以上均等割額の分割を省いたフラット均等割で暫定設定。市公式告示が出たら verified_r8 へ昇格し子ども分scopeを確定する。／ 2026-09-03、子ども・子育て支援金分の18歳以上均等割額を県資料から取り込んだ（値の追加のみ）。県公表の令和8年度市町村標準保険料率（各市町村の算定方式によるもの）算定結果表 p3 には「子ども分（18歳以上均等割額）」列があり、本自治体には71円が記載されている。従前は同列を省いたフラット均等割で暫定設定していたため、エンジンが18歳以上にも均等割のみを課しており、18歳以上1人あたり年71円ぶん低く算定されていた。perCapitaAdult=71・perCapitaAdultScope=all_ages を追加し、18歳以上は均等割＋加算、18歳未満は全額軽減で0円となる形に合わせた。所得割・均等割・平等割・限度額その他の値は変更していない。列の対応は、同表で県標準と一致することが既知の verified_r8 3件（平塚市56円・中井町91円・山北町64円）がデータの perCapitaAdult と完全一致することで裏付けた。 / 2026-09-30: 神奈川県「令和８年度 神奈川県内の市町村における国民健康保険料（税）率等の状況」（https://www.pref.kanagawa.jp/documents/23428/r8_hokennryou.pdf）の真鶴町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 5.44%／27,695円／23,435円・支援 2.42%／12,321円／10,403円・介護 2.19%／11,875円／5,980円・子ども 0.25%／1,265円＋18歳以上71円／1,070円 → 新値 医療 6.12%／29,180円／24,110円・支援 1.77%／8,710円／7,180円・介護 2.52%／12,640円／6,360円・子ども 0.25%／1,265円＋18歳以上71円／1,070円。同表には誤植がある（横浜市の支援分所得割・山北町の支援分限度額が市町ページと不一致）ため、本件は自治体公式の料率ページでも所得割・均等割・平等割・子ども分（均等割は18歳以上分を含む合計でも可）の数値が載っていることを機械照合して確認した（南足柄市は料率が画像のため目視）。限度額は表で 67万／26万／17万／3万。"
   },
   "childcareLevy": {
     "rate": 0.0025,
