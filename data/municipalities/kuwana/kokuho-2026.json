@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0665,
-    "support": 0.0285,
-    "care": 0.0245
+    "medical": 0.071,
+    "support": 0.023,
+    "care": 0.016
   },
   "perCapita": {
-    "medical": 28923,
-    "support": 12361,
-    "care": 12994
+    "medical": 38800,
+    "support": 12800,
+    "care": 10900
   },
   "household": {
-    "medical": 18939,
-    "support": 8094,
-    "care": 6362
+    "medical": 28000,
+    "support": 8000,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.853Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.mie.lg.jp/common/content/001246287.pdf"
+        "https://www.city.kuwana.lg.jp/zeimu/kurashi/zeikin/24-10788-227-366.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/kuwana/reiki_honbun/r069RG00000832.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 三重県 市町村標準保険料率",
-      "url": "https://www.pref.mie.lg.jp/common/content/001246287.pdf",
+      "type": "official",
+      "title": "国民健康保険税とは／桑名市",
+      "url": "https://www.city.kuwana.lg.jp/zeimu/kurashi/zeikin/24-10788-227-366.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で桑名市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で桑名市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=65円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険税とは／桑名市（https://www.city.kuwana.lg.jp/zeimu/kurashi/zeikin/24-10788-227-366.html）の桑名市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.65%／28,923円／18,939円・支援 2.85%／12,361円／8,094円・介護 2.45%／12,994円／6,362円・子ども 0.25%／1,126円＋18歳以上65円／727円 → 新値 医療 7.1%／38,800円／28,000円・支援 2.3%／12,800円／8,000円・介護 1.6%／10,900円／5,800円・子ども 0.25%／1,100円＋18歳以上60円／700円。市のページ（2026-04-20 更新）。子ども分均等割はページ上「1,160円（18歳以上）」で、桑名市国民健康保険税条例（g-reiki・内容現在 令和8年7月1日・令和8年3月19日条例第18号・3月31日条例第23号）の均等割1,100円＋18歳以上被保険者均等割60円の合計。条例の形で持つ。"
   },
   "childcareLevy": {
     "rate": 0.0025,
-    "perCapita": 1126,
-    "perCapitaAdult": 65,
+    "perCapita": 1100,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 727,
+    "household": 700,
     "cap": 30000
   }
 }

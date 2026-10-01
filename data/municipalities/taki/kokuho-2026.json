@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0648,
-    "support": 0.0285,
-    "care": 0.0245
+    "medical": 0.0665,
+    "support": 0.023,
+    "care": 0.0195
   },
   "perCapita": {
-    "medical": 28181,
-    "support": 12336,
-    "care": 12994
+    "medical": 23800,
+    "support": 8500,
+    "care": 9500
   },
   "household": {
-    "medical": 18453,
-    "support": 8078,
-    "care": 6362
+    "medical": 21000,
+    "support": 7200,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -57,40 +57,40 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.866Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.mie.lg.jp/common/content/001246287.pdf"
+        "https://www.town.taki.mie.jp/life/soshiki/chominkankyo/iryo_kenko/2/654.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 三重県 市町村標準保険料率",
-      "url": "https://www.pref.mie.lg.jp/common/content/001246287.pdf",
+      "type": "official",
+      "title": "国民健康保険料と納付について／多気町",
+      "url": "https://www.town.taki.mie.jp/life/soshiki/chominkankyo/iryo_kenko/2/654.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で多気町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で多気町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=101円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険料と納付について／多気町（https://www.town.taki.mie.jp/life/soshiki/chominkankyo/iryo_kenko/2/654.html）の多気町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.48%／28,181円／18,453円・支援 2.85%／12,336円／8,078円・介護 2.45%／12,994円／6,362円・子ども 0.26%／1,091円＋18歳以上101円／727円 → 新値 医療 6.65%／23,800円／21,000円・支援 2.3%／8,500円／7,200円・介護 1.95%／9,500円／5,800円・子ども 0.26%／1,091円＋18歳以上101円／727円。町のページ（保険料・2026-07-01 更新）。子ども分は均等割1,091円と18歳以上均等割101円を別行で示す（加算）。"
   },
   "childcareLevy": {
     "rate": 0.0026,
