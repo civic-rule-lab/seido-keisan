@@ -26,7 +26,9 @@ function calculateKokuho(input, data) {
   // 資産割
   const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
   const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
-  const assetLevyCare    = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
+  // 介護分は介護納付金課税被保険者（40〜64歳）がいる世帯だけに課す（所得割・均等割・平等割と同じ条件）。
+  // 旧実装は care=0 の世帯にも介護分資産割を課していた（2026-10-01 修正）。
+  const assetLevyCare    = data.assetLevy && careSafe > 0 ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
   const assetLevyChildcare = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.childcare || 0)) : 0;
 
   const baseIncome = Math.max(incomeSafe - data.basicDeduction, 0);
