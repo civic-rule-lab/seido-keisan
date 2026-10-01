@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.049,
-    "support": 0.0277,
-    "care": 0.0238
+    "medical": 0.068,
+    "support": 0.023,
+    "care": 0.017
+  },
+  "assetLevy": {
+    "medical": 0.16,
+    "support": 0.04,
+    "care": 0.086
   },
   "perCapita": {
-    "medical": 21652,
-    "support": 12171,
-    "care": 12179
+    "medical": 22000,
+    "support": 8000,
+    "care": 7000
   },
   "household": {
-    "medical": 13899,
-    "support": 7813,
-    "care": 6010
+    "medical": 24000,
+    "support": 7000,
+    "care": 8000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +62,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.331Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.town.ichinohe.iwate.jp/soshikikarasagasu/zeimukaikeika/zeimukakari/3/673.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
+      "type": "official",
+      "title": "国民健康保険／一戸町",
+      "url": "https://www.town.ichinohe.iwate.jp/soshikikarasagasu/zeimukaikeika/zeimukakari/3/673.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で一戸町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=47円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で一戸町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=47円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険／一戸町（https://www.town.ichinohe.iwate.jp/soshikikarasagasu/zeimukaikeika/zeimukakari/3/673.html）の一戸町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 4.9%／21,652円／13,899円・支援 2.77%／12,171円／7,813円・介護 2.38%／12,179円／6,010円・子ども 0.27%／1,280円＋18歳以上47円／811円 → 新値 医療 6.8%／22,000円／24,000円・支援 2.3%／8,000円／7,000円・介護 1.7%／7,000円／8,000円・子ども 0.31%／1,109円＋18歳以上39円／676円。町のページ「国民健康保険税税率表（令和8年度）」（2026-07-31 更新）。資産割 医療16.00%・後期4.00%・介護8.60%（子ども分0%）。子ども分は均等割1,109円＋18歳以上39円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1280,
-    "perCapitaAdult": 47,
+    "rate": 0.0031,
+    "perCapita": 1109,
+    "perCapitaAdult": 39,
     "perCapitaAdultScope": "all_ages",
-    "household": 811,
+    "household": 676,
     "cap": 30000
   }
 }

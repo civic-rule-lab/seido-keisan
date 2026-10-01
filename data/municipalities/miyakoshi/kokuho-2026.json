@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.05,
-    "support": 0.0274,
-    "care": 0.0237
+    "medical": 0.071,
+    "support": 0.022,
+    "care": 0.021
   },
   "perCapita": {
-    "medical": 22109,
-    "support": 12070,
-    "care": 12139
+    "medical": 21100,
+    "support": 7000,
+    "care": 7500
   },
   "household": {
-    "medical": 14192,
-    "support": 7748,
-    "care": 5990
+    "medical": 21000,
+    "support": 6000,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.312Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.city.miyako.iwate.jp/gyosei/soshiki/zeimu/2/5/310.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
+      "type": "official",
+      "title": "国民健康保険税の概要・税額について／岩手県宮古市 ホームページ Miyako City",
+      "url": "https://www.city.miyako.iwate.jp/gyosei/soshiki/zeimu/2/5/310.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宮古市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で宮古市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険税の概要・税額について／岩手県宮古市 ホームページ Miyako City（https://www.city.miyako.iwate.jp/gyosei/soshiki/zeimu/2/5/310.html）の宮古市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 5%／22,109円／14,192円・支援 2.74%／12,070円／7,748円・介護 2.37%／12,139円／5,990円・子ども 0.26%／1,225円＋18歳以上70円／794円 → 新値 医療 7.1%／21,100円／21,000円・支援 2.2%／7,000円／6,000円・介護 2.1%／7,500円／6,000円・子ども 0.26%／750円＋18歳以上50円／700円。市のページ（令和8年度・2026-05-22 更新）。資産割は令和8年度から廃止。子ども分は均等割750円＋18歳以上50円（加算）。"
   },
   "childcareLevy": {
     "rate": 0.0026,
-    "perCapita": 1225,
-    "perCapitaAdult": 70,
+    "perCapita": 750,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 794,
+    "household": 700,
     "cap": 30000
   }
 }

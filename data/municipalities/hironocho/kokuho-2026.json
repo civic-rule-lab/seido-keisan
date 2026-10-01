@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0249,
-    "support": 0.0268,
-    "care": 0.0244
+    "medical": 0.051,
+    "support": 0.027,
+    "care": 0.012
+  },
+  "assetLevy": {
+    "medical": 0.21,
+    "support": 0.09,
+    "care": 0.06
   },
   "perCapita": {
-    "medical": 11013,
-    "support": 11790,
-    "care": 12463
+    "medical": 17400,
+    "support": 7800,
+    "care": 6000
   },
   "household": {
-    "medical": 7070,
-    "support": 7569,
-    "care": 6150
+    "medical": 21000,
+    "support": 9000,
+    "care": 4800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +62,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.330Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.town.hirono.iwate.jp/doc/2026091700023"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
+      "type": "official",
+      "title": "国民健康保険税 | 岩手県洋野町",
+      "url": "https://www.town.hirono.iwate.jp/doc/2026091700023",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で洋野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=64円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で洋野町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=64円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険税 | 岩手県洋野町（https://www.town.hirono.iwate.jp/doc/2026091700023）の洋野町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 2.49%／11,013円／7,070円・支援 2.68%／11,790円／7,569円・介護 2.44%／12,463円／6,150円・子ども 0.27%／1,270円＋18歳以上64円／815円 → 新値 医療 5.1%／17,400円／21,000円・支援 2.7%／7,800円／9,000円・介護 1.2%／6,000円／4,800円・子ども 0.26%／1,020円＋18歳以上60円／660円。町のページ（令和８年度・2026-09-18 公開）。洋野町国民健康保険税条例（内容現在 令和8年6月25日・令和8年3月31日条例第9号の附則で令和8年度以後の年度分に適用）とも一致（調査記録）。資産割 医療21.0%・後期9.0%・介護6.0%（子ども分0%）。子ども分は均等割1,020円＋18歳以上60円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1270,
-    "perCapitaAdult": 64,
+    "rate": 0.0026,
+    "perCapita": 1020,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 815,
+    "household": 660,
     "cap": 30000
   }
 }

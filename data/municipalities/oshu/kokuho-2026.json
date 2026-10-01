@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0611,
-    "support": 0.0278,
-    "care": 0.0243
+    "medical": 0.065,
+    "support": 0.025,
+    "care": 0.0178
   },
   "perCapita": {
-    "medical": 26989,
-    "support": 12220,
-    "care": 12426
+    "medical": 19800,
+    "support": 7800,
+    "care": 6600
   },
   "household": {
-    "medical": 17325,
-    "support": 7844,
-    "care": 6132
+    "medical": 19800,
+    "support": 7800,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.320Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.city.oshu.iwate.jp/soshiki/3/1010/3/4051.html",
+        "https://www.city.oshu.iwate.jp/section/reiki_int/reiki_honbun/r204RG00000314.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
+      "type": "official",
+      "title": "国民健康保険税・税額の計算方法／奥州市公式ホームページ",
+      "url": "https://www.city.oshu.iwate.jp/soshiki/3/1010/3/4051.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で奥州市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=68円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で奥州市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=68円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険税・税額の計算方法／奥州市公式ホームページ（https://www.city.oshu.iwate.jp/soshiki/3/1010/3/4051.html）の奥州市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.11%／26,989円／17,325円・支援 2.78%／12,220円／7,844円・介護 2.43%／12,426円／6,132円・子ども 0.27%／1,278円＋18歳以上68円／822円 → 新値 医療 6.5%／19,800円／19,800円・支援 2.5%／7,800円／7,800円・介護 1.78%／6,600円／6,000円・子ども 0.21%／1,200円＋18歳以上60円／600円。市のページの令和8年度税率（画像）と奥州市国民健康保険税条例（内容現在 令和8年7月31日・令和8年3月27日条例第8号の附則で令和8年度以後の年度分に適用）が全項目一致（条例本文で機械照合）。子ども分は均等割1,200円＋18歳以上60円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1278,
-    "perCapitaAdult": 68,
+    "rate": 0.0021,
+    "perCapita": 1200,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
-    "household": 822,
+    "household": 600,
     "cap": 30000
   }
 }

@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0126,
-    "support": 0.0278,
-    "care": 0.0239
+    "medical": 0.053,
+    "support": 0.02,
+    "care": 0.0195
+  },
+  "assetLevy": {
+    "medical": 0.39,
+    "support": 0.148,
+    "care": 0.17
   },
   "perCapita": {
-    "medical": 5590,
-    "support": 12240,
-    "care": 12250
+    "medical": 18300,
+    "support": 7000,
+    "care": 9600
   },
   "household": {
-    "medical": 3589,
-    "support": 7858,
-    "care": 6045
+    "medical": 17000,
+    "support": 6200,
+    "care": 5700
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +62,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.327Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.vill.tanohata.iwate.jp/bunya/zeikin/"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/vill.tanohata.iwate/reiki_honbun/c148RG00000251.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
+      "type": "official",
+      "title": "税金 | 田野畑村",
+      "url": "https://www.vill.tanohata.iwate.jp/bunya/zeikin/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で田野畑村の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=92円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で田野畑村の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=92円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-01: 田野畑村の国民健康保険税を定める条例（https://www1.g-reiki.net/vill.tanohata.iwate/reiki_honbun/c148RG00000251.html）で令和8年度の実税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 1.26%／5,590円／3,589円・支援 2.78%／12,240円／7,858円・介護 2.39%／12,250円／6,045円・子ども 0.27%／1,240円＋18歳以上92円／816円 → 新値 医療 5.3%／18,300円／17,000円・支援 2%／7,000円／6,200円・介護 1.95%／9,600円／5,700円・子ども 0.3%／1,400円＋18歳以上100円／1,000円。村サイトに国保税の税率ページが無いため、田野畑村村税条例（g-reiki・内容現在 令和8年8月1日・令和8年3月16日条例第1号＝令和8年4月1日施行。附則に適用区分の文言は無いが賦課期日は4月1日）を一次資料とした。出典には村の税金の案内ページを掲げる。資産割 医療39%・後期14.8%・介護17%。子ども分は均等割1,400円＋18歳以上100円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1240,
-    "perCapitaAdult": 92,
+    "rate": 0.003,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 816,
+    "household": 1000,
     "cap": 30000
   }
 }

@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0377,
-    "support": 0.0276,
-    "care": 0.0235
+    "medical": 0.0659,
+    "support": 0.024,
+    "care": 0.028
+  },
+  "assetLevy": {
+    "medical": 0.3,
+    "support": 0,
+    "care": 0
   },
   "perCapita": {
-    "medical": 16639,
-    "support": 12153,
-    "care": 12047
+    "medical": 21760,
+    "support": 7200,
+    "care": 13500
   },
   "household": {
-    "medical": 10681,
-    "support": 7802,
-    "care": 5945
+    "medical": 16300,
+    "support": 4500,
+    "care": 0
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +62,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.327Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.town.iwaizumi.lg.jp/docs/2022061600034/"
+      ],
+      "ordinanceUrls": [
+        "http://www.town.iwaizumi.lg.jp/reiki_int/reiki_honbun/c147RG00000234.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
+      "type": "official",
+      "title": "国民健康保険税（国保税）について | 岩泉町",
+      "url": "https://www.town.iwaizumi.lg.jp/docs/2022061600034/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で岩泉町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=41円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で岩泉町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=41円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-01: 国民健康保険税（国保税）について | 岩泉町（https://www.town.iwaizumi.lg.jp/docs/2022061600034/）の岩泉町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 3.77%／16,639円／10,681円・支援 2.76%／12,153円／7,802円・介護 2.35%／12,047円／5,945円・子ども 0.26%／1,265円＋18歳以上41円／797円 → 新値 医療 6.59%／21,760円／16,300円・支援 2.4%／7,200円／4,500円・介護 2.8%／13,500円／平等割なし・子ども 0.31%／1,000円＋18歳以上40円／700円。町のページ「令和８年度の税額」と岩泉町町税条例（内容現在 令和8年7月31日・令和8年3月12日条例第3号の附則で令和8年度以後の年度分に適用）が全項目一致。資産割は医療分30.00%のみ。介護分に平等割は無い。子ども分は均等割1,000円＋18歳以上40円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1265,
-    "perCapitaAdult": 41,
+    "rate": 0.0031,
+    "perCapita": 1000,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 797,
+    "household": 700,
     "cap": 30000
   }
 }
