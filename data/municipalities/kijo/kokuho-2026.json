@@ -7,19 +7,19 @@
   "note": "4方式。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0765,
-    "support": 0.0274,
-    "care": 0.0231
+    "medical": 0.0877,
+    "support": 0.0326,
+    "care": 0.0222
   },
   "perCapita": {
-    "medical": 33755,
-    "support": 12075,
-    "care": 11977
+    "medical": 25500,
+    "support": 9000,
+    "care": 10300
   },
   "household": {
-    "medical": 22115,
-    "support": 7911,
-    "care": 6092
+    "medical": 21400,
+    "support": 7500,
+    "care": 4700
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0078,
-    "perCapita": 1183,
-    "perCapitaAdult": 136,
+    "rate": 0.0031,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 801
+    "household": 708,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.2,
-    "support": 0.06,
-    "care": 0.07
+    "medical": 0.1,
+    "support": 0.03,
+    "care": 0.03
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.384Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.kijo.lg.jp/sosikikarasagasu/zeimuka/2/2/800.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税とは／木城町",
+      "url": "https://www.town.kijo.lg.jp/sosikikarasagasu/zeimuka/2/2/800.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。木城町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。木城町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税とは／木城町（https://www.town.kijo.lg.jp/sosikikarasagasu/zeimuka/2/2/800.html）の木城町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.65%／33,755円／22,115円・支援 2.74%／12,075円／7,911円・介護 2.31%／11,977円／6,092円・子ども 0.78%／1,183円＋18歳以上136円／801円 → 新値 医療 8.77%／25,500円／21,400円・支援 3.26%／9,000円／7,500円・介護 2.22%／10,300円／4,700円・子ども 0.31%／1,000円＋18歳以上100円／708円。町のページ（令和8年度・2026-07-13 更新）。資産割 医療10.00%・後期3.00%・介護3.00%。子ども分は均等割1,000円と18歳以上100円を別の行で示す（加算）。例規集（内容現在 令和8年3月27日）は令和7年版で照合できない。"
   }
 }

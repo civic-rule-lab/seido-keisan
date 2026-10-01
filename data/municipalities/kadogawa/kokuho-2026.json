@@ -7,19 +7,19 @@
   "note": "資産割なし。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0767,
-    "support": 0.0274,
-    "care": 0.0241
+    "medical": 0.093,
+    "support": 0.031,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 33850,
-    "support": 12057,
-    "care": 12508
+    "medical": 28000,
+    "support": 8800,
+    "care": 10000
   },
   "household": {
-    "medical": 22177,
-    "support": 7899,
-    "care": 6362
+    "medical": 20000,
+    "support": 6400,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0081,
-    "perCapita": 1284,
-    "perCapitaAdult": 95,
+    "rate": 0.004,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 830
+    "household": 800,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.393Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.kadogawa.lg.jp/live/insurance/page005594.html",
+        "https://www.town.kadogawa.lg.jp/reiki_int/reiki_honbun/q633RG00000242.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税の「子ども・子育て支援金分（子ども分）」の令和８年度税率について | 門川町",
+      "url": "https://www.town.kadogawa.lg.jp/live/insurance/page005594.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。門川町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。門川町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税の「子ども・子育て支援金分（子ども分）」の令和８年度税率について | 門川町（https://www.town.kadogawa.lg.jp/live/insurance/page005594.html）の門川町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.67%／33,850円／22,177円・支援 2.74%／12,057円／7,899円・介護 2.41%／12,508円／6,362円・子ども 0.81%／1,284円＋18歳以上95円／830円 → 新値 医療 9.3%／28,000円／20,000円・支援 3.1%／8,800円／6,400円・介護 2.4%／10,000円／5,000円・子ども 0.4%／1,300円＋18歳以上100円／800円。子ども分は町のページ（0.4%・1,300円・18歳以上の被保険者に加算100円・800円・30,000円）。同ページに「医療分・後期高齢者支援金分・介護納付金分の税率等は、令和７年度と変更ありません」とあり、医療・支援・介護は門川町国民健康保険税条例（例規集・令和8年3月31日条例第9号の附則で令和8年度以後の年度分に適用）の値。3方式（資産割の条は削除）。条例の子ども分の条は金額が空欄のため子ども分の値はページに拠る。"
   }
 }

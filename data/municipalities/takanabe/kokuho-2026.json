@@ -7,19 +7,19 @@
   "note": "資産割なし。介護分は平等割なし（2方式）。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0848,
-    "support": 0.0266,
-    "care": 0.0247
+    "medical": 0.08,
+    "support": 0.045,
+    "care": 0.028
   },
   "perCapita": {
-    "medical": 37420,
-    "support": 11715,
-    "care": 12799
+    "medical": 14000,
+    "support": 10000,
+    "care": 14000
   },
   "household": {
-    "medical": 24516,
-    "support": 7675,
-    "care": 6510
+    "medical": 19000,
+    "support": 10000,
+    "care": 0
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.008,
-    "perCapita": 1220,
-    "perCapitaAdult": 140,
+    "rate": 0.004,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 814
+    "household": 600,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.365Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.takanabe.lg.jp/soshiki/zeimu/1/1/286.html",
+        "http://www.town.takanabe.lg.jp/section/reiki_int/reiki_honbun/q627RG00000169.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税について／高鍋町",
+      "url": "https://www.town.takanabe.lg.jp/soshiki/zeimu/1/1/286.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。高鍋町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。高鍋町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税について／高鍋町（https://www.town.takanabe.lg.jp/soshiki/zeimu/1/1/286.html）の高鍋町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.48%／37,420円／24,516円・支援 2.66%／11,715円／7,675円・介護 2.47%／12,799円／6,510円・子ども 0.8%／1,220円＋18歳以上140円／814円 → 新値 医療 8%／14,000円／19,000円・支援 4.5%／10,000円／10,000円・介護 2.8%／14,000円／平等割なし・子ども 0.4%／1,000円＋18歳以上100円／600円。高鍋町国民健康保険税条例（例規集・令和8年3月31日条例第7号・6月16日条例第9号の附則で令和8年度以後の年度分に適用）で確認。町のページ（表示の更新日は2025-06-24）の値も一致し、子ども分均等割はページ上 1,100円（条例の均等割1,000円＋18歳以上100円の合計とみられる）。介護分に平等割は無い。資産割なし。"
   }
 }

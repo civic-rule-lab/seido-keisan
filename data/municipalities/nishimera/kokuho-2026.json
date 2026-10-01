@@ -7,19 +7,19 @@
   "note": "4方式。内訳は宮崎県集計合算値からの推計（R6から大幅変更）。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.1232,
-    "support": 0.0287,
-    "care": 0.0243
+    "medical": 0.0842,
+    "support": 0.0195,
+    "care": 0.0222
   },
   "perCapita": {
-    "medical": 54383,
-    "support": 12635,
-    "care": 12610
+    "medical": 28400,
+    "support": 6800,
+    "care": 8700
   },
   "household": {
-    "medical": 35629,
-    "support": 8278,
-    "care": 6413
+    "medical": 22000,
+    "support": 5400,
+    "care": 6400
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.008,
-    "perCapita": 1219,
-    "perCapitaAdult": 144,
+    "rate": 0.0026,
+    "perCapita": 980,
+    "perCapitaAdult": 125,
     "perCapitaAdultScope": "all_ages",
-    "household": 817
+    "household": 740,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.0816,
-    "support": 0.0245,
-    "care": 0.0299
+    "medical": 0.05,
+    "support": 0.0075,
+    "care": 0.0105
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.382Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.vill.nishimera.lg.jp/village/a-00-villagelife/10000979"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税について – 西米良村",
+      "url": "https://www.vill.nishimera.lg.jp/village/a-00-villagelife/10000979",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。西米良村が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。西米良村が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税について – 西米良村（https://www.vill.nishimera.lg.jp/village/a-00-villagelife/10000979）の西米良村の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 12.32%／54,383円／35,629円・支援 2.87%／12,635円／8,278円・介護 2.43%／12,610円／6,413円・子ども 0.8%／1,219円＋18歳以上144円／817円 → 新値 医療 8.42%／28,400円／22,000円・支援 1.95%／6,800円／5,400円・介護 2.22%／8,700円／6,400円・子ども 0.26%／980円＋18歳以上125円／740円。村のページの税率表。表そのものに年度の記載は無いが、令和8年度に新設の子ども・子育て支援金分と令和8年度の限度額67万円を含み（WordPress の更新日 2026-07-02）、令和8年度の表と判断した。例規集は全国自治体例規集リンク集に掲載が無く、条例では照合できない。資産割 医療5.00%・後期0.75%・介護1.05%（子ども分0%）。子ども分は「18歳以上の方は均等割額に125円が加算」。"
   }
 }

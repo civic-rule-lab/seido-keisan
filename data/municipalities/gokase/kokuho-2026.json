@@ -7,19 +7,19 @@
   "note": "4方式（医療分のみ資産割）。後期分・介護分の資産割は0。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.064,
-    "support": 0.0265,
-    "care": 0.0234
+    "medical": 0.083,
+    "support": 0.035,
+    "care": 0.03
   },
   "perCapita": {
-    "medical": 28267,
-    "support": 11669,
-    "care": 12140
+    "medical": 26000,
+    "support": 10000,
+    "care": 9500
   },
   "household": {
-    "medical": 18519,
-    "support": 7645,
-    "care": 6174
+    "medical": 20000,
+    "support": 8000,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
-    "perCapita": 1271,
-    "perCapitaAdult": 73,
+    "rate": 0.0031,
+    "perCapita": 1000,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 804
-  },
-  "assetLevy": {
-    "medical": 0.13,
-    "support": 0,
-    "care": 0
+    "household": 700,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +66,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.398Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.gokase.miyazaki.jp/kakuka/choumin/kokuho/1009.html"
+      ],
+      "ordinanceUrls": [
+        "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A91AC9A3F&houcd=H337901010006"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税／五ヶ瀬町",
+      "url": "https://www.town.gokase.miyazaki.jp/kakuka/choumin/kokuho/1009.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。五ヶ瀬町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。五ヶ瀬町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税／五ヶ瀬町（https://www.town.gokase.miyazaki.jp/kakuka/choumin/kokuho/1009.html）の五ヶ瀬町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.4%／28,267円／18,519円・支援 2.65%／11,669円／7,645円・介護 2.34%／12,140円／6,174円・子ども 0.79%／1,271円＋18歳以上73円／804円 → 新値 医療 8.3%／26,000円／20,000円・支援 3.5%／10,000円／8,000円・介護 3%／9,500円／6,500円・子ども 0.31%／1,000円＋18歳以上50円／700円。町のページ（令和8年度・2026-06-01 更新）と五ヶ瀬町国民健康保険税条例（d1-law・最終改正 令和8年6月12日条例第8号）が一致。ページ・条例とも「資産割」の語が0件で、既存データの資産割（医療13%・令和7年度以前の値）を削除した（3方式）。子ども分は「1人当たり年額50円が上乗せ」（加算）。"
   }
 }

@@ -7,19 +7,19 @@
   "note": "4方式。宮崎県集計合算値と内訳の合計が一致（R7確認済み）。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0807,
-    "support": 0.0274,
-    "care": 0.0238
+    "medical": 0.085,
+    "support": 0.035,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 35636,
-    "support": 12044,
-    "care": 12343
+    "medical": 24100,
+    "support": 9400,
+    "care": 8750
   },
   "household": {
-    "medical": 23347,
-    "support": 7891,
-    "care": 6278
+    "medical": 18600,
+    "support": 7350,
+    "care": 4770
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0082,
-    "perCapita": 1264,
-    "perCapitaAdult": 126,
+    "rate": 0.004,
+    "perCapita": 1400,
+    "perCapitaAdult": 152,
     "perCapitaAdultScope": "all_ages",
-    "household": 837
+    "household": 700,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.245,
-    "support": 0.085,
-    "care": 0.075
+    "medical": 0.1635,
+    "support": 0.055,
+    "care": 0.05
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.362Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.mimata.lg.jp/contents/2564.html"
+      ],
+      "ordinanceUrls": [
+        "https://public1.legalcrud.com/mimata_town/reiki/act/110000493.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "令和８年度　国民健康保険税の試算について - 三股町公式ホームページ",
+      "url": "https://www.town.mimata.lg.jp/contents/2564.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。三股町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。三股町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 令和８年度　国民健康保険税の試算について - 三股町公式ホームページ（https://www.town.mimata.lg.jp/contents/2564.html）の三股町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.07%／35,636円／23,347円・支援 2.74%／12,044円／7,891円・介護 2.38%／12,343円／6,278円・子ども 0.82%／1,264円＋18歳以上126円／837円 → 新値 医療 8.5%／24,100円／18,600円・支援 3.5%／9,400円／7,350円・介護 2.4%／8,750円／4,770円・子ども 0.4%／1,400円＋18歳以上152円／700円。三股町国民健康保険税条例（例規集・2026-10-01 内容現在・令和8年3月23日条例第8号の附則で令和8年度以後の年度分に適用）で確認。町の「令和８年度 国民健康保険税の試算」ページ（出典に掲げる・2026-07-09 更新）の試算 Excel の率とも一致するが、18歳以上均等割152円は条例にのみある。資産割 医療16.35%・後期5.50%・介護5.00%。"
   }
 }

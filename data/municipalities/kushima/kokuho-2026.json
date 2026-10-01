@@ -7,19 +7,19 @@
   "note": "4方式。R6から資産割が40.90%→26.80%に変更。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0635,
-    "support": 0.0281,
-    "care": 0.0236
+    "medical": 0.09,
+    "support": 0.022,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 28023,
-    "support": 12381,
-    "care": 12227
+    "medical": 26700,
+    "support": 6300,
+    "care": 8800
   },
   "household": {
-    "medical": 18359,
-    "support": 8112,
-    "care": 6219
+    "medical": 25000,
+    "support": 6000,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.008,
-    "perCapita": 1223,
-    "perCapitaAdult": 127,
+    "rate": 0.0033,
+    "perCapita": 1020,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 815
+    "household": 720,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.1608,
-    "support": 0.0482,
-    "care": 0.059
+    "medical": 0.128,
+    "support": 0,
+    "care": 0
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.359Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.city.kushima.lg.jp/main/city/tax/cat8-5/post-351.html"
+      ],
+      "ordinanceUrls": [
+        "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A91AC49D1&houcd=H339901010030"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "くらし - 宮崎県串間市",
+      "url": "https://www.city.kushima.lg.jp/main/city/tax/cat8-5/post-351.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。串間市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。串間市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: くらし - 宮崎県串間市（https://www.city.kushima.lg.jp/main/city/tax/cat8-5/post-351.html）の串間市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.35%／28,023円／18,359円・支援 2.81%／12,381円／8,112円・介護 2.36%／12,227円／6,219円・子ども 0.8%／1,223円＋18歳以上127円／815円 → 新値 医療 9%／26,700円／25,000円・支援 2.2%／6,300円／6,000円・介護 2.5%／8,800円／6,100円・子ども 0.33%／1,020円＋18歳以上100円／720円。市のページに「令和８年度の税率（額）及び賦課限度額」の表があり、串間市国民健康保険税条例（d1-law・最終改正 令和8年6月18日条例第23号）の本文とも一致。資産割は医療分12.80%のみ（後期・介護は0.00%）。子ども分は均等割1,020円と18歳以上均等割100円を別の列で示す（加算）。"
   }
 }

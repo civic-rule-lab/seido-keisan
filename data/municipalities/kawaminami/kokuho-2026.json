@@ -7,19 +7,19 @@
   "note": "2方式（所得割+均等割のみ、平等割なし）。資産割なし。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.085,
-    "support": 0.0274,
-    "care": 0.024
+    "medical": 0.0821,
+    "support": 0.0281,
+    "care": 0.0222
   },
   "perCapita": {
-    "medical": 37535,
-    "support": 12049,
-    "care": 12462
+    "medical": 49000,
+    "support": 17000,
+    "care": 17900
   },
   "household": {
-    "medical": 24591,
-    "support": 7894,
-    "care": 6338
+    "medical": 0,
+    "support": 0,
+    "care": 0
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
-    "perCapita": 1192,
-    "perCapitaAdult": 140,
+    "rate": 0.0027,
+    "perCapita": 1613,
+    "perCapitaAdult": 202,
     "perCapitaAdultScope": "all_ages",
-    "household": 807
+    "household": 0,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.384Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.kawaminami.miyazaki.jp/soshiki/3/16589.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/kawaminami/d1w_reiki/H334901010006/H334901010006_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税の税率について（令和8年度） - 川南町",
+      "url": "https://www.town.kawaminami.miyazaki.jp/soshiki/3/16589.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。川南町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。川南町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税の税率について（令和8年度） - 川南町（https://www.town.kawaminami.miyazaki.jp/soshiki/3/16589.html）の川南町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.5%／37,535円／24,591円・支援 2.74%／12,049円／7,894円・介護 2.4%／12,462円／6,338円・子ども 0.79%／1,192円＋18歳以上140円／807円 → 新値 医療 8.21%／49,000円／平等割なし・支援 2.81%／17,000円／平等割なし・介護 2.22%／17,900円／平等割なし・子ども 0.27%／1,613円＋18歳以上202円／0円。町のページと川南町国民健康保険税条例（d1-law・令和8年3月31日条例第10号・6月18日条例第14号の附則で令和8年度以後の年度分に適用）が一致。2方式（所得割・均等割のみ。平等割・資産割なし）。子ども分は均等割1,613円＋18歳以上202円（加算）。"
   }
 }

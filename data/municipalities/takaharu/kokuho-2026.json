@@ -7,19 +7,19 @@
   "note": "資産割なし。R7から所得割を大幅引き上げ（R6 14.01%→R7 16.01%）。均等割・平等割はR7確認済み、所得割はR6比率で按分推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0751,
-    "support": 0.0267,
-    "care": 0.0236
+    "medical": 0.0985,
+    "support": 0.0389,
+    "care": 0.0227
   },
   "perCapita": {
-    "medical": 33137,
-    "support": 11771,
-    "care": 12250
+    "medical": 30977,
+    "support": 11251,
+    "care": 11073
   },
   "household": {
-    "medical": 21710,
-    "support": 7712,
-    "care": 6230
+    "medical": 22395,
+    "support": 8134,
+    "care": 5661
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
+    "rate": 0.005,
     "perCapita": 1274,
     "perCapitaAdult": 79,
     "perCapitaAdultScope": "all_ages",
-    "household": 811
+    "household": 811,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.362Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.takaharu.lg.jp/soshiki/20230402/305290.html",
+        "https://www.town.takaharu.lg.jp/reikisyu/reiki_int/reiki_honbun/q621RG00000287.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税（国保税）について - 高原町ホームページ",
+      "url": "https://www.town.takaharu.lg.jp/soshiki/20230402/305290.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。高原町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。高原町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税（国保税）について - 高原町ホームページ（https://www.town.takaharu.lg.jp/soshiki/20230402/305290.html）の高原町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.51%／33,137円／21,710円・支援 2.67%／11,771円／7,712円・介護 2.36%／12,250円／6,230円・子ども 0.79%／1,274円＋18歳以上79円／811円 → 新値 医療 9.85%／30,977円／22,395円・支援 3.89%／11,251円／8,134円・介護 2.27%／11,073円／5,661円・子ども 0.5%／1,274円＋18歳以上79円／811円。町のページ（令和８年度の税率等・2026-07-01 更新）と高原町国民健康保険税条例（令和8年3月31日条例第11号・6月17日条例第12号の附則で令和8年度以後の年度分に適用）が一致。3方式。子ども分の79円はページの行名が「18歳以下均等割額」だが説明は「18歳以下被保険者均等割減額に係る18歳以上被保険者の支援金上乗せ分」で、18歳以上被保険者均等割（加算）として扱う。"
   }
 }

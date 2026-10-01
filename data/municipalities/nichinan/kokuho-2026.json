@@ -7,19 +7,19 @@
   "note": "4方式。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0748,
-    "support": 0.0279,
-    "care": 0.0235
+    "medical": 0.0995,
+    "support": 0.025,
+    "care": 0.028
   },
   "perCapita": {
-    "medical": 33035,
-    "support": 12261,
-    "care": 12209
+    "medical": 27800,
+    "support": 6800,
+    "care": 9200
   },
   "household": {
-    "medical": 21643,
-    "support": 8033,
-    "care": 6210
+    "medical": 21800,
+    "support": 5000,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.008,
-    "perCapita": 1281,
-    "perCapitaAdult": 84,
+    "rate": 0.0034,
+    "perCapita": 1058,
+    "perCapitaAdult": 66,
     "perCapitaAdultScope": "all_ages",
-    "household": 817
+    "household": 673,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.2124,
-    "support": 0.0637,
-    "care": 0.0779
+    "medical": 0.184,
+    "support": 0.0448,
+    "care": 0.0544
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.339Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.city.nichinan.lg.jp/soshikikarasagasu/shiminka/3/1045.html"
+      ],
+      "ordinanceUrls": [
+        "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A91AC49CE&houcd=H421901010261"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税について／日南市ホームページ",
+      "url": "https://www.city.nichinan.lg.jp/soshikikarasagasu/shiminka/3/1045.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。日南市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。日南市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税について／日南市ホームページ（https://www.city.nichinan.lg.jp/soshikikarasagasu/shiminka/3/1045.html）の日南市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.48%／33,035円／21,643円・支援 2.79%／12,261円／8,033円・介護 2.35%／12,209円／6,210円・子ども 0.8%／1,281円＋18歳以上84円／817円 → 新値 医療 9.95%／27,800円／21,800円・支援 2.5%／6,800円／5,000円・介護 2.8%／9,200円／5,000円・子ども 0.34%／1,058円＋18歳以上66円／673円。市の国保税ページ（出典に掲げる）には料率の数値が無いため、日南市国民健康保険税条例（d1-law 例規集・最終改正 令和8年3月31日条例第31号）の本文を一次資料とした。d1-law の閲覧画面は現行本文のみで改正附則の本文は取得できなかったが、本文に子ども・子育て支援納付金課税額の規定と限度額67万円があり令和8年度改正後の条文である。資産割 医療100分の18.40・後期4.48・介護5.44。子ども分は被保険者均等割1,058円と18歳以上被保険者均等割66円を別の号で定める（加算）。"
   }
 }

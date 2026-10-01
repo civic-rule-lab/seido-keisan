@@ -7,19 +7,19 @@
   "note": "R7より資産割廃止。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0767,
-    "support": 0.0272,
-    "care": 0.0228
+    "medical": 0.08,
+    "support": 0.0329,
+    "care": 0.0219
   },
   "perCapita": {
-    "medical": 33859,
-    "support": 11957,
-    "care": 11850
+    "medical": 27300,
+    "support": 11100,
+    "care": 11900
   },
   "household": {
-    "medical": 22183,
-    "support": 7834,
-    "care": 6027
+    "medical": 19800,
+    "support": 8000,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0081,
-    "perCapita": 1202,
-    "perCapitaAdult": 143,
+    "rate": 0.0031,
+    "perCapita": 1000,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 823
+    "household": 700,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.364Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.aya.miyazaki.jp/soshiki/tyouminka/3006.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税 - 綾町ホームページ",
+      "url": "https://www.town.aya.miyazaki.jp/soshiki/tyouminka/3006.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。綾町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。綾町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税 - 綾町ホームページ（https://www.town.aya.miyazaki.jp/soshiki/tyouminka/3006.html）の綾町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.67%／33,859円／22,183円・支援 2.72%／11,957円／7,834円・介護 2.28%／11,850円／6,027円・子ども 0.81%／1,202円＋18歳以上143円／823円 → 新値 医療 8%／27,300円／19,800円・支援 3.29%／11,100円／8,000円・介護 2.19%／11,900円／6,200円・子ども 0.31%／1,000円＋18歳以上100円／700円。町のページ「令和8年度 国民健康保険税 税率」（2026-06-08 更新）。子ども分均等割はページ上 1,100円で「※子ども分均等割には18歳以上被保険者均等割100円を含みます」とあるため、均等割1,000円＋18歳以上100円に分けて持つ（18歳以上の負担1,100円・18歳未満は全額軽減）。例規集（内容現在 令和8年3月31日）は令和7年版で照合できない。"
   }
 }

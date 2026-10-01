@@ -7,19 +7,19 @@
   "note": "4方式。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0331,
-    "support": 0.026,
-    "care": 0.0232
+    "medical": 0.0854,
+    "support": 0.0472,
+    "care": 0.0349
   },
   "perCapita": {
-    "medical": 14590,
-    "support": 11461,
-    "care": 12014
+    "medical": 24600,
+    "support": 12200,
+    "care": 11300
   },
   "household": {
-    "medical": 9559,
-    "support": 7509,
-    "care": 6111
+    "medical": 19100,
+    "support": 9500,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
-    "perCapita": 1293,
-    "perCapitaAdult": 71,
+    "rate": 0.004,
+    "perCapita": 1000,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 810
+    "household": 700,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.2132,
-    "support": 0.064,
-    "care": 0.0782
+    "medical": 0.1689,
+    "support": 0.0927,
+    "care": 0.0938
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,38 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.394Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.vill.morotsuka.miyazaki.jp/kenko-fukushi/kokuminkenkohoken/1131.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税について／諸塚村公式ホームページ",
+      "url": "https://www.vill.morotsuka.miyazaki.jp/kenko-fukushi/kokuminkenkohoken/1131.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。諸塚村が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。諸塚村が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 国民健康保険税について／諸塚村公式ホームページ（https://www.vill.morotsuka.miyazaki.jp/kenko-fukushi/kokuminkenkohoken/1131.html）の諸塚村の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 3.31%／14,590円／9,559円・支援 2.6%／11,461円／7,509円・介護 2.32%／12,014円／6,111円・子ども 0.79%／1,293円＋18歳以上71円／810円 → 新値 医療 8.54%／24,600円／19,100円・支援 4.72%／12,200円／9,500円・介護 3.49%／11,300円／6,200円・子ども 0.4%／1,000円＋18歳以上50円／700円。村のページ「令和8年度の諸塚村における国民健康保険税の税率」（2026-06-29 更新）。資産割 医療16.89%・後期9.27%・介護9.38%（子ども分0）。「18歳以上は均等割に加え、18歳以上均等割が50円加算」。限度額は医療67万円・支援金26万円ほか。例規集は全国自治体例規集リンク集に掲載が無い。"
   }
 }
