@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0553,
-    "support": 0.0267,
-    "care": 0.0232
+    "medical": 0.066,
+    "support": 0.028,
+    "care": 0.023
   },
   "perCapita": {
-    "medical": 24074,
-    "support": 11556,
-    "care": 12319
+    "medical": 25800,
+    "support": 11400,
+    "care": 12200
   },
   "household": {
-    "medical": 15764,
-    "support": 7567,
-    "care": 6031
+    "medical": 18000,
+    "support": 7400,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.872Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.mie.lg.jp/common/content/001246287.pdf"
+        "https://www.town.taiki.mie.jp/soshiki/jumin/gyomu/iryo_kenko/kokuho/362.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/taiki/d1w_reiki/H417901010090/H417901010090_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 三重県 市町村標準保険料率",
-      "url": "https://www.pref.mie.lg.jp/common/content/001246287.pdf",
+      "type": "official",
+      "title": "国民健康保険について／大紀町ホームページ",
+      "url": "https://www.town.taiki.mie.jp/soshiki/jumin/gyomu/iryo_kenko/kokuho/362.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大紀町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=26円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大紀町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=26円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-01: 大紀町の国民健康保険税条例（https://en3-jg.d1-law.com/taiki/d1w_reiki/H417901010090/H417901010090_j.html）で令和8年度の実税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 5.53%／24,074円／15,764円・支援 2.67%／11,556円／7,567円・介護 2.32%／12,319円／6,031円・子ども 0.25%／1,138円＋18歳以上26円／710円 → 新値 医療 6.6%／25,800円／18,000円・支援 2.8%／11,400円／7,400円・介護 2.3%／12,200円／6,200円・子ども 0.3%／1,100円＋18歳以上30円／700円。町のページに令和8年度の税率が無いため、大紀町国民健康保険税条例（d1-law・内容現在 令和8年6月19日・令和8年3月5日条例第6号の附則で令和8年度以後の年度分に適用）を一次資料とした。出典には町の国民健康保険ページ（税率の記載なし）を掲げる。資産割なし。子ども分は均等割1,100円＋18歳以上30円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1138,
-    "perCapitaAdult": 26,
+    "rate": 0.003,
+    "perCapita": 1100,
+    "perCapitaAdult": 30,
     "perCapitaAdultScope": "all_ages",
-    "household": 710,
+    "household": 700,
     "cap": 30000
   }
 }

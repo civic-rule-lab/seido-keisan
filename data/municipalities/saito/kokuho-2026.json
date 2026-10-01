@@ -7,19 +7,19 @@
   "note": "資産割は平成30年度廃止済み。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0773,
-    "support": 0.0272,
-    "care": 0.0243
+    "medical": 0.085,
+    "support": 0.031,
+    "care": 0.0183
   },
   "perCapita": {
-    "medical": 34133,
-    "support": 11992,
-    "care": 12632
+    "medical": 26600,
+    "support": 9700,
+    "care": 9600
   },
   "household": {
-    "medical": 22363,
-    "support": 7857,
-    "care": 6425
+    "medical": 25500,
+    "support": 9600,
+    "care": 6600
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
-    "perCapita": 1226,
-    "perCapitaAdult": 119,
+    "rate": 0.0027,
+    "perCapita": 1278,
+    "perCapitaAdult": 126,
     "perCapitaAdultScope": "all_ages",
-    "household": 811
+    "household": 902,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.360Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.city.saito.lg.jp/kenko_kyoiku/kokuho/"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/saito/reiki_honbun/q609RG00000357.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "健康・教育・福祉国民健康保険 | 宮崎県西都市",
+      "url": "https://www.city.saito.lg.jp/kenko_kyoiku/kokuho/",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。西都市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。西都市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 西都市の国民健康保険税条例（https://www1.g-reiki.net/saito/reiki_honbun/q609RG00000357.html）で令和8年度の実税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.73%／34,133円／22,363円・支援 2.72%／11,992円／7,857円・介護 2.43%／12,632円／6,425円・子ども 0.79%／1,226円＋18歳以上119円／811円 → 新値 医療 8.5%／26,600円／25,500円・支援 3.1%／9,700円／9,600円・介護 1.83%／9,600円／6,600円・子ども 0.27%／1,278円＋18歳以上126円／902円。市の国保税ページは令和7年度の税率のままのため、西都市国民健康保険税条例（g-reiki・内容現在 令和8年9月1日・令和8年3月24日条例第4号・3月31日条例第13号の附則で令和8年度以後の年度分に適用）を一次資料とした。出典には税率を載せていない市の国保一覧ページを掲げる。資産割は条例上削除（3方式）。子ども分は均等割1,278円＋18歳以上被保険者均等割126円（加算）。"
   }
 }

@@ -7,19 +7,19 @@
   "note": "4方式。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0756,
-    "support": 0.0274,
-    "care": 0.0234
+    "medical": 0.0974,
+    "support": 0.0284,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 33376,
-    "support": 12047,
-    "care": 12159
+    "medical": 26800,
+    "support": 8200,
+    "care": 8800
   },
   "household": {
-    "medical": 21867,
-    "support": 7893,
-    "care": 6184
+    "medical": 22400,
+    "support": 6100,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.008,
-    "perCapita": 1278,
-    "perCapitaAdult": 93,
+    "rate": 0.0034,
+    "perCapita": 1038,
+    "perCapitaAdult": 71,
     "perCapitaAdultScope": "all_ages",
-    "household": 821
+    "household": 675,
+    "cap": 30000
   },
   "assetLevy": {
     "medical": 0.21,
@@ -70,39 +71,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.361Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.city.ebino.lg.jp/soshiki/kenkohoken/6/2/"
+      ],
+      "ordinanceUrls": [
+        "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A91AC49D3&houcd=H342901010019"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険／えびの市",
+      "url": "https://www.city.ebino.lg.jp/soshiki/kenkohoken/6/2/",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。えびの市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。えびの市が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: えびの市の国民健康保険税条例（https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A91AC49D3&houcd=H342901010019）で令和8年度の実税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.56%／33,376円／21,867円・支援 2.74%／12,047円／7,893円・介護 2.34%／12,159円／6,184円・子ども 0.8%／1,278円＋18歳以上93円／821円 → 新値 医療 9.74%／26,800円／22,400円・支援 2.84%／8,200円／6,100円・介護 2.5%／8,800円／6,100円・子ども 0.34%／1,038円＋18歳以上71円／675円。市の国保税ページは令和7年度の税率のままのため、えびの市国民健康保険税条例（d1-law・最終改正 令和8年3月31日条例第15号。附則本文は閲覧画面に無いが、本文に子ども・子育て支援納付金課税額の規定と限度額67万円がある）を一次資料とした。出典には税率を載せていない市の国保一覧ページを掲げる。資産割 医療21.00%・後期6.00%・介護7.57%（既存データと同値）。子ども分は均等割1,038円＋18歳以上71円（加算）。"
   }
 }

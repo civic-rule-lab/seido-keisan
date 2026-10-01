@@ -7,19 +7,19 @@
   "note": "資産割なし。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0779,
-    "support": 0.0278,
-    "care": 0.0245
+    "medical": 0.0942,
+    "support": 0.0292,
+    "care": 0.0179
   },
   "perCapita": {
-    "medical": 34391,
-    "support": 12221,
-    "care": 12699
+    "medical": 23000,
+    "support": 8000,
+    "care": 8100
   },
   "household": {
-    "medical": 22531,
-    "support": 8007,
-    "care": 6459
+    "medical": 21700,
+    "support": 7300,
+    "care": 5200
   },
   "caps": {
     "medical": 670000,
@@ -28,11 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
-    "perCapita": 1212,
-    "perCapitaAdult": 134,
+    "rate": 0.0038,
+    "perCapita": 1500,
+    "perCapitaAdult": 200,
     "perCapitaAdultScope": "all_ages",
-    "household": 810
+    "household": 1100,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -65,39 +66,41 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.367Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-01T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.shintomi.lg.jp/iryo_kenko_fukushi/kokuminkenkohoken/1807.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/shintomi/reiki_honbun/q628RG00000162.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-01",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険／新富町",
+      "url": "https://www.town.shintomi.lg.jp/iryo_kenko_fukushi/kokuminkenkohoken/1807.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-01",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。新富町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。新富町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-01: 新富町の国民健康保険税条例（https://www1.g-reiki.net/shintomi/reiki_honbun/q628RG00000162.html）で令和8年度の実税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.79%／34,391円／22,531円・支援 2.78%／12,221円／8,007円・介護 2.45%／12,699円／6,459円・子ども 0.79%／1,212円＋18歳以上134円／810円 → 新値 医療 9.42%／23,000円／21,700円・支援 2.92%／8,000円／7,300円・介護 1.79%／8,100円／5,200円・子ども 0.38%／1,500円＋18歳以上200円／1,100円。町のサイトに令和8年度の税率ページが無いため、新富町国民健康保険税条例（g-reiki・内容現在 令和8年6月12日・令和8年3月18日条例第4号・6月12日条例第9号＝令和8年4月1日から適用）を一次資料とした。出典には町の国民健康保険ページ（税率の記載なし）を掲げる。資産割なし。子ども分は均等割1,500円＋18歳以上200円（加算）。"
   }
 }
