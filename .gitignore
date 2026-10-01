@@ -11,3 +11,6 @@ cf.json
 .session/
 .DS_Store
 node_modules/
+
+# Claude Code の作業用 worktree（2026-10-01 混入事案 X169-57）
+.claude/
