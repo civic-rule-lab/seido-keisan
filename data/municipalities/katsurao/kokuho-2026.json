@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0105,
-    "support": 0.0265,
-    "care": 0.021
+    "medical": 0.1058,
+    "support": 0.0319,
+    "care": 0.0188
   },
   "perCapita": {
-    "medical": 4636,
-    "support": 11738,
-    "care": 10949
+    "medical": 37300,
+    "support": 12500,
+    "care": 11300
   },
   "household": {
-    "medical": 3030,
-    "support": 7672,
-    "care": 5400
+    "medical": 28500,
+    "support": 8500,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.843Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.katsurao.org/life/1/2/8/"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/katsurao/d1w_reiki/H333901010005/H333901010005_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "国民健康保険税 - 葛尾村ホームページ",
+      "url": "https://www.katsurao.org/life/1/2/8/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で葛尾村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=124円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で葛尾村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=124円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 葛尾村国民健康保険税条例（d1-law・内容現在 令和8年6月15日・附則 令和8年6月12日条例第12号＝令和8年4月1日から適用）（https://en3-jg.d1-law.com/katsurao/d1w_reiki/H333901010005/H333901010005_j.html）で令和8年度の税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 1.05%／4,636円／3,030円・支援 2.65%／11,738円／7,672円・介護 2.1%／10,949円／5,400円・子ども 0.29%／1,273円＋18歳以上124円／853円 → 新値 医療 10.58%／37,300円／28,500円・支援 3.19%／12,500円／8,500円・介護 1.88%／11,300円／6,100円・子ども 0.33%／1,250円＋18歳以上124円／850円。村の国保税ページは令和4年度の表のため出典にせず、村の国民健康保険税の案内ページを出典とした。値は条例の本文から機械照合。子ども分は均等割1,250円＋18歳以上124円（加算・条例の7割軽減額875円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1273,
+    "rate": 0.0033,
+    "perCapita": 1250,
     "perCapitaAdult": 124,
     "perCapitaAdultScope": "all_ages",
-    "household": 853,
+    "household": 850,
     "cap": 30000
   }
 }
