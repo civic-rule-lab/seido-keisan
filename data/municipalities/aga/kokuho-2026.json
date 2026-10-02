@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0605,
-    "support": 0.029,
-    "care": 0.0238
+    "medical": 0.084,
+    "support": 0.024,
+    "care": 0.018
   },
   "perCapita": {
-    "medical": 26159,
-    "support": 17760,
-    "care": 16971
+    "medical": 18500,
+    "support": 6000,
+    "care": 11000
   },
   "household": {
-    "medical": 17166,
-    "support": 0,
+    "medical": 29000,
+    "support": 7000,
     "care": 0
   },
   "caps": {
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.336Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html"
+        "https://www.town.aga.niigata.jp/agamachi_soshiki/kodomo_kenkosuishin/zeikin/248.html"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.aga.niigata.jp/section/reiki_int/reiki_honbun/r174RG00000523.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 新潟県 市町村標準保険料率",
-      "url": "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html",
+      "type": "official",
+      "title": "国民健康保険について／阿賀町",
+      "url": "https://www.town.aga.niigata.jp/agamachi_soshiki/kodomo_kenkosuishin/zeikin/248.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で阿賀町の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=24円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で阿賀町の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=24円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 国民健康保険について／阿賀町（https://www.town.aga.niigata.jp/agamachi_soshiki/kodomo_kenkosuishin/zeikin/248.html）の阿賀町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.05%／26,159円／17,166円・支援 2.9%／17,760円／平等割なし・介護 2.38%／16,971円／平等割なし・子ども 0.27%／1,694円＋18歳以上24円／0円 → 新値 医療 8.4%／18,500円／29,000円・支援 2.4%／6,000円／7,000円・介護 1.8%／11,000円／平等割なし・子ども 0.2%／1,400円＋18歳以上100円／0円。町のページ（令和8年度から適用）と阿賀町国民健康保険税条例（附則 令和8年3月13日条例第14号）が一致（機械照合）。ページの子ども分1,500円は「うち18歳以上均等割100円」の合計で、条例は均等割1,400円＋18歳以上100円（7割軽減額980円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1694,
-    "perCapitaAdult": 24,
+    "rate": 0.002,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

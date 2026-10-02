@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.061,
-    "support": 0.0294,
-    "care": 0.0243
+    "medical": 0.062,
+    "support": 0.027,
+    "care": 0.0256
   },
   "perCapita": {
-    "medical": 26368,
-    "support": 18021,
-    "care": 17297
+    "medical": 19000,
+    "support": 11800,
+    "care": 13500
   },
   "household": {
-    "medical": 17303,
+    "medical": 13500,
     "support": 0,
     "care": 0
   },
@@ -57,45 +57,45 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.332Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html"
+        "http://www.town.tagami.niigata.jp/reiki/reiki_honbun/e447RG00000162.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 新潟県 市町村標準保険料率",
-      "url": "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html",
+      "type": "official",
+      "title": "田上町国民健康保険税条例",
+      "url": "http://www.town.tagami.niigata.jp/reiki/reiki_honbun/e447RG00000162.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で田上町の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で田上町の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=74円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 田上町国民健康保険税条例（町の例規集・附則 令和8年3月24日条例第5号・3月31日条例第7号＝令和8年度以後の年度分に適用）（http://www.town.tagami.niigata.jp/reiki/reiki_honbun/e447RG00000162.html）で令和8年度の税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.1%／26,368円／17,303円・支援 2.94%／18,021円／平等割なし・介護 2.43%／17,297円／平等割なし・子ども 0.28%／1,734円＋18歳以上74円／0円 → 新値 医療 6.2%／19,000円／13,500円・支援 2.7%／11,800円／平等割なし・介護 2.56%／13,500円／平等割なし・子ども 0.25%／1,400円＋18歳以上100円／0円。町の国民健康保険税ページは令和7年度の表のため出典にしない。値は条例の本文から機械照合。子ども分は均等割1,400円＋18歳以上100円（加算・7割軽減額980円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1734,
-    "perCapitaAdult": 74,
+    "rate": 0.0025,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

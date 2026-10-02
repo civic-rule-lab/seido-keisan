@@ -6,18 +6,18 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0603,
-    "support": 0.0283,
-    "care": 0.0229
+    "medical": 0.061,
+    "support": 0.03,
+    "care": 0.027
   },
   "perCapita": {
-    "medical": 26045,
-    "support": 17347,
-    "care": 16347
+    "medical": 22200,
+    "support": 9100,
+    "care": 14700
   },
   "household": {
-    "medical": 17091,
-    "support": 0,
+    "medical": 14800,
+    "support": 6600,
     "care": 0
   },
   "caps": {
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.324Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html"
+        "https://www.city.mitsuke.niigata.jp/soshiki/5/2708.html"
+      ],
+      "ordinanceUrls": [
+        "https://www2.city.mitsuke.niigata.jp/database/reiki_int/reiki_honbun/e411RG00000392.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 新潟県 市町村標準保険料率",
-      "url": "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html",
+      "type": "official",
+      "title": "国民健康保険税 - 見附市ホームページ",
+      "url": "https://www.city.mitsuke.niigata.jp/soshiki/5/2708.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で見附市の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=62円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で見附市の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=62円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 国民健康保険税 - 見附市ホームページ（https://www.city.mitsuke.niigata.jp/soshiki/5/2708.html）の見附市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.03%／26,045円／17,091円・支援 2.83%／17,347円／平等割なし・介護 2.29%／16,347円／平等割なし・子ども 0.27%／1,672円＋18歳以上62円／0円 → 新値 医療 6.1%／22,200円／14,800円・支援 3%／9,100円／6,600円・介護 2.7%／14,700円／平等割なし・子ども 0.27%／1,400円＋18歳以上100円／0円。市のページと見附市国民健康保険税条例（附則 令和8年条例第17号・第24号）が一致（機械照合）。子ども分は均等割1,400円＋18歳以上100円（加算・7割軽減額980円で検算）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1672,
-    "perCapitaAdult": 62,
+    "perCapita": 1400,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
