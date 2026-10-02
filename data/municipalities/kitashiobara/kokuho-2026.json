@@ -11,14 +11,14 @@
     "care": 0.0224
   },
   "perCapita": {
-    "medical": 28518,
-    "support": 12394,
-    "care": 11714
+    "medical": 28500,
+    "support": 12400,
+    "care": 11700
   },
   "household": {
-    "medical": 18641,
-    "support": 8102,
-    "care": 5777
+    "medical": 18600,
+    "support": 8100,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.818Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.vill.kitashiobara.fukushima.jp/soshiki/juminzeimu/1420.html"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/kitashiobara/d1w_reiki/H331901010008/H331901010008_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "国民健康保険税のあらまし - 北塩原村ホームページ",
+      "url": "https://www.vill.kitashiobara.fukushima.jp/soshiki/juminzeimu/1420.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で北塩原村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=68円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で北塩原村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=68円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 国民健康保険税のあらまし - 北塩原村ホームページ（https://www.vill.kitashiobara.fukushima.jp/soshiki/juminzeimu/1420.html）の北塩原村の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.43%／28,518円／18,641円・支援 2.8%／12,394円／8,102円・介護 2.24%／11,714円／5,777円・子ども 0.29%／1,329円＋18歳以上68円／853円 → 新値 医療 6.43%／28,500円／18,600円・支援 2.8%／12,400円／8,100円・介護 2.24%／11,700円／5,800円・子ども 0.29%／1,300円＋18歳以上100円／900円。村のページと北塩原村国民健康保険税条例（附則 令和8年6月25日条例第6号）が一致（機械照合）。ページの「1,300円（※上乗せ分100円）」は条例の均等割1,300円＋18歳以上100円。子ども分は均等割1,300円＋18歳以上100円（加算・条例の7割軽減額910円で検算）。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1329,
-    "perCapitaAdult": 68,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 853,
+    "household": 900,
     "cap": 30000
   }
 }

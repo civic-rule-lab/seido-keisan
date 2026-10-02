@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0666,
-    "support": 0.0284,
-    "care": 0.023
+    "medical": 0.066,
+    "support": 0.0244,
+    "care": 0.0233
   },
   "perCapita": {
-    "medical": 29535,
-    "support": 12579,
-    "care": 12039
+    "medical": 26747,
+    "support": 9620,
+    "care": 11185
   },
   "household": {
-    "medical": 19306,
-    "support": 8222,
-    "care": 5938
+    "medical": 18024,
+    "support": 6482,
+    "care": 5635
   },
   "caps": {
     "medical": 670000,
@@ -57,44 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.822Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.town.aizubange.fukushima.jp/soshiki/26/19573.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/town.aizubange/reiki_honbun/c547RG00000451.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "広報あいづばんげ（令和８年８月号） - 会津坂下町",
+      "url": "https://www.town.aizubange.fukushima.jp/soshiki/26/19573.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で会津坂下町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=80円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で会津坂下町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=80円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 会津坂下町国民健康保険税条例（g-reiki・附則 令和8年6月12日条例第14号＝令和8年4月1日から適用）（https://www1.g-reiki.net/town.aizubange/reiki_honbun/c547RG00000451.html）で令和8年度の税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.66%／29,535円／19,306円・支援 2.84%／12,579円／8,222円・介護 2.3%／12,039円／5,938円・子ども 0.3%／1,353円＋18歳以上80円／875円 → 新値 医療 6.6%／26,747円／18,024円・支援 2.44%／9,620円／6,482円・介護 2.33%／11,185円／5,635円・子ども 0.3%／1,236円＋18歳以上80円／875円。町のページに税率の掲載が無いため、出典は広報あいづばんげ（令和8年8月号）の掲載ページとした（広報で確認できるのは子ども分のみ）。医療・支援・介護分は条例の本文から機械照合。子ども分は均等割1,236円＋18歳以上80円（加算・条例の5割軽減額618円で検算。7割軽減額は866円で端数切上げ）。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1353,
+    "perCapita": 1236,
     "perCapitaAdult": 80,
     "perCapitaAdultScope": "all_ages",
     "household": 875,

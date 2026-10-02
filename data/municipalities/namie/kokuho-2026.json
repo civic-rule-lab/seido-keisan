@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0424,
-    "support": 0.0278,
-    "care": 0.0226
+    "medical": 0.077,
+    "support": 0.028,
+    "care": 0.028
   },
   "perCapita": {
-    "medical": 18819,
-    "support": 12343,
-    "care": 11820
+    "medical": 24000,
+    "support": 8500,
+    "care": 9500
   },
   "household": {
-    "medical": 12301,
-    "support": 8068,
-    "care": 5829
+    "medical": 21500,
+    "support": 7500,
+    "care": 5000
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.843Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.town.namie.fukushima.jp/soshiki/3/240.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "令和８年度国民健康保険税について - 浪江町ホームページ",
+      "url": "https://www.town.namie.fukushima.jp/soshiki/3/240.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で浪江町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=87円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で浪江町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=87円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 令和８年度国民健康保険税について - 浪江町ホームページ（https://www.town.namie.fukushima.jp/soshiki/3/240.html）の浪江町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 4.24%／18,819円／12,301円・支援 2.78%／12,343円／8,068円・介護 2.26%／11,820円／5,829円・子ども 0.3%／1,346円＋18歳以上87円／875円 → 新値 医療 7.7%／24,000円／21,500円・支援 2.8%／8,500円／7,500円・介護 2.8%／9,500円／5,000円・子ども 0.3%／1,200円＋18歳以上40円／800円。町のページ（令和8年度の税率表・子ども分 均等割1,200円＋18歳以上均等割40円を別行で表示・限度額あり）で確認（機械照合）。例規集は令和7年4月1日施行の版で令和8年度の改正が未反映。原発事故に係る令和8年度の減免は未確認で、本データ・計算には含めていない。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1346,
-    "perCapitaAdult": 87,
+    "perCapita": 1200,
+    "perCapitaAdult": 40,
     "perCapitaAdultScope": "all_ages",
-    "household": 875,
+    "household": 800,
     "cap": 30000
   }
 }

@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0624,
-    "support": 0.0275,
-    "care": 0.0225
+    "medical": 0.0483,
+    "support": 0.0223,
+    "care": 0.019
   },
   "perCapita": {
-    "medical": 27654,
-    "support": 12173,
-    "care": 11736
+    "medical": 25200,
+    "support": 11700,
+    "care": 12200
   },
   "household": {
-    "medical": 18076,
-    "support": 7957,
-    "care": 5788
+    "medical": 15400,
+    "support": 7100,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.829Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.town.tanagura.fukushima.jp/reiki/reiki_honbun/c564RG00000152.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "棚倉町国民健康保険税条例",
+      "url": "https://www.town.tanagura.fukushima.jp/reiki/reiki_honbun/c564RG00000152.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で棚倉町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=82円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で棚倉町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=82円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 棚倉町国民健康保険税条例（町の例規集・附則 令和8年条例第7号＝令和8年4月1日から適用）（https://www.town.tanagura.fukushima.jp/reiki/reiki_honbun/c564RG00000152.html）で令和8年度の税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.24%／27,654円／18,076円・支援 2.75%／12,173円／7,957円・介護 2.25%／11,736円／5,788円・子ども 0.3%／1,338円＋18歳以上82円／867円 → 新値 医療 4.83%／25,200円／15,400円・支援 2.23%／11,700円／7,100円・介護 1.9%／12,200円／5,800円・子ども 0.26%／1,400円＋18歳以上92円／900円。町のページに令和8年度の税率の掲載が無いため条例のみで確認（機械照合）。子ども分は均等割1,400円＋18歳以上92円（加算・条例の7割軽減額980円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1338,
-    "perCapitaAdult": 82,
+    "rate": 0.0026,
+    "perCapita": 1400,
+    "perCapitaAdult": 92,
     "perCapitaAdultScope": "all_ages",
-    "household": 867,
+    "household": 900,
     "cap": 30000
   }
 }

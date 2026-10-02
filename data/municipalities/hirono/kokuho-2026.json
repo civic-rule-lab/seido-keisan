@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0605,
-    "support": 0.0275,
-    "care": 0.021
+    "medical": 0.0533,
+    "support": 0.0226,
+    "care": 0.0223
   },
   "perCapita": {
-    "medical": 26826,
-    "support": 12174,
-    "care": 10964
+    "medical": 21400,
+    "support": 9100,
+    "care": 7900
   },
   "household": {
-    "medical": 17535,
-    "support": 7957,
-    "care": 5407
+    "medical": 14400,
+    "support": 6000,
+    "care": 3800
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.838Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.town.hirono.fukushima.jp/kurashi/zeikin/1001546/1005457.html",
+        "https://www.town.hirono.fukushima.jp/_res/projects/default_project/_page_/001/005/457/2026_kokuhozei.pdf"
+      ],
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/hirono/d1w_reiki/H335901010047/H335901010047_j.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "令和8年度 国民健康保険税｜広野町公式ウェブサイト",
+      "url": "https://www.town.hirono.fukushima.jp/kurashi/zeikin/1001546/1005457.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で広野町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=69円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で広野町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=69円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 令和8年度 国民健康保険税｜広野町公式ウェブサイト（https://www.town.hirono.fukushima.jp/kurashi/zeikin/1001546/1005457.html）の広野町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.05%／26,826円／17,535円・支援 2.75%／12,174円／7,957円・介護 2.1%／10,964円／5,407円・子ども 0.3%／1,350円＋18歳以上69円／867円 → 新値 医療 5.33%／21,400円／14,400円・支援 2.26%／9,100円／6,000円・介護 2.23%／7,900円／3,800円・子ども 0.28%／1,100円＋18歳以上33円／800円。町のページ・PDF と広野町国民健康保険税条例（附則 令和8年3月31日条例第9号・6月12日条例第13号）が一致（機械照合）。原発事故に係る減免は令和6年度で終了。子ども分は均等割1,100円＋18歳以上33円（加算・条例の7割軽減額770円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1350,
-    "perCapitaAdult": 69,
+    "rate": 0.0028,
+    "perCapita": 1100,
+    "perCapitaAdult": 33,
     "perCapitaAdultScope": "all_ages",
-    "household": 867,
+    "household": 800,
     "cap": 30000
   }
 }
