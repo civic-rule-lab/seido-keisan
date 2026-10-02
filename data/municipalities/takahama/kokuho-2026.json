@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0769,
-    "support": 0.0248,
-    "care": 0.0214
+    "medical": 0.0678,
+    "support": 0.0235,
+    "care": 0.0211
   },
   "perCapita": {
-    "medical": 33246,
-    "support": 10978,
-    "care": 11881
+    "medical": 35800,
+    "support": 11800,
+    "care": 11900
   },
   "household": {
-    "medical": 26978,
-    "support": 8639,
-    "care": 6522
+    "medical": 23000,
+    "support": 7600,
+    "care": 5900
   },
   "caps": {
     "medical": 670000,
@@ -57,48 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.151Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
+        "https://www.city.takahama.lg.jp/soshiki/shimin/2469.html"
+      ],
+      "ordinanceUrls": [
+        "http://www1.g-reiki.net/takahama/reiki_honbun/i529RG00000211.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
+      "type": "official",
+      "title": "国民健康保険税 - 高浜市ホームページ",
+      "url": "https://www.city.takahama.lg.jp/soshiki/shimin/2469.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、高浜市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=71円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
+    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、高浜市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=71円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。 / 2026-10-02: 国民健康保険税 - 高浜市ホームページ（https://www.city.takahama.lg.jp/soshiki/shimin/2469.html）の高浜市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.69%／33,246円／26,978円・支援 2.48%／10,978円／8,639円・介護 2.14%／11,881円／6,522円・子ども 0.26%／1,179円＋18歳以上71円／922円 → 新値 医療 6.78%／35,800円／23,000円・支援 2.35%／11,800円／7,600円・介護 2.11%／11,900円／5,900円・子ども 0.29%／1,300円＋18歳以上100円／800円。市町村のページと高浜市国民健康保険税条例（附則 令和8年条例第2号・第17号＝令和8年度以後の年度分に適用）が一致（機械照合）。子ども分は均等割1,300円＋18歳以上100円（加算・条例の7割軽減額910円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.0026,
-    "perCapita": 1179,
-    "perCapitaAdult": 71,
+    "rate": 0.0029,
+    "perCapita": 1300,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "cap": 30000,
-    "household": 922
+    "household": 800
   },
   "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、高浜市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }

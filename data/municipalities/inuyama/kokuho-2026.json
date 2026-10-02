@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0884,
-    "support": 0.0275,
-    "care": 0.0263
+    "medical": 0.077,
+    "support": 0.025,
+    "care": 0.024
   },
   "perCapita": {
-    "medical": 32778,
-    "support": 10387,
-    "care": 10017
+    "medical": 32760,
+    "support": 12000,
+    "care": 13000
   },
   "household": {
-    "medical": 23461,
-    "support": 6856,
-    "care": 5569
+    "medical": 23800,
+    "support": 7800,
+    "care": 7000
   },
   "caps": {
     "medical": 670000,
@@ -57,48 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.136Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
+        "https://www.city.inuyama.aichi.jp/kurashi/kokuho/1000123/1000124.html"
+      ],
+      "ordinanceUrls": [
+        "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A85833114&houcd=H412901010012"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
+      "type": "official",
+      "title": "国民健康保険税について｜犬山市",
+      "url": "https://www.city.inuyama.aichi.jp/kurashi/kokuho/1000123/1000124.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、犬山市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=38円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
+    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、犬山市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=38円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。 / 2026-10-02: 国民健康保険税について｜犬山市（https://www.city.inuyama.aichi.jp/kurashi/kokuho/1000123/1000124.html）の犬山市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.84%／32,778円／23,461円・支援 2.75%／10,387円／6,856円・介護 2.63%／10,017円／5,569円・子ども 0.29%／1,068円＋18歳以上38円／803円 → 新値 医療 7.7%／32,760円／23,800円・支援 2.5%／12,000円／7,800円・介護 2.4%／13,000円／7,000円・子ども 0.26%／1,200円＋18歳以上24円／800円。市町村のページと犬山市国民健康保険税条例（d1-law・内容現在 令和8年7月29日・附則 令和8年3月27日条例第17号・4月13日条例第23号）が一致（機械照合）。子ども分は均等割1,200円＋18歳以上24円（加算・条例の7割軽減額840円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1068,
-    "perCapitaAdult": 38,
+    "rate": 0.0026,
+    "perCapita": 1200,
+    "perCapitaAdult": 24,
     "perCapitaAdultScope": "all_ages",
     "cap": 30000,
-    "household": 803
+    "household": 800
   },
   "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、犬山市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }

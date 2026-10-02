@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0789,
-    "support": 0.0291,
-    "care": 0.0269
+    "medical": 0.0813,
+    "support": 0.031,
+    "care": 0.0265
   },
   "perCapita": {
-    "medical": 29135,
-    "support": 10633,
-    "care": 11057
+    "medical": 34200,
+    "support": 13200,
+    "care": 13500
   },
   "household": {
-    "medical": 20287,
-    "support": 6740,
-    "care": 5355
+    "medical": 24000,
+    "support": 8400,
+    "care": 6600
   },
   "caps": {
     "medical": 670000,
@@ -57,48 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.159Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
+        "https://www.town.oguchi.lg.jp/4105.htm",
+        "https://www.town.oguchi.lg.jp/secure/7147/tax.xml"
+      ],
+      "ordinanceUrls": [
+        "https://www.town.oguchi.lg.jp/ftpdirect/reiki_int/reiki_honbun/i542RG00000145.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
+      "type": "official",
+      "title": "税金の税額/大口町",
+      "url": "https://www.town.oguchi.lg.jp/4105.htm",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、大口町が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=52円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
+    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、大口町が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=52円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。 / 2026-10-02: 税金の税額/大口町（https://www.town.oguchi.lg.jp/4105.htm）の大口町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.89%／29,135円／20,287円・支援 2.91%／10,633円／6,740円・介護 2.69%／11,057円／5,355円・子ども 0.24%／1,400円＋18歳以上52円／944円 → 新値 医療 8.13%／34,200円／24,000円・支援 3.1%／13,200円／8,400円・介護 2.65%／13,500円／6,600円・子ども 0.24%／1,200円＋18歳以上48円／840円。町のページは税率表を別ファイル（tax.xml）から読み込む作りのため、そのファイルの「令和8年度」シートと大口町国民健康保険税条例（附則 令和8年3月31日条例第16号＝令和8年度以後の年度分に適用）を照合し一致（機械照合）。ページの子ども分1,248円は条例の均等割1,200円＋18歳以上48円の合計。子ども分は均等割1,200円＋18歳以上48円（加算・条例の7割軽減額840円で検算）。"
   },
   "childcareLevy": {
     "rate": 0.0024,
-    "perCapita": 1400,
-    "perCapitaAdult": 52,
+    "perCapita": 1200,
+    "perCapitaAdult": 48,
     "perCapitaAdultScope": "all_ages",
     "cap": 30000,
-    "household": 944
+    "household": 840
   },
   "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、大口町が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }

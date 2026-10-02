@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0836,
-    "support": 0.0294,
-    "care": 0.0267
+    "medical": 0.079,
+    "support": 0.029,
+    "care": 0.025
   },
   "perCapita": {
-    "medical": 30271,
-    "support": 9968,
-    "care": 10465
+    "medical": 33800,
+    "support": 11600,
+    "care": 12200
   },
   "household": {
-    "medical": 20328,
-    "support": 6858,
-    "care": 5507
+    "medical": 20500,
+    "support": 7700,
+    "care": 5900
   },
   "caps": {
     "medical": 670000,
@@ -57,48 +57,51 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.151Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
+        "https://www.city.iwakura.aichi.jp/0000002057.html"
+      ],
+      "ordinanceUrls": [
+        "https://ops-jg.d1-law.com/opensearch/SrJbF01/init?jctcd=8A85833172&houcd=H346901010044"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
+      "type": "official",
+      "title": "国民健康保険税の計算 | 岩倉市",
+      "url": "https://www.city.iwakura.aichi.jp/0000002057.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、岩倉市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=68円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
+    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、岩倉市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=68円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。 / 2026-10-02: 国民健康保険税の計算 | 岩倉市（https://www.city.iwakura.aichi.jp/0000002057.html）の岩倉市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.36%／30,271円／20,328円・支援 2.94%／9,968円／6,858円・介護 2.67%／10,465円／5,507円・子ども 0.3%／1,084円＋18歳以上68円／729円 → 新値 医療 7.9%／33,800円／20,500円・支援 2.9%／11,600円／7,700円・介護 2.5%／12,200円／5,900円・子ども 0.3%／1,100円＋18歳以上100円／700円。市のページ「令和8年度国民健康保険税の税率」（表示上の更新日は2021年5月1日）と岩倉市国民健康保険税条例（d1-law・内容現在 令和8年7月1日・附則 令和8年3月30日条例第6号・6月23日条例第22号）が一致（機械照合）。ページの子ども分1,200円は条例の均等割1,100円＋18歳以上100円の合計。子ども分は均等割1,100円＋18歳以上100円（加算・条例の7割軽減額770円で検算）。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1084,
-    "perCapitaAdult": 68,
+    "perCapita": 1100,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "cap": 30000,
-    "household": 729
+    "household": 700
   },
   "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、岩倉市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }
