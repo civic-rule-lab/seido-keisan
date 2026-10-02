@@ -7,19 +7,19 @@
   "note": "4方式。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0667,
-    "support": 0.0272,
-    "care": 0.023
+    "medical": 0.081,
+    "support": 0.029,
+    "care": 0.0315
   },
   "perCapita": {
-    "medical": 29439,
-    "support": 11977,
-    "care": 11948
+    "medical": 24500,
+    "support": 8500,
+    "care": 10100
   },
   "household": {
-    "medical": 19287,
-    "support": 7847,
-    "care": 6077
+    "medical": 22400,
+    "support": 8000,
+    "care": 6800
   },
   "caps": {
     "medical": 670000,
@@ -29,15 +29,16 @@
   },
   "childcareLevy": {
     "rate": 0.0079,
-    "perCapita": 1271,
+    "perCapita": 1270,
     "perCapitaAdult": 90,
     "perCapitaAdultScope": "all_ages",
-    "household": 811
+    "household": 810,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.1,
-    "support": 0.025,
-    "care": 0.037
+    "medical": 0.05,
+    "support": 0.01,
+    "care": 0.017
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.396Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town-takachiho.jp/top/soshiki/fukushihoken/2/2/393.html",
+        "https://www.town-takachiho.jp/section/reiki_int/reiki_honbun/q643RG00000182.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国保税／高千穂町",
+      "url": "https://www.town-takachiho.jp/top/soshiki/fukushihoken/2/2/393.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。高千穂町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。高千穂町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-02: 国保税／高千穂町（https://www.town-takachiho.jp/top/soshiki/fukushihoken/2/2/393.html）の高千穂町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.67%／29,439円／19,287円・支援 2.72%／11,977円／7,847円・介護 2.3%／11,948円／6,077円・子ども 0.79%／1,271円＋18歳以上90円／811円 → 新値 医療 8.1%／24,500円／22,400円・支援 2.9%／8,500円／8,000円・介護 3.15%／10,100円／6,800円・子ども 0.79%／1,270円＋18歳以上90円／810円。町のページ（2026-06-11 更新・前年度の値も併記）と高千穂町国民健康保険税条例（内容現在 令和8年6月25日・令和8年6月10日条例第8号・第9号の附則で令和8年度以後の年度分に適用）が一致（機械照合）。資産割 医療5.00%・後期1.00%・介護1.70%（既存データの 10/2.5/3.7 は令和7年度以前の値で更新）。子ども分所得割0.79%は他町より高いがページと条例の両方で確認。子ども分は均等割1,270円＋18歳以上90円（加算）。出典ホスト www.town-takachiho.jp は本 PR で PROVENANCE_HOST_EXTRA に追加（オーナー承認 2026-10-02）。"
   }
 }
