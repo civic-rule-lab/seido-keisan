@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0757,
-    "support": 0.0255,
-    "care": 0.0329
+    "medical": 0.077,
+    "support": 0.028,
+    "care": 0.029
   },
   "perCapita": {
-    "medical": 19156,
-    "support": 11498,
-    "care": 14244
+    "medical": 23000,
+    "support": 14900,
+    "care": 14700
   },
   "household": {
-    "medical": 20187,
+    "medical": 26500,
     "support": 0,
     "care": 0
   },
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.040Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf"
+        "https://www.town.otaki.chiba.jp/kurashi/zei/6/1112.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/otaki/reiki_honbun/g068RG00000246.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 千葉県 市町村標準保険料率（市町村算定方式）",
-      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf",
+      "type": "official",
+      "title": "国民健康保険税／大多喜町公式ホームページ",
+      "url": "https://www.town.otaki.chiba.jp/kurashi/zei/6/1112.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-method"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、大多喜町が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=118円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、大多喜町が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=118円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-10-02: 国民健康保険税／大多喜町公式ホームページ（https://www.town.otaki.chiba.jp/kurashi/zei/6/1112.html）の大多喜町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.57%／19,156円／20,187円・支援 2.55%／11,498円／平等割なし・介護 3.29%／14,244円／平等割なし・子ども 0.25%／1,602円＋18歳以上118円／0円 → 新値 医療 7.7%／23,000円／26,500円・支援 2.8%／14,900円／平等割なし・介護 2.9%／14,700円／平等割なし・子ども 0.25%／1,700円＋18歳以上200円／0円。町のページ（令和8年度の税率は令和7年度と同率）と大多喜町国民健康保険税条例（附則 令和8年6月18日条例第10号＝令和8年度以後の年度分に適用）が一致（機械照合）。子ども分は均等割1,700円＋18歳以上200円（加算・条例の7割軽減額1,190円で検算）。"
   },
   "childcareLevy": {
     "rate": 0.0025,
-    "perCapita": 1602,
-    "perCapitaAdult": 118,
+    "perCapita": 1700,
+    "perCapitaAdult": 200,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

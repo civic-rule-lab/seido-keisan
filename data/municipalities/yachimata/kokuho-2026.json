@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.084,
-    "support": 0.0339,
-    "care": 0.0259
+    "medical": 0.075,
+    "support": 0.02,
+    "care": 0.015
   },
   "perCapita": {
-    "medical": 21636,
-    "support": 14190,
-    "care": 18143
+    "medical": 23000,
+    "support": 10000,
+    "care": 12000
   },
   "household": {
-    "medical": 29660,
+    "medical": 32000,
     "support": 0,
     "care": 0
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.028Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf"
+        "https://www.city.yachimata.lg.jp/soshiki/10/511.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/city.yachimata/reiki_honbun/g031RG00000432.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 千葉県 市町村標準保険料率（市町村算定方式）",
-      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf",
+      "type": "official",
+      "title": "八街市国民健康保険税 - 千葉県八街市ホームページ",
+      "url": "https://www.city.yachimata.lg.jp/soshiki/10/511.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-method"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、八街市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=179円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、八街市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=179円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-10-02: 八街市国民健康保険税 - 千葉県八街市ホームページ（https://www.city.yachimata.lg.jp/soshiki/10/511.html）の八街市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.4%／21,636円／29,660円・支援 3.39%／14,190円／平等割なし・介護 2.59%／18,143円／平等割なし・子ども 0.32%／1,853円＋18歳以上179円／0円 → 新値 医療 7.5%／23,000円／32,000円・支援 2%／10,000円／平等割なし・介護 1.5%／12,000円／平等割なし・子ども 0.3%／1,718円＋18歳以上165円／0円。市のページと八街市国民健康保険税条例（附則 令和8年3月24日条例第4号・第14号）が一致（機械照合）。医療分の限度額は66万円（市が設定・合計112万円と明記）。子ども分は均等割1,718円＋18歳以上165円（加算・条例の7割軽減額1,203円で検算）。"
   },
   "childcareLevy": {
-    "rate": 0.0032,
-    "perCapita": 1853,
-    "perCapitaAdult": 179,
+    "rate": 0.003,
+    "perCapita": 1718,
+    "perCapitaAdult": 165,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

@@ -11,12 +11,12 @@
     "care": 0.0219
   },
   "perCapita": {
-    "medical": 28550,
-    "support": 9813,
-    "care": 19334
+    "medical": 28600,
+    "support": 9900,
+    "care": 19400
   },
   "household": {
-    "medical": 44384,
+    "medical": 44400,
     "support": 0,
     "care": 0
   },
@@ -57,45 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.033Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf"
+        "https://www.town.shisui.chiba.jp/docs/2026013000026/",
+        "https://www.town.shisui.chiba.jp/docs/2026013000026/file_contents/R8shisuikokuhokaisei.pdf"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/shisui/reiki_honbun/g035RG00000215.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 千葉県 市町村標準保険料率（市町村算定方式）",
-      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf",
+      "type": "official",
+      "title": "令和8年度国民健康保険税の税率改正について | 酒々井町ホームページ",
+      "url": "https://www.town.shisui.chiba.jp/docs/2026013000026/",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-method"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、酒々井町が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=138円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、酒々井町が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=138円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-10-02: 令和8年度国民健康保険税の税率改正について | 酒々井町ホームページ（https://www.town.shisui.chiba.jp/docs/2026013000026/）の酒々井町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.09%／28,550円／44,384円・支援 3.66%／9,813円／平等割なし・介護 2.19%／19,334円／平等割なし・子ども 0.27%／1,763円＋18歳以上138円／0円 → 新値 医療 6.09%／28,600円／44,400円・支援 3.66%／9,900円／平等割なし・介護 2.19%／19,400円／平等割なし・子ども 0.27%／1,800円＋18歳以上200円／0円。町のページ・「令和８年度 酒々井町国民健康保険税率・限度額改正表」PDF・酒々井町国民健康保険税条例（附則 令和8年条例第9号＝令和8年度以後の年度分に適用）が一致（機械照合）。千葉県の示す標準税率で改正（町のページ）。子ども分は均等割1,800円＋18歳以上200円（加算・条例の7割軽減額1,260円で検算）。"
   },
   "childcareLevy": {
     "rate": 0.0027,
-    "perCapita": 1763,
-    "perCapitaAdult": 138,
+    "perCapita": 1800,
+    "perCapitaAdult": 200,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

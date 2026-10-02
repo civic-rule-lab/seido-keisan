@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0677,
+    "medical": 0.0578,
     "support": 0.0291,
     "care": 0.028
   },
   "perCapita": {
-    "medical": 26228,
-    "support": 13511,
-    "care": 14555
+    "medical": 21900,
+    "support": 13500,
+    "care": 14600
   },
   "household": {
-    "medical": 34269,
+    "medical": 28800,
     "support": 0,
     "care": 0
   },
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.017Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf"
+        "https://www.city.noda.chiba.jp/kurashi/hoken/hoken/1000291.html"
+      ],
+      "ordinanceUrls": [
+        "http://www2.city.noda.chiba.jp/reiki_int/reiki_honbun/g009RG00000486.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 千葉県 市町村標準保険料率（市町村算定方式）",
-      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf",
+      "type": "official",
+      "title": "国民健康保険料について（計算方法など）｜野田市ホームページ",
+      "url": "https://www.city.noda.chiba.jp/kurashi/hoken/hoken/1000291.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-method"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、野田市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=164円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、野田市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=164円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-10-02: 国民健康保険料について（計算方法など）｜野田市ホームページ（https://www.city.noda.chiba.jp/kurashi/hoken/hoken/1000291.html）の野田市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.77%／26,228円／34,269円・支援 2.91%／13,511円／平等割なし・介護 2.8%／14,555円／平等割なし・子ども 0.25%／1,766円＋18歳以上164円／0円 → 新値 医療 5.78%／21,900円／28,800円・支援 2.91%／13,500円／平等割なし・介護 2.8%／14,600円／平等割なし・子ども 0.25%／1,800円＋18歳以上100円／0円。市のページ（令和8年度 国民健康保険料率等）と野田市国民健康保険条例（附則 令和8年3月24日条例第4号）が一致（機械照合）。保険料方式。子ども分は条例第33条の5の均等割1,800円＋18歳以上100円（ページも合計1,900円の内訳として明記）。"
   },
   "childcareLevy": {
     "rate": 0.0025,
-    "perCapita": 1766,
-    "perCapitaAdult": 164,
+    "perCapita": 1800,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

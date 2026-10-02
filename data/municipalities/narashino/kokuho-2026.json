@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0912,
-    "support": 0.0279,
-    "care": 0.0269
+    "medical": 0.0829,
+    "support": 0.0262,
+    "care": 0.026
   },
   "perCapita": {
-    "medical": 28442,
-    "support": 17208,
-    "care": 17126
+    "medical": 26300,
+    "support": 16400,
+    "care": 16500
   },
   "household": {
-    "medical": 15081,
+    "medical": 14100,
     "support": 0,
     "care": 0
   },
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.020Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_method",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf"
+        "https://www.city.narashino.lg.jp/soshiki/kokuhonenkin/gyomu/kokuho/hokenryou/santeihouhou.html"
+      ],
+      "ordinanceUrls": [
+        "https://www1.g-reiki.net/narashino/reiki_honbun/l000RG00000367.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 千葉県 市町村標準保険料率（市町村算定方式）",
-      "url": "https://www.pref.chiba.lg.jp/hoken/kokubo/documents/std-rate-municipal-method.pdf",
+      "type": "official",
+      "title": "国民健康保険料の計算方法／習志野市ホームページ",
+      "url": "https://www.city.narashino.lg.jp/soshiki/kokuhonenkin/gyomu/kokuho/hokenryou/santeihouhou.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-method"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、習志野市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。"
+    "notes": "千葉県公表の令和8年度 市町村標準保険料率（市町村算定方式）を参考値として採用。法定外繰入ゼロ前提の理論値で、習志野市が実際に告示する料率とは異なる場合がある。資産割なし。平等割は当該市町村の実方式に従う。子ども・子育て支援金分は18歳以上均等割(=70円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示が出たら verified_r8 へ昇格。 / 2026-10-02: 国民健康保険料の計算方法／習志野市ホームページ（https://www.city.narashino.lg.jp/soshiki/kokuhonenkin/gyomu/kokuho/hokenryou/santeihouhou.html）の習志野市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 9.12%／28,442円／15,081円・支援 2.79%／17,208円／平等割なし・介護 2.69%／17,126円／平等割なし・子ども 0.3%／1,827円＋18歳以上70円／0円 → 新値 医療 8.29%／26,300円／14,100円・支援 2.62%／16,400円／平等割なし・介護 2.6%／16,500円／平等割なし・子ども 0.3%／1,900円＋18歳以上80円／0円。市のページ「保険料率等（令和8年度）」（子ども分 (9)均等割1,900円＋(10)18歳以上均等割80円を別欄で表示・限度額あり）で確認（機械照合）。保険料方式で、習志野市国民健康保険条例は率を市長の告示で定める形のため条例に数値は無い（告示は未照合）。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1827,
-    "perCapitaAdult": 70,
+    "perCapita": 1900,
+    "perCapitaAdult": 80,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
