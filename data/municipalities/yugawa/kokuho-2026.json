@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0549,
-    "support": 0.0279,
-    "care": 0.0226
+    "medical": 0.02,
+    "support": 0.0188,
+    "care": 0.0195
   },
   "perCapita": {
-    "medical": 24365,
-    "support": 12392,
-    "care": 11827
+    "medical": 19200,
+    "support": 15000,
+    "care": 15000
   },
   "household": {
-    "medical": 15926,
-    "support": 8100,
-    "care": 5833
+    "medical": 15400,
+    "support": 12000,
+    "care": 8700
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.822Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.vill.yugawa.fukushima.jp/site/kurashi-top/kokuhonozeiritutou.html",
+        "https://www.vill.yugawa.fukushima.jp/uploaded/attachment/4438.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
+      "type": "official",
+      "title": "国民健康保険税の計算方法 - 暮らし・手続き - 湯川村ホームページ",
+      "url": "https://www.vill.yugawa.fukushima.jp/site/kurashi-top/kokuhonozeiritutou.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で湯川村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=105円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で湯川村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=105円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 国民健康保険税の計算方法 - 暮らし・手続き - 湯川村ホームページ（https://www.vill.yugawa.fukushima.jp/site/kurashi-top/kokuhonozeiritutou.html）の湯川村の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 5.49%／24,365円／15,926円・支援 2.79%／12,392円／8,100円・介護 2.26%／11,827円／5,833円・子ども 0.29%／1,293円＋18歳以上105円／853円 → 新値 医療 2%／19,200円／15,400円・支援 1.88%／15,000円／12,000円・介護 1.95%／15,000円／8,700円・子ども 0.19%／1,600円＋18歳以上100円／1,300円。村のページ（令和8年度国民健康保険税の税率等・2026-07-29）で確認（機械照合）。例規集（内容現在 令和8年4月23日）は改正前の値だが、6月定例会で議案第27号「湯川村国民健康保険税条例の一部を改正する条例」が可決（議会だより138号「令和８年度の国民健康保険税の改定に伴い、税率等に変更」）。改正後の条文は未入手。例規集の料率（医療 4.71%・26,500円／支援 2.51%・13,400円・11,400円／介護 3.44%・16,500円・9,600円）は Web アーカイブの村のページ 2026-03-09 版（令和7年度の値・限度額66万円）と同値で、3月27日条例第5号は子ども分の新設と限度額の改正のみ＝例規集は6月改正を未収録と判断（2026-10-02 確認）。限度額 67万／26万／17万／3万円は村の「国民健康保険税の概要」ページとも一致。医療分所得割2.00%は validate の WARN 域（ERROR ではない）。子ども分は均等割1,600円＋18歳以上100円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0029,
-    "perCapita": 1293,
-    "perCapitaAdult": 105,
+    "rate": 0.0019,
+    "perCapita": 1600,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 853,
+    "household": 1300,
     "cap": 30000
   }
 }
