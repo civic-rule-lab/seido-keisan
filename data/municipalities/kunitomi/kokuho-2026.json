@@ -7,19 +7,19 @@
   "note": "4方式。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0803,
-    "support": 0.027,
-    "care": 0.0238
+    "medical": 0.0798,
+    "support": 0.0355,
+    "care": 0.0276
   },
   "perCapita": {
-    "medical": 35439,
-    "support": 11876,
-    "care": 12349
+    "medical": 28600,
+    "support": 12300,
+    "care": 13900
   },
   "household": {
-    "medical": 23218,
-    "support": 7781,
-    "care": 6281
+    "medical": 19900,
+    "support": 8600,
+    "care": 7300
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,12 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0081,
-    "perCapita": 1256,
-    "perCapitaAdult": 117,
+    "rate": 0.0041,
+    "perCapita": 1200,
+    "perCapitaAdult": 78,
     "perCapitaAdultScope": "all_ages",
-    "household": 825
-  },
-  "assetLevy": {
-    "medical": 0.0873,
-    "support": 0.0383,
-    "care": 0.038
+    "household": 1000,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +66,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.363Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "http://www.town.kunitomi.miyazaki.jp/reiki_int/reiki_honbun/q625RG00000265.html",
+        "http://www.town.kunitomi.miyazaki.jp/main/living/town_tax/page000346.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国富町国民健康保険税条例",
+      "url": "http://www.town.kunitomi.miyazaki.jp/reiki_int/reiki_honbun/q625RG00000265.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。国富町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。国富町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-02: 国富町国民健康保険税条例（http://www.town.kunitomi.miyazaki.jp/reiki_int/reiki_honbun/q625RG00000265.html）の国富町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.03%／35,439円／23,218円・支援 2.7%／11,876円／7,781円・介護 2.38%／12,349円／6,281円・子ども 0.81%／1,256円＋18歳以上117円／825円 → 新値 医療 7.98%／28,600円／19,900円・支援 3.55%／12,300円／8,600円・介護 2.76%／13,900円／7,300円・子ども 0.41%／1,200円＋18歳以上78円／1,000円。国富町国民健康保険税条例（内容現在 令和8年6月19日・附則 令和8年条例第7号・第8号）の本文で確認（機械照合）。令和8年度から3方式（資産割を廃止）のため assetLevy を削除。医療分均等割は町のページの28,000円ではなく条例の28,600円を採った（条例の7割軽減額20,020円・未就学児軽減14,300円も28,600円と整合）。町のページの子ども分1,278円は均等割1,200円＋18歳以上78円の合計。子ども分は均等割1,200円＋18歳以上78円（加算）。"
   }
 }

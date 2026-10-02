@@ -6,17 +6,17 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0728,
-    "support": 0.0297,
-    "care": 0.0245
+    "medical": 0.064,
+    "support": 0.029,
+    "care": 0.02
   },
   "perCapita": {
-    "medical": 31454,
-    "support": 18182,
-    "care": 17477
+    "medical": 21000,
+    "support": 13000,
+    "care": 13000
   },
   "household": {
-    "medical": 20641,
+    "medical": 15000,
     "support": 0,
     "care": 0
   },
@@ -57,45 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.335Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html"
+        "https://www.vill.sekikawa.niigata.jp/life/539/51/index.html"
+      ],
+      "ordinanceUrls": [
+        "http://www.vill.sekikawa.niigata.jp/reiki_int/reiki_honbun/e499RG00000147.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 新潟県 市町村標準保険料率",
-      "url": "https://www.pref.niigata.lg.jp/sec/shidoushitsu/1356849550581.html",
+      "type": "official",
+      "title": "国民健康保険税｜新潟県関川村役場",
+      "url": "https://www.vill.sekikawa.niigata.jp/life/539/51/index.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で関川村の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=32円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "新潟県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で関川村の実告示と異なる場合あり。特殊ハイブリッド(医療のみ3方式・後期/介護/子どもは2方式平等割なし)・資産割なし。子ども子育て分は18歳以上均等割(=32円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 国民健康保険税｜新潟県関川村役場（https://www.vill.sekikawa.niigata.jp/life/539/51/index.html）の関川村の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.28%／31,454円／20,641円・支援 2.97%／18,182円／平等割なし・介護 2.45%／17,477円／平等割なし・子ども 0.28%／1,731円＋18歳以上32円／0円 → 新値 医療 6.4%／21,000円／15,000円・支援 2.9%／13,000円／平等割なし・介護 2%／13,000円／平等割なし・子ども 0.2%／1,500円＋18歳以上100円／0円。村のページ（2026-07-03）で確認（機械照合）。例規集は医療分限度額66万円・子ども分の条文なしだが、令和8年5月臨時会の会議録（報告第4号・専決処分）に「基礎賦課分の賦課限度額を66万円から67万円に」「子ども・子育て支援納付金分の賦課限度額を新設し、3万円」とあり、子ども分は3月定例会の議案第38号で新設済み。例規集が未反映と判断。子ども分は均等割1,500円＋18歳以上100円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0028,
-    "perCapita": 1731,
-    "perCapitaAdult": 32,
+    "rate": 0.002,
+    "perCapita": 1500,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000

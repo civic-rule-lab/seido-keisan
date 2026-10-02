@@ -7,19 +7,19 @@
   "note": "4方式。R6から資産割が62.62%→41.75%に大幅変更。内訳は宮崎県集計合算値からの推計。実際値は要確認。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0779,
-    "support": 0.027,
-    "care": 0.023
+    "medical": 0.0797,
+    "support": 0.0263,
+    "care": 0.0221
   },
   "perCapita": {
-    "medical": 34384,
-    "support": 11908,
-    "care": 11923
+    "medical": 33100,
+    "support": 11000,
+    "care": 11400
   },
   "household": {
-    "medical": 22527,
-    "support": 7801,
-    "care": 6064
+    "medical": 22300,
+    "support": 7400,
+    "care": 5800
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.0079,
-    "perCapita": 1259,
-    "perCapitaAdult": 85,
+    "rate": 0.004,
+    "perCapita": 600,
+    "perCapitaAdult": 25,
     "perCapitaAdultScope": "all_ages",
-    "household": 805
+    "household": 400,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.2505,
-    "support": 0.0752,
-    "care": 0.0918
+    "medical": 0.1162,
+    "support": 0.0368,
+    "care": 0.0556
   },
   "preschoolReduction": {
     "enabled": true,
@@ -70,39 +71,39 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.395Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.miyazaki-misato.lg.jp/kiji0031331/index.html",
+        "https://www.town.miyazaki-misato.lg.jp/gikai/kiji0031305/3_1305_7230_up_w5u655uz.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked"
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税 / 宮崎県美郷町ホームページ",
+      "url": "https://www.town.miyazaki-misato.lg.jp/kiji0031331/index.html",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。美郷町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。美郷町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-02: 国民健康保険税 / 宮崎県美郷町ホームページ（https://www.town.miyazaki-misato.lg.jp/kiji0031331/index.html）の美郷町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.79%／34,384円／22,527円・支援 2.7%／11,908円／7,801円・介護 2.3%／11,923円／6,064円・子ども 0.79%／1,259円＋18歳以上85円／805円 → 新値 医療 7.97%／33,100円／22,300円・支援 2.63%／11,000円／7,400円・介護 2.21%／11,400円／5,800円・子ども 0.4%／600円＋18歳以上25円／400円。町のページ（2026-07-01）と6月定例会の議案第46号（美郷町国民健康保険税条例の一部を改正する条例・R8.6.17 原案可決・令和8年度以降の国民健康保険税について適用）が一致（機械照合）。資産割 医療11.62%・支援3.68%・介護5.56%（既存の値を更新）。3月専決の値（子ども分1,026円・18歳以上65円）は6月改正で置き換わった。例規集は令和8年度の改正が未反映。子ども分は均等割600円＋18歳以上25円（加算）。"
   }
 }

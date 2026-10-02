@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0845,
-    "support": 0.0295,
-    "care": 0.0277
+    "medical": 0.0782,
+    "support": 0.0279,
+    "care": 0.0245
   },
   "perCapita": {
-    "medical": 28440,
-    "support": 9957,
-    "care": 9914
+    "medical": 33400,
+    "support": 11800,
+    "care": 12300
   },
   "household": {
-    "medical": 18201,
-    "support": 6381,
-    "care": 4852
+    "medical": 21400,
+    "support": 7600,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,48 +57,52 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.153Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
+        "https://www.city.nisshin.lg.jp/kurashi/sumai/zeikin/zeisonota/6378.html",
+        "https://www.city.nisshin.lg.jp/material/files/group/80/gian32-36.pdf"
+      ],
+      "ordinanceUrls": [
+        "https://www.city.nisshin.lg.jp/section/reiki_int/reiki_honbun/i532RG00000182.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
+      "type": "official",
+      "title": "国民健康保険税／日進市",
+      "url": "https://www.city.nisshin.lg.jp/kurashi/sumai/zeikin/zeisonota/6378.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、日進市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=67円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
+    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、日進市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=67円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。 / 2026-10-02: 国民健康保険税／日進市（https://www.city.nisshin.lg.jp/kurashi/sumai/zeikin/zeisonota/6378.html）の日進市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 8.45%／28,440円／18,201円・支援 2.95%／9,957円／6,381円・介護 2.77%／9,914円／4,852円・子ども 0.31%／1,047円＋18歳以上67円／671円 → 新値 医療 7.82%／33,400円／21,400円・支援 2.79%／11,800円／7,600円・介護 2.45%／12,300円／6,000円・子ども 0.29%／1,200円＋18歳以上60円／700円。市のページと日進市国民健康保険税条例の料率が一致（機械照合）。限度額はページに無く、例規集は66万円だが、第1回臨時会の議案第34号（専決第4号・令和8年3月31日条例第17号「基礎課税額に係る賦課限度額を66万円から67万円に」「子ども・子育て支援納付金課税額に係る賦課限度額を3万円」、5月18日 原案可決）で改正済み。ページの子ども分1,260円は均等割1,200円＋18歳以上60円の合計。子ども分は均等割1,200円＋18歳以上60円（加算）。"
   },
   "childcareLevy": {
-    "rate": 0.0031,
-    "perCapita": 1047,
-    "perCapitaAdult": 67,
+    "rate": 0.0029,
+    "perCapita": 1200,
+    "perCapitaAdult": 60,
     "perCapitaAdultScope": "all_ages",
     "cap": 30000,
-    "household": 671
+    "household": 700
   },
   "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、日進市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }

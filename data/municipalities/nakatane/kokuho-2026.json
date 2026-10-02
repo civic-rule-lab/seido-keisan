@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0685,
-    "support": 0.0291,
-    "care": 0.0239
+    "medical": 0.0652,
+    "support": 0.0309,
+    "care": 0.0247
   },
   "perCapita": {
-    "medical": 29916,
-    "support": 12609,
-    "care": 12055
+    "medical": 28000,
+    "support": 12900,
+    "care": 12600
   },
   "household": {
-    "medical": 19128,
-    "support": 8062,
-    "care": 5975
+    "medical": 18300,
+    "support": 8500,
+    "care": 6400
   },
   "caps": {
-    "medical": 660000,
+    "medical": 670000,
     "support": 260000,
     "care": 170000,
     "childcare": 30000
@@ -57,47 +57,48 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.102Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-02T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kagoshima.jp/ae02/documents/64057_20260402141120-1.pdf"
+        "https://town.nakatane.kagoshima.jp/choumin/kurashi/zekin/r6_zei_osirase.html",
+        "https://town.nakatane.kagoshima.jp/koho/machinojoho/koho-kocho/kohoshi/documents/7gatugou.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-02",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 鹿児島県 市町村標準保険料率",
-      "url": "https://www.pref.kagoshima.jp/ae02/documents/64057_20260402141120-1.pdf",
+      "type": "official",
+      "title": "令和8年度の税率と賦課限度額について｜鹿児島県中種子町",
+      "url": "https://town.nakatane.kagoshima.jp/choumin/kurashi/zekin/r6_zei_osirase.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-02",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "鹿児島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で中種子町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・4制度すべて3方式(子ども分も平等割)・資産割なし・限度額医療66万(国基準準拠)。子ども子育て分は18歳以上均等割(=106円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "鹿児島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で中種子町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・4制度すべて3方式(子ども分も平等割)・資産割なし・限度額医療66万(国基準準拠)。子ども子育て分は18歳以上均等割(=106円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-02: 令和8年度の税率と賦課限度額について｜鹿児島県中種子町（https://town.nakatane.kagoshima.jp/choumin/kurashi/zekin/r6_zei_osirase.html）の中種子町の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 6.85%／29,916円／19,128円・支援 2.91%／12,609円／8,062円・介護 2.39%／12,055円／5,975円・子ども 0.29%／1,230円＋18歳以上106円／797円 → 新値 医療 6.52%／28,000円／18,300円・支援 3.09%／12,900円／8,500円・介護 2.47%／12,600円／6,400円・子ども 0.29%／1,200円＋18歳以上100円／700円。町のページ（令和8年度の税率表・医療分限度額 66万円→67万円）で確認（機械照合）。広報なかたね2026年7月号（医療67万・子ども3万）と議会だより No.180（6月定例会で国保税条例の限度額を改正）も一致。例規集（内容現在 令和8年3月31日）は66万円で未反映。子ども分は均等割1,200円＋18歳以上100円（加算）。"
   },
   "childcareLevy": {
     "rate": 0.0029,
-    "perCapita": 1230,
-    "perCapitaAdult": 106,
+    "perCapita": 1200,
+    "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 797,
+    "household": 700,
     "cap": 30000
   }
 }
