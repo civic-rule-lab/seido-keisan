@@ -46,9 +46,20 @@ function _shotokuNonTaxableLimit(dependents) {
   return 350_000 * n + 100_000 + (dependents > 0 ? 320_000 : 0);
 }
 
+// ─── 扶養親族・同一生計配偶者の合計所得金額要件（年度で変わる） ─────────
+// 令和8年度まで 58万円以下、令和9年度以後 62万円以下（令和8年度税制改正）。
+//   出典: 地方税法等の一部を改正する法律要綱 第1の1(1)
+//         https://www.soumu.go.jp/main_content/001060865.pdf
+//         改正法 第23条第1項第7号・第9号／第292条第1項第7号・第9号「五十八万円」→「六十二万円」
+//         https://www.soumu.go.jp/main_content/001066281.pdf
+//   fiscalYear 未指定は令和8年度（2026）扱いで後方互換。
+function fuyoIncomeLimitJumin(fiscalYear) {
+  return (Number.isFinite(fiscalYear) && fiscalYear >= 2027) ? 620_000 : 580_000;
+}
+
 // ─── 特定親族特別控除（令和8年度課税〜・令和7年度税制改正） ─────────
 // 19歳以上23歳未満の親族等（配偶者・青色事業専従者等を除く）で、
-// 合計所得金額が 58万円超 123万円以下（給与収入のみなら 123万円超 188万円以下）の場合、
+// 合計所得金額が 扶養の所得要件超 123万円以下（令和8年度は58万円超、令和9年度以後は62万円超）の場合、
 // 親族の合計所得金額に応じた7段階の所得控除（住民税は最高45万円）。
 //   出典: 総務省説明資料（令7.5.15）・横浜市/大阪市/西宮市 R8税制改正ページ
 // 注意:
@@ -68,11 +79,13 @@ const TOKUTEI_SHINZOKU_BRACKETS = [
 /**
  * 特定親族特別控除（住民税）の控除額を返す。
  * @param {number} relativeIncome - 親族の合計所得金額（円）
- * @returns {number} 控除額（円）。所得58万円以下（=扶養控除の領域）と123万円超は 0。
+ * @param {number} [fiscalYear]   - 住民税の年度。未指定=令和8年度。
+ * @returns {number} 控除額（円）。扶養の所得要件以下（=扶養控除の領域。令和8年度58万円・令和9年度以後62万円）と123万円超は 0。
+ *   令和9年度以後も区分表（95万円以下45万円 …）は改正されていない。62万円超95万円以下が45万円になる。
  */
-function calcTokuteiShinzokuDeduction(relativeIncome) {
+function calcTokuteiShinzokuDeduction(relativeIncome, fiscalYear) {
   if (!Number.isFinite(relativeIncome)) return 0;
-  if (relativeIncome <= 580_000 || relativeIncome > 1_230_000) return 0;
+  if (relativeIncome <= fuyoIncomeLimitJumin(fiscalYear) || relativeIncome > 1_230_000) return 0;
   for (const [cap, deduction] of TOKUTEI_SHINZOKU_BRACKETS) {
     if (relativeIncome <= cap) return deduction;
   }
@@ -152,6 +165,8 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  *   total            - 年間住民税
  *   monthly          - 月額目安
  *   isTaxable        - 均等割課税者か（介護保険段階判定に使用）
+ *   humanDeductionDiff - 調整控除に使った人的控除差の合計（入力値＋特定扶養分18万円/人）
+ *   dependentsCount  - 非課税判定に使った扶養等の人数（入力値＋特定扶養の子）
  *   hoikuShotokuwari - 保育料の指数(1人分)。市町村民税所得割・調整控除後・税額控除前・旧6%換算。
  *                      父母合算は呼び出し側で2回呼んで加算する。非課税は0。
  */
@@ -184,13 +199,13 @@ function calculateJumin(data, inputs) {
     if (!Number.isFinite(s) || s <= 0) continue;
     // 給与→所得の閾値も年度で動く（65万前提「給与123万⇔所得58万」→74万年度は「給与132万⇔所得58万」）。
     const relIncome = _income.calcSalaryIncome(s, fiscalYear);
-    if (relIncome <= 580_000) {
-      // 給与123万円以下 → 従来どおり特定扶養控除（45万円・控除差18万円・扶養人数+1）
+    if (relIncome <= fuyoIncomeLimitJumin(fiscalYear)) {
+      // 所得が扶養の要件以下（令和8年度58万円・令和9年度以後62万円）→ 特定扶養控除（45万円・控除差18万円・扶養人数+1）
       specialDependentDeduction += 450_000;
       _sdHumanDiff += 180_000;
       _sdDependents += 1;
     } else {
-      specialDependentDeduction += calcTokuteiShinzokuDeduction(relIncome);
+      specialDependentDeduction += calcTokuteiShinzokuDeduction(relIncome, fiscalYear);
     }
   }
   const effDependentDeduction = dependentDeduction + specialDependentDeduction;
@@ -241,8 +256,10 @@ function calculateJumin(data, inputs) {
     taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly,
     isTaxable: kintoTaxable,
     specialDependentDeduction, // 19〜22歳の子等に適用された控除額（特定扶養45万/特定親族特別控除3万〜45万）
+    humanDeductionDiff: effHumanDiff, // 調整控除に使った人的控除差の合計（特定扶養分を含む）
+    dependentsCount: effDependents,   // 非課税判定に使った扶養等の人数（特定扶養の子を含む）
     hoikuShotokuwari,          // 保育料の指数(1人分・市民税所得割/調整控除後/税額控除前/旧6%換算)。父母合算は呼び出し側で。
   };
 }
 
-if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase };
+if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin };

@@ -16,6 +16,13 @@ const _jumin = _isNode ? require('./jumin.js') : { calculateJumin: (typeof windo
 const _shogakukin = _isNode ? require('./shogakukin.js') : (typeof window !== 'undefined' ? window.Shogakukin : null);
 const _loan = _isNode ? require('./shogakukin-loan.js') : (typeof window !== 'undefined' ? window.ShogakukinLoan : null);
 const _income = _isNode ? require('./shared/income.js') : { calcSalaryIncome: (typeof calcSalaryIncome !== 'undefined' ? calcSalaryIncome : (s => 0)) };
+// 扶養の所得要件（令和8年度58万円・令和9年度以後62万円）。正本は jumin.js の fuyoIncomeLimitJumin。
+//   ブラウザでは jumin.js を先に読み込む前提（calculateJumin と同じ）。見つからないときは同じ規則で代替する。
+const _fuyoLimit = _isNode
+  ? require('./jumin.js').fuyoIncomeLimitJumin
+  : (typeof fuyoIncomeLimitJumin !== 'undefined'
+      ? fuyoIncomeLimitJumin
+      : (fy => ((Number.isFinite(fy) && fy >= 2027) ? 620_000 : 580_000)));
 
 // ─── 所得割の非課税限度額（標準・1級地）。jumin._shotokuNonTaxableLimit と同一の公開ルール ──
 //   35万×(1+扶養等の人数)＋10万＋(扶養等がいれば32万)。
@@ -53,11 +60,11 @@ function supporterFromIncome(juminData, in_) {
   const spouseDeduction = Number.isFinite(i.spouseDeduction) ? i.spouseDeduction : (i.hasSpouseDeduction ? 330_000 : 0);
   const dependentDeduction = Number.isFinite(i.dependentDeduction) ? i.dependentDeduction : (330_000 * generalDependents);
   const specialDependentSalaries = Array.isArray(i.specialDependentSalaries) ? i.specialDependentSalaries : [];
-  // 特定扶養に該当する子（所得58万円以下=給与123万円以下）は税法上の扶養親族＝非課税判定の人数に算入する。
+  // 特定扶養に該当する子（所得が扶養の要件以下＝令和8年度58万円・令和9年度以後62万円）は税法上の扶養親族＝非課税判定の人数に算入する。
   //   [80052df相当] dependents未指定のAPI直叩き経路で算入漏れ→第Ⅰ→第Ⅱ誤判定になり得たのを是正（UI経路は dependents 明示渡しで不変）。
   let _sdDepCount = 0;
   for (const s of specialDependentSalaries) {
-    if (Number.isFinite(s) && s > 0 && _income.calcSalaryIncome(s, i.fiscalYear) <= 580_000) _sdDepCount++;
+    if (Number.isFinite(s) && s > 0 && _income.calcSalaryIncome(s, i.fiscalYear) <= _fuyoLimit(i.fiscalYear)) _sdDepCount++;
   }
   // 非課税判定に使う扶養等の人数（同一生計配偶者＋一般扶養＋特定扶養の子）。
   const baseDependents = Number.isFinite(i.dependents)
@@ -88,7 +95,7 @@ function supporterFromIncome(juminData, in_) {
   let sdHumanDiff = 0;
   for (const s of specialDependentSalaries) {
     if (!Number.isFinite(s) || s <= 0) continue;
-    if (_income.calcSalaryIncome(s, i.fiscalYear) <= 580_000) sdHumanDiff += 180_000;
+    if (_income.calcSalaryIncome(s, i.fiscalYear) <= _fuyoLimit(i.fiscalYear)) sdHumanDiff += 180_000;
   }
   const humanDeductionDiffOut = hdd + sdHumanDiff;
 
