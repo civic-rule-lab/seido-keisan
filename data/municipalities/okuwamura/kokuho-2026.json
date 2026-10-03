@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.063,
-    "support": 0.0282,
-    "care": 0.0242
+    "medical": 0.0635,
+    "support": 0.0275,
+    "care": 0.0225
   },
   "perCapita": {
-    "medical": 23004,
-    "support": 10564,
-    "care": 10094
+    "medical": 23400,
+    "support": 10400,
+    "care": 9800
   },
   "household": {
-    "medical": 23475,
-    "support": 9496,
-    "care": 8105
+    "medical": 23700,
+    "support": 9000,
+    "care": 7800
   },
   "caps": {
     "medical": 670000,
@@ -60,44 +60,53 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:21.852Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf"
+        "https://www.vill.okuwa.lg.jp/okuwa/koho/documents/koho_R8/kouhou620-2.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verificationLevel": "primary_source_checked_partial",
+      "watchUrls": [
+        "http://reiki.vill.ookuwa.nagano.jp/H339901010012/H339901010012_j.html"
+      ],
+      "primarySourceVerified": true,
+      "primarySourceVerifiedAt": "2026-10-04",
+      "reflectionPending": "caps",
+      "reflectionPendingNote": "税率・均等割・平等割は村の広報（広報おおくわ 6月号）の令和8年度国民健康保険税率表で確認しています。賦課限度額と軽減判定の加算額は広報に載っておらず、村の例規集（内容現在 令和7年11月26日）は令和8年度の改正前の版のままで、医療分の限度額は66万円です。データの限度額（67万・26万・17万・3万円）と軽減判定（31万・57万円）は令和8年度の政令の額で、村の改正後の額は確認できていません。",
+      "ordinanceUrls": [
+        "http://reiki.vill.ookuwa.nagano.jp/H339901010012/H339901010012_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 長野県 市町村標準保険料率",
-      "url": "https://www.pref.nagano.lg.jp/kokuho/kokuho/documents/r8kekka.pdf",
+      "type": "official",
+      "title": "広報おおくわ 6月号「国民健康保険税のお知らせです」令和8年度国民健康保険税率",
+      "url": "https://www.vill.okuwa.lg.jp/okuwa/koho/documents/koho_R8/kouhou620-2.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
       "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大桑村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=38円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "長野県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で大桑村の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=38円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-04: 広報おおくわ 6月号 p.6「国民健康保険税のお知らせです 子ども子育て支援金制度が始まります」の「令和8年度国民健康保険税率」表で実税率を確認し、長野県の市町村標準保険料率（参考値）から差し替えた。医療 所得割6.35%・均等割23,400円・平等割23,700円／支援 2.75%・10,400円・9,000円／介護 2.25%・9,800円・7,800円／子ども・子育て支援分（新設）0.30%・均等割1,100円・平等割1,100円・18歳以上均等割34円（perCapita 1,100＋perCapitaAdult 34）。表に資産割の行は無く3方式。医療・支援・介護の税率と均等割は令和7年度の条例（例規集）と同じ値で据え置き。**限度額が未確認のため extracted_r8 に留める**: 広報に限度額・軽減判定の記載が無く、例規集（http のみ・内容現在 令和7年11月26日）は令和8年度改正が未収録（医療分限度額66万円・軽減判定30.5万/56万円・子ども分の条なし）。例規集を watchUrls に入れた。"
   },
   "childcareLevy": {
     "rate": 0.003,
-    "perCapita": 1132,
-    "perCapitaAdult": 38,
+    "perCapita": 1100,
+    "perCapitaAdult": 34,
     "perCapitaAdultScope": "all_ages",
-    "household": 0,
+    "household": 1100,
     "cap": 30000
   }
 }
