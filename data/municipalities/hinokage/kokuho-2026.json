@@ -7,19 +7,19 @@
   "note": "4方式。実際値。",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0692,
-    "support": 0.0271,
-    "care": 0.0236
+    "medical": 0.0725,
+    "support": 0.0332,
+    "care": 0.0248
   },
   "perCapita": {
-    "medical": 30547,
-    "support": 11909,
-    "care": 12261
+    "medical": 23800,
+    "support": 10900,
+    "care": 12200
   },
   "household": {
-    "medical": 20013,
-    "support": 7803,
-    "care": 6236
+    "medical": 14400,
+    "support": 6600,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -28,16 +28,17 @@
     "childcare": 30000
   },
   "childcareLevy": {
-    "rate": 0.008,
-    "perCapita": 1283,
-    "perCapitaAdult": 85,
+    "rate": 0.0029,
+    "perCapita": 1450,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 814
+    "household": 800,
+    "cap": 30000
   },
   "assetLevy": {
-    "medical": 0.1397,
-    "support": 0.0659,
-    "care": 0.0662
+    "medical": 0.0697,
+    "support": 0.0319,
+    "care": 0.0314
   },
   "preschoolReduction": {
     "enabled": true,
@@ -73,36 +74,46 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.397Z",
-      "updatedAt": "2026-06-12T00:00:00.000Z",
+      "updatedAt": "2026-10-03T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-        "https://www.pref.miyazaki.lg.jp/kokuho/kense/shingikai/20260325162812.html"
+        "https://www.town.hinokage.lg.jp/docs/2016030100021/",
+        "https://www.town.hinokage.lg.jp/docs/2016030100021/file_contents/kodomokosodadesiennkinnseido.pdf"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verificationLevel": "primary_source_checked_partial",
+      "watchUrls": [
+        "https://en3-jg.d1-law.com/hinokage/d1w_reiki/H341901010013/H341901010013_j.html"
+      ],
+      "primarySourceVerified": true,
+      "primarySourceVerifiedAt": "2026-10-03",
+      "reflectionPending": "childcare_per_capita",
+      "reflectionPendingNote": "子ども・子育て支援金分の均等割は、町の国民健康保険税のページでは18歳以上1人あたり1,450円、町の子ども・子育て支援金パンフレットでは1,400円で、資料が割れています。本サイトはページの税率表の1,450円を用いています。町の例規集は令和8年度の改正をまだ収録していません。",
+      "ordinanceUrls": [
+        "https://en3-jg.d1-law.com/hinokage/d1w_reiki/H341901010013/H341901010013_j.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 宮崎県 国保事業費納付金及び標準保険税率の算定結果（運営協議会資料1）",
-      "url": "https://www.pref.miyazaki.lg.jp/documents/107782/107782_20260325164451-1.pdf",
-      "publishedAt": "2026-03"
+      "type": "official",
+      "title": "国民健康保険税 | 日之影町",
+      "url": "https://www.town.hinokage.lg.jp/docs/2016030100021/",
+      "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-03",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。日之影町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。"
+    "notes": "宮崎県公表の令和8年度市町村標準保険税率（R7年度第2回運営協議会資料1・2026-03-19）を参考値として採用。日之影町が実際に告示する税率とは異なる場合がある（告示検知で昇格）。子ども分は標準税率の均等割＋18歳以上均等割＋平等割をchildcareLevy形式で設定（18歳未満は均等割全額軽減）。3方式・資産割なし。 / 2026-10-03: 町のページ「国民健康保険税」（Last-Modified 2026-08-03）の税率表で令和8年度の実税率を確認し、宮崎県の市町村標準保険税率（参考値）から差し替えた（extracted_r8）。4方式（医療・支援・介護に資産割、子ども分に資産割なし）。従前の notes の「3方式・資産割なし」は誤りで、assetLevy に入っていた値（医療13.97%・支援6.59%・介護6.62%）は令和7年度の条例の資産割率だった。旧値 医療 6.92%／30,547円／20,013円・支援 2.71%／11,909円／7,803円・介護 2.36%／12,261円／6,236円・子ども 0.8%／1,283円＋18歳以上85円／814円 → 新値 医療 所得割7.25%・資産割6.97%・均等割23,800円・平等割14,400円・限度額67万円／支援 3.32%・3.19%・10,900円・6,600円・26万円／介護 2.48%・3.14%・12,200円・6,200円・17万円／子ども 0.29%・均等割1,450円（18歳以上1人あたり）・平等割800円・3万円。ページは子ども分均等割を「18歳以上の国保加入者の人数に均等割額をかけて算出」とし、perCapita 1,450円・perCapitaAdult 0円（all_ages）とした。／ 未確定: 子ども分の均等割が資料で割れる。町の子ども・子育て支援金パンフレット（2026-08-03作成）は「所得割0.29％、均等割1,400円、平等割額800円」で、18歳以上加算の記載は無い。均等割1,400円＋18歳以上加算50円＝1,450円の可能性があるが確認できない。差は18歳以上1人あたり年50円。町の例規集（d1-law・内容現在 令和8年5月22日）の国保税条例は最終改正 令和7年5月16日条例第7号で、令和7年度の税率（医療6.63%・資産割13.97% 等・限度額66万円）のまま子ども分の条も無く、令和8年度の改正は未収録。医療・支援・介護の料率と限度額も町ページのみが出典のため、確認済みとしては扱っていない。"
   }
 }
