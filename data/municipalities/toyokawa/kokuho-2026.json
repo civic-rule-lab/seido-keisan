@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0708,
-    "support": 0.0219,
-    "care": 0.0204
+    "medical": 0.074,
+    "support": 0.024,
+    "care": 0.022
   },
   "perCapita": {
-    "medical": 35016,
-    "support": 11136,
-    "care": 11563
+    "medical": 35700,
+    "support": 11600,
+    "care": 12400
   },
   "household": {
-    "medical": 23423,
-    "support": 7449,
-    "care": 5741
+    "medical": 23800,
+    "support": 7800,
+    "care": 6200
   },
   "caps": {
     "medical": 670000,
@@ -57,48 +57,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.129Z",
-      "updatedAt": "2026-06-10T00:00:00.000Z",
+      "updatedAt": "2026-10-03T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_basis",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.aichi.jp/uploaded/attachment/604948.pdf"
+        "https://www.city.toyokawa.lg.jp/soshiki/fukushi/hokennenkin/2/1/5/4/7185.html",
+        "https://www.city.toyokawa.lg.jp/soshiki/fukushi/hokennenkin/2/1/5/4/7030.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-03",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 愛知県 各市町村の算定基準に基づく標準的な保険料率",
-      "url": "https://www.pref.aichi.jp/soshiki/kokuho/hyojunhokenryoritsu.html",
+      "type": "official",
+      "title": "国民健康保険料／豊川市",
+      "url": "https://www.city.toyokawa.lg.jp/soshiki/fukushi/hokennenkin/2/1/5/4/7185.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-03",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、豊川市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=59円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。"
+    "notes": "愛知県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で、豊川市が実際に告示する料率とは異なる場合がある。3方式(所得割+均等割+平等割)・資産割なし。子ども子育て分は18歳以上均等割(=59円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市町村告示後 verified_r8 へ昇格。 / 2026-10-03: 国民健康保険料／豊川市（https://www.city.toyokawa.lg.jp/soshiki/fukushi/hokennenkin/2/1/5/4/7185.html）の豊川市の行で令和8年度の実料率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。旧値 医療 7.08%／35,016円／23,423円・支援 2.19%／11,136円／7,449円・介護 2.04%／11,563円／5,741円・子ども 0.25%／1,261円＋18歳以上59円／844円 → 新値 医療 7.4%／35,700円／23,800円・支援 2.4%／11,600円／7,800円・介護 2.2%／12,400円／6,200円・子ども 0.3%／1,400円＋18歳以上0円／900円。市のページ「国民健康保険料」（更新日 2026年7月31日）の令和8年度保険料率一覧と限度額（67万／26万／17万／3万円）を機械照合。子ども・子育て支援金分の均等割1,400円には18歳以上加算の行が無く、#661 では内訳不明として保留していた。市の「国民健康保険料算定モデルケース」（更新日 2026年8月28日）の3件では子ども分の均等割がいずれも「1,400円×18歳以上の人数」（18歳未満は0円・5割軽減時は1,400円の半額）で、1,400円が18歳以上1人あたりの全額と判断し perCapita 1,400円・perCapitaAdult 0円（all_ages）とした。エンジンでモデルケース3件を計算すると子ども分・支援分・介護分は全件一致、ケース3は合計も一致（524,100円）。ケース1・2は医療分が100円多い（412,400円／112,200円、市は412,300円／112,100円）。市は未就学児軽減・5割軽減の医療分均等割を1人100円単位で切り上げており（17,850→17,900円）、エンジンは切り上げないため。データの値の差ではない。保険料方式。"
   },
   "childcareLevy": {
-    "rate": 0.0025,
-    "perCapita": 1261,
-    "perCapitaAdult": 59,
+    "rate": 0.003,
+    "perCapita": 1400,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
     "cap": 30000,
-    "household": 844
+    "household": 900
   },
   "notes": "愛知県公表「各市町村の算定基準に基づく標準的な保険料率」(R8・604948.pdf)を参考値として採用。各市の賦課方式を反映した理論値で、豊川市が実際に告示する料率とは異なる場合がある。3方式。子ども子育て分の18歳以上均等割加算は省略のフラット暫定。市町村告示後 verified_r8 へ昇格。旧値は県統一算定の604944由来だったため2026-06-10に差し替え。"
 }
