@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0981,
-    "support": 0.0308,
-    "care": 0.0295
+    "medical": 0.083,
+    "support": 0.026,
+    "care": 0.028
   },
   "perCapita": {
-    "medical": 36481,
-    "support": 11319,
-    "care": 12361
+    "medical": 37100,
+    "support": 12100,
+    "care": 12600
   },
   "household": {
-    "medical": 22592,
-    "support": 7010,
-    "care": 6090
+    "medical": 23500,
+    "support": 7600,
+    "care": 6100
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.111Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-04T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html"
+        "https://www.city.nagaokakyo.lg.jp/0000001475.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-04",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 京都府 市町村標準保険料率",
-      "url": "https://www.pref.kyoto.jp/iryohoken/hyoujunhokenryouritu.html",
+      "type": "official",
+      "title": "長岡京市「国民健康保険料の計算方法」令和8年度の保険料率",
+      "url": "https://www.city.nagaokakyo.lg.jp/0000001475.html",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-04",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で長岡京市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=51円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。"
+    "notes": "京都府公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で長岡京市の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=51円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-04: 市のページ「国民健康保険料の計算方法」（2026年4月1日掲載・令和8年度の保険料率の表 keisanhouhou_2026033111452046.png）で令和8年度の実料率を確認し、京都府の市町村標準保険料率（参考値）から差し替えて verified_r8 に昇格。保険料方式・3方式。料率は条例でなく告示で定める（長岡京市国民健康保険条例第16条第3項「速やかに告示しなければならない」）。子ども分均等割は表に「1,310円（内50円18歳以上均等割）」とあり、perCapita 1,260円＋perCapitaAdult 50円（all_ages）として計上。表の注記に高校生年代以下は子ども分均等割がかからない旨。"
   },
   "childcareLevy": {
-    "rate": 0.0032,
-    "perCapita": 1190,
-    "perCapitaAdult": 51,
+    "rate": 0.0028,
+    "perCapita": 1260,
+    "perCapitaAdult": 50,
     "perCapitaAdultScope": "all_ages",
-    "household": 726,
+    "household": 790,
     "cap": 30000
   }
 }
