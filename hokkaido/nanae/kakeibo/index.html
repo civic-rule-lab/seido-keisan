@@ -423,7 +423,10 @@
       }
     } else if(kokuhoData){
       try{
-        var rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:0, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
+        // 介護分（40〜64歳）: 年齢が分かるのは本人だけなので、本人が40〜64歳なら1人分入れる
+        // （2026-10-04・TASKS X170-12。旧実装は care:0 固定で、40〜64歳の自営の方にも介護分が入っていなかった）。
+        var careN=(age>=40 && age<65)?1:0;
+        var rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
         grand += rk.total;
         cards.push(card("国民健康保険", rk.total, [
           ["医療分", rk.medicalTotal],["支援分", rk.supportTotal],["介護分", rk.careTotal],["法定軽減", -rk.totalReduction]
