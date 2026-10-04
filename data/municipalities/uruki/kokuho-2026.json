@@ -73,7 +73,10 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "https://www.urugi.jp/top/administration_living/living_procedures/tax/national_health_insurance_tax/",
+        "https://www1.g-reiki.net/urugi/reiki_honbun/v000RG00000190.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",

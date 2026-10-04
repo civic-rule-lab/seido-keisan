@@ -81,7 +81,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": [
+        "https://www.vill.shiiba.miyazaki.jp/welfare/healthy/healthinsurance.php"
+      ]
     },
     "source": {
       "type": "prefecture_standard",

@@ -10,10 +10,21 @@ const CHILDCARE_CAP_NATIONAL = 30000;
 
 function calculateKokuho(input, data) {
   const { income, family, preschool, under18, care, salaryPensionCount, fixedAssetTax,
-          reductionJudgmentIncome } = input;
+          reductionJudgmentIncome, members } = input;
+
+  // 加入者ごとの所得（任意・2026-10-04 追加・TASKS X170-12）。
+  //   members: [{ income: 前年の総所得金額等（基礎控除前）, careTarget: 40〜64歳なら true }, ...]
+  // 所得割の基礎額は「加入者ごとに 所得 − 基礎控除（下限0）」の合計で、介護分の所得割は
+  // careTarget の人の基礎額だけに掛ける（市原市の公式計算例で確認）。
+  // members が無いときは従来どおり income 1本から基礎控除を1回だけ引く（既存ページ・API・テストの結果は不変）。
+  // 均等割・平等割の人数（family / care / under18 / preschool）は members ではなく従来の入力を使う。
+  const memberList = Array.isArray(members) && members.length > 0 ? members : null;
 
   // ① income=undefined 対策：未指定時は 0 として扱う
-  const incomeSafe      = income      || 0;
+  // members があるときは各人の所得の合計（軽減判定の既定値にも使う）。
+  const incomeSafe      = memberList
+    ? memberList.reduce((s, m) => s + Math.max(m?.income || 0, 0), 0)
+    : (income || 0);
   const familySafe      = Math.max(family || 0, 0);
   // ③ preschool / care が family を超えた場合は family に clamp
   const preschoolSafe   = Math.min(Math.max(preschool || 0, 0), familySafe);
@@ -31,12 +42,19 @@ function calculateKokuho(input, data) {
   const assetLevyCare    = data.assetLevy && careSafe > 0 ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
   const assetLevyChildcare = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.childcare || 0)) : 0;
 
-  const baseIncome = Math.max(incomeSafe - data.basicDeduction, 0);
+  const memberBase = (m) => Math.max(Math.max(m?.income || 0, 0) - data.basicDeduction, 0);
+  const baseIncome = memberList
+    ? memberList.reduce((s, m) => s + memberBase(m), 0)
+    : Math.max(incomeSafe - data.basicDeduction, 0);
+  // 介護分の所得割の基礎額。members が無いときは従来どおり世帯の基礎額全部（簡易計算）。
+  const careBaseIncome = memberList
+    ? memberList.reduce((s, m) => s + (m?.careTarget ? memberBase(m) : 0), 0)
+    : baseIncome;
 
   // 所得割
   const medicalIncome = Math.round(baseIncome * data.rate.medical);
   const supportIncome = Math.round(baseIncome * data.rate.support);
-  const careIncome    = careSafe > 0 ? Math.round(baseIncome * data.rate.care) : 0;
+  const careIncome    = careSafe > 0 ? Math.round(careBaseIncome * data.rate.care) : 0;
 
   // 均等割
   const medicalPerCapita = familySafe * data.perCapita.medical;

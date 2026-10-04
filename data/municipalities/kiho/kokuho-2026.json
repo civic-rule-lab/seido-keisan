@@ -73,7 +73,9 @@
       "r8Updated": true,
       "verifiedAt": "",
       "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "watchUrls": [
+        "http://www.town.kiho.lg.jp/reiki_int/reiki_honbun/i668RG00000189.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",

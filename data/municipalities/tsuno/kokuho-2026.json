@@ -86,7 +86,10 @@
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified"
+      "verificationLevel": "prefecture_standard_unverified",
+      "watchUrls": [
+        "https://www.town.tsuno.lg.jp/reiki/reiki_honbun/q632RG00000163.html"
+      ]
     },
     "source": {
       "type": "prefecture_standard",
