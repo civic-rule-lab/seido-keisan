@@ -429,7 +429,7 @@
         var rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
         grand += rk.total;
         cards.push(card("国民健康保険", rk.total, [
-          ["医療分", rk.medicalTotal],["支援分", rk.supportTotal],["介護分", rk.careTotal],["法定軽減", -rk.totalReduction]
+          ["医療分", rk.medicalTotal],["支援分", rk.supportTotal],["介護分", rk.careTotal],["子ども・子育て支援金分", rk.childcareTotal||0],["法定軽減", -rk.totalReduction]
         ], "#0d9488"));
       }catch(e){ cards.push(skip("国民健康保険", "計算できませんでした")); }
     } else { cards.push(skip("国民健康保険", "この自治体のデータは準備中")); }
