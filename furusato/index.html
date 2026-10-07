@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="2026年中のふるさと納税で、自己負担2,000円で済む寄附額の上限（控除上限額）の目安を、住民税の決定通知書の数字から計算します。入力した数字はこの端末の中だけで計算し、送信・保存しません。">
+<link rel="canonical" href="https://seido-keisan.jp/furusato/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ふるさと納税の控除上限額 かんたん計算【2026年中の寄附】｜住民税の決定通知書から">
+<meta property="og:description" content="2026年中のふるさと納税で、自己負担2,000円で済む寄附額の上限の目安を、住民税の決定通知書の数字から計算します。">
+<meta property="og:url" content="https://seido-keisan.jp/furusato/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<title>ふるさと納税の控除上限額 かんたん計算【2026年中の寄附】｜住民税の決定通知書から</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（住民税ページ jumin-simple.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
+  .check input{width:auto;margin-top:3px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .big{font-size:24px;color:#1d4ed8;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14px;}
+  .jt-table th,.jt-table td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;}
+  .jt-table th{background:#f3f6fb;color:#374151;font-weight:600;}
+  .jt-table td{text-align:right;font-variant-numeric:tabular-nums;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
+  .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
+  h2{font-size:16px;margin:28px 0 6px;color:#111827;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">ふるさと納税</span><span class="h1-seg">控除上限額の計算</span><span class="h1-year">【2026年中の寄附・目安】</span></h1>
+
+  <p style="font-size:16px;color:#374151;line-height:1.7;margin:0 0 8px;">2026年中のふるさと納税で、自己負担が2,000円で済む寄附額の上限（控除上限額）の目安を計算します。お手元の<strong>住民税の決定通知書</strong>（令和8年度分）の数字を入れてください。</p>
+  <p style="font-size:13px;color:#6b7280;line-height:1.7;margin:0 0 8px;">入力した数字はこの端末の中だけで計算し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① 住民税の決定通知書の数字</div>
+    <label for="shotokuwari">所得割額（市区町村民税と道府県民税の合計）</label>
+    <div class="hint">住宅ローン控除・寄附金（ふるさと納税など）の控除・配当控除を受けている方は、それらを差し引く前の額にしてください（調整控除は差し引いたままの額です）。これらの控除が無い方は、通知書の所得割額のままで構いません。</div>
+    <input id="shotokuwari" type="text" inputmode="numeric" placeholder="例：238,500">
+
+    <label for="kazeiHyojun">課税標準額（総所得）</label>
+    <div class="hint">所得から所得控除を引いた後の額です（課税総所得金額）。</div>
+    <input id="kazeiHyojun" type="text" inputmode="numeric" placeholder="例：2,410,000">
+
+    <label for="soShotoku">総所得金額（所得の合計）</label>
+    <div class="hint">所得控除を引く前の、所得の合計です（給与だけの方は給与所得の額）。</div>
+    <input id="soShotoku" type="text" inputmode="numeric" placeholder="例：3,560,000">
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② 家族（2026年12月31日時点の見込み）</div>
+    <label for="spouse">配偶者控除</label>
+    <select id="spouse">
+      <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
+      <option value="general">受ける（配偶者が70歳未満）</option>
+      <option value="elderly">受ける（配偶者が70歳以上）</option>
+    </select>
+    <div class="row3">
+      <div>
+        <label for="depGeneral">扶養（16〜18歳・23〜69歳）</label>
+        <input id="depGeneral" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depSpecific">扶養（19〜22歳）</label>
+        <input id="depSpecific" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depElderly">扶養（70歳以上・同居の親以外）</label>
+        <input id="depElderly" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="depParent">同居の親など（70歳以上）</label>
+        <input id="depParent" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため、人数に入れません。</div>
+    <label for="selfStatus">ご本人</label>
+    <select id="selfStatus">
+      <option value="none" selected>あてはまるものはない</option>
+      <option value="mother">ひとり親（母）</option>
+      <option value="father">ひとり親（父）</option>
+      <option value="widow">寡婦</option>
+    </select>
+    <label for="selfDisability">ご本人の障害者控除</label>
+    <select id="selfDisability">
+      <option value="none" selected>受けない</option>
+      <option value="general">障害者</option>
+      <option value="special">特別障害者</option>
+    </select>
+    <label class="check"><input id="workingStudent" type="checkbox"> 勤労学生控除を受ける</label>
+    <label class="check"><input id="sanrinTaishoku" type="checkbox"> 退職所得・山林所得がある（分離課税のもの）</label>
+  </div>
+
+  <button onclick="calcFurusato()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="warn">
+    <strong>目安です。</strong>決定通知書（令和8年度分）は2025年の所得で計算されています。2026年の収入や家族が2025年と大きく違う方は、上限額もずれます。<br>
+    給与収入が少ない方は、2026年の所得から給与所得控除の最低額が65万円→74万円に上がるため、所得割が下がり、上限額も少し下がることがあります。
+  </div>
+
+  <h2>計算のしかた</h2>
+  <div class="jt-card">
+    <div class="jt-card-title">自己負担が2,000円で済む寄附額の上限</div>
+    <p>上限額 ＝ 住民税の所得割額 × 20% ÷ 特例控除の割合 ＋ 2,000円</p>
+    <p>特例控除の割合は、「課税総所得金額 − 人的控除差調整額」の金額で決まります（下の表）。人的控除差調整額は、家族の状況で決まる住民税と所得税の控除の差（5万円＋家族ごとの加算）に、「所得税の基礎控除 − 48万円」を足した額です。</p>
+    <div id="ratioTable"></div>
+  </div>
+
+  <h2>控除の受け方</h2>
+  <div class="note" style="margin-top:4px;font-size:13px;color:#374151;">
+    ・会社員などで確定申告をしない方は、寄附先が5団体以内なら「ワンストップ特例」の申請で、控除がすべて翌年度の住民税から引かれます。<br>
+    ・自営業の方、医療費控除などで確定申告をする方は、寄附金控除も確定申告で申告します（ワンストップ特例は使えません）。<br>
+    ・寄附は、自治体ごとに示されている使い道を見て選べます。この計算は寄附先を勧めるものではありません。
+  </div>
+
+  <h2>2027年以後の寄附について</h2>
+  <div class="note" style="margin-top:4px;font-size:13px;color:#374151;">
+    2027年中の寄附（令和10年度分の住民税）から、住民税の特例控除額に193万円の上限が設けられます（道府県民税77.2万円・市町村民税115.8万円。指定都市は38.6万円・154.4万円）。2026年中の寄附には適用されません。
+  </div>
+
+  <p style="margin-top:18px;font-size:13px;text-align:right;">
+    <a href="/" style="color:#1d4ed8;text-decoration:none;font-weight:600;">収入と家族から詳しく計算する（家計簿シミュレーター）→</a>
+  </p>
+
+  <div class="note">
+    ※2026年中の寄附（所得税は令和8年分・住民税は令和9年度分）の制度で計算します。<br>
+    ※所得割額の20%を超える特例控除は受けられないため、上限額を超えた分は自己負担が増えます。<br>
+    ※退職所得・山林所得（分離課税）がある方、配偶者や扶養親族に障害者控除がある方は、この計算では正確に出せません。<br>
+    ※実際の控除額は、お住まいの市区町村の計算によります。<br>
+    ※出典：地方税法 第37条の2第11項・第37条・附則第5条の6（e-Gov 法令検索）、地方税法等の一部を改正する法律（令和8年法律第2号）、総務省「ふるさと納税ポータルサイト 税金の控除について」。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<!-- 制度値（data/national/furusato-2027.json）と所得税の基礎控除の表（data/national/shotokuzei-2026.json 令和8年分）。生成時に埋め込む -->
+<script>const FURUSATO_DATA = {
+  "meta": {
+    "scheme": "ふるさと納税（都道府県・市区町村に対する寄附金）の寄附金税額控除・控除上限額",
+    "juminFiscalYear": 2027,
+    "juminFiscalYearLabel": "令和9年度（2027年度）分の個人住民税",
+    "donationYear": 2026,
+    "donationYearLabel": "2026年（令和8年）中の寄附",
+    "shotokuYear": 2026,
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-05",
+    "source": {
+      "law": "地方税法 第37条の2第11項・第314条の7第11項（特例控除額）、第37条第1号イ・第314条の6第1号イ（人的控除差）、附則第5条の6（復興特別所得税を加味した割合） e-Gov 法令API https://laws.e-gov.go.jp/api/1/lawdata/325AC0000000226 （2026-10-01 施行版を 2026-10-05 取得）",
+      "amendment": "地方税法等の一部を改正する法律（令和8年法律第2号） https://www.soumu.go.jp/main_content/001066281.pdf 附則第1条第2号（第37条の2第11項の改正のうち第1号に係る部分は令和8年4月1日施行）、附則第3条第1項・第9項、第11条第1項・第8項",
+      "explanation": [
+        "総務省「税金の控除について」 https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/deduction.html",
+        "練馬区「寄附金税額控除」（更新 2026-02-25） https://www.city.nerima.tokyo.jp/kurashi/zei/jyuminzei/zeigakukojo/kifukinzeigakukojo.html"
+      ]
+    },
+    "notes": [
+      "特例控除の割合は、附則第5条の6 による読み替え後の値（第37条の2第11項第1号の表 85/80/70/67/57/50/45% から復興特別所得税分を引いたもの）。課税総所得金額から人的控除差調整額を控除した金額が0円未満のときの 90%（同項第2号）は附則で読み替えられない。",
+      "人的控除差調整額 ＝ 第37条第1号イの金額（基礎控除の差5万円＋該当者ごとの加算）＋ max(0, 前年分の所得税の基礎控除の額 − 48万円)。後半の加算は令和8年法律第2号による第1号の改正で、令和8年4月1日施行・令和8年度分以後に適用（附則第1条・第3条第1項）。",
+      "特例控除額の193万円の上限（道府県民税 77.2万円・市町村民税 115.8万円。指定都市は 38.6万円・154.4万円）は、令和10年度分（2027年中の寄附）以後に適用（附則第3条第9項・第11条第8項）。2026年中の寄附には適用しないため、本ファイルの値には入れていない。",
+      "課税山林所得金額・課税退職所得金額がある場合の割合（第37条の2第11項第3号）は扱わない。"
+    ]
+  },
+  "selfBurden": 2000,
+  "specialRatio": {
+    "basis": "課税総所得金額 − 人的控除差調整額",
+    "bands": [
+      { "upTo": 1950000, "percent": 84.895 },
+      { "upTo": 3300000, "percent": 79.79 },
+      { "upTo": 6950000, "percent": 69.58 },
+      { "upTo": 9000000, "percent": 66.517 },
+      { "upTo": 18000000, "percent": 56.307 },
+      { "upTo": 40000000, "percent": 49.16 },
+      { "upTo": null, "percent": 44.055 }
+    ],
+    "negativePercent": 90
+  },
+  "humanAdjustment": {
+    "shotokuBasicDeductionOffset": 480000
+  },
+  "humanDiffTable": {
+    "_source": "地方税法 第37条第1号イ（市町村民税は第314条の6第1号イ）の表。e-Gov 2026-10-01 施行版を 2026-10-05 取得。令和8年法律第2号はこの表を改めていない。",
+    "_note": "表の（3）は寡婦または政令で定めるひとり親（1万円）、（4）は政令で定めるひとり親（5万円）。政令の区分は shogakukin-bridge.js の既存の近似（母5万・父1万）に合わせた［政令の原文は未照合］。表の（7）（控除対象配偶者に当たらない合計所得55万円未満の配偶者）は、令和9年度分では控除対象配偶者の所得要件が62万円以下のため、本人の合計所得1,000万円以下の範囲で該当者がいない＝扱わない。扶養親族・配偶者の障害の加算も扱わない（簡単計算の入力に無い）。",
+    "base": 50000,
+    "selfDisabled": 10000,
+    "selfSpecialDisabled": 100000,
+    "widow": 10000,
+    "singleParentFather": 10000,
+    "singleParentMother": 50000,
+    "workingStudent": 10000,
+    "spouse": [
+      { "selfIncomeUpTo": 9000000, "general": 50000, "elderly": 100000 },
+      { "selfIncomeUpTo": 9500000, "general": 40000, "elderly": 60000 },
+      { "selfIncomeUpTo": 10000000, "general": 20000, "elderly": 30000 },
+      { "selfIncomeUpTo": null, "general": 0, "elderly": 0 }
+    ],
+    "dependentGeneral": 50000,
+    "dependentSpecific": 180000,
+    "dependentElderly": 100000,
+    "dependentCohabitingParent": 130000
+  },
+  "specialCapRateOfIncomeLevy": 0.2,
+  "juminBasicRate": 0.1,
+  "juminBasicCapRateOfTotalIncome": 0.3,
+  "shotokuCapRateOfTotalIncome": 0.4,
+  "shotokuSurtaxMultiplier": 1.021
+}; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
+<script src="/js/core/furusato.js?v=2970f807"></script>
+<script>
+(function () {
+  "use strict";
+
+  // ── 数値入力欄（js/engine.js の toHalfWidth / setupNumericInput をそのまま複製。UI 共通ルール §1） ──
+  function toHalfWidth(str) {
+    return String(str)
+      .replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
+      .replace(/[，、,]/g, "");
+  }
+
+  function setupNumericInput(id, options) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const withCommas = !!(options && options.withCommas);
+    let isComposing = false;
+
+    function clean() {
+      if (isComposing) return;
+      el.value = toHalfWidth(el.value).replace(/[^\d]/g, "");
+    }
+
+    function commit() {
+      const raw = toHalfWidth(el.value).replace(/[^\d]/g, "");
+      if (!raw) { el.value = ""; return; }
+      el.value = withCommas ? Number(raw).toLocaleString("ja-JP") : raw;
+    }
+
+    el.addEventListener('compositionstart', () => { isComposing = true; });
+    el.addEventListener('compositionend', () => {
+      isComposing = false;
+      setTimeout(commit, 0);
+    });
+    el.addEventListener('input', clean);
+    el.addEventListener('blur', commit);
+    el.addEventListener('keydown', (e) => {
+      if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
+        e.preventDefault();
+      }
+    });
+  }
+
+  function num(id){ var el=document.getElementById(id); if(!el) return 0; var n=Number(toHalfWidth(el.value||"").replace(/[^\d]/g,"")); return isFinite(n)?n:0; }
+  function val(id){ var el=document.getElementById(id); return el ? el.value : ""; }
+  function chk(id){ var el=document.getElementById(id); return !!(el && el.checked); }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP")+" 円"; }
+  function row(label, amount, cls){ return "<div class='result-row'><div class='result-label'>"+label+"</div><div class='amount"+(cls?" "+cls:"")+"'>"+amount+"</div></div>"; }
+
+  // ── カードフロー（UI 共通ルール §2）: Enter で、表示中の次の入力欄・選択欄へ。次が無ければ移動しない ──
+  document.addEventListener("keydown", function(e){
+    if(e.key !== "Enter") return;
+    var t = e.target;
+    if(!t || !t.matches || !t.matches("input,select")) return;
+    e.preventDefault();
+    var stops = [].slice.call(document.querySelectorAll(".fz-card input, .fz-card select"))
+      .filter(function(el){ return el.offsetParent !== null && !el.disabled; });
+    var i = stops.indexOf(t);
+    if(i > -1 && i + 1 < stops.length){ stops[i + 1].focus(); }   // focus 移動で blur → カンマ付与（§1-2）
+    else if(t.blur){ t.blur(); }                                    // 最後の欄はカンマ付与だけ
+  });
+
+  // ── 割合の表（データから描画） ──
+  function renderRatioTable(){
+    var el = document.getElementById("ratioTable"); if(!el) return;
+    var sr = FURUSATO_DATA.specialRatio, prev = 0, rows = "";
+    rows += "<tr><th>0円未満</th><td>"+sr.negativePercent+"%</td></tr>";
+    sr.bands.forEach(function(b){
+      var label = b.upTo == null ? (prev/10000).toLocaleString()+"万円超" :
+        (prev === 0 ? "0円〜" : (prev/10000).toLocaleString()+"万円超 〜 ") + (b.upTo/10000).toLocaleString()+"万円以下";
+      rows += "<tr><th>"+label+"</th><td>"+b.percent+"%</td></tr>";
+      prev = b.upTo;
+    });
+    el.innerHTML = "<table class='jt-table'><tr><th>課税総所得金額 − 人的控除差調整額</th><td style='text-align:right;font-weight:600;background:#f3f6fb;'>特例控除の割合</td></tr>"+rows+"</table>"
+      + "<p style='font-size:11px;color:#6b7280;'>割合は復興特別所得税を加味した値です（地方税法 附則第5条の6）。</p>";
+  }
+
+  // ── 計算 ──
+  window.calcFurusato = function(){
+    var out = document.getElementById("result");
+    try{
+      var shotokuwari = num("shotokuwari"), kazei = num("kazeiHyojun"), soShotoku = num("soShotoku");
+      if(!shotokuwari || !kazei || !soShotoku){
+        out.innerHTML = "<span class='result-placeholder'>①の3つの数字を入れてください</span>"; return;
+      }
+      if(kazei > soShotoku){
+        out.innerHTML = "<span class='result-placeholder'>課税標準額が総所得金額より大きくなっています。通知書の欄をご確認ください</span>"; return;
+      }
+      var hd = furusatoHumanDeductionDiff({
+        selfTotalIncome: soShotoku,
+        spouse: val("spouse"),
+        dependentGeneral: num("depGeneral"), dependentSpecific: num("depSpecific"),
+        dependentElderly: num("depElderly"), dependentCohabitingParent: num("depParent"),
+        selfDisability: val("selfDisability"),
+        singleParent: val("selfStatus"),
+        workingStudent: chk("workingStudent")
+      }, FURUSATO_DATA);
+      var kiso = furusatoShotokuBasicDeduction(soShotoku, SHOTOKU_KISO_2026);
+      var r = calcFurusatoLimit({
+        incomeLevy: shotokuwari, taxableIncome: kazei, humanDeductionDiff: hd,
+        shotokuBasicDeduction: kiso, hasSanrinOrTaishoku: chk("sanrinTaishoku")
+      }, FURUSATO_DATA);
+      if(typeof gtag === "function"){ gtag("event","calculate",{calc_type:"furusato-simple"}); }
+
+      if(!r.supported){
+        out.innerHTML = "<div class='warn'>退職所得・山林所得（分離課税）がある方は、特例控除の割合の決め方が異なるため、この計算では出せません。お住まいの市区町村にお問い合わせください。</div>";
+        return;
+      }
+      if(r.limit === 0){
+        out.innerHTML = row("控除上限額の目安", "—") + "<div class='warn'>所得割がかからない方は、住民税からの特例控除がありません。ふるさと納税をしても、2,000円を超える部分の多くは控除されません。</div>";
+        return;
+      }
+      var rate = furusatoImpliedShotokuRate(r.ratio, FURUSATO_DATA);
+      var b = calcFurusatoBreakdown(r.limit, { incomeLevy: shotokuwari, ratio: r.ratio, shotokuMarginalRate: rate, totalIncome: soShotoku }, FURUSATO_DATA);
+      var shown = Math.floor(r.limit / 1000) * 1000;
+      out.innerHTML =
+        row("控除上限額の目安", "約 "+shown.toLocaleString("ja-JP")+" 円", "big") +
+        "<div class='hint' style='margin:0 0 12px;'>計算上の値は "+yen(r.limit)+"。端数の扱いで実際とずれるため、千円未満を切り捨てて表示しています。</div>" +
+        row("特例控除の割合", r.ratio.percent+"%") +
+        row("人的控除差調整額", yen(r.humanAdjustment)) +
+        "<div class='result-title' style='font-size:15px;margin-top:16px;'>上限額を寄附したときの控除の内訳（目安）</div>" +
+        row("所得税（2026年分）", yen(b.shotoku)) +
+        row("住民税 基本分（2027年度）", yen(b.juminBasic)) +
+        row("住民税 特例分（2027年度）", yen(b.juminSpecial)) +
+        row("自己負担", yen(b.selfBurden)) +
+        "<div class='hint' style='margin-top:6px;'>ワンストップ特例を使うと、所得税の分も含めて住民税から引かれます（合計は同じです）。所得税率は区分から見積もった値です。</div>";
+    }catch(e){
+      out.innerHTML = "<div class='result-label'>計算エラー</div><div>"+e.message+"</div>";
+    }
+  };
+
+  function init(){
+    ["shotokuwari","kazeiHyojun","soShotoku"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id, { withCommas: false }); });
+    renderRatioTable();
+  }
+  if(document.readyState !== "loading") init();
+  else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+
+</body>
+</html>

@@ -217,15 +217,16 @@
 </div>
 
 <script>const CITY_SLUG = "agematsu"; const PREF_SLUG = "nagano";</script>
-<script src="/js/core/shared/income.js?v=855f6332"></script>
-<script src="/js/core/jumin.js?v=855f6332"></script>
-<script src="/js/core/kokuho.js?v=855f6332"></script>
-<script src="/js/core/kaigo.js?v=855f6332"></script>
-<script src="/js/core/hoiku.js?v=855f6332"></script>
-<script src="/js/core/shaho.js?v=855f6332"></script>
-<script src="/js/core/shotoku.js?v=855f6332"></script>
-<script src="/js/core/shogakukin.js?v=855f6332"></script>
-<script src="/js/core/shogakukin-bridge.js?v=855f6332"></script>
+<script src="/js/core/shared/income.js?v=80c9ce54"></script>
+<script src="/js/core/jumin.js?v=80c9ce54"></script>
+<script src="/js/core/kokuho.js?v=80c9ce54"></script>
+<script src="/js/core/kaigo.js?v=80c9ce54"></script>
+<script src="/js/core/hoiku.js?v=80c9ce54"></script>
+<script src="/js/core/shaho.js?v=80c9ce54"></script>
+<script src="/js/core/shotoku.js?v=80c9ce54"></script>
+<script src="/js/core/shogakukin.js?v=80c9ce54"></script>
+<script src="/js/core/shogakukin-bridge.js?v=80c9ce54"></script>
+<script src="/js/core/furusato.js?v=80c9ce54"></script>
 <script>
 (function () {
   "use strict";
@@ -261,6 +262,14 @@
       _shotokuEng=(window.Shotoku)?window.Shotoku.createEngineFromDB(TAX_YEAR, db):null;
     }catch(e){ _shotokuEng=null; }
     return _shotokuEng;
+  }
+  // ふるさと納税の控除上限額＝全国共通の制度値（data/national/furusato-2027.json。deploy-seido.sh が data/national を同期）
+  var _furusatoData=null,_furusatoTried=false;
+  async function loadFurusato(){
+    if(_furusatoTried) return _furusatoData;
+    _furusatoTried=true;
+    try{ var r=await fetch("/data/national/furusato-2027.json"); if(r.ok) _furusatoData=await r.json(); }catch(e){ _furusatoData=null; }
+    return _furusatoData;
   }
   // 奨学金（高等教育の修学支援新制度）＝全国共通スペック。js/core 同梱の JSON を読む。
   var _shogakuSpec=null,_shogakuTried=false;
@@ -535,6 +544,26 @@
         }catch(e){ cards.push(skip("奨学金（給付型＋授業料減免）", "判定できませんでした")); }
       } else {
         cards.push(skip("奨学金（給付型＋授業料減免）", "奨学金データを取得できませんでした"));
+      }
+    }
+
+    // ── ふるさと納税の控除上限額（2026年中の寄附＝住民税 令和9年度分・目安）。負担ではないので合計に加算しない ──
+    //   同じ収入が2026年も続く前提で、令和9年度分の住民税（給与所得控除の最低保障74万円等）を組み立て直す。
+    //   家計簿は扶養・配偶者を入力しないため、人的控除差は基礎控除の差（5万円）のみ＝単身前提。
+    if(taxableJumin && _shotokuEng){
+      var _fzData = await loadFurusato();
+      if(_fzData && typeof calcFurusatoLimit === "function"){
+        try{
+          var rj27=calculateJumin(juminData, {salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance, fiscalYear:2027, taxCredits:0});
+          var fzKiso=furusatoShotokuBasicDeduction(rj27.totalIncome, _shotokuEng.params.kisoKojo);
+          var fz=calcFurusatoLimit({incomeLevy:rj27.incomeLevy, taxableIncome:rj27.taxableIncome, humanDeductionDiff:rj27.humanDeductionDiff, shotokuBasicDeduction:fzKiso}, _fzData);
+          if(fz.supported && fz.limit>0){
+            var fzShown=Math.floor(fz.limit/1000)*1000;
+            cards.push("<div class='ci-grp' style='border-left:4px solid #b45309;'><div class='ci-grp-head' style='color:#b45309;'>ふるさと納税の上限（目安）<span class='ci-grp-sum'>約 "+fzShown.toLocaleString()+" 円</span></div>"
+              +"<div class='ci-sub' style='line-height:1.7;'>2026年中の寄附で、自己負担2,000円で済む寄附額の目安です。2026年も同じ収入で、配偶者・扶養なしとして計算しています（特例控除の割合 "+fz.ratio.percent+"%）。負担ではないので、下の「年間負担の合計」には含めていません。</div></div>");
+            detailLinks.push({href:"/furusato/", label:"ふるさと納税の上限を詳しく", color:"#b45309"});
+          }
+        }catch(e){ /* 上限額は参考表示のため、計算できないときはカードを出さない */ }
       }
     }
 
