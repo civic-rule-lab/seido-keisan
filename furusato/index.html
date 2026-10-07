@@ -304,8 +304,13 @@
   function row(label, amount, cls){ return "<div class='result-row'><div class='result-label'>"+label+"</div><div class='amount"+(cls?" "+cls:"")+"'>"+amount+"</div></div>"; }
 
   // ── カードフロー（UI 共通ルール §2）: Enter で、表示中の次の入力欄・選択欄へ。次が無ければ移動しない ──
+  // 日本語入力（IME）の変換確定の Enter では何もしない（2026-10-07 本番で発生）。
+  //   確定前に focus を移す・blur すると、確定した文字が移動先の欄にも入り、最後の欄では同じ数字が
+  //   二重になった（3,560,000 → 35,600,003,560,000）。確定の Enter は Chrome 等で isComposing=true、
+  //   Safari では compositionend の後に keyCode 229 で届くので両方を見る。確定後にもう一度 Enter で移動する。
   document.addEventListener("keydown", function(e){
     if(e.key !== "Enter") return;
+    if(e.isComposing || e.keyCode === 229) return;
     var t = e.target;
     if(!t || !t.matches || !t.matches("input,select")) return;
     e.preventDefault();

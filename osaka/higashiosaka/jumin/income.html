@@ -136,6 +136,94 @@
 <script>const JUMIN_DATA = {"cityCode":"27227","citySlug":"higashiosaka","cityName":"東大阪市","prefSlug":"osaka","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1300,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.city.higashiosaka.lg.jp/0000001415.html","pageTitle":"税額の計算について｜東大阪市","retrievedAt":"2026-06-10"},"notes":"市民税6%・均等割3,000円＋府民税4%・1,300円（大阪府森林環境税300円込み）を公式ページで確認。 R8税制改正は控除関係のみで税率影響なし。"}; const CITY_SLUG = "higashiosaka"; const PUBLISH_YEAR = 2026;</script>
 <script src="/js/core/shared/income.js?v=80c9ce54"></script>
 <script src="/js/core/jumin.js?v=80c9ce54"></script>
+<!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
+<script>const FURUSATO_DATA = {
+  "meta": {
+    "scheme": "ふるさと納税（都道府県・市区町村に対する寄附金）の寄附金税額控除・控除上限額",
+    "juminFiscalYear": 2026,
+    "juminFiscalYearLabel": "令和8年度（2026年度）分の個人住民税",
+    "donationYear": 2025,
+    "donationYearLabel": "2025年（令和7年）中の寄附",
+    "shotokuYear": 2025,
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-05",
+    "source": {
+      "law": "地方税法 第37条の2第11項・第314条の7第11項（特例控除額）、第37条第1号イ・第314条の6第1号イ（人的控除差）、附則第5条の6（復興特別所得税を加味した割合） e-Gov 法令API https://laws.e-gov.go.jp/api/1/lawdata/325AC0000000226 （2026-10-01 施行版を 2026-10-05 取得）",
+      "amendment": "地方税法等の一部を改正する法律（令和8年法律第2号） https://www.soumu.go.jp/main_content/001066281.pdf 附則第1条第2号（第37条の2第11項の改正のうち第1号に係る部分は令和8年4月1日施行）、附則第3条第1項・第9項、第11条第1項・第8項",
+      "explanation": [
+        "総務省「税金の控除について」 https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/deduction.html",
+        "練馬区「寄附金税額控除」（更新 2026-02-25） https://www.city.nerima.tokyo.jp/kurashi/zei/jyuminzei/zeigakukojo/kifukinzeigakukojo.html"
+      ]
+    },
+    "notes": [
+      "特例控除の割合は、附則第5条の6 による読み替え後の値（第37条の2第11項第1号の表 85/80/70/67/57/50/45% から復興特別所得税分を引いたもの）。課税総所得金額から人的控除差調整額を控除した金額が0円未満のときの 90%（同項第2号）は附則で読み替えられない。",
+      "人的控除差調整額 ＝ 第37条第1号イの金額（基礎控除の差5万円＋該当者ごとの加算）＋ max(0, 前年分の所得税の基礎控除の額 − 48万円)。後半の加算は令和8年法律第2号による第1号の改正で、令和8年4月1日施行・令和8年度分以後に適用（附則第1条・第3条第1項）。",
+      "特例控除額の193万円の上限（道府県民税 77.2万円・市町村民税 115.8万円。指定都市は 38.6万円・154.4万円）は、令和10年度分（2027年中の寄附）以後に適用（附則第3条第9項・第11条第8項）。2025年中の寄附には適用しないため、本ファイルの値には入れていない。",
+      "割合の表・第37条第1号イの表は furusato-2027.json（令和9年度分）と同じ条文・同じ値。違いは人的控除差調整額に使う『前年分の所得税の基礎控除の額』が令和7年分になること（shotokuBasicDeductionTable）。住民税の詳しく計算（templates/jumin-income.html・令和8年度分）が使う。",
+      "課税山林所得金額・課税退職所得金額がある場合の割合（第37条の2第11項第3号）は扱わない。"
+    ]
+  },
+  "selfBurden": 2000,
+  "specialRatio": {
+    "basis": "課税総所得金額 − 人的控除差調整額",
+    "bands": [
+      { "upTo": 1950000, "percent": 84.895 },
+      { "upTo": 3300000, "percent": 79.79 },
+      { "upTo": 6950000, "percent": 69.58 },
+      { "upTo": 9000000, "percent": 66.517 },
+      { "upTo": 18000000, "percent": 56.307 },
+      { "upTo": 40000000, "percent": 49.16 },
+      { "upTo": null, "percent": 44.055 }
+    ],
+    "negativePercent": 90
+  },
+  "humanAdjustment": {
+    "shotokuBasicDeductionOffset": 480000
+  },
+  "shotokuBasicDeductionTable": {
+    "_source": "国税庁 タックスアンサー No.1199 基礎控除（令和8年4月1日現在法令等・2026-10-07 取得）の『令和7年分』の列 https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1199.htm 。所得税法第86条・租税特別措置法第41条の16の2 適用後の額（居住者）",
+    "_format": "[[合計所得金額の上限（null=上限なし）, 控除額], ...]。furusato.js の furusatoShotokuBasicDeduction に渡す",
+    "rows": [
+      [1320000, 950000],
+      [3360000, 880000],
+      [4890000, 680000],
+      [6550000, 630000],
+      [23500000, 580000],
+      [24000000, 480000],
+      [24500000, 320000],
+      [25000000, 160000],
+      [null, 0]
+    ]
+  },
+  "humanDiffTable": {
+    "_source": "地方税法 第37条第1号イ（市町村民税は第314条の6第1号イ）の表。e-Gov 2026-10-01 施行版を 2026-10-05 取得。令和8年法律第2号はこの表を改めていない。",
+    "_note": "表の（3）は寡婦または政令で定めるひとり親（1万円）、（4）は政令で定めるひとり親（5万円）。政令の区分は shogakukin-bridge.js の既存の近似（母5万・父1万）に合わせた［政令の原文は未照合］。表の（7）（控除対象配偶者に当たらない合計所得55万円未満の配偶者）は、令和9年度分では控除対象配偶者の所得要件が62万円以下のため、本人の合計所得1,000万円以下の範囲で該当者がいない＝扱わない。扶養親族・配偶者の障害の加算も扱わない（簡単計算の入力に無い）。",
+    "base": 50000,
+    "selfDisabled": 10000,
+    "selfSpecialDisabled": 100000,
+    "widow": 10000,
+    "singleParentFather": 10000,
+    "singleParentMother": 50000,
+    "workingStudent": 10000,
+    "spouse": [
+      { "selfIncomeUpTo": 9000000, "general": 50000, "elderly": 100000 },
+      { "selfIncomeUpTo": 9500000, "general": 40000, "elderly": 60000 },
+      { "selfIncomeUpTo": 10000000, "general": 20000, "elderly": 30000 },
+      { "selfIncomeUpTo": null, "general": 0, "elderly": 0 }
+    ],
+    "dependentGeneral": 50000,
+    "dependentSpecific": 180000,
+    "dependentElderly": 100000,
+    "dependentCohabitingParent": 130000
+  },
+  "specialCapRateOfIncomeLevy": 0.2,
+  "juminBasicRate": 0.1,
+  "juminBasicCapRateOfTotalIncome": 0.3,
+  "shotokuCapRateOfTotalIncome": 0.4,
+  "shotokuSurtaxMultiplier": 1.021
+};</script>
+<script src="/js/core/furusato.js?v=80c9ce54"></script>
 <script>
 (function () {
   "use strict";
@@ -159,12 +247,6 @@
   }
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);
-
-  // 所得税の限界税率（課税所得ベース・ふるさと納税の特例分計算用）
-  function marginalRate(t){
-    if(t<=1950000)return 0.05; if(t<=3300000)return 0.10; if(t<=6950000)return 0.20;
-    if(t<=9000000)return 0.23; if(t<=18000000)return 0.33; if(t<=40000000)return 0.40; return 0.45;
-  }
 
   window.calcJuminFull = function(){
     var result=document.getElementById("result");
@@ -207,14 +289,18 @@
       // 1) ふるさと納税前の所得割を算出
       var r0=calculateJumin(JUMIN_DATA, common);
 
-      // 2) ふるさと納税の寄附金税額控除（住民税分）を概算
+      // 2) ふるさと納税の寄附金税額控除（住民税分＝基本分＋特例分）を概算（js/core/furusato.js）
+      //   特例控除の割合は「課税総所得金額 − 人的控除差調整額」の区分で決まる（地方税法 第37条の2第11項第1号）。
+      //   人的控除差調整額 ＝ 調整控除に使う人的控除差（r0.humanDeductionDiff）＋ max(0, 令和7年分の所得税の基礎控除 − 48万円)。
+      //   旧実装は区分を課税総所得金額で引いており、境目付近で1段上の区分（低い割合）になっていた（TASKS X173-14）。
       var furusato=num("furusato")||0, furusatoCredit=0;
       if(furusato>2000 && r0.incomeLevy>0){
-        var excess=furusato-2000;
-        var basic=Math.floor(excess*0.10);
-        var special=Math.floor(excess*(0.90-marginalRate(r0.taxableIncome)*1.021));
-        var specialCap=Math.floor(r0.incomeLevy*0.20);
-        furusatoCredit=basic+Math.min(Math.max(special,0),specialCap);
+        var fzKiso=furusatoShotokuBasicDeduction(r0.totalIncome, FURUSATO_DATA.shotokuBasicDeductionTable.rows);
+        var fzLim=calcFurusatoLimit({incomeLevy:r0.incomeLevy, taxableIncome:r0.taxableIncome, humanDeductionDiff:r0.humanDeductionDiff, shotokuBasicDeduction:fzKiso}, FURUSATO_DATA);
+        if(fzLim.ratio){
+          var fzB=calcFurusatoBreakdown(furusato, {incomeLevy:r0.incomeLevy, ratio:fzLim.ratio, shotokuMarginalRate:0, totalIncome:r0.totalIncome}, FURUSATO_DATA);
+          furusatoCredit=fzB.juminBasic+fzB.juminSpecial;
+        }
       }
 
       // 3) 税額控除を反映して再計算
