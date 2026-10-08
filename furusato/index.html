@@ -303,6 +303,24 @@
   function yen(n){ return Math.round(n).toLocaleString("ja-JP")+" 円"; }
   function row(label, amount, cls){ return "<div class='result-row'><div class='result-label'>"+label+"</div><div class='amount"+(cls?" "+cls:"")+"'>"+amount+"</div></div>"; }
 
+  // ── 入力の取り違え対策（TASKS X173-20・2026-10-08 オーナー決定） ──
+  // ① 計算に使った3つの数字を結果の上に出す（欄の取り違え・桁の打ち間違いに気づけるように）
+  function inputEcho(shotokuwari, kazei, soShotoku){
+    return "<div class='hint' style='margin:0 0 12px;'>次の数字で計算しました：所得割額 "+yen(shotokuwari)+"・課税標準額 "+yen(kazei)+"・総所得金額 "+yen(soShotoku)+"</div>";
+  }
+  // ② 総所得と課税標準の差（＝所得控除の合計）が極端に大きいときの注意。計算は止めない。
+  //   しきい値の根拠: 課税標準 ÷ 総所得は、所得控除が基礎控除・社会保険料・配偶者・扶養程度なら
+  //   おおむね 0.3〜0.8。どちらかの欄の桁を1つ打ち間違えると 0.1 を下回る（所得控除が総所得の9割超）。
+  //   そこで「所得控除が総所得の8割以上」を目安にする。ただし総所得が少ない方は基礎控除だけで8割を
+  //   超えることがある（例: 総所得80万円・課税標準10万円）ため、所得控除が200万円以上のときに限る。
+  //   医療費控除・雑損控除などで実際に大きい方もいるので、警告ではなく確認のお願いにとどめる。
+  var GAP_SHARE = 0.8, GAP_MIN = 2000000;
+  function gapNotice(kazei, soShotoku){
+    var gap = soShotoku - kazei;
+    if(gap < GAP_MIN || gap < soShotoku * GAP_SHARE) return "";
+    return "<div class='warn'>総所得金額と課税標準額の差（所得控除の合計）が "+yen(gap)+" と大きくなっています。どちらかの欄の桁が合っているか、通知書で確かめてください（医療費控除などで実際に大きい方は、このままで構いません）。</div>";
+  }
+
   // ── カードフロー（UI 共通ルール §2）: Enter で、表示中の次の入力欄・選択欄へ。次が無ければ移動しない ──
   // 日本語入力（IME）の変換確定の Enter では何もしない（2026-10-07 本番で発生）。
   //   確定前に focus を移す・blur すると、確定した文字が移動先の欄にも入り、最後の欄では同じ数字が
@@ -367,14 +385,15 @@
         out.innerHTML = "<div class='warn'>退職所得・山林所得（分離課税）がある方は、特例控除の割合の決め方が異なるため、この計算では出せません。お住まいの市区町村にお問い合わせください。</div>";
         return;
       }
+      var head = gapNotice(kazei, soShotoku) + inputEcho(shotokuwari, kazei, soShotoku);
       if(r.limit === 0){
-        out.innerHTML = row("控除上限額の目安", "—") + "<div class='warn'>所得割がかからない方は、住民税からの特例控除がありません。ふるさと納税をしても、2,000円を超える部分の多くは控除されません。</div>";
+        out.innerHTML = head + row("控除上限額の目安", "—") + "<div class='warn'>所得割がかからない方は、住民税からの特例控除がありません。ふるさと納税をしても、2,000円を超える部分の多くは控除されません。</div>";
         return;
       }
       var rate = furusatoImpliedShotokuRate(r.ratio, FURUSATO_DATA);
       var b = calcFurusatoBreakdown(r.limit, { incomeLevy: shotokuwari, ratio: r.ratio, shotokuMarginalRate: rate, totalIncome: soShotoku }, FURUSATO_DATA);
       var shown = Math.floor(r.limit / 1000) * 1000;
-      out.innerHTML =
+      out.innerHTML = head +
         row("控除上限額の目安", "約 "+shown.toLocaleString("ja-JP")+" 円", "big") +
         "<div class='hint' style='margin:0 0 12px;'>計算上の値は "+yen(r.limit)+"。端数の扱いで実際とずれるため、千円未満を切り捨てて表示しています。</div>" +
         row("特例控除の割合", r.ratio.percent+"%") +
