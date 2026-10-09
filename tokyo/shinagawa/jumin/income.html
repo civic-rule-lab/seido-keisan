@@ -133,9 +133,9 @@
 
 </div>
 
-<script>const JUMIN_DATA = {"cityCode":"13109","citySlug":"shinagawa","cityName":"品川区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-zeikin/procedure-zeikin-zeigaku/kuminzeiR3-/index.html","pageTitle":"品川区 公式: 特別区民税・都民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "shinagawa"; const PUBLISH_YEAR = 2026;</script>
-<script src="/js/core/shared/income.js?v=80c9ce54"></script>
-<script src="/js/core/jumin.js?v=80c9ce54"></script>
+<script>const JUMIN_DATA = {"cityCode":"13109","citySlug":"shinagawa","cityName":"品川区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.city.shinagawa.tokyo.jp/PC/procedure/procedure-zeikin/procedure-zeikin-zeigaku/kuminzeiR3-/index.html","pageTitle":"品川区 公式: 特別区民税・都民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "shinagawa"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
+<script src="/js/core/shared/income.js?v=41350f66"></script>
+<script src="/js/core/jumin.js?v=41350f66"></script>
 <!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
 <script>const FURUSATO_DATA = {
   "meta": {
@@ -223,7 +223,7 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 };</script>
-<script src="/js/core/furusato.js?v=80c9ce54"></script>
+<script src="/js/core/furusato.js?v=41350f66"></script>
 <script>
 (function () {
   "use strict";
@@ -279,6 +279,7 @@
         salary:salary, pension:pension, age:age,
         otherIncome:business,
         socialInsurance:social,
+        kyuchi:JUMIN_KYUCHI,
         spouseDeduction:spouseDed, dependentDeduction:depDed,
         disabilityDeduction:disDed, singleParentDeduction:spDed,
         lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
@@ -316,7 +317,8 @@
         "<div class='result-row'><div class='result-label'>均等割（森林環境税含む）</div><div class='amount'>"+r.perCapita.toLocaleString()+" 円</div></div>"+
         "<div class='result-row'><div class='result-label'>住民税 合計（年額）</div><div class='amount'>"+r.total.toLocaleString()+" 円</div></div>"+
         "<div class='result-row'><div class='result-label'>月額目安</div><div class='amount'>約 "+r.monthly.toLocaleString()+" 円</div></div>"+
-        (r.isTaxable?"":"<div class='result-row'><div class='result-label'>判定</div><div class='amount'>非課税</div></div>");
+        (r.isTaxable?"":"<div class='result-row'><div class='result-label'>判定</div><div class='amount'>非課税</div></div>")+
+        (r.kintoBorderline?"<p class='note' style='margin:8px 0 0;font-size:12px;line-height:1.7;color:#92400e;'>※この所得は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+r.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になることがあります。お住まいの自治体でご確認ください。</p>":"");
     }catch(e){
       result.innerHTML="<div class='result-label'>計算エラー</div><div class='monthly'>"+e.message+"</div>";
     }

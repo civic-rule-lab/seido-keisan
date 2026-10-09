@@ -146,10 +146,10 @@
 </div>
 
 <!-- 住民税データ（自治体スペック or null＝全国標準値） -->
-<script>const JUMIN_DATA = {"cityCode":"13120","citySlug":"nerima","cityName":"練馬区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "nerima"; const PUBLISH_YEAR = 2026;</script>
+<script>const JUMIN_DATA = {"cityCode":"13120","citySlug":"nerima","cityName":"練馬区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "nerima"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（income.js を先に読み込み、グローバル関数を jumin.js に供給） -->
-<script src="/js/core/shared/income.js?v=80c9ce54"></script>
-<script src="/js/core/jumin.js?v=80c9ce54"></script>
+<script src="/js/core/shared/income.js?v=41350f66"></script>
+<script src="/js/core/jumin.js?v=41350f66"></script>
 <script>
 (function () {
   "use strict";
@@ -203,14 +203,15 @@
       // 社会保険料控除を給与収入の約14.4%で概算控除し、公式シミュレーターに近い概算にする。
       // 年金収入・事業所得には社保概算を適用しない（実額は「詳しく計算」ページで入力）。
       var socialInsurance=Math.round(salary*0.144);
-      var r=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, otherIncome:business, age:age, socialInsurance:socialInsurance});
+      var r=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, otherIncome:business, age:age, socialInsurance:socialInsurance, kyuchi:JUMIN_KYUCHI});
       if(typeof gtag==="function"){var pp=location.pathname.split("/").filter(Boolean);gtag("event","calculate",{prefecture:pp[0]||"unknown",city:(typeof CITY_SLUG!=="undefined"?CITY_SLUG:"unknown"),calc_type:"jumin-simple"});}
       result.innerHTML=
         "<div class='result-row'><div class='result-label'>所得割（年額）</div><div class='amount'>"+r.incomeLevy.toLocaleString()+" 円</div></div>"+
         "<div class='result-row'><div class='result-label'>均等割（年額）</div><div class='amount'>"+r.perCapita.toLocaleString()+" 円</div></div>"+
         "<div class='result-row'><div class='result-label'>住民税 合計（年額・概算）</div><div class='amount'>約 "+r.total.toLocaleString()+" 円</div></div>"+
         "<div class='result-row'><div class='result-label'>月額目安</div><div class='amount'>約 "+r.monthly.toLocaleString()+" 円</div></div>"+
-        (r.isTaxable?"":"<div class='result-row'><div class='result-label'>判定</div><div class='amount'>非課税の可能性</div></div>");
+        (r.isTaxable?"":"<div class='result-row'><div class='result-label'>判定</div><div class='amount'>非課税の可能性</div></div>")+
+        (r.kintoBorderline?"<p class='note' style='margin:8px 0 0;font-size:12px;line-height:1.7;color:#92400e;'>※この所得は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+r.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になることがあります。お住まいの自治体でご確認ください。</p>":"");
     }catch(e){
       result.innerHTML="<div class='result-label'>計算エラー</div><div class='monthly'>"+e.message+"</div>";
     }

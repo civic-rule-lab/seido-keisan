@@ -216,17 +216,17 @@
 
 </div>
 
-<script>const CITY_SLUG = "haga"; const PREF_SLUG = "tochigi";</script>
-<script src="/js/core/shared/income.js?v=80c9ce54"></script>
-<script src="/js/core/jumin.js?v=80c9ce54"></script>
-<script src="/js/core/kokuho.js?v=80c9ce54"></script>
-<script src="/js/core/kaigo.js?v=80c9ce54"></script>
-<script src="/js/core/hoiku.js?v=80c9ce54"></script>
-<script src="/js/core/shaho.js?v=80c9ce54"></script>
-<script src="/js/core/shotoku.js?v=80c9ce54"></script>
-<script src="/js/core/shogakukin.js?v=80c9ce54"></script>
-<script src="/js/core/shogakukin-bridge.js?v=80c9ce54"></script>
-<script src="/js/core/furusato.js?v=80c9ce54"></script>
+<script>const CITY_SLUG = "haga"; const PREF_SLUG = "tochigi"; const JUMIN_KYUCHI = 3;</script>
+<script src="/js/core/shared/income.js?v=41350f66"></script>
+<script src="/js/core/jumin.js?v=41350f66"></script>
+<script src="/js/core/kokuho.js?v=41350f66"></script>
+<script src="/js/core/kaigo.js?v=41350f66"></script>
+<script src="/js/core/hoiku.js?v=41350f66"></script>
+<script src="/js/core/shaho.js?v=41350f66"></script>
+<script src="/js/core/shotoku.js?v=41350f66"></script>
+<script src="/js/core/shogakukin.js?v=41350f66"></script>
+<script src="/js/core/shogakukin-bridge.js?v=41350f66"></script>
+<script src="/js/core/furusato.js?v=41350f66"></script>
 <script>
 (function () {
   "use strict";
@@ -384,12 +384,14 @@
 
     // ── 住民税（jumin-2026.json が無くても標準値で計算可） ──
     try{
-      var rj=calculateJumin(juminData, {salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance});
+      var rj=calculateJumin(juminData, {salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance, kyuchi:JUMIN_KYUCHI});
       taxableJumin = !!rj.isTaxable;
       grand += rj.total;
       cards.push(card("住民税", rj.total, [
         ["所得割", rj.incomeLevy],["均等割（森林環境税含む）", rj.perCapita]
       ], "#1d4ed8"));
+      // 均等割の非課税基準をわずかに上回る帯は、条例で基準額を切り上げている自治体では非課税になりうる（2026-10-09 TASKS X180-4）
+      if(rj.kintoBorderline) cards.push("<div class='ci-sub' style='color:#92400e;margin:4px 0 10px;line-height:1.7;'>※この収入は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+rj.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になり、介護保険料・保育料の判定も変わることがあります。お住まいの自治体でご確認ください。</div>");
       if(juminData) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"#1d4ed8"});
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
@@ -494,6 +496,7 @@
           var _hoikuAnnual = (rh.monthly||0)*12;
           grand += _hoikuAnnual;
           cards.push(card("保育料（認可・0〜2歳）", _hoikuAnnual, [["月額", rh.monthly||0]], "#db2777", "#1d4ed8"));
+          if(rh.kintoBorderNote) cards.push("<div class='ci-sub' style='color:#92400e;margin:4px 0 10px;line-height:1.7;'>※収入が、住民税（均等割）が非課税になる基準をわずかに上回っています。条例で基準額を少し高く定めている自治体では住民税非課税世帯となり、保育料が変わることがあります。</div>");
           detailLinks.push({href:"../hoiku/", label:"保育料を詳しく計算", color:"#db2777", textColor:"#1d4ed8"});
         }catch(e){ cards.push(skip("保育料（認可・0〜2歳）", "計算できませんでした")); }
       } else { cards.push(skip("保育料（認可・0〜2歳）", "この自治体のデータは準備中")); }
@@ -556,7 +559,7 @@
       var _fzData = await loadFurusato();
       if(_fzData && typeof calcFurusatoLimit === "function"){
         try{
-          var rj27=calculateJumin(juminData, {salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance, fiscalYear:2027, taxCredits:0});
+          var rj27=calculateJumin(juminData, {salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance, fiscalYear:2027, taxCredits:0, kyuchi:JUMIN_KYUCHI});
           var fzKiso=furusatoShotokuBasicDeduction(rj27.totalIncome, _shotokuEng.params.kisoKojo);
           var fz=calcFurusatoLimit({incomeLevy:rj27.incomeLevy, taxableIncome:rj27.taxableIncome, humanDeductionDiff:rj27.humanDeductionDiff, shotokuBasicDeduction:fzKiso}, _fzData);
           if(fz.supported && fz.limit>0){
@@ -599,7 +602,7 @@
   // ── 保育料 結線（独立ページ hoiku-simple.html と同方式。①〜⑤を家計簿に移植） ──
   function _juminOf(sal, pen, bon){
     sal=sal||0; pen=pen||0; bon=bon||0;
-    if(!sal && !pen && !bon) return {shotokuwari:0, taxable:false};
+    if(!sal && !pen && !bon) return {shotokuwari:0, taxable:false, borderline:false};
     // 会社員世帯は父母それぞれ shaho 実額で社会保険料控除を推定（保育料指数の精度UP）。
     // 就業形態は世帯単位。父母の年齢は不明のため 40 歳を仮定（既存挙動と整合）。shaho 未取得時は 0.144 概算にフォールバック。
     // 賞与(bon)は住民税の給与収入に加算し、社保は 月給(sal) と 賞与 を別建てで計算（本体 calcAll と同方式）。
@@ -608,8 +611,8 @@
     var si;
     if(emp==="kaishain" && sal>0){ var sa=shahoAnnual(sal, bon, 40); si = sa ? sa.annual : Math.round(gross*0.144); }
     else { si=Math.round(gross*0.144); }
-    var r=calculateJumin(null,{salary:gross,pension:pen,otherIncome:0,age:40,socialInsurance:si});
-    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable};
+    var r=calculateJumin(null,{salary:gross,pension:pen,otherIncome:0,age:40,socialInsurance:si,kyuchi:JUMIN_KYUCHI});
+    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
   }
   function calcHoikuFromSalaries(M, honninSalary, spouseSalary, opts){
     opts=opts||{};
@@ -622,7 +625,11 @@
     var fTax=fe?false:f.taxable, mTax=me?false:m.taxable;
     input.hikazei = !(fe&&me) && !fTax && !mTax;   // ② 非課税=父母AND(年金課税も考慮)
     input.childOrder = (opts.enrolled||0)+1;        // ① 多子=在園兄姉+1
-    return calcHoiku(input, M);                      // ④ kintowariOnly不問 ⑤ salary経路 isSeireiNotice=false
+    var res = calcHoiku(input, M);                   // ④ kintowariOnly不問 ⑤ salary経路 isSeireiNotice=false
+    // 均等割の非課税基準をわずかに上回る親がいて、ほかの親が非課税なら、条例しだいで非課税世帯になりうる（注記用）
+    var fNear=fe?false:f.borderline, mNear=me?false:m.borderline;
+    res.kintoBorderNote = !(fe&&me) && !input.hikazei && (fNear||mNear) && (!fTax||fNear) && (!mTax||mNear);
+    return res;
   }
   // hoiku データがある自治体だけ opt-in ブロックを表示
   (function probeHoiku(){

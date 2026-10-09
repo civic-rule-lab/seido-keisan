@@ -33,13 +33,31 @@ const JUMIN_DEFAULTS = {
 
 // ─── 計算関数 ─────────────────────────────────────────────────
 
-// ─── 非課税限度額（標準・生活保護1級地） ───────────────────────────
-// 均等割: 35万円 ×（本人＋同一生計配偶者＋扶養親族）＋ 10万円 ＋ 加算21万円（扶養等がいる場合）
-// 所得割: 35万円 ×（同上）＋ 10万円 ＋ 加算32万円（扶養等がいる場合）
+// ─── 非課税限度額 ─────────────────────────────────────────────
+// 均等割: 基本額 ×（本人＋同一生計配偶者＋扶養親族）＋ 10万円 ＋ 加算額（扶養等がいる場合）
+//   基本額・加算額は生活保護の級地（前年12月31日時点）で決まる。
+//     1級地 35万円・21万円 / 2級地 31万5千円・18万9千円 / 3級地 28万円・16万8千円
+//   出典: 地方税法施行令 第47条の3 第2号・第3号（35万円・21万円に率を乗じた額を参酌して条例で定める）
+//         地方税法施行規則（率: 一級地1.0・二級地0.9・三級地0.8）
+//   級地は data/reference/kyuchi.json（生活保護法による保護の基準 別表第9）から生成時に埋め込む。
+//   ※条例で国の基準を切り上げている自治体がある（2026-10-09 標本10件中3件。土浦市32万円・泉佐野市32万円/19万円・
+//     栃木市 加算17万円）。差は所得で1人あたり最大5,000円程度。限度額を少し上回る帯は kintoBorderline で注記する。
+// 所得割: 35万円 ×（同上）＋ 10万円 ＋ 加算32万円（扶養等がいる場合）。級地によらず全国一律（地方税法附則第3条の3）。
 // dependents = 同一生計配偶者＋扶養親族の数（本人を除く）。単身は 0。
-function _kintoNonTaxableLimit(dependents) {
+const KINTO_NON_TAXABLE_BY_KYUCHI = {
+  1: { base: 350_000, add: 210_000 },
+  2: { base: 315_000, add: 189_000 },
+  3: { base: 280_000, add: 168_000 },
+};
+function _kintoNonTaxableLimit(dependents, kyuchi) {
+  const k = KINTO_NON_TAXABLE_BY_KYUCHI[kyuchi] || KINTO_NON_TAXABLE_BY_KYUCHI[1];
   const n = 1 + Math.max(0, dependents | 0);
-  return 350_000 * n + 100_000 + (dependents > 0 ? 210_000 : 0);
+  return k.base * n + 100_000 + (dependents > 0 ? k.add : 0);
+}
+// 条例による切り上げを見込んだ「境目付近」の幅（所得）。標本の最大差＝基本額+5,000円/人・加算+2,000円に余裕を持たせた。
+function _kintoBorderlineMargin(dependents) {
+  const n = 1 + Math.max(0, dependents | 0);
+  return 10_000 * n + (dependents > 0 ? 10_000 : 0);
 }
 function _shotokuNonTaxableLimit(dependents) {
   const n = 1 + Math.max(0, dependents | 0);
@@ -150,6 +168,8 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  * @param {number} [inputs.taxCredits=0]          - ふるさと納税・住宅ローン等の税額控除合計（所得割から控除）
  * @param {number} [inputs.fiscalYear=2026]       - 住民税の年度。未指定=令和8年度で後方互換。
  *   令和9年度(2027)以降は給与所得控除の最低保障が74万（令和8年度税制改正）。保育料の令和9年度指数を出す際に指定する。
+ * @param {number} [inputs.kyuchi]               - 生活保護の級地（1/2/3）。均等割の非課税限度額に使う。
+ *   未指定なら data.kyuchi、それも無ければ 1級地（後方互換）。ページは生成時に data/reference/kyuchi.json から埋め込む。
  * @param {number[]} [inputs.specialDependentSalaries=[]] - 19〜22歳の子等の給与収入（年収）。
  *   給与所得換算した合計所得から自動判定する:
  *     所得58万円以下（給与123万円以下）   → 特定扶養控除45万円＋人的控除差18万円＋扶養人数に加算
@@ -165,6 +185,9 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  *   total            - 年間住民税
  *   monthly          - 月額目安
  *   isTaxable        - 均等割課税者か（介護保険段階判定に使用）
+ *   kyuchi           - 非課税判定に使った級地（1/2/3）
+ *   kintoNonTaxableLimit - 均等割の非課税限度額（合計所得）
+ *   kintoBorderline  - 国の基準では課税だが、限度額を少し上回るだけ（余裕幅以内）。条例で切り上げている自治体では非課税になりうる。注記に使う
  *   humanDeductionDiff - 調整控除に使った人的控除差の合計（入力値＋特定扶養分18万円/人）
  *   dependentsCount  - 非課税判定に使った扶養等の人数（入力値＋特定扶養の子）
  *   hoikuShotokuwari - 保育料の指数(1人分)。市町村民税所得割・調整控除後・税額控除前・旧6%換算。
@@ -189,7 +212,10 @@ function calculateJumin(data, inputs) {
     specialDependentSalaries = [],
     fiscalYear, // 住民税の年度。未指定=令和8年度(2026)で後方互換（給与所得控除の最低保障65万）。
                 // 2027以降で給与所得控除の最低保障74万を適用（令和8年度税制改正）。
+    kyuchi: kyuchiInput, // 生活保護の級地（1/2/3）。未指定は data.kyuchi → 1級地。
   } = inputs || {};
+  const kyuchi = [1, 2, 3].includes(kyuchiInput) ? kyuchiInput
+               : [1, 2, 3].includes(cfg.kyuchi) ? cfg.kyuchi : 1;
 
   // ── 19〜22歳の子等（B案: 給与収入から特定扶養／特定親族特別控除を自動判定） ──
   let specialDependentDeduction = 0; // 適用された控除額の合計（特定扶養45万を含む）
@@ -227,8 +253,12 @@ function calculateJumin(data, inputs) {
   });
   const taxableIncome = Math.floor(taxableRaw / 1000) * 1000;
 
-  // ── 非課税判定（標準・1級地） ──
-  const kintoTaxable   = totalIncome > _kintoNonTaxableLimit(effDependents);
+  // ── 非課税判定（均等割は級地別・所得割は全国一律） ──
+  const kintoNonTaxableLimit = _kintoNonTaxableLimit(effDependents, kyuchi);
+  const kintoTaxable   = totalIncome > kintoNonTaxableLimit;
+  // 境目付近: 国の基準では課税だが、条例で基準額を切り上げている自治体なら非課税になりうる帯。
+  //   条例の差は確認できた範囲ではすべて切り上げ（非課税が広がる向き）なので、課税側だけを見る。
+  const kintoBorderline = kintoTaxable && totalIncome <= kintoNonTaxableLimit + _kintoBorderlineMargin(effDependents);
   const shotokuTaxable = taxableIncome > 0 && totalIncome > _shotokuNonTaxableLimit(effDependents);
 
   // ── 所得割（調整控除・税額控除適用後） ──
@@ -255,6 +285,7 @@ function calculateJumin(data, inputs) {
   return {
     taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly,
     isTaxable: kintoTaxable,
+    kyuchi, kintoNonTaxableLimit, kintoBorderline,
     specialDependentDeduction, // 19〜22歳の子等に適用された控除額（特定扶養45万/特定親族特別控除3万〜45万）
     humanDeductionDiff: effHumanDiff, // 調整控除に使った人的控除差の合計（特定扶養分を含む）
     dependentsCount: effDependents,   // 非課税判定に使った扶養等の人数（特定扶養の子を含む）

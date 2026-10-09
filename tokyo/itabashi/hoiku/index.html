@@ -83,11 +83,11 @@
 </div>
 
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
-<script>const HOIKU_DATA = {"cityCode":"13119","citySlug":"itabashi","cityName":"板橋区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "itabashi"; const PUBLISH_YEAR = 2026;</script>
+<script>const HOIKU_DATA = {"cityCode":"13119","citySlug":"itabashi","cityName":"板橋区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "itabashi"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/income.js?v=bfbae11e"></script>
-<script src="/js/core/jumin.js?v=bfbae11e"></script>
-<script src="/js/core/hoiku.js?v=bfbae11e"></script>
+<script src="/js/core/shared/income.js?v=2626ac0e"></script>
+<script src="/js/core/jumin.js?v=2626ac0e"></script>
+<script src="/js/core/hoiku.js?v=2626ac0e"></script>
 <script>
 (function(){
   "use strict";
@@ -222,10 +222,10 @@
 
   // ── 年収→jumin（父母それぞれ）。hoikuShotokuwari は固定6%換算・isTaxable も取得 ──
   function juminOf(salary){
-    if(!salary) return {shotokuwari:0, taxable:false};
+    if(!salary) return {shotokuwari:0, taxable:false, borderline:false};
     var si=Math.round(salary*0.144);
-    var r=calculateJumin(null, {salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si});
-    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable};
+    var r=calculateJumin(null, {salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si, kyuchi:JUMIN_KYUCHI});
+    return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
   }
 
   // ── 試算 ──
@@ -234,6 +234,7 @@
     try{
       var directOn = document.getElementById("tab-direct") && !document.getElementById("tab-direct").classList.contains("hidden");
       var input={};
+      var kintoBorderNote=false;
       input.age = val("age")||"age1_2";
       input.timeType = val("timeType")||undefined;
       if(document.getElementById("facility")) input.facility = val("facility");
@@ -261,6 +262,9 @@
         // 少なくとも片方に収入があり、収入のある親が全員非課税なら世帯非課税
         var anyIncome = !(fatherEmpty&&motherEmpty);
         input.hikazei = anyIncome && !fTax && !mTax;
+        // 均等割の非課税基準をわずかに上回る親がいて、ほかの親が非課税なら、条例しだいで非課税世帯になりうる（注記）
+        var fNear = fatherEmpty?false:f.borderline, mNear = motherEmpty?false:m.borderline;
+        kintoBorderNote = anyIncome && !input.hikazei && (fNear||mNear) && (!fTax||fNear) && (!mTax||mNear);
       }
 
       // ① 多子カウント：childOrder = 在園兄姉数 + 1、非在園きょうだいフラグONで +1（最低2）
@@ -276,6 +280,7 @@
              +'<div class="result-row"><div>年額の目安</div><div class="amount">約 '+(mo*12).toLocaleString()+' 円</div></div>';
       if(r.level!=null) rows+='<div class="result-row"><div>階層</div><div class="amount">第'+r.level+'階層</div></div>';
       if(r.reason) rows+='<div class="note" style="margin-top:4px">'+esc(r.reason)+'</div>';
+      if(kintoBorderNote) rows+='<div class="note" style="margin-top:4px;color:#92400e">※収入が、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（'+JUMIN_KYUCHI+'級地）では課税として計算していますが、条例で基準額を少し高く定めている自治体では住民税非課税世帯となり、保育料が変わることがあります。お住まいの自治体でご確認ください。</div>';
       if(childOrder>=2 && enrolled===0 && checked("selFlag")) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
       out.innerHTML=rows;
     }catch(e){
