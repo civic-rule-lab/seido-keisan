@@ -216,7 +216,7 @@
 
 </div>
 
-<script>const CITY_SLUG = "nasushiobara"; const PREF_SLUG = "tochigi"; const JUMIN_KYUCHI = 3;</script>
+<script>const CITY_SLUG = "nasushiobara"; const PREF_SLUG = "tochigi"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
 <script src="/js/core/shared/income.js?v=41350f66"></script>
 <script src="/js/core/jumin.js?v=41350f66"></script>
 <script src="/js/core/kokuho.js?v=41350f66"></script>
@@ -392,7 +392,8 @@
       ], "#1d4ed8"));
       // 均等割の非課税基準をわずかに上回る帯は、条例で基準額を切り上げている自治体では非課税になりうる（2026-10-09 TASKS X180-4）
       if(rj.kintoBorderline) cards.push("<div class='ci-sub' style='color:#92400e;margin:4px 0 10px;line-height:1.7;'>※この収入は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+rj.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になり、介護保険料・保育料の判定も変わることがあります。お住まいの自治体でご確認ください。</div>");
-      if(juminData) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"#1d4ed8"});
+      // 住民税の単独ページは registry で住民税を公開している自治体だけにある。データの有無で出すと 1,188 ページで 404 だった（TASKS X180-2）
+      if(HAS_JUMIN_PAGE) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"#1d4ed8"});
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
     // ── 所得税（給与所得者・基礎控除＋社会保険料控除のみ反映の概算。全国一律。賞与込みの給与収入で計算） ──
