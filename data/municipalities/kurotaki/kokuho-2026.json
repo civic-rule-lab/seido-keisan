@@ -57,44 +57,47 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.050Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-09T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
+        "https://www.pref.nara.lg.jp/documents/22385/20260408144935.pdf",
         "https://www.pref.nara.lg.jp/n065/p012003.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-09",
+      "verificationLevel": "official_source_checked",
       "watchUrls": []
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 奈良県 市町村標準保険料率",
-      "url": "https://www.pref.nara.lg.jp/n065/p012003.html",
+      "type": "official",
+      "title": "奈良県 令和8年度 県内統一保険料（税）率（奈良県国民健康保険運営協議会 資料）",
+      "url": "https://www.pref.nara.lg.jp/documents/22385/20260408144935.pdf",
       "publishedAt": "2026"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-09",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "奈良県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で黒滝村の実告示と異なる場合あり。県内統一料率(混合方式: 医療/後期=3方式・介護/子ども=2方式平等割なし)・資産割なし・限度額医療66万。値は大和高田市公式(統一料率の代理source)由来→協議会資料PDFと要照合。子ども分は18歳未満均等割全額減額の特殊ルールあり(18+加算=200円・engine表現未対応)。市告示後 verified_r8 昇格。"
+    "notes": "奈良県 令和8年度 県内統一保険料（税）率（令和7年度第2回 奈良県国民健康保険運営協議会 資料3-(5)「Ｒ８奈良県国民健康保険 県内統一保険料（税）」・県抑制措置後）で全値照合: 医療 7.64%・27,600円・平等割20,000円・限度66万円 / 後期支援 3.27%・11,500円・8,400円・限度26万円 / 介護 3.03%・16,900円（平等割なし）・限度17万円 / 子ども・子育て 0.31%・均等割1,700円・18歳以上均等割200円（平等割なし）・限度3万円。県内は令和6年度から保険料水準が統一されている（奈良市公式ページの記載）。黒滝村は統一料率の対象のため、県資料1本を一次資料とする。子ども分は perCapita 1,700円＋perCapitaAdult 200円（all_ages）＝18歳以上1,900円、18歳未満は均等割10割減額で0円。2026-10-09 オーナーが奈良市国保年金課へ電話で確認: 子ども分の18歳以上均等割は1,700円＋200円＝1,900円・医療分限度額66万円・軽減判定所得は国の基準どおり（43万円＋31万円/57万円×被保険者数＋10万円×(給与所得者等の数−1)）。"
   },
   "childcareLevy": {
     "rate": 0.0031,
     "perCapita": 1700,
+    "perCapitaAdult": 200,
+    "perCapitaAdultScope": "all_ages",
     "household": 0,
     "cap": 30000
   }
