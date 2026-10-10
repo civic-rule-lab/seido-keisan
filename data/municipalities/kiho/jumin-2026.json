@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 2000,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.mie.lg.jp/ZEIMU/HP/80013017950.htm",
+    "retrievedAt": "2026-04-30",
+    "scope": "prefecture"
   }
 }

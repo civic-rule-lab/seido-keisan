@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1700,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.tochigi.lg.jp/b07/life/zeikin/zeikin/mori.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 2200,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.city.sendai.jp/shiminze-kikaku/kurashi/tetsuzuki/zekin/kojin/gaiyo.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1300,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.city.osaka.lg.jp/zaisei/page/0000383147.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 2000,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.fukushima.lg.jp/sec/01115d/zeimu22.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

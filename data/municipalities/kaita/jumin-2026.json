@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1500,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.hiroshima.lg.jp/site/zei/1172044970276.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

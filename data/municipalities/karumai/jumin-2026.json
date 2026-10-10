@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 2000,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.iwate.jp/kensei/zei/gaiyou/kojin/1073136.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

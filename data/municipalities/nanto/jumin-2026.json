@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1500,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.toyama.jp/1107/kurashi/seikatsu/zeikin/kenzei/m01-00/m01-01.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

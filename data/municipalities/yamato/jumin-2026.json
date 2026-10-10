@@ -10,7 +10,8 @@
   "prefRate": 0.04025,
   "prefPerCapita": 1300,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/kojin-shiminzei-kenminzei/kojin-shimin.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

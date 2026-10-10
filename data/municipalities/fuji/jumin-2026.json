@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1400,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.city.hamamatsu.shizuoka.jp/shiminze/zei/siminze/kintou.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

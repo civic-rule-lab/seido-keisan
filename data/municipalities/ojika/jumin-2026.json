@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1500,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.nagasaki.jp/bunrui/kurashi-kankyo/zeikin/kenzeijoho/kenzeisyurui/kojinkenmin/",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

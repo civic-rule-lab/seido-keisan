@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1800,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.city.kobe.lg.jp/a83576/kurashi/tax/shikenminze/keisan/index.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

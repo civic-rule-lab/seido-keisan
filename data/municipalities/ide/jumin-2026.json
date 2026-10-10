@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1600,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.city.kyoto.lg.jp/gyozai/page/0000028299.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }

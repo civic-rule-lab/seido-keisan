@@ -10,7 +10,8 @@
   "prefRate": 0.04,
   "prefPerCapita": 1500,
   "source": {
-    "url": null,
-    "retrievedAt": null
+    "url": "https://www.pref.miyazaki.lg.jp/miyazaki-morizukuri/kurashi/shizen/20200513095941.html",
+    "retrievedAt": "2026-10-09",
+    "scope": "prefecture"
   }
 }
