@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "scheme": "国民年金保険料（第1号被保険者・定額）",
+    "fiscalYear": 2026,
+    "fiscalYearLabel": "令和8年度（2026年4月分〜2027年3月分）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-11",
+    "source": {
+      "primary": "日本年金機構「国民年金保険料」 https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html （ページ更新日 2026-04-01、2026-10-11 取得）",
+      "crossCheck": "日本年金機構「国民年金保険料の変遷」 https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html （令和8年4月〜令和9年3月 17,920円。令和7年度 17,510円・令和6年度 16,980円。ページ更新日 2026-04-01、2026-10-11 取得）",
+      "snapshot": {
+        "capturedAt": "2026-10-10T21:55:35Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "オーナー手元に保管（R2 kokuho-archives への登録は未了。登録したらここにキーを書く）",
+        "files": [
+          { "file": "nenkin_hokenryo_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html", "sha256": "e1f86aef2aa89ed0905efd2dca64655dc521f100d0264528df6e7c085e049a6d", "bytes": 31518 },
+          { "file": "nenkin_hensen_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html", "sha256": "ebd2af6086b839b4775d528389c3385400be0d5420f257167a1e95b02eeb3011", "bytes": 41196 }
+        ]
+      }
+    },
+    "notes": [
+      "家計簿（city-integrated.html）で、自営・退職など（国民健康保険）を選んだ20歳以上60歳未満の本人1人分を社会保険料控除に加える（monthly×12）。",
+      "付加保険料（月額400円）・前納割引・免除/猶予は扱わない。",
+      "年度のずれ: 社会保険料控除は暦年に払った額だが、家計簿は「同じ収入が続く前提」で令和8年度の月額×12とする。"
+    ]
+  },
+  "monthly": 17920,
+  "additionalMonthly": 400
+}
