@@ -76,7 +76,11 @@
   <input id="social" type="text" inputmode="numeric" placeholder="例：720,000">
 
   <div class="ji-section">扶養・配偶者</div>
-  <label class="ji-check"><input type="checkbox" id="spouse"> 配偶者控除（合計所得58万円以下＝給与収入123万円以下の配偶者）</label>
+  <label class="ji-check"><input type="checkbox" id="spouse"> 配偶者控除（配偶者の合計所得58万円以下＝給与収入123万円以下）</label>
+  <label for="spouse_salary">配偶者の給与年収（任意）</label>
+  <input id="spouse_salary" type="text" inputmode="numeric" placeholder="例：1,500,000">
+  <label class="ji-check"><input type="checkbox" id="spouse_elderly"> 配偶者が70歳以上（老人控除対象配偶者）</label>
+  <p class="ji-hint">配偶者の給与年収を入れると、配偶者控除（合計所得58万円以下）か配偶者特別控除（58万円超133万円以下・33万〜3万円）かを所得から自動で判定します（地方税法 第34条第1項第10号・第10号の2）。あなたの合計所得が900万円超950万円以下なら控除額は2/3、950万円超1,000万円以下なら1/3、1,000万円超なら控除なしです。</p>
   <label for="dep_general">一般扶養親族（16〜18歳・23〜69歳）人数</label>
   <input id="dep_general" type="text" inputmode="numeric" placeholder="例：0">
   <label for="dep_specific">特定扶養親族（19〜22歳・給与収入123万円以下）人数</label>
@@ -117,6 +121,7 @@
   <div class="note">
     ※給与所得控除・社会保険料控除・各種所得控除・調整控除・ふるさと納税の寄附金税額控除を反映した試算です。<br>
     ※令和8年度新設の特定親族特別控除（19〜22歳の子等・給与収入123万円超188万円以下）に対応しています。<br>
+    ※配偶者特別控除（配偶者の合計所得58万円超133万円以下）は「配偶者の給与年収」から自動判定します。配偶者が給与以外の所得（事業・年金など）の場合は、その合計所得を給与所得に読み替えて入力してください（給与収入＝合計所得＋65万円）。<br>
     ※事業所得は売上から経費を引いた「所得金額」を入力してください。社会保険料を空欄にした場合の概算（給与の約14.4%）には事業所得分（国保等）は含まれないため、実額入力をおすすめします。<br>
     ※生命保険料・地震保険料・医療費控除は住民税の控除額をそのまま入力してください。<br>
     ※住宅ローン控除・配当控除・分離課税は未対応です。<br>
@@ -242,7 +247,7 @@
     el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
   }
   function initInputs(){
-    ["salary","pension","business","child_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,true);});
+    ["salary","pension","business","child_salary","spouse_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,true);});
     ["age","dep_general","dep_specific","dep_elderly"].forEach(function(id){setupNumericInput(id,false);});
   }
   if(document.readyState!=="loading")initInputs();
@@ -260,7 +265,16 @@
       // 扶養・配偶者控除（住民税の控除額）と人的控除差（調整控除用）
       var spouseDed=0, depDed=0, disDed=0, spDed=0;
       var humanDiff=50000; // 基礎控除差（常時）
-      if(chk("spouse")){ spouseDed+=330000; humanDiff+=50000; }
+      // 配偶者控除／配偶者特別控除（2026-10-12 X184）: 配偶者の給与年収があれば所得から自動判定。無ければチェックどおり控除対象（所得0）。
+      //   本人の合計所得で 3 段階（900万以下／950万以下／1,000万以下・超は 0）。計算は jumin.js calcSpouseDeductionJumin（第34条第1項第10号・第10号の2）。
+      //   人的控除差（第37条第1号イの表）: 控除対象配偶者 5万・老人控除対象配偶者 10万。特別控除の配偶者は表(7)の対象外（所得55万未満のみ）＝0。
+      var spouseSalary=num("spouse_salary")||0, spouseKind="none";
+      if(chk("spouse") || spouseSalary>0){
+        var selfIncome=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, age:age, otherIncome:business, kyuchi:JUMIN_KYUCHI}).totalIncome;
+        var sd=calcSpouseDeductionJumin({ selfIncome:selfIncome, spouseIncome:(spouseSalary>0?calcSalaryIncome(spouseSalary):0), age70plus:chk("spouse_elderly") });
+        spouseDed=sd.deduction; spouseKind=sd.kind;
+        if(sd.humanDiffSpouse==="elderly") humanDiff+=100000; else if(sd.humanDiffSpouse==="general") humanDiff+=50000;
+      }
       var dg=num("dep_general")||0, ds=num("dep_specific")||0, de=num("dep_elderly")||0;
       depDed += dg*330000 + ds*450000 + de*380000;
       humanDiff += dg*50000 + ds*180000 + de*100000;
@@ -271,7 +285,7 @@
       var life=Math.min(num("life")||0,70000);
       var quake=Math.min(num("quake")||0,25000);
       var medical=num("medical")||0;
-      var dependents = (chk("spouse")?1:0) + dg + ds + de;
+      var dependents = (spouseKind==="haigu"?1:0) + dg + ds + de;   // 特別控除の配偶者は同一生計配偶者ではないので非課税判定の人数に入れない
       // 19〜22歳の子の給与収入（123万円超）→ 特定親族特別控除をエンジンで自動判定
       var childSalary=num("child_salary")||0;
 
@@ -311,6 +325,8 @@
 
       result.innerHTML=
         "<div class='result-row'><div class='result-label'>課税総所得金額</div><div class='amount'>"+r.taxableIncome.toLocaleString()+" 円</div></div>"+
+        (spouseKind!=="none"?"<div class='ji-row'><span>　"+(spouseKind==="haigu"?"配偶者控除":"配偶者特別控除")+(spouseSalary>0?"（配偶者の合計所得 "+calcSalaryIncome(spouseSalary).toLocaleString()+" 円）":"")+"</span><span class='amount'>-"+spouseDed.toLocaleString()+" 円</span></div>":"")+
+        ((chk("spouse")||spouseSalary>0)&&spouseKind==="none"?"<div class='ji-row'><span>　配偶者控除</span><span class='amount'>対象外（配偶者の合計所得133万円超、またはあなたの合計所得1,000万円超）</span></div>":"")+
         (r.specialDependentDeduction>0?"<div class='ji-row'><span>　19〜22歳の子の控除（特定扶養／特定親族特別控除）</span><span class='amount'>-"+r.specialDependentDeduction.toLocaleString()+" 円</span></div>":"")+
         "<div class='result-row'><div class='result-label'>所得割（調整控除"+(r.adjustmentCredit?"・税額控除":"")+"後）</div><div class='amount'>"+r.incomeLevy.toLocaleString()+" 円</div></div>"+
         (furusatoCredit>0?"<div class='ji-row'><span>　うちふるさと納税控除</span><span class='amount'>-"+furusatoCredit.toLocaleString()+" 円</span></div>":"")+
