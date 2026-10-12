@@ -12,7 +12,7 @@
       "snapshot": {
         "capturedAt": "2026-10-10T21:55:35Z",
         "capturedBy": "本人端末（curl）",
-        "archive": "オーナー手元に保管（R2 kokuho-archives への登録は未了。登録したらここにキーを書く）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-10-12 登録。実体は files の sha256 で照合できる",
         "files": [
           { "file": "nenkin_hokenryo_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html", "sha256": "e1f86aef2aa89ed0905efd2dca64655dc521f100d0264528df6e7c085e049a6d", "bytes": 31518 },
           { "file": "nenkin_hensen_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html", "sha256": "ebd2af6086b839b4775d528389c3385400be0d5420f257167a1e95b02eeb3011", "bytes": 41196 }

@@ -75,6 +75,64 @@ function fuyoIncomeLimitJumin(fiscalYear) {
   return (Number.isFinite(fiscalYear) && fiscalYear >= 2027) ? 620_000 : 580_000;
 }
 
+// ─── 配偶者控除・配偶者特別控除（住民税） ─────────────────────────
+// 地方税法 第34条第1項第10号・第10号の2（市町村民税は第314条の2第1項第10号・第10号の2）。
+//   出典・改正の有無・境目の検証: data/national/jumin-haigusha-kojo.json（meta）。
+//   配偶者控除: 配偶者の合計所得が fuyoIncomeLimitJumin 以下。一般 33万／老人控除対象配偶者 38万。
+//   配偶者特別控除（本人の合計所得900万円以下）:
+//     (1) 配偶者の合計所得 100万円以下 → 33万円
+//     (2) 100万円超 130万円以下 → 38万円 −（93万1円を超える部分。「5万円の整数倍 − 3万円」でないときは、それに満たないもののうち最大）
+//     (3) 130万円超 133万円以下 → 3万円
+//   本人の合計所得 900万円超950万円以下は 2/3、950万円超1,000万円以下は 1/3（1万円未満切上げ）。1,000万円超は 0。
+//   令和8年法律第2号は第10号の2 を改めていない（2026-10-12 改正法 PDF で確認）。
+const HAIGU_KOJO_JUMIN = { general: [330_000, 220_000, 110_000], elderly: [380_000, 260_000, 130_000] };
+const HAIGU_SPECIAL_LIMIT_JUMIN = 1_330_000;
+function _haiguSpecialBase(spouseIncome) {
+  if (spouseIncome <= 1_000_000) return 330_000;
+  if (spouseIncome > 1_300_000) return 30_000;
+  const over = spouseIncome - 930_001;                       // 93万1円を超える部分
+  let d;
+  if ((over + 30_000) % 50_000 === 0) d = over;              // ちょうど「5万円の整数倍 − 3万円」
+  else d = Math.floor((over + 30_000) / 50_000) * 50_000 - 30_000; // それに満たないもののうち最大
+  return 380_000 - d;
+}
+/**
+ * 住民税の配偶者控除／配偶者特別控除の控除額を返す。
+ * @param {object} p
+ * @param {number} p.selfIncome    本人の前年の合計所得金額（円）
+ * @param {number} p.spouseIncome  配偶者の前年の合計所得金額（円）
+ * @param {boolean} [p.age70plus]  配偶者が70歳以上（老人控除対象配偶者）。特別控除には影響しない
+ * @param {number} [p.fiscalYear]  住民税の年度。控除対象配偶者の所得要件（58万／62万）に効く。未指定=令和8年度
+ * @param {object} [p.data]        data/national/jumin-haigusha-kojo.json。渡せば表引き、無ければ条文の式で計算
+ * @returns {{ kind: 'haigu'|'special'|'none', deduction: number, humanDiffSpouse: 'general'|'elderly'|'none' }}
+ *   humanDiffSpouse は調整控除の人的控除差（第37条第1号イの表）用。特別控除は表(7)の対象外（配偶者所得55万円未満のみ）なので 'none'。
+ */
+function calcSpouseDeductionJumin(p) {
+  const self = Number(p && p.selfIncome) || 0;
+  const sp = Number(p && p.spouseIncome) || 0;
+  const data = p && p.data;
+  const cols = (data && data.honninIncomeCols) || [9_000_000, 9_500_000, 10_000_000];
+  const none = { kind: 'none', deduction: 0, humanDiffSpouse: 'none' };
+  if (self > cols[2]) return none;
+  const col = self <= cols[0] ? 0 : self <= cols[1] ? 1 : 2;
+  const limit = (data && data.fuyoIncomeLimit && data.fuyoIncomeLimit[String(p.fiscalYear || 2026)]) || fuyoIncomeLimitJumin(p.fiscalYear);
+  if (sp <= limit) {
+    const key = p.age70plus ? 'elderly' : 'general';
+    const tbl = (data && data.haiguKojo) || HAIGU_KOJO_JUMIN;
+    return { kind: 'haigu', deduction: tbl[key][col], humanDiffSpouse: key };
+  }
+  if (sp > ((data && data.haiguSpecialLimit) || HAIGU_SPECIAL_LIMIT_JUMIN)) return none;
+  let ded;
+  if (data && Array.isArray(data.haiguSpecial)) {
+    const row = data.haiguSpecial.find((r) => sp <= r[0]);
+    ded = row ? row[1][col] : 0;
+  } else {
+    const base = _haiguSpecialBase(sp);
+    ded = col === 0 ? base : Math.ceil((base * (col === 1 ? 2 : 1) / 3) / 10_000) * 10_000;
+  }
+  return { kind: 'special', deduction: ded, humanDiffSpouse: 'none' };
+}
+
 // ─── 特定親族特別控除（令和8年度課税〜・令和7年度税制改正） ─────────
 // 19歳以上23歳未満の親族等（配偶者・青色事業専従者等を除く）で、
 // 合計所得金額が 扶養の所得要件超 123万円以下（令和8年度は58万円超、令和9年度以後は62万円超）の場合、
@@ -293,4 +351,4 @@ function calculateJumin(data, inputs) {
   };
 }
 
-if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin };
+if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin, calcSpouseDeductionJumin };
