@@ -526,7 +526,7 @@
         // 均等割の人数は「世帯人数」のまま（2人未満なら2に）、軽減判定の給与所得者等は2人（2026-10-13・X184 の残り）。
         // 保険料は世帯主（本人）宛ての1本なので、社会保険料控除は本人に全額つける（配偶者は自分の国民年金のみ）。
         try{
-          if(spouseJiei){
+          if(spouseJiei && famSpouseAge<75){
             rkWithSpouse=true;
             rk=calculateKokuho({income:totalIncome+spouseIncomeJumin,
               members:[{income:totalIncome, careTarget:(careN===1)},{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
@@ -545,7 +545,11 @@
     }
     // 配偶者が自営・社会保険なしで、本人が国保加入者でない（会社員＝社保、または75歳以上＝後期高齢）場合は、配偶者だけが国保加入者。
     //   本人は擬制世帯主＝加入者ではないが軽減判定の所得には含める（reductionJudgmentIncome）。均等割1人・平等割1世帯。
-    if(spouseJiei && !rkWithSpouse && kokuhoData){
+    var rkkSp=null;   // 配偶者（自営・75歳以上）の後期高齢者医療。国保ではなく後期の対象（2026-10-13 修正。旧実装は国保1人分で計算していた）
+    if(spouseJiei && famSpouseAge>=75 && koukiData){
+      try{ rkkSp=calculateKouki({totalIncome:spouseIncomeJumin}, koukiData); }catch(e){ rkkSp=null; }
+    }
+    if(spouseJiei && famSpouseAge<75 && !rkWithSpouse && kokuhoData){
       try{
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
           family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:1, fixedAssetTax:0,
@@ -553,7 +557,7 @@
       }catch(e){ rkSp=null; }
     }
     // 配偶者（自営）の社会保険料控除＝配偶者単独の国保（あれば）＋配偶者の国民年金。世帯分の国保は本人に全額つけているので含めない
-    if(spouseJiei){ spouseSelfSi = (rkSp ? rkSp.total : 0) + spouseNenkin; if(!rkSp && !rkWithSpouse && spouseNenkin===0) spouseSelfSi = Math.round(famSpouseSalary*0.144); }
+    if(spouseJiei){ spouseSelfSi = (rkSp ? rkSp.total : 0) + (rkkSp ? rkkSp.total : 0) + spouseNenkin; if(!rkSp && !rkkSp && !rkWithSpouse && spouseNenkin===0) spouseSelfSi = Math.round(famSpouseSalary*0.144); }
 
     // 介護保険・第1号（65歳以上・就業形態を問わず）。段階の判定に本人の住民税課税状況が要るため、
     // ここまでの保険料で住民税を1回仮計算して判定する（介護保険料そのものは所得割に効くが均等割の課税判定には効かないので、
@@ -612,6 +616,18 @@
         ], "#7c3aed"));
       }catch(e){ cards.push(skip("所得税", "計算できませんでした")); }
     }
+    // ── 所得税（配偶者）。配偶者の給与と配偶者自身の社会保険料控除（会社員＝shaho／自営＝国保・後期・国民年金）で計算。
+    //   配偶者側の配偶者控除・扶養控除は付けない（本人の方が所得が多い前提）。世帯の負担なので合計に加える（2026-10-13） ──
+    if(famSpouseSalary>0 && _shotokuEng){
+      try{
+        var stSp=_shotokuEng.calcShotokuzei({salary:famSpouseSalary, socialInsurance:(spouseSelfSi||0), spouse:null, dependents:{general:0, specific:0, elderly:0, elderlyCoRes:0}});
+        grand += stSp.annualTax;
+        cards.push(card("所得税（配偶者）", stSp.annualTax, [
+          ["課税所得（概算）", stSp.kazeiShotoku],
+          ["年税額（復興特別所得税込）", stSp.annualTax]
+        ], "#7c3aed"));
+      }catch(e){ cards.push(skip("所得税（配偶者）", "計算できませんでした")); }
+    }
 
     // ── 医療・年金保険：75歳以上=後期高齢者医療／会社員=社会保険／自営など=国民健康保険（金額は上の社会保険料控除と同じ値） ──
     if(age>=75){
@@ -657,6 +673,11 @@
     } else if(kokuhoData){ cards.push(skip("国民健康保険", "計算できませんでした"));
     } else { cards.push(skip("国民健康保険", "この自治体のデータは準備中")); }
 
+    // ── 配偶者（自営・75歳以上）の後期高齢者医療。世帯の負担なので合計に加える（2026-10-13） ──
+    if(rkkSp && rkkSp.total>=0){
+      grand += rkkSp.total;
+      cards.push(card("後期高齢者医療（配偶者）", rkkSp.total, [["医療分", rkkSp.medicalTotal],["子ども・子育て支援金分", rkkSp.childcareTotal]], "#0d9488"));
+    }
     // ── 配偶者だけが国保加入者の場合（本人は会社員または75歳以上）。世帯の負担なので合計に加える（2026-10-13） ──
     if(rkSp){
       grand += rkSp.total;
