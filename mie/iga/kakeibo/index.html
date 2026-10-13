@@ -132,9 +132,12 @@
         <label for="famSpouseAge">配偶者の年齢（任意・空欄なら40歳）</label>
         <input id="famSpouseAge" type="text" inputmode="numeric" placeholder="例：40">
       </div>
-      <div></div>
+      <div>
+        <label for="famSpousePension">配偶者の公的年金収入（任意）</label>
+        <input id="famSpousePension" type="text" inputmode="numeric" placeholder="例：1,500,000">
+      </div>
     </div>
-    <div class="note" style="margin:0 0 10px;">配偶者の給与年収を入れると、配偶者控除か配偶者特別控除かを所得から自動で判定します（上の選択は「70歳以上」の判定にだけ使います）。保育料・奨学金の配偶者欄が空なら、この年収を使います。配偶者が自営・社会保険なしの場合は国保と国民年金を世帯分として計算します。</div>
+    <div class="note" style="margin:0 0 10px;">配偶者の給与年収を入れると、配偶者控除か配偶者特別控除かを所得から自動で判定します（上の選択は「70歳以上」の判定にだけ使います）。保育料・奨学金の配偶者欄が空なら、この年収を使います。配偶者が自営・社会保険なしの場合は国保と国民年金を世帯分として計算します。配偶者が年金受給者なら年金収入と年齢を入れると、国保・後期高齢・介護保険（65歳以上）を配偶者分として計算します。</div>
     <div class="field-grid">
       <div>
         <label for="famDepGeneral">扶養（16〜18歳・23〜69歳）人数</label>
@@ -249,7 +252,7 @@
     ※働き方で社会保険料の扱いが変わります。<b>会社員</b>＝協会けんぽ（健康保険・介護第2号・子育て支援金）・厚生年金・雇用保険の本人負担を、都道府県別料率と標準報酬月額から実額で計算し、住民税・所得税の社会保険料控除にも反映します（賞与は任意入力）。<b>自営・退職など</b>＝国民健康保険（75歳以上は後期高齢者医療）を計算し、その保険料と国民年金（20〜59歳・本人1人分）・介護保険（第1号・65歳以上）の実額を、住民税・所得税の社会保険料控除に反映します（保険料データが取得できない自治体では給与収入の約14.4%で概算）。<br>
     ※所得税：全国一律。給与所得控除・基礎控除・社会保険料控除・配偶者控除・配偶者特別控除・扶養控除（「扶養・配偶者」の入力）を反映した概算です（生命保険料控除・医療費控除・住宅ローン控除等は未考慮）。<br>
     ※住民税：配偶者控除・配偶者特別控除・扶養控除は「扶養・配偶者」の入力を反映します（配偶者の給与年収から所得を出して判定。配偶者が自営の場合の所得は給与年収として入れてください）。障害者控除・ひとり親控除などその他の人的控除は未考慮の概算です。<br>
-    ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。配偶者が自営の場合は世帯分を本人の控除に含め、配偶者は国民年金のみ控除します。<br>
+    ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。配偶者が自営の場合は世帯分を本人の控除に含め、配偶者は国民年金のみ控除します。配偶者が65歳以上なら介護保険（第1号）も配偶者分として計算します。<br>
     ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
     ※75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（本人1人分・単身として計算。世帯の軽減判定などは後期高齢者医療のページで確認できます）。<br>
     ※奨学金：高等教育の修学支援新制度（給付型＋授業料等減免）の目安判定です。扶養控除・本人収入・資産・政令市の調整控除実額・私立理工農系は未反映のため、実際はこれより支援が多い区分になる場合があります。支援額のため年間負担の合計には含めません。<br>
@@ -392,10 +395,10 @@
   function initInputs(){
     setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false);
     setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); setupNumericInput("bonus",true);
-    setupNumericInput("shogakuSpouse",true); setupNumericInput("famSpouseSalary",true);
+    setupNumericInput("shogakuSpouse",true); setupNumericInput("famSpouseSalary",true); setupNumericInput("famSpousePension",true);
     ["famDepGeneral","famDepSpecific","famDepElderly","famDepParent","famSpouseAge"].forEach(function(id){ setupNumericInput(id,false); });
     setupUnitGuard("salary"); setupUnitGuard("pension"); setupUnitGuard("bonus"); setupUnitGuard("hoikuSpouse");
-    setupUnitGuard("shogakuSpouse"); setupUnitGuard("famSpouseSalary");
+    setupUnitGuard("shogakuSpouse"); setupUnitGuard("famSpouseSalary"); setupUnitGuard("famSpousePension");
     var emp=document.getElementById("employment"), bf=document.getElementById("bonusField"), bh=document.getElementById("bonusHint");
     function syncEmp(){ var jiei=(emp && emp.value==="jiei"); if(bf) bf.style.display = jiei ? "none" : "block"; if(bh) bh.style.display = jiei ? "none" : "block"; }
     if(emp){ emp.addEventListener("change", syncEmp); syncEmp(); }
@@ -444,13 +447,16 @@
     //   所得税側は shotoku.js の spouse / dependents 入力（控除額は shotokuzei-2026.json。配偶者特別控除は所得税の表＝住民税と区分が違う）。
     var famSpouse=((document.getElementById("famSpouse")||{}).value)||"none";
     var famSpouseSalary=num("famSpouseSalary");
+    var famSpousePension=num("famSpousePension");   // 配偶者の公的年金収入（2026-10-13 追加）
+    var famSpouseAge = num("famSpouseAge") || 40;
     var famSpouseWork=((document.getElementById("famSpouseWork")||{}).value)||"kaishain";
     var famDG=num("famDepGeneral"), famDS=num("famDepSpecific"), famDE=num("famDepElderly"), famDP=num("famDepParent");
-    var famHasSpouse=(famSpouse!=="none") || famSpouseSalary>0;
+    var famHasSpouse=(famSpouse!=="none") || famSpouseSalary>0 || famSpousePension>0;
     var famAny=famHasSpouse || famDG>0 || famDS>0 || famDE>0 || famDP>0;
     var _haigu = await loadJuminHaigu();
-    var spouseIncomeJumin = famSpouseSalary>0 ? calcSalaryIncome(famSpouseSalary) : 0;        // 令和8年度分（給与所得控除の最低保障65万）
-    var spouseIncomeJumin27 = famSpouseSalary>0 ? calcSalaryIncome(famSpouseSalary, 2027) : 0; // 令和9年度分（74万）
+    var spousePensionIncome = famSpousePension>0 ? calcPensionIncome(famSpousePension, famSpouseAge) : 0;   // 年金所得（65歳以上で控除拡大）
+    var spouseIncomeJumin = (famSpouseSalary>0 ? calcSalaryIncome(famSpouseSalary) : 0) + spousePensionIncome;        // 令和8年度分（給与所得控除の最低保障65万）
+    var spouseIncomeJumin27 = (famSpouseSalary>0 ? calcSalaryIncome(famSpouseSalary, 2027) : 0) + spousePensionIncome; // 令和9年度分（74万）
     var spouseDed=0, spouseKind="none", spouseHD="none", spouseDed27=0, spouseHD27="none";
     if(famHasSpouse && typeof calcSpouseDeductionJumin==="function"){
       var sdj = calcSpouseDeductionJumin({ selfIncome: totalIncome, spouseIncome: spouseIncomeJumin, age70plus: (famSpouse==="elderly"), fiscalYear: 2026, data: _haigu });
@@ -482,8 +488,8 @@
                        dependents: { general: famDG, specific: famDS, elderly: famDE, elderlyCoRes: famDP } };
     // 配偶者自身の社会保険料（保育料の保護者2・奨学金の生計維持者2 に使う）。
     //   会社員・パート＝shaho 実額（年齢は配偶者の年齢・既定40）。自営・社会保険なし＝国保と国民年金（下の社会保険料控除の段で世帯として計算。2026-10-13）
-    var famSpouseAge = num("famSpouseAge") || 40;
-    var spouseJiei = (famSpouseSalary>0 && famSpouseWork==="jiei");
+    // 給与があり働き方が自営、または給与が無く年金だけ（勤め先の社保は無い）＝国保・後期・国民年金の側で扱う
+    var spouseJiei = (famSpouseSalary>0 && famSpouseWork==="jiei") || (famSpouseSalary===0 && famSpousePension>0);
     var spouseSelfSi=null;
     if(famSpouseSalary>0 && !spouseJiei){ await loadShaho(); var fsa=shahoAnnual(famSpouseSalary, 0, famSpouseAge); spouseSelfSi = fsa ? fsa.annual : Math.round(famSpouseSalary*0.144); }
 
@@ -579,6 +585,27 @@
         if(rkg && rkg.annual>0) siParts.push(["介護保険（第1号）", rkg.annual]);
       }catch(e){ rkg=null; }
     }
+    // ── 介護保険・第1号（配偶者・65歳以上）。本人分と同じ経路を配偶者用に複製（2026-10-13）。
+    //   段階判定に配偶者の課税状況が要るので、配偶者の住民税を1回仮計算する（社保控除＝配偶者自身の分）。
+    //   世帯非課税の判定は本人と配偶者の両方が非課税のとき。保険料は配偶者の社会保険料控除に加え、合計にも加える。
+    var rkgSp=null;
+    if(spouseJiei && famSpouseAge>=65 && kaigoData && (kaigoData.status==="verified" || kaigoData.status==="inferred")){
+      try{
+        // ※ 住民税の呼び出しの引数の中に括弧を置かない（test-jumin.cjs が呼び出しを最初の閉じ括弧まで拾って kyuchi の有無を検査するため）
+        var spSiPre = spouseSelfSi || 0;
+        var selfSiPre = siParts.reduce(function(s,p){return s+p[1];},0);
+        var rjSpPre=calculateJumin(juminData, {kyuchi:JUMIN_KYUCHI, salary:famSpouseSalary, pension:famSpousePension, age:famSpouseAge, socialInsurance:spSiPre});
+        var rjSelfPre=calculateJumin(juminData, Object.assign({kyuchi:JUMIN_KYUCHI, salary:grossSalary, pension:pension, age:age, socialInsurance:selfSiPre}, famJumin));
+        rkgSp=calculateKaigo(kaigoData, {
+          pensionIncome: famSpousePension,
+          totalIncome: spouseIncomeJumin,
+          sumIncome: famSpousePension + Math.max(0, spouseIncomeJumin - spousePensionIncome),
+          isSelfTaxable: !!rjSpPre.isTaxable,
+          isHouseholdAllNonTaxable: (!rjSpPre.isTaxable && !rjSelfPre.isTaxable)
+        });
+        if(rkgSp && rkgSp.annual>0) spouseSelfSi = (spouseSelfSi||0) + rkgSp.annual; else rkgSp=null;
+      }catch(e){ rkgSp=null; }
+    }
     socialInsurance=siParts.reduce(function(s,p){return s+p[1];},0);
 
     // ── 住民税（jumin-2026.json が無くても標準値で計算可） ──
@@ -595,7 +622,7 @@
           +"（"+siParts.map(function(p){return p[0]+" "+yen(p[1]);}).join("＋")+"）"
           +(siApprox?"。保険料データを取得できなかったため概算です":"")
           +(famAny?"。配偶者・扶養控除（住民税）: "+yen(spouseDed+depDed)+"（人的控除差 "+yen(humanDiff)+"）":"")
-          +(famSpouseSalary>0?"。配偶者の給与年収 "+yen(famSpouseSalary)+"（合計所得 "+yen(spouseIncomeJumin)+"）＝"+(spouseKind==="haigu"?"配偶者控除 ":(spouseKind==="special"?"配偶者特別控除 ":"配偶者控除なし "))+(spouseKind!=="none"?yen(spouseDed):""):"")+"</div>");
+          +((famSpouseSalary>0||famSpousePension>0)?"。配偶者の"+(famSpouseSalary>0?"給与年収 "+yen(famSpouseSalary):"")+(famSpouseSalary>0&&famSpousePension>0?"・":"")+(famSpousePension>0?"年金収入 "+yen(famSpousePension):"")+"（合計所得 "+yen(spouseIncomeJumin)+"）＝"+(spouseKind==="haigu"?"配偶者控除 ":(spouseKind==="special"?"配偶者特別控除 ":"配偶者控除なし "))+(spouseKind!=="none"?yen(spouseDed):""):"")+"</div>");
       }
       // 均等割の非課税基準をわずかに上回る帯は、条例で基準額を切り上げている自治体では非課税になりうる（2026-10-09 TASKS X180-4）
       if(rj.kintoBorderline) cards.push("<div class='ci-sub' style='color:#92400e;margin:4px 0 10px;line-height:1.7;'>※この収入は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+rj.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になり、介護保険料・保育料の判定も変わることがあります。お住まいの自治体でご確認ください。</div>");
@@ -618,7 +645,9 @@
     }
     // ── 所得税（配偶者）。配偶者の給与と配偶者自身の社会保険料控除（会社員＝shaho／自営＝国保・後期・国民年金）で計算。
     //   配偶者側の配偶者控除・扶養控除は付けない（本人の方が所得が多い前提）。世帯の負担なので合計に加える（2026-10-13） ──
-    if(famSpouseSalary>0 && _shotokuEng){
+    if(famSpousePension>0 && _shotokuEng){
+      cards.push(skip("所得税（配偶者）", "配偶者に年金収入がある場合の所得税は未対応です（給与のみ対応）"));
+    } else if(famSpouseSalary>0 && _shotokuEng){
       try{
         var stSp=_shotokuEng.calcShotokuzei({salary:famSpouseSalary, socialInsurance:(spouseSelfSi||0), spouse:null, dependents:{general:0, specific:0, elderly:0, elderlyCoRes:0}});
         grand += stSp.annualTax;
@@ -712,6 +741,11 @@
         } else { cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
       } else { cards.push(skip("介護保険（第1号）", "準備中（検証中）")); }
     }
+    // ── 介護保険・第1号（配偶者・65歳以上）。世帯の負担なので合計に加える（2026-10-13） ──
+    if(rkgSp){
+      grand += rkgSp.annual;
+      cards.push(card("介護保険（第1号・配偶者）", rkgSp.annual, [[rkgSp.label||("第"+rkgSp.level+"段階"), rkgSp.annual]], "#d97706"));
+    }
 
     // ── 保育料（0〜2歳・認可・opt-in。hoikuData のある自治体のみ加算） ──
     var _hoikuOptIn = document.getElementById("hoikuOptIn");
@@ -727,6 +761,7 @@
         } else try{
           var rh = calcHoikuFromSalaries(hoikuData, salary, hoikuSpouseSalary, { honninSocialInsurance:socialInsurance, honninFamily:famJumin,
             spouseSocialInsurance: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? spouseSelfSi : null,   // 家族欄の年収を使うときは働き方に応じた保険料
+            spousePension: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? famSpousePension : 0,
             age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
             enrolled: Number((document.getElementById("hoikuSiblings")||{}).value)||0,
             hitorioya: !!(document.getElementById("hoikuHitorioya")||{}).checked,
@@ -766,7 +801,7 @@
             if(sgSpouseOwn===0 || sgSpouseOwn===famSpouseSalary){ sgSpSi = (spouseSelfSi!=null) ? spouseSelfSi : Math.round(sgSpouse*0.144); }   // 家族欄の年収＝働き方に応じた保険料
             else if(isKaishain){ var sgSa=shahoAnnual(sgSpouse, 0, 40); sgSpSi=sgSa?sgSa.annual:Math.round(sgSpouse*0.144); }
             else { sgSpSi=Math.round(sgSpouse*0.144); }
-            sgSup.push({ salary:sgSpouse, age:40, socialInsurance:sgSpSi, dependents:sgChildren });
+            sgSup.push({ salary:sgSpouse, pension:((sgSpouseOwn===0 || sgSpouseOwn===famSpouseSalary) ? famSpousePension : 0), age:famSpouseAge, socialInsurance:sgSpSi, dependents:sgChildren });
           }
           var rsg=window.ShogakukinBridge.calcFromIncome(_sgSpec, null, {
             supportersIncome: sgSup,
@@ -863,7 +898,7 @@
     opts=opts||{};
     var honninPension=opts.honninPension||0;               // 世帯主(=保護者1)の年金も課税判定に反映
     var honninBonus=opts.honninBonus||0;                   // 世帯主の賞与（会社員）。配偶者の賞与は入力欄が無いため0（配偶者は給与年収に含めて入力）
-    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily), m=_juminOf(spouseSalary, 0, 0, opts.spouseSocialInsurance);
+    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance);
     var input={ age:opts.age||"age1_2", hitorioya:!!opts.hitorioya, month:(M.fiscalSwitch||9),
       father:{shotokuwari:f.shotokuwari}, mother:{shotokuwari:m.shotokuwari}, isSeireiNotice:false };
     var fe=(!honninSalary && !honninPension && !honninBonus), me=(!spouseSalary);
