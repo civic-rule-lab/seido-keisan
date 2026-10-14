@@ -69,7 +69,7 @@
   <div class="mode-title">詳しく計算（世帯対応）</div>
 
   <label for="count">世帯の後期高齢者医療 被保険者数</label>
-  <select id="count">
+  <select id="count" data-step="1">
     <option value="1">1人</option>
     <option value="2" selected>2人</option>
     <option value="3">3人</option>
@@ -79,31 +79,31 @@
   <div class="member" id="m1" data-i="1">
     <div class="member-head">1人目</div>
     <label>公的年金収入（年額）</label>
-    <input id="m1_pension" type="text" inputmode="numeric" placeholder="例：1,800,000">
+    <input id="m1_pension" data-step="2" type="text" inputmode="numeric" placeholder="例：1,800,000">
     <label>給与収入（任意・年額）</label>
-    <input id="m1_salary" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m1_salary" data-step="3" type="text" inputmode="numeric" placeholder="例：0">
     <label>その他の所得（任意・所得金額）</label>
-    <input id="m1_other" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m1_other" data-step="4" type="text" inputmode="numeric" placeholder="例：0">
     <label class="dep-label"><input id="m1_dep" type="checkbox"><span>75歳になる前、勤め先の健康保険（協会けんぽ・組合健保・共済）の被扶養者だった（加入2年以内）</span></label>
   </div>
   <div class="member" id="m2" data-i="2">
     <div class="member-head">2人目</div>
     <label>公的年金収入（年額）</label>
-    <input id="m2_pension" type="text" inputmode="numeric" placeholder="例：1,000,000">
+    <input id="m2_pension" data-step="5" type="text" inputmode="numeric" placeholder="例：1,000,000">
     <label>給与収入（任意・年額）</label>
-    <input id="m2_salary" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m2_salary" data-step="6" type="text" inputmode="numeric" placeholder="例：0">
     <label>その他の所得（任意・所得金額）</label>
-    <input id="m2_other" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m2_other" data-step="7" type="text" inputmode="numeric" placeholder="例：0">
     <label class="dep-label"><input id="m2_dep" type="checkbox"><span>75歳になる前、勤め先の健康保険の被扶養者だった（加入2年以内）</span></label>
   </div>
   <div class="member" id="m3" data-i="3" style="display:none;">
     <div class="member-head">3人目</div>
     <label>公的年金収入（年額）</label>
-    <input id="m3_pension" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m3_pension" data-step="8" type="text" inputmode="numeric" placeholder="例：0">
     <label>給与収入（任意・年額）</label>
-    <input id="m3_salary" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m3_salary" data-step="9" type="text" inputmode="numeric" placeholder="例：0">
     <label>その他の所得（任意・所得金額）</label>
-    <input id="m3_other" type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m3_other" data-step="10" data-step-end type="text" inputmode="numeric" placeholder="例：0">
     <label class="dep-label"><input id="m3_dep" type="checkbox"><span>75歳になる前、勤め先の健康保険の被扶養者だった（加入2年以内）</span></label>
   </div>
 
@@ -144,25 +144,15 @@
 </div>
 
 <script>const KOUKI_DATA = {"cityCode":"01647","citySlug":"ashoro","cityName":"足寄町","prefSlug":"hokkaido","prefecture":"北海道","fiscalYear":2026,"system":"kouki","schemaVersion":"1.0","status":"verified","basicDeduction":430000,"perCapita":{"medical":59963,"childcare":1364},"rate":{"medical":0.1161,"childcare":0.0028},"caps":{"medical":850000,"childcare":21000},"reduction":{"base":430000,"perEarnerAdd":100000,"fivePerInsured":310000,"twoPerInsured":570000,"ratios":{"seven":{"medical":0.72,"childcare":0.7},"five":{"medical":0.5,"childcare":0.5},"two":{"medical":0.2,"childcare":0.2}}},"incomeReduction":null,"source":{"rates":{"url":"https://www.mhlw.go.jp/content/12403500/001689077.pdf","title":"厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について","retrievedAt":"2026-06-28"},"kansho":{"url":"https://iryokouiki-hokkaido.jp/hotnews/detail_sp/00003367.html","note":"所得割独自軽減なし・不均一賦課なし(県内均一)","confidence":0.9,"retrievedAt":"2026-06-28"}},"notes":"医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。"}; const CITY_SLUG = "ashoro"; const PUBLISH_YEAR = 2026;</script>
-<script src="/js/core/shared/income.js?v=fbdff39d"></script>
-<script src="/js/core/kouki.js?v=fbdff39d"></script>
+<script src="/js/core/shared/ui-input.js?v=4b6f7434"></script>
+<script src="/js/core/shared/income.js?v=4b6f7434"></script>
+<script src="/js/core/kouki.js?v=4b6f7434"></script>
 <script>
 (function () {
   "use strict";
 
-  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id){var v=document.getElementById(id);if(!v)return 0;return Math.max(0,Number(toHalfWidth(v.value||"").replace(/[^\d]/g,""))||0);}
   function checked(id){var v=document.getElementById(id);return !!(v&&v.checked);}
-  function setupNumericInput(id){
-    var el=document.getElementById(id); if(!el)return; var composing=false;
-    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
-    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?Number(raw).toLocaleString("ja-JP"):""; }
-    el.addEventListener("compositionstart",function(){composing=true;});
-    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
-    el.addEventListener("input",clean);
-    el.addEventListener("blur",commit);
-    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
-  }
   function pct(r){return (r*100).toFixed(r*100%1===0?0:2).replace(/\.?0+$/,"")+"%";}
   function man(v){return (v/10000)+"万円";}
 
@@ -231,7 +221,7 @@
   function init(){
     renderRate(); renderCityNote(); syncMembers();
     document.getElementById("count").addEventListener("change", syncMembers);
-    [1,2,3].forEach(function(i){ setupNumericInput("m"+i+"_pension"); setupNumericInput("m"+i+"_salary"); setupNumericInput("m"+i+"_other"); });
+    [1,2,3].forEach(function(i){ setupNumericInput("m"+i+"_pension",{withCommas:true}); setupNumericInput("m"+i+"_salary",{withCommas:true}); setupNumericInput("m"+i+"_other",{withCommas:true}); });
   }
   if(document.readyState!=="loading")init();
   else document.addEventListener("DOMContentLoaded",init);

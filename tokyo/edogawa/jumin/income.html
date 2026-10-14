@@ -62,42 +62,42 @@
 
   <div class="ji-section">収入</div>
   <label for="salary">給与収入（年収）</label>
-  <input id="salary" type="text" inputmode="numeric" placeholder="例：5,000,000">
+  <input id="salary" data-step="1" type="text" inputmode="numeric" placeholder="例：5,000,000">
   <label for="pension">公的年金収入（任意）</label>
-  <input id="pension" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="pension" data-step="2" type="text" inputmode="numeric" placeholder="例：0">
   <label for="business">事業所得（個人事業主の方・任意）</label>
-  <input id="business" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="business" data-step="3" type="text" inputmode="numeric" placeholder="例：0">
   <p class="ji-hint">売上から経費（と青色申告特別控除）を引いた後の「所得金額」を入力してください。不動産所得などもここに合算できます。</p>
   <label for="age">年齢</label>
-  <input id="age" type="text" inputmode="numeric" placeholder="例：40">
+  <input id="age" data-step="4" type="text" inputmode="numeric" placeholder="例：40">
 
   <div class="ji-section">社会保険料</div>
   <label for="social">社会保険料（年額・空欄なら給与の約14.4%で概算）</label>
-  <input id="social" type="text" inputmode="numeric" placeholder="例：720,000">
+  <input id="social" data-step="5" type="text" inputmode="numeric" placeholder="例：720,000">
 
   <div class="ji-section">扶養・配偶者</div>
   <label class="ji-check"><input type="checkbox" id="spouse"> 配偶者控除（配偶者の合計所得58万円以下＝給与収入123万円以下）</label>
   <label for="spouse_salary">配偶者の給与年収（任意）</label>
-  <input id="spouse_salary" type="text" inputmode="numeric" placeholder="例：1,500,000">
+  <input id="spouse_salary" data-step="6" type="text" inputmode="numeric" placeholder="例：1,500,000">
   <label class="ji-check"><input type="checkbox" id="spouse_elderly"> 配偶者が70歳以上（老人控除対象配偶者）</label>
   <p class="ji-hint">配偶者の給与年収を入れると、配偶者控除（合計所得58万円以下）か配偶者特別控除（58万円超133万円以下・33万〜3万円）かを所得から自動で判定します（地方税法 第34条第1項第10号・第10号の2）。あなたの合計所得が900万円超950万円以下なら控除額は2/3、950万円超1,000万円以下なら1/3、1,000万円超なら控除なしです。</p>
   <label for="dep_general">一般扶養親族（16〜18歳・23〜69歳）人数</label>
-  <input id="dep_general" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="dep_general" data-step="7" type="text" inputmode="numeric" placeholder="例：0">
   <label for="dep_specific">特定扶養親族（19〜22歳・給与収入123万円以下）人数</label>
-  <input id="dep_specific" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="dep_specific" data-step="8" type="text" inputmode="numeric" placeholder="例：0">
   <label for="child_salary">19〜22歳の子の給与収入が123万円を超える場合：その給与収入（年収）</label>
-  <input id="child_salary" type="text" inputmode="numeric" placeholder="例：1,500,000">
+  <input id="child_salary" data-step="9" type="text" inputmode="numeric" placeholder="例：1,500,000">
   <p class="ji-hint">アルバイト等の給与収入が123万円超188万円以下なら、特定親族特別控除（令和8年度新設・3万〜45万円）を収入額から自動判定します。上の人数には含めないでください。該当する子が2人以上いる場合は1人分のみ反映されます。</p>
   <label for="dep_elderly">老人扶養親族（70歳以上）人数</label>
-  <input id="dep_elderly" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="dep_elderly" data-step="10" type="text" inputmode="numeric" placeholder="例：0">
 
   <div class="ji-section">保険料・医療費控除</div>
   <label for="life">生命保険料控除額（住民税・上限7万円）</label>
-  <input id="life" type="text" inputmode="numeric" placeholder="例：28,000">
+  <input id="life" data-step="11" type="text" inputmode="numeric" placeholder="例：28,000">
   <label for="quake">地震保険料控除額（住民税・上限2.5万円）</label>
-  <input id="quake" type="text" inputmode="numeric" placeholder="例：25,000">
+  <input id="quake" data-step="12" type="text" inputmode="numeric" placeholder="例：25,000">
   <label for="medical">医療費控除額</label>
-  <input id="medical" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="medical" data-step="13" type="text" inputmode="numeric" placeholder="例：0">
 
   <div class="ji-section">その他の控除</div>
   <label class="ji-check"><input type="checkbox" id="disabled"> 障害者控除（本人・普通障害）</label>
@@ -106,7 +106,7 @@
 
   <div class="ji-section">ふるさと納税</div>
   <label for="furusato">ふるさと納税の寄附額（年間）</label>
-  <input id="furusato" type="text" inputmode="numeric" placeholder="例：50,000">
+  <input id="furusato" data-step="14" data-step-end type="text" inputmode="numeric" placeholder="例：50,000">
   <p class="ji-hint">寄附金税額控除（住民税分）を確定申告ベースで概算し差し引きます。控除上限（所得割の約2割）超過分やワンストップ特例の住民税上乗せ分は反映しません。</p>
 
   <button onclick="calcJuminFull()">計算する</button>
@@ -139,8 +139,9 @@
 </div>
 
 <script>const JUMIN_DATA = {"cityCode":"13123","citySlug":"edogawa","cityName":"江戸川区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.city.edogawa.tokyo.jp/e013/kurashi/zeikin/juminzei/r8kaisei.html","pageTitle":"江戸川区 公式: 特別区民税・都民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "edogawa"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
-<script src="/js/core/shared/income.js?v=55403b11"></script>
-<script src="/js/core/jumin.js?v=55403b11"></script>
+<script src="/js/core/shared/ui-input.js?v=1ca661a3"></script>
+<script src="/js/core/shared/income.js?v=1ca661a3"></script>
+<script src="/js/core/jumin.js?v=1ca661a3"></script>
 <!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
 <script>const FURUSATO_DATA = {
   "meta": {
@@ -228,27 +229,16 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 };</script>
-<script src="/js/core/furusato.js?v=55403b11"></script>
+<script src="/js/core/furusato.js?v=1ca661a3"></script>
 <script>
 (function () {
   "use strict";
-  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id){var v=document.getElementById(id);if(!v||v.value==="")return null;var n=Number(toHalfWidth(v.value).replace(/[^\d]/g,""));return isFinite(n)?Math.max(0,n):null;}
   function chk(id){var v=document.getElementById(id);return !!(v&&v.checked);}
   // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
-  function setupNumericInput(id, withCommas){
-    var el=document.getElementById(id); if(!el)return; var composing=false;
-    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
-    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
-    el.addEventListener("compositionstart",function(){composing=true;});
-    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
-    el.addEventListener("input",clean);
-    el.addEventListener("blur",commit);
-    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
-  }
   function initInputs(){
-    ["salary","pension","business","child_salary","spouse_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,true);});
-    ["age","dep_general","dep_specific","dep_elderly"].forEach(function(id){setupNumericInput(id,false);});
+    ["salary","pension","business","child_salary","spouse_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,{withCommas:true});});
+    ["age","dep_general","dep_specific","dep_elderly"].forEach(function(id){setupNumericInput(id,{withCommas:false});});
   }
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);

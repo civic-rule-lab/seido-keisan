@@ -31,8 +31,11 @@
   .row{display:flex;gap:10px}.row>div{flex:1}
   .chk{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:14px;font-weight:500;}
   .chk input{width:auto;margin-top:3px;}
-  .tabs{display:flex;border:1px solid #cbd5e1;border-radius:10px;overflow:hidden;margin:6px 0 8px;}
-  .tabs button{flex:1;padding:10px;border:0;background:#fff;font-size:13.5px;cursor:pointer;color:#52606d;}
+  /* 切替（セグメント型）。common.css の button（丸型・影・余白）を打ち消し、枠の中に枠が出ないようにする（2026-10-14） */
+  .tabs{display:flex;gap:4px;padding:4px;background:#fff;border:1px solid #cbd5e1;border-radius:12px;margin:4px 0 16px;box-sizing:border-box;}
+  .tabs button{flex:1;width:auto;margin:0;padding:10px 8px;border:0;border-radius:9px;background:transparent;box-shadow:none;font-size:13.5px;font-weight:600;line-height:1.3;color:#52606d;cursor:pointer;}
+  .tabs button:hover{background:#f1f7f8;}
+  .tabs button:active{transform:none;}
   .tabs button.on{background:#d7eef2;color:#0b7285;font-weight:700;}
   .sec{font-size:12px;letter-spacing:.04em;color:#52606d;font-weight:700;border-top:1px solid #e5e7eb;padding-top:14px;margin:20px 0 2px;}
   button.cta{width:100%;margin-top:22px;padding:15px;font-size:17px;font-weight:700;border:0;border-radius:999px;background:#0b7285;color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(11,114,133,.25);}
@@ -85,9 +88,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"13204","citySlug":"mitaka","cityName":"三鷹市","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "mitaka"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/income.js?v=0a0f7339"></script>
-<script src="/js/core/jumin.js?v=0a0f7339"></script>
-<script src="/js/core/hoiku.js?v=0a0f7339"></script>
+<script src="/js/core/shared/ui-input.js?v=aa60b761"></script>
+<script src="/js/core/shared/income.js?v=aa60b761"></script>
+<script src="/js/core/jumin.js?v=aa60b761"></script>
+<script src="/js/core/hoiku.js?v=aa60b761"></script>
 <script>
 (function(){
   "use strict";
@@ -95,7 +99,7 @@
 
   // ── helpers ──
   function h(s){return String(s==null?"":s);}
-  function toHalf(s){return h(s).replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
+  function toHalf(s){return toHalfWidth(h(s));}   // 共通 ui-input.js の toHalfWidth を使う
   function num(id){var el=document.getElementById(id);if(!el)return 0;return Math.max(0,Number(toHalf(el.value).replace(/[^\d]/g,""))||0);}
   function checked(id){var el=document.getElementById(id);return !!(el&&el.checked);}
   function val(id){var el=document.getElementById(id);return el?el.value:"";}
@@ -135,14 +139,14 @@
     // 年収モード
     html+='<div id="tab-salary" class="'+(directDefault?"hidden":"")+'">'
         +'<div class="sec">世帯の収入</div>'
-        +'<label>父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" inputmode="numeric" placeholder="例：4,000,000">'
-        +'<label>母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'<label>父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" data-step="1" inputmode="numeric" placeholder="例：4,000,000">'
+        +'<label>母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
         +'</div>';
     // 直接入力モード
     html+='<div id="tab-direct" class="'+(directDefault?"":"hidden")+'">'
         +'<div class="sec">市民税所得割額（通知書）</div>'
-        +'<label>父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" inputmode="numeric" placeholder="例：150,000">'
-        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" inputmode="numeric" placeholder="ひとり親は空欄でOK">';
+        +'<label>父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" data-step="1" inputmode="numeric" placeholder="例：150,000">'
+        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">';
     if(M.seireiConversion){ // 政令市で通知書8%→6%換算（名古屋型 seireiConversion:false では出さない）
       html+='<div class="chk"><input type="checkbox" id="isSeireiNotice"><label for="isSeireiNotice" style="margin:0">通知書の税率が8%（政令市の現行税率）＝6%に近似換算する</label></div>'
           +'<div class="warn">8%→6%換算は近似です。階層境界では±数百円で1段ずれることがあります（要通知書確認）。</div>';
@@ -152,15 +156,15 @@
     // 児童・保育
     html+='<div class="sec">お子さんと保育</div>';
     if(has0saiRate()){
-      html+='<label>お子さんの年齢</label><select id="age"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
+      html+='<label>お子さんの年齢</label><select id="age" data-step="3"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
     }else{
       html+='<input type="hidden" id="age" value="age1_2">';
     }
-    html+='<label>保育時間</label><select id="timeType">';
+    html+='<label>保育時間</label><select id="timeType" data-step="4">';
     tks.forEach(function(b,i){ html+='<option value="'+esc(b.key)+'"'+(i===0?" selected":"")+'>'+esc(b.label||b.key)+'</option>'; });
     html+='</select>';
     if(facs){
-      html+='<label>利用する施設の種類</label><select id="facility">';
+      html+='<label>利用する施設の種類</label><select id="facility" data-step="5">';
       facs.forEach(function(k,i){ html+='<option value="'+esc(k)+'"'+(k===(M.defaultFacility||facs[0])?" selected":"")+'>'+esc(M.facilityTypes[k])+'</option>'; });
       html+='</select>';
     }
@@ -168,7 +172,7 @@
     // きょうだい（多子）
     html+='<div class="sec">きょうだい（多子軽減）</div>'
         +'<label>認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
-        +'<select id="enrolledOlder"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
+        +'<select id="enrolledOlder" data-step="6"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
     if(selKey){
       html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
     }
@@ -182,25 +186,18 @@
     var sw=(M.fiscalSwitch||9);
     html+='<div class="sec">試算する月（年度切替）</div>'
         +'<label>何月分の保育料か</label>'
-        +'<select id="month"><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
+        +'<select id="month" data-step="7" data-step-end><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
         +'<div class="warn" id="monthNote" style="display:none">4〜'+(sw-1)+'月分は前年度の課税額で決まります。ここでは同じ年収と仮定した目安です（前年の収入で再計算すると変わることがあります）。</div>';
 
     html+='<button type="button" class="cta" onclick="hoikuCalc()">保育料を試算する</button>';
     app.innerHTML=html;
 
     // 全角→半角ライブ変換
-    ["fatherSalary","motherSalary","fatherShotoku","motherShotoku"].forEach(function(id){ setupNum(id); });
+    ["fatherSalary","motherSalary","fatherShotoku","motherShotoku"].forEach(function(id){ setupNumericInput(id,{withCommas:true}); });
     var mo=document.getElementById("month"); if(mo)mo.addEventListener("change",function(){ document.getElementById("monthNote").style.display=(mo.value!=String(sw))?"block":"none"; });
   }
 
-  function setupNum(id){
-    var el=document.getElementById(id); if(!el)return; var composing=false;
-    el.addEventListener("compositionstart",function(){composing=true;});
-    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
-    el.addEventListener("input",function(){ if(!composing) el.value=toHalf(el.value).replace(/[^\d]/g,""); });
-    el.addEventListener("blur",commit);
-    function commit(){ var raw=toHalf(el.value).replace(/[^\d]/g,""); el.value=raw?Number(raw).toLocaleString("ja-JP"):""; }
-  }
+
 
   // ── フォーム生成（無償 free・案B） ──
   function renderFree(){

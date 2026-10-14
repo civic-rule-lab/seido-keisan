@@ -75,21 +75,21 @@
     <div class="fz-card-title">① 住民税の決定通知書の数字</div>
     <label for="shotokuwari">所得割額（市区町村民税と道府県民税の合計）</label>
     <div class="hint">住宅ローン控除・寄附金（ふるさと納税など）の控除・配当控除を受けている方は、それらを差し引く前の額にしてください（調整控除は差し引いたままの額です）。これらの控除が無い方は、通知書の所得割額のままで構いません。</div>
-    <input id="shotokuwari" type="text" inputmode="numeric" placeholder="例：238,500">
+    <input id="shotokuwari" data-step="1" type="text" inputmode="numeric" placeholder="例：238,500">
 
     <label for="kazeiHyojun">課税標準額（総所得）</label>
     <div class="hint">所得から所得控除を引いた後の額です（課税総所得金額）。</div>
-    <input id="kazeiHyojun" type="text" inputmode="numeric" placeholder="例：2,410,000">
+    <input id="kazeiHyojun" data-step="2" type="text" inputmode="numeric" placeholder="例：2,410,000">
 
     <label for="soShotoku">総所得金額（所得の合計）</label>
     <div class="hint">所得控除を引く前の、所得の合計です（給与だけの方は給与所得の額）。</div>
-    <input id="soShotoku" type="text" inputmode="numeric" placeholder="例：3,560,000">
+    <input id="soShotoku" data-step="3" type="text" inputmode="numeric" placeholder="例：3,560,000">
   </div>
 
   <div class="fz-card">
     <div class="fz-card-title">② 家族（2026年12月31日時点の見込み）</div>
     <label for="spouse">配偶者控除</label>
-    <select id="spouse">
+    <select id="spouse" data-step="4">
       <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
       <option value="general">受ける（配偶者が70歳未満）</option>
       <option value="elderly">受ける（配偶者が70歳以上）</option>
@@ -97,31 +97,31 @@
     <div class="row3">
       <div>
         <label for="depGeneral">扶養（16〜18歳・23〜69歳）</label>
-        <input id="depGeneral" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depGeneral" data-step="5a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depSpecific">扶養（19〜22歳）</label>
-        <input id="depSpecific" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depSpecific" data-step="5b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depElderly">扶養（70歳以上・同居の親以外）</label>
-        <input id="depElderly" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depElderly" data-step="6a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depParent">同居の親など（70歳以上）</label>
-        <input id="depParent" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depParent" data-step="6b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
     <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため、人数に入れません。</div>
     <label for="selfStatus">ご本人</label>
-    <select id="selfStatus">
+    <select id="selfStatus" data-step="7">
       <option value="none" selected>あてはまるものはない</option>
       <option value="mother">ひとり親（母）</option>
       <option value="father">ひとり親（父）</option>
       <option value="widow">寡婦</option>
     </select>
     <label for="selfDisability">ご本人の障害者控除</label>
-    <select id="selfDisability">
+    <select id="selfDisability" data-step="8" data-step-end>
       <option value="none" selected>受けない</option>
       <option value="general">障害者</option>
       <option value="special">特別障害者</option>
@@ -254,48 +254,12 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
-<script src="/js/core/furusato.js?v=2970f807"></script>
+<script src="/js/core/shared/ui-input.js?v=8162e2fb"></script>
+<script src="/js/core/furusato.js?v=8162e2fb"></script>
 <script>
 (function () {
   "use strict";
 
-  // ── 数値入力欄（js/engine.js の toHalfWidth / setupNumericInput をそのまま複製。UI 共通ルール §1） ──
-  function toHalfWidth(str) {
-    return String(str)
-      .replace(/[０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
-      .replace(/[，、,]/g, "");
-  }
-
-  function setupNumericInput(id, options) {
-    const el = document.getElementById(id);
-    if (!el) return;
-    const withCommas = !!(options && options.withCommas);
-    let isComposing = false;
-
-    function clean() {
-      if (isComposing) return;
-      el.value = toHalfWidth(el.value).replace(/[^\d]/g, "");
-    }
-
-    function commit() {
-      const raw = toHalfWidth(el.value).replace(/[^\d]/g, "");
-      if (!raw) { el.value = ""; return; }
-      el.value = withCommas ? Number(raw).toLocaleString("ja-JP") : raw;
-    }
-
-    el.addEventListener('compositionstart', () => { isComposing = true; });
-    el.addEventListener('compositionend', () => {
-      isComposing = false;
-      setTimeout(commit, 0);
-    });
-    el.addEventListener('input', clean);
-    el.addEventListener('blur', commit);
-    el.addEventListener('keydown', (e) => {
-      if (e.key === '-' || e.key === '+' || e.key === 'e' || e.key === 'E') {
-        e.preventDefault();
-      }
-    });
-  }
 
   function num(id){ var el=document.getElementById(id); if(!el) return 0; var n=Number(toHalfWidth(el.value||"").replace(/[^\d]/g,"")); return isFinite(n)?n:0; }
   function val(id){ var el=document.getElementById(id); return el ? el.value : ""; }
@@ -320,24 +284,6 @@
     if(gap < GAP_MIN || gap < soShotoku * GAP_SHARE) return "";
     return "<div class='warn'>総所得金額と課税標準額の差（所得控除の合計）が "+yen(gap)+" と大きくなっています。どちらかの欄の桁が合っているか、通知書で確かめてください（医療費控除などで実際に大きい方は、このままで構いません）。</div>";
   }
-
-  // ── カードフロー（UI 共通ルール §2）: Enter で、表示中の次の入力欄・選択欄へ。次が無ければ移動しない ──
-  // 日本語入力（IME）の変換確定の Enter では何もしない（2026-10-07 本番で発生）。
-  //   確定前に focus を移す・blur すると、確定した文字が移動先の欄にも入り、最後の欄では同じ数字が
-  //   二重になった（3,560,000 → 35,600,003,560,000）。確定の Enter は Chrome 等で isComposing=true、
-  //   Safari では compositionend の後に keyCode 229 で届くので両方を見る。確定後にもう一度 Enter で移動する。
-  document.addEventListener("keydown", function(e){
-    if(e.key !== "Enter") return;
-    if(e.isComposing || e.keyCode === 229) return;
-    var t = e.target;
-    if(!t || !t.matches || !t.matches("input,select")) return;
-    e.preventDefault();
-    var stops = [].slice.call(document.querySelectorAll(".fz-card input, .fz-card select"))
-      .filter(function(el){ return el.offsetParent !== null && !el.disabled; });
-    var i = stops.indexOf(t);
-    if(i > -1 && i + 1 < stops.length){ stops[i + 1].focus(); }   // focus 移動で blur → カンマ付与（§1-2）
-    else if(t.blur){ t.blur(); }                                    // 最後の欄はカンマ付与だけ
-  });
 
   // ── 割合の表（データから描画） ──
   function renderRatioTable(){

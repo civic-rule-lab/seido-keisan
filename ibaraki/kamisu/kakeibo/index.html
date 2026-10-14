@@ -74,33 +74,33 @@
   <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 28px;">引っ越し・退職・年金開始などで変わる「住民税・国民健康保険・介護保険」の負担を、収入と家族構成から一括で概算します。データのある制度のみ表示されます。</p>
 
   <label for="salary">給与収入（年収）</label>
-  <input id="salary" type="text" inputmode="numeric" placeholder="例：5,000,000">
+  <input id="salary" data-step="1" type="text" inputmode="numeric" placeholder="例：5,000,000">
 
   <label for="pension">公的年金収入（任意）</label>
-  <input id="pension" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="pension" data-step="2" type="text" inputmode="numeric" placeholder="例：0">
 
   <div class="field-grid">
     <div>
       <label for="age">年齢</label>
-      <input id="age" type="text" inputmode="numeric" placeholder="例：40">
+      <input id="age" data-step="3a" type="text" inputmode="numeric" placeholder="例：40">
     </div>
     <div>
       <label for="family">世帯人数</label>
-      <input id="family" type="text" inputmode="numeric" placeholder="例：3">
+      <input id="family" data-step="3b" type="text" inputmode="numeric" placeholder="例：3">
     </div>
   </div>
 
   <div class="field-grid">
     <div>
       <label for="employment">働き方</label>
-      <select id="employment">
+      <select id="employment" data-step="4a">
         <option value="kaishain" selected>会社員（社会保険）</option>
         <option value="jiei">自営・退職など（国民健康保険）</option>
       </select>
     </div>
     <div id="bonusField">
       <label for="bonus">年間賞与（任意）</label>
-      <input id="bonus" type="text" inputmode="numeric" placeholder="例：1,000,000">
+      <input id="bonus" data-step="4b" type="text" inputmode="numeric" placeholder="例：1,000,000">
     </div>
   </div>
   <div class="note" id="bonusHint" style="margin-top:6px;">会社員の方は、上の給与収入は<b>賞与を除いた額</b>を入力し、賞与は別欄へ。賞与は健康保険・厚生年金の保険料に反映します（税額は給与＋賞与で計算）。</div>
@@ -109,7 +109,7 @@
     <div style="font-weight:600;margin:0 0 4px;">扶養・配偶者（任意）</div>
     <div class="note" style="margin:0 0 10px;">入れると住民税・所得税・保育料の指数・ふるさと納税の上限に反映します。空欄なら「配偶者・扶養なし」で計算します。16歳未満のお子さんは扶養控除が無いため人数に入れません。</div>
     <label for="famSpouse">配偶者控除</label>
-    <select id="famSpouse">
+    <select id="famSpouse" data-step="5">
       <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
       <option value="general">受ける（配偶者が70歳未満）</option>
       <option value="elderly">受ける（配偶者が70歳以上）</option>
@@ -117,11 +117,11 @@
     <div class="field-grid">
       <div>
         <label for="famSpouseSalary">配偶者の給与年収（任意）</label>
-        <input id="famSpouseSalary" type="text" inputmode="numeric" placeholder="例：1,500,000">
+        <input id="famSpouseSalary" data-step="6a" type="text" inputmode="numeric" placeholder="例：1,500,000">
       </div>
       <div>
         <label for="famSpouseWork">配偶者の働き方</label>
-        <select id="famSpouseWork">
+        <select id="famSpouseWork" data-step="6b">
           <option value="kaishain" selected>会社員・パート（勤め先の社会保険あり）</option>
           <option value="jiei">自営・社会保険なし</option>
         </select>
@@ -130,32 +130,32 @@
     <div class="field-grid">
       <div>
         <label for="famSpouseAge">配偶者の年齢（任意・空欄なら40歳）</label>
-        <input id="famSpouseAge" type="text" inputmode="numeric" placeholder="例：40">
+        <input id="famSpouseAge" data-step="7a" type="text" inputmode="numeric" placeholder="例：40">
       </div>
       <div>
         <label for="famSpousePension">配偶者の公的年金収入（任意）</label>
-        <input id="famSpousePension" type="text" inputmode="numeric" placeholder="例：1,500,000">
+        <input id="famSpousePension" data-step="7b" type="text" inputmode="numeric" placeholder="例：1,500,000">
       </div>
     </div>
     <div class="note" style="margin:0 0 10px;">配偶者の給与年収を入れると、配偶者控除か配偶者特別控除かを所得から自動で判定します（上の選択は「70歳以上」の判定にだけ使います）。保育料・奨学金の配偶者欄が空なら、この年収を使います。配偶者が自営・社会保険なしの場合は国保と国民年金を世帯分として計算します。配偶者が年金受給者なら年金収入と年齢を入れると、国保・後期高齢・介護保険（65歳以上）を配偶者分として計算します。</div>
     <div class="field-grid">
       <div>
         <label for="famDepGeneral">扶養（16〜18歳・23〜69歳）人数</label>
-        <input id="famDepGeneral" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepGeneral" data-step="8a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="famDepSpecific">扶養（19〜22歳）人数</label>
-        <input id="famDepSpecific" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepSpecific" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
     <div class="field-grid">
       <div>
         <label for="famDepElderly">扶養（70歳以上・同居の親以外）人数</label>
-        <input id="famDepElderly" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepElderly" data-step="9a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="famDepParent">同居の親など（70歳以上）人数</label>
-        <input id="famDepParent" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepParent" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
   </div>
@@ -167,15 +167,15 @@
     </label>
     <div id="hoikuDetail" style="display:none;margin-top:12px;">
       <label for="hoikuSpouse">配偶者（保護者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄。空欄なら上の「扶養・配偶者」の年収を使います</span></label>
-      <input id="hoikuSpouse" type="text" inputmode="numeric" placeholder="例：3,000,000">
+      <input id="hoikuSpouse" data-step="10" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
           <label for="hoikuChildAge">お子さんの年齢</label>
-          <select id="hoikuChildAge"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
+          <select id="hoikuChildAge" data-step="11a"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
         </div>
         <div>
           <label for="hoikuSiblings">認可に通う兄・姉</label>
-          <select id="hoikuSiblings"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上</option></select>
+          <select id="hoikuSiblings" data-step="11b"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上</option></select>
         </div>
       </div>
       <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
@@ -192,11 +192,11 @@
     </label>
     <div id="shogakuDetail" style="display:none;margin-top:12px;">
       <label for="shogakuSpouse">配偶者（生計維持者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄。空欄なら上の「扶養・配偶者」の年収を使います</span></label>
-      <input id="shogakuSpouse" type="text" inputmode="numeric" placeholder="例：3,000,000">
+      <input id="shogakuSpouse" data-step="12" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
           <label for="shogakuLevel">進学先</label>
-          <select id="shogakuLevel">
+          <select id="shogakuLevel" data-step="13a">
             <option value="大学" selected>大学</option>
             <option value="短期大学">短期大学</option>
             <option value="専門学校">専門学校</option>
@@ -205,17 +205,17 @@
         </div>
         <div>
           <label for="shogakuSetti">国公立・私立</label>
-          <select id="shogakuSetti"><option value="私立" selected>私立</option><option value="国公立">国公立</option></select>
+          <select id="shogakuSetti" data-step="13b"><option value="私立" selected>私立</option><option value="国公立">国公立</option></select>
         </div>
       </div>
       <div class="field-grid">
         <div>
           <label for="shogakuAttend">通学形態</label>
-          <select id="shogakuAttend"><option value="自宅" selected>自宅通学</option><option value="自宅外">自宅外（下宿等）</option></select>
+          <select id="shogakuAttend" data-step="14a"><option value="自宅" selected>自宅通学</option><option value="自宅外">自宅外（下宿等）</option></select>
         </div>
         <div>
           <label for="shogakuChildren">扶養する子の人数</label>
-          <select id="shogakuChildren"><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
+          <select id="shogakuChildren" data-step="14b" data-step-end><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
         </div>
       </div>
       <div class="note" style="margin-top:8px;">高等教育の修学支援新制度（給付型奨学金＋授業料等減免）の目安判定です。扶養控除などは反映しないため、実際は<b>これより支援が多い区分</b>になる場合があります。資産・本人収入・私立理工農系・貸与型は<a href="https://shogakukin-keisan.jp/" target="_blank" rel="noopener" style="color:#16a34a;font-weight:600;">奨学金かんたん計算 ↗</a>で反映できます。</div>
@@ -272,17 +272,18 @@
 </div>
 
 <script>const CITY_SLUG = "kamisu"; const PREF_SLUG = "ibaraki"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/income.js?v=55403b11"></script>
-<script src="/js/core/jumin.js?v=55403b11"></script>
-<script src="/js/core/kokuho.js?v=55403b11"></script>
-<script src="/js/core/kaigo.js?v=55403b11"></script>
-<script src="/js/core/kouki.js?v=55403b11"></script>
-<script src="/js/core/hoiku.js?v=55403b11"></script>
-<script src="/js/core/shaho.js?v=55403b11"></script>
-<script src="/js/core/shotoku.js?v=55403b11"></script>
-<script src="/js/core/shogakukin.js?v=55403b11"></script>
-<script src="/js/core/shogakukin-bridge.js?v=55403b11"></script>
-<script src="/js/core/furusato.js?v=55403b11"></script>
+<script src="/js/core/shared/ui-input.js?v=1ca661a3"></script>
+<script src="/js/core/shared/income.js?v=1ca661a3"></script>
+<script src="/js/core/jumin.js?v=1ca661a3"></script>
+<script src="/js/core/kokuho.js?v=1ca661a3"></script>
+<script src="/js/core/kaigo.js?v=1ca661a3"></script>
+<script src="/js/core/kouki.js?v=1ca661a3"></script>
+<script src="/js/core/hoiku.js?v=1ca661a3"></script>
+<script src="/js/core/shaho.js?v=1ca661a3"></script>
+<script src="/js/core/shotoku.js?v=1ca661a3"></script>
+<script src="/js/core/shogakukin.js?v=1ca661a3"></script>
+<script src="/js/core/shogakukin-bridge.js?v=1ca661a3"></script>
+<script src="/js/core/furusato.js?v=1ca661a3"></script>
 <script>
 (function () {
   "use strict";
@@ -365,19 +366,8 @@
     }catch(e){ return null; }
   }
 
-  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id,min){var v=document.getElementById(id);var n=v?Number(toHalfWidth(v.value||"").replace(/[^\d]/g,"")):0;return Math.max(min||0, isFinite(n)?n:0);}
-  // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
-  function setupNumericInput(id, withCommas){
-    var el=document.getElementById(id); if(!el)return; var composing=false;
-    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
-    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
-    el.addEventListener("compositionstart",function(){composing=true;});
-    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
-    el.addEventListener("input",clean);
-    el.addEventListener("blur",commit);
-    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
-  }
+  // 数値入力欄の挙動は共通 js/core/shared/ui-input.js（toHalfWidth / setupNumericInput / Enter 移動）
   // 円単位ガード：収入欄に万円のまま入力すると少額（最低等級）で計算されるため、5桁以下の入力に注意を表示（警告のみ・自動変換なし）
   function setupUnitGuard(id){
     var el=document.getElementById(id); if(!el)return;
@@ -393,10 +383,10 @@
     el.addEventListener("input",check); el.addEventListener("blur",check);
   }
   function initInputs(){
-    setupNumericInput("salary",true); setupNumericInput("pension",true); setupNumericInput("age",false);
-    setupNumericInput("family",false); setupNumericInput("hoikuSpouse",true); setupNumericInput("bonus",true);
-    setupNumericInput("shogakuSpouse",true); setupNumericInput("famSpouseSalary",true); setupNumericInput("famSpousePension",true);
-    ["famDepGeneral","famDepSpecific","famDepElderly","famDepParent","famSpouseAge"].forEach(function(id){ setupNumericInput(id,false); });
+    setupNumericInput("salary",{withCommas:true}); setupNumericInput("pension",{withCommas:true}); setupNumericInput("age",{withCommas:false});
+    setupNumericInput("family",{withCommas:false}); setupNumericInput("hoikuSpouse",{withCommas:true}); setupNumericInput("bonus",{withCommas:true});
+    setupNumericInput("shogakuSpouse",{withCommas:true}); setupNumericInput("famSpouseSalary",{withCommas:true}); setupNumericInput("famSpousePension",{withCommas:true});
+    ["famDepGeneral","famDepSpecific","famDepElderly","famDepParent","famSpouseAge"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
     setupUnitGuard("salary"); setupUnitGuard("pension"); setupUnitGuard("bonus"); setupUnitGuard("hoikuSpouse");
     setupUnitGuard("shogakuSpouse"); setupUnitGuard("famSpouseSalary"); setupUnitGuard("famSpousePension");
     var emp=document.getElementById("employment"), bf=document.getElementById("bonusField"), bh=document.getElementById("bonusHint");

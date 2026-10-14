@@ -67,13 +67,13 @@
   <div class="mode-title">かんたん計算</div>
 
   <label for="pension">公的年金収入（年額）</label>
-  <input id="pension" type="text" inputmode="numeric" placeholder="例：1,800,000">
+  <input id="pension" data-step="1" type="text" inputmode="numeric" placeholder="例：1,800,000">
 
   <label for="salary">給与収入（任意・年額）</label>
-  <input id="salary" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="salary" data-step="2" type="text" inputmode="numeric" placeholder="例：0">
 
   <label for="other">その他の所得（任意・所得金額）</label>
-  <input id="other" type="text" inputmode="numeric" placeholder="例：0">
+  <input id="other" data-step="3" data-step-end type="text" inputmode="numeric" placeholder="例：0">
 
   <label for="dependent" style="display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:700;margin:18px 0 4px;color:#111827;cursor:pointer;">
     <input id="dependent" type="checkbox" style="width:auto;margin:3px 0 0;flex:none;">
@@ -120,27 +120,17 @@
 <!-- 後期高齢者医療データ（自治体スペック＝都道府県均一料率） -->
 <script>const KOUKI_DATA = {"cityCode":"02387","citySlug":"nakadomari","cityName":"中泊町","prefSlug":"aomori","prefecture":"青森県","fiscalYear":2026,"system":"kouki","schemaVersion":"1.0","status":"verified","basicDeduction":430000,"perCapita":{"medical":50500,"childcare":1300},"rate":{"medical":0.09,"childcare":0.002},"caps":{"medical":850000,"childcare":21000},"reduction":{"base":430000,"perEarnerAdd":100000,"fivePerInsured":310000,"twoPerInsured":570000,"ratios":{"seven":{"medical":0.72,"childcare":0.7},"five":{"medical":0.5,"childcare":0.5},"two":{"medical":0.2,"childcare":0.2}}},"incomeReduction":null,"source":{"rates":{"url":"https://www.mhlw.go.jp/content/12403500/001689077.pdf","title":"厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について","retrievedAt":"2026-06-28"},"kansho":{"url":"http://www.aomori-kouikirengou.jp/seido/hokenryo.html","note":"所得割独自軽減なし・県内均一","confidence":0.95,"retrievedAt":"2026-06-28"}},"notes":"医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。"}; const CITY_SLUG = "nakadomari"; const PUBLISH_YEAR = 2026;</script>
 <!-- 計算エンジン（income.js を先に読み込み、グローバル関数を kouki.js に供給） -->
-<script src="/js/core/shared/income.js?v=fbdff39d"></script>
-<script src="/js/core/kouki.js?v=fbdff39d"></script>
+<script src="/js/core/shared/ui-input.js?v=4b6f7434"></script>
+<script src="/js/core/shared/income.js?v=4b6f7434"></script>
+<script src="/js/core/kouki.js?v=4b6f7434"></script>
 <script>
 (function () {
   "use strict";
 
   // 全角→半角・記号除去（IME対応・国保/住民税ページと挙動統一＝表記ゆれ防止）
-  function toHalfWidth(s){return String(s||"").replace(/[０-９]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[，、,]/g,"");}
   function num(id){var v=document.getElementById(id);if(!v)return 0;return Math.max(0,Number(toHalfWidth(v.value||"").replace(/[^\d]/g,""))||0);}
   // 入力中は全角→半角・記号除去のみ。カンマは変換確定(compositionend)とblurで付与する。
   // 国保(js/engine.js)・住民税ページと同一挙動。入力方法によらず正規化されエラーが起きない。
-  function setupNumericInput(id, withCommas){
-    var el=document.getElementById(id); if(!el)return; var composing=false;
-    function clean(){ if(composing)return; el.value=toHalfWidth(el.value).replace(/[^\d]/g,""); }
-    function commit(){ var raw=toHalfWidth(el.value).replace(/[^\d]/g,""); el.value=raw?(withCommas?Number(raw).toLocaleString("ja-JP"):raw):""; }
-    el.addEventListener("compositionstart",function(){composing=true;});
-    el.addEventListener("compositionend",function(){composing=false;setTimeout(commit,0);});
-    el.addEventListener("input",clean);
-    el.addEventListener("blur",commit);
-    el.addEventListener("keydown",function(e){if(e.key==="-"||e.key==="+"||e.key==="e"||e.key==="E")e.preventDefault();});
-  }
   function pct(r){return (r*100).toFixed(r*100%1===0?0:2).replace(/\.?0+$/,"")+"%";}
   function man(yen){return (yen/10000)+"万円";}
 
@@ -206,7 +196,7 @@
     if(KOUKI_DATA.publicNote){ el.innerHTML="<br>※この地域の補足："+String(KOUKI_DATA.publicNote); }
   }
 
-  function init(){ renderRate(); renderCityNote(); setupNumericInput("pension",true); setupNumericInput("salary",true); setupNumericInput("other",true); }
+  function init(){ renderRate(); renderCityNote(); setupNumericInput("pension",{withCommas:true}); setupNumericInput("salary",{withCommas:true}); setupNumericInput("other",{withCommas:true}); }
   if(document.readyState!=="loading")init();
   else document.addEventListener("DOMContentLoaded",init);
 })();
