@@ -75,7 +75,7 @@ function lookup(table, key) {
 
 // ---- 本体 -------------------------------------------------------------------
 // input（草案と同一契約）:
-//   salary, socialInsurance, ideco, otherDeductions,
+//   salary, otherIncome（事業・雑所得等の所得金額。給与所得に加算・2026-10-15 追加・既定 0）, socialInsurance, ideco, otherDeductions,
 //   spouse:{income,age70plus}|null, dependents:{general,specific,elderly,elderlyCoRes},
 //   tokuteiShinzoku:[所得,...], under23Dependent, singleParent, widow, workingStudent, mortgageDeduction
 function calcShotokuzei(input, P) {
@@ -88,7 +88,7 @@ function calcShotokuzei(input, P) {
   if (salary > C.salaryThreshold && input.under23Dependent) {
     chosei = Math.floor((Math.min(salary, C.cap) - C.salaryThreshold) * C.rate);
   }
-  const gokeiShotoku = kyuyo - chosei;
+  const gokeiShotoku = kyuyo - chosei + (input.otherIncome || 0);   // 合計所得金額（給与所得＋事業・雑所得等）
 
   // 2) 所得控除
   const detail = {};

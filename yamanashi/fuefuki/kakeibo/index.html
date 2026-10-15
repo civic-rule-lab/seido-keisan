@@ -79,28 +79,32 @@
   <label for="pension">公的年金収入（任意）</label>
   <input id="pension" data-step="2" type="text" inputmode="numeric" placeholder="例：0">
 
+  <label for="sideIncome">副業などの所得（任意）</label>
+  <input id="sideIncome" data-step="3" type="text" inputmode="numeric" placeholder="例：0">
+  <div class="note" style="margin-top:6px;">事業・雑所得（収入から経費を引いた金額）。給与所得に加えて住民税・所得税・ふるさと納税の上限に反映します。会社員の社会保険料は給与だけで決まるので変わりません。</div>
+
   <div class="field-grid">
     <div>
       <label for="age">年齢</label>
-      <input id="age" data-step="3a" type="text" inputmode="numeric" placeholder="例：40">
+      <input id="age" data-step="4a" type="text" inputmode="numeric" placeholder="例：40">
     </div>
     <div>
       <label for="family">世帯人数</label>
-      <input id="family" data-step="3b" type="text" inputmode="numeric" placeholder="例：3">
+      <input id="family" data-step="4b" type="text" inputmode="numeric" placeholder="例：3">
     </div>
   </div>
 
   <div class="field-grid">
     <div>
       <label for="employment">働き方</label>
-      <select id="employment" data-step="4a">
+      <select id="employment" data-step="5a">
         <option value="kaishain" selected>会社員（社会保険）</option>
         <option value="jiei">自営・退職など（国民健康保険）</option>
       </select>
     </div>
     <div id="bonusField">
       <label for="bonus">年間賞与（任意）</label>
-      <input id="bonus" data-step="4b" type="text" inputmode="numeric" placeholder="例：1,000,000">
+      <input id="bonus" data-step="5b" type="text" inputmode="numeric" placeholder="例：1,000,000">
     </div>
   </div>
   <div class="note" id="bonusHint" style="margin-top:6px;">会社員の方は、上の給与収入は<b>賞与を除いた額</b>を入力し、賞与は別欄へ。賞与は健康保険・厚生年金の保険料に反映します（税額は給与＋賞与で計算）。</div>
@@ -109,7 +113,7 @@
     <div style="font-weight:600;margin:0 0 4px;">扶養・配偶者（任意）</div>
     <div class="note" style="margin:0 0 10px;">入れると住民税・所得税・保育料の指数・ふるさと納税の上限に反映します。空欄なら「配偶者・扶養なし」で計算します。16歳未満のお子さんは扶養控除が無いため人数に入れません。</div>
     <label for="famSpouse">配偶者控除</label>
-    <select id="famSpouse" data-step="5">
+    <select id="famSpouse" data-step="6">
       <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
       <option value="general">受ける（配偶者が70歳未満）</option>
       <option value="elderly">受ける（配偶者が70歳以上）</option>
@@ -117,11 +121,11 @@
     <div class="field-grid">
       <div>
         <label for="famSpouseSalary">配偶者の給与年収（任意）</label>
-        <input id="famSpouseSalary" data-step="6a" type="text" inputmode="numeric" placeholder="例：1,500,000">
+        <input id="famSpouseSalary" data-step="7a" type="text" inputmode="numeric" placeholder="例：1,500,000">
       </div>
       <div>
         <label for="famSpouseWork">配偶者の働き方</label>
-        <select id="famSpouseWork" data-step="6b">
+        <select id="famSpouseWork" data-step="7b">
           <option value="kaishain" selected>会社員・パート（勤め先の社会保険あり）</option>
           <option value="jiei">自営・社会保険なし</option>
         </select>
@@ -130,32 +134,32 @@
     <div class="field-grid">
       <div>
         <label for="famSpouseAge">配偶者の年齢（任意・空欄なら40歳）</label>
-        <input id="famSpouseAge" data-step="7a" type="text" inputmode="numeric" placeholder="例：40">
+        <input id="famSpouseAge" data-step="8a" type="text" inputmode="numeric" placeholder="例：40">
       </div>
       <div>
         <label for="famSpousePension">配偶者の公的年金収入（任意）</label>
-        <input id="famSpousePension" data-step="7b" type="text" inputmode="numeric" placeholder="例：1,500,000">
+        <input id="famSpousePension" data-step="8b" type="text" inputmode="numeric" placeholder="例：1,500,000">
       </div>
     </div>
     <div class="note" style="margin:0 0 10px;">配偶者の給与年収を入れると、配偶者控除か配偶者特別控除かを所得から自動で判定します（上の選択は「70歳以上」の判定にだけ使います）。保育料・奨学金の配偶者欄が空なら、この年収を使います。配偶者が自営・社会保険なしの場合は国保と国民年金を世帯分として計算します。配偶者が年金受給者なら年金収入と年齢を入れると、国保・後期高齢・介護保険（65歳以上）を配偶者分として計算します。</div>
     <div class="field-grid">
       <div>
         <label for="famDepGeneral">扶養（16〜18歳・23〜69歳）人数</label>
-        <input id="famDepGeneral" data-step="8a" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepGeneral" data-step="9a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="famDepSpecific">扶養（19〜22歳）人数</label>
-        <input id="famDepSpecific" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepSpecific" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
     <div class="field-grid">
       <div>
         <label for="famDepElderly">扶養（70歳以上・同居の親以外）人数</label>
-        <input id="famDepElderly" data-step="9a" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepElderly" data-step="10a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="famDepParent">同居の親など（70歳以上）人数</label>
-        <input id="famDepParent" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="famDepParent" data-step="10b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
   </div>
@@ -167,15 +171,15 @@
     </label>
     <div id="hoikuDetail" style="display:none;margin-top:12px;">
       <label for="hoikuSpouse">配偶者（保護者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄。空欄なら上の「扶養・配偶者」の年収を使います</span></label>
-      <input id="hoikuSpouse" data-step="10" type="text" inputmode="numeric" placeholder="例：3,000,000">
+      <input id="hoikuSpouse" data-step="11" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
           <label for="hoikuChildAge">お子さんの年齢</label>
-          <select id="hoikuChildAge" data-step="11a"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
+          <select id="hoikuChildAge" data-step="12a"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
         </div>
         <div>
           <label for="hoikuSiblings">認可に通う兄・姉</label>
-          <select id="hoikuSiblings" data-step="11b"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上</option></select>
+          <select id="hoikuSiblings" data-step="12b"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上</option></select>
         </div>
       </div>
       <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
@@ -192,11 +196,11 @@
     </label>
     <div id="shogakuDetail" style="display:none;margin-top:12px;">
       <label for="shogakuSpouse">配偶者（生計維持者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄。空欄なら上の「扶養・配偶者」の年収を使います</span></label>
-      <input id="shogakuSpouse" data-step="12" type="text" inputmode="numeric" placeholder="例：3,000,000">
+      <input id="shogakuSpouse" data-step="13" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
           <label for="shogakuLevel">進学先</label>
-          <select id="shogakuLevel" data-step="13a">
+          <select id="shogakuLevel" data-step="14a">
             <option value="大学" selected>大学</option>
             <option value="短期大学">短期大学</option>
             <option value="専門学校">専門学校</option>
@@ -205,17 +209,17 @@
         </div>
         <div>
           <label for="shogakuSetti">国公立・私立</label>
-          <select id="shogakuSetti" data-step="13b"><option value="私立" selected>私立</option><option value="国公立">国公立</option></select>
+          <select id="shogakuSetti" data-step="14b"><option value="私立" selected>私立</option><option value="国公立">国公立</option></select>
         </div>
       </div>
       <div class="field-grid">
         <div>
           <label for="shogakuAttend">通学形態</label>
-          <select id="shogakuAttend" data-step="14a"><option value="自宅" selected>自宅通学</option><option value="自宅外">自宅外（下宿等）</option></select>
+          <select id="shogakuAttend" data-step="15a"><option value="自宅" selected>自宅通学</option><option value="自宅外">自宅外（下宿等）</option></select>
         </div>
         <div>
           <label for="shogakuChildren">扶養する子の人数</label>
-          <select id="shogakuChildren" data-step="14b" data-step-end><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
+          <select id="shogakuChildren" data-step="15b" data-step-end><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
         </div>
       </div>
       <div class="note" style="margin-top:8px;">高等教育の修学支援新制度（給付型奨学金＋授業料等減免）の目安判定です。扶養控除などは反映しないため、実際は<b>これより支援が多い区分</b>になる場合があります。資産・本人収入・私立理工農系・貸与型は<a href="https://shogakukin-keisan.jp/" target="_blank" rel="noopener" style="color:#16a34a;font-weight:600;">奨学金かんたん計算 ↗</a>で反映できます。</div>
@@ -272,18 +276,18 @@
 </div>
 
 <script>const CITY_SLUG = "fuefuki"; const PREF_SLUG = "yamanashi"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=1ca661a3"></script>
-<script src="/js/core/shared/income.js?v=1ca661a3"></script>
-<script src="/js/core/jumin.js?v=1ca661a3"></script>
-<script src="/js/core/kokuho.js?v=1ca661a3"></script>
-<script src="/js/core/kaigo.js?v=1ca661a3"></script>
-<script src="/js/core/kouki.js?v=1ca661a3"></script>
-<script src="/js/core/hoiku.js?v=1ca661a3"></script>
-<script src="/js/core/shaho.js?v=1ca661a3"></script>
-<script src="/js/core/shotoku.js?v=1ca661a3"></script>
-<script src="/js/core/shogakukin.js?v=1ca661a3"></script>
-<script src="/js/core/shogakukin-bridge.js?v=1ca661a3"></script>
-<script src="/js/core/furusato.js?v=1ca661a3"></script>
+<script src="/js/core/shared/ui-input.js?v=895aedd8"></script>
+<script src="/js/core/shared/income.js?v=895aedd8"></script>
+<script src="/js/core/jumin.js?v=895aedd8"></script>
+<script src="/js/core/kokuho.js?v=895aedd8"></script>
+<script src="/js/core/kaigo.js?v=895aedd8"></script>
+<script src="/js/core/kouki.js?v=895aedd8"></script>
+<script src="/js/core/hoiku.js?v=895aedd8"></script>
+<script src="/js/core/shaho.js?v=895aedd8"></script>
+<script src="/js/core/shotoku.js?v=895aedd8"></script>
+<script src="/js/core/shogakukin.js?v=895aedd8"></script>
+<script src="/js/core/shogakukin-bridge.js?v=895aedd8"></script>
+<script src="/js/core/furusato.js?v=895aedd8"></script>
 <script>
 (function () {
   "use strict";
@@ -383,7 +387,7 @@
     el.addEventListener("input",check); el.addEventListener("blur",check);
   }
   function initInputs(){
-    setupNumericInput("salary",{withCommas:true}); setupNumericInput("pension",{withCommas:true}); setupNumericInput("age",{withCommas:false});
+    setupNumericInput("salary",{withCommas:true}); setupNumericInput("pension",{withCommas:true}); setupNumericInput("sideIncome",{withCommas:true}); setupNumericInput("age",{withCommas:false});
     setupNumericInput("family",{withCommas:false}); setupNumericInput("hoikuSpouse",{withCommas:true}); setupNumericInput("bonus",{withCommas:true});
     setupNumericInput("shogakuSpouse",{withCommas:true}); setupNumericInput("famSpouseSalary",{withCommas:true}); setupNumericInput("famSpousePension",{withCommas:true});
     ["famDepGeneral","famDepSpecific","famDepElderly","famDepParent","famSpouseAge"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
@@ -412,19 +416,19 @@
   window.calcAll = async function(){
     var systemsEl=document.getElementById("systems");
     var grandEl=document.getElementById("grand");
-    var salary=num("salary"), pension=num("pension"), age=num("age")||40, family=num("family",1)||1;
+    var salary=num("salary"), pension=num("pension"), sideIncome=num("sideIncome"), age=num("age")||40, family=num("family",1)||1;
     var employment=((document.getElementById("employment")||{}).value)||"kaishain";
     var isKaishain=(employment==="kaishain");
     var bonus=isKaishain?num("bonus"):0;
     // 給与欄＝賞与を除く月給ベースの年額。税の給与収入は賞与込み（grossSalary）。
     // 社保は monthlySalary=給与/12 と 賞与を別建てで計算（標準報酬月額＋標準賞与額）。
     var grossSalary=salary+bonus;
-    if(salary===0 && pension===0){systemsEl.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";grandEl.style.display="none";return;}
+    if(salary===0 && pension===0 && sideIncome===0){systemsEl.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";grandEl.style.display="none";return;}
 
     systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
 
     // 共有の所得計算（賞与込みの給与収入で総所得金額等を出す）
-    var totalIncome = calcSalaryIncome(grossSalary) + calcPensionIncome(pension, age); // 総所得金額等
+    var totalIncome = calcSalaryIncome(grossSalary) + calcPensionIncome(pension, age) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）
 
     // ── 扶養・配偶者（任意入力・2026-10-11 X183／配偶者の収入 2026-10-12 X184）。住民税・所得税・保育料指数・ふるさと納税の上限に同じ値を使う ──
     //   住民税の控除額（地方税法 第34条第1項第10号・第10号の2・第11号）: 配偶者控除 33万（本人の合計所得900万超950万以下 22万・950万超1,000万以下 11万）、
@@ -562,7 +566,7 @@
     if(kaigoReady){
       try{
         var siPre=siParts.reduce(function(s,p){return s+p[1];},0);
-        var rjPre=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, age:age, socialInsurance:siPre, kyuchi:JUMIN_KYUCHI}, famJumin));
+        var rjPre=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:siPre, kyuchi:JUMIN_KYUCHI}, famJumin));
         var pensionShotoku = calcPensionIncome(pension, age);
         var otherTotal = Math.max(0, totalIncome - pensionShotoku);
         rkg=calculateKaigo(kaigoData, {
@@ -585,7 +589,7 @@
         var spSiPre = spouseSelfSi || 0;
         var selfSiPre = siParts.reduce(function(s,p){return s+p[1];},0);
         var rjSpPre=calculateJumin(juminData, {kyuchi:JUMIN_KYUCHI, salary:famSpouseSalary, pension:famSpousePension, age:famSpouseAge, socialInsurance:spSiPre});
-        var rjSelfPre=calculateJumin(juminData, Object.assign({kyuchi:JUMIN_KYUCHI, salary:grossSalary, pension:pension, age:age, socialInsurance:selfSiPre}, famJumin));
+        var rjSelfPre=calculateJumin(juminData, Object.assign({kyuchi:JUMIN_KYUCHI, salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:selfSiPre}, famJumin));
         rkgSp=calculateKaigo(kaigoData, {
           pensionIncome: famSpousePension,
           totalIncome: spouseIncomeJumin,
@@ -600,7 +604,7 @@
 
     // ── 住民税（jumin-2026.json が無くても標準値で計算可） ──
     try{
-      var rj=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance, kyuchi:JUMIN_KYUCHI}, famJumin));
+      var rj=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, kyuchi:JUMIN_KYUCHI}, famJumin));
       taxableJumin = !!rj.isTaxable;
       grand += rj.total;
       cards.push(card("住民税", rj.total, [
@@ -611,6 +615,7 @@
         cards.push("<div class='ci-sub' style='margin:-6px 0 10px;line-height:1.7;'>社会保険料控除（住民税・所得税に共通）: "+yen(socialInsurance)
           +"（"+siParts.map(function(p){return p[0]+" "+yen(p[1]);}).join("＋")+"）"
           +(siApprox?"。保険料データを取得できなかったため概算です":"")
+          +(sideIncome>0?"。副業などの所得 "+yen(sideIncome)+" を給与所得に加えて計算":"")
           +(famAny?"。配偶者・扶養控除（住民税）: "+yen(spouseDed+depDed)+"（人的控除差 "+yen(humanDiff)+"）":"")
           +((famSpouseSalary>0||famSpousePension>0)?"。配偶者の"+(famSpouseSalary>0?"給与年収 "+yen(famSpouseSalary):"")+(famSpouseSalary>0&&famSpousePension>0?"・":"")+(famSpousePension>0?"年金収入 "+yen(famSpousePension):"")+"（合計所得 "+yen(spouseIncomeJumin)+"）＝"+(spouseKind==="haigu"?"配偶者控除 ":(spouseKind==="special"?"配偶者特別控除 ":"配偶者控除なし "))+(spouseKind!=="none"?yen(spouseDed):""):"")+"</div>");
       }
@@ -621,11 +626,11 @@
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
     // ── 所得税（給与所得者・基礎控除＋社会保険料控除のみ反映の概算。全国一律。賞与込みの給与収入で計算） ──
-    if(grossSalary>0 && _shotokuEng){
+    if((grossSalary>0 || sideIncome>0) && _shotokuEng){
       try{
         // 配偶者の合計所得は所得税の給与所得（別表第五方式）で出す。住民税側（calcSalaryIncome）とは数百円の差が出ることがある
         if(famShotoku.spouse && famSpouseSalary>0 && typeof _shotokuEng.kyuyoShotoku==="function") famShotoku.spouse.income = _shotokuEng.kyuyoShotoku(famSpouseSalary);
-        var st=_shotokuEng.calcShotokuzei(Object.assign({salary:grossSalary, socialInsurance:socialInsurance}, famShotoku));
+        var st=_shotokuEng.calcShotokuzei(Object.assign({salary:grossSalary, otherIncome:sideIncome, socialInsurance:socialInsurance}, famShotoku));
         grand += st.annualTax;
         cards.push(card("所得税", st.annualTax, [
           ["課税所得（概算）", st.kazeiShotoku],
@@ -746,11 +751,11 @@
         cards.push(skip("保育料（認可・0〜2歳）", "このまちは年収からの試算に非対応です。保育料ページでご確認ください"));
       } else if(hoikuData){
         var hoikuSpouseSalary = num("hoikuSpouse") || famSpouseSalary;   // 保護者2の欄が空なら「扶養・配偶者」の年収を使う
-        if(salary===0 && hoikuSpouseSalary===0 && pension===0){
+        if(salary===0 && hoikuSpouseSalary===0 && pension===0 && sideIncome===0){
           // 保護者に給与も年金も無いと非課税/有償の区別がつかず数値段に誤着地するため計算しない
           cards.push(skip("保育料（認可・0〜2歳）", "保育料の試算には保護者の給与または年金収入の入力が必要です"));
         } else try{
-          var rh = calcHoikuFromSalaries(hoikuData, salary, hoikuSpouseSalary, { honninSocialInsurance:socialInsurance, honninFamily:famJumin,
+          var rh = calcHoikuFromSalaries(hoikuData, salary, hoikuSpouseSalary, { honninSocialInsurance:socialInsurance, honninFamily:famJumin, honninOther:sideIncome,
             spouseSocialInsurance: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? spouseSelfSi : null,   // 家族欄の年収を使うときは働き方に応じた保険料
             spousePension: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? famSpousePension : 0,
             age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
@@ -774,7 +779,7 @@
       var _sgSpec = await loadShogaku();
       var sgSpouseOwn = num("shogakuSpouse");
       var sgSpouse = sgSpouseOwn || famSpouseSalary;   // 生計維持者2の欄が空なら「扶養・配偶者」の年収を使う
-      if(!(salary>0 || pension>0 || sgSpouse>0)){
+      if(!(salary>0 || pension>0 || sideIncome>0 || sgSpouse>0)){
         cards.push(skip("奨学金（給付型＋授業料減免）", "生計維持者（保護者）の収入を入力すると支援区分を判定します"));
       } else if(_sgSpec && window.ShogakukinBridge && window.Shogakukin){
         try{
@@ -785,7 +790,7 @@
           var sgHasSpouse=(sgSpouse===0) && (famAny ? spouseKind==="haigu" : true);   // 配偶者収入の入力なし＝配偶者控除ありの近似。家族入力があればそれに従う
           // 生計維持者1=本人。社会保険料控除は本体と同じ一本化した実額（会社員=shaho／自営・年金=国保・国民年金・介護1号）。配偶者は本人分を計算していないため会社員=shaho実額／自営=約14.4%概算
           //   ＝奨学金サイトのかんたん判定（15%概算）より会社員は正確側。賞与込み給与で課税判定。
-          var sgSup=[{ salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance,
+          var sgSup=[{ salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance,
                        hasSpouseDeduction:sgHasSpouse, dependents:(sgHasSpouse?1:0)+sgChildren }];
           if(sgSpouse>0){
             var sgSpSi;
@@ -828,7 +833,7 @@
       var _fzData = await loadFurusato();
       if(_fzData && typeof calcFurusatoLimit === "function"){
         try{
-          var rj27=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, age:age, socialInsurance:socialInsurance, fiscalYear:2027, taxCredits:0, kyuchi:JUMIN_KYUCHI}, famJumin27));
+          var rj27=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, fiscalYear:2027, taxCredits:0, kyuchi:JUMIN_KYUCHI}, famJumin27));
           var fzKiso=furusatoShotokuBasicDeduction(rj27.totalIncome, _shotokuEng.params.kisoKojo);
           var fz=calcFurusatoLimit({incomeLevy:rj27.incomeLevy, taxableIncome:rj27.taxableIncome, humanDeductionDiff:rj27.humanDeductionDiff, shotokuBasicDeduction:fzKiso}, _fzData);
           if(fz.supported && fz.limit>0){
@@ -872,9 +877,9 @@
     return "<div class='ci-grp' style='border-left:4px solid #cbd5e1;'><div class='ci-grp-head' style='color:#64748b;'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";
   }
   // ── 保育料 結線（独立ページ hoiku-simple.html と同方式。①〜⑤を家計簿に移植） ──
-  function _juminOf(sal, pen, bon, siGiven, famGiven){
-    sal=sal||0; pen=pen||0; bon=bon||0;
-    if(!sal && !pen && !bon) return {shotokuwari:0, taxable:false, borderline:false};
+  function _juminOf(sal, pen, bon, siGiven, famGiven, other){
+    sal=sal||0; pen=pen||0; bon=bon||0; other=other||0;
+    if(!sal && !pen && !bon && !other) return {shotokuwari:0, taxable:false, borderline:false};
     // 本人（保護者1）は calcAll で一本化した社会保険料控除（国保・国民年金・介護1号の実額／会社員は shaho 実額）をそのまま使う（siGiven）。
     // 配偶者（保護者2）は「扶養・配偶者」の働き方で計算した保険料（siGiven）があればそれを使う。無ければ世帯主の就業形態で、会社員世帯は shaho 実額、自営世帯は給与の約14.4%で概算する。
     // 父母の年齢は不明のため 40 歳を仮定（既存挙動と整合）。
@@ -885,17 +890,17 @@
     if(siGiven!=null){ si=siGiven; }
     else if(emp==="kaishain" && sal>0){ var sa=shahoAnnual(sal, bon, 40); si = sa ? sa.annual : Math.round(gross*0.144); }
     else { si=Math.round(gross*0.144); }
-    var r=calculateJumin(null,Object.assign({salary:gross,pension:pen,otherIncome:0,age:40,socialInsurance:si,kyuchi:JUMIN_KYUCHI}, famGiven||{}));
+    var r=calculateJumin(null,Object.assign({salary:gross,pension:pen,otherIncome:other,age:40,socialInsurance:si,kyuchi:JUMIN_KYUCHI}, famGiven||{}));
     return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
   }
   function calcHoikuFromSalaries(M, honninSalary, spouseSalary, opts){
     opts=opts||{};
     var honninPension=opts.honninPension||0;               // 世帯主(=保護者1)の年金も課税判定に反映
     var honninBonus=opts.honninBonus||0;                   // 世帯主の賞与（会社員）。配偶者の賞与は入力欄が無いため0（配偶者は給与年収に含めて入力）
-    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance);
+    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily, opts.honninOther||0), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance);
     var input={ age:opts.age||"age1_2", hitorioya:!!opts.hitorioya, month:(M.fiscalSwitch||9),
       father:{shotokuwari:f.shotokuwari}, mother:{shotokuwari:m.shotokuwari}, isSeireiNotice:false };
-    var fe=(!honninSalary && !honninPension && !honninBonus), me=(!spouseSalary);
+    var fe=(!honninSalary && !honninPension && !honninBonus && !(opts.honninOther||0)), me=(!spouseSalary);
     var fTax=fe?false:f.taxable, mTax=me?false:m.taxable;
     input.hikazei = !(fe&&me) && !fTax && !mTax;   // ② 非課税=父母AND(年金課税も考慮)
     input.childOrder = (opts.enrolled||0)+1;        // ① 多子=在園兄姉+1
