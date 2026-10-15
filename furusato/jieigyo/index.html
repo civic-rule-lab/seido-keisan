@@ -99,14 +99,17 @@
     <label for="kyosai">iDeCo・小規模企業共済の掛金（2026年の年額・円・任意）</label>
     <input id="kyosai" data-step="4" type="text" inputmode="numeric" placeholder="例：0">
     <div class="hint">掛金は全額が所得控除（小規模企業共済等掛金控除）になり、住民税が減るぶん上限額も下がります。国保料には効きません。</div>
+    <label for="medical">1年間に払った医療費（保険で戻った分を引いた額・円・任意）</label>
+    <input id="medical" data-step="5" type="text" inputmode="numeric" placeholder="例：0">
+    <div class="hint">家族の分も合算できます。所得の5%（上限10万円）を超えた分が医療費控除になり（上限200万円）、住民税が減るぶん上限額も下がります。国保料には効きません。</div>
     <div class="row2">
       <div>
         <label for="age">年齢</label>
-        <input id="age" data-step="5a" type="text" inputmode="numeric" placeholder="例：45">
+        <input id="age" data-step="6a" type="text" inputmode="numeric" placeholder="例：45">
       </div>
       <div>
         <label for="family">国保に入る人数（本人を含む）</label>
-        <input id="family" data-step="5b" type="text" inputmode="numeric" value="1">
+        <input id="family" data-step="6b" type="text" inputmode="numeric" value="1">
       </div>
     </div>
     <div class="hint">40〜64歳は国保の介護分、20〜59歳は国民年金（第1号）を自動で加えます。</div>
@@ -117,7 +120,7 @@
   <div class="fz-card">
     <div class="fz-card-title">③ 家族（2026年12月31日時点の見込み・任意）</div>
     <label for="spouse">配偶者控除</label>
-    <select id="spouse" data-step="6">
+    <select id="spouse" data-step="7">
       <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
       <option value="general">受ける（配偶者が70歳未満）</option>
       <option value="elderly">受ける（配偶者が70歳以上）</option>
@@ -125,31 +128,31 @@
     <div class="row3">
       <div>
         <label for="depGeneral">扶養（16〜18歳・23〜69歳）</label>
-        <input id="depGeneral" data-step="7a" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depGeneral" data-step="8a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depSpecific">扶養（19〜22歳）</label>
-        <input id="depSpecific" data-step="7b" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depSpecific" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depElderly">扶養（70歳以上・同居の親以外）</label>
-        <input id="depElderly" data-step="8a" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depElderly" data-step="9a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depParent">同居の親など（70歳以上）</label>
-        <input id="depParent" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depParent" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
     <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため、人数に入れません。</div>
     <label for="selfStatus">ご本人</label>
-    <select id="selfStatus" data-step="9">
+    <select id="selfStatus" data-step="10">
       <option value="none" selected>あてはまるものはない</option>
       <option value="mother">ひとり親（母）</option>
       <option value="father">ひとり親（父）</option>
       <option value="widow">寡婦</option>
     </select>
     <label for="selfDisability">ご本人の障害者控除</label>
-    <select id="selfDisability" data-step="10" data-step-end>
+    <select id="selfDisability" data-step="11" data-step-end>
       <option value="none" selected>受けない</option>
       <option value="general">障害者</option>
       <option value="special">特別障害者</option>
@@ -178,7 +181,7 @@
     ※国民年金は定額（令和8年度 月額をデータから読み込み）。付加保険料・前納割引は入れていません。<br>
     ※青色申告特別控除は事業所得が限度です（事業所得 30 万円で 65 万円を選んでも、引けるのは 30 万円まで）。不動産所得がある方は正確に出せません。<br>
     ※退職所得・山林所得（分離課税）がある方、配偶者や扶養親族に障害者控除がある方、青色事業専従者がいる方は、この計算では正確に出せません。<br>
-    ※出典：地方税法 第37条の2・第314条の7（寄附金税額控除）・第34条・第314条の2（所得控除。第1項第4号 小規模企業共済等掛金控除）、租税特別措置法 第25条の2（青色申告特別控除）、地方税法等の一部を改正する法律（令和8年法律第2号）、国民健康保険法・各自治体の国保条例（料率はお住まいの自治体の公表値）、日本年金機構「国民年金保険料」。
+    ※出典：地方税法 第37条の2・第314条の7（寄附金税額控除）・第34条・第314条の2（所得控除。第1項第4号 小規模企業共済等掛金控除）、租税特別措置法 第25条の2（青色申告特別控除）、所得税法 第73条（医療費控除）、地方税法等の一部を改正する法律（令和8年法律第2号）、国民健康保険法・各自治体の国保条例（料率はお住まいの自治体の公表値）、日本年金機構「国民年金保険料」。
   </div>
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
@@ -291,9 +294,9 @@
   },
   "monthly": 17920,
   "additionalMonthly": 400
-}; const AOIRO_DATA = {
+}; const KOJO_DATA = {
   "meta": {
-    "scheme": "青色申告特別控除（租税特別措置法 第25条の2）",
+    "scheme": "ふるさと納税 自営業・国保加入者ページの所得控除の制度値（青色申告特別控除・医療費控除）",
     "taxYear": 2026,
     "taxYearLabel": "令和8年分（2026年の所得）",
     "unit": "円",
@@ -301,16 +304,34 @@
     "verifiedAt": "2026-10-15",
     "source": {
       "primary": "租税特別措置法 第25条の2（e-Gov 法令 API v2 lawId=332AC0000000026、2026-10-01 施行版、2026-10-15 取得）。第1項: 10万円、第3項: 55万円、第4項: 電子申告等の要件を満たすとき 65万円。控除額は不動産所得・事業所得（・山林所得）の金額が限度",
-      "crossCheck": "地方税法 第314条の2 第1項第4号（小規模企業共済等掛金控除＝小規模企業共済・確定拠出年金（iDeCo）の掛金の支払額の合計額を全額控除。同 lawId=325AC0000000226、2026-10-01 施行版）"
+      "crossCheck": "地方税法 第314条の2 第1項第4号（小規模企業共済等掛金控除＝小規模企業共済・確定拠出年金（iDeCo）の掛金の支払額の合計額を全額控除。同 lawId=325AC0000000226、2026-10-01 施行版）",
+      "medical": "医療費控除: 地方税法 第314条の2 第1項第2号（lawId=325AC0000000226）・所得税法 第73条（lawId=340AC0000000033）。いずれも 2026-10-01 施行版、2026-10-15 取得。支払った医療費（保険等で補てんされた分を除く）− 総所得金額等の5%（10万円が上限）、控除は200万円が上限"
     },
-    "notes": "青色申告特別控除は所得税・住民税とも事業所得の金額の計算で引く（総所得金額が減るので国保料と住民税の両方に効く）。小規模企業共済等掛金控除は所得控除（住民税の課税所得だけが減り、国保料には効かない）"
+    "notes": "青色申告特別控除は所得税・住民税とも事業所得の金額の計算で引く（総所得金額が減るので国保料と住民税の両方に効く）。小規模企業共済等掛金控除は所得控除（住民税の課税所得だけが減り、国保料には効かない）。医療費控除は所得税・住民税とも同額の所得控除（住民税の課税所得だけが減り、国保料には効かない）"
   },
   "aoiroKojo": [
-    { "value": 0, "label": "控除なし・白色申告（控除を引いた後の金額を入れる）" },
-    { "value": 100000, "label": "青色 10万円" },
-    { "value": 550000, "label": "青色 55万円" },
-    { "value": 650000, "label": "青色 65万円（電子申告）" }
-  ]
+    {
+      "value": 0,
+      "label": "控除なし・白色申告（控除を引いた後の金額を入れる）"
+    },
+    {
+      "value": 100000,
+      "label": "青色 10万円"
+    },
+    {
+      "value": 550000,
+      "label": "青色 55万円"
+    },
+    {
+      "value": 650000,
+      "label": "青色 65万円（電子申告）"
+    }
+  ],
+  "iryohiKojo": {
+    "thresholdRate": 0.05,
+    "thresholdMax": 100000,
+    "max": 2000000
+  }
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
 <script src="/js/core/shared/ui-input.js?v=06b0b268"></script>
 <script src="/js/core/shared/income.js?v=06b0b268"></script>
@@ -365,6 +386,10 @@
     var income = input.business - aoiro;
     // 小規模企業共済等掛金控除（地方税法 第314条の2 第1項第4号）: 掛金の全額が所得控除。住民税エンジンには社会保険料控除と同じ扱い（全額の所得控除）で渡す。国保料には効かない
     var kyosai = input.kyosai || 0;
+    // 医療費控除（地方税法 第314条の2 第1項第2号・所得税法 第73条）: 支払額 − min(総所得金額等×5%, 10万円)、上限 200万円。総所得金額等はこのページでは事業所得のみ
+    var ik = KOJO_DATA.iryohiKojo;
+    var medThreshold = Math.min(Math.floor(income * ik.thresholdRate), ik.thresholdMax);
+    var medical = Math.min(Math.max((input.medical || 0) - medThreshold, 0), ik.max);
     var rk = calculateKokuho({ income: income, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
     var nenkin = (input.age >= 20 && input.age < 60 && !input.nenkinExempt && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
     var si = rk.total + nenkin;
@@ -374,12 +399,12 @@
     var spouseDed = input.spouse === "elderly" ? 380000 : (input.spouse === "general" ? 330000 : 0);   // 地方税法 第34条第1項第10号
     var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;   // 第11号
     var dependents = (input.spouse !== "none" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
-    var rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: income, age: input.age, socialInsurance: si + kyosai,
+    var rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: income, age: input.age, socialInsurance: si + kyosai, medicalDeduction: medical,
       spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents, humanDeductionDiff: hd,
       fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: input.kyuchi });
     var kiso = furusatoShotokuBasicDeduction(rj.totalIncome, SHOTOKU_KISO_2026);
     var fz = calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: kiso }, FURUSATO_DATA);
-    return { kokuho: rk, nenkin: nenkin, socialInsurance: si, kyosai: kyosai, aoiro: aoiro, income: income, jumin: rj, humanDiff: hd, kiso: kiso, limit: fz, careN: careN };
+    return { kokuho: rk, nenkin: nenkin, socialInsurance: si, kyosai: kyosai, medical: medical, medicalPaid: input.medical || 0, aoiro: aoiro, income: income, jumin: rj, humanDiff: hd, kiso: kiso, limit: fz, careN: careN };
   }
   window.computeJieigyo = computeJieigyo;
 
@@ -396,7 +421,7 @@
     try{ kokuhoData = await loadMunicipal(city.slug, "kokuho"); }
     catch(e){ out.innerHTML = "<div class='warn'>" + esc(city.name) + "の国保データを取得できませんでした（" + esc(e.message) + "）。</div>"; return; }
     if(city.hasJumin){ try{ juminData = await loadMunicipal(city.slug, "jumin"); }catch(e){ juminData = null; } }
-    var input = { business: business, aoiro: Number(val("aoiro")) || 0, kyosai: num("kyosai"), age: age, family: num("family") || 1, nenkinExempt: chk("nenkinExempt"), housingLoan: chk("housingLoan"), kyuchi: city.kyuchi,
+    var input = { business: business, aoiro: Number(val("aoiro")) || 0, kyosai: num("kyosai"), medical: num("medical"), age: age, family: num("family") || 1, nenkinExempt: chk("nenkinExempt"), housingLoan: chk("housingLoan"), kyuchi: city.kyuchi,
       spouse: val("spouse"), depGeneral: num("depGeneral"), depSpecific: num("depSpecific"), depElderly: num("depElderly"), depParent: num("depParent"),
       selfStatus: val("selfStatus"), selfDisability: val("selfDisability") };
     var r;
@@ -411,6 +436,7 @@
       row("国民年金（第1号・本人1人分）", r.nenkin ? yen(r.nenkin) : "対象外") +
       row("社会保険料控除の合計", yen(r.socialInsurance), "big") +
       (r.kyosai ? row("小規模企業共済等掛金控除（iDeCo・共済）", yen(r.kyosai)) : "") +
+      (r.medicalPaid ? row("医療費控除（払った " + yen(r.medicalPaid) + " − 所得の5%・上限10万円）", r.medical ? yen(r.medical) : "0 円（5%以下）") : "") +
       "<div class='result-title' style='font-size:15px;margin-top:16px;'>住民税（令和9年度分・目安）</div>" +
       row("課税総所得金額", yen(r.jumin.taxableIncome)) +
       row("所得割額（調整控除後）", yen(r.jumin.incomeLevy));
@@ -443,9 +469,9 @@
   };
 
   function init(){
-    ["business","kyosai"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["business","kyosai","medical"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
     var ao = $("aoiro");
-    AOIRO_DATA.aoiroKojo.forEach(function(o){ var op = document.createElement("option"); op.value = String(o.value); op.textContent = o.label; ao.appendChild(op); });
+    KOJO_DATA.aoiroKojo.forEach(function(o){ var op = document.createElement("option"); op.value = String(o.value); op.textContent = o.label; ao.appendChild(op); });
     ["age","family","depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id); });
   }
   if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
