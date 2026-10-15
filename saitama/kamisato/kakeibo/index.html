@@ -835,7 +835,10 @@
             var fzShown=Math.floor(fz.limit/1000)*1000;
             cards.push("<div class='ci-grp' style='border-left:4px solid #b45309;'><div class='ci-grp-head' style='color:#b45309;'>ふるさと納税の上限（目安）<span class='ci-grp-sum'>約 "+fzShown.toLocaleString()+" 円</span></div>"
               +"<div class='ci-sub' style='line-height:1.7;'>2026年中の寄附で、自己負担2,000円で済む寄附額の目安です。2026年も同じ収入"+(famAny?"・同じ家族構成":"で、配偶者・扶養なし")+"として計算しています（特例控除の割合 "+fz.ratio.percent+"%・人的控除差調整額 "+yen(fz.humanAdjustment)+"）。負担ではないので、下の「年間負担の合計」には含めていません。</div></div>");
-            detailLinks.push({href:"/furusato/", label:"ふるさと納税の上限を詳しく", color:"#b45309"});
+            // 自営・国保の方は国保料を自動計算する自営業モードへ、会社員は決定通知書から計算するページへ（2026-10-15）
+            detailLinks.push(isKaishain ? {href:"/furusato/", label:"ふるさと納税の上限を詳しく", color:"#b45309"}
+                                        : {href:"/furusato/jieigyo/", label:"国保加入者のふるさと納税 上限を詳しく", color:"#b45309"});
+            detailLinks.push({href:"/furusato/onestop/", label:"ワンストップ特例か確定申告か判定", color:"#b45309"});
           }
         }catch(e){ /* 上限額は参考表示のため、計算できないときはカードを出さない */ }
       }
