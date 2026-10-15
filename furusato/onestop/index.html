@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ふるさと納税のワンストップ特例が使えるか、確定申告が必要かを3問で判定。確定申告をすると特例は無効、寄附先は5団体以内、申請と変更届の期限、控除がいつ戻るかを地方税法附則第7条にもとづいて説明します。">
+<link rel="canonical" href="https://seido-keisan.jp/furusato/onestop/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ふるさと納税 ワンストップ特例の判定｜確定申告とどっち？">
+<meta property="og:description" content="確定申告の予定と寄附先の数から、ワンストップ特例か確定申告かを判定。期限と控除が戻る時期も。">
+<meta property="og:url" content="https://seido-keisan.jp/furusato/onestop/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<title>ふるさと納税 ワンストップ特例の判定｜確定申告とどっちで控除を受ける？【2026年中の寄附】</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（住民税ページ jumin-simple.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
+  .check input{width:auto;margin-top:3px;}
+  .row3{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
+  button:hover{background:#1e40af;}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .big{font-size:24px;color:#1d4ed8;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-table{width:100%;border-collapse:collapse;margin:8px 0 4px;font-size:14px;}
+  .jt-table th,.jt-table td{border:1px solid #e5e7eb;padding:8px 10px;text-align:left;}
+  .jt-table th{background:#f3f6fb;color:#374151;font-weight:600;}
+  .jt-table td{text-align:right;font-variant-numeric:tabular-nums;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
+  .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
+  h2{font-size:16px;margin:28px 0 6px;color:#111827;}
+  .verdict{border-radius:14px;padding:16px 18px;margin:12px 0 4px;font-size:16px;font-weight:700;line-height:1.6;}
+  .verdict.ok{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;}
+  .verdict.ng{background:#fff7ed;border:1px solid #fdba74;color:#9a3412;}
+  .verdict.neutral{background:#f3f4f6;border:1px solid #d1d5db;color:#374151;}
+  .verdict small{display:block;font-weight:400;font-size:13px;color:#374151;margin-top:6px;}
+  ol.steps{padding-left:20px;font-size:14px;line-height:1.9;color:#374151;margin:6px 0;}
+  .kv{display:flex;justify-content:space-between;gap:12px;font-size:14px;padding:6px 0;border-bottom:1px dashed #e5e7eb;}
+  .kv span:first-child{color:#374151;}
+  .kv b{color:#0f172a;text-align:right;}
+  .ck{display:flex;align-items:flex-start;gap:8px;font-size:14px;font-weight:500;margin:10px 0 0;}
+  .ck input{width:auto;margin-top:3px;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">ふるさと納税</span><span class="h1-seg">ワンストップ特例か<br>確定申告か</span><span class="h1-year">【2026年中の寄附・かんたん判定】</span></h1>
+
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">ふるさと納税の控除は、<b>ワンストップ特例</b>（寄附先に申請書を出すだけ）か、<b>確定申告</b>のどちらかで受けます。両方は使えず、確定申告をするとワンストップの申請は無効になります。3つの質問で、あなたはどちらかを判定します。</p>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 10px;">入力した内容はこの端末の中だけで判定し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん判定</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① 確定申告</div>
+    <label for="shinkoku">2026年分の所得税の確定申告をする予定は？</label>
+    <div class="hint">会社員で年末調整だけの方は「しない」。医療費控除・住宅ローン控除の1年目・副業・自営業などで申告する方は「する」。</div>
+    <select id="shinkoku" data-step="1">
+      <option value="no" selected>しない（年末調整だけ）</option>
+      <option value="yes">する</option>
+      <option value="unknown">わからない</option>
+    </select>
+    <div id="reasonsBox" style="display:none;margin-top:10px;">
+      <div class="hint">次に当てはまるものがあれば、確定申告が必要（または確定申告をする）になります。当てはまるものにチェックしてください。</div>
+      <div id="reasonsList"></div>
+    </div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② 寄附先の数</div>
+    <label for="municipalities">2026年中に寄附する自治体の数</label>
+    <div class="hint">同じ自治体に何回寄附しても1と数えます。</div>
+    <input id="municipalities" data-step="2" type="text" inputmode="numeric" placeholder="例：3">
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">③ 寄附額（任意）</div>
+    <label for="donation">2026年中の寄附額の合計（円）</label>
+    <div class="hint">入れると、控除がいつ・どの形で戻るかの目安を出します。判定には使いません。</div>
+    <input id="donation" data-step="3" data-step-end type="text" inputmode="numeric" placeholder="例：50,000">
+  </div>
+
+  <button onclick="calcOnestop()">判定する</button>
+
+  <div class="result-title">判定結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <h2>ワンストップ特例の基本</h2>
+  <div class="jt-card">
+    <div class="jt-card-title">使える人（地方税法 附則第7条）</div>
+    <p>・確定申告をしない給与所得者など（年末調整で税金の計算が終わる方）。</p>
+    <p>・寄附先の自治体が <b id="basicMax">5</b> 団体以内（同じ自治体への複数回の寄附は1と数えます）。</p>
+    <p>・寄附のたびに、寄附先の自治体へ申請書と本人確認書類を出します。控除の全額が、翌年度の住民税から引かれます（所得税の還付はありません）。</p>
+  </div>
+
+  <h2>期限</h2>
+  <div id="deadlines"></div>
+
+  <h2>申請が無効になる場合</h2>
+  <div id="invalidList" class="note" style="margin-top:4px;font-size:13px;color:#374151;"></div>
+
+  <p style="margin-top:18px;font-size:13px;text-align:right;">
+    <a href="/furusato/" style="color:#1d4ed8;text-decoration:none;font-weight:600;">自己負担2,000円で済む寄附の上限額を計算する →</a>
+  </p>
+
+  <div class="note">
+    ※2026年中の寄附（所得税は令和8年分・住民税は令和9年度分）の制度で判定します。<br>
+    ※「翌年1月10日」は法律上は氏名・住所の変更届の期限です（附則第7条第4項）。申請書の受付締切として同じ日を案内する自治体が多いですが、それは各自治体の運用です。必ず寄附先の案内で確かめてください。<br>
+    ※確定申告をする場合は、ワンストップの申請を出していた分も含めて、すべての寄附を確定申告書の寄附金控除に記載します。記載し忘れた場合は更正の請求で受けられます（国税庁 No.1155）。<br>
+    ※出典：地方税法 附則第7条（e-Gov 法令検索・2026年10月1日施行版）、地方税法施行規則 附則第2条の4、国税庁 タックスアンサー No.1155・No.1900（令和8年4月1日現在法令等）、総務省 ふるさと納税ポータルサイト。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+
+</div>
+
+<!-- 制度値（data/national/furusato-onestop-2026.json）。生成時に埋め込む -->
+<script>const ONESTOP_DATA = {
+  "meta": {
+    "scheme": "ふるさと納税ワンストップ特例（個人住民税の寄附金税額控除に係る申告の特例）の適用要件・手続き・無効になる条件",
+    "donationYear": 2026,
+    "donationYearLabel": "2026年（令和8年）中の寄附",
+    "juminFiscalYear": 2027,
+    "confidence": "verified",
+    "verifiedAt": "2026-10-15",
+    "source": {
+      "law": "地方税法 附則第7条（第1項〜第7項＝道府県民税、第8項〜第14項＝市町村民税）。e-Gov 法令検索 2026-10-01 施行版（2026-10-15 取得）",
+      "lawUrl": "https://laws.e-gov.go.jp/law/325AC0000000226",
+      "rule": "地方税法施行規則 附則第2条の4（申告特例申請書＝第55号の5様式、申告特例申請事項変更届出書＝第55号の6様式）",
+      "nta": "国税庁 タックスアンサー No.1155・No.1900（令和8年4月1日現在法令等）",
+      "soumu": "総務省 ふるさと納税ポータルサイト（ふるさと納税の流れ／よくある質問）"
+    },
+    "snapshots": [
+      {
+        "id": "law-fusoku-7",
+        "title": "地方税法 附則第7条（e-Gov 法令検索 API v2・2026-10-01 施行版・更新 2026-09-11）",
+        "url": "https://laws.e-gov.go.jp/law/325AC0000000226",
+        "file": "chihozeiho-fusoku-art7.xml",
+        "sha256": "ce6bef25cc90c16fc0693ab9e1c2126e52ab05e179e4fbcd9d24efa260a4f146",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      },
+      {
+        "id": "nta-1155",
+        "title": "国税庁 タックスアンサー No.1155 ふるさと納税（寄附金控除）（令和8年4月1日現在法令等）",
+        "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1155.htm",
+        "file": "nta-1155.html",
+        "sha256": "6f2ea6b344610274ed0a03bb8dea32d75ed1e6a6d4e2416c4694c0bfadd5d979",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      },
+      {
+        "id": "nta-1900",
+        "title": "国税庁 タックスアンサー No.1900 給与所得者で確定申告が必要な人（令和8年4月1日現在法令等）",
+        "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm",
+        "file": "nta-1900.html",
+        "sha256": "68ad70cadf7276e27ac84c26ff4b56e5af0d96513581465d89f2601bd6567ee5",
+        "fetchedAt": "2026-10-15T04:27:00Z"
+      },
+      {
+        "id": "soumu-procedure",
+        "title": "総務省 ふるさと納税ポータルサイト「ふるさと納税の流れ」",
+        "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/procedure.html",
+        "file": "soumu-procedure.html",
+        "sha256": "7c45342ac6bc69f3a2131a8b0b09fbd2aa803f1f8eef372e31169884eca0f63c",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      },
+      {
+        "id": "soumu-faq",
+        "title": "総務省 ふるさと納税ポータルサイト「よくある質問」",
+        "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/faq/",
+        "file": "soumu-faq.html",
+        "sha256": "85c13cda62b80a179f1438edfdc907a2e72cd97964b3239daefe05db03a84dd5",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      }
+    ],
+    "notes": [
+      "「翌年1月10日」は法律上は氏名・住所の変更届の期限（附則第7条第4項・第11項）。申請書そのものの法定期限ではない。申請は寄附をする際に行い（第1項・第3項）、自治体は翌年1月31日までに住所地の市町村へ通知書を送る（第5項・第12項）。多くの自治体は申請書の受付締切を翌年1月10日必着としているが、それは運用。",
+      "確定申告をすると無効になる根拠: 第6項第1号（所得税法第121条の適用を受けないこととなったとき）・第2号（住民税の申告書を提出したとき。確定申告書は第45条の3第1項により住民税の申告書とみなされる）。医療費控除などの還付申告も確定申告なので同じ（国税庁 No.1155）。",
+      "5団体の数え方: 「申告特例の求めを行う都道府県知事等の数」（第2項）なので、同じ自治体に複数回寄附しても1と数える。"
+    ]
+  },
+  "maxMunicipalities": 5,
+  "countBasis": "寄附先の自治体（都道府県・市区町村）の数。同じ自治体に何回寄附しても1と数える",
+  "applyWhen": "寄附をするたびに、寄附先の自治体へ申請書（第55号の5様式）と本人確認書類を出す",
+  "applicationDeadlinePractice": {
+    "text": "寄附した年の翌年1月10日（必着）",
+    "basis": "各自治体の運用上の締切（法定の申請期限ではない）。寄附先自治体の案内に従う"
+  },
+  "changeNoticeDeadline": {
+    "text": "寄附した年の翌年1月10日",
+    "basis": "地方税法 附則第7条第4項・第11項（申請後に氏名・住所が変わったときの変更届）"
+  },
+  "noticeDeadline": {
+    "text": "寄附した年の翌年1月31日",
+    "basis": "地方税法 附則第7条第5項・第12項（寄附先の自治体が住所地の市区町村へ申告特例通知書を送る期限）"
+  },
+  "effect": {
+    "text": "控除の全額が、寄附した年の翌年度の住民税から引かれる（所得税の還付はない）",
+    "basis": "地方税法 附則第7条第1項（申告書の提出に代えて）、総務省ポータル「控除の仕組み」"
+  },
+  "invalidatedWhen": [
+    {
+      "key": "shinkoku",
+      "text": "その年分の所得税の確定申告をした（医療費控除などの還付申告を含む）、または住民税の申告書を出した",
+      "basis": "附則第7条第6項第1号・第2号、第13項第1号・第2号。国税庁 No.1155"
+    },
+    {
+      "key": "over5",
+      "text": "申請した自治体の数が5を超えた",
+      "basis": "附則第7条第6項第3号・第13項第3号"
+    },
+    {
+      "key": "movedCity",
+      "text": "翌年1月1日の住所地の市区町村が申請書の住所と違っていた（変更届を出していない場合）",
+      "basis": "附則第7条第6項第4号・第13項第4号"
+    }
+  ],
+  "needShinkokuReasons": [
+    {
+      "key": "salaryOver20m",
+      "text": "給与の年間収入が2,000万円を超える"
+    },
+    {
+      "key": "otherIncomeOver200k",
+      "text": "給与以外の所得（副業・不動産など）が20万円を超える"
+    },
+    {
+      "key": "twoEmployers",
+      "text": "2か所以上から給与を受けていて、年末調整されなかった給与と他の所得の合計が20万円を超える"
+    },
+    {
+      "key": "refundDeductions",
+      "text": "医療費控除・住宅ローン控除の1年目・雑損控除などを受けるために確定申告をする"
+    },
+    {
+      "key": "selfEmployed",
+      "text": "自営業・フリーランス・年金収入が主で、毎年確定申告をしている"
+    }
+  ],
+  "needShinkokuSource": "国税庁 タックスアンサー No.1900（確定申告が必要な給与所得者）・No.1155",
+  "recovery": {
+    "onestop": "寄附した年の翌年6月から、住民税（翌年度分）の毎月の天引きや納付額が減る形で、控除の全額が戻る",
+    "shinkoku": "確定申告をした後、所得税の分は還付金として振り込まれ（通常1〜2か月）、残りは翌年6月からの住民税が減る形で戻る。合計額はワンストップと同じ"
+  }
+};</script>
+<script src="/js/core/shared/ui-input.js?v=7574721c"></script>
+<script src="/js/core/onestop.js?v=7574721c"></script>
+<script>
+(function(){
+  "use strict";
+  var D = ONESTOP_DATA;
+  function $(id){ return document.getElementById(id); }
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP") + " 円"; }
+  function num(id){ var v = toHalfWidth($(id).value || "").replace(/[^0-9]/g, ""); return v === "" ? null : Number(v); }
+
+  // 「わからない」のチェック項目（データから描画）
+  $("reasonsList").innerHTML = D.needShinkokuReasons.map(function(r){
+    return '<label class="ck"><input type="checkbox" id="r_' + esc(r.key) + '"> ' + esc(r.text) + '</label>';
+  }).join("");
+  $("shinkoku").addEventListener("change", function(){ $("reasonsBox").style.display = this.value === "unknown" ? "" : "none"; });
+  $("basicMax").textContent = D.maxMunicipalities;
+
+  // 期限・無効条件（静的部分もデータから）
+  $("deadlines").innerHTML =
+    '<div class="kv"><span>申請書の提出</span><b>' + esc(D.applicationDeadlinePractice.text) + '</b></div>' +
+    '<div class="hint" style="margin:2px 0 6px;">' + esc(D.applicationDeadlinePractice.basis) + '</div>' +
+    '<div class="kv"><span>引越し・氏名変更の届出</span><b>' + esc(D.changeNoticeDeadline.text) + '</b></div>' +
+    '<div class="hint" style="margin:2px 0 6px;">' + esc(D.changeNoticeDeadline.basis) + '</div>' +
+    '<div class="kv"><span>自治体から住所地への通知</span><b>' + esc(D.noticeDeadline.text) + '</b></div>' +
+    '<div class="hint" style="margin:2px 0 6px;">' + esc(D.noticeDeadline.basis) + '</div>';
+  $("invalidList").innerHTML = D.invalidatedWhen.map(function(x){ return "・" + esc(x.text) + "<span style=\"color:#9ca3af\">（" + esc(x.basis) + "）</span>"; }).join("<br>");
+
+  function calcOnestop(){
+    var reasons = {};
+    D.needShinkokuReasons.forEach(function(r){ var el = $("r_" + r.key); reasons[r.key] = !!(el && el.checked); });
+    var r = judgeOnestop({ shinkoku: $("shinkoku").value, municipalities: num("municipalities"), reasons: reasons, donation: num("donation") }, D);
+    var h = "";
+    if (r.verdict === "need-input") {
+      h = '<div class="verdict neutral">' + esc(r.headline) + '</div>';
+    } else {
+      var cls = r.verdict === "onestop" ? "ok" : "ng";
+      h += '<div class="verdict ' + cls + '">' + esc(r.headline) + '<small>' + esc(r.detail) + '</small></div>';
+      if (r.estimatedFromChecklist) h += '<div class="hint" style="margin:8px 0 0;">「わからない」のため、チェックした項目から判定しています：' + esc(r.reasons.join("／")) + '</div>';
+      if (r.verdict === "onestop") {
+        h += '<h2 style="margin-top:18px;">手順</h2><ol class="steps">' +
+          '<li>寄附のたびに、寄附先の自治体へ「申告特例申請書」（第55号の5様式）と本人確認書類を出す（' + esc(D.applicationDeadlinePractice.text) + '。寄附先の案内に従う）。</li>' +
+          '<li>申請後に引越し・氏名変更があれば、' + esc(D.changeNoticeDeadline.text) + 'までに変更届を出す。</li>' +
+          '<li>翌年6月ごろの住民税の決定通知書で、控除されていることを確かめる。</li></ol>' +
+          '<div class="warn"><strong>注意：</strong>あとから医療費控除などで確定申告をすると、出した申請はすべて無効になります。その場合は確定申告書にすべての寄附を記載してください。</div>';
+      } else {
+        h += '<h2 style="margin-top:18px;">手順</h2><ol class="steps">' +
+          '<li>寄附先から届く「寄附金受領証明書」（または特定事業者の年間寄附額の証明書）を保管する。</li>' +
+          '<li>翌年2月16日〜3月15日の確定申告で、寄附金控除にすべての寄附を記載する（ワンストップの申請を出していた分も含める）。</li>' +
+          '<li>e-Tax なら証明書データの添付で済む。</li></ol>';
+      }
+      h += '<h2 style="margin-top:18px;">控除はいつ戻るか</h2>';
+      if (r.donation) {
+        h += '<div class="hint" style="margin:0 0 6px;">寄附額 ' + yen(r.donation) + ' が上限額の範囲内なら、控除の合計は約 <b>' + yen(Math.max(0, r.donation - 2000)) + '</b>（自己負担 2,000円）。上限額は <a href="/furusato/" style="color:#1d4ed8;">上限額の計算</a> で確かめられます。</div>';
+      }
+      h += '<div class="kv"><span>ワンストップ特例</span><b style="text-align:left;flex:1.4;font-weight:500;">' + esc(D.recovery.onestop) + '</b></div>' +
+           '<div class="kv"><span>確定申告</span><b style="text-align:left;flex:1.4;font-weight:500;">' + esc(D.recovery.shinkoku) + '</b></div>' +
+           '<div class="hint" style="margin-top:6px;">戻る合計は同じです。違うのは「いつ」「所得税の還付か住民税の減額か」の形だけです。</div>';
+    }
+    $("result").innerHTML = h;
+  }
+  window.calcOnestop = calcOnestop;
+
+  setupNumericInput("municipalities");
+  setupNumericInput("donation", { withCommas: true });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,127 @@
+{
+  "meta": {
+    "scheme": "ふるさと納税ワンストップ特例（個人住民税の寄附金税額控除に係る申告の特例）の適用要件・手続き・無効になる条件",
+    "donationYear": 2026,
+    "donationYearLabel": "2026年（令和8年）中の寄附",
+    "juminFiscalYear": 2027,
+    "confidence": "verified",
+    "verifiedAt": "2026-10-15",
+    "source": {
+      "law": "地方税法 附則第7条（第1項〜第7項＝道府県民税、第8項〜第14項＝市町村民税）。e-Gov 法令検索 2026-10-01 施行版（2026-10-15 取得）",
+      "lawUrl": "https://laws.e-gov.go.jp/law/325AC0000000226",
+      "rule": "地方税法施行規則 附則第2条の4（申告特例申請書＝第55号の5様式、申告特例申請事項変更届出書＝第55号の6様式）",
+      "nta": "国税庁 タックスアンサー No.1155・No.1900（令和8年4月1日現在法令等）",
+      "soumu": "総務省 ふるさと納税ポータルサイト（ふるさと納税の流れ／よくある質問）"
+    },
+    "snapshots": [
+      {
+        "id": "law-fusoku-7",
+        "title": "地方税法 附則第7条（e-Gov 法令検索 API v2・2026-10-01 施行版・更新 2026-09-11）",
+        "url": "https://laws.e-gov.go.jp/law/325AC0000000226",
+        "file": "chihozeiho-fusoku-art7.xml",
+        "sha256": "ce6bef25cc90c16fc0693ab9e1c2126e52ab05e179e4fbcd9d24efa260a4f146",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      },
+      {
+        "id": "nta-1155",
+        "title": "国税庁 タックスアンサー No.1155 ふるさと納税（寄附金控除）（令和8年4月1日現在法令等）",
+        "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1155.htm",
+        "file": "nta-1155.html",
+        "sha256": "6f2ea6b344610274ed0a03bb8dea32d75ed1e6a6d4e2416c4694c0bfadd5d979",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      },
+      {
+        "id": "nta-1900",
+        "title": "国税庁 タックスアンサー No.1900 給与所得者で確定申告が必要な人（令和8年4月1日現在法令等）",
+        "url": "https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1900.htm",
+        "file": "nta-1900.html",
+        "sha256": "68ad70cadf7276e27ac84c26ff4b56e5af0d96513581465d89f2601bd6567ee5",
+        "fetchedAt": "2026-10-15T04:27:00Z"
+      },
+      {
+        "id": "soumu-procedure",
+        "title": "総務省 ふるさと納税ポータルサイト「ふるさと納税の流れ」",
+        "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/procedure.html",
+        "file": "soumu-procedure.html",
+        "sha256": "7c45342ac6bc69f3a2131a8b0b09fbd2aa803f1f8eef372e31169884eca0f63c",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      },
+      {
+        "id": "soumu-faq",
+        "title": "総務省 ふるさと納税ポータルサイト「よくある質問」",
+        "url": "https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/faq/",
+        "file": "soumu-faq.html",
+        "sha256": "85c13cda62b80a179f1438edfdc907a2e72cd97964b3239daefe05db03a84dd5",
+        "fetchedAt": "2026-10-15T04:25:10Z"
+      }
+    ],
+    "notes": [
+      "「翌年1月10日」は法律上は氏名・住所の変更届の期限（附則第7条第4項・第11項）。申請書そのものの法定期限ではない。申請は寄附をする際に行い（第1項・第3項）、自治体は翌年1月31日までに住所地の市町村へ通知書を送る（第5項・第12項）。多くの自治体は申請書の受付締切を翌年1月10日必着としているが、それは運用。",
+      "確定申告をすると無効になる根拠: 第6項第1号（所得税法第121条の適用を受けないこととなったとき）・第2号（住民税の申告書を提出したとき。確定申告書は第45条の3第1項により住民税の申告書とみなされる）。医療費控除などの還付申告も確定申告なので同じ（国税庁 No.1155）。",
+      "5団体の数え方: 「申告特例の求めを行う都道府県知事等の数」（第2項）なので、同じ自治体に複数回寄附しても1と数える。"
+    ]
+  },
+  "maxMunicipalities": 5,
+  "countBasis": "寄附先の自治体（都道府県・市区町村）の数。同じ自治体に何回寄附しても1と数える",
+  "applyWhen": "寄附をするたびに、寄附先の自治体へ申請書（第55号の5様式）と本人確認書類を出す",
+  "applicationDeadlinePractice": {
+    "text": "寄附した年の翌年1月10日（必着）",
+    "basis": "各自治体の運用上の締切（法定の申請期限ではない）。寄附先自治体の案内に従う"
+  },
+  "changeNoticeDeadline": {
+    "text": "寄附した年の翌年1月10日",
+    "basis": "地方税法 附則第7条第4項・第11項（申請後に氏名・住所が変わったときの変更届）"
+  },
+  "noticeDeadline": {
+    "text": "寄附した年の翌年1月31日",
+    "basis": "地方税法 附則第7条第5項・第12項（寄附先の自治体が住所地の市区町村へ申告特例通知書を送る期限）"
+  },
+  "effect": {
+    "text": "控除の全額が、寄附した年の翌年度の住民税から引かれる（所得税の還付はない）",
+    "basis": "地方税法 附則第7条第1項（申告書の提出に代えて）、総務省ポータル「控除の仕組み」"
+  },
+  "invalidatedWhen": [
+    {
+      "key": "shinkoku",
+      "text": "その年分の所得税の確定申告をした（医療費控除などの還付申告を含む）、または住民税の申告書を出した",
+      "basis": "附則第7条第6項第1号・第2号、第13項第1号・第2号。国税庁 No.1155"
+    },
+    {
+      "key": "over5",
+      "text": "申請した自治体の数が5を超えた",
+      "basis": "附則第7条第6項第3号・第13項第3号"
+    },
+    {
+      "key": "movedCity",
+      "text": "翌年1月1日の住所地の市区町村が申請書の住所と違っていた（変更届を出していない場合）",
+      "basis": "附則第7条第6項第4号・第13項第4号"
+    }
+  ],
+  "needShinkokuReasons": [
+    {
+      "key": "salaryOver20m",
+      "text": "給与の年間収入が2,000万円を超える"
+    },
+    {
+      "key": "otherIncomeOver200k",
+      "text": "給与以外の所得（副業・不動産など）が20万円を超える"
+    },
+    {
+      "key": "twoEmployers",
+      "text": "2か所以上から給与を受けていて、年末調整されなかった給与と他の所得の合計が20万円を超える"
+    },
+    {
+      "key": "refundDeductions",
+      "text": "医療費控除・住宅ローン控除の1年目・雑損控除などを受けるために確定申告をする"
+    },
+    {
+      "key": "selfEmployed",
+      "text": "自営業・フリーランス・年金収入が主で、毎年確定申告をしている"
+    }
+  ],
+  "needShinkokuSource": "国税庁 タックスアンサー No.1900（確定申告が必要な給与所得者）・No.1155",
+  "recovery": {
+    "onestop": "寄附した年の翌年6月から、住民税（翌年度分）の毎月の天引きや納付額が減る形で、控除の全額が戻る",
+    "shinkoku": "確定申告をした後、所得税の分は還付金として振り込まれ（通常1〜2か月）、残りは翌年6月からの住民税が減る形で戻る。合計額はワンストップと同じ"
+  }
+}
