@@ -92,26 +92,32 @@
   <div class="fz-card">
     <div class="fz-card-title">② 所得と世帯</div>
     <label for="business">事業所得（2026年の見込み・円）</label>
-    <div class="hint">売上から必要経費と青色申告特別控除を引いた後の金額。給与や年金がある方は家計簿シミュレーターをお使いください。</div>
+    <div class="hint">売上から必要経費を引いた金額。青色申告の方は下で控除を選ぶと、ここから引いて計算します。給与や年金がある方は家計簿シミュレーターをお使いください。</div>
     <input id="business" data-step="2" type="text" inputmode="numeric" placeholder="例：3,000,000">
+    <label for="aoiro">青色申告特別控除</label>
+    <select id="aoiro" data-step="3"></select>
+    <label for="kyosai">iDeCo・小規模企業共済の掛金（2026年の年額・円・任意）</label>
+    <input id="kyosai" data-step="4" type="text" inputmode="numeric" placeholder="例：0">
+    <div class="hint">掛金は全額が所得控除（小規模企業共済等掛金控除）になり、住民税が減るぶん上限額も下がります。国保料には効きません。</div>
     <div class="row2">
       <div>
         <label for="age">年齢</label>
-        <input id="age" data-step="3a" type="text" inputmode="numeric" placeholder="例：45">
+        <input id="age" data-step="5a" type="text" inputmode="numeric" placeholder="例：45">
       </div>
       <div>
         <label for="family">国保に入る人数（本人を含む）</label>
-        <input id="family" data-step="3b" type="text" inputmode="numeric" value="1">
+        <input id="family" data-step="5b" type="text" inputmode="numeric" value="1">
       </div>
     </div>
     <div class="hint">40〜64歳は国保の介護分、20〜59歳は国民年金（第1号）を自動で加えます。</div>
     <label class="check"><input id="nenkinExempt" type="checkbox"> 国民年金の免除・猶予を受けている（保険料を払っていない）</label>
+    <label class="check"><input id="housingLoan" type="checkbox"> 住宅ローン控除を受けている</label>
   </div>
 
   <div class="fz-card">
     <div class="fz-card-title">③ 家族（2026年12月31日時点の見込み・任意）</div>
     <label for="spouse">配偶者控除</label>
-    <select id="spouse" data-step="4">
+    <select id="spouse" data-step="6">
       <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
       <option value="general">受ける（配偶者が70歳未満）</option>
       <option value="elderly">受ける（配偶者が70歳以上）</option>
@@ -119,31 +125,31 @@
     <div class="row3">
       <div>
         <label for="depGeneral">扶養（16〜18歳・23〜69歳）</label>
-        <input id="depGeneral" data-step="5a" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depGeneral" data-step="7a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depSpecific">扶養（19〜22歳）</label>
-        <input id="depSpecific" data-step="5b" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depSpecific" data-step="7b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depElderly">扶養（70歳以上・同居の親以外）</label>
-        <input id="depElderly" data-step="6a" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depElderly" data-step="8a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
         <label for="depParent">同居の親など（70歳以上）</label>
-        <input id="depParent" data-step="6b" type="text" inputmode="numeric" placeholder="例：0">
+        <input id="depParent" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
     <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため、人数に入れません。</div>
     <label for="selfStatus">ご本人</label>
-    <select id="selfStatus" data-step="7">
+    <select id="selfStatus" data-step="9">
       <option value="none" selected>あてはまるものはない</option>
       <option value="mother">ひとり親（母）</option>
       <option value="father">ひとり親（父）</option>
       <option value="widow">寡婦</option>
     </select>
     <label for="selfDisability">ご本人の障害者控除</label>
-    <select id="selfDisability" data-step="8" data-step-end>
+    <select id="selfDisability" data-step="10" data-step-end>
       <option value="none" selected>受けない</option>
       <option value="general">障害者</option>
       <option value="special">特別障害者</option>
@@ -170,8 +176,9 @@
     ※2026年中の寄附（所得税は令和8年分・住民税は令和9年度分）の制度で計算します。<br>
     ※国保料は「前年所得」で決まるため、本来は2025年の所得で計算されます。ここでは入力した事業所得が2025年・2026年とも同じ前提です。<br>
     ※国民年金は定額（令和8年度 月額をデータから読み込み）。付加保険料・前納割引は入れていません。<br>
+    ※青色申告特別控除は事業所得が限度です（事業所得 30 万円で 65 万円を選んでも、引けるのは 30 万円まで）。不動産所得がある方は正確に出せません。<br>
     ※退職所得・山林所得（分離課税）がある方、配偶者や扶養親族に障害者控除がある方、青色事業専従者がいる方は、この計算では正確に出せません。<br>
-    ※出典：地方税法 第37条の2・第314条の7（寄附金税額控除）・第34条（所得控除）、地方税法等の一部を改正する法律（令和8年法律第2号）、国民健康保険法・各自治体の国保条例（料率はお住まいの自治体の公表値）、日本年金機構「国民年金保険料」。
+    ※出典：地方税法 第37条の2・第314条の7（寄附金税額控除）・第34条・第314条の2（所得控除。第1項第4号 小規模企業共済等掛金控除）、租税特別措置法 第25条の2（青色申告特別控除）、地方税法等の一部を改正する法律（令和8年法律第2号）、国民健康保険法・各自治体の国保条例（料率はお住まいの自治体の公表値）、日本年金機構「国民年金保険料」。
   </div>
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
@@ -284,6 +291,26 @@
   },
   "monthly": 17920,
   "additionalMonthly": 400
+}; const AOIRO_DATA = {
+  "meta": {
+    "scheme": "青色申告特別控除（租税特別措置法 第25条の2）",
+    "taxYear": 2026,
+    "taxYearLabel": "令和8年分（2026年の所得）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-15",
+    "source": {
+      "primary": "租税特別措置法 第25条の2（e-Gov 法令 API v2 lawId=332AC0000000026、2026-10-01 施行版、2026-10-15 取得）。第1項: 10万円、第3項: 55万円、第4項: 電子申告等の要件を満たすとき 65万円。控除額は不動産所得・事業所得（・山林所得）の金額が限度",
+      "crossCheck": "地方税法 第314条の2 第1項第4号（小規模企業共済等掛金控除＝小規模企業共済・確定拠出年金（iDeCo）の掛金の支払額の合計額を全額控除。同 lawId=325AC0000000226、2026-10-01 施行版）"
+    },
+    "notes": "青色申告特別控除は所得税・住民税とも事業所得の金額の計算で引く（総所得金額が減るので国保料と住民税の両方に効く）。小規模企業共済等掛金控除は所得控除（住民税の課税所得だけが減り、国保料には効かない）"
+  },
+  "aoiroKojo": [
+    { "value": 0, "label": "控除なし・白色申告（控除を引いた後の金額を入れる）" },
+    { "value": 100000, "label": "青色 10万円" },
+    { "value": 550000, "label": "青色 55万円" },
+    { "value": 650000, "label": "青色 65万円（電子申告）" }
+  ]
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
 <script src="/js/core/shared/ui-input.js?v=06b0b268"></script>
 <script src="/js/core/shared/income.js?v=06b0b268"></script>
@@ -333,21 +360,26 @@
   // ── 計算（家計簿シミュレーターの自営の経路と同じ順: 国保 → 国民年金 → 社会保険料控除 → 住民税（令和9年度分） → 上限額） ──
   function computeJieigyo(input, kokuhoData, juminData){
     var careN = (input.age >= 40 && input.age < 65) ? 1 : 0;
-    var rk = calculateKokuho({ income: input.business, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
+    // 事業所得 ＝ 入力（売上−経費）− 青色申告特別控除（事業所得が限度。租税特別措置法 第25条の2）。国保料・住民税の両方がこの金額で決まる
+    var aoiro = Math.min(input.aoiro || 0, input.business);
+    var income = input.business - aoiro;
+    // 小規模企業共済等掛金控除（地方税法 第314条の2 第1項第4号）: 掛金の全額が所得控除。住民税エンジンには社会保険料控除と同じ扱い（全額の所得控除）で渡す。国保料には効かない
+    var kyosai = input.kyosai || 0;
+    var rk = calculateKokuho({ income: income, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
     var nenkin = (input.age >= 20 && input.age < 60 && !input.nenkinExempt && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
     var si = rk.total + nenkin;
-    var hd = furusatoHumanDeductionDiff({ selfTotalIncome: input.business, spouse: input.spouse,
+    var hd = furusatoHumanDeductionDiff({ selfTotalIncome: income, spouse: input.spouse,
       dependentGeneral: input.depGeneral, dependentSpecific: input.depSpecific, dependentElderly: input.depElderly, dependentCohabitingParent: input.depParent,
       selfDisability: input.selfDisability, singleParent: input.selfStatus, workingStudent: false }, FURUSATO_DATA);
     var spouseDed = input.spouse === "elderly" ? 380000 : (input.spouse === "general" ? 330000 : 0);   // 地方税法 第34条第1項第10号
     var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;   // 第11号
     var dependents = (input.spouse !== "none" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
-    var rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: input.business, age: input.age, socialInsurance: si,
+    var rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: income, age: input.age, socialInsurance: si + kyosai,
       spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents, humanDeductionDiff: hd,
       fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: input.kyuchi });
     var kiso = furusatoShotokuBasicDeduction(rj.totalIncome, SHOTOKU_KISO_2026);
     var fz = calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: kiso }, FURUSATO_DATA);
-    return { kokuho: rk, nenkin: nenkin, socialInsurance: si, jumin: rj, humanDiff: hd, kiso: kiso, limit: fz, careN: careN };
+    return { kokuho: rk, nenkin: nenkin, socialInsurance: si, kyosai: kyosai, aoiro: aoiro, income: income, jumin: rj, humanDiff: hd, kiso: kiso, limit: fz, careN: careN };
   }
   window.computeJieigyo = computeJieigyo;
 
@@ -364,7 +396,7 @@
     try{ kokuhoData = await loadMunicipal(city.slug, "kokuho"); }
     catch(e){ out.innerHTML = "<div class='warn'>" + esc(city.name) + "の国保データを取得できませんでした（" + esc(e.message) + "）。</div>"; return; }
     if(city.hasJumin){ try{ juminData = await loadMunicipal(city.slug, "jumin"); }catch(e){ juminData = null; } }
-    var input = { business: business, age: age, family: num("family") || 1, nenkinExempt: chk("nenkinExempt"), kyuchi: city.kyuchi,
+    var input = { business: business, aoiro: Number(val("aoiro")) || 0, kyosai: num("kyosai"), age: age, family: num("family") || 1, nenkinExempt: chk("nenkinExempt"), housingLoan: chk("housingLoan"), kyuchi: city.kyuchi,
       spouse: val("spouse"), depGeneral: num("depGeneral"), depSpecific: num("depSpecific"), depElderly: num("depElderly"), depParent: num("depParent"),
       selfStatus: val("selfStatus"), selfDisability: val("selfDisability") };
     var r;
@@ -372,11 +404,13 @@
     catch(e){ out.innerHTML = "<div class='result-label'>計算エラー</div><div>" + esc(e.message) + "</div>"; return; }
     if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "furusato-jieigyo", city: city.slug }); }
 
-    var h = "<div class='result-title' style='font-size:15px;margin-top:4px;'>社会保険料控除に入る保険料（" + esc(city.name) + "・年額）</div>" +
+    var h = (r.aoiro ? row("事業所得（青色申告特別控除 " + yen(r.aoiro) + " を引いた後）", yen(r.income)) : "") +
+      "<div class='result-title' style='font-size:15px;margin-top:4px;'>社会保険料控除に入る保険料（" + esc(city.name) + "・年額）</div>" +
       row("国民健康保険（" + (r.careN ? "医療・支援・介護分" : "医療・支援分") + "）", yen(r.kokuho.total)) +
       (r.kokuho.reductionLabel && r.kokuho.reductionLabel !== "軽減なし" ? "<div class='ci-sub'>国保の軽減判定: " + esc(r.kokuho.reductionLabel) + "</div>" : "") +
       row("国民年金（第1号・本人1人分）", r.nenkin ? yen(r.nenkin) : "対象外") +
       row("社会保険料控除の合計", yen(r.socialInsurance), "big") +
+      (r.kyosai ? row("小規模企業共済等掛金控除（iDeCo・共済）", yen(r.kyosai)) : "") +
       "<div class='result-title' style='font-size:15px;margin-top:16px;'>住民税（令和9年度分・目安）</div>" +
       row("課税総所得金額", yen(r.jumin.taxableIncome)) +
       row("所得割額（調整控除後）", yen(r.jumin.incomeLevy));
@@ -397,6 +431,9 @@
         row("住民税 特例分（2027年度）", yen(b.juminSpecial)) +
         row("自己負担", yen(b.selfBurden)) +
         "<div class='hint' style='margin-top:6px;'>ふるさと納税をしても国保料は下がりません（国保の所得割は寄附金控除の前の所得で決まります）。</div>";
+      if(input.housingLoan){
+        h += "<div class='warn' style='margin-top:12px;'><strong>住宅ローン控除がある方へ。</strong>確定申告では、ふるさと納税の所得税分（上の「所得税」の金額）は所得税から引かれます。住宅ローン控除で所得税がすでに 0 円に近い方は、この所得税分が引ききれず、上限額どおりに寄附しても自己負担が 2,000 円を超えることがあります。住民税の特例分には影響しません。</div>";
+      }
     }
     h += "<div class='links' style='margin-top:14px;'>" +
       "<a href='https://kokuho-keisan.jp/" + esc(city.prefSlug) + "/" + esc(city.slug) + "/income.html'>" + esc(city.name) + "の国保料を詳しく →</a>" +
@@ -406,7 +443,9 @@
   };
 
   function init(){
-    ["business"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["business","kyosai"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    var ao = $("aoiro");
+    AOIRO_DATA.aoiroKojo.forEach(function(o){ var op = document.createElement("option"); op.value = String(o.value); op.textContent = o.label; ao.appendChild(op); });
     ["age","family","depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id); });
   }
   if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
