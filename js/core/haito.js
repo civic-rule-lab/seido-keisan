@@ -5,7 +5,8 @@
  * 所得税の累進税率表は shotoku.js の loadParams(年分, shotokuzei-YYYY.json) の params（taxTable・surtaxRate・kazeiRoundDown・taxRoundDown）を渡す。
  *
  * 根拠（data の meta.source に条文）: 租特法 8条の4・8条の5、所得税法 92条、復興財確法 13条、
- * 地方税法 71条の28・37条の4・314条の9・附則 5条・附則 33条の2、国保法施行令 29条の7。
+ * 地方税法 71条の28・37条の4・314条の9・附則 5条・附則 33条の2・附則 35条の6（国保税）、国保法施行令 29条の7（国保料）、
+ * 対象外の線引きは 所得税法 92条かっこ書・95条、租特法 9条（meta.source.taishogai）。
  *
  * 入力:
  *   dividend        上場株式の配当の年額（税引前・円）
