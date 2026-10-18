@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0561,
-    "support": 0.028,
-    "care": 0.0247
+    "medical": 0.056,
+    "support": 0.017,
+    "care": 0.012
+  },
+  "assetLevy": {
+    "medical": 0.18,
+    "support": 0.09,
+    "care": 0.07
   },
   "perCapita": {
-    "medical": 24807,
-    "support": 12306,
-    "care": 12620
+    "medical": 17000,
+    "support": 6000,
+    "care": 5500
   },
   "household": {
-    "medical": 15925,
-    "support": 7900,
-    "care": 6228
+    "medical": 23000,
+    "support": 6500,
+    "care": 6500
   },
   "caps": {
     "medical": 670000,
@@ -57,47 +62,50 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:23.328Z",
-      "updatedAt": "2026-06-05T00:00:00.000Z",
+      "updatedAt": "2026-10-18T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_pdf",
       "sourceUrls": [
-        "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html"
+        "https://www.town.karumai.iwate.jp/article/.assets/02_zeigakuzeiritu.pdf",
+        "https://www.town.karumai.iwate.jp/article/kurashitetsuduki/zeikin/kokuhozei/entry-basename.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
-      "watchUrls": []
+      "verifiedAt": "2026-10-18",
+      "verificationLevel": "official_source_checked",
+      "watchUrls": [
+        "https://www.town.karumai.iwate.jp/article/kurashitetsuduki/zeikin/kokuhozei/entry-basename.html"
+      ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 岩手県 市町村標準保険料率",
-      "url": "https://www.pref.iwate.jp/kurashikankyou/iryou/seido/kokuho/1002965.html",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "軽米町 令和８年度 国民健康保険税のお知らせ（添付「税額と税率について」PDF）",
+      "url": "https://www.town.karumai.iwate.jp/article/.assets/02_zeigakuzeiritu.pdf",
+      "publishedAt": "2026-06-26"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-18",
+      "method": "official-pdf"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で軽米町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=60円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。"
+    "notes": "岩手県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で軽米町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=60円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。限度額医療はverified無のため67万踏襲(deploy前にPDFで66/67確認推奨)。市告示後 verified_r8 昇格。 / 2026-10-18: watchUrls を追加（町公式「令和８年度 国民健康保険税のお知らせ」（令和8年7月13日＝次の昇格候補））。r8-watch の判定を見て昇格に着手する。 / 2026-10-18: 町公式「令和８年度 国民健康保険税のお知らせ」（更新日 令和8年7月13日）から辿る「税額と税率について」PDF（02_zeigakuzeiritu.pdf・PDF作成日 2026-06-26）で令和8年度の税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。PDF自体に年度の表記はないが、子ども・子育て支援金の列・医療分限度額67万円・同ページの軽減PDF（03_keigenn.pdf）の5割31万円／2割57万円がそろい令和8年度の内容と判断した。**4方式（資産割あり）**: 県標準（3方式）と方式が違う。旧値 医療 5.61%／24,807円／15,925円・支援 2.8%／12,306円／7,900円・介護 2.47%／12,620円／6,228円・子ども 0.27%／1,264円＋18歳以上60円／808円 → 新値 医療給付費 所得割5.6%・資産割18.0%・均等割17,000円・平等割23,000円／後期支援金 1.7%・9.0%・6,000円・6,500円／介護納付金 1.2%・7.0%・5,500円・6,500円／子ども子育て支援金 0.3%・資産割なし・均等割1,200円（子ども＝18歳に達する日以降の最初の3月31日までの方は全額軽減＝perCapita 1,200・perCapitaAdult 0）・平等割800円。限度額 67万・26万・17万・3万円（PDF）。平等割は特定世帯が半額・特定継続世帯は4分の3（介護を除く）。軽減判定 43万円・5割31万円・2割57万円（軽減PDF）で本データと一致。町独自の子ども均等割減免の記載はなく、未就学児は法定の5割。"
   },
   "childcareLevy": {
-    "rate": 0.0027,
-    "perCapita": 1264,
-    "perCapitaAdult": 60,
+    "rate": 0.003,
+    "perCapita": 1200,
+    "perCapitaAdult": 0,
     "perCapitaAdultScope": "all_ages",
-    "household": 808,
+    "household": 800,
     "cap": 30000
   }
 }
