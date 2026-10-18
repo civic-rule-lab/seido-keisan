@@ -6,19 +6,19 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0489,
-    "support": 0.0276,
-    "care": 0.022
+    "medical": 0.0395,
+    "support": 0.0168,
+    "care": 0.0159
   },
   "perCapita": {
-    "medical": 21663,
-    "support": 12245,
-    "care": 11500
+    "medical": 20800,
+    "support": 8800,
+    "care": 10600
   },
   "household": {
-    "medical": 14160,
-    "support": 8004,
-    "care": 5671
+    "medical": 12800,
+    "support": 5400,
+    "care": 5100
   },
   "caps": {
     "medical": 670000,
@@ -60,47 +60,51 @@
     "status": "provisional",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.834Z",
-      "updatedAt": "2026-06-03T00:00:00.000Z",
+      "updatedAt": "2026-10-18T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "extracted_r8",
+      "sourceStatus": "ordinance_after_revision",
       "sourceUrls": [
-        "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf"
+        "https://www.town.asakawa.fukushima.jp/reiki/reiki_honbun/c571RG00000175.html",
+        "https://www.town.asakawa.fukushima.jp/tax/hoken/000186.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
       "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verificationLevel": "primary_source_checked_partial",
       "watchUrls": [
         "https://www.town.asakawa.fukushima.jp/tax/hoken/000186.html",
+        "https://www.town.asakawa.fukushima.jp/reiki/reiki_honbun/c571RG00000175.html"
+      ],
+      "ordinanceUrls": [
         "https://www.town.asakawa.fukushima.jp/reiki/reiki_honbun/c571RG00000175.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 福島県 市町村標準保険料率",
-      "url": "https://www.pref.fukushima.lg.jp/uploaded/attachment/731236.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "浅川町国民健康保険税条例（令和8年条例第5号・第13号による改正後・令和8年6月16日施行・Reiki-Base）",
+      "url": "https://www.town.asakawa.fukushima.jp/reiki/reiki_honbun/c571RG00000175.html",
+      "publishedAt": "2026-06-16"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
       "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "method": "ordinance"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.8,
       "completeness": "full"
     },
-    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で浅川町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=54円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-18: watchUrls を追加（町公式「国民健康保険税の算定方法について」と浅川町国民健康保険税条例（Reiki-Base・子ども分の条あり））。r8-watch の判定を見て昇格に着手する。"
+    "notes": "福島県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で浅川町の実告示と異なる場合あり。3方式・資産割なし。子ども子育て分は18歳以上均等割(=54円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-18: watchUrls を追加（町公式「国民健康保険税の算定方法について」と浅川町国民健康保険税条例（Reiki-Base・子ども分の条あり））。r8-watch の判定を見て昇格に着手する。 / 2026-10-18: 浅川町国民健康保険税条例（町の Reiki-Base。附則 令和8年条例第5号＝令和8年4月1日施行・令和8年度以後に適用、令和8年条例第13号＝公布の日施行・令和8年4月1日から適用。表示は「令和8年6月16日施行」）で令和8年度の税率を確認し、県標準保険料率（参考値）から差し替え。旧値 医療 4.89%／21,663円／14,160円・支援 2.76%／12,245円／8,004円・介護 2.2%／11,500円／5,671円・子ども 0.3%／1,366円＋18歳以上54円／867円 → 新値 医療 所得割3.95%（第3条）・均等割20,800円（第5条）・平等割12,800円（第5条の2、特定世帯6,400円・特定継続世帯9,600円）／支援 1.68%（第6条）・8,800円（第7条の2）・5,400円（第7条の3）／介護 1.59%（第8条）・10,600円（第9条の2）・5,100円（第9条の3）／子ども 0.31%（第9条の4）・均等割1,600円（第9条の5）＋18歳以上均等割73円（第9条の6・加算）・平等割1,000円（第9条の7）。資産割は削除（3方式）。限度額 67万・26万・17万・3万円（第2条）。軽減判定は43万円・31万円・57万円。町公式「国民健康保険税の算定方法について」（令和8年度 国民健康保険税の按分率・最終更新 2026-09-28）とも医療・支援・子ども・限度額が一致（子ども均等割1,673円＝1,600＋73）。**extracted_r8 に留める理由**: 介護分の所得割が条例 1.59%、町ページ 1.56% と食い違う。ページの方が日付は新しいが、条例の改正（9月議会等）の収録か誤記かを確認できない。データは条例の1.59%を用いている。"
   },
   "childcareLevy": {
-    "rate": 0.003,
-    "perCapita": 1366,
-    "perCapitaAdult": 54,
+    "rate": 0.0031,
+    "perCapita": 1600,
+    "perCapitaAdult": 73,
     "perCapitaAdultScope": "all_ages",
-    "household": 867,
+    "household": 1000,
     "cap": 30000
   }
 }
