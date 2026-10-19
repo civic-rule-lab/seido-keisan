@@ -6,19 +6,24 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.0651,
-    "support": 0.0285,
-    "care": 0.0245
+    "medical": 0.0589,
+    "support": 0.0299,
+    "care": 0.0208
+  },
+  "assetLevy": {
+    "medical": 0.21,
+    "support": 0.1052,
+    "care": 0.0764
   },
   "perCapita": {
-    "medical": 28300,
-    "support": 12337,
-    "care": 12996
+    "medical": 26900,
+    "support": 12800,
+    "care": 11300
   },
   "household": {
-    "medical": 18531,
-    "support": 8078,
-    "care": 6363
+    "medical": 21800,
+    "support": 9400,
+    "care": 6000
   },
   "caps": {
     "medical": 670000,
@@ -57,49 +62,49 @@
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",
-    "status": "provisional",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-08T01:03:22.867Z",
-      "updatedAt": "2026-06-04T00:00:00.000Z",
+      "updatedAt": "2026-10-20T00:00:00.000Z",
       "validFrom": "2026-04-01",
       "validUntil": "2027-03-31",
       "expiresAt": "2027-04-30",
-      "r8Stage": "standard_r8",
-      "sourceStatus": "prefecture_standard_municipal_list",
+      "r8Stage": "verified_r8",
+      "sourceStatus": "official_rate_page",
       "sourceUrls": [
-        "https://www.pref.mie.lg.jp/common/content/001246287.pdf"
+        "https://www.town.meiwa.mie.jp/main/soshiki/zeimu/kazeik/tax/1454579749666.html"
       ],
       "previousYearTemplate": false,
       "r8Updated": true,
-      "verifiedAt": "",
-      "verificationLevel": "prefecture_standard_unverified",
+      "verifiedAt": "2026-10-20",
+      "verificationLevel": "official_source_checked",
       "watchUrls": [
         "https://www.town.meiwa.mie.jp/main/soshiki/zeimu/kazeik/tax/1454579749666.html"
       ]
     },
     "source": {
-      "type": "prefecture_standard",
-      "title": "令和8年度 三重県 市町村標準保険料率",
-      "url": "https://www.pref.mie.lg.jp/common/content/001246287.pdf",
-      "publishedAt": "2026"
+      "type": "official",
+      "title": "明和町 国民健康保険税（税額の計算・1年間の税額）",
+      "url": "https://www.town.meiwa.mie.jp/main/soshiki/zeimu/kazeik/tax/1454579749666.html",
+      "publishedAt": "2026-07-15"
     },
     "audit": {
       "verifiedBy": "civic-rule-lab",
-      "verifiedAt": "",
-      "method": "prefecture-standard-municipal-list"
+      "verifiedAt": "2026-10-20",
+      "method": "official-rate-page"
     },
     "quality": {
-      "confidenceScore": 0.6,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で明和町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=76円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-18: watchUrls を追加（町公式「国民健康保険税」ページ（4方式・限度額66万円の記載＝令和8年度の更新を監視。g-reiki の明和町例規集は三重県と確定できず除外））。r8-watch の判定を見て昇格に着手する。"
+    "notes": "三重県公表の令和8年度 市町村標準保険料率を参考値として採用。法定外繰入ゼロ前提の理論値で明和町の実告示と異なる場合あり。3方式(所得割+均等割+平等割)・子ども分も平等割あり・資産割なし。子ども子育て分は18歳以上均等割(=76円)を perCapitaAdult として計上（18歳以上=base+加算）・新スキーマ統一。市告示後 verified_r8 昇格。 / 2026-10-18: watchUrls を追加（町公式「国民健康保険税」ページ（4方式・限度額66万円の記載＝令和8年度の更新を監視。g-reiki の明和町例規集は三重県と確定できず除外））。r8-watch の判定を見て昇格に着手する。 / 2026-10-20: 町公式「国民健康保険税」ページ（HTTP Last-Modified 2026-07-15・ページ内に更新日の記載なし）の「1年間の税額」表で令和8年度の税率を確認し verified_r8 に昇格（県標準保険料率＝参考値から差し替え）。表に年度表記はないが、同ページの「令和8年度より、子ども・子育て支援金分が新設されました」の注記と表に子ども分の列があることから令和8年度の表と判断。旧値 医療 6.51%／28,300円／18,531円・支援 2.85%／12,337円／8,078円・介護 2.45%／12,996円／6,363円・子ども 0.26%／1,120円＋18歳以上76円／730円（3方式） → 新値 4方式（資産割あり）: 医療分 所得割5.89%・資産割21.00%・均等割26,900円・平等割21,800円（限度額67万円）／後期高齢者支援金分 2.99%・10.52%・12,800円・9,400円（26万円）／介護分 2.08%・7.64%・11,300円・6,000円（17万円）／子ども・子育て支援金分 所得割0.26%・資産割なし・均等割1,200円・平等割700円（3万円）。子ども分の均等割1,200円は町ページに「18歳以上被保険者均等割額を含んだ金額」とあり、18歳以上1人当たりの合計として perCapita 0・perCapitaAdult 1,200 で表した（香取市と同じ表現。被保険者均等割と18歳以上均等割の内訳は町ページに記載なし [未確認]。18歳未満は全額軽減のため計算結果には影響しない）。軽減判定 43万円・31万円・57万円（同ページ）で本データと一致。町の例規集は見つからず条例との突合は未了（g-reiki の「meiwa」は役場の位置条例「新里250番地1」から群馬県邑楽郡明和町と判明・三重県明和町ではない）。"
   },
   "childcareLevy": {
     "rate": 0.0026,
-    "perCapita": 1120,
-    "perCapitaAdult": 76,
+    "perCapita": 0,
+    "perCapitaAdult": 1200,
     "perCapitaAdultScope": "all_ages",
-    "household": 730,
+    "household": 700,
     "cap": 30000
   }
 }
