@@ -43,6 +43,12 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/about/</loc>
+    <lastmod>2026-10-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/kanagawa/yokohama/jumin/income.html</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>

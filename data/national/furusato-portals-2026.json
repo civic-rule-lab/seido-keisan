@@ -1,0 +1,25 @@
+{
+  "meta": {
+    "title": "ふるさと納税ポータルサイトへの外部リンク（seido-keisan.jp/furusato/ 配下の共通枠）",
+    "note": "寄附の申込み先として各社の公式トップページだけを示す。並びは kana の五十音順で生成時にそろえる（JSON の順に依存しない）。program が none 以外のポータルが 1 件でもあれば、枠の見出しに「広告」を付ける。",
+    "rules": [
+      "返礼品の品質・還元率・価格の優位・ポータル間の比較を書かない",
+      "リンクの URL に計算結果（金額・自治体）を載せない",
+      "program が none のポータルは rel=noopener、none 以外は rel=sponsored noopener",
+      "並びは五十音順で固定し、報酬額で並べない"
+    ],
+    "forbiddenWords": ["返礼品", "還元率", "お得", "人気", "おすすめ", "ランキング", "限定", "最大"],
+    "sources": [
+      { "name": "楽天ふるさと納税", "url": "https://event.rakuten.co.jp/furusato/", "checked": "2026-10-20", "how": "curl HEAD 200" },
+      { "name": "ふるなび", "url": "https://furunavi.jp/", "checked": "2026-10-20", "how": "curl HEAD 200" },
+      { "name": "さとふる", "url": "https://www.satofull.jp/", "checked": "2026-10-20", "how": "ブラウザで表示（curl はボット対策で応答なし）" },
+      { "name": "ふるさとチョイス", "url": "https://www.furusato-tax.jp/", "checked": "2026-10-20", "how": "ブラウザで表示（curl は 503）" }
+    ]
+  },
+  "portals": [
+    { "id": "satofull", "name": "さとふる", "kana": "さとふる", "url": "https://www.satofull.jp/", "program": "none", "enabled": true },
+    { "id": "furusato-choice", "name": "ふるさとチョイス", "kana": "ふるさとちょいす", "url": "https://www.furusato-tax.jp/", "program": "none", "enabled": true },
+    { "id": "furunavi", "name": "ふるなび", "kana": "ふるなび", "url": "https://furunavi.jp/", "program": "none", "enabled": true },
+    { "id": "rakuten", "name": "楽天ふるさと納税", "kana": "らくてんふるさとのうぜい", "url": "https://event.rakuten.co.jp/furusato/", "program": "none", "enabled": true }
+  ]
+}

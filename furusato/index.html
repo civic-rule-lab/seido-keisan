@@ -140,6 +140,41 @@
     給与収入が少ない方は、2026年の所得から給与所得控除の最低額が65万円→74万円に上がるため、所得割が下がり、上限額も少し下がることがあります。
   </div>
 
+
+  <!-- 寄附の申込み先（ポータルサイト）: data/national/furusato-portals-2026.json から生成。五十音順。 -->
+  <section class="portal-box" data-calc-type="furusato-simple" aria-labelledby="portalBoxTitle">
+    <style>
+      .portal-box{margin-top:22px;padding:14px 16px 12px;border:1px solid #e5e7eb;border-radius:12px;background:#ffffff;}
+      .portal-box .pb-title{font-size:14px;font-weight:700;color:#111827;margin:0 0 6px;}
+      .portal-box .pb-lead{font-size:13px;line-height:1.8;color:#374151;margin:0 0 8px;}
+      .portal-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:#1d4ed8;font-size:14px;font-weight:600;text-decoration:none;}
+      .portal-box li a:hover{background:#eff6ff;border-color:#93c5fd;}
+      .portal-box .pb-ext{font-size:11px;margin-left:3px;color:#64748b;}
+      .portal-box .pb-note{font-size:12px;line-height:1.8;color:#6b7280;margin:8px 0 0;}
+      @media (max-width:420px){.portal-box ul{grid-template-columns:1fr;}}
+    </style>
+    <p class="pb-title" id="portalBoxTitle">寄附の申込み先（例）</p>
+    <p class="pb-lead">寄附は、各ポータルサイトや自治体の窓口から申し込めます。五十音順。</p>
+    <ul>
+      <li><a href="https://www.satofull.jp/" target="_blank" rel="noopener" data-portal="satofull">さとふる<span class="pb-ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://www.furusato-tax.jp/" target="_blank" rel="noopener" data-portal="furusato-choice">ふるさとチョイス<span class="pb-ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://furunavi.jp/" target="_blank" rel="noopener" data-portal="furunavi">ふるなび<span class="pb-ext" aria-hidden="true">↗</span></a></li>
+      <li><a href="https://event.rakuten.co.jp/furusato/" target="_blank" rel="noopener" data-portal="rakuten">楽天ふるさと納税<span class="pb-ext" aria-hidden="true">↗</span></a></li>
+    </ul>
+    <p class="pb-note">この計算は寄附先（自治体）を勧めるものではありません。上のリンクは各社の公式ページで、当サイトに報酬は入りません。入力した金額や計算結果はリンク先に送られません。<a href="/about/">運営者情報・広告の方針</a></p>
+    <script>
+    (function(){
+      var box=document.currentScript&&document.currentScript.parentNode; if(!box) return;
+      var ct=box.getAttribute("data-calc-type")||"unknown";
+      box.addEventListener("click",function(e){
+        var a=e.target&&e.target.closest?e.target.closest("a[data-portal]"):null; if(!a) return;
+        if(typeof gtag==="function"){ gtag("event","portal_click",{portal:a.getAttribute("data-portal"),calc_type:ct}); }
+      });
+    })();
+    </script>
+  </section>
+
   <h2>計算のしかた</h2>
   <div class="jt-card">
     <div class="jt-card-title">自己負担が2,000円で済む寄附額の上限</div>
@@ -185,6 +220,7 @@
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>
   </div>
+  <p style="margin-top:14px;font-size:12px;text-align:center;"><a href="/about/" style="color:#6b7280;">運営者情報・プライバシーポリシー・免責事項</a></p>
 
 </div>
 
