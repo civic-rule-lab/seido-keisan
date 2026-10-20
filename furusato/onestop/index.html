@@ -77,7 +77,7 @@
 
   <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">ふるさと納税</span><span class="h1-seg">ワンストップ特例か<br>確定申告か</span><span class="h1-year">【2026年中の寄附・かんたん判定】</span></h1>
 
-  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">ふるさと納税の控除は、<b>ワンストップ特例</b>（寄附先に申請書を出すだけ）か、<b>確定申告</b>のどちらかで受けます。両方は使えず、確定申告をするとワンストップの申請は無効になります。3つの質問で、あなたはどちらかを判定します。</p>
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">ふるさと納税の控除は、<b>ワンストップ特例</b>（寄附先に申請書を出すだけ）か、<b>確定申告</b>のどちらかで受けます。両方は使えず、確定申告をするとワンストップの申請は無効になります。地方税法 附則第7条の要件に当てはまるかを、3つの質問で整理します。</p>
   <p style="font-size:12px;color:#6b7280;margin:0 0 10px;">入力した内容はこの端末の中だけで判定し、送信・保存しません。</p>
 
   <div class="mode-title">かんたん判定</div>
@@ -379,6 +379,7 @@
            '<div class="kv"><span>確定申告</span><b style="text-align:left;flex:1.4;font-weight:500;">' + esc(D.recovery.shinkoku) + '</b></div>' +
            '<div class="hint" style="margin-top:6px;">戻る合計は同じです。違うのは「いつ」「所得税の還付か住民税の減額か」の形だけです。</div>';
     }
+    h += '<div class="hint" style="margin-top:12px;">この結果は、入力した前提での計算結果の比較です。実際の申告では、税務署または税理士にご確認ください。</div>';
     $("result").innerHTML = h;
   }
   window.calcOnestop = calcOnestop;

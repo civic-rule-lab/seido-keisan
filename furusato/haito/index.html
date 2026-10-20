@@ -625,7 +625,7 @@
     var th = "<tr><th></th>" + ["none","separate","sogo"].map(function(k){ return "<th" + (k === H.best ? " class='hb-best'" : "") + ">" + names[k] + "</th>"; }).join("") + "</tr>";
     function trow(label, f){ return "<tr><td>" + label + "</td>" + ["none","separate","sogo"].map(function(k){ return "<td" + (k === H.best ? " class='hb-best'" : "") + ">" + f(M[k], k) + "</td>"; }).join("") + "</tr>"; }
     var h = "<div class='result-title' style='font-size:15px;margin-top:4px;'>判定（" + esc(city.name) + "・配当 " + yen(dividend) + "）</div>" +
-      "<div class='hb-verdict'>" + names[H.best] + (H.best === "none" ? "のまま（申告しない）" : "で申告") + "が最も負担が少ない</div>" +
+      "<div class='hb-verdict'>計算上は、" + names[H.best] + (H.best === "none" ? "のまま（申告しない）" : "で申告") + "の負担が最も小さくなります</div>" +
       "<div class='hint' style='margin:0 0 12px;'>" + reason + "</div>" +
       "<div class='hb-unit'>単位: 円（配当にかかる分）</div>" +
       "<table class='hb-table'>" + th +
@@ -646,6 +646,7 @@
       "<a href='https://kokuho-keisan.jp/" + esc(city.prefSlug) + "/" + esc(city.slug) + "/income.html'>" + esc(city.name) + "の国保料を詳しく →</a>" +
       "<a href='/furusato/jieigyo/'>配当を入れない上限額（自営業・国保加入者）→</a>" +
       "</div>";
+    h += "<div class='hint' style='margin-top:12px;'>この結果は、入力した前提での計算結果の比較です。実際の申告では、税務署または税理士にご確認ください。</div>";
     out.innerHTML = h;
     return;
 
