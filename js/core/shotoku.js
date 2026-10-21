@@ -80,7 +80,11 @@ function lookup(table, key) {
 // input（草案と同一契約）:
 //   salary, otherIncome（事業・雑所得等の所得金額。給与所得に加算・2026-10-15 追加・既定 0）, socialInsurance, ideco, otherDeductions,
 //   spouse:{income,age70plus}|null, dependents:{general,specific,elderly,elderlyCoRes},
-//   tokuteiShinzoku:[所得,...], under23Dependent, singleParent, widow, workingStudent, mortgageDeduction
+//   tokuteiShinzoku:[所得,...], under23Dependent, singleParent, widow, workingStudent, mortgageDeduction,
+//   disability:{general,special,specialCoRes}（障害者控除の人数・2026-10-21 追加・既定 0）,
+//   medicalPaid, medicalReimbursed（医療費控除: 支払額と保険金等の補填額。控除額はエンジンが計算・既定 0）,
+//   lifeInsurance, earthquakeInsurance（生命保険料控除・地震保険料控除の「控除額」を入れる。上限で頭打ち・既定 0）
+// 出力に marginalRate（課税所得が属する税率区分・復興特別所得税を含まない）を含む。
 function calcShotokuzei(input, P) {
   const salary = input.salary || 0;
 
@@ -121,8 +125,22 @@ function calcShotokuzei(input, P) {
   detail.jinteki = (input.singleParent ? P.hitorioya : input.widow ? P.kafu : 0) +
     (input.workingStudent ? P.kinroGakusei : 0);
 
+  // 障害者控除（所得税法 79 条）: 人数 × 27 / 40 / 75 万
+  const dis = Object.assign({ general: 0, special: 0, specialCoRes: 0 }, input.disability);
+  detail.shogai = dis.general * P.shogai.general + dis.special * P.shogai.special + dis.specialCoRes * P.shogai.specialCoRes;
+
+  // 医療費控除（所得税法 73 条）: 支払額 − 補填 − min(総所得金額等×5%, 10 万)、上限 200 万。総所得金額等は合計所得金額で代用（給与＋その他の所得）
+  const iry = P.iryohiKojo;
+  const iryFloor = Math.min(Math.floor(gokeiShotoku * iry.floorRate), iry.floorMax);
+  detail.iryohi = Math.min(iry.max, Math.max(0, (input.medicalPaid || 0) - (input.medicalReimbursed || 0) - iryFloor));
+
+  // 生命保険料控除（76 条・合計 12 万）・地震保険料控除（77 条・5 万）: 控除額を受け取り上限で頭打ち
+  detail.seiho = Math.min(input.lifeInsurance || 0, P.seihoKojoMax);
+  detail.jishin = Math.min(input.earthquakeInsurance || 0, P.jishinKojoMax);
+
   const kojo = detail.kiso + detail.shaho + detail.ideco + detail.other +
-    detail.haigu + detail.fuyo + detail.tokutei + detail.jinteki;
+    detail.haigu + detail.fuyo + detail.tokutei + detail.jinteki +
+    detail.shogai + detail.iryohi + detail.seiho + detail.jishin;
 
   // 3) 課税所得(1,000円未満切捨) → 速算表 → 住宅ローン控除 → ×102.1% → 100円未満切捨
   const kazei = Math.floor(Math.max(0, gokeiShotoku - kojo) / P.kazeiRoundDown) * P.kazeiRoundDown;
@@ -134,6 +152,7 @@ function calcShotokuzei(input, P) {
   return {
     year: P.year, salary, kyuyoShotoku: kyuyo, choseiKojo: chosei, gokeiShotoku,
     deductions: detail, totalDeductions: kojo, kazeiShotoku: kazei, annualTax,
+    marginalRate: rate,
   };
 }
 
