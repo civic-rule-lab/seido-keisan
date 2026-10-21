@@ -57,9 +57,12 @@ function kyuyoShotoku(rev, K) {
       if (h === 'table5') {
         const t = K.table5band;
         const a = Math.floor(rev / t.roundUnit) * t.roundUnit;
+        // a は roundUnit(4,000) の倍数なので a×rate は数学的に整数。浮動小数点誤差（例 2,624,000×0.7 = 1836799.999…）で
+        // 1 円低く出ないよう、積を整数に丸めてから控除する（2026-10-21 国税庁「令和8年分 年末調整のしかた」47〜54 頁の表と
+        // 全 1,103 区間を突合して発見。修正前は 93 区間で 1 円低かった）。
         return a < t.highThreshold
-          ? Math.floor(a * t.lowRate - t.lowSub)
-          : Math.floor(a * t.highRate - t.highSub);
+          ? Math.round(a * t.lowRate) - t.lowSub
+          : Math.round(a * t.highRate) - t.highSub;
       }
       if (h === 'rate90') return Math.floor(rev * K.rate90.rate) - K.rate90.sub;
       if (h === 'cap195') return rev - K.cap195.sub;

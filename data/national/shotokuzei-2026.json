@@ -11,11 +11,14 @@
         "財務省 令和8年度税制改正の大綱(2025-12-26閣議決定) https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/20251226taikou.pdf"
       ]
     },
-    "inferred": [
+    "inferred": [],
+    "verification": [
       {
-        "field": "years.2026.kyuyoShotoku.table5band",
-        "note": "給与収入220万〜660万の別表第五方式(A=floor(収入/4000)*4000)は改正前慣行の踏襲[未確認・推測]。国税庁の改正後『給与所得控除後の給与等の金額の表』公表後に要突合。±数百円の誤差源。",
-        "confidence": "inferred"
+        "field": "years.2026.kyuyoShotoku",
+        "date": "2026-10-21",
+        "note": "国税庁『令和8年分 年末調整のしかた』47〜54頁「令和8年分の年末調整等のための給与所得控除後の給与等の金額の表」（nencho2026/pdf/114.pdf）の全1,103区間（2,191,000〜6,600,000円・4,000円刻み）と kyuyoShotoku を突合し全区間一致（test/fixtures/nta-nencho2026-114-table.json・test-shotoku-verify.js 4）。別表第五方式の推測は正しかったが、浮動小数点で93区間が1円低く出ていたため同日修正。",
+        "sha256": "3d06c41b675161d51cc59c89d6d129ce8ea204b5ccc986f5b30b1072a12a032c",
+        "confidence": "verified"
       }
     ],
     "trap": "令和8年分は令和7年度改正(基礎控除95/88/68/63・給与所得控除65万)を令和8年度改正が上書きする。ネット解説の大半はR7ベースで令和8年分には非適用。正は本ファイルの値。",
