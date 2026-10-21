@@ -85,45 +85,45 @@
 
   <div class="fz-card">
     <div class="fz-card-title">① 収入</div>
-    <label for="salary">給与収入（2026年・賞与込みの年額・円）</label>
-    <div class="hint">源泉徴収票の「支払金額」。複数の勤め先があれば合計。</div>
+    <label for="salary">給与収入（年額・賞与込み）</label>
+    <div class="hint">源泉徴収票の「支払金額」</div>
     <input id="salary" data-step="1" type="text" inputmode="numeric" placeholder="例：5,000,000">
-    <label for="otherIncome">その他の所得（事業・雑所得など・任意・円）</label>
-    <div class="hint">収入から経費を引いた「所得」の金額。副業や年金はここに入れます（年金は公的年金等控除後の額）。無ければ空欄。</div>
+    <label for="otherIncome">その他の所得（任意）</label>
+    <div class="hint">副業・年金などの所得（収入−経費）。無ければ空欄</div>
     <input id="otherIncome" data-step="2" type="text" inputmode="numeric" placeholder="例：0">
   </div>
 
   <div class="fz-card">
     <div class="fz-card-title">② 払った保険料・掛金</div>
-    <label for="socialInsurance">社会保険料（2026年に払った年額・円）</label>
-    <div class="hint">源泉徴収票の「社会保険料等の金額」。健康保険・厚生年金・雇用保険の本人負担分、国保・国民年金を払った方はその額。</div>
+    <label for="socialInsurance">社会保険料（年額）</label>
+    <div class="hint">源泉徴収票の「社会保険料等の金額」（国保・国民年金を払った方はその額）</div>
     <input id="socialInsurance" data-step="3" type="text" inputmode="numeric" placeholder="例：750,000">
     <div class="row2">
       <div>
-        <label for="ideco">iDeCo・小規模企業共済（年額・円）</label>
+        <label for="ideco">iDeCo・小規模企業共済（年額）</label>
         <input id="ideco" data-step="4a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
-        <label for="lifeIns">生命保険料控除の額（円）</label>
+        <label for="lifeIns">生命保険料控除の額</label>
         <input id="lifeIns" data-step="4b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
-    <div class="hint">生命保険料控除は、保険会社の控除証明書から計算した<b>控除額</b>を入れます（一般・介護医療・個人年金の合計、上限12万円）。</div>
+    <div class="hint">生命保険料控除は、控除証明書から計算した<b>控除額</b>（上限12万円）</div>
     <div class="row2">
       <div>
-        <label for="quakeIns">地震保険料控除の額（円）</label>
+        <label for="quakeIns">地震保険料控除の額</label>
         <input id="quakeIns" data-step="5a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
-        <label for="medical">1年間に払った医療費（円）</label>
+        <label for="medical">1年間に払った医療費</label>
         <input id="medical" data-step="5b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
-    <div class="hint">地震保険料控除は控除額（上限5万円）。医療費は家族の分も合算し、保険で戻った分を引いた額。所得の5%（上限10万円）を超えた分が控除になります（上限200万円・年末調整では受けられず確定申告が要ります）。</div>
+    <div class="hint">地震保険料控除は控除額（上限5万円）。医療費は家族分を合算し、保険で戻った分を引いた額（10万円または所得の5%を超えた分が控除・確定申告が必要）</div>
   </div>
 
   <div class="fz-card">
-    <div class="fz-card-title">③ 家族（2026年12月31日時点・任意）</div>
+    <div class="fz-card-title">③ 家族（任意）</div>
     <label for="spouse">配偶者</label>
     <select id="spouse" data-step="6">
       <option value="none" selected>いない</option>
@@ -131,9 +131,9 @@
       <option value="elderly">いる（70歳以上）</option>
     </select>
     <div id="spouseBox" style="display:none;">
-      <label for="spouseSalary">配偶者の給与収入（年収・円）</label>
+      <label for="spouseSalary">配偶者の給与収入（年額）</label>
       <input id="spouseSalary" data-step="7" type="text" inputmode="numeric" placeholder="例：0">
-      <div class="hint">パート・給与のみの前提。年収136万円以下なら配偶者控除、207万円以下なら配偶者特別控除を自動で判定します（ご本人の所得が1,000万円超だと控除なし）。</div>
+      <div class="hint">年収136万円以下は配偶者控除、207万円以下は配偶者特別控除を自動判定</div>
     </div>
     <div class="row2">
       <div>
@@ -153,12 +153,12 @@
         <input id="depParent" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
-    <div class="hint" style="margin-top:6px;">16歳未満の子は扶養控除が無いため人数に入れません。扶養親族は所得62万円以下（給与なら136万円以下）の人です。</div>
-    <label for="tokuteiCount">特定親族（19〜22歳・給与136万円超 197万円以下）の人数</label>
-    <div class="hint">大学生の子などで、給与が136万円を超えても197万円以下なら「特定親族特別控除」（最大63万円）が受けられます。人数を入れると、その人の給与収入の欄が出ます。</div>
+    <div class="hint" style="margin-top:6px;">16歳未満の子は入れません。扶養親族は給与136万円以下の人</div>
+    <label for="tokuteiCount">特定親族の人数</label>
+    <div class="hint">給与136万円超197万円以下の19〜22歳（特定親族特別控除・最大63万円）。人数を入れると給与収入の欄が出ます</div>
     <input id="tokuteiCount" data-step="10" type="text" inputmode="numeric" placeholder="例：0">
     <div id="tokuteiBox"></div>
-    <label class="check"><input id="under23" type="checkbox"> 23歳未満の扶養親族がいる（給与850万円超の方の所得金額調整控除）</label>
+    <label class="check"><input id="under23" type="checkbox"> 23歳未満の扶養親族がいる（給与850万円超の方）</label>
   </div>
 
   <div class="fz-card">
@@ -166,8 +166,8 @@
     <label for="selfStatus">ひとり親・寡婦</label>
     <select id="selfStatus" data-step="11">
       <option value="none" selected>あてはまるものはない</option>
-      <option value="single">ひとり親（所得500万円以下・生計を一にする子がいる）</option>
-      <option value="widow">寡婦（所得500万円以下）</option>
+      <option value="single">ひとり親</option>
+      <option value="widow">寡婦</option>
     </select>
     <label for="selfDisability">ご本人の障害者控除</label>
     <select id="selfDisability" data-step="12">
@@ -190,9 +190,9 @@
         <input id="famDisCoRes" data-step="13c" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
-    <label class="check"><input id="workingStudent" type="checkbox"> 勤労学生（所得89万円以下の学生・27万円）</label>
-    <label for="mortgage">住宅ローン控除の額（年・円・任意）</label>
-    <div class="hint">年末残高証明書から計算した控除額（税額から直接引きます）。初年は確定申告、2年目からは年末調整で受けられます。</div>
+    <label class="check"><input id="workingStudent" type="checkbox"> 勤労学生（給与163万円以下の学生）</label>
+    <label for="mortgage">住宅ローン控除の額（任意）</label>
+    <div class="hint">年末残高証明書から計算した控除額</div>
     <input id="mortgage" data-step="14" data-step-end type="text" inputmode="numeric" placeholder="例：0">
   </div>
 
@@ -214,9 +214,11 @@
   <h2>計算のしかた</h2>
   <div class="jt-card">
     <div class="jt-card-title">給与収入 → 給与所得 → 課税所得 → 税額</div>
-    <p>1. 給与収入から<b>給与所得控除</b>を引いて給与所得を出す（収入660万円未満は国税庁の「給与所得控除後の給与等の金額の表」のとおり4,000円刻み）。その他の所得があれば足して合計所得金額にする。<br>
-       2. 合計所得から<b>所得控除</b>（基礎・社会保険料・小規模企業共済等掛金・生命保険料・地震保険料・医療費・配偶者・扶養・特定親族特別・障害者・ひとり親・寡婦・勤労学生）を引き、1,000円未満を切り捨てて<b>課税所得</b>にする。<br>
-       3. 課税所得に下の<b>速算表</b>を当て、住宅ローン控除を引き、<b>復興特別所得税2.1%</b>を上乗せして100円未満を切り捨てる。</p>
+    <ol style="margin:6px 0 0;padding-left:1.4em;font-size:13px;line-height:1.8;color:#374151;">
+      <li>給与収入 − 給与所得控除 ＝ 給与所得（その他の所得があれば足して合計所得）</li>
+      <li>合計所得 − 所得控除（基礎・社会保険料・配偶者・扶養など）＝ 課税所得（1,000円未満切捨て）</li>
+      <li>課税所得 × 税率 − 控除額 − 住宅ローン控除、×1.021（復興特別所得税）＝ 年税額（100円未満切捨て）</li>
+    </ol>
     <div id="taxTable"></div>
   </div>
 
