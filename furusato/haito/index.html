@@ -369,12 +369,61 @@
     },
     "notes": [
       "家計簿（city-integrated.html）で、自営・退職など（国民健康保険）を選んだ20歳以上60歳未満の本人1人分を社会保険料控除に加える（monthly×12）。",
-      "付加保険料（月額400円）・前納割引・免除/猶予は扱わない。",
+      "家計簿・ふるさと納税ページは monthly / additionalMonthly だけを読む。prepay / exemption は国民年金ページ（js/core/nenkin.js）用に 2026-10-22 追加。既存キーは不変。",
       "年度のずれ: 社会保険料控除は暦年に払った額だが、家計簿は「同じ収入が続く前提」で令和8年度の月額×12とする。"
+    ],
+    "sourcePrepay": "日本年金機構「国民年金保険料の前納」 https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html （ページ更新日 2026-09-04、2026-10-22 確認。2年前納は令和8・9年度の毎月納付合計 434,520 円との比較）",
+    "sourceExemption": [
+      "日本年金機構「国民年金保険料の免除制度・納付猶予制度」 https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html （ページ更新日 2026-10-16、2026-10-22 確認。全額免除・納付猶予＝(扶養親族等の数+1)×35万円+32万円、4分の3＝88万円+扶養親族等控除額+社会保険料控除額等、半額 128万円、4分の1 168万円。年金額への反映 1/2・5/8・6/8・7/8、納付猶予は反映なし、追納 10 年）",
+      "日本年金機構「学生納付特例制度」 https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html （ページ更新日 2026-10-16、2026-10-22 確認。128万円+扶養親族等の数×38万円+社会保険料控除等・本人のみ審査）",
+      "日本年金機構「免除等の申請可能期間と前年所得の関係」 https://www.nenkin.go.jp/service/kokunen/menjo/20150402-01.html （ページ更新日 2026-08-03。令和8年度分＝令和8年7月〜令和9年6月・審査対象は令和7年中所得）"
+    ],
+    "snapshotNenkinPages": {
+      "capturedAt": "2026-10-22",
+      "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）。実体は sha256 で照合できる",
+      "files": [
+        { "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html", "sha256": "c7aac959ce33f973f536056c6e3e774c333e341a9d498e9ae8df934d3afcc46c", "bytes": 31593 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html", "sha256": "4a45201c53d1b2763e40cca3d39c955c6115c0ab01b20f089012dd392e11745f", "bytes": 49545 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html", "sha256": "a2a9639dea3433e8b488c9ed1024b65c012ac46f7d77d152a4501b5272cb9d12", "bytes": 41754 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150402-01.html", "sha256": "974194bf20b9d73b24c4c7b3d336c58d4123fe2a885d1d694e366dcaa8c2a0f5", "bytes": 38133 }
+      ]
+    },
+    "inferred": [
+      {
+        "field": "exemption.dependentDeduction / exemption.otherDeduction",
+        "note": "「扶養親族等控除額」「社会保険料控除額等」の内訳額は国民年金法施行令（第6条の9〜第6条の12 [条番号も未確認]）の定めだが、2026-10-22 は e-Gov がメンテナンス中で原文を確認できていない。日本年金機構のページには内訳の記載が無い。値は大阪市の案内（16歳以上23歳未満 63万円・70歳以上の同一生計配偶者または老人扶養親族 48万円）と所得税の控除額からの推測。国民年金ページを公開する前に e-Gov で確定し、本項を削除する。",
+        "confidence": "inferred"
+      }
     ]
   },
   "monthly": 17920,
-  "additionalMonthly": 400
+  "additionalMonthly": 400,
+  "nextYearMonthly": 18290,
+  "prepay": {
+    "kouza": {
+      "m6": { "amount": 106300, "discount": 1220 },
+      "y1": { "amount": 210530, "discount": 4510 },
+      "y2": { "amount": 417150, "discount": 17370 },
+      "hayawari": { "monthly": 17860, "discount": 60 }
+    },
+    "nofusho": {
+      "m6": { "amount": 106650, "discount": 870 },
+      "y1": { "amount": 211220, "discount": 3820 },
+      "y2": { "amount": 418510, "discount": 16010 }
+    }
+  },
+  "exemption": {
+    "period": "令和8年度分（2026年7月〜2027年6月）・審査対象は2025年中（令和7年中）の所得",
+    "full": { "perPerson": 350000, "base": 320000 },
+    "yuyo": { "perPerson": 350000, "base": 320000, "ageMax": 50 },
+    "partial": { "threeQuarters": 880000, "half": 1280000, "quarter": 1680000 },
+    "student": { "base": 1280000, "perDependent": 380000 },
+    "dependentDeduction": { "spouse": 380000, "general": 380000, "age16to22": 630000, "elderly": 480000, "elderlyCoRes": 580000, "under16": 0 },
+    "otherDeduction": { "shogai": 270000, "shogaiSpecial": 400000, "kafu": 270000, "hitorioya": 350000 },
+    "payFraction": { "full": 0, "threeQuarters": 0.25, "half": 0.5, "quarter": 0.75, "yuyo": 0, "student": 0 },
+    "pensionReflection": { "full": "1/2", "threeQuarters": "5/8", "half": "6/8", "quarter": "7/8", "yuyo": "0", "student": "0" },
+    "tsuinoYears": 10
+  }
 }; const KOJO_DATA = {
   "meta": {
     "scheme": "ふるさと納税 自営業・国保加入者ページの所得控除の制度値（青色申告特別控除・医療費控除）",
