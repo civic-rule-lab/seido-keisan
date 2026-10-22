@@ -16,6 +16,15 @@
   --brand:#7fd4e6;
 }
 
+/* ==== 節の見出し（2026-10-22 オーナー決定 X218 ④）====
+   節の h2 は 17px・上余白 36px・下余白 14px・左に制度色の線。入力ラベル（15px）より大きく、ページ題（30px 前後）より小さい段。
+   カードの中では上余白を 0 にする（カード自体が 36px 空ける）。 */
+h2{
+  font-size:17px; line-height:1.4; font-weight:700; color:#0f172a;
+  margin:36px 0 14px; padding:2px 0 2px 12px; border-left:4px solid var(--acc);
+}
+section > h2:first-child, .card > h2:first-child{ margin-top:0; }
+
 /* ==== 制度ごとの上書き（2026-10-22 X218 段階3・オーナー決定 10 制度の色）====
    テンプレートの <html data-system="…"> で切り替える。国保は既定（青）のまま。
    社保（オレンジ）・奨学金（緑）は別リポのため、ここには無い。 */
