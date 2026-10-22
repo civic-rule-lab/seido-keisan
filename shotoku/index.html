@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://seido-keisan.jp/shotoku/">
 <meta property="og:site_name" content="制度計算.jp">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<link rel="stylesheet" href="/css/common.css?v=1a24fbbc">
 <title>所得税の計算（令和8年分・2026年）｜年収と控除から年税額・課税所得・控除の内訳を計算【基礎控除104万円・改正後】</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","@id":"https://seido-keisan.jp/shotoku/","url":"https://seido-keisan.jp/shotoku/","name":"所得税の計算（令和8年分・給与所得者）","description":"給与収入と控除から令和8年分の所得税の年税額・課税所得・控除の内訳を計算する。令和8年度改正（基礎控除104万円・給与所得控除74万円・特定親族特別控除）を反映。","inLanguage":"ja","isPartOf":{"@type":"WebSite","url":"https://seido-keisan.jp/","name":"制度計算"},"publisher":{"@id":"https://seido-keisan.jp/about/#organization"}}</script>
 <!-- Google tag (gtag.js) -->
@@ -24,31 +24,31 @@
 </script>
 <style>
   /* ── 自己完結スタイル（配当ページ seido-haito.html と同じ見た目） ── */
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
   .h1-seg{display:block;}
   .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
-  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
   label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
   .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
   input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
   input::placeholder{color:#9ca3af;font-weight:400;}
-  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
   .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
   .check input{width:auto;margin-top:3px;}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
   .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0 10px;}
   @media (max-width:420px){ .row3{grid-template-columns:1fr 1fr;} }
-  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
-  button:hover{background:#1e40af;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
   button:active{transform:translateY(1px);}
   .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
-  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .fz-card-title{font-size:15px;font-weight:700;color:var(--acc);margin:14px 0 4px;}
   .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
   .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
   .result-label{font-size:15px;color:#374151;flex:1;}
   .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
-  .big{font-size:24px;color:#1d4ed8;}
+  .big{font-size:24px;color:var(--acc);}
   .result-placeholder{color:#9ca3af;font-size:14px;}
   .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
   .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
@@ -60,17 +60,17 @@
   .jt-card .jt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
   .jt-card p{font-size:13px;line-height:1.8;color:#374151;margin:6px 0;}
   h2{font-size:16px;margin:28px 0 6px;color:#111827;}
-  .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-weight:600;font-size:13px;}
+  .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:var(--acc-bg);color:var(--acc);text-decoration:none;font-weight:600;font-size:13px;}
   .cta-list{display:grid;grid-template-columns:max-content auto;gap:10px 3em;align-items:center;margin-top:6px;}
   .cta-item{display:contents;}
-  .cta-item a{display:inline-block;justify-self:start;padding:10px 16px;border-radius:999px;background:#dbeafe;border:1px solid #93c5fd;color:#1e40af;text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;}
-  .cta-item a:hover{background:#bfdbfe;}
+  .cta-item a{display:inline-block;justify-self:start;padding:10px 16px;border-radius:999px;background:var(--acc-bg-2);border:1px solid var(--acc-line-strong);color:var(--acc-strong);text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;}
+  .cta-item a:hover{background:var(--acc-line);}
   .cta-item a:active{transform:translateY(1px);}
   .cta-ext{font-size:13px;margin-left:2px;}
   .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
   @media (max-width:480px){ .cta-list{grid-template-columns:1fr;gap:4px 0;} .cta-item a{margin-bottom:8px;} }
   details{margin-top:10px;}
-  summary{cursor:pointer;font-size:14px;font-weight:700;color:#1d4ed8;}
+  summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--acc);}
 </style>
 </head>
 
@@ -264,7 +264,7 @@
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
 
   <div style="text-align:center;margin-top:6px;">
-    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
       <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>
@@ -539,7 +539,7 @@
       row("復興特別所得税（×" + P.surtaxRate + "・100円未満切捨て）", yen(r.annualTax)) +
       "</details>";
     if(r.annualTax === 0 && input.salary > 1000000){
-      h += "<div class='warn'>所得税は0円ですが、<b>住民税は基礎控除が43万円のままなので、かかる場合があります</b>（非課税の線はお住まいの自治体で違います）。<a href='/' style='color:#1d4ed8;font-weight:600;'>家計簿シミュレーター</a>で自治体を選ぶと住民税まで出ます。</div>";
+      h += "<div class='warn'>所得税は0円ですが、<b>住民税は基礎控除が43万円のままなので、かかる場合があります</b>（非課税の線はお住まいの自治体で違います）。<a href='/' style='color:var(--acc);font-weight:600;'>家計簿シミュレーター</a>で自治体を選ぶと住民税まで出ます。</div>";
     }
     if(input.spouse && r.gokeiShotoku > P.honninIncomeCols[2]){
       h += "<div class='hint' style='margin-top:8px;'>ご本人の合計所得が1,000万円を超えるため、配偶者控除・配偶者特別控除は受けられません。</div>";

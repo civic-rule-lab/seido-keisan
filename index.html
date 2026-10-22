@@ -22,18 +22,22 @@
   gtag('config', 'G-H15R1TNWD2');
 </script>
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+/* 制度色トークン（2026-10-22 X218）。このテンプレートは common.css を読まないため、ここで既定（国保の青）を定義する。
+   正本: 制度計算　総合管理/制度別カラー決定_2026-10-22.md */
+:root{--acc:#1d4ed8;--acc-strong:#1e40af;--acc-soft:#2563eb;--acc-ring:rgba(37,99,235,0.15);--acc-bg:#eff6ff;--tint:#eef2ff;--acc-shadow:rgba(29,78,216,0.25);--acc-ring-soft:rgba(37,99,235,0.10);--acc-bg-2:#dbeafe;--acc-line:#bfdbfe;--acc-line-strong:#93c5fd;--brand:#7fd4e6;}
+
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:32px 22px 36px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
-  .brand{font-size:14px;font-weight:700;color:#7fd4e6;text-align:center;letter-spacing:0.04em;}
-  .tagline{font-size:12px;font-weight:600;color:#7fd4e6;text-align:center;margin-bottom:18px;}
+  .brand{font-size:14px;font-weight:700;color:var(--brand);text-align:center;letter-spacing:0.04em;}
+  .tagline{font-size:12px;font-weight:600;color:var(--brand);text-align:center;margin-bottom:18px;}
   h1{font-size:clamp(24px,4.4vw,30px);font-weight:800;color:#0f172a;text-align:center;margin:6px 0 8px;line-height:1.4;}
   .lead{font-size:15px;color:#374151;line-height:1.8;text-align:center;margin:0 0 26px;}
   label{display:block;font-size:14px;font-weight:700;margin:16px 0 7px;color:#111827;}
   select{width:100%;padding:14px 12px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#0f172a;box-sizing:border-box;appearance:none;-webkit-appearance:none;}
-  select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
   select:disabled{background:#f3f4f6;color:#9ca3af;}
-  button{width:100%;margin-top:24px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
-  button:hover{background:#1e40af;}
+  button{width:100%;margin-top:24px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#fff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
   button:disabled{background:#cbd5e1;box-shadow:none;cursor:not-allowed;}
   .systems{display:flex;justify-content:center;gap:18px;margin:24px 0 0;font-size:13px;color:#475569;}
   .systems span{display:inline-flex;align-items:center;gap:5px;}
@@ -41,7 +45,7 @@
   .dot.soon{background:#cbd5e1;}
   .status{margin-top:22px;font-size:12px;color:#6b7280;text-align:center;line-height:1.8;}
   .footer{text-align:center;margin-top:28px;}
-  .footer a{display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;}
+  .footer a{display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);}
   .footer .f1{font-size:16px;font-weight:700;color:#fff;letter-spacing:0.02em;}
   .footer .f2{font-size:11px;font-weight:500;color:#fff;margin-top:1px;}
   .site-links{text-align:center;margin:14px 0 0;font-size:12px;}
@@ -49,10 +53,10 @@
   .related{margin-top:26px;border-top:1px solid #eef2f7;padding-top:20px;}
   .related-h{font-size:13px;font-weight:700;color:#64748b;text-align:center;margin-bottom:12px;letter-spacing:0.02em;}
   .tool-link{display:flex;align-items:center;justify-content:space-between;gap:10px;text-decoration:none;padding:14px 16px;border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc;color:#0f172a;transition:border-color .15s,box-shadow .15s;}
-  .tool-link:hover{border-color:#2563eb;box-shadow:0 2px 10px rgba(37,99,235,0.10);}
+  .tool-link:hover{border-color:var(--acc-soft);box-shadow:0 2px 10px var(--acc-ring-soft);}
   .tool-link .t1{display:block;font-size:15px;font-weight:700;}
   .tool-link .t2{display:block;font-size:12px;color:#64748b;margin-top:2px;line-height:1.5;}
-  .tool-link .arrow{color:#2563eb;font-weight:700;font-size:18px;flex:none;}
+  .tool-link .arrow{color:var(--acc-soft);font-weight:700;font-size:18px;flex:none;}
   .tool-list{display:flex;flex-direction:column;gap:10px;}
 </style>
 </head>

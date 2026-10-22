@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://seido-keisan.jp/furusato/onestop/">
 <meta property="og:site_name" content="制度計算.jp">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<link rel="stylesheet" href="/css/common.css?v=1a24fbbc">
 <title>ふるさと納税 ワンストップ特例の判定｜確定申告とどっちで控除を受ける？【2026年中の寄附】</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
@@ -23,29 +23,29 @@
 </script>
 <style>
   /* ── 自己完結スタイル（住民税ページ jumin-simple.html と同じ見た目） ── */
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
   .h1-seg{display:block;}
   .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
-  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
   label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
   .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
   input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
   input::placeholder{color:#9ca3af;font-weight:400;}
-  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
   .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
   .check input{width:auto;margin-top:3px;}
   .row3{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
-  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
-  button:hover{background:#1e40af;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
   button:active{transform:translateY(1px);}
   .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
-  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .fz-card-title{font-size:15px;font-weight:700;color:var(--acc);margin:14px 0 4px;}
   .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
   .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
   .result-label{font-size:15px;color:#374151;flex:1;}
   .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
-  .big{font-size:24px;color:#1d4ed8;}
+  .big{font-size:24px;color:var(--acc);}
   .result-placeholder{color:#9ca3af;font-size:14px;}
   .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
   .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
@@ -124,8 +124,8 @@
       .portal-box .pb-title{font-size:14px;font-weight:700;color:#111827;margin:0 0 6px;}
       .portal-box .pb-lead{font-size:13px;line-height:1.8;color:#374151;margin:0 0 8px;}
       .portal-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:#1d4ed8;font-size:14px;font-weight:600;text-decoration:none;}
-      .portal-box li a:hover{background:#eff6ff;border-color:#93c5fd;}
+      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:var(--acc);font-size:14px;font-weight:600;text-decoration:none;}
+      .portal-box li a:hover{background:var(--acc-bg);border-color:var(--acc-line-strong);}
       .portal-box .pb-ext{font-size:11px;margin-left:3px;color:#64748b;}
       .portal-box .pb-note{font-size:12px;line-height:1.8;color:#6b7280;margin:8px 0 0;}
       @media (max-width:420px){.portal-box ul{grid-template-columns:1fr;}}
@@ -166,10 +166,10 @@
   <div id="invalidList" class="note" style="margin-top:4px;font-size:13px;color:#374151;"></div>
 
   <p style="margin-top:18px;font-size:13px;text-align:right;">
-    <a href="/furusato/" style="color:#1d4ed8;text-decoration:none;font-weight:600;">自己負担2,000円で済む寄附の上限額を計算する →</a><br>
-    <a href="/furusato/jieigyo/" style="color:#1d4ed8;text-decoration:none;font-weight:600;">自営業・国保加入者の上限額（国保料を自動計算）→</a><br>
-    <a href="/furusato/ikukyu/" style="color:#1d4ed8;text-decoration:none;font-weight:600;">産休・育休の年の上限額 →</a><br>
-    <a href="/furusato/haito/" style="color:#1d4ed8;text-decoration:none;font-weight:600;">配当は申告した方が得？（国保加入者の損得判定）→</a>
+    <a href="/furusato/" style="color:var(--acc);text-decoration:none;font-weight:600;">自己負担2,000円で済む寄附の上限額を計算する →</a><br>
+    <a href="/furusato/jieigyo/" style="color:var(--acc);text-decoration:none;font-weight:600;">自営業・国保加入者の上限額（国保料を自動計算）→</a><br>
+    <a href="/furusato/ikukyu/" style="color:var(--acc);text-decoration:none;font-weight:600;">産休・育休の年の上限額 →</a><br>
+    <a href="/furusato/haito/" style="color:var(--acc);text-decoration:none;font-weight:600;">配当は申告した方が得？（国保加入者の損得判定）→</a>
   </p>
 
   <div class="note">
@@ -182,7 +182,7 @@
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
 
   <div style="text-align:center;margin-top:6px;">
-    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
       <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>
@@ -375,7 +375,7 @@
       }
       h += '<h2 style="margin-top:18px;">控除はいつ戻るか</h2>';
       if (r.donation) {
-        h += '<div class="hint" style="margin:0 0 6px;">寄附額 ' + yen(r.donation) + ' が上限額の範囲内なら、控除の合計は約 <b>' + yen(Math.max(0, r.donation - 2000)) + '</b>（自己負担 2,000円）。上限額は <a href="/furusato/" style="color:#1d4ed8;">上限額の計算</a> で確かめられます。</div>';
+        h += '<div class="hint" style="margin:0 0 6px;">寄附額 ' + yen(r.donation) + ' が上限額の範囲内なら、控除の合計は約 <b>' + yen(Math.max(0, r.donation - 2000)) + '</b>（自己負担 2,000円）。上限額は <a href="/furusato/" style="color:var(--acc);">上限額の計算</a> で確かめられます。</div>';
       }
       h += '<div class="kv"><span>ワンストップ特例</span><b style="text-align:left;flex:1.4;font-weight:500;">' + esc(D.recovery.onestop) + '</b></div>' +
            '<div class="kv"><span>確定申告</span><b style="text-align:left;flex:1.4;font-weight:500;">' + esc(D.recovery.shinkoku) + '</b></div>' +

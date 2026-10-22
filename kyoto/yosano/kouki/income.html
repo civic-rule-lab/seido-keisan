@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://seido-keisan.jp/kyoto/kouki/income.html">
 <meta property="og:site_name" content="制度計算.jp">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<link rel="stylesheet" href="/css/common.css?v=1a24fbbc">
 <title>与謝野町の後期高齢者医療保険料を詳しく計算（世帯対応）【令和8年度（2026年度）】</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"京都府","item":"https://seido-keisan.jp/#kyoto"},{"@type":"ListItem","position":3,"name":"与謝野町","item":"https://seido-keisan.jp/kyoto/yosano/"}]},{"@type":"WebApplication","name":"与謝野町 後期高齢者医療保険料計算ツール（令和8年度（2026年度））","description":"与謝野町（京都府）の令和8年度（2026年度）後期高齢者医療保険料を世帯の被保険者ごとに詳しく計算。複数の被保険者・被扶養者軽減・世帯合算の軽減判定に対応した精密シミュレーション。","url":"https://seido-keisan.jp/kyoto/yosano/kouki/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"publisher":{"@id":"https://seido-keisan.jp/about/#organization"}},{"@type":"Organization","@id":"https://seido-keisan.jp/about/#organization","name":"Civic Rule Lab","alternateName":"Civic Systems","url":"https://seido-keisan.jp/about/"}]}</script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
@@ -22,19 +22,19 @@
   gtag('config', 'G-H15R1TNWD2');
 </script>
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
   .h1-seg{display:block;word-break:keep-all;}
   .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
-  .mode-title{margin:24px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  .mode-title{margin:24px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
   label{display:block;font-size:14px;font-weight:700;margin:16px 0 7px;color:#111827;}
   input,select{width:100%;padding:13px 13px;font-size:16px;font-weight:500;border:2px solid #cbd5e1;border-radius:11px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
   input::placeholder{color:#9ca3af;font-weight:400;}
-  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
-  button{width:100%;margin-top:24px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
-  button:hover{background:#1e40af;}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
+  button{width:100%;margin-top:24px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
   .member{margin-top:18px;padding:14px 14px 4px;border:1px solid #e5e7eb;border-radius:12px;background:#fcfdff;}
-  .member-head{font-size:14px;font-weight:700;color:#1d4ed8;margin:0 0 2px;}
+  .member-head{font-size:14px;font-weight:700;color:var(--acc);margin:0 0 2px;}
   .member label{margin-top:12px;}
   .dep-label{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:700;margin:12px 0 2px;color:#111827;cursor:pointer;}
   .dep-label input{width:auto;margin:3px 0 0;flex:none;}
@@ -44,10 +44,10 @@
   .amount{font-size:16px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
   .result-placeholder{color:#9ca3af;font-size:14px;}
   .mem-card{margin:14px 0 0;padding-bottom:10px;border-bottom:1px solid #eef2f7;}
-  .mem-card-head{font-size:14px;font-weight:700;color:#1d4ed8;margin:0 0 6px;}
+  .mem-card-head{font-size:14px;font-weight:700;color:var(--acc);margin:0 0 6px;}
   .hh-total{margin-top:16px;padding:14px 16px;background:#f0f6ff;border-radius:12px;}
   .hh-total .result-label{font-weight:700;color:#111827;}
-  .hh-total .amount{color:#1d4ed8;font-size:19px;}
+  .hh-total .amount{color:var(--acc);font-size:19px;}
   .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
   .kt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
   .kt-card .kt-card-title{font-size:13px;font-weight:700;color:#0369a1;margin-bottom:8px;}
@@ -118,7 +118,7 @@
   </div>
 
   <p style="margin-top:12px;font-size:13px;text-align:right;">
-    <a href="./" style="color:#1d4ed8;text-decoration:none;font-weight:600;">かんたん計算にもどる →</a>
+    <a href="./" style="color:var(--acc);text-decoration:none;font-weight:600;">かんたん計算にもどる →</a>
   </p>
   <p style="margin-top:6px;font-size:12px;text-align:right;">
     <a href="../kakeibo/" style="color:#6b7280;text-decoration:none;">この自治体の負担をまとめて見る →</a>
@@ -135,7 +135,7 @@
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
   <div style="text-align:center;margin-top:6px;">
-    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
       <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>

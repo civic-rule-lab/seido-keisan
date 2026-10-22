@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://seido-keisan.jp/furusato/haito/">
 <meta property="og:site_name" content="制度計算.jp">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<link rel="stylesheet" href="/css/common.css?v=1a24fbbc">
 <title>配当は申告した方が得？ 国保加入者の損得判定｜申告不要・申告分離・総合課税を所得税・住民税・国保料・ふるさと納税の上限で比較【2026年分】</title>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
@@ -23,29 +23,29 @@
 </script>
 <style>
   /* ── 自己完結スタイル（住民税ページ jumin-simple.html と同じ見た目） ── */
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
   .h1-seg{display:block;}
   .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
-  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:#1d4ed8;text-align:center;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
   label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
   .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
   input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
   input::placeholder{color:#9ca3af;font-weight:400;}
-  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
   .check{display:flex;align-items:flex-start;gap:8px;font-weight:500;font-size:14px;margin:14px 0 0;}
   .check input{width:auto;margin-top:3px;}
   .row3{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
-  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
-  button:hover{background:#1e40af;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
   button:active{transform:translateY(1px);}
   .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
-  .fz-card-title{font-size:15px;font-weight:700;color:#1d4ed8;margin:14px 0 4px;}
+  .fz-card-title{font-size:15px;font-weight:700;color:var(--acc);margin:14px 0 4px;}
   .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
   .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
   .result-label{font-size:15px;color:#374151;flex:1;}
   .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
-  .big{font-size:24px;color:#1d4ed8;}
+  .big{font-size:24px;color:var(--acc);}
   .result-placeholder{color:#9ca3af;font-size:14px;}
   .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
   .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
@@ -64,10 +64,10 @@
   .hb-table th{background:#f8fafc;font-weight:700;text-align:center;}
   .hb-table th:first-child,.hb-table td:first-child{width:30%;text-align:left;font-size:12px;line-height:1.4;white-space:normal;}
   .hb-unit{font-size:11px;color:#6b7280;text-align:right;margin-top:8px;}
-  .hb-table .hb-best{background:#eff6ff;font-weight:700;}
+  .hb-table .hb-best{background:var(--acc-bg);font-weight:700;}
   @media (max-width:420px){ .hb-table{font-size:12px;} .hb-table th,.hb-table td{padding:6px 3px;} .hb-table th:first-child,.hb-table td:first-child{font-size:11px;} }
   .ci-sub{font-size:12px;color:#6b7280;line-height:1.7;}
-  .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:#eff6ff;color:#1d4ed8;text-decoration:none;font-weight:600;font-size:13px;}
+  .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:var(--acc-bg);color:var(--acc);text-decoration:none;font-weight:600;font-size:13px;}
 </style>
 </head>
 
@@ -216,8 +216,8 @@
       .portal-box .pb-title{font-size:14px;font-weight:700;color:#111827;margin:0 0 6px;}
       .portal-box .pb-lead{font-size:13px;line-height:1.8;color:#374151;margin:0 0 8px;}
       .portal-box ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:#1d4ed8;font-size:14px;font-weight:600;text-decoration:none;}
-      .portal-box li a:hover{background:#eff6ff;border-color:#93c5fd;}
+      .portal-box li a{display:block;text-align:center;padding:10px 8px;border:1px solid #cbd5e1;border-radius:10px;background:#f8fafc;color:var(--acc);font-size:14px;font-weight:600;text-decoration:none;}
+      .portal-box li a:hover{background:var(--acc-bg);border-color:var(--acc-line-strong);}
       .portal-box .pb-ext{font-size:11px;margin-left:3px;color:#64748b;}
       .portal-box .pb-note{font-size:12px;line-height:1.8;color:#6b7280;margin:8px 0 0;}
       @media (max-width:420px){.portal-box ul{grid-template-columns:1fr;}}
@@ -249,7 +249,7 @@
     ・<b>申告分離課税</b>: 税率は申告不要と同じ。譲渡損との損益通算ができますが、申告した配当は国保料の所得と上限の所得割に入ります。<br>
     ・<b>総合課税</b>: 他の所得と合算して累進税率。配当控除（所得税 10%・住民税 2.8%。課税所得 1,000 万円超の部分は半分）が引かれます。国保料の所得にも入ります。<br>
     ・所得税と住民税で別の方式は選べません（所得税の確定申告で選んだ方式が住民税にも使われます）。<br>
-    ・<a href="/furusato/jieigyo/" style="color:#1d4ed8;font-weight:600;">配当を入れない上限額の計算（自営業・国保加入者）→</a>
+    ・<a href="/furusato/jieigyo/" style="color:var(--acc);font-weight:600;">配当を入れない上限額の計算（自営業・国保加入者）→</a>
   </div>
 
   <div class="note">
@@ -265,7 +265,7 @@
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
 
   <div style="text-align:center;margin-top:6px;">
-    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
       <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>

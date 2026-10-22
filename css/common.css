@@ -1,8 +1,26 @@
+/* ==== 制度色トークン（2026-10-22 X218・正本: 制度計算　総合管理/制度別カラー決定_2026-10-22.md）
+   既定は国保の青。制度ごとの上書きは html[data-system] で行う（次の PR）。
+   --brand（Civic Rule Lab の水色）は制度で変えない。 ==== */
+:root{
+  --acc:#1d4ed8;        /* ボタン・強調文字・見出し色 */
+  --acc-strong:#1e40af; /* hover */
+  --acc-soft:#2563eb;   /* フォーカス枠・リンク */
+  --acc-ring:rgba(37,99,235,0.15); /* フォーカスの輪 */
+  --acc-bg:#eff6ff;     /* 淡い塗り */
+  --tint:#eef2ff;       /* 背景グラデーションの上端 */
+  --acc-shadow:rgba(29,78,216,0.25); /* ボタンの影 */
+  --acc-ring-soft:rgba(37,99,235,0.10); /* hover の薄い影 */
+  --acc-bg-2:#dbeafe;   /* 淡い塗り（やや濃） */
+  --acc-line:#bfdbfe;   /* 淡い枠線 */
+  --acc-line-strong:#93c5fd; /* 枠線の hover */
+  --brand:#7fd4e6;
+}
+
 body{
   font-family:sans-serif;
   margin:0;
   padding:20px;
-  background:linear-gradient(180deg,#eef2ff 0%, #f8fbff 100%);
+  background:linear-gradient(180deg,var(--tint) 0%, #f8fbff 100%);
   color:#222;
 }
 
@@ -27,7 +45,7 @@ body{
 .brand{
   font-size:20px;
   font-weight:700;
-  color:#7fd4e6;
+  color:var(--brand);
   text-align:center;
   margin-bottom:2px;
 }
@@ -35,7 +53,7 @@ body{
 .tagline{
   font-size:14px;
   font-weight:500;
-  color:#7fd4e6;
+  color:var(--brand);
   text-align:center;
   margin-bottom:16px;
 }
@@ -78,7 +96,7 @@ h1{
   margin-bottom:12px;
   font-size:28px;
   font-weight:700;
-  color:#1d4ed8;
+  color:var(--acc);
   text-align:center;
 }
 
@@ -106,8 +124,8 @@ input{
 
 input:focus{
   outline:none;
-  border-color:#2563eb;
-  box-shadow:0 0 0 3px rgba(37,99,235,0.15);
+  border-color:var(--acc-soft);
+  box-shadow:0 0 0 3px var(--acc-ring);
 }
 
 input::placeholder{
@@ -125,14 +143,14 @@ button{
   font-weight:700;
   border:none;
   border-radius:999px;
-  background:#1d4ed8;
+  background:var(--acc);
   color:#ffffff;
   cursor:pointer;
   box-shadow:0 6px 16px rgba(0,0,0,0.15);
 }
 
 button:hover{
-  background:#1e40af;
+  background:var(--acc-strong);
 }
 
 button:active{
@@ -246,15 +264,15 @@ button:active{
 .reduction-box{
   margin-top:16px;
   padding:14px;
-  background:#eff6ff;
-  border:1px solid #bfdbfe;
+  background:var(--acc-bg);
+  border:1px solid var(--acc-line);
   border-radius:12px;
 }
 
 .reduction-title{
   font-size:15px;
   font-weight:700;
-  color:#1d4ed8;
+  color:var(--acc);
   margin-bottom:8px;
 }
 
@@ -279,7 +297,7 @@ button:active{
 }
 
 .link-box a{
-  color:#2563eb;
+  color:var(--acc-soft);
   font-weight:600;
   text-decoration:none;
 }
@@ -385,9 +403,9 @@ button:active{
   border:1px solid #99f6e4;
 }
 .result-note__badge--standard{
-  color:#1e40af;
-  background:#eff6ff;
-  border:1px solid #bfdbfe;
+  color:var(--acc-strong);
+  background:var(--acc-bg);
+  border:1px solid var(--acc-line);
   white-space:normal;
 }
 /* モバイルでは免責テキストとバッジを横並びにすると左テキストが極細列に潰れるため縦積みにする */
@@ -415,7 +433,7 @@ button:active{
   color:#4b5563;
 }
 .note-pref__link{
-  color:#2563eb;
+  color:var(--acc-soft);
   text-decoration:none;
 }
 .note-pref__link:hover{ text-decoration:underline; }
@@ -432,7 +450,7 @@ button:active{
 .over75-note a{
   display:block;
   margin-top:2px;
-  color:#2563eb;
+  color:var(--acc-soft);
   text-decoration:none;
 }
 .over75-note a:hover{ text-decoration:underline; }

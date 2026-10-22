@@ -11,7 +11,7 @@
 <meta property="og:url" content="https://seido-keisan.jp/iwate/iwatemachi/kakeibo/">
 <meta property="og:site_name" content="制度計算.jp">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="/css/common.css?v=0ed6c6d6">
+<link rel="stylesheet" href="/css/common.css?v=1a24fbbc">
 <title>岩手町の税金・保険料はいくら？家計簿シミュレーター｜住民税・国保・介護まとめて計算【令和8年度】</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"岩手県","item":"https://seido-keisan.jp/#iwate"},{"@type":"ListItem","position":3,"name":"岩手町","item":"https://seido-keisan.jp/iwate/iwatemachi/"}]},{"@type":"WebApplication","name":"岩手町 家計簿シミュレーター（令和8年度）","description":"岩手町の税金・保険料はいくら？令和8年度の住民税・国民健康保険・介護保険の年間負担を、収入と家族構成からまとめて概算する家計簿シミュレーター。","url":"https://seido-keisan.jp/iwate/iwatemachi/kakeibo/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"publisher":{"@id":"https://seido-keisan.jp/about/#organization"}},{"@type":"Organization","@id":"https://seido-keisan.jp/about/#organization","name":"Civic Rule Lab","alternateName":"Civic Systems","url":"https://seido-keisan.jp/about/"}]}</script>
 <!-- Google tag (gtag.js) -->
@@ -24,7 +24,7 @@
 </script>
 <style>
   /* ── 家計簿シミュレーター 自己完結スタイル（common.css 不在でも整って見える） ── */
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#eef2ff 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
   .h1-seg{display:block;}
   .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
@@ -32,14 +32,14 @@
   /* 入力フォーム */
   label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
   input,select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
-  input[type="checkbox"]{width:18px;height:18px;min-width:18px;flex:0 0 auto;padding:0;margin:0;border-radius:4px;accent-color:#1d4ed8;cursor:pointer;}
+  input[type="checkbox"]{width:18px;height:18px;min-width:18px;flex:0 0 auto;padding:0;margin:0;border-radius:4px;accent-color:var(--acc);cursor:pointer;}
   input::placeholder{color:#9ca3af;font-weight:400;}
-  input:focus,select:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.15);}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
   select{appearance:none;-webkit-appearance:none;-moz-appearance:none;padding-right:42px;cursor:pointer;background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;}
   .field-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px;}
   .field-grid label{margin-top:0;}
-  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:#1d4ed8;color:#ffffff;cursor:pointer;box-shadow:0 6px 16px rgba(29,78,216,0.25);}
-  button:hover{background:#1e40af;}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
   button:active{transform:translateY(1px);}
 
   /* 結果（国保の計算ページと同じトーンの軽いリスト） */
@@ -53,13 +53,13 @@
 
   .ci-systems{margin:8px 0 0;}
   .ci-grp{margin:14px 0 0;background:#f8fafc;border:1px solid #eef2f7;border-radius:12px;padding:13px 15px;}
-  .ci-grp-head{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;color:#1d4ed8;margin:0 0 6px;padding-bottom:5px;border-bottom:1px solid #eef2f7;}
+  .ci-grp-head{display:flex;justify-content:space-between;align-items:baseline;font-size:15px;font-weight:700;color:var(--acc);margin:0 0 6px;padding-bottom:5px;border-bottom:1px solid #eef2f7;}
   .ci-grp-head .ci-grp-sum{font-size:15px;font-weight:700;color:#0f172a;}
   .ci-sub{font-size:13px;color:#9ca3af;}
   .ci-total{margin-top:22px;padding:16px 16px 14px;background:#f0f6ff;border-radius:14px;}
-  .ci-total .amount{color:#1d4ed8;font-size:24px;}
+  .ci-total .amount{color:var(--acc);font-size:24px;}
   .ci-links{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 0;}
-  .ci-links a{font-size:13px;color:#1d4ed8;text-decoration:none;border:1px solid #bfdbfe;border-radius:999px;padding:5px 14px;}
+  .ci-links a{font-size:13px;color:var(--acc);text-decoration:none;border:1px solid var(--acc-line);border-radius:999px;padding:5px 14px;}
 </style>
 </head>
 
@@ -69,7 +69,7 @@
 
   <h1 style="margin-top:28px;margin-bottom:6px;font-size:clamp(26px,4.2vw,30px);text-align:center;"><span class="h1-seg">岩手町</span><span class="h1-seg">家計簿シミュレーター</span><span class="h1-year">【令和8年度】</span></h1>
 
-  <h2 style="margin:0 0 22px;font-size:clamp(16px,2.6vw,18px);font-weight:600;color:#1d4ed8;text-align:center;">税金・保険料まとめて計算</h2>
+  <h2 style="margin:0 0 22px;font-size:clamp(16px,2.6vw,18px);font-weight:600;color:var(--acc);text-align:center;">税金・保険料まとめて計算</h2>
 
   <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 28px;">引っ越し・退職・年金開始などで変わる「住民税・国民健康保険・介護保険」の負担を、収入と家族構成から一括で概算します。データのある制度のみ表示されます。</p>
 
@@ -164,7 +164,7 @@
     </div>
   </div>
 
-  <div id="hoikuBlock" style="display:none;margin-top:18px;padding:14px;border:1px solid #dbeafe;border-radius:12px;background:#f8fbff;">
+  <div id="hoikuBlock" style="display:none;margin-top:18px;padding:14px;border:1px solid var(--acc-bg-2);border-radius:12px;background:#f8fbff;">
     <label style="display:flex;align-items:center;gap:8px;margin:0;font-weight:600;cursor:pointer;">
       <input type="checkbox" id="hoikuOptIn" onchange="document.getElementById('hoikuDetail').style.display=this.checked?'block':'none';">
       保育料も試算する（0〜2歳のお子さんが認可保育所）
@@ -185,7 +185,7 @@
       <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
         <input type="checkbox" id="hoikuHitorioya"> ひとり親世帯・世帯員に障害者がいる
       </label>
-      <div class="note" style="margin-top:8px;">保育時間=標準時間・施設=認可保育所を仮定した概算です。保育時間・施設種別・在園外きょうだいの軽減は<a href="../hoiku/" style="color:#1d4ed8;font-weight:600;">保育料を詳しく計算 →</a>で反映できます。</div>
+      <div class="note" style="margin-top:8px;">保育時間=標準時間・施設=認可保育所を仮定した概算です。保育時間・施設種別・在園外きょうだいの軽減は<a href="../hoiku/" style="color:var(--acc);font-weight:600;">保育料を詳しく計算 →</a>で反映できます。</div>
     </div>
   </div>
 
@@ -267,7 +267,7 @@
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
 
   <div style="text-align:center;margin-top:6px;">
-    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:#7fd4e6;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
       <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
       <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
     </a>
@@ -612,7 +612,7 @@
       grand += rj.total;
       cards.push(card("住民税", rj.total, [
         ["所得割", rj.incomeLevy],["均等割（森林環境税含む）", rj.perCapita]
-      ], "#1d4ed8"));
+      ], "var(--acc)"));
       // 住民税・所得税・保育料・ふるさと納税の上限に共通して使った社会保険料控除の内訳（どの保険料を引いたかを見せる）
       if(siParts.length){
         cards.push("<div class='ci-sub' style='margin:-6px 0 10px;line-height:1.7;'>社会保険料控除（住民税・所得税に共通）: "+yen(socialInsurance)
@@ -625,7 +625,7 @@
       // 均等割の非課税基準をわずかに上回る帯は、条例で基準額を切り上げている自治体では非課税になりうる（2026-10-09 TASKS X180-4）
       if(rj.kintoBorderline) cards.push("<div class='ci-sub' style='color:#92400e;margin:4px 0 10px;line-height:1.7;'>※この収入は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+rj.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になり、介護保険料・保育料の判定も変わることがあります。お住まいの自治体でご確認ください。</div>");
       // 住民税の単独ページは registry で住民税を公開している自治体だけにある。データの有無で出すと 1,188 ページで 404 だった（TASKS X180-2）
-      if(HAS_JUMIN_PAGE) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"#1d4ed8"});
+      if(HAS_JUMIN_PAGE) detailLinks.push({href:"../jumin/", label:"住民税を詳しく計算", color:"var(--acc)"});
     }catch(e){ cards.push(skip("住民税", "計算できませんでした")); }
 
     // ── 所得税（給与所得者・基礎控除＋社会保険料控除のみ反映の概算。全国一律。賞与込みの給与収入で計算） ──
@@ -668,7 +668,7 @@
         detailLinks.push({href:"../kouki/", label:"後期高齢者医療を詳しく計算", color:"#0d9488"});
       } else {
         // 75歳以上は国保の対象外。データが無いときは個別ページに委ね、導線のみ示す。
-        cards.push("<div class='ci-grp'><div class='ci-grp-head'>後期高齢者医療<span class='ci-sub'>75歳以上</span></div><div class='ci-sub' style='line-height:1.7;color:#6b7280;'>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です。</div><div style='margin-top:7px;text-align:right;'><a href='../kouki/' style='font-size:13px;color:#1d4ed8;text-decoration:none;font-weight:600;'>後期高齢者医療を計算する →</a></div></div>");
+        cards.push("<div class='ci-grp'><div class='ci-grp-head'>後期高齢者医療<span class='ci-sub'>75歳以上</span></div><div class='ci-sub' style='line-height:1.7;color:#6b7280;'>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です。</div><div style='margin-top:7px;text-align:right;'><a href='../kouki/' style='font-size:13px;color:var(--acc);text-decoration:none;font-weight:600;'>後期高齢者医療を計算する →</a></div></div>");
       }
     } else if(isKaishain){
       // 会社員：協会けんぽ健保（介護第2号・子育て支援金含む）＋厚生年金＋雇用保険の本人負担（年額）。国保カードは出さない。
@@ -769,9 +769,9 @@
           });
           var _hoikuAnnual = (rh.monthly||0)*12;
           grand += _hoikuAnnual;
-          cards.push(card("保育料（認可・0〜2歳）", _hoikuAnnual, [["月額", rh.monthly||0]], "#db2777", "#1d4ed8"));
+          cards.push(card("保育料（認可・0〜2歳）", _hoikuAnnual, [["月額", rh.monthly||0]], "#db2777", "var(--acc)"));
           if(rh.kintoBorderNote) cards.push("<div class='ci-sub' style='color:#92400e;margin:4px 0 10px;line-height:1.7;'>※収入が、住民税（均等割）が非課税になる基準をわずかに上回っています。条例で基準額を少し高く定めている自治体では住民税非課税世帯となり、保育料が変わることがあります。</div>");
-          detailLinks.push({href:"../hoiku/", label:"保育料を詳しく計算", color:"#db2777", textColor:"#1d4ed8"});
+          detailLinks.push({href:"../hoiku/", label:"保育料を詳しく計算", color:"#db2777", textColor:"var(--acc)"});
         }catch(e){ cards.push(skip("保育料（認可・0〜2歳）", "計算できませんでした")); }
       } else { cards.push(skip("保育料（認可・0〜2歳）", "この自治体のデータは準備中")); }
     }
@@ -855,7 +855,7 @@
     // ── 「詳しく計算する」導線：カード枠は付けず、制度色のピルで並べる ──
     if(detailLinks.length){
       var _dl = detailLinks.map(function(l){
-        var c=l.color||"#1d4ed8", t=l.textColor||c;   // 枠=c / 文字=t（保育料は枠ピンク・文字青）
+        var c=l.color||"var(--acc)", t=l.textColor||c;   // 枠=c / 文字=t（保育料は枠ピンク・文字青）
         var ext=l.external?" target='_blank' rel='noopener'":"";
         return "<a href='"+l.href+"'"+ext+" style='display:inline-block;font-size:13px;color:"+t+";text-decoration:none;font-weight:600;border:1.5px solid "+c+";border-radius:999px;padding:6px 14px;margin:8px 8px 0 0;'>"+l.label+" →</a>";
       }).join("");
@@ -871,7 +871,7 @@
   };
 
   function card(name, total, rows, accent, textColor){
-    accent = accent || "#1d4ed8";
+    accent = accent || "var(--acc)";
     var tc = textColor || accent;   // 枠色(accent)と文字色(textColor)を分けられる（保育料=枠ピンク/文字青）
     var inner=rows.map(function(r){return "<div class='result-row'><div class='result-label' style='font-size:15px;'>"+r[0]+"</div><div class='amount' style='font-size:16px;'>"+(r[1]<0?"-":"")+Math.abs(Math.round(r[1])).toLocaleString()+" 円</div></div>";}).join("");
     return "<div class='ci-grp' style='border-left:4px solid "+accent+";'><div class='ci-grp-head' style='color:"+tc+";'>"+name+"<span class='ci-grp-sum'>約 "+Math.round(total).toLocaleString()+" 円/年</span></div>"+inner+"</div>";
@@ -920,10 +920,10 @@
       var isFree = hd.status==="free" || (hd.freePolicy && hd.freePolicy.firstChild);
       if(isFree){
         // 無償のまちは試算フォームを出さず、無償の案内だけ表示（合計にも乗せない）
-        b.innerHTML='<div style="font-weight:600;">保育料（0〜2歳・認可）</div><div class="note" style="margin-top:4px;">このまちは第1子から<b>無償（0円）</b>です。認可外・3歳以上などの別枠は<a href="../hoiku/" style="color:#1d4ed8;font-weight:600;">保育料ページ →</a>でご確認ください。</div>';
+        b.innerHTML='<div style="font-weight:600;">保育料（0〜2歳・認可）</div><div class="note" style="margin-top:4px;">このまちは第1子から<b>無償（0円）</b>です。認可外・3歳以上などの別枠は<a href="../hoiku/" style="color:var(--acc);font-weight:600;">保育料ページ →</a>でご確認ください。</div>';
       } else if(hd.inputBasis==="shotokuwari-direct"){
         // 名古屋型（税源移譲前所得割で直接判定）は年収から導けないため家計簿では試算せず誘導
-        b.innerHTML='<div style="font-weight:600;">保育料（0〜2歳・認可）</div><div class="note" style="margin-top:4px;">このまちの保育料は市民税の課税額から直接判定するため、家計簿の年収試算には対応していません。<a href="../hoiku/" style="color:#1d4ed8;font-weight:600;">保育料を詳しく計算 →</a></div>';
+        b.innerHTML='<div style="font-weight:600;">保育料（0〜2歳・認可）</div><div class="note" style="margin-top:4px;">このまちの保育料は市民税の課税額から直接判定するため、家計簿の年収試算には対応していません。<a href="../hoiku/" style="color:var(--acc);font-weight:600;">保育料を詳しく計算 →</a></div>';
       }
       b.style.display="block";
     }).catch(function(){}); }
