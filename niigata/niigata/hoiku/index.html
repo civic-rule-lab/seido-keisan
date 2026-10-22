@@ -3,7 +3,7 @@
      ※移行時は kokuho-core/templates/hoiku-simple.html へ。プレースホルダは generate-hoiku-pages.js が置換。
      ※結線は jumin-simple.html と同方式（テンプレ内インラインscript＋{"slug":"niigata","citySlug":"niigata","cityCode":"15100","cityName":"新潟市","pref":"niigata","prefSlug":"niigata","system":"hoiku","year":2026,"status":"verified","source":{"name":"新潟市 令和8年4月 新潟市保育料等のお知らせ(保育料金額表①②③) 3歳未満児(3号認定)","page":"https://www.city.niigata.lg.jp/kosodate/ninshin/life_stage/azuketai/hoiku_sanntei.html","pdf":"https://www.city.niigata.lg.jp/kosodate/ninshin/life_stage/azuketai/hoiku_sanntei.files/R8hoikuryouhyou.pdf","asOf":"2026-07-06","raw":"data/municipalities/niigata/_source-r8.md","note":"令和8年4月版[確認済]。6%算定基準額で階層判定・8%通知は6/8換算[確認済]。第2子=表①第1子×1/4(新潟独自)[確認済]。第3子以降0[確認済]。表②(非在園の年上きょうだい=第2子×1/2)はchild2alt(selector:olderSiblingNotEnrolled)で実装済[確認済]。"},"seireiConversion":true,"inputBasis":"salary","fiscalSwitch":9,"multiChild":{"third":0,"note":"第3子以降=全階層無償。第2子は各階層 child2 の実額(表①=第1子×1/4)。表②は child2alt で実装(下記 selector)。"},"selector":{"olderSiblingNotEnrolled":{"label":"保育施設に在籍していない年上のきょうだいがいますか？(小学生以上等)","appliesTo":"child2alt","table":"表②","note":"表②=市民税76,900円未満(6%算定基準57,700円未満=C/D1/D2A)かつ非在園の年上きょうだいがいる世帯。第2子=表①第1子×1/2(C:5500/D1:6650/D2A:8150[標準])。UIでこの1問を聞き input.olderSiblingNotEnrolled=true を渡すと child2alt が適用される。該当階層(C/D1/D2A)のみ child2alt を持つため index 条件を内包。","wiringContract":"⚠️UI結線: child2alt は childOrder===2 のときだけ発火する。表②の趣旨は「非在園の年上きょうだいを多子カウントに含める」なので、当該児が在園児だけなら第1子でもフラグON時は childOrder を+1して2として渡すこと(=非在園きょうだいを1人目に数える)。フラグONのまま childOrder=1 で渡すと第1子=表①11,000を返し表②が無効化される(倍額誤請求リスク)。"}},"brackets":[{"level":1,"criteria":"seikatsuhogo","label":"A(生活保護等)","standard":0,"short":0},{"level":2,"criteria":"hikazei","label":"B(市町村民税非課税)","standard":0,"short":0},{"level":3,"label":"C(所得割非課税)","standard":11000,"short":10800,"maxShotokuwari":0,"child2":{"standard":0,"short":0},"hitorioya":{"standard":5500,"short":5400,"child2":{"standard":0,"short":0}},"child2alt":{"selector":"olderSiblingNotEnrolled","standard":5500,"short":5400}},{"level":4,"label":"D1(6%48,600未満)","standard":13300,"short":13000,"maxShotokuwari":48599,"child2":{"standard":0,"short":0},"hitorioya":{"standard":6650,"short":6500,"child2":{"standard":0,"short":0}},"child2alt":{"selector":"olderSiblingNotEnrolled","standard":6650,"short":6500}},{"level":5,"label":"D2A(6%57,700未満)","standard":16300,"short":16000,"maxShotokuwari":57699,"child2":{"standard":4070,"short":4000},"hitorioya":{"standard":8150,"short":8000,"child2":{"standard":0,"short":0}},"child2alt":{"selector":"olderSiblingNotEnrolled","standard":8150,"short":8000}},{"level":6,"label":"D2B(6%60,000未満)","standard":16300,"short":16000,"maxShotokuwari":59999,"child2":{"standard":4070,"short":4000},"hitorioya":{"standard":8150,"short":8000,"child2":{"standard":0,"short":0}}},{"level":7,"label":"D3A(6%77,101未満)","standard":20500,"short":20100,"maxShotokuwari":77100,"child2":{"standard":5120,"short":5020},"hitorioya":{"standard":9000,"short":8850,"child2":{"standard":0,"short":0}}},{"level":8,"label":"D3B(6%79,000未満)","standard":20500,"short":20100,"maxShotokuwari":78999,"child2":{"standard":5120,"short":5020}},{"level":9,"label":"D4(6%97,000未満)","standard":25000,"short":24500,"maxShotokuwari":96999,"child2":{"standard":6250,"short":6120}},{"level":10,"label":"D5(6%114,000未満)","standard":29500,"short":28900,"maxShotokuwari":113999,"child2":{"standard":7370,"short":7220}},{"level":11,"label":"D6(6%140,000未満)","standard":33000,"short":32400,"maxShotokuwari":139999,"child2":{"standard":8250,"short":8100}},{"level":12,"label":"D7(6%169,000未満)","standard":37600,"short":36900,"maxShotokuwari":168999,"child2":{"standard":9400,"short":9220}},{"level":13,"label":"D8(6%199,000未満)","standard":43000,"short":42200,"maxShotokuwari":198999,"child2":{"standard":10750,"short":10550}},{"level":14,"label":"D9(6%301,000未満)","standard":48500,"short":47600,"maxShotokuwari":300999,"child2":{"standard":12120,"short":11900}},{"level":15,"label":"D10(6%336,000未満)","standard":53500,"short":52500,"maxShotokuwari":335999,"child2":{"standard":13370,"short":13120}},{"level":16,"label":"D11(6%336,000以上)","standard":57200,"short":56200,"child2":{"standard":14300,"short":14050}}]}埋め込み）。
      ※Fable5指摘の結線ルール①〜⑤をこのscriptで実装。 -->
-<html lang="ja">
+<html lang="ja" data-system="hoiku">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,11 +15,11 @@
 <meta property="og:url" content="https://seido-keisan.jp/niigata/niigata/hoiku/">
 <meta property="og:site_name" content="制度計算.jp">
 <meta property="og:locale" content="ja_JP">
-<link rel="stylesheet" href="/css/common.css?v=1a24fbbc">
+<link rel="stylesheet" href="/css/common.css?v=33b1e70b">
 <title>新潟市の保育料はいくら？かんたん計算【令和8年度】｜認可保育所・0〜2歳</title>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"新潟県","item":"https://seido-keisan.jp/#niigata"},{"@type":"ListItem","position":3,"name":"新潟市","item":"https://seido-keisan.jp/niigata/niigata/"}]},{"@type":"WebApplication","name":"新潟市 保育料計算ツール（令和8年度）","description":"新潟市の保育料（認可保育所・0〜2歳・3号認定）は令和8年度いくら？父母の年収から市民税所得割ベースで階層・多子軽減・ひとり親軽減を反映して無料でかんたん試算できます。","url":"https://seido-keisan.jp/niigata/niigata/hoiku/","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"publisher":{"@id":"https://seido-keisan.jp/about/#organization"}},{"@type":"Organization","@id":"https://seido-keisan.jp/about/#organization","name":"Civic Rule Lab","alternateName":"Civic Systems","url":"https://seido-keisan.jp/about/"}]}</script>
 <style>
-  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,#e7f6ee 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
   .wrap{max-width:560px;margin:0 auto;background:#fff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,.05);box-sizing:border-box;}
   h1{margin:28px 0 24px;font-size:clamp(24px,4.5vw,30px);text-align:center;}
   h1 .yr{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
@@ -27,7 +27,7 @@
   label{display:block;font-size:14px;font-weight:700;margin:16px 0 6px;color:#111827;}
   .hint{font-weight:400;color:#6b7280;font-size:12px;}
   input,select{width:100%;padding:12px 12px;font-size:16px;border:2px solid #cbd5e1;border-radius:12px;background:#fff;color:#0f172a;box-sizing:border-box;}
-  input:focus,select:focus{outline:none;border-color:#0b7285;box-shadow:0 0 0 3px rgba(11,114,133,.15);}
+  input:focus,select:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-ring);}
   .row{display:flex;gap:10px}.row>div{flex:1}
   .chk{display:flex;align-items:flex-start;gap:8px;margin:12px 0;font-size:14px;font-weight:500;}
   .chk input{width:auto;margin-top:3px;}
@@ -36,23 +36,23 @@
   .tabs button{flex:1;width:auto;margin:0;padding:10px 8px;border:0;border-radius:9px;background:transparent;box-shadow:none;font-size:13.5px;font-weight:600;line-height:1.3;color:#52606d;cursor:pointer;}
   .tabs button:hover{background:#f1f7f8;}
   .tabs button:active{transform:none;}
-  .tabs button.on{background:#d7eef2;color:#0b7285;font-weight:700;}
+  .tabs button.on{background:var(--acc-bg-2);color:var(--acc);font-weight:700;}
   .sec{font-size:12px;letter-spacing:.04em;color:#52606d;font-weight:700;border-top:1px solid #e5e7eb;padding-top:14px;margin:20px 0 2px;}
-  button.cta{width:100%;margin-top:22px;padding:15px;font-size:17px;font-weight:700;border:0;border-radius:999px;background:#0b7285;color:#fff;cursor:pointer;box-shadow:0 6px 16px rgba(11,114,133,.25);}
+  button.cta{width:100%;margin-top:22px;padding:15px;font-size:17px;font-weight:700;border:0;border-radius:999px;background:var(--acc);color:#fff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
   .result-title{margin-top:26px;font-size:16px;font-weight:700;}
   #result{margin-top:6px;}
   .result-row{display:flex;justify-content:space-between;gap:12px;margin-bottom:8px;}
   .amount{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap;}
   .ph{color:#9ca3af;font-size:14px;}
   .note{margin-top:18px;font-size:12px;line-height:1.9;color:#6b7280;}
-  .free-box{background:#e7f6ee;border:1px solid #b6e3c8;border-radius:14px;padding:22px 18px;text-align:center;}
+  .free-box{background:var(--tint);border:1px solid var(--acc-line);border-radius:14px;padding:22px 18px;text-align:center;}
   .free-box .big{font-size:24px;font-weight:800;color:#0b6b3a;margin:6px 0;}
   .free-box p{color:#2f6b4a;font-size:13.5px;margin:6px 0;}
   details{margin-top:16px;border:1px solid #e5e7eb;border-radius:12px;padding:8px 14px;}
   summary{cursor:pointer;font-weight:700;font-size:14px;color:#374151;}
   .warn{background:#fff6e5;border:1px solid #f0dca8;color:#a15c00;font-size:12.5px;padding:8px 10px;border-radius:8px;margin:8px 0;}
-  .kakeibo-card{display:flex;align-items:center;gap:12px;margin:24px 0 6px;padding:14px 16px;border:1px solid #b6e3c8;background:#f2fbf6;border-radius:14px;text-decoration:none;transition:background .15s;}
-  .kakeibo-card:hover{background:#e7f6ee;}
+  .kakeibo-card{display:flex;align-items:center;gap:12px;margin:24px 0 6px;padding:14px 16px;border:1px solid var(--acc-line);background:var(--acc-bg);border-radius:14px;text-decoration:none;transition:background .15s;}
+  .kakeibo-card:hover{background:var(--tint);}
   .kakeibo-ico{flex:0 0 auto;display:flex;}
   .kakeibo-main{display:block;font-size:14.5px;font-weight:700;color:#134e34;}
   .kakeibo-sub{display:block;font-size:12px;color:#4b7a5f;margin-top:2px;}
@@ -209,7 +209,7 @@
     var src=(M.freePolicy&&M.freePolicy.source&&M.freePolicy.source[0])||"";
     var html='<div class="free-box"><p>このまちの保育料は</p><div class="big">第1子から 0円（無償）</div>'
         +'<p>'+(since?since+"から、":"")+'認可保育所（0〜2歳）の保育料が無償化されています。</p>'
-        +(src?'<p><a href="'+esc(src)+'" target="_blank" rel="noopener" style="color:#0b7285;font-size:12.5px;">根拠（公式）→</a></p>':'')
+        +(src?'<p><a href="'+esc(src)+'" target="_blank" rel="noopener" style="color:var(--acc);font-size:12.5px;">根拠（公式）→</a></p>':'')
         +'</div>'
         +'<details><summary>無償の対象外かもしれない場合（認可外・企業主導型・3歳以上の別制度など）</summary>'
         +'<div class="note" style="margin-top:10px">認可保育所以外（認可外・企業主導型保育など）や、幼稚園・3歳以上の別制度は無償化の枠組みが異なります。'

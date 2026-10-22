@@ -16,6 +16,39 @@
   --brand:#7fd4e6;
 }
 
+/* ==== 制度ごとの上書き（2026-10-22 X218 段階3・オーナー決定 10 制度の色）====
+   テンプレートの <html data-system="…"> で切り替える。国保は既定（青）のまま。
+   社保（オレンジ）・奨学金（緑）は別リポのため、ここには無い。 */
+html[data-system="jumin"]{ /* 住民税=灰色 */
+  --acc:#334155; --acc-strong:#1e293b; --acc-soft:#475569; --acc-ring:rgba(71,85,105,0.15); --acc-ring-soft:rgba(71,85,105,0.10); --acc-shadow:rgba(51,65,85,0.25);
+  --acc-bg:#f8fafc; --acc-bg-2:#f1f5f9; --acc-line:#cbd5e1; --acc-line-strong:#94a3b8; --tint:#f1f5f9;
+}
+html[data-system="hoiku"]{ /* 保育料=ピンク */
+  --acc:#be185d; --acc-strong:#9d174d; --acc-soft:#db2777; --acc-ring:rgba(219,39,119,0.15); --acc-ring-soft:rgba(219,39,119,0.10); --acc-shadow:rgba(190,24,93,0.25);
+  --acc-bg:#fdf2f8; --acc-bg-2:#fce7f3; --acc-line:#fbcfe8; --acc-line-strong:#f9a8d4; --tint:#fdf2f8;
+}
+html[data-system="kaigo"]{ /* 介護保険=紫 */
+  --acc:#6d28d9; --acc-strong:#5b21b6; --acc-soft:#7c3aed; --acc-ring:rgba(124,58,237,0.15); --acc-ring-soft:rgba(124,58,237,0.10); --acc-shadow:rgba(109,40,217,0.25);
+  --acc-bg:#f5f3ff; --acc-bg-2:#ede9fe; --acc-line:#ddd6fe; --acc-line-strong:#c4b5fd; --tint:#f5f3ff;
+}
+html[data-system="kouki"]{ /* 後期高齢者医療=黄色 */
+  --acc:#b45309; --acc-strong:#92400e; --acc-soft:#d97706; --acc-ring:rgba(217,119,6,0.15); --acc-ring-soft:rgba(217,119,6,0.10); --acc-shadow:rgba(180,83,9,0.25);
+  --acc-bg:#fffbeb; --acc-bg-2:#fef3c7; --acc-line:#fde68a; --acc-line-strong:#fcd34d; --tint:#fffbeb;
+}
+html[data-system="shotoku"]{ /* 所得税=茶 */
+  --acc:#7c2d12; --acc-strong:#431407; --acc-soft:#9a3412; --acc-ring:rgba(154,52,18,0.15); --acc-ring-soft:rgba(154,52,18,0.10); --acc-shadow:rgba(124,45,18,0.25);
+  --acc-bg:#fff7ed; --acc-bg-2:#ffedd5; --acc-line:#fed7aa; --acc-line-strong:#fdba74; --tint:#fdf4ec;
+}
+html[data-system="furusato"]{ /* ふるさと納税=赤 */
+  --acc:#b91c1c; --acc-strong:#991b1b; --acc-soft:#dc2626; --acc-ring:rgba(220,38,38,0.15); --acc-ring-soft:rgba(220,38,38,0.10); --acc-shadow:rgba(185,28,28,0.25);
+  --acc-bg:#fef2f2; --acc-bg-2:#fee2e2; --acc-line:#fecaca; --acc-line-strong:#fca5a5; --tint:#fef2f2;
+}
+html[data-system="seido"]{ /* 制度計算（まとめ）=シアン */
+  --acc:#0e7490; --acc-strong:#155e75; --acc-soft:#0891b2; --acc-ring:rgba(8,145,178,0.15); --acc-ring-soft:rgba(8,145,178,0.10); --acc-shadow:rgba(14,116,144,0.25);
+  --acc-bg:#ecfeff; --acc-bg-2:#cffafe; --acc-line:#a5f3fc; --acc-line-strong:#67e8f9; --tint:#ecfeff;
+}
+
+
 body{
   font-family:sans-serif;
   margin:0;
