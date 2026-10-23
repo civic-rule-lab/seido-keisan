@@ -474,11 +474,11 @@
     [1330000, [30000, 20000, 10000]]
   ]
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
-<script src="/js/core/shared/ui-input.js?v=03945dd3"></script>
-<script src="/js/core/shared/income.js?v=03945dd3"></script>
-<script src="/js/core/jumin.js?v=03945dd3"></script>
-<script src="/js/core/kokuho.js?v=03945dd3"></script>
-<script src="/js/core/furusato.js?v=03945dd3"></script>
+<script src="/js/core/shared/ui-input.js?v=515f7e77"></script>
+<script src="/js/core/shared/income.js?v=515f7e77"></script>
+<script src="/js/core/jumin.js?v=515f7e77"></script>
+<script src="/js/core/kokuho.js?v=515f7e77"></script>
+<script src="/js/core/furusato.js?v=515f7e77"></script>
 <script>
 (function(){
   "use strict";
@@ -549,15 +549,19 @@
     // 配偶者の国民年金（第1号）: 国保加入・20〜59歳で、本人がまとめて払う前提のときだけ本人の社会保険料控除に入れる（所得税法 第74条・地方税法 第314条の2 第1項第3号「生計を一にする配偶者の負担すべき社会保険料を支払った」）
     var spouseNenkin = (spouseInKokuho && input.spouseNenkin && spouseAge >= 20 && spouseAge < 60 && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
     var si = rk.total + nenkin + spouseNenkin;
+    // 本人の区分（ひとり親・寡婦・障害者）を住民税の所得控除にも入れる（地方税法 第314条の2第1項第6号・第8号・第8号の2。
+    //   寡婦・ひとり親は合計所得500万円以下）。合計所得135万円以下なら calculateJumin が非課税にする（第295条第1項第2号）
+    var st = calcSelfStatusDeductionJumin({ selfIncome: income, singleParent: input.selfStatus, selfDisability: input.selfDisability });
     var hd = furusatoHumanDeductionDiff({ selfTotalIncome: income, spouse: sd.humanDiffSpouse,
       dependentGeneral: input.depGeneral, dependentSpecific: input.depSpecific, dependentElderly: input.depElderly, dependentCohabitingParent: input.depParent,
-      selfDisability: input.selfDisability, singleParent: input.selfStatus, workingStudent: false }, FURUSATO_DATA);
+      selfDisability: input.selfDisability, singleParent: st.singleParent, workingStudent: false }, FURUSATO_DATA);
     var spouseDed = sd.deduction;   // 地方税法 第314条の2 第1項第10号・第10号の2
     var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;   // 第11号
     // 非課税判定の人数は同一生計配偶者（所得62万円以下＝配偶者控除の対象）＋扶養親族。特別控除の配偶者は数えない
     var dependents = (sd.kind === "haigu" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
     var rj = calculateJumin(juminData, { salary: 0, pension: 0, otherIncome: income, age: input.age, socialInsurance: si + kyosai, medicalDeduction: medical,
       spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents, humanDeductionDiff: hd,
+      singleParentDeduction: st.singleParentDeduction, disabilityDeduction: st.disabilityDeduction, selfDisabled: st.selfDisabled,
       fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: input.kyuchi });
     var kiso = furusatoShotokuBasicDeduction(rj.totalIncome, SHOTOKU_KISO_2026);
     var fz = calcFurusatoLimit({ incomeLevy: rj.incomeLevy, taxableIncome: rj.taxableIncome, humanDeductionDiff: rj.humanDeductionDiff, shotokuBasicDeduction: kiso }, FURUSATO_DATA);

@@ -91,10 +91,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"13111","citySlug":"ota","cityName":"大田区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済","baseTable":{"note":"無償化前の区利用者負担額基準額表(0-2歳・3号認定)。現在は東京都無償化で第1子から0円(上位のfreePolicy)。参照・エンジン検証用の下地表。","status":"verified","confidence":"確認済","source":["https://www.city.ota.tokyo.jp/seikatsu/kodomo/hoiku/hoikuryo/ketteihouhou.html"],"asOf":"2024-04-01","fiscalSwitch":9,"shortRate":0.983,"shortRule":"標準×0.983・100円未満切捨","ageColumns":{"standard_short":"age1_2","byAge":"age0(時間区分別{standard,short})"},"hitorioya":{"factor":0.4,"maxIndex":77100,"condition":"区市町村民税所得割<77,101(=指数<=77,100) かつ ひとり親世帯等","firstChildTreatment":"第1子×0.40","secondPlus":"無料(multiChildで0)"},"multiChild":{"second":0,"third":0,"countScope":"allChildren","note":"生計を一にする第1子の年齢問わず第2子以降無料(R5.10〜)"},"grandparentRule":"父母の住民税額合計が0円かつ祖父母と同住所の場合は祖父母の住民税額で算定[未モデル化]。","brackets":[{"level":1,"criteria":"seikatsuhogo","standard":0,"short":0},{"level":2,"criteria":"hikazei","standard":0,"short":0},{"level":3,"tier":"C1(均等割のみ)","standard":2000,"short":1900,"byAge":{"age0":{"standard":2000,"short":1900}},"maxShotokuwari":0},{"level":4,"tier":"C2","standard":3000,"short":2900,"byAge":{"age0":{"standard":3000,"short":2900}},"maxShotokuwari":29999},{"level":5,"tier":"C3","standard":4000,"short":3900,"byAge":{"age0":{"standard":4000,"short":3900}},"maxShotokuwari":49999},{"level":6,"tier":"C4","standard":5400,"short":5300,"byAge":{"age0":{"standard":5700,"short":5600}},"maxShotokuwari":59999},{"level":7,"tier":"C5","standard":8300,"short":8100,"byAge":{"age0":{"standard":8700,"short":8500}},"maxShotokuwari":69999},{"level":8,"tier":"C6","standard":11300,"short":11100,"byAge":{"age0":{"standard":11800,"short":11500}},"maxShotokuwari":79999},{"level":9,"tier":"C7","standard":14400,"short":14100,"byAge":{"age0":{"standard":15100,"short":14800}},"maxShotokuwari":89999},{"level":10,"tier":"C8","standard":17600,"short":17300,"byAge":{"age0":{"standard":18400,"short":18000}},"maxShotokuwari":99999},{"level":11,"tier":"C9","standard":19700,"short":19300,"byAge":{"age0":{"standard":20600,"short":20200}},"maxShotokuwari":113999},{"level":12,"tier":"C10","standard":21900,"short":21500,"byAge":{"age0":{"standard":22900,"short":22500}},"maxShotokuwari":127999},{"level":13,"tier":"C11","standard":24300,"short":23800,"byAge":{"age0":{"standard":25400,"short":24900}},"maxShotokuwari":141999},{"level":14,"tier":"C12","standard":26800,"short":26300,"byAge":{"age0":{"standard":28000,"short":27500}},"maxShotokuwari":155999},{"level":15,"tier":"C13","standard":28800,"short":28300,"byAge":{"age0":{"standard":30100,"short":29500}},"maxShotokuwari":169999},{"level":16,"tier":"C14","standard":30500,"short":29900,"byAge":{"age0":{"standard":31800,"short":31200}},"maxShotokuwari":193299},{"level":17,"tier":"C15","standard":33000,"short":32400,"byAge":{"age0":{"standard":34400,"short":33800}},"maxShotokuwari":216599},{"level":18,"tier":"C16","standard":36500,"short":35800,"byAge":{"age0":{"standard":38100,"short":37400}},"maxShotokuwari":239899},{"level":19,"tier":"C17","standard":38800,"short":38100,"byAge":{"age0":{"standard":40600,"short":39900}},"maxShotokuwari":263199},{"level":20,"tier":"C18","standard":40500,"short":39800,"byAge":{"age0":{"standard":42500,"short":41700}},"maxShotokuwari":286499},{"level":21,"tier":"C19","standard":42800,"short":42000,"byAge":{"age0":{"standard":44600,"short":43800}},"maxShotokuwari":309999},{"level":22,"tier":"C20","standard":43800,"short":43000,"byAge":{"age0":{"standard":45800,"short":45000}},"maxShotokuwari":339999},{"level":23,"tier":"C21","standard":45500,"short":44700,"byAge":{"age0":{"standard":47500,"short":46600}},"maxShotokuwari":369999},{"level":24,"tier":"C22","standard":49700,"short":48800,"byAge":{"age0":{"standard":51800,"short":50900}},"maxShotokuwari":399999},{"level":25,"tier":"C23","standard":55700,"short":54700,"byAge":{"age0":{"standard":57700,"short":56700}},"maxShotokuwari":449999},{"level":26,"tier":"C24","standard":61200,"short":60100,"byAge":{"age0":{"standard":63200,"short":62100}},"maxShotokuwari":499999},{"level":27,"tier":"C25","standard":66000,"short":64800,"byAge":{"age0":{"standard":68000,"short":66800}},"maxShotokuwari":549999},{"level":28,"tier":"C26","standard":69300,"short":68100,"byAge":{"age0":{"standard":71300,"short":70000}},"maxShotokuwari":599999},{"level":29,"tier":"C27","standard":69800,"short":68600,"byAge":{"age0":{"standard":71800,"short":70500}}}]}}; const CITY_SLUG = "ota"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=e8bc92be"></script>
-<script src="/js/core/shared/income.js?v=e8bc92be"></script>
-<script src="/js/core/jumin.js?v=e8bc92be"></script>
-<script src="/js/core/hoiku.js?v=e8bc92be"></script>
+<script src="/js/core/shared/ui-input.js?v=fe9beb01"></script>
+<script src="/js/core/shared/income.js?v=fe9beb01"></script>
+<script src="/js/core/jumin.js?v=fe9beb01"></script>
+<script src="/js/core/hoiku.js?v=fe9beb01"></script>
 <script>
 (function(){
   "use strict";
@@ -221,11 +221,36 @@
   }
 
   // ── 年収→jumin（父母それぞれ）。hoikuShotokuwari は固定6%換算・isTaxable も取得 ──
-  function juminOf(salary){
+  function juminOf(salary, fam){
     if(!salary) return {shotokuwari:0, taxable:false, borderline:false};
     var si=Math.round(salary*0.144);
-    var r=calculateJumin(null, {salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si, kyuchi:JUMIN_KYUCHI});
+    var r=calculateJumin(null, Object.assign({salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si, kyuchi:JUMIN_KYUCHI}, fam||{}));
     return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
+  }
+  // ── 世帯の家族を住民税の入力にする（年収から計算するときだけ） ──
+  //   ・16歳未満の子（保育所の子＋在園の兄姉＋在園していない年上のきょうだい）は扶養控除こそ無いが、
+  //     非課税限度額の人数（同一生計配偶者＋扶養親族）に入る（地方税法施行令 第47条の3・附則第3条の3）。
+  //     子は収入の多い方の保護者の扶養として数える。
+  //   ・保護者が2人なら、収入の少ない方の所得に応じて多い方に配偶者控除／配偶者特別控除（第314条の2第1項第10号・第10号の2）。
+  //     片方の年収が空欄で「ひとり親世帯」に印が無いときは、収入の無い配偶者がいるとみなす。
+  //   ・片方の年収が空欄で「ひとり親世帯」に印があるときは、ひとり親控除30万円（合計所得500万円以下）。
+  //     合計所得135万円以下なら非課税（第295条第1項第2号）。両方に年収があるときの印（世帯員に障害者がいる）は住民税には使わない。
+  function familyFor(fatherSalary, motherSalary, children, hitorioya){
+    var fatherMain = fatherSalary >= motherSalary;
+    var mainSalary = fatherMain ? fatherSalary : motherSalary, subSalary = fatherMain ? motherSalary : fatherSalary;
+    var mainIncome = calcSalaryIncome(mainSalary);
+    var main = { dependents: children, humanDeductionDiff: 50000 };
+    if(subSalary===0 && hitorioya){
+      var st = calcSelfStatusDeductionJumin({ selfIncome: mainIncome, singleParent: fatherMain ? "father" : "mother" });
+      main.singleParentDeduction = st.singleParentDeduction;
+      main.humanDeductionDiff += st.singleParent==="mother" ? 50000 : (st.singleParent==="father" ? 10000 : 0);   // 第37条第1号イの表
+    }else{
+      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) : 0 });
+      main.spouseDeduction = sd.deduction;
+      if(sd.kind==="haigu") main.dependents += 1;                                       // 同一生計配偶者
+      main.humanDeductionDiff += sd.humanDiffSpouse==="elderly" ? 100000 : (sd.humanDiffSpouse==="general" ? 50000 : 0);
+    }
+    return fatherMain ? { father: main, mother: null } : { father: null, mother: main };
   }
 
   // ── 試算 ──
@@ -253,7 +278,9 @@
         //    「両者所得割0のとき hikazei」を近似。厳密には通知書の非課税判定が要る（注記）。
         input.hikazei = (fs===0 && ms===0);
       }else{
-        var f=juminOf(num("fatherSalary")), m=juminOf(num("motherSalary"));
+        var _children = 1 + (Number(val("enrolledOlder"))||0) + (findSelector() && checked("selFlag") ? 1 : 0);
+        var fam = familyFor(num("fatherSalary"), num("motherSalary"), _children, input.hitorioya);
+        var f=juminOf(num("fatherSalary"), fam.father), m=juminOf(num("motherSalary"), fam.mother);
         input.father={shotokuwari:f.shotokuwari}; input.mother={shotokuwari:m.shotokuwari};
         input.isSeireiNotice=false; // 年収経路は固定6%済み（政令市補正しない）
         // ② 非課税＝父母AND（在籍親のみ。空欄親は taxable:false で AND を阻害しない）

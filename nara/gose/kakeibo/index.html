@@ -111,7 +111,7 @@
 
   <div id="familyBlock" style="margin-top:18px;padding:14px;border:1px solid #e5e7eb;border-radius:12px;background:#f8fafc;">
     <div style="font-weight:600;margin:0 0 4px;">扶養・配偶者（任意）</div>
-    <div class="note" style="margin:0 0 10px;">入れると住民税・所得税・保育料の指数・ふるさと納税の上限に反映します。空欄なら「配偶者・扶養なし」で計算します。16歳未満のお子さんは扶養控除が無いため人数に入れません。</div>
+    <div class="note" style="margin:0 0 10px;">入れると住民税・所得税・保育料の指数・ふるさと納税の上限に反映します。空欄なら「配偶者・扶養なし」で計算します。16歳未満のお子さんは扶養控除が無いため下の扶養の人数には入れず、いちばん下の欄に人数を入れてください（住民税が非課税になるかの判定に使います）。</div>
     <label for="famSpouse">配偶者控除</label>
     <select id="famSpouse" data-step="6">
       <option value="none" selected>受けない（配偶者がいない・配偶者の所得が多い）</option>
@@ -160,6 +160,12 @@
       <div>
         <label for="famDepParent">同居の親など（70歳以上）人数</label>
         <input id="famDepParent" data-step="10b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="field-grid">
+      <div>
+        <label for="famDepYoung">16歳未満の子 人数</label>
+        <input id="famDepYoung" data-step="10c" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
   </div>
@@ -279,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "gose"; const PREF_SLUG = "nara"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=f1e986cf"></script>
-<script src="/js/core/shared/income.js?v=f1e986cf"></script>
-<script src="/js/core/jumin.js?v=f1e986cf"></script>
-<script src="/js/core/kokuho.js?v=f1e986cf"></script>
-<script src="/js/core/kaigo.js?v=f1e986cf"></script>
-<script src="/js/core/kouki.js?v=f1e986cf"></script>
-<script src="/js/core/hoiku.js?v=f1e986cf"></script>
-<script src="/js/core/shaho.js?v=f1e986cf"></script>
-<script src="/js/core/shotoku.js?v=f1e986cf"></script>
-<script src="/js/core/shogakukin.js?v=f1e986cf"></script>
-<script src="/js/core/shogakukin-bridge.js?v=f1e986cf"></script>
-<script src="/js/core/furusato.js?v=f1e986cf"></script>
+<script src="/js/core/shared/ui-input.js?v=1587349b"></script>
+<script src="/js/core/shared/income.js?v=1587349b"></script>
+<script src="/js/core/jumin.js?v=1587349b"></script>
+<script src="/js/core/kokuho.js?v=1587349b"></script>
+<script src="/js/core/kaigo.js?v=1587349b"></script>
+<script src="/js/core/kouki.js?v=1587349b"></script>
+<script src="/js/core/hoiku.js?v=1587349b"></script>
+<script src="/js/core/shaho.js?v=1587349b"></script>
+<script src="/js/core/shotoku.js?v=1587349b"></script>
+<script src="/js/core/shogakukin.js?v=1587349b"></script>
+<script src="/js/core/shogakukin-bridge.js?v=1587349b"></script>
+<script src="/js/core/furusato.js?v=1587349b"></script>
 <script>
 (function () {
   "use strict";
@@ -393,7 +399,7 @@
     setupNumericInput("salary",{withCommas:true}); setupNumericInput("pension",{withCommas:true}); setupNumericInput("sideIncome",{withCommas:true}); setupNumericInput("age",{withCommas:false});
     setupNumericInput("family",{withCommas:false}); setupNumericInput("hoikuSpouse",{withCommas:true}); setupNumericInput("bonus",{withCommas:true});
     setupNumericInput("shogakuSpouse",{withCommas:true}); setupNumericInput("famSpouseSalary",{withCommas:true}); setupNumericInput("famSpousePension",{withCommas:true});
-    ["famDepGeneral","famDepSpecific","famDepElderly","famDepParent","famSpouseAge"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
+    ["famDepGeneral","famDepSpecific","famDepElderly","famDepParent","famDepYoung","famSpouseAge"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
     setupUnitGuard("salary"); setupUnitGuard("pension"); setupUnitGuard("bonus"); setupUnitGuard("hoikuSpouse");
     setupUnitGuard("shogakuSpouse"); setupUnitGuard("famSpouseSalary"); setupUnitGuard("famSpousePension");
     var emp=document.getElementById("employment"), bf=document.getElementById("bonusField"), bh=document.getElementById("bonusHint");
@@ -448,6 +454,10 @@
     var famSpouseAge = num("famSpouseAge") || 40;
     var famSpouseWork=((document.getElementById("famSpouseWork")||{}).value)||"kaishain";
     var famDG=num("famDepGeneral"), famDS=num("famDepSpecific"), famDE=num("famDepElderly"), famDP=num("famDepParent");
+    // 16歳未満の子: 扶養控除は無いが、住民税の非課税限度額の人数（同一生計配偶者＋扶養親族）には入る（地方税法施行令 第47条の3・附則第3条の3）。
+    //   保育料も試算するなら、少なくとも保育所の子1人＋認可に通う兄・姉は16歳未満なので、その人数を下限にする
+    var _hoikuOn = !!((document.getElementById("hoikuOptIn")||{}).checked);
+    var famDY = Math.max(num("famDepYoung"), _hoikuOn ? 1 + (Number((document.getElementById("hoikuSiblings")||{}).value)||0) : 0);
     var famHasSpouse=(famSpouse!=="none") || famSpouseSalary>0 || famSpousePension>0;
     var famAny=famHasSpouse || famDG>0 || famDS>0 || famDE>0 || famDP>0;
     var _haigu = await loadJuminHaigu();
@@ -463,7 +473,7 @@
     }
     var depDed = famDG*330000 + famDS*450000 + famDE*380000 + famDP*450000;
     // 非課税判定用の扶養人数（同一生計配偶者＋扶養親族）。特別控除の配偶者は同一生計配偶者ではないので数えない
-    var famDependents = (spouseKind==="haigu"?1:0) + famDG + famDS + famDE + famDP;
+    var famDependents = (spouseKind==="haigu"?1:0) + famDG + famDS + famDE + famDP + famDY;
     var _fzDataEarly = await loadFurusato();
     function _humanDiffOf(spouseHDKey){
       var hd = 50000;   // 基礎控除差（常時）
@@ -479,7 +489,7 @@
     // calculateJumin に渡す共通の家族入力（特定扶養の18万は humanDiff に含めて渡すので specialDependentSalaries は使わない）
     var famJumin = { spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: famDependents, humanDeductionDiff: humanDiff };
     // ふるさと納税の上限（令和9年度分）用。配偶者控除の所得要件が62万に上がるので、配偶者の所得が58万超62万以下だと区分が変わる
-    var famJumin27 = { spouseDeduction: spouseDed27, dependentDeduction: depDed, dependents: (spouseHD27!=="none"?1:0) + famDG + famDS + famDE + famDP, humanDeductionDiff: _humanDiffOf(spouseHD27) };
+    var famJumin27 = { spouseDeduction: spouseDed27, dependentDeduction: depDed, dependents: (spouseHD27!=="none"?1:0) + famDG + famDS + famDE + famDP + famDY, humanDeductionDiff: _humanDiffOf(spouseHD27) };
     // 所得税側: 配偶者の合計所得は所得税の給与所得（令和8年分・最低保障65万＝住民税 令和8年度分と同じ）。shotoku.js が配偶者控除／特別控除を表引きする
     var famShotoku = { spouse: (famHasSpouse ? { income: spouseIncomeJumin, age70plus: (famSpouse==="elderly") } : null),
                        dependents: { general: famDG, specific: famDS, elderly: famDE, elderlyCoRes: famDP } };

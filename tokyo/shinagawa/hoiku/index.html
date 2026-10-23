@@ -91,10 +91,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"13109","citySlug":"shinagawa","cityName":"品川区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "shinagawa"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=e8bc92be"></script>
-<script src="/js/core/shared/income.js?v=e8bc92be"></script>
-<script src="/js/core/jumin.js?v=e8bc92be"></script>
-<script src="/js/core/hoiku.js?v=e8bc92be"></script>
+<script src="/js/core/shared/ui-input.js?v=fe9beb01"></script>
+<script src="/js/core/shared/income.js?v=fe9beb01"></script>
+<script src="/js/core/jumin.js?v=fe9beb01"></script>
+<script src="/js/core/hoiku.js?v=fe9beb01"></script>
 <script>
 (function(){
   "use strict";
@@ -221,11 +221,36 @@
   }
 
   // ── 年収→jumin（父母それぞれ）。hoikuShotokuwari は固定6%換算・isTaxable も取得 ──
-  function juminOf(salary){
+  function juminOf(salary, fam){
     if(!salary) return {shotokuwari:0, taxable:false, borderline:false};
     var si=Math.round(salary*0.144);
-    var r=calculateJumin(null, {salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si, kyuchi:JUMIN_KYUCHI});
+    var r=calculateJumin(null, Object.assign({salary:salary, pension:0, otherIncome:0, age:40, socialInsurance:si, kyuchi:JUMIN_KYUCHI}, fam||{}));
     return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
+  }
+  // ── 世帯の家族を住民税の入力にする（年収から計算するときだけ） ──
+  //   ・16歳未満の子（保育所の子＋在園の兄姉＋在園していない年上のきょうだい）は扶養控除こそ無いが、
+  //     非課税限度額の人数（同一生計配偶者＋扶養親族）に入る（地方税法施行令 第47条の3・附則第3条の3）。
+  //     子は収入の多い方の保護者の扶養として数える。
+  //   ・保護者が2人なら、収入の少ない方の所得に応じて多い方に配偶者控除／配偶者特別控除（第314条の2第1項第10号・第10号の2）。
+  //     片方の年収が空欄で「ひとり親世帯」に印が無いときは、収入の無い配偶者がいるとみなす。
+  //   ・片方の年収が空欄で「ひとり親世帯」に印があるときは、ひとり親控除30万円（合計所得500万円以下）。
+  //     合計所得135万円以下なら非課税（第295条第1項第2号）。両方に年収があるときの印（世帯員に障害者がいる）は住民税には使わない。
+  function familyFor(fatherSalary, motherSalary, children, hitorioya){
+    var fatherMain = fatherSalary >= motherSalary;
+    var mainSalary = fatherMain ? fatherSalary : motherSalary, subSalary = fatherMain ? motherSalary : fatherSalary;
+    var mainIncome = calcSalaryIncome(mainSalary);
+    var main = { dependents: children, humanDeductionDiff: 50000 };
+    if(subSalary===0 && hitorioya){
+      var st = calcSelfStatusDeductionJumin({ selfIncome: mainIncome, singleParent: fatherMain ? "father" : "mother" });
+      main.singleParentDeduction = st.singleParentDeduction;
+      main.humanDeductionDiff += st.singleParent==="mother" ? 50000 : (st.singleParent==="father" ? 10000 : 0);   // 第37条第1号イの表
+    }else{
+      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) : 0 });
+      main.spouseDeduction = sd.deduction;
+      if(sd.kind==="haigu") main.dependents += 1;                                       // 同一生計配偶者
+      main.humanDeductionDiff += sd.humanDiffSpouse==="elderly" ? 100000 : (sd.humanDiffSpouse==="general" ? 50000 : 0);
+    }
+    return fatherMain ? { father: main, mother: null } : { father: null, mother: main };
   }
 
   // ── 試算 ──
@@ -253,7 +278,9 @@
         //    「両者所得割0のとき hikazei」を近似。厳密には通知書の非課税判定が要る（注記）。
         input.hikazei = (fs===0 && ms===0);
       }else{
-        var f=juminOf(num("fatherSalary")), m=juminOf(num("motherSalary"));
+        var _children = 1 + (Number(val("enrolledOlder"))||0) + (findSelector() && checked("selFlag") ? 1 : 0);
+        var fam = familyFor(num("fatherSalary"), num("motherSalary"), _children, input.hitorioya);
+        var f=juminOf(num("fatherSalary"), fam.father), m=juminOf(num("motherSalary"), fam.mother);
         input.father={shotokuwari:f.shotokuwari}; input.mother={shotokuwari:m.shotokuwari};
         input.isSeireiNotice=false; // 年収経路は固定6%済み（政令市補正しない）
         // ② 非課税＝父母AND（在籍親のみ。空欄親は taxable:false で AND を阻害しない）

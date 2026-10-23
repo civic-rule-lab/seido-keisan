@@ -72,6 +72,21 @@ function _shotokuNonTaxableLimit(dependents) {
 // 対象は本人の区分のみ（扶養親族が障害者でも本人は対象外）。
 const SPECIAL_NON_TAXABLE_INCOME_LIMIT = 1_350_000;
 
+// ─── 本人の区分による所得控除（障害者・寡婦・ひとり親） ─────────────
+// 地方税法 第314条の2第1項 第6号（障害者26万円・特別障害者30万円）・第8号（寡婦26万円）・第8号の2（ひとり親30万円）。
+// 寡婦・ひとり親は前年の合計所得金額500万円以下が要件（第292条第1項第11号・第12号）。
+//   [確認済 2026-10-23 e-Gov 法令API・2026-10-16 施行時点の本文]
+//   ※離婚による寡婦の「扶養親族を有すること」の要件は入力が無いため判定しない（呼び出し側の選択を信じる）。
+// 戻り値は calculateJumin にそのまま渡せる形（singleParentDeduction・disabilityDeduction・selfDisabled）と、
+// 人的控除差（調整控除）の計算に渡す区分 singleParent（所得要件を外れたら 'none'）。
+function calcSelfStatusDeductionJumin({ selfIncome = 0, singleParent = 'none', selfDisability = 'none' } = {}) {
+  const status = (singleParent === 'mother' || singleParent === 'father' || singleParent === 'widow') && selfIncome <= 5_000_000
+    ? singleParent : 'none';
+  const singleParentDeduction = status === 'widow' ? 260_000 : (status === 'none' ? 0 : 300_000);
+  const disabilityDeduction = selfDisability === 'special' ? 300_000 : (selfDisability === 'general' ? 260_000 : 0);
+  return { singleParentDeduction, disabilityDeduction, selfDisabled: disabilityDeduction > 0, singleParent: status };
+}
+
 // ─── 扶養親族・同一生計配偶者の合計所得金額要件（年度で変わる） ─────────
 // 令和8年度まで 58万円以下、令和9年度以後 62万円以下（令和8年度税制改正）。
 //   出典: 地方税法等の一部を改正する法律要綱 第1の1(1)
@@ -374,4 +389,4 @@ function calculateJumin(data, inputs) {
   };
 }
 
-if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin, calcSpouseDeductionJumin };
+if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin, calcSpouseDeductionJumin, calcSelfStatusDeductionJumin };
