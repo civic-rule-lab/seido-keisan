@@ -64,6 +64,14 @@ function _shotokuNonTaxableLimit(dependents) {
   return 350_000 * n + 100_000 + (dependents > 0 ? 320_000 : 0);
 }
 
+// ─── 障害者・未成年者・寡婦・ひとり親の非課税 ───────────────────────
+// 前年の合計所得金額が135万円以下なら、均等割・所得割とも課さない。扶養人数・級地によらない。
+//   出典: 地方税法 第24条の5第1項第2号（道府県民税）・第295条第1項第2号（市町村民税）
+//   令和8年度税制改正の法律要綱（https://www.soumu.go.jp/main_content/001060865.pdf）第1の1 に本条の改正は無い
+//   [確認済 2026-10-23・要綱の範囲。改正法本文は未照合]。
+// 対象は本人の区分のみ（扶養親族が障害者でも本人は対象外）。
+const SPECIAL_NON_TAXABLE_INCOME_LIMIT = 1_350_000;
+
 // ─── 扶養親族・同一生計配偶者の合計所得金額要件（年度で変わる） ─────────
 // 令和8年度まで 58万円以下、令和9年度以後 62万円以下（令和8年度税制改正）。
 //   出典: 地方税法等の一部を改正する法律要綱 第1の1(1)
@@ -217,7 +225,13 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  * @param {number} [inputs.spouseDeduction=0]
  * @param {number} [inputs.dependentDeduction=0]
  * @param {number} [inputs.disabilityDeduction=0]
- * @param {number} [inputs.singleParentDeduction=0]
+ * @param {number} [inputs.singleParentDeduction=0] - ひとり親控除・寡婦控除。0より大きければ本人がひとり親・寡婦とみなし、
+ *   合計所得135万円以下の非課税を判定する（inputs.singleParent / widow を省略してよい）
+ * @param {boolean} [inputs.selfDisabled=false] - 本人が障害者（合計所得135万円以下で非課税）。
+ *   disabilityDeduction は扶養親族の分も含みうるため、本人かどうかはこのフラグで渡す
+ * @param {boolean} [inputs.minor=false]        - 本人が未成年者（同上）
+ * @param {boolean} [inputs.widow=false]        - 本人が寡婦（同上）
+ * @param {boolean} [inputs.singleParent=false] - 本人がひとり親（同上）
  * @param {number} [inputs.lifeInsuranceDeduction=0] - 生命保険料控除
  * @param {number} [inputs.earthquakeInsuranceDeduction=0] - 地震保険料控除
  * @param {number} [inputs.medicalDeduction=0]   - 医療費控除
@@ -246,6 +260,7 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  *   kyuchi           - 非課税判定に使った級地（1/2/3）
  *   kintoNonTaxableLimit - 均等割の非課税限度額（合計所得）
  *   kintoBorderline  - 国の基準では課税だが、限度額を少し上回るだけ（余裕幅以内）。条例で切り上げている自治体では非課税になりうる。注記に使う
+ *   specialNonTaxable - 障害者・未成年者・寡婦・ひとり親の135万円以下の非課税に当たったか（当たれば均等割・所得割とも0）
  *   humanDeductionDiff - 調整控除に使った人的控除差の合計（入力値＋特定扶養分18万円/人）
  *   dependentsCount  - 非課税判定に使った扶養等の人数（入力値＋特定扶養の子）
  *   hoikuShotokuwari - 保育料の指数(1人分)。市町村民税所得割・調整控除後・税額控除前・旧6%換算。
@@ -261,6 +276,10 @@ function calculateJumin(data, inputs) {
     dependentDeduction = 0,
     disabilityDeduction = 0,
     singleParentDeduction = 0,
+    selfDisabled = false,
+    minor = false,
+    widow = false,
+    singleParent = false,
     lifeInsuranceDeduction = 0,
     earthquakeInsuranceDeduction = 0,
     medicalDeduction = 0,
@@ -312,12 +331,15 @@ function calculateJumin(data, inputs) {
   const taxableIncome = Math.floor(taxableRaw / 1000) * 1000;
 
   // ── 非課税判定（均等割は級地別・所得割は全国一律） ──
+  // 障害者・未成年者・寡婦・ひとり親で合計所得135万円以下なら、両方とも非課税（地方税法 第24条の5・第295条）。
+  const specialStatus = !!(selfDisabled || minor || widow || singleParent || singleParentDeduction > 0);
+  const specialNonTaxable = specialStatus && totalIncome <= SPECIAL_NON_TAXABLE_INCOME_LIMIT;
   const kintoNonTaxableLimit = _kintoNonTaxableLimit(effDependents, kyuchi);
-  const kintoTaxable   = totalIncome > kintoNonTaxableLimit;
+  const kintoTaxable   = !specialNonTaxable && totalIncome > kintoNonTaxableLimit;
   // 境目付近: 国の基準では課税だが、条例で基準額を切り上げている自治体なら非課税になりうる帯。
   //   条例の差は確認できた範囲ではすべて切り上げ（非課税が広がる向き）なので、課税側だけを見る。
   const kintoBorderline = kintoTaxable && totalIncome <= kintoNonTaxableLimit + _kintoBorderlineMargin(effDependents);
-  const shotokuTaxable = taxableIncome > 0 && totalIncome > _shotokuNonTaxableLimit(effDependents);
+  const shotokuTaxable = !specialNonTaxable && taxableIncome > 0 && totalIncome > _shotokuNonTaxableLimit(effDependents);
 
   // ── 所得割（調整控除・税額控除適用後） ──
   let incomeLevy = 0;
@@ -344,6 +366,7 @@ function calculateJumin(data, inputs) {
     taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly,
     isTaxable: kintoTaxable,
     kyuchi, kintoNonTaxableLimit, kintoBorderline,
+    specialNonTaxable,         // 障害者・未成年者・寡婦・ひとり親の135万円以下の非課税に当たったか
     specialDependentDeduction, // 19〜22歳の子等に適用された控除額（特定扶養45万/特定親族特別控除3万〜45万）
     humanDeductionDiff: effHumanDiff, // 調整控除に使った人的控除差の合計（特定扶養分を含む）
     dependentsCount: effDependents,   // 非課税判定に使った扶養等の人数（特定扶養の子を含む）

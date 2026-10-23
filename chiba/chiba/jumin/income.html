@@ -145,9 +145,9 @@
 </div>
 
 <script>const JUMIN_DATA = {"cityCode":"12100","citySlug":"chiba","cityName":"千葉市","prefSlug":"chiba","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.02,"prefPerCapita":1000,"cityRate":0.08,"cityPerCapita":3000,"source":{"url":"https://www.city.chiba.jp/zaiseikyoku/zeimu/kazeikanri/kojin.html","pageTitle":"個人市民税 - 千葉市","retrievedAt":"2026-04-30"},"notes":"政令市（prefRate=2%, cityRate=8%）。均等割は市民税3,000円・県民税1,000円（標準値）。千葉県・市ともに超過課税なし。"}; const CITY_SLUG = "chiba"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
-<script src="/js/core/shared/ui-input.js?v=b7b79602"></script>
-<script src="/js/core/shared/income.js?v=b7b79602"></script>
-<script src="/js/core/jumin.js?v=b7b79602"></script>
+<script src="/js/core/shared/ui-input.js?v=f1e986cf"></script>
+<script src="/js/core/shared/income.js?v=f1e986cf"></script>
+<script src="/js/core/jumin.js?v=f1e986cf"></script>
 <!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
 <script>const FURUSATO_DATA = {
   "meta": {
@@ -235,7 +235,7 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 };</script>
-<script src="/js/core/furusato.js?v=b7b79602"></script>
+<script src="/js/core/furusato.js?v=f1e986cf"></script>
 <script>
 (function () {
   "use strict";
@@ -292,6 +292,7 @@
         kyuchi:JUMIN_KYUCHI,
         spouseDeduction:spouseDed, dependentDeduction:depDed,
         disabilityDeduction:disDed, singleParentDeduction:spDed,
+        selfDisabled:chk("disabled"),   // 本人の障害者（合計所得135万円以下で非課税）。寡婦・ひとり親は spDed から判定される
         lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
         dependents:dependents, humanDeductionDiff:humanDiff,
         specialDependentSalaries: childSalary>0 ? [childSalary] : []
