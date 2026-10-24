@@ -1,8 +1,8 @@
-/* VENDORED from shotoku-keisan/shotoku-engine.js — 正本を編集すること。このコピーは scripts/vendor-shaho.mjs が生成（手編集禁止）。
+/* VENDORED from 所得税エンジンの正本（非公開リポ）shotoku-engine.js — 正本を編集すること。このコピーは scripts/vendor-shaho.mjs が生成（手編集禁止）。
    IIFE 内包＝classic <script> 同時読込時の top-level const 字句衝突回避。window.Shaho / window.Shotoku は IIFE 内で代入。 */
 (function(){
 // 所得税計算エンジン 本実装 — 令和8年(2026)/令和9年(2027)分・給与所得者
-// 制度計算ファミリー / shotoku-keisan
+// 制度計算ファミリー / 所得税
 // パラメータは data/national/shotokuzei-2026.json（年分キー・source/confidence付き）から読込。
 // ロジックとパラメータを分離。草案 shotoku_engine_2026.js と計算結果は一致する（test-shotoku-verify.js のクロスチェックで担保）。
 // 一次ソース: 国税庁「源泉所得税の改正のあらまし(令和8年4月)」
