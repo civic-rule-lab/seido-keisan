@@ -191,6 +191,17 @@ function calcTokuteiShinzokuDeduction(relativeIncome, fiscalYear) {
   return 0;
 }
 
+// ─── 基礎控除（合計所得金額で逓減） ─────────────────────────────────
+// 合計所得 2,400万円以下 43万円 / 2,450万円以下 29万円 / 2,500万円以下 15万円 / 2,500万円超 0円
+//   根拠: 地方税法 第314条の2 第2項（市町村民税）・第34条第2項（道府県民税）[確認済 2026-10-25 e-Gov 法令API・2026-10-16 施行時点]
+//   base は 2,400万円以下の額（JUMIN_DEFAULTS.basicDeductionJumin）。
+function calcBasicDeductionJumin(totalIncome, base = JUMIN_DEFAULTS.basicDeductionJumin) {
+  if (!(totalIncome > 24_000_000)) return base;
+  if (totalIncome <= 24_500_000) return 290_000;
+  if (totalIncome <= 25_000_000) return 150_000;
+  return 0;
+}
+
 // ─── 調整控除（所得割の税額控除） ─────────────────────────────────
 // 税源移譲に伴う所得税・住民税の人的控除差を調整する。
 //   課税総所得金額 ≤ 200万円: min(人的控除差合計, 課税総所得金額) × 5%
@@ -341,7 +352,7 @@ function calculateJumin(data, inputs) {
     disabilityDeduction, singleParentDeduction,
     // 保険料・医療費控除も所得控除として差し引く
     basicDeductionJumin:
-      cfg.basicDeductionJumin + lifeInsuranceDeduction + earthquakeInsuranceDeduction + medicalDeduction,
+      calcBasicDeductionJumin(totalIncome, cfg.basicDeductionJumin) + lifeInsuranceDeduction + earthquakeInsuranceDeduction + medicalDeduction,
   });
   const taxableIncome = Math.floor(taxableRaw / 1000) * 1000;
 
@@ -389,4 +400,4 @@ function calculateJumin(data, inputs) {
   };
 }
 
-if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin, calcSpouseDeductionJumin, calcSelfStatusDeductionJumin };
+if (_isNode) module.exports = { calculateJumin, JUMIN_DEFAULTS, calcTokuteiShinzokuDeduction, calcHoikuShotokuwari, _adjustmentCreditBase, fuyoIncomeLimitJumin, calcSpouseDeductionJumin, calcSelfStatusDeductionJumin, calcBasicDeductionJumin };
