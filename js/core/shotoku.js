@@ -76,6 +76,15 @@ function lookup(table, key) {
   return null;
 }
 
+// 率の掛け算を整数で行い、切り捨てる（v は 0 以上の整数・率は小数 5 桁まで）。
+// 浮動小数点のまま掛けると 100000×1.021 = 102099.99999999999 のように真値より小さくなり、
+// 100円未満切捨てで年税額が 100 円少なく出る（2026-10-24 全方向試算 shotoku F1）。
+const RATE_SCALE = 100_000;
+function mulRateFloor(v, rate) {
+  const n = v * Math.round(rate * RATE_SCALE);
+  return (n - n % RATE_SCALE) / RATE_SCALE;
+}
+
 // ---- 本体 -------------------------------------------------------------------
 // input（草案と同一契約）:
 //   salary, otherIncome（事業・雑所得等の所得金額。給与所得に加算・2026-10-15 追加・既定 0）, socialInsurance, ideco, otherDeductions,
@@ -145,9 +154,9 @@ function calcShotokuzei(input, P) {
   // 3) 課税所得(1,000円未満切捨) → 速算表 → 住宅ローン控除 → ×102.1% → 100円未満切捨
   const kazei = Math.floor(Math.max(0, gokeiShotoku - kojo) / P.kazeiRoundDown) * P.kazeiRoundDown;
   const [rate, sub] = lookup(P.taxTable, kazei);
-  let tax = Math.max(0, kazei * rate - sub);
-  tax = Math.max(0, tax - (input.mortgageDeduction || 0));
-  const annualTax = Math.floor((tax * P.surtaxRate) / P.taxRoundDown) * P.taxRoundDown;
+  let tax = Math.max(0, mulRateFloor(kazei, rate) - sub);   // kazei は 1,000 の倍数なので真値は整数
+  tax = Math.max(0, tax - Math.floor(input.mortgageDeduction || 0));
+  const annualTax = Math.floor(mulRateFloor(tax, P.surtaxRate) / P.taxRoundDown) * P.taxRoundDown;
 
   return {
     year: P.year, salary, kyuyoShotoku: kyuyo, choseiKojo: chosei, gokeiShotoku,
