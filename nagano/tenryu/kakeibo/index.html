@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "tenryu"; const PREF_SLUG = "nagano"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=1587349b"></script>
-<script src="/js/core/shared/income.js?v=1587349b"></script>
-<script src="/js/core/jumin.js?v=1587349b"></script>
-<script src="/js/core/kokuho.js?v=1587349b"></script>
-<script src="/js/core/kaigo.js?v=1587349b"></script>
-<script src="/js/core/kouki.js?v=1587349b"></script>
-<script src="/js/core/hoiku.js?v=1587349b"></script>
-<script src="/js/core/shaho.js?v=1587349b"></script>
-<script src="/js/core/shotoku.js?v=1587349b"></script>
-<script src="/js/core/shogakukin.js?v=1587349b"></script>
-<script src="/js/core/shogakukin-bridge.js?v=1587349b"></script>
-<script src="/js/core/furusato.js?v=1587349b"></script>
+<script src="/js/core/shared/ui-input.js?v=739d3854"></script>
+<script src="/js/core/shared/income.js?v=739d3854"></script>
+<script src="/js/core/jumin.js?v=739d3854"></script>
+<script src="/js/core/kokuho.js?v=739d3854"></script>
+<script src="/js/core/kaigo.js?v=739d3854"></script>
+<script src="/js/core/kouki.js?v=739d3854"></script>
+<script src="/js/core/hoiku.js?v=739d3854"></script>
+<script src="/js/core/shaho.js?v=739d3854"></script>
+<script src="/js/core/shotoku.js?v=739d3854"></script>
+<script src="/js/core/shogakukin.js?v=739d3854"></script>
+<script src="/js/core/shogakukin-bridge.js?v=739d3854"></script>
+<script src="/js/core/furusato.js?v=739d3854"></script>
 <script>
 (function () {
   "use strict";
@@ -522,6 +522,9 @@
     var socialInsurance=0, shahoRes=null, siParts=[], siApprox=false;
     var rk=null, rkk=null, rkg=null, careN=(age>=40 && age<65)?1:0;
     var rkSp=null, rkWithSpouse=false, spouseCare=(famSpouseAge>=40 && famSpouseAge<65)?1:0;
+    // 国保・後期の軽減判定は、65歳以上の公的年金所得から1人15万円（年金所得が上限）を差し引いた所得で行う
+    //   （国民健康保険法施行令 附則第5条。所得割の所得には差し引かない）。本人・配偶者それぞれの分
+    var keigenSelf = calcKeigenPensionDeduction(pension, age), keigenSp = calcKeigenPensionDeduction(famSpousePension, famSpouseAge);
     var spouseNenkin=(spouseJiei && famSpouseAge>=20 && famSpouseAge<60 && nenkinData && nenkinData.monthly>0) ? nenkinData.monthly*12 : 0;
     if(isKaishain && salary>0){
       await loadShaho();
@@ -531,7 +534,7 @@
     } else if(!isKaishain){
       if(age>=75){
         // 75歳以上＝後期高齢者医療（単身・1人分。世帯の軽減判定は本人の所得で代用）
-        if(koukiData){ try{ rkk=calculateKouki({totalIncome:totalIncome}, koukiData); }catch(e){ rkk=null; } }
+        if(koukiData){ try{ rkk=calculateKouki({totalIncome:totalIncome, reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, koukiData); }catch(e){ rkk=null; } }
         if(rkk && rkk.total>=0) siParts.push(["後期高齢者医療", rkk.total]);
       } else if(kokuhoData){
         // 介護分（40〜64歳）: 本人が40〜64歳なら1人分入れる（2026-10-04・TASKS X170-12）。
@@ -543,9 +546,11 @@
             rkWithSpouse=true;
             rk=calculateKokuho({income:totalIncome+spouseIncomeJumin,
               members:[{income:totalIncome, careTarget:(careN===1)},{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
-              family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, salaryPensionCount:2, fixedAssetTax:0}, kokuhoData);
+              family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, salaryPensionCount:2, fixedAssetTax:0,
+              reductionJudgmentIncome:Math.max(0,totalIncome+spouseIncomeJumin-keigenSelf-keigenSp)}, kokuhoData);
           } else {
-            rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0}, kokuhoData);
+            rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0,
+              reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, kokuhoData);
           }
         }catch(e){ rk=null; }
         if(rk) siParts.push([rkWithSpouse?"国民健康保険（配偶者の所得を含む世帯分）":"国民健康保険", rk.total]);
@@ -560,13 +565,13 @@
     //   本人は擬制世帯主＝加入者ではないが軽減判定の所得には含める（reductionJudgmentIncome）。均等割1人・平等割1世帯。
     var rkkSp=null;   // 配偶者（自営・75歳以上）の後期高齢者医療。国保ではなく後期の対象（2026-10-13 修正。旧実装は国保1人分で計算していた）
     if(spouseJiei && famSpouseAge>=75 && koukiData){
-      try{ rkkSp=calculateKouki({totalIncome:spouseIncomeJumin}, koukiData); }catch(e){ rkkSp=null; }
+      try{ rkkSp=calculateKouki({totalIncome:spouseIncomeJumin, reductionJudgmentIncome:Math.max(0,spouseIncomeJumin-keigenSp)}, koukiData); }catch(e){ rkkSp=null; }
     }
     if(spouseJiei && famSpouseAge<75 && !rkWithSpouse && kokuhoData){
       try{
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
           family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:1, fixedAssetTax:0,
-          reductionJudgmentIncome:spouseIncomeJumin+totalIncome}, kokuhoData);
+          reductionJudgmentIncome:Math.max(0,spouseIncomeJumin+totalIncome-keigenSp-keigenSelf)}, kokuhoData);
       }catch(e){ rkSp=null; }
     }
     // 配偶者（自営）の社会保険料控除＝配偶者単独の国保（あれば）＋配偶者の国民年金。世帯分の国保は本人に全額つけているので含めない
