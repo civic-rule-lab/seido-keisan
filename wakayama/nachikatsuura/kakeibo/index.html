@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "nachikatsuura"; const PREF_SLUG = "wakayama"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=deb5baaa"></script>
-<script src="/js/core/shared/income.js?v=deb5baaa"></script>
-<script src="/js/core/jumin.js?v=deb5baaa"></script>
-<script src="/js/core/kokuho.js?v=deb5baaa"></script>
-<script src="/js/core/kaigo.js?v=deb5baaa"></script>
-<script src="/js/core/kouki.js?v=deb5baaa"></script>
-<script src="/js/core/hoiku.js?v=deb5baaa"></script>
-<script src="/js/core/shaho.js?v=deb5baaa"></script>
-<script src="/js/core/shotoku.js?v=deb5baaa"></script>
-<script src="/js/core/shogakukin.js?v=deb5baaa"></script>
-<script src="/js/core/shogakukin-bridge.js?v=deb5baaa"></script>
-<script src="/js/core/furusato.js?v=deb5baaa"></script>
+<script src="/js/core/shared/ui-input.js?v=ae99e1fa"></script>
+<script src="/js/core/shared/income.js?v=ae99e1fa"></script>
+<script src="/js/core/jumin.js?v=ae99e1fa"></script>
+<script src="/js/core/kokuho.js?v=ae99e1fa"></script>
+<script src="/js/core/kaigo.js?v=ae99e1fa"></script>
+<script src="/js/core/kouki.js?v=ae99e1fa"></script>
+<script src="/js/core/hoiku.js?v=ae99e1fa"></script>
+<script src="/js/core/shaho.js?v=ae99e1fa"></script>
+<script src="/js/core/shotoku.js?v=ae99e1fa"></script>
+<script src="/js/core/shogakukin.js?v=ae99e1fa"></script>
+<script src="/js/core/shogakukin-bridge.js?v=ae99e1fa"></script>
+<script src="/js/core/furusato.js?v=ae99e1fa"></script>
 <script>
 (function () {
   "use strict";
@@ -531,6 +531,12 @@
       var sa=shahoAnnual(salary, bonus, age);
       if(sa){ shahoRes=sa.r; siParts.push(["社会保険（会社員）", sa.annual]); }
       else { siParts.push(["社会保険（給与の約14.4%で概算）", Math.round(grossSalary*0.144)]); siApprox=true; } // データ未取得時のフォールバック
+      // 75歳以上は会社員でも健康保険の被保険者ではなく後期高齢者医療（健康保険法 第3条第1項第7号・高齢者医療確保法 第50条）。
+      //   shaho.js は健保・支援金・厚年（70歳以上）を 0 にするので、後期高齢者医療を本人1人分として別に足す（2026-10-24・X224）
+      if(age>=75 && koukiData){
+        try{ rkk=calculateKouki({totalIncome:totalIncome, reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, koukiData); }catch(e){ rkk=null; }
+        if(rkk && rkk.total>=0) siParts.push(["後期高齢者医療", rkk.total]);
+      }
     } else if(!isKaishain){
       if(age>=75){
         // 75歳以上＝後期高齢者医療（単身・1人分。世帯の軽減判定は本人の所得で代用）
@@ -673,8 +679,8 @@
     }
 
     // ── 医療・年金保険：75歳以上=後期高齢者医療／会社員=社会保険／自営など=国民健康保険（金額は上の社会保険料控除と同じ値） ──
-    if(age>=75){
-      if(!isKaishain && rkk){
+    function pushKoukiCard(){
+      if(rkk){
         grand += rkk.total;
         cards.push(card("後期高齢者医療", rkk.total, [
           ["医療分", rkk.medicalTotal],["子ども・子育て支援金分", rkk.childcareTotal]
@@ -685,6 +691,9 @@
         // 75歳以上は国保の対象外。データが無いときは個別ページに委ね、導線のみ示す。
         cards.push("<div class='ci-grp'><div class='ci-grp-head'>後期高齢者医療<span class='ci-sub'>75歳以上</span></div><div class='ci-sub' style='line-height:1.7;color:#6b7280;'>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です。</div><div style='margin-top:7px;text-align:right;'><a href='../kouki/' style='font-size:13px;color:var(--acc);text-decoration:none;font-weight:600;'>後期高齢者医療を計算する →</a></div></div>");
       }
+    }
+    if(age>=75 && !isKaishain){
+      pushKoukiCard();
     } else if(isKaishain){
       // 会社員：協会けんぽ健保（介護第2号・子育て支援金含む）＋厚生年金＋雇用保険の本人負担（年額）。国保カードは出さない。
       if(salary>0 && shahoRes){
@@ -696,8 +705,8 @@
         var shahoTotal=annH+annP+annK;
         grand += shahoTotal;
         cards.push(card("社会保険（会社員）", shahoTotal, [
-          ["健康保険"+(shahoRes.care.applies?"（介護・子育て支援金含む）":"（子育て支援金含む）"), annH],
-          ["厚生年金", annP],
+          ["健康保険"+(shahoRes.health.applies===false?"（75歳以上は後期高齢者医療のため対象外）":(shahoRes.care.applies?"（介護・子育て支援金含む）":"（子育て支援金含む）")), annH],
+          ["厚生年金"+(shahoRes.koseiNenkin.applies===false?"（70歳以上は対象外）":""), annP],
           ["雇用保険", annK]
         ], "#0d9488"));
         detailLinks.push({href:"https://shaho-keisan.jp/"+PREF+"/", label:"社会保険を詳しく計算", color:"#0d9488", external:true});
@@ -706,6 +715,7 @@
       } else {
         cards.push(skip("社会保険（会社員）", "社会保険料データを取得できませんでした（住民税・所得税は給与の約14.4%で概算）"));
       }
+      if(age>=75) pushKoukiCard();   // 75歳以上の会社員は健康保険の代わりに後期高齢者医療
     } else if(rk){
       grand += rk.total;
       // 法定軽減の行は医療分などから差し引き済みの額の再掲（TASKS X173-22・2026-10-08）。旧表記「法定軽減 -○円」は、
