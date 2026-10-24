@@ -98,6 +98,35 @@ function calcPensionIncome(pension, age, otherIncome = 0) {
   return Math.max(0, Math.floor(pension - deduction));
 }
 
+// ─── 2-2. 所得金額調整控除（給与所得と公的年金等に係る雑所得の両方がある人） ─────
+
+/**
+ * 給与所得と年金所得の両方がある人の所得金額調整控除の額を返す。給与所得から差し引く。
+ *   控除額 = min(給与所得, 10万) + min(年金所得, 10万) − 10万（0 未満は 0）
+ *   根拠: 租税特別措置法 第41条の3の11 第2項。住民税の総所得金額も所得税の計算の例による（地方税法 第313条第2項）。
+ *   [確認済 2026-10-25 e-Gov 法令API]
+ * 子・特別障害者がいて給与収入850万超の人の控除（同条 第1項）は扱わない。
+ *
+ * @param {number} salaryIncome  - 給与所得控除後の給与等の金額（calcSalaryIncome の値）
+ * @param {number} pensionIncome - 公的年金等に係る雑所得の金額（calcPensionIncome の値）
+ * @returns {number} 控除額（円、0〜10万）
+ */
+function calcIncomeAdjustmentDeduction(salaryIncome, pensionIncome) {
+  const s = Number.isFinite(salaryIncome)  ? Math.max(0, salaryIncome)  : 0;
+  const p = Number.isFinite(pensionIncome) ? Math.max(0, pensionIncome) : 0;
+  return Math.max(0, Math.min(s, 100_000) + Math.min(p, 100_000) - 100_000);
+}
+
+/**
+ * 給与所得（所得金額調整控除の後）＋年金所得 を返す。
+ * @returns {number} 円、整数
+ */
+function calcSalaryPensionIncome(salary, pension, age, fiscalYear) {
+  const salaryIncome  = calcSalaryIncome(salary || 0, fiscalYear);
+  const pensionIncome = calcPensionIncome(pension || 0, age);
+  return salaryIncome + pensionIncome - calcIncomeAdjustmentDeduction(salaryIncome, pensionIncome);
+}
+
 // ─── 3. 国保用「総所得金額等」（基礎控除43万を引く前） ──────────────
 
 /**
@@ -114,11 +143,9 @@ function calcPensionIncome(pension, age, otherIncome = 0) {
  */
 function calcTaxableIncomeForKokuho(params) {
   const p = params || {};
-  const salaryIncome  = calcSalaryIncome(p.salary || 0, p.fiscalYear);
-  const pensionIncome = calcPensionIncome(p.pension || 0, p.age);
-  const other         = Number.isFinite(p.otherIncome) ? p.otherIncome : 0;
+  const other = Number.isFinite(p.otherIncome) ? p.otherIncome : 0;
 
-  return Math.max(0, salaryIncome + pensionIncome + other);
+  return Math.max(0, calcSalaryPensionIncome(p.salary, p.pension, p.age, p.fiscalYear) + other);
 }
 
 // ─── 4. 住民税用課税所得（Phase 1 後半向けスケルトン） ───────────────
@@ -143,8 +170,7 @@ function calcTaxableIncomeForKokuho(params) {
 function calcTaxableIncomeForJumin(params) {
   const p = params || {};
   const totalIncome =
-    calcSalaryIncome(p.salary || 0, p.fiscalYear) +
-    calcPensionIncome(p.pension || 0, p.age) +
+    calcSalaryPensionIncome(p.salary, p.pension, p.age, p.fiscalYear) +
     (Number.isFinite(p.otherIncome) ? p.otherIncome : 0);
 
   const deductions =
@@ -170,5 +196,5 @@ function calcKeigenPensionDeduction(pension, age) {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { calcSalaryIncome, calcPensionIncome, calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcKeigenPensionDeduction };
+  module.exports = { calcSalaryIncome, calcPensionIncome, calcIncomeAdjustmentDeduction, calcSalaryPensionIncome, calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcKeigenPensionDeduction };
 }

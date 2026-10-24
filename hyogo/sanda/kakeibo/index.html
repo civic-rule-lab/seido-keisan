@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "sanda"; const PREF_SLUG = "hyogo"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=ae99e1fa"></script>
-<script src="/js/core/shared/income.js?v=ae99e1fa"></script>
-<script src="/js/core/jumin.js?v=ae99e1fa"></script>
-<script src="/js/core/kokuho.js?v=ae99e1fa"></script>
-<script src="/js/core/kaigo.js?v=ae99e1fa"></script>
-<script src="/js/core/kouki.js?v=ae99e1fa"></script>
-<script src="/js/core/hoiku.js?v=ae99e1fa"></script>
-<script src="/js/core/shaho.js?v=ae99e1fa"></script>
-<script src="/js/core/shotoku.js?v=ae99e1fa"></script>
-<script src="/js/core/shogakukin.js?v=ae99e1fa"></script>
-<script src="/js/core/shogakukin-bridge.js?v=ae99e1fa"></script>
-<script src="/js/core/furusato.js?v=ae99e1fa"></script>
+<script src="/js/core/shared/ui-input.js?v=21d8513f"></script>
+<script src="/js/core/shared/income.js?v=21d8513f"></script>
+<script src="/js/core/jumin.js?v=21d8513f"></script>
+<script src="/js/core/kokuho.js?v=21d8513f"></script>
+<script src="/js/core/kaigo.js?v=21d8513f"></script>
+<script src="/js/core/kouki.js?v=21d8513f"></script>
+<script src="/js/core/hoiku.js?v=21d8513f"></script>
+<script src="/js/core/shaho.js?v=21d8513f"></script>
+<script src="/js/core/shotoku.js?v=21d8513f"></script>
+<script src="/js/core/shogakukin.js?v=21d8513f"></script>
+<script src="/js/core/shogakukin-bridge.js?v=21d8513f"></script>
+<script src="/js/core/furusato.js?v=21d8513f"></script>
 <script>
 (function () {
   "use strict";
@@ -437,7 +437,7 @@
     systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
 
     // 共有の所得計算（賞与込みの給与収入で総所得金額等を出す）
-    var totalIncome = calcSalaryIncome(grossSalary) + calcPensionIncome(pension, age) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）
+    var totalIncome = calcSalaryPensionIncome(grossSalary, pension, age) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）。給与と年金の両方があれば所得金額調整控除を引く（租特法41条の3の11第2項・2026-10-25）
 
     // ── 扶養・配偶者（任意入力・2026-10-11 X183／配偶者の収入 2026-10-12 X184）。住民税・所得税・保育料指数・ふるさと納税の上限に同じ値を使う ──
     //   住民税の控除額（地方税法 第34条第1項第10号・第10号の2・第11号）: 配偶者控除 33万（本人の合計所得900万超950万以下 22万・950万超1,000万以下 11万）、
@@ -462,8 +462,8 @@
     var famAny=famHasSpouse || famDG>0 || famDS>0 || famDE>0 || famDP>0;
     var _haigu = await loadJuminHaigu();
     var spousePensionIncome = famSpousePension>0 ? calcPensionIncome(famSpousePension, famSpouseAge) : 0;   // 年金所得（65歳以上で控除拡大）
-    var spouseIncomeJumin = (famSpouseSalary>0 ? calcSalaryIncome(famSpouseSalary) : 0) + spousePensionIncome;        // 令和8年度分（給与所得控除の最低保障65万）
-    var spouseIncomeJumin27 = (famSpouseSalary>0 ? calcSalaryIncome(famSpouseSalary, 2027) : 0) + spousePensionIncome; // 令和9年度分（74万）
+    var spouseIncomeJumin = calcSalaryPensionIncome(famSpouseSalary, famSpousePension, famSpouseAge);         // 令和8年度分（給与所得控除の最低保障65万）。所得金額調整控除を含む
+    var spouseIncomeJumin27 = calcSalaryPensionIncome(famSpouseSalary, famSpousePension, famSpouseAge, 2027); // 令和9年度分（74万）
     var spouseDed=0, spouseKind="none", spouseHD="none", spouseDed27=0, spouseHD27="none";
     if(famHasSpouse && typeof calcSpouseDeductionJumin==="function"){
       var sdj = calcSpouseDeductionJumin({ selfIncome: totalIncome, spouseIncome: spouseIncomeJumin, age70plus: (famSpouse==="elderly"), fiscalYear: 2026, data: _haigu });
@@ -653,7 +653,11 @@
     if((grossSalary>0 || sideIncome>0) && _shotokuEng){
       try{
         // 配偶者の合計所得は所得税の給与所得（別表第五方式）で出す。住民税側（calcSalaryIncome）とは数百円の差が出ることがある
-        if(famShotoku.spouse && famSpouseSalary>0 && typeof _shotokuEng.kyuyoShotoku==="function") famShotoku.spouse.income = _shotokuEng.kyuyoShotoku(famSpouseSalary);
+        //   年金もあれば年金所得を足し、所得金額調整控除（租特法41条の3の11第2項）を引く（2026-10-25）
+        if(famShotoku.spouse && famSpouseSalary>0 && typeof _shotokuEng.kyuyoShotoku==="function"){
+          var _spKyuyo = _shotokuEng.kyuyoShotoku(famSpouseSalary);
+          famShotoku.spouse.income = _spKyuyo + spousePensionIncome - calcIncomeAdjustmentDeduction(_spKyuyo, spousePensionIncome);
+        }
         var st=_shotokuEng.calcShotokuzei(Object.assign({salary:grossSalary, otherIncome:sideIncome, socialInsurance:socialInsurance}, famShotoku));
         grand += st.annualTax;
         cards.push(card("所得税", st.annualTax, [
