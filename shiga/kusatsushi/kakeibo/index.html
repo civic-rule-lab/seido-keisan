@@ -552,7 +552,9 @@
             rkWithSpouse=true;
             rk=calculateKokuho({income:totalIncome+spouseIncomeJumin,
               members:[{income:totalIncome, careTarget:(careN===1)},{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
-              family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, salaryPensionCount:2, fixedAssetTax:0,
+              family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, fixedAssetTax:0,
+              // 給与所得者等の数: 本人と配偶者のうち給与収入55万円超・年金収入60万円（65歳以上は110万円）超の人（施行令 第29条の7 第6項第1号・2026-10-25 B-4。旧実装は 2 固定）
+              salaryPensionCount:Math.max(1, (isKyuyoShotokushaTou(grossSalary, pension, age)?1:0) + (isKyuyoShotokushaTou(famSpouseSalary, famSpousePension, famSpouseAge)?1:0)),
               reductionJudgmentIncome:Math.max(0,totalIncome+spouseIncomeJumin-keigenSelf-keigenSp)}, kokuhoData);
           } else {
             // 配偶者が75歳以上（自営・年金のみ＝後期高齢者医療）なら、国保から移った特定同一世帯所属者として
