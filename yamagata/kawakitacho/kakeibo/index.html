@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "kawakitacho"; const PREF_SLUG = "yamagata"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=bb7044dd"></script>
-<script src="/js/core/shared/income.js?v=bb7044dd"></script>
-<script src="/js/core/jumin.js?v=bb7044dd"></script>
-<script src="/js/core/kokuho.js?v=bb7044dd"></script>
-<script src="/js/core/kaigo.js?v=bb7044dd"></script>
-<script src="/js/core/kouki.js?v=bb7044dd"></script>
-<script src="/js/core/hoiku.js?v=bb7044dd"></script>
-<script src="/js/core/shaho.js?v=bb7044dd"></script>
-<script src="/js/core/shotoku.js?v=bb7044dd"></script>
-<script src="/js/core/shogakukin.js?v=bb7044dd"></script>
-<script src="/js/core/shogakukin-bridge.js?v=bb7044dd"></script>
-<script src="/js/core/furusato.js?v=bb7044dd"></script>
+<script src="/js/core/shared/ui-input.js?v=516aea38"></script>
+<script src="/js/core/shared/income.js?v=516aea38"></script>
+<script src="/js/core/jumin.js?v=516aea38"></script>
+<script src="/js/core/kokuho.js?v=516aea38"></script>
+<script src="/js/core/kaigo.js?v=516aea38"></script>
+<script src="/js/core/kouki.js?v=516aea38"></script>
+<script src="/js/core/hoiku.js?v=516aea38"></script>
+<script src="/js/core/shaho.js?v=516aea38"></script>
+<script src="/js/core/shotoku.js?v=516aea38"></script>
+<script src="/js/core/shogakukin.js?v=516aea38"></script>
+<script src="/js/core/shogakukin-bridge.js?v=516aea38"></script>
+<script src="/js/core/furusato.js?v=516aea38"></script>
 <script>
 (function () {
   "use strict";
@@ -555,8 +555,12 @@
               family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, salaryPensionCount:2, fixedAssetTax:0,
               reductionJudgmentIncome:Math.max(0,totalIncome+spouseIncomeJumin-keigenSelf-keigenSp)}, kokuhoData);
           } else {
+            // 配偶者が75歳以上（自営・年金のみ＝後期高齢者医療）なら、国保から移った特定同一世帯所属者として
+            //   軽減判定の所得と5割・2割の人数に入れる（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25）
+            var spTokutei = (spouseJiei && famSpouseAge>=75) ? 1 : 0;
             rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0,
-              reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, kokuhoData);
+              tokuteiDouitsuCount:spTokutei,
+              reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf+(spTokutei?spouseIncomeJumin-keigenSp:0))}, kokuhoData);
           }
         }catch(e){ rk=null; }
         if(rk) siParts.push([rkWithSpouse?"国民健康保険（配偶者の所得を含む世帯分）":"国民健康保険", rk.total]);
@@ -577,6 +581,7 @@
       try{
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
           family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:1, fixedAssetTax:0,
+          tokuteiDouitsuCount:(age>=75?1:0),   // 本人が75歳以上（後期）なら特定同一世帯所属者として5割・2割の人数に入れる（施行令 第29条の7 第6項第1号）
           reductionJudgmentIncome:Math.max(0,spouseIncomeJumin+totalIncome-keigenSp-keigenSelf)}, kokuhoData);
       }catch(e){ rkSp=null; }
     }

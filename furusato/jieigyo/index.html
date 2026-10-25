@@ -474,11 +474,11 @@
     [1330000, [30000, 20000, 10000]]
   ]
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
-<script src="/js/core/shared/ui-input.js?v=6fb95adf"></script>
-<script src="/js/core/shared/income.js?v=6fb95adf"></script>
-<script src="/js/core/jumin.js?v=6fb95adf"></script>
-<script src="/js/core/kokuho.js?v=6fb95adf"></script>
-<script src="/js/core/furusato.js?v=6fb95adf"></script>
+<script src="/js/core/shared/ui-input.js?v=c2f43cd5"></script>
+<script src="/js/core/shared/income.js?v=c2f43cd5"></script>
+<script src="/js/core/jumin.js?v=c2f43cd5"></script>
+<script src="/js/core/kokuho.js?v=c2f43cd5"></script>
+<script src="/js/core/furusato.js?v=c2f43cd5"></script>
 <script>
 (function(){
   "use strict";
@@ -541,10 +541,14 @@
     // 軽減判定の給与所得者等の数は本人が事業所得のみなので 1 のまま（(人数−1)×10万 の項は 0）
     var spouseInKokuho = hasSpouse && input.spouseKokuho === "kokuho" && spouseAge < 75;
     var spouseCare = (spouseInKokuho && spouseAge >= 40 && spouseAge < 65) ? 1 : 0;
+    var spTokutei = (hasSpouse && input.spouseKokuho === "kokuho" && spouseAge >= 75) ? 1 : 0;
     var rk = spouseInKokuho
       ? calculateKokuho({ income: income + spouseIncome, members: [{ income: income, careTarget: careN === 1 }, { income: spouseIncome, careTarget: spouseCare === 1 }],
           family: Math.max(2, input.family), preschool: 0, under18: 0, care: careN + spouseCare, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData)
-      : calculateKokuho({ income: income, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0 }, kokuhoData);
+      : calculateKokuho({ income: income, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0,
+          // 配偶者が75歳以上で「国保」を選んだ場合は、国保から後期高齢者医療へ移った特定同一世帯所属者として
+          //   軽減判定の所得と5割・2割の人数に入れる（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25）
+          tokuteiDouitsuCount: spTokutei, reductionJudgmentIncome: income + (spTokutei ? spouseIncome : 0) }, kokuhoData);
     var nenkin = (input.age >= 20 && input.age < 60 && !input.nenkinExempt && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
     // 配偶者の国民年金（第1号）: 国保加入・20〜59歳で、本人がまとめて払う前提のときだけ本人の社会保険料控除に入れる（所得税法 第74条・地方税法 第314条の2 第1項第3号「生計を一にする配偶者の負担すべき社会保険料を支払った」）
     var spouseNenkin = (spouseInKokuho && input.spouseNenkin && spouseAge >= 20 && spouseAge < 60 && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
