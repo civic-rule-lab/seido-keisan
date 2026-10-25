@@ -10,7 +10,7 @@ const CHILDCARE_CAP_NATIONAL = 30000;
 
 function calculateKokuho(input, data) {
   const { income, family, preschool, under18, care, salaryPensionCount, fixedAssetTax,
-          reductionJudgmentIncome, members, tokuteiDouitsuCount } = input;
+          reductionJudgmentIncome, members, tokuteiDouitsuCount, giseiSetainushi } = input;
 
   // 加入者ごとの所得（任意・2026-10-04 追加・TASKS X170-12）。
   //   members: [{ income: 前年の総所得金額等（基礎控除前）, careTarget: 40〜64歳なら true }, ...]
@@ -99,8 +99,12 @@ function calculateKokuho(input, data) {
   //   [確認済 2026-10-25 e-Gov 法令API・2026-08-01 施行時点]。均等割・平等割の人数には入れない。
   const tokuteiSafe = Math.max(Math.floor(Number(tokuteiDouitsuCount) || 0), 0);
   const judgedPersons = family + tokuteiSafe;
-  // ② salaryPensionCount > family 対策：family を上限として clamp（特定同一世帯所属者も「世帯主等」に入るので上限に足す）
-  const B = Math.max(Math.min(salaryPensionCount || 0, (familySafe + tokuteiSafe) || 1), 1);
+  // ② salaryPensionCount > family 対策：世帯主等の人数を上限として clamp。
+  //   給与所得者等の数は「世帯主並びに…被保険者及び特定同一世帯所属者」（世帯主等）のうちで数える
+  //   （国民健康保険法施行令 第29条の7 第6項第1号）。国保に入っていない世帯主（擬制世帯主）も入るので、
+  //   giseiSetainushi: true のときは上限に 1 を足す（2026-10-25・全方向試算 B-3）。
+  const earnerCap = familySafe + tokuteiSafe + (giseiSetainushi ? 1 : 0);
+  const B = Math.max(Math.min(salaryPensionCount || 0, earnerCap || 1), 1);
   const salaryPensionAdd = data.reduction?.salaryPensionAdd || 0;
   const extraForIncomeEarners = salaryPensionAdd * Math.max(0, B - 1);
 

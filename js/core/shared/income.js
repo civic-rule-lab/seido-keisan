@@ -184,6 +184,15 @@ function calcTaxableIncomeForJumin(params) {
   return Math.max(0, Math.floor(totalIncome - deductions));
 }
 
+// ─── 国保の軽減判定：給与所得者等に当たるか ─────────────────────────────
+// 給与収入が55万円を超える人、または公的年金等の収入が 65歳未満で60万円・65歳以上で110万円を超える人
+//   （国民健康保険法施行令 第29条の7 第6項第1号）[確認済 2026-10-25 e-Gov 法令API・2026-08-01 施行時点]
+function isKyuyoShotokushaTou(salary, pension, age) {
+  if ((Number(salary) || 0) > 550_000) return true;
+  const limit = (Number.isFinite(age) && age >= 65) ? 1_100_000 : 600_000;
+  return (Number(pension) || 0) > limit;
+}
+
 // ─── 国保・後期高齢者医療の軽減判定：65歳以上の公的年金所得の特別控除（15万円） ─────
 // 軽減判定の所得は、65歳以上（前年12月31日時点）の公的年金等に係る所得から15万円を差し引いた額で判定する
 // （所得割の所得には差し引かない）。差し引く額はその人の年金所得が上限。
@@ -196,5 +205,5 @@ function calcKeigenPensionDeduction(pension, age) {
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { calcSalaryIncome, calcPensionIncome, calcIncomeAdjustmentDeduction, calcSalaryPensionIncome, calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcKeigenPensionDeduction };
+  module.exports = { calcSalaryIncome, calcPensionIncome, calcIncomeAdjustmentDeduction, calcSalaryPensionIncome, calcTaxableIncomeForKokuho, calcTaxableIncomeForJumin, calcKeigenPensionDeduction, isKyuyoShotokushaTou };
 }

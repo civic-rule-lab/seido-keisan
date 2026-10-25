@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "inami"; const PREF_SLUG = "hyogo"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=516aea38"></script>
-<script src="/js/core/shared/income.js?v=516aea38"></script>
-<script src="/js/core/jumin.js?v=516aea38"></script>
-<script src="/js/core/kokuho.js?v=516aea38"></script>
-<script src="/js/core/kaigo.js?v=516aea38"></script>
-<script src="/js/core/kouki.js?v=516aea38"></script>
-<script src="/js/core/hoiku.js?v=516aea38"></script>
-<script src="/js/core/shaho.js?v=516aea38"></script>
-<script src="/js/core/shotoku.js?v=516aea38"></script>
-<script src="/js/core/shogakukin.js?v=516aea38"></script>
-<script src="/js/core/shogakukin-bridge.js?v=516aea38"></script>
-<script src="/js/core/furusato.js?v=516aea38"></script>
+<script src="/js/core/shared/ui-input.js?v=641fb577"></script>
+<script src="/js/core/shared/income.js?v=641fb577"></script>
+<script src="/js/core/jumin.js?v=641fb577"></script>
+<script src="/js/core/kokuho.js?v=641fb577"></script>
+<script src="/js/core/kaigo.js?v=641fb577"></script>
+<script src="/js/core/kouki.js?v=641fb577"></script>
+<script src="/js/core/hoiku.js?v=641fb577"></script>
+<script src="/js/core/shaho.js?v=641fb577"></script>
+<script src="/js/core/shotoku.js?v=641fb577"></script>
+<script src="/js/core/shogakukin.js?v=641fb577"></script>
+<script src="/js/core/shogakukin-bridge.js?v=641fb577"></script>
+<script src="/js/core/furusato.js?v=641fb577"></script>
 <script>
 (function () {
   "use strict";
@@ -579,8 +579,12 @@
     }
     if(spouseJiei && famSpouseAge<75 && !rkWithSpouse && kokuhoData){
       try{
+        // 給与所得者等の数: 世帯主（本人）と配偶者のうち、給与収入55万円超・年金収入60万円（65歳以上は110万円）超の人。
+        //   本人が75歳未満なら国保に入っていない擬制世帯主として数える（施行令 第29条の7 第6項第1号・2026-10-25）
+        var spEarners = (isKyuyoShotokushaTou(grossSalary, pension, age)?1:0) + (isKyuyoShotokushaTou(famSpouseSalary, famSpousePension, famSpouseAge)?1:0);
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
-          family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:1, fixedAssetTax:0,
+          family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:Math.max(1, spEarners), fixedAssetTax:0,
+          giseiSetainushi:(age<75),
           tokuteiDouitsuCount:(age>=75?1:0),   // 本人が75歳以上（後期）なら特定同一世帯所属者として5割・2割の人数に入れる（施行令 第29条の7 第6項第1号）
           reductionJudgmentIncome:Math.max(0,spouseIncomeJumin+totalIncome-keigenSp-keigenSelf)}, kokuhoData);
       }catch(e){ rkSp=null; }
