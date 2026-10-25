@@ -49,12 +49,15 @@ function calculateKokuho(input, data) {
   const reductionBase = reductionJudgmentIncome ?? incomeSafe;
 
   // 資産割
-  const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.medical || 0)) : 0;
-  const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.support || 0)) : 0;
+  // 固定資産税額を省略した・数でない・負の値のときは 0 として扱う。旧実装は省略すると資産割のある自治体（R8 で 113 件）で
+  // 合計が NaN になっていた（公開ページは 0 を渡すので表示には出ない。API・テストの呼び出しで起きる。2026-10-25・全方向試算 B-7）。
+  const fixedAssetTaxSafe = Number.isFinite(Number(fixedAssetTax)) ? Math.max(Number(fixedAssetTax), 0) : 0;
+  const assetLevyMedical = data.assetLevy ? Math.round(fixedAssetTaxSafe * (data.assetLevy.medical || 0)) : 0;
+  const assetLevySupport = data.assetLevy ? Math.round(fixedAssetTaxSafe * (data.assetLevy.support || 0)) : 0;
   // 介護分は介護納付金課税被保険者（40〜64歳）がいる世帯だけに課す（所得割・均等割・平等割と同じ条件）。
   // 旧実装は care=0 の世帯にも介護分資産割を課していた（2026-10-01 修正）。
-  const assetLevyCare    = data.assetLevy && careSafe > 0 ? Math.round(fixedAssetTax * (data.assetLevy.care    || 0)) : 0;
-  const assetLevyChildcare = data.assetLevy ? Math.round(fixedAssetTax * (data.assetLevy.childcare || 0)) : 0;
+  const assetLevyCare    = data.assetLevy && careSafe > 0 ? Math.round(fixedAssetTaxSafe * (data.assetLevy.care    || 0)) : 0;
+  const assetLevyChildcare = data.assetLevy ? Math.round(fixedAssetTaxSafe * (data.assetLevy.childcare || 0)) : 0;
 
   const memberBase = (m) => Math.max(Math.max(m?.income || 0, 0) - data.basicDeduction, 0);
   const baseIncome = memberList
