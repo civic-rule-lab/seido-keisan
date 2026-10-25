@@ -10,7 +10,7 @@ const CHILDCARE_CAP_NATIONAL = 30000;
 
 function calculateKokuho(input, data) {
   const { income, family, preschool, under18, care, salaryPensionCount, fixedAssetTax,
-          reductionJudgmentIncome, members, tokuteiDouitsuCount, giseiSetainushi } = input;
+          reductionJudgmentIncome, members, tokuteiDouitsuCount, giseiSetainushi, tokuteiSetaiKubun } = input;
 
   // 加入者ごとの所得（任意・2026-10-04 追加・TASKS X170-12）。
   //   members: [{ income: 前年の総所得金額等（基礎控除前）, careTarget: 40〜64歳なら true }, ...]
@@ -76,8 +76,16 @@ function calculateKokuho(input, data) {
   const carePerCapita    = careSafe   * data.perCapita.care;
 
   // 平等割
-  const medicalHousehold = data.household?.medical || 0;
-  const supportHousehold = data.household?.support || 0;
+  // 特定世帯（後期へ移った特定同一世帯所属者と同じ世帯で、国保の加入者が1人だけ・移ってから5年以内）は 1/2、
+  // 特定継続世帯（その後3年間）は 3/4（国民健康保険法施行令 第29条の7 第2項第8号ロ・ハ、第3項第7号、第5項第9号）
+  //   [確認済 2026-10-25 e-Gov 法令API・2026-08-01 施行時点]。医療分・後期支援金分・子ども子育て支援金分が対象で、介護分には無い。
+  //   1円未満は切り捨てる（10円未満を切り捨てる条例もあり、数円ずれることがある）。
+  const tokuteiRatio = familySafe === 1
+    ? (tokuteiSetaiKubun === 'tokutei' ? [1, 2] : tokuteiSetaiKubun === 'keizoku' ? [3, 4] : null)
+    : null;
+  const tokuteiAdj = (v) => tokuteiRatio ? Math.floor(v * tokuteiRatio[0] / tokuteiRatio[1]) : v;
+  const medicalHousehold = tokuteiAdj(data.household?.medical || 0);
+  const supportHousehold = tokuteiAdj(data.household?.support || 0);
   const careHousehold    = careSafe > 0 ? (data.household?.care || 0) : 0;
 
   // 未就学児軽減の計算は「軽減判定」で reductionRate が確定した後に行う。
@@ -171,7 +179,7 @@ function calculateKokuho(input, data) {
   const childcareCfg        = data.childcareLevy || data.childcare;
   const childcareRate       = childcareCfg?.rate      || 0;
   const childcarePerCapita  = childcareCfg?.perCapita || 0;
-  const childcareHousehold  = childcareCfg?.household || 0;
+  const childcareHousehold  = tokuteiAdj(childcareCfg?.household || 0);
   const childcareIncome     = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
 
   // 均等割の計算
@@ -248,4 +256,14 @@ function calculateKokuho(input, data) {
   };
 }
 
-if (typeof module !== 'undefined') module.exports = { calculateKokuho };
+// 特定世帯の区分を年齢から推定する（75歳で国保から後期へ移ったとみなす）。
+//   75〜79歳＝移ってから5年以内（特定世帯）、80〜82歳＝その後3年間（特定継続世帯）、それ以外は null。
+//   誕生月によっては境目の年に1年ずれることがある。
+function tokuteiSetaiKubunFromAge(age) {
+  if (!Number.isFinite(age) || age < 75) return null;
+  if (age <= 79) return 'tokutei';
+  if (age <= 82) return 'keizoku';
+  return null;
+}
+
+if (typeof module !== 'undefined') module.exports = { calculateKokuho, tokuteiSetaiKubunFromAge };

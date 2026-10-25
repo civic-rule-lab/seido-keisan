@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "shintoku"; const PREF_SLUG = "hokkaido"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=641fb577"></script>
-<script src="/js/core/shared/income.js?v=641fb577"></script>
-<script src="/js/core/jumin.js?v=641fb577"></script>
-<script src="/js/core/kokuho.js?v=641fb577"></script>
-<script src="/js/core/kaigo.js?v=641fb577"></script>
-<script src="/js/core/kouki.js?v=641fb577"></script>
-<script src="/js/core/hoiku.js?v=641fb577"></script>
-<script src="/js/core/shaho.js?v=641fb577"></script>
-<script src="/js/core/shotoku.js?v=641fb577"></script>
-<script src="/js/core/shogakukin.js?v=641fb577"></script>
-<script src="/js/core/shogakukin-bridge.js?v=641fb577"></script>
-<script src="/js/core/furusato.js?v=641fb577"></script>
+<script src="/js/core/shared/ui-input.js?v=7289f524"></script>
+<script src="/js/core/shared/income.js?v=7289f524"></script>
+<script src="/js/core/jumin.js?v=7289f524"></script>
+<script src="/js/core/kokuho.js?v=7289f524"></script>
+<script src="/js/core/kaigo.js?v=7289f524"></script>
+<script src="/js/core/kouki.js?v=7289f524"></script>
+<script src="/js/core/hoiku.js?v=7289f524"></script>
+<script src="/js/core/shaho.js?v=7289f524"></script>
+<script src="/js/core/shotoku.js?v=7289f524"></script>
+<script src="/js/core/shogakukin.js?v=7289f524"></script>
+<script src="/js/core/shogakukin-bridge.js?v=7289f524"></script>
+<script src="/js/core/furusato.js?v=7289f524"></script>
 <script>
 (function () {
   "use strict";
@@ -558,8 +558,12 @@
             // 配偶者が75歳以上（自営・年金のみ＝後期高齢者医療）なら、国保から移った特定同一世帯所属者として
             //   軽減判定の所得と5割・2割の人数に入れる（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25）
             var spTokutei = (spouseJiei && famSpouseAge>=75) ? 1 : 0;
-            rk=calculateKokuho({income:totalIncome, family:family, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0,
+            // 世帯人数には後期の配偶者も入っているので、国保の加入者数（均等割の人数）からは除く。加入者が本人1人なら
+            //   特定世帯（移って5年以内＝平等割1/2）・特定継続世帯（その後3年＝3/4）を配偶者の年齢から推定する（施行令 第29条の7 第2項第8号・2026-10-25）
+            var kokuhoFamily = spTokutei ? Math.max(1, family-1) : family;
+            rk=calculateKokuho({income:totalIncome, family:kokuhoFamily, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0,
               tokuteiDouitsuCount:spTokutei,
+              tokuteiSetaiKubun:(spTokutei && kokuhoFamily===1) ? tokuteiSetaiKubunFromAge(famSpouseAge) : null,
               reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf+(spTokutei?spouseIncomeJumin-keigenSp:0))}, kokuhoData);
           }
         }catch(e){ rk=null; }
@@ -585,6 +589,7 @@
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
           family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:Math.max(1, spEarners), fixedAssetTax:0,
           giseiSetainushi:(age<75),
+          tokuteiSetaiKubun:(age>=75 ? tokuteiSetaiKubunFromAge(age) : null),   // 本人が後期・配偶者だけが国保なら特定世帯（本人の年齢から推定）
           tokuteiDouitsuCount:(age>=75?1:0),   // 本人が75歳以上（後期）なら特定同一世帯所属者として5割・2割の人数に入れる（施行令 第29条の7 第6項第1号）
           reductionJudgmentIncome:Math.max(0,spouseIncomeJumin+totalIncome-keigenSp-keigenSelf)}, kokuhoData);
       }catch(e){ rkSp=null; }

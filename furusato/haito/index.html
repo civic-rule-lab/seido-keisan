@@ -523,12 +523,12 @@
   "shotoku": { "separateRate": 0.15, "fukkoRate": 0.021, "haitoKojo": { "rate": 0.10, "rateOver": 0.05, "threshold": 10000000 } },
   "jumin": { "separateRate": 0.05, "sogoRate": 0.10, "haitoKojo": { "rate": 0.028, "rateOver": 0.014, "threshold": 10000000 } }
 }; const SHOTOKU_P = {"taxTable":[[1950000,0.05,0],[3300000,0.1,97500],[6950000,0.2,427500],[9000000,0.23,636000],[18000000,0.33,1536000],[40000000,0.4,2796000],[null,0.45,4796000]],"surtaxRate":1.021,"kazeiRoundDown":1000,"taxRoundDown":100};</script>
-<script src="/js/core/shared/ui-input.js?v=a2bd7233"></script>
-<script src="/js/core/shared/income.js?v=a2bd7233"></script>
-<script src="/js/core/jumin.js?v=a2bd7233"></script>
-<script src="/js/core/kokuho.js?v=a2bd7233"></script>
-<script src="/js/core/furusato.js?v=a2bd7233"></script>
-<script src="/js/core/haito.js?v=a2bd7233"></script>
+<script src="/js/core/shared/ui-input.js?v=40567e8e"></script>
+<script src="/js/core/shared/income.js?v=40567e8e"></script>
+<script src="/js/core/jumin.js?v=40567e8e"></script>
+<script src="/js/core/kokuho.js?v=40567e8e"></script>
+<script src="/js/core/furusato.js?v=40567e8e"></script>
+<script src="/js/core/haito.js?v=40567e8e"></script>
 <script>
 (function(){
   "use strict";
@@ -599,6 +599,8 @@
       : calculateKokuho({ income: kokuhoIncome, family: Math.max(1, input.family), preschool: 0, under18: 0, care: careN, salaryPensionCount: 1, fixedAssetTax: 0,
           // 配偶者が75歳以上で「国保」を選んだ場合は、国保から後期高齢者医療へ移った特定同一世帯所属者として
           //   軽減判定の所得と5割・2割の人数に入れる（国民健康保険法施行令 第29条の7 第6項第1号・2026-10-25）
+          // 加入者が本人1人なら特定世帯（移って5年以内＝平等割1/2）・特定継続世帯（その後3年＝3/4）。配偶者の年齢から推定（施行令 第29条の7 第2項第8号）
+          tokuteiSetaiKubun: (spTokutei && Math.max(1, input.family) === 1) ? tokuteiSetaiKubunFromAge(spouseAge) : null,
           tokuteiDouitsuCount: spTokutei, reductionJudgmentIncome: kokuhoIncome + (spTokutei ? spouseIncome : 0) }, kokuhoData);
     var nenkin = (input.age >= 20 && input.age < 60 && !input.nenkinExempt && NENKIN_DATA.monthly > 0) ? NENKIN_DATA.monthly * 12 : 0;
     // 配偶者の国民年金（第1号）: 国保加入・20〜59歳で、本人がまとめて払う前提のときだけ本人の社会保険料控除に入れる（所得税法 第74条・地方税法 第314条の2 第1項第3号「生計を一にする配偶者の負担すべき社会保険料を支払った」）
