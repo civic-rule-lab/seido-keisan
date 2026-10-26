@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.093,
-    "support": 0.026,
-    "care": 0.018
+    "medical": 0.087,
+    "support": 0.024,
+    "care": 0.01
   },
   "perCapita": {
-    "medical": 32300,
-    "support": 9000,
-    "care": 8700
+    "medical": 27000,
+    "support": 7200,
+    "care": 6200
   },
   "household": {
-    "medical": 26100,
-    "support": 5700,
-    "care": 4800
+    "medical": 28000,
+    "support": 4500,
+    "care": 4000
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000
   },
@@ -55,30 +55,30 @@
   },
   "meta": {
     "schemaVersion": "1.0",
-    "dataVersion": "1.0.0",
-    "status": "unverified",
+    "dataVersion": "1.0.1",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-10-25T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30"
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "令和8年度より国民健康保険税が変わります - 観音寺市（改正後の税率の表に令和7年度欄）",
+      "url": "https://www.city.kanonji.kagawa.jp/soshiki/6/67064.html",
+      "publishedAt": "2026"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-10-25",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 1,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-10-25: 旧データは令和8年度の値（医療 9.3%/32,300/26,100/67万 等）がそのまま入っていた（全方向試算 B-9。医療分の限度額が R7 法定の66万を超える67万で発覚）。市の公式ページの表の令和7年度欄で差し替え: 医療 8.7%/27,000/28,000/66万・後期 2.4%/7,200/4,500/26万・介護 1.0%/6,200/4,000/17万。軽減判定の基準（5割 305,000・2割 560,000）は R7 の国の値のまま。"
   }
 }

@@ -9,7 +9,7 @@
 const CHILDCARE_CAP_NATIONAL = 30000;
 
 function calculateKokuho(input, data) {
-  const { income, family, preschool, under18, care, salaryPensionCount, fixedAssetTax,
+  const { income, family: familyIn, preschool, under18, care, salaryPensionCount, fixedAssetTax,
           reductionJudgmentIncome, members, tokuteiDouitsuCount, giseiSetainushi, tokuteiSetaiKubun } = input;
 
   // 加入者ごとの所得（任意・2026-10-04 追加・TASKS X170-12）。
@@ -24,7 +24,12 @@ function calculateKokuho(input, data) {
   //   保険料は「被保険者の属する世帯の世帯主」から徴収する（国民健康保険法 第76条第1項。e-Gov 2026-10-01 施行時点で確認）。
   //   被保険者がいなければ課す相手がない。
   //   世帯全員が後期高齢者医療・社保に入っている場合などに household.js が family: 0 を渡す。旧実装は平等割と
-  //   子ども・子育て支援金の世帯割（と資産割）を課していた。family を省略したときの挙動は従来どおり（呼び出し元の互換のため）。
+  //   子ども・子育て支援金の世帯割（と資産割）を課していた。family を省略したときは 0 ではなく、下のとおり 1 人（または members の人数）とみなす。
+  // 世帯人数（加入者数）を省略した・数でないときは、members があればその人数、無ければ 1 人とみなす。
+  //   旧実装は省略すると均等割が 0 人分・軽減の基準額が NaN になり、黙って「軽減なし」で計算していた（2026-10-25・全方向試算 B-8）。
+  const family = (familyIn === undefined || familyIn === null || !Number.isFinite(Number(familyIn)))
+    ? (Array.isArray(members) && members.length > 0 ? members.length : 1)
+    : Number(familyIn);
   if (family === 0) {
     return {
       medicalTotal: 0, supportTotal: 0, careTotal: 0, childcareTotal: 0,

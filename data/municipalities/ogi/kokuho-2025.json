@@ -6,22 +6,22 @@
   "system": "kokuho",
   "basicDeduction": 430000,
   "rate": {
-    "medical": 0.093,
-    "support": 0.029,
-    "care": 0.025
+    "medical": 0.099,
+    "support": 0.03,
+    "care": 0.029
   },
   "perCapita": {
-    "medical": 32500,
-    "support": 9400,
-    "care": 9000
+    "medical": 32800,
+    "support": 9100,
+    "care": 9400
   },
   "household": {
-    "medical": 34900,
-    "support": 9400,
-    "care": 5200
+    "medical": 36400,
+    "support": 9500,
+    "care": 5500
   },
   "caps": {
-    "medical": 670000,
+    "medical": 660000,
     "support": 260000,
     "care": 170000
   },
@@ -55,30 +55,30 @@
   },
   "meta": {
     "schemaVersion": "1.0",
-    "dataVersion": "1.0.0",
-    "status": "unverified",
+    "dataVersion": "1.0.1",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-10-25T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30"
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "国民健康保険税（税率・試算）｜小城市（令和7年度 税率表・インターネットアーカイブ 2025-08-02 / 2025-11-15 保存版）",
+      "url": "https://web.archive.org/web/20250802223123/https://www.city.ogi.lg.jp/main/16283.html",
+      "publishedAt": "2025"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-10-25",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 1,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-10-25: 旧データは令和8年度の値（医療 9.3%/32,500/34,900/67万 等）がそのまま入っていた（全方向試算 B-9。医療分の限度額が R7 法定の66万を超える67万で発覚）。市の公式ページは令和8年度に更新済みのため、インターネットアーカイブの保存版（2025-08-02・2025-11-15、内容同一）の「令和7年度 小城市国民健康保険税 税率表」で差し替え: 医療 9.9%/32,800/36,400/66万・後期 3.0%/9,100/9,500/26万・介護 2.9%/9,400/5,500/17万。現行URL https://www.city.ogi.lg.jp/main/16283.html 。軽減判定の基準（5割 305,000・2割 560,000）は R7 の国の値のまま。"
   }
 }
