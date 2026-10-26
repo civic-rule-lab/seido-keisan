@@ -50,31 +50,31 @@
   },
   "meta": {
     "schemaVersion": "1.0",
-    "dataVersion": "1.0.0",
-    "status": "unverified",
+    "dataVersion": "1.0.1",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-10-26T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30"
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "鳥取県「令和7年度国民健康保険料(税)率決定状況」（県公式・国民健康保険料（税）ページ）",
+      "url": "https://www.pref.tottori.lg.jp/secure/210656/ketteijokyo.pdf",
+      "publishedAt": "2025"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-10-26",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 0.9,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-10-26: R7 と R8 で料率・均等割・平等割・限度額が完全に同じだったため、令和8年度の値の写し間違いを疑って点検した（全方向試算 B-9 の横展開）。鳥取県「令和7年度国民健康保険料(税)率決定状況」（配布ページ https://www.pref.tottori.lg.jp/70904.htm ）の日南町の行と所得割・均等割・平等割の全項目が一致し、町は R7→R8 で据え置いていたと確認。値の変更なし、metadata のみ verified。突合内訳: 医療 6.60%/20,600/16,600・後期 3.70%/8,500/9,200・介護 2.35%/7,400/7,600。★県の表に賦課限度額の列が無いため、限度額（66万/26万/17万）は R7 の一次資料では未照合（R8 の町ページは 66万/26万/17万）。そのため confidenceScore は 0.9。"
   },
   "caps": {
     "medical": 660000,

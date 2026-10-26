@@ -55,30 +55,30 @@
   },
   "meta": {
     "schemaVersion": "1.0",
-    "dataVersion": "1.0.0",
-    "status": "unverified",
+    "dataVersion": "1.0.1",
+    "status": "verified",
     "lifecycle": {
       "createdAt": "2026-04-07T00:00:00Z",
-      "updatedAt": "2026-04-07T00:00:00Z",
+      "updatedAt": "2026-10-26T00:00:00Z",
       "validFrom": "2025-04-01",
       "validUntil": "2026-03-31",
       "expiresAt": "2026-04-30"
     },
     "source": {
-      "type": "manual",
-      "title": "",
-      "url": "",
-      "publishedAt": ""
+      "type": "official",
+      "title": "川崎町国民健康保険税条例（川崎町例規集・令和7年条例第6号まで収録の令和7年度版）",
+      "url": "http://reiki-miyagi-kawasaki.jp/reiki_int/reiki_honbun/c217RG00000131.html",
+      "publishedAt": "2025"
     },
     "audit": {
-      "verifiedBy": "",
-      "verifiedAt": "",
-      "method": "manual"
+      "verifiedBy": "civic-rule-lab",
+      "verifiedAt": "2026-10-26",
+      "method": "official-site"
     },
     "quality": {
-      "confidenceScore": 0.8,
+      "confidenceScore": 1,
       "completeness": "full"
     },
-    "notes": ""
+    "notes": "2026-10-26: R7 と R8 で料率・均等割・平等割・限度額が完全に同じだったため、令和8年度の値の写し間違いを疑って点検した（全方向試算 B-9 の横展開）。令和7年度版の条例本文（例規集・Last-Modified 2026-01-27・最終改正 令和7年条例第6号）と全項目が一致し、町は R7→R8 で税率を据え置いていたと確認。値の変更なし、metadata のみ verified。突合内訳: 医療 7.7%/29,500/12,500/66万・後期 3.0%/12,000/5,000/26万・介護 1.4%/7,000/3,000/17万・軽減判定 5割 305,000・2割 560,000。"
   }
 }
