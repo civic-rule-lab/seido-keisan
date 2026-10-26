@@ -42,6 +42,22 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "http://www.koureikouiki-tottori.jp/reiki/reiki_int/reiki_honbun/u271RG00000072.html",
+      "title": "鳥取県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "http://www.koureikouiki-tottori.jp/easy-search/hokenryo/392",
+      "confidence": "partial",
+      "note": "一部は条文でなく公式資料から判断（詳しくは PR 本文）",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "publicNote": null,
   "source": {
     "rates": {

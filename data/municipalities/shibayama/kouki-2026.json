@@ -42,6 +42,20 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "floor",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 10
+    },
+    "source": {
+      "url": "https://www.kouiki-chiba.jp/reiki/reiki_honbun/x987RG00000070.html",
+      "title": "千葉県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-26"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

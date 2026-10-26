@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "floor",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 1,
+      "childcare": 1
+    },
+    "source": {
+      "url": "https://www.kouiki-hyogo.jp/hyogo-kouki-reiki/H419901010025/H419901010025_j.html",
+      "title": "兵庫県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://www.kouiki-hyogo.jp/seido/1001473/1001557.html",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-26"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

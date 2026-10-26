@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 10,
+      "childcare": 10
+    },
+    "source": {
+      "url": "http://www.shimane-kouiki.jp/reiki_int/reiki_honbun/x974RG00000071.html",
+      "title": "島根県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "http://www.shimane-kouiki.jp/hokenryou/index.html",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

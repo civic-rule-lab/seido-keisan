@@ -42,6 +42,20 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "floor",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 1,
+      "childcare": 1
+    },
+    "source": {
+      "url": "https://www.kouikirengo-osaka.jp/home/wp-content/themes/tpl/old/union/pdf/list/R7/7-1_2.pdf",
+      "title": "大阪府後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

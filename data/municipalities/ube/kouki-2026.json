@@ -42,6 +42,24 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": {
+      "medical": "floor",
+      "childcare": "none"
+    },
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 1,
+      "childcare": 1
+    },
+    "source": {
+      "url": "http://www.yamaguchi-kouiki.jp/d1w_reiki/H419901010033/H419901010033_j.html",
+      "title": "山口県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "http://yamaguchi-kouiki.jp/ko/ko03-2/ko0302",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "publicNote": null,
   "source": {
     "rates": {

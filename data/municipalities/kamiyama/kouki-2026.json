@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 10
+    },
+    "source": {
+      "url": "https://www.koukikourei-tokushima.jp/reiki_int/reiki_honbun/x988RG00000058.html",
+      "title": "徳島県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://www.koukikourei-tokushima.jp/docs/2022012000012/",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "floor",
+    "reducedPerCapita": "none",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "https://www.nara-kouiki.jp/reiki_int/reiki_honbun/u269RG00000079.html",
+      "title": "奈良県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://www.nara-kouiki.jp/seido_hokenryou2.html",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "publicNote": null,
   "source": {
     "rates": {

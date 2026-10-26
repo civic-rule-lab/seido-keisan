@@ -42,6 +42,20 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "ceil",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "https://www1.g-reiki.net/aichi-kouiki/reiki_honbun/x976RG00000066.html",
+      "title": "愛知県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-26"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

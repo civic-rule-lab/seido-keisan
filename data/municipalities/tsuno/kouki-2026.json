@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "reducedUnit": 100,
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "https://en3-jg.d1-law.com/miyazaki-iryokouiki/d1w_reiki/H419901010017/H419901010017_j.html",
+      "title": "宮崎県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "publicNote": null,
   "source": {
     "rates": {

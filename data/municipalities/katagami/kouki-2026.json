@@ -42,6 +42,22 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "https://en3-jg.d1-law.com/akita-iryokouiki/d1w_reiki/H419901010025/H419901010025_j.html",
+      "title": "秋田県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://akita-kouiki.jp/wp-content/themes/akita_kouki/js/calc2026.js",
+      "confidence": "partial",
+      "note": "一部は条文でなく公式資料から判断（詳しくは PR 本文）",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 1,
+      "childcare": 1
+    },
+    "source": {
+      "url": "https://mie-kouiki.jp/reiki_int/reiki_honbun/u395RG00000086.html",
+      "title": "三重県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://mie-kouiki.jp/wp2/wp-content/uploads/2026/04/hokenryou-modelcase-r8.pdf",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

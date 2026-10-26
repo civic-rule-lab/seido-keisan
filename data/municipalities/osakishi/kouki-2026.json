@@ -42,6 +42,20 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "floor",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "https://en3-jg.d1-law.com/miyagi_iryokouiki/d1w_reiki/H419901010028/H419901010028_j.html",
+      "title": "宮城県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "publicNote": null,
   "source": {
     "rates": {

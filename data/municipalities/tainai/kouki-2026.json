@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "none",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 100,
+      "childcare": 100
+    },
+    "source": {
+      "url": "https://www.niigata-kouiki.jp/reiki_int/reiki_honbun/u388RG00000067.html",
+      "title": "新潟県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://www.niigata-kouiki.jp/system/insurance_premium/estimate.html",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "source": {
     "rates": {
       "url": "https://www.mhlw.go.jp/content/12403500/001689077.pdf",

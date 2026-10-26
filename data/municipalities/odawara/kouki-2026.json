@@ -42,6 +42,21 @@
     }
   },
   "incomeReduction": null,
+  "rounding": {
+    "income": "floor",
+    "reducedPerCapita": "floor",
+    "levyUnit": {
+      "medical": 10,
+      "childcare": 10
+    },
+    "source": {
+      "url": "https://www.union.kanagawa.lg.jp/_res/projects/default_project/_page_/001/001/020/koukikoureishairyouzyourei.pdf",
+      "title": "神奈川県後期高齢者医療広域連合後期高齢者医療に関する条例",
+      "example": "https://www.union.kanagawa.lg.jp/1000009/1000664/1002086.html",
+      "confidence": "confirmed",
+      "retrievedAt": "2026-10-27"
+    }
+  },
   "publicNote": null,
   "source": {
     "rates": {
