@@ -209,6 +209,8 @@
     var src=(M.freePolicy&&M.freePolicy.source&&M.freePolicy.source[0])||"";
     var html='<div class="free-box"><p>このまちの保育料は</p><div class="big">第1子から 0円（無償）</div>'
         +'<p>'+(since?since+"から、":"")+'認可保育所（0〜2歳）の保育料が無償化されています。</p>'
+        // 無償化の前の月が有料だった自治体（例: 大阪市 令和8年4〜8月分）は、データの publicNote をそのまま出す
+        +((M.freePolicy&&M.freePolicy.publicNote)?'<p class="free-before">'+esc(M.freePolicy.publicNote)+'</p>':'')
         +(src?'<p><a href="'+esc(src)+'" target="_blank" rel="noopener" style="color:var(--acc);font-size:12.5px;">根拠（公式）→</a></p>':'')
         +'</div>'
         +'<details><summary>無償の対象外かもしれない場合（認可外・企業主導型・3歳以上の別制度など）</summary>'
