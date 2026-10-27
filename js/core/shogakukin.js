@@ -126,10 +126,14 @@ function calcShogakukin(spec, inputs) {
   const g = spec.grant, cfg = g.kijungakuFormula;
   const supporters = Array.isArray(inputs.supporters) ? inputs.supporters : [];
 
-  // 支給額算定基準額 = 全生計維持者(＋本人)を合算 → 100円未満切捨て
-  let raw = 0;
-  for (const s of supporters) raw += _supporterKijungakuComponent(s, cfg);
-  const kijungaku = Math.floor(Math.max(0, raw) / cfg.roundDownUnit) * cfg.roundDownUnit;
+  // 支給額算定基準額 = 本人と生計維持者「それぞれ」の額（零を下回るときは零・100円未満切捨て）を合算
+  //   独立行政法人日本学生支援機構法施行令 第8条の2第4項／大学等における修学の支援に関する法律施行令 第2条第2項
+  //   （合算してから1回だけ丸めると、1人分の負の額が他の人の分と相殺され、100円未満の端数も合わさって区分がずれる）
+  let kijungaku = 0;
+  for (const s of supporters) {
+    const component = _supporterKijungakuComponent(s, cfg);
+    kijungaku += Math.floor(Math.max(0, component) / cfg.roundDownUnit) * cfg.roundDownUnit;
+  }
 
   const isTashi = (inputs.childrenCount || 0) >= g.tashiSetai.minChildren;
   const student = inputs.student || {};
