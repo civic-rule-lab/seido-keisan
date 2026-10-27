@@ -18,7 +18,7 @@
       "annual": 23400,
       "criteria": {
         "householdAllNonTaxable": true,
-        "sumIncomeMax": 809000
+        "sumIncomeMax": 826500
       },
       "condition": "世帯全員非課税 かつ（生活保護/老齢福祉年金 または 課税年金収入＋合計所得が809,000円以下）"
     },
@@ -29,7 +29,7 @@
       "annual": 39000,
       "criteria": {
         "householdAllNonTaxable": true,
-        "sumIncomeMin": 809001,
+        "sumIncomeMin": 826501,
         "sumIncomeMax": 1200000
       },
       "condition": "世帯全員非課税 かつ 課税年金収入＋合計所得が809,000円超〜120万円以下"
@@ -53,7 +53,7 @@
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
-        "sumIncomeMax": 809000
+        "sumIncomeMax": 826500
       },
       "condition": "世帯課税あり・本人非課税 かつ 課税年金収入＋合計所得が809,000円以下"
     },
@@ -65,7 +65,7 @@
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
-        "sumIncomeMin": 809001
+        "sumIncomeMin": 826501
       },
       "condition": "世帯課税あり・本人非課税 かつ 課税年金収入＋合計所得が809,000円超"
     },
@@ -170,7 +170,7 @@
     "pdfUrl": "https://www.city.takaoka.toyama.jp/material/files/group/37/0516takaoka.pdf",
     "pageTitle": "高岡市 介護保険の第1号被保険者（令和6〜8年度・13段階）",
     "insurer": "高岡市",
-    "retrievedAt": "2026-06-14"
+    "retrievedAt": "2026-10-27"
   },
-  "notes": "高岡市公式HPの所得段階別表(令和6〜8年度・13段階)から確定。基準額77,900円。第1〜5段階は課税年金収入＋合計所得の80.9万/120万しきい値。第6〜13は合計所得120/200/300/400/500/600/700万。年額は公表値。"
+  "notes": "高岡市公式HPの所得段階別表(令和6〜8年度・13段階)から確定。基準額77,900円。第1〜5段階は課税年金収入＋合計所得の82.65万/120万しきい値（令和8年度。介護保険法施行令第38条の改正で80.9万から変わった。公式HP 2026-04-01更新の表で確認）。第6〜13は合計所得120/200/300/400/500/600/700万。年額は公表値。"
 }

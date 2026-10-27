@@ -18,7 +18,7 @@
       "annual": 18800,
       "criteria": {
         "householdAllNonTaxable": true,
-        "sumIncomeMax": 809000
+        "sumIncomeMax": 826500
       },
       "condition": "世帯全員非課税 かつ（生活保護/老齢福祉年金 または 課税年金収入＋合計所得が809,000円以下）"
     },
@@ -29,7 +29,7 @@
       "annual": 30000,
       "criteria": {
         "householdAllNonTaxable": true,
-        "sumIncomeMin": 809001,
+        "sumIncomeMin": 826501,
         "sumIncomeMax": 1200000
       },
       "condition": "世帯全員非課税 かつ 課税年金収入＋合計所得が809,000円超〜120万円以下"
@@ -53,7 +53,7 @@
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
-        "sumIncomeMax": 809000
+        "sumIncomeMax": 826500
       },
       "condition": "世帯課税あり・本人非課税 かつ 課税年金収入＋合計所得が809,000円以下"
     },
@@ -65,7 +65,7 @@
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
-        "sumIncomeMin": 809001
+        "sumIncomeMin": 826501
       },
       "condition": "世帯課税あり・本人非課税 かつ 課税年金収入＋合計所得が809,000円超"
     },
@@ -172,5 +172,5 @@
     "insurer": "中新川広域行政事務組合（上市町・立山町・舟橋村）",
     "retrievedAt": "2026-06-14"
   },
-  "notes": "中新川広域行政事務組合の公式パンフレットPDF(令和6〜8年度・13段階)から確定。基準額75,100円(月6,262円)。第1〜5は80.9万/120万しきい値。上市町・立山町・舟橋村の共通保険者。"
+  "notes": "中新川広域行政事務組合の公式パンフレットPDF(令和6〜8年度・13段階)から確定。基準額75,100円(月6,262円)。第1〜5は82.65万/120万しきい値（令和8年度。組合の介護保険条例第3条は段階を介護保険法施行令第38条の区分で定めており、同条の改正で80.9万から変わった。令和8年度版のパンフレットは2026-10-27時点で未公表）。上市町・立山町・舟橋村の共通保険者。"
 }

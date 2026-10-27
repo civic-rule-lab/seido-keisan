@@ -18,7 +18,7 @@
       "annual": 20900,
       "criteria": {
         "householdAllNonTaxable": true,
-        "sumIncomeMax": 809000
+        "sumIncomeMax": 826500
       },
       "condition": "世帯全員非課税 かつ（生活保護/老齢福祉年金 または 課税年金収入＋合計所得が809,000円以下）"
     },
@@ -29,7 +29,7 @@
       "annual": 25700,
       "criteria": {
         "householdAllNonTaxable": true,
-        "sumIncomeMin": 809001,
+        "sumIncomeMin": 826501,
         "sumIncomeMax": 1200000
       },
       "condition": "世帯全員非課税 かつ 課税年金収入＋合計所得が809,000円超〜120万円以下"
@@ -53,7 +53,7 @@
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
-        "sumIncomeMax": 809000
+        "sumIncomeMax": 826500
       },
       "condition": "世帯課税あり・本人非課税 かつ 課税年金収入＋合計所得が809,000円以下"
     },
@@ -65,7 +65,7 @@
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
-        "sumIncomeMin": 809001
+        "sumIncomeMin": 826501
       },
       "condition": "世帯課税あり・本人非課税 かつ 課税年金収入＋合計所得が809,000円超"
     },
@@ -166,11 +166,11 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "http://www.pci-area.tonami.toyama.jp/hoken/hokenryo.html",
-    "pdfUrl": "http://www.pci-area.tonami.toyama.jp/hoken/hokenryou2024.pdf",
-    "pageTitle": "砺波地方介護保険組合 令和7〜8年度の介護保険料（13段階）",
+    "url": "http://www.pci-area.tonami.toyama.jp/hoken/050/hokenryo.html",
+    "pdfUrl": "http://www.pci-area.tonami.toyama.jp/hoken/050/R8hokenryou.pdf",
+    "pageTitle": "砺波地方介護保険組合 令和8年度の介護保険料の決め方と納め方（13段階）",
     "insurer": "砺波地方介護保険組合（砺波市・小矢部市・南砺市）",
-    "retrievedAt": "2026-06-14"
+    "retrievedAt": "2026-10-27"
   },
-  "notes": "砺波地方介護保険組合の公式PDF(令和7〜8年度・13段階)から確定。基準額73,200円。第1〜5は80.9万/120万しきい値。砺波市・小矢部市・南砺市の共通保険者。"
+  "notes": "砺波地方介護保険組合の公式PDF(令和8年度・13段階)から確定。基準額73,200円。第1〜5は82.65万/120万しきい値（令和8年度。介護保険法施行令第38条の改正で80.9万から変わった）。砺波市・小矢部市・南砺市の共通保険者。"
 }
