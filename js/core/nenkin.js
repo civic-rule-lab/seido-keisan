@@ -8,6 +8,8 @@
 //   4分の1免除: ≤ 168万円 + 同上
 //   学生納付特例（本人のみ）: ≤ 128万円 + 扶養親族等の数×38万円 + 社会保険料控除等
 //   審査対象: 免除＝本人・配偶者・世帯主の全員 / 納付猶予＝本人・配偶者（50歳未満） / 学生納付特例＝本人
+//   特例: 本人が地方税法上の障害者・寡婦・ひとり親で前年所得135万円以下の人は、上の式によらず基準を満たす
+//         （国民年金法 第90条第1項第3号・施行令 第6条の7の2・第6条の8。JSON の exemption.localTaxNonTaxable）
 // 「扶養親族等控除額」「社会保険料控除額等」の内訳は JSON の exemption.dependentDeduction / otherDeduction（meta.inferred 参照）。
 'use strict';
 
@@ -49,10 +51,25 @@
       quarter: E.partial.quarter + dd + od,
       student: E.student.base + n * E.student.perDependent + od,
       dependentCount: n, dependentDeduction: dd, otherDeduction: od,
+      localTaxNonTaxable: localTaxNonTaxable(person, E),  // 第90条第1項第3号に当たる（画面の説明用）
     };
   }
 
-  function within(person, key, E) { return (person.income || 0) <= thresholds(person, E)[key]; }
+  // 本人が地方税法上の障害者・寡婦・ひとり親で、前年所得が135万円以下か（国民年金法 第90条第1項第3号）。
+  //   当たる人は、全額免除・一部免除・納付猶予・学生納付特例のどの基準も満たす（各条が「第九十条第一項…第三号に該当するとき」を挙げる）。
+  //   other.selfShogai は「本人が障害者（特別障害者を含む）」。other.shogai／shogaiSpecial は障害者控除の人数で扶養親族の分も含むため、ここでは使わない。
+  //   寡婦・ひとり親（other.kafu／other.hitorioya）は本人の状況なのでそのまま使う。
+  function localTaxNonTaxable(person, E) {
+    const lim = E.localTaxNonTaxable && E.localTaxNonTaxable.incomeMax;
+    if (!lim) return false;
+    const o = person.other || {};
+    return !!(o.selfShogai || o.kafu || o.hitorioya) && (person.income || 0) <= lim;
+  }
+
+  function within(person, key, E) {
+    if (localTaxNonTaxable(person, E)) return true;
+    return (person.income || 0) <= thresholds(person, E)[key];
+  }
 
   // 保険料（年額・前納）。tsuka=true で付加保険料（月400円）を月額・年額に足す（前納の表には足さない＝一次資料のとおり付加を含まない）
   function calcPremium(db, opt) {
@@ -68,6 +85,7 @@
 
   // 免除・納付猶予・学生納付特例の判定
   // input: { age, isStudent, self:{income,dependents,other}, spouse:{...}|null, householder:{...}|null }
+  //   other.selfShogai: 本人が地方税法上の障害者（特別障害者を含む）。other.kafu／other.hitorioya: 本人が寡婦／ひとり親
   //   householder は「本人が世帯主」なら null。配偶者が世帯主なら householder=null・spouse に入れる
   function judgeExemption(db, input) {
     const E = db.exemption;
