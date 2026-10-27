@@ -64,10 +64,10 @@
       "retrievedAt": "2026-06-28"
     },
     "kansho": {
-      "url": "https://www.kouiki-okinawa.jp/hokenryou.html",
-      "note": "所得割独自軽減なし・不均一賦課はH25終了し以降均一(公式明記)",
+      "url": "https://www.kouiki-okinawa.com/caresystem.php",
+      "note": "所得割独自軽減なし・県内均一(公式明記)",
       "confidence": 0.95,
-      "retrievedAt": "2026-06-28"
+      "retrievedAt": "2026-10-27"
     }
   },
   "notes": "医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。"
