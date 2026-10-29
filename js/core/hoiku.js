@@ -224,9 +224,18 @@ function calcHoiku(input, muni) {
     //     child2alt があれば第2子の別額を最優先(絶対額・係数もひとり親率も掛けない)。
     //     どの階層が child2alt を持つかで index 条件(表②=6%57,700未満 等)を内包する。
     const alt = amt.child2alt;
+    // 5b) セレクタが真でも当該階層に child2alt が無い(表②の index 条件外)とき: UI はセレクタ真で
+    //     childOrder を+1 して渡す結線(muni.selector[*].wiringContract)なので、非在園きょうだいの分を
+    //     戻して第1子とする。新潟は表②の対象外(6%57,700以上)だと表①で数え、第1子・第2子は
+    //     「教育・保育施設等を利用している子ども」だけで数える(令和8年度 新潟市保育料等のお知らせ p.1-2)。
+    const selOutside = !input.hitorioya && !(alt && alt.selector && input[alt.selector]) && muni.selector &&
+      Object.keys(muni.selector).some(k => muni.selector[k] && muni.selector[k].appliesTo === 'child2alt' && input[k]);
     if (!input.hitorioya && alt && alt.selector && input[alt.selector]) {
       amount = _readSrc(alt, `child2alt:${alt.selector}`);
       reasons.push(`多子軽減(第2子・${alt.selector})`);
+    } else if (selOutside) {
+      amount = firstFinal;
+      reasons.push('非在園のきょうだいは表②の階層外のため数えない(第1子)');
     } else {
       const explicit2 = _readAmt(set, 'second'); // 明示第2子(横浜型)
       if (explicit2 != null) {

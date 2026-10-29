@@ -91,10 +91,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"13224","citySlug":"tama","cityName":"多摩市","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.city.tama.lg.jp/kosodate/1008019/1008034/1018016.html","https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "tama"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=33940a1b"></script>
-<script src="/js/core/shared/income.js?v=33940a1b"></script>
-<script src="/js/core/jumin.js?v=33940a1b"></script>
-<script src="/js/core/hoiku.js?v=33940a1b"></script>
+<script src="/js/core/shared/ui-input.js?v=43e20d1a"></script>
+<script src="/js/core/shared/income.js?v=43e20d1a"></script>
+<script src="/js/core/jumin.js?v=43e20d1a"></script>
+<script src="/js/core/hoiku.js?v=43e20d1a"></script>
 <script>
 (function(){
   "use strict";
@@ -310,7 +310,7 @@
       if(r.level!=null) rows+='<div class="result-row"><div>階層</div><div class="amount">第'+r.level+'階層</div></div>';
       if(r.reason) rows+='<div class="note" style="margin-top:4px">'+esc(r.reason)+'</div>';
       if(kintoBorderNote) rows+='<div class="note" style="margin-top:4px;color:#92400e">※収入が、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（'+JUMIN_KYUCHI+'級地）では課税として計算していますが、条例で基準額を少し高く定めている自治体では住民税非課税世帯となり、保育料が変わることがあります。お住まいの自治体でご確認ください。</div>';
-      if(childOrder>=2 && enrolled===0 && checked("selFlag")) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
+      if(childOrder>=2 && enrolled===0 && checked("selFlag") && r.reason && r.reason.indexOf('第2子・'+selKey)>=0) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
       out.innerHTML=rows;
     }catch(e){
       out.innerHTML='<div class="warn">計算エラー: '+esc(e.message)+'</div>';
