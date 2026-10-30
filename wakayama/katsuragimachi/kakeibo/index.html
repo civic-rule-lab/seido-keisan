@@ -168,6 +168,25 @@
         <input id="famDepYoung" data-step="10c" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>
+    <div class="field-grid">
+      <div>
+        <label for="famSelfStatus">あなたの区分</label>
+        <select id="famSelfStatus" data-step="10d">
+          <option value="none" selected>当てはまらない</option>
+          <option value="mother">ひとり親（母）</option>
+          <option value="father">ひとり親（父）</option>
+          <option value="widow">寡婦</option>
+        </select>
+      </div>
+      <div>
+        <label for="famSelfDisability">あなたの障害</label>
+        <select id="famSelfDisability" data-step="10e">
+          <option value="none" selected>なし</option>
+          <option value="general">障害者</option>
+          <option value="special">特別障害者</option>
+        </select>
+      </div>
+    </div>
   </div>
 
   <div id="hoikuBlock" style="display:none;margin-top:18px;padding:14px;border:1px solid var(--acc-bg-2);border-radius:12px;background:#f8fbff;">
@@ -228,7 +247,7 @@
           <select id="shogakuChildren" data-step="15b" data-step-end><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
         </div>
       </div>
-      <div class="note" style="margin-top:8px;">高等教育の修学支援新制度（給付型奨学金＋授業料等減免）の目安判定です。扶養控除などは反映しないため、実際は<b>これより支援が多い区分</b>になる場合があります。資産・本人収入・私立理工農系・貸与型は<a href="https://shogakukin-keisan.jp/" target="_blank" rel="noopener" style="color:#16a34a;font-weight:600;">奨学金かんたん計算 ↗</a>で反映できます。</div>
+      <div class="note" style="margin-top:8px;">高等教育の修学支援新制度（給付型奨学金＋授業料等減免）の目安判定です。上の「扶養・配偶者」に入れた控除を反映します。「扶養（19〜22歳）」が空欄なら、進学するお子さん1人をそこに数えて計算します。資産・本人収入・私立理工農系・貸与型は<a href="https://shogakukin-keisan.jp/" target="_blank" rel="noopener" style="color:#16a34a;font-weight:600;">奨学金かんたん計算 ↗</a>で反映できます。</div>
     </div>
   </div>
 
@@ -437,7 +456,12 @@
     systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
 
     // 共有の所得計算（賞与込みの給与収入で総所得金額等を出す）
-    var totalIncome = calcSalaryPensionIncome(grossSalary, pension, age, undefined, sideIncome) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）。給与と年金の両方があれば所得金額調整控除を引く（租特法41条の3の11第2項・2026-10-25）
+    // 本人の区分（ひとり親・寡婦・障害者）と、給与850万円超の所得金額調整控除（租税特別措置法 第41条の3の11第1項）の要件。
+    //   要件＝本人が特別障害者か、23歳未満の扶養親族（16歳未満の子・19〜22歳の扶養・保育料を試算する子）がいる（2026-10-30 全方向試算 C083）
+    var famSelfStatus=((document.getElementById("famSelfStatus")||{}).value)||"none";
+    var famSelfDisability=((document.getElementById("famSelfDisability")||{}).value)||"none";
+    var under23 = num("famDepYoung")>0 || num("famDepSpecific")>0 || !!((document.getElementById("hoikuOptIn")||{}).checked) || famSelfDisability==="special";
+    var totalIncome = calcSalaryPensionIncome(grossSalary, pension, age, undefined, sideIncome, under23) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）。給与と年金の両方があれば所得金額調整控除を引く（租特法41条の3の11第2項・2026-10-25）
 
     // ── 扶養・配偶者（任意入力・2026-10-11 X183／配偶者の収入 2026-10-12 X184）。住民税・所得税・保育料指数・ふるさと納税の上限に同じ値を使う ──
     //   住民税の控除額（地方税法 第34条第1項第10号・第10号の2・第11号）: 配偶者控除 33万（本人の合計所得900万超950万以下 22万・950万超1,000万以下 11万）、
@@ -460,6 +484,9 @@
     var famDY = Math.max(num("famDepYoung"), _hoikuOn ? 1 + (Number((document.getElementById("hoikuSiblings")||{}).value)||0) : 0);
     var famHasSpouse=(famSpouse!=="none") || famSpouseSalary>0 || famSpousePension>0;
     var famAny=famHasSpouse || famDG>0 || famDS>0 || famDE>0 || famDP>0;
+    // 本人の区分（地方税法 第314条の2第1項第6号・第8号・第8号の2。寡婦・ひとり親は合計所得500万円以下）。未成年者（18歳未満）とあわせ、
+    //   合計所得135万円以下なら住民税は非課税（第295条第1項第2号）（2026-10-30 全方向試算 C058）
+    var selfSt = calcSelfStatusDeductionJumin({ selfIncome: totalIncome, singleParent: famSelfStatus, selfDisability: famSelfDisability });
     var _haigu = await loadJuminHaigu();
     var spousePensionIncome = famSpousePension>0 ? calcPensionIncome(famSpousePension, famSpouseAge) : 0;   // 年金所得（65歳以上で控除拡大）
     var spouseIncomeJumin = calcSalaryPensionIncome(famSpouseSalary, famSpousePension, famSpouseAge);         // 令和8年度分（給与所得控除の最低保障65万）。所得金額調整控除を含む
@@ -479,20 +506,28 @@
       var hd = 50000;   // 基礎控除差（常時）
       if(_fzDataEarly && typeof furusatoHumanDeductionDiff==="function"){
         hd = furusatoHumanDeductionDiff({ selfTotalIncome: totalIncome, spouse: spouseHDKey,
-          dependentGeneral: famDG, dependentSpecific: famDS, dependentElderly: famDE, dependentCohabitingParent: famDP }, _fzDataEarly);
+          dependentGeneral: famDG, dependentSpecific: famDS, dependentElderly: famDE, dependentCohabitingParent: famDP,
+          selfDisability: famSelfDisability, singleParent: selfSt.singleParent }, _fzDataEarly);
       } else {
         hd += (spouseHDKey==="elderly"?100000:(spouseHDKey==="general"?50000:0)) + famDG*50000 + famDS*180000 + famDE*100000 + famDP*130000;   // データ未取得時は第37条第1号イの表の標準値
+        hd += (famSelfDisability==="special"?100000:(famSelfDisability==="general"?10000:0)) + (selfSt.singleParent==="mother"?50000:(selfSt.singleParent==="none"?0:10000));
       }
       return hd;
     }
     var humanDiff = _humanDiffOf(spouseHD);
     // calculateJumin に渡す共通の家族入力（特定扶養の18万は humanDiff に含めて渡すので specialDependentSalaries は使わない）
-    var famJumin = { spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: famDependents, humanDeductionDiff: humanDiff };
+    var famJumin = { spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: famDependents, humanDeductionDiff: humanDiff,
+                     singleParentDeduction: selfSt.singleParentDeduction, disabilityDeduction: selfSt.disabilityDeduction, selfDisabled: selfSt.selfDisabled,
+                     minor: (age<18), under23Dependent: under23 };
     // ふるさと納税の上限（令和9年度分）用。配偶者控除の所得要件が62万に上がるので、配偶者の所得が58万超62万以下だと区分が変わる
-    var famJumin27 = { spouseDeduction: spouseDed27, dependentDeduction: depDed, dependents: (spouseHD27!=="none"?1:0) + famDG + famDS + famDE + famDP + famDY, humanDeductionDiff: _humanDiffOf(spouseHD27) };
+    var famJumin27 = { spouseDeduction: spouseDed27, dependentDeduction: depDed, dependents: (spouseHD27!=="none"?1:0) + famDG + famDS + famDE + famDP + famDY, humanDeductionDiff: _humanDiffOf(spouseHD27),
+                       singleParentDeduction: selfSt.singleParentDeduction, disabilityDeduction: selfSt.disabilityDeduction, selfDisabled: selfSt.selfDisabled,
+                       minor: (age<18), under23Dependent: under23 };
     // 所得税側: 配偶者の合計所得は所得税の給与所得（令和8年分・最低保障65万＝住民税 令和8年度分と同じ）。shotoku.js が配偶者控除／特別控除を表引きする
     var famShotoku = { spouse: (famHasSpouse ? { income: spouseIncomeJumin, age70plus: (famSpouse==="elderly") } : null),
-                       dependents: { general: famDG, specific: famDS, elderly: famDE, elderlyCoRes: famDP } };
+                       dependents: { general: famDG, specific: famDS, elderly: famDE, elderlyCoRes: famDP },
+                       under23Dependent: under23, singleParent: (selfSt.singleParent==="mother"||selfSt.singleParent==="father"), widow: (selfSt.singleParent==="widow"),
+                       disability: { general: (famSelfDisability==="general"?1:0), special: (famSelfDisability==="special"?1:0), specialCoRes: 0 } };
     // 配偶者自身の社会保険料（保育料の保護者2・奨学金の生計維持者2 に使う）。
     //   会社員・パート＝shaho 実額（年齢は配偶者の年齢・既定40）。自営・社会保険なし＝国保と国民年金（下の社会保険料控除の段で世帯として計算。2026-10-13）
     // 給与があり働き方が自営、または給与が無く年金だけ（勤め先の社保は無い）＝国保・後期・国民年金の側で扱う
@@ -607,6 +642,15 @@
       try{
         var siPre=siParts.reduce(function(s,p){return s+p[1];},0);
         var rjPre=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:siPre, kyuchi:JUMIN_KYUCHI}, famJumin));
+        // 世帯全員が非課税かは配偶者の住民税も見る（2026-10-30 全方向試算 C066。旧実装は本人だけで判定していた）。
+        //   配偶者の社会保険料控除は配偶者自身の分（会社員＝shaho／自営＝国保・国民年金）。扶養親族の所得は入力が無いので 0 とみなす
+        //   ※ 住民税の呼び出しの引数の中に括弧を置かない（test-jumin.cjs が呼び出しを最初の閉じ括弧まで拾って kyuchi の有無を検査するため）
+        var spTaxPre=false;
+        if(famHasSpouse){
+          var spSiH = spouseSelfSi || 0;
+          var rjSpH=calculateJumin(juminData, {kyuchi:JUMIN_KYUCHI, salary:famSpouseSalary, pension:famSpousePension, age:famSpouseAge, socialInsurance:spSiH});
+          spTaxPre = !!rjSpH.isTaxable;
+        }
         var pensionShotoku = calcPensionIncome(pension, age, calcSalaryIncome(grossSalary) + sideIncome); // 年金以外の所得1,000万超で控除縮小（所得税法35条4項・2026-10-30）
         var otherTotal = Math.max(0, totalIncome - pensionShotoku);
         rkg=calculateKaigo(kaigoData, {
@@ -614,7 +658,7 @@
           totalIncome: totalIncome,                // 合計所得金額（第6段階以上）
           sumIncome: pension + otherTotal,         // 合算しきい値（第1〜5段階）
           isSelfTaxable: !!rjPre.isTaxable,
-          isHouseholdAllNonTaxable: !rjPre.isTaxable  // 単身/単一所得者の仮定
+          isHouseholdAllNonTaxable: (!rjPre.isTaxable && !spTaxPre)
         });
         if(rkg && rkg.annual>0) siParts.push(["介護保険（第1号）", rkg.annual]);
       }catch(e){ rkg=null; }
@@ -846,8 +890,18 @@
           var sgHasSpouse=(sgSpouse===0) && (famAny ? spouseKind==="haigu" : true);   // 配偶者収入の入力なし＝配偶者控除ありの近似。家族入力があればそれに従う
           // 生計維持者1=本人。社会保険料控除は本体と同じ一本化した実額（会社員=shaho／自営・年金=国保・国民年金・介護1号）。配偶者は本人分を計算していないため会社員=shaho実額／自営=約14.4%概算
           //   ＝奨学金サイトのかんたん判定（15%概算）より会社員は正確側。賞与込み給与で課税判定。
-          var sgSup=[{ salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance,
-                       hasSpouseDeduction:sgHasSpouse, dependents:(sgHasSpouse?1:0)+sgChildren }];
+          //   家族欄を入れたときは、住民税カードと同じ配偶者控除・配偶者特別控除・扶養控除・人数・人的控除差を渡す（2026-10-30 全方向試算 C068・C069。
+          //   旧実装は配偶者に給与があると配偶者控除を外し、扶養控除を渡さず、人数も別の数え方だった）。家族欄が空なら従来の近似。
+          //   ひとり親（母・父）はブリッジの singleParent で渡す。寡婦・障害者・所得金額調整控除はブリッジが受けない（段4 で対応）
+          //   進学するお子さんを「扶養（19〜22歳）」に入れていない（0人）ときは、1人を特定扶養（控除45万・人的控除差18万・人数+1）として足す
+          var sgSP = (selfSt.singleParent==="mother"||selfSt.singleParent==="father") ? selfSt.singleParent : undefined;
+          var sgAddStudent = (famDS===0) ? 1 : 0;
+          var sgSup=[ famAny
+            ? { salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, singleParent:sgSP,
+                spouseDeduction:famJumin.spouseDeduction, dependentDeduction:famJumin.dependentDeduction + sgAddStudent*450000,
+                dependents:famJumin.dependents + sgAddStudent, humanDeductionDiff:famJumin.humanDeductionDiff + sgAddStudent*180000 }
+            : { salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, singleParent:sgSP,
+                hasSpouseDeduction:sgHasSpouse, dependents:(sgHasSpouse?1:0)+sgChildren } ];
           if(sgSpouse>0){
             var sgSpSi;
             if(sgSpouseOwn===0 || sgSpouseOwn===famSpouseSalary){ sgSpSi = (spouseSelfSi!=null) ? spouseSelfSi : Math.round(sgSpouse*0.144); }   // 家族欄の年収＝働き方に応じた保険料
@@ -953,7 +1007,7 @@
     opts=opts||{};
     var honninPension=opts.honninPension||0;               // 世帯主(=保護者1)の年金も課税判定に反映
     var honninBonus=opts.honninBonus||0;                   // 世帯主の賞与（会社員）。配偶者の賞与は入力欄が無いため0（配偶者は給与年収に含めて入力）
-    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily, opts.honninOther||0), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance);
+    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily, opts.honninOther||0), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance, { under23Dependent: true });   // 保育所の子＝23歳未満の扶養親族（所得金額調整控除は夫婦の双方に適用・国税庁 No.1411）
     var input={ age:opts.age||"age1_2", hitorioya:!!opts.hitorioya, month:(M.fiscalSwitch||9),
       father:{shotokuwari:f.shotokuwari}, mother:{shotokuwari:m.shotokuwari}, isSeireiNotice:false };
     var fe=(!honninSalary && !honninPension && !honninBonus && !(opts.honninOther||0)), me=(!spouseSalary);

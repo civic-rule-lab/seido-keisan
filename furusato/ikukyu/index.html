@@ -415,12 +415,15 @@
       // 本人の区分（ひとり親・寡婦）を住民税の所得控除にも入れる（地方税法 第314条の2第1項第8号・第8号の2、所得500万円以下）。
       //   合計所得135万円以下なら calculateJumin が非課税にする（第295条第1項第2号）
       var st = calcSelfStatusDeductionJumin({ selfIncome: calcSalaryIncome(salary, JUMIN_FY), singleParent: input.selfStatus });
-      var hd = furusatoHumanDeductionDiff({ selfTotalIncome: calcSalaryIncome(salary, JUMIN_FY), spouse: input.spouse,
+      // 配偶者控除は本人の合計所得で 33万→22万→11万→0（老人 38万→26万→13万）。配偶者の所得は0とみなす（地方税法 第314条の2第1項第10号・2026-10-30 全方向試算 C154）
+      var sd = input.spouse === "none" ? { kind: "none", deduction: 0, humanDiffSpouse: "none" }
+             : calcSpouseDeductionJumin({ selfIncome: calcSalaryIncome(salary, JUMIN_FY), spouseIncome: 0, age70plus: input.spouse === "elderly", fiscalYear: JUMIN_FY });
+      var hd = furusatoHumanDeductionDiff({ selfTotalIncome: calcSalaryIncome(salary, JUMIN_FY), spouse: sd.humanDiffSpouse,
         dependentGeneral: input.depGeneral, dependentSpecific: input.depSpecific, dependentElderly: input.depElderly, dependentCohabitingParent: input.depParent,
         selfDisability: "none", singleParent: st.singleParent, workingStudent: false }, FURUSATO_DATA);
-      var spouseDed = input.spouse === "elderly" ? 380000 : (input.spouse === "general" ? 330000 : 0);
+      var spouseDed = sd.deduction;
       var depDed = input.depGeneral * 330000 + input.depSpecific * 450000 + input.depElderly * 380000 + input.depParent * 450000;
-      var dependents = (input.spouse !== "none" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
+      var dependents = (sd.kind === "haigu" ? 1 : 0) + input.depGeneral + input.depSpecific + input.depElderly + input.depParent;
       var rj = calculateJumin(null, { salary: salary, pension: 0, age: input.age, socialInsurance: si, spouseDeduction: spouseDed, dependentDeduction: depDed, dependents: dependents,
         singleParentDeduction: st.singleParentDeduction,
         humanDeductionDiff: hd, fiscalYear: JUMIN_FY, taxCredits: 0, kyuchi: 1 });
