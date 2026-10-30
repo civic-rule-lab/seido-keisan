@@ -325,7 +325,7 @@ function calculateJumin(data, inputs) {
   let _sdHumanDiff = 0;              // 特定扶養該当分の人的控除差（特別控除分は対象外）
   let _sdDependents = 0;             // 特定扶養該当分の扶養人数（特別控除対象者は含めない）
   for (const s of (Array.isArray(specialDependentSalaries) ? specialDependentSalaries : [])) {
-    if (!Number.isFinite(s) || s <= 0) continue;
+    if (!Number.isFinite(s) || s < 0) continue; // 給与 0円の子も所得 0 で特定扶養に当たる（2026-10-29 C128。旧: s <= 0 で読み飛ばしていた）
     // 給与→所得の閾値も年度で動く（65万前提「給与123万⇔所得58万」→74万年度は「給与132万⇔所得58万」）。
     const relIncome = _income.calcSalaryIncome(s, fiscalYear);
     if (relIncome <= fuyoIncomeLimitJumin(fiscalYear)) {
@@ -371,10 +371,23 @@ function calculateJumin(data, inputs) {
   let incomeLevy = 0;
   let adjustmentCredit = 0;
   if (shotokuTaxable) {
-    const gross = Math.floor(taxableIncome * (cfg.prefRate + cfg.cityRate));
-    adjustmentCredit = _adjustmentCredit(taxableIncome, effHumanDiff, totalIncome);
-    incomeLevy = Math.max(0, gross - adjustmentCredit - Math.max(0, taxCredits));
-    incomeLevy = Math.floor(incomeLevy / 100) * 100; // 100円未満切捨て
+    // 道府県民税と市町村民税は別の税なので、所得割はそれぞれで算出し、それぞれ 100円未満を切り捨てる
+    //（地方税法 第20条の4の2第3項。自治体の計算例も別々に切り捨てる＝調布市「個人住民税が算出されるまでの計算例」
+    //  https://www.city.chofu.lg.jp/030010/p014019.html ・2026-10-29 確認。2026-10-29 全方向試算 C042）。
+    // 調整控除の率は 道府県2%・市町村3%（政令市は 1%・4%）。税額控除（寄附金等）も同じ割合で分ける（概算）。
+    // 政令市は市の税率が 7%以上（標準 8%・名古屋 7.7%）で見分ける。県の税率には超過課税（例 4.025%）が乗るので比では分けない。
+    const seirei   = cfg.cityRate >= 0.07;
+    const prefShare = seirei ? 1 : 2;  // 調整控除 5% のうち道府県分（%）
+    const adjBase  = _adjustmentCreditBase(taxableIncome, effHumanDiff, totalIncome);
+    const prefAdj  = Math.floor(adjBase * prefShare / 100);
+    const cityAdj  = Math.floor(adjBase * (5 - prefShare) / 100);
+    adjustmentCredit = prefAdj + cityAdj;
+    const credits  = Math.max(0, taxCredits);
+    const prefCred = Math.floor(credits * prefShare / 5);
+    const cityCred = credits - prefCred;
+    const prefLevy = Math.max(0, Math.floor(taxableIncome * cfg.prefRate) - prefAdj - prefCred);
+    const cityLevy = Math.max(0, Math.floor(taxableIncome * cfg.cityRate) - cityAdj - cityCred);
+    incomeLevy = Math.floor(prefLevy / 100) * 100 + Math.floor(cityLevy / 100) * 100; // それぞれ 100円未満切捨て
   }
 
   // ── 均等割 ＋ 森林環境税（均等割課税者のみ） ──
