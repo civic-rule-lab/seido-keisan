@@ -144,12 +144,19 @@
         +'<div class="sec">世帯の収入</div>'
         +'<label>父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" data-step="1" inputmode="numeric" placeholder="例：4,000,000">'
         +'<label>母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'<details id="depDetails"><summary>ほかに扶養している家族（高校生以上の子・親など）</summary>'
+        +'<label>16〜18歳・23〜69歳 <span class="hint">人</span></label><input id="depGeneral" data-step="3a" inputmode="numeric" placeholder="例：0">'
+        +'<label>19〜22歳 <span class="hint">人</span></label><input id="depSpecific" data-step="3b" inputmode="numeric" placeholder="例：0">'
+        +'<label>70歳以上（同居の親以外） <span class="hint">人</span></label><input id="depElderly" data-step="3c" inputmode="numeric" placeholder="例：0">'
+        +'<label>同居の親など（70歳以上） <span class="hint">人</span></label><input id="depParent" data-step="3d" inputmode="numeric" placeholder="例：0">'
+        +'</details>'
         +'</div>';
     // 直接入力モード
     html+='<div id="tab-direct" class="'+(directDefault?"":"hidden")+'">'
         +'<div class="sec">市民税所得割額（通知書）</div>'
         +'<label>父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" data-step="1" inputmode="numeric" placeholder="例：150,000">'
-        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">';
+        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'<div class="chk"><input type="checkbox" id="directHikazei"><label for="directHikazei" style="margin:0">父母とも住民税が非課税（通知書に「非課税」とある） <span class="hint">所得割が0円でも、均等割がかかっている世帯は印を付けません</span></label></div>';
     if(M.seireiConversion){ // 政令市で通知書8%→6%換算（名古屋型 seireiConversion:false では出さない）
       html+='<div class="chk"><input type="checkbox" id="isSeireiNotice"><label for="isSeireiNotice" style="margin:0">通知書の税率が8%（政令市の現行税率）＝6%に近似換算する</label></div>'
           +'<div class="warn">8%→6%換算は近似です。階層境界では±数百円で1段ずれることがあります（要通知書確認）。</div>';
@@ -159,15 +166,15 @@
     // 児童・保育
     html+='<div class="sec">お子さんと保育</div>';
     if(has0saiRate()){
-      html+='<label>お子さんの年齢</label><select id="age" data-step="3"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
+      html+='<label>お子さんの年齢</label><select id="age" data-step="4"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
     }else{
       html+='<input type="hidden" id="age" value="age1_2">';
     }
-    html+='<label>保育時間</label><select id="timeType" data-step="4">';
+    html+='<label>保育時間</label><select id="timeType" data-step="5">';
     tks.forEach(function(b,i){ html+='<option value="'+esc(b.key)+'"'+(i===0?" selected":"")+'>'+esc(b.label||b.key)+'</option>'; });
     html+='</select>';
     if(facs){
-      html+='<label>利用する施設の種類</label><select id="facility" data-step="5">';
+      html+='<label>利用する施設の種類</label><select id="facility" data-step="6">';
       facs.forEach(function(k,i){ html+='<option value="'+esc(k)+'"'+(k===(M.defaultFacility||facs[0])?" selected":"")+'>'+esc(M.facilityTypes[k])+'</option>'; });
       html+='</select>';
     }
@@ -175,7 +182,7 @@
     // きょうだい（多子）
     html+='<div class="sec">きょうだい（多子軽減）</div>'
         +'<label>認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
-        +'<select id="enrolledOlder" data-step="6"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
+        +'<select id="enrolledOlder" data-step="7"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
     if(selKey){
       html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
     }
@@ -189,7 +196,7 @@
     var sw=(M.fiscalSwitch||9);
     html+='<div class="sec">試算する月（年度切替）</div>'
         +'<label>何月分の保育料か</label>'
-        +'<select id="month" data-step="7" data-step-end><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
+        +'<select id="month" data-step="8" data-step-end><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
         +'<div class="warn" id="monthNote" style="display:none">4〜'+(sw-1)+'月分は前年度の課税額で決まります。ここでは同じ年収と仮定した目安です（前年の収入で再計算すると変わることがあります）。</div>';
 
     html+='<button type="button" class="cta" onclick="hoikuCalc()">保育料を試算する</button>';
@@ -197,6 +204,7 @@
 
     // 全角→半角ライブ変換
     ["fatherSalary","motherSalary","fatherShotoku","motherShotoku"].forEach(function(id){ setupNumericInput(id,{withCommas:true}); });
+    ["depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
     var mo=document.getElementById("month"); if(mo)mo.addEventListener("change",function(){ document.getElementById("monthNote").style.display=(mo.value!=String(sw))?"block":"none"; });
   }
 
@@ -237,11 +245,18 @@
   //     片方の年収が空欄で「ひとり親世帯」に印が無いときは、収入の無い配偶者がいるとみなす。
   //   ・片方の年収が空欄で「ひとり親世帯」に印があるときは、ひとり親控除30万円（合計所得500万円以下）。
   //     合計所得135万円以下なら非課税（第295条第1項第2号）。両方に年収があるときの印（世帯員に障害者がいる）は住民税には使わない。
-  function familyFor(fatherSalary, motherSalary, children, hitorioya){
+  //   ・16歳以上の扶養親族（deps＝一般・特定・老人・同居老親の人数）も収入の多い方の扶養として数える。
+  //     扶養控除 33万・45万・38万・45万（第314条の2第1項第11号・第4項）、人的控除差 5万・18万・10万・13万（第37条第1号イの表(8)(9)）、
+  //     非課税限度額の人数（施行令 第47条の3第1号＝16歳未満と控除対象扶養親族）。
+  function familyFor(fatherSalary, motherSalary, children, hitorioya, deps){
     var fatherMain = fatherSalary >= motherSalary;
     var mainSalary = fatherMain ? fatherSalary : motherSalary, subSalary = fatherMain ? motherSalary : fatherSalary;
     var mainIncome = calcSalaryIncome(mainSalary);
-    var main = { dependents: children, humanDeductionDiff: 50000 };
+    var d = deps || {};
+    var dg = d.general||0, ds = d.specific||0, de = d.elderly||0, dp = d.parent||0;
+    var main = { dependents: children + dg + ds + de + dp,
+                 dependentDeduction: dg*330000 + ds*450000 + de*380000 + dp*450000,
+                 humanDeductionDiff: 50000 + dg*50000 + ds*180000 + de*100000 + dp*130000 };
     if(subSalary===0 && hitorioya){
       var st = calcSelfStatusDeductionJumin({ selfIncome: mainIncome, singleParent: fatherMain ? "father" : "mother" });
       main.singleParentDeduction = st.singleParentDeduction;
@@ -276,21 +291,22 @@
         input.father={shotokuwari:fs}; input.mother={shotokuwari:ms};
         // ④ kintowariOnly は質問しない。⑤ isSeireiNotice は seireiConversion×直接入力時のみ。
         input.isSeireiNotice = M.seireiConversion ? checked("isSeireiNotice") : false;
-        // ② 非課税は所得割0だけでは決められない（均等割のみ課税と区別不能）→ 直接入力モードでは
-        //    「両者所得割0のとき hikazei」を近似。厳密には通知書の非課税判定が要る（注記）。
-        input.hikazei = (fs===0 && ms===0);
+        // ② 非課税は所得割0だけでは決められない（均等割のみ課税と区別できない）ので、利用者の印で決める。
+        //    印が無ければ所得割0でも均等割のみ課税の階層になる（名古屋 C1 など・全方向試算 C106）
+        input.hikazei = checked("directHikazei");
       }else{
         var _children = 1 + (Number(val("enrolledOlder"))||0) + (findSelector() && checked("selFlag") ? 1 : 0);
-        var fam = familyFor(num("fatherSalary"), num("motherSalary"), _children, input.hitorioya);
+        var fam = familyFor(num("fatherSalary"), num("motherSalary"), _children, input.hitorioya,
+                            { general:num("depGeneral"), specific:num("depSpecific"), elderly:num("depElderly"), parent:num("depParent") });
         var f=juminOf(num("fatherSalary"), fam.father), m=juminOf(num("motherSalary"), fam.mother);
         input.father={shotokuwari:f.shotokuwari}; input.mother={shotokuwari:m.shotokuwari};
         input.isSeireiNotice=false; // 年収経路は固定6%済み（政令市補正しない）
         // ② 非課税＝父母AND（在籍親のみ。空欄親は taxable:false で AND を阻害しない）
         var fatherEmpty=(num("fatherSalary")===0), motherEmpty=(num("motherSalary")===0);
         var fTax = fatherEmpty?false:f.taxable, mTax = motherEmpty?false:m.taxable;
-        // 少なくとも片方に収入があり、収入のある親が全員非課税なら世帯非課税
+        // 収入のある親が全員非課税なら世帯非課税。父母とも収入0（空欄）も非課税世帯として計算する（全方向試算 C064）
         var anyIncome = !(fatherEmpty&&motherEmpty);
-        input.hikazei = anyIncome && !fTax && !mTax;
+        input.hikazei = !fTax && !mTax;
         // 均等割の非課税基準をわずかに上回る親がいて、ほかの親が非課税なら、条例しだいで非課税世帯になりうる（注記）
         var fNear = fatherEmpty?false:f.borderline, mNear = motherEmpty?false:m.borderline;
         kintoBorderNote = anyIncome && !input.hikazei && (fNear||mNear) && (!fTax||fNear) && (!mTax||mNear);
@@ -309,6 +325,7 @@
              +'<div class="result-row"><div>年額の目安</div><div class="amount">約 '+(mo*12).toLocaleString()+' 円</div></div>';
       if(r.level!=null) rows+='<div class="result-row"><div>階層</div><div class="amount">第'+r.level+'階層</div></div>';
       if(r.reason) rows+='<div class="note" style="margin-top:4px">'+esc(r.reason)+'</div>';
+      if(!directOn && !anyIncome) rows+='<div class="note" style="margin-top:4px">※父母とも収入0（住民税非課税）として計算しました。</div>';
       if(kintoBorderNote) rows+='<div class="note" style="margin-top:4px;color:#92400e">※収入が、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（'+JUMIN_KYUCHI+'級地）では課税として計算していますが、条例で基準額を少し高く定めている自治体では住民税非課税世帯となり、保育料が変わることがあります。お住まいの自治体でご確認ください。</div>';
       if(childOrder>=2 && enrolled===0 && checked("selFlag") && r.reason && r.reason.indexOf('第2子・'+selKey)>=0) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
       out.innerHTML=rows;
