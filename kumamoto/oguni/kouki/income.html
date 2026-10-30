@@ -103,8 +103,22 @@
     <label>給与収入（任意・年額）</label>
     <input id="m3_salary" data-step="9" type="text" inputmode="numeric" placeholder="例：0">
     <label>その他の所得（任意・所得金額）</label>
-    <input id="m3_other" data-step="10" data-step-end type="text" inputmode="numeric" placeholder="例：0">
+    <input id="m3_other" data-step="10" type="text" inputmode="numeric" placeholder="例：0">
     <label class="dep-label"><input id="m3_dep" type="checkbox"><span>75歳になる前、勤め先の健康保険の被扶養者だった（加入2年以内）</span></label>
+  </div>
+
+  <label class="dep-label" style="margin-top:18px;"><input id="hhOutside" type="checkbox" onchange="document.getElementById('hh').style.display=this.checked?'block':'none';"><span>世帯主は後期高齢者医療に入っていない（例：75歳未満の子が世帯主）</span></label>
+  <div class="member" id="hh" style="display:none;">
+    <div class="member-head">世帯主</div>
+    <p style="font-size:12px;color:#6b7280;margin:4px 0 0;line-height:1.6;">均等割の軽減は世帯主の所得も合わせて判定します。世帯主の保険料は計算しません。</p>
+    <label>給与収入（年額）</label>
+    <input id="hh_salary" data-step="11" type="text" inputmode="numeric" placeholder="例：4,000,000">
+    <label>公的年金収入（年額）</label>
+    <input id="hh_pension" data-step="12" type="text" inputmode="numeric" placeholder="例：0">
+    <label>その他の所得（所得金額）</label>
+    <input id="hh_other" data-step="13" type="text" inputmode="numeric" placeholder="例：0">
+    <label>年齢</label>
+    <input id="hh_age" data-step="14" data-step-end type="text" inputmode="numeric" placeholder="例：50">
   </div>
 
   <button onclick="calcKouki()">計算する</button>
@@ -129,7 +143,7 @@
     ※均等割は世帯の所得を合算して軽減（7割〈医療分は7.2割〉・5割・2割）を判定します。所得割は各人の所得にかかります。<br>
     ※「被扶養者だった方」の軽減（均等割5割・所得割なし）は、加入から2年間が対象です。<br>
     ※公的年金等控除・給与所得控除を差し引いて所得を求めます。遺族年金・障害年金などの非課税年金は含めません。<br>
-    ※世帯主が被保険者でない場合の所得や、専従者給与・譲渡所得の特別控除、年度途中加入の月割は反映していません。これらがある場合は通知でご確認ください。
+    ※専従者給与・譲渡所得の特別控除、年度途中加入の月割は反映していません。これらがある場合は通知でご確認ください。
     <span id="cityNote"></span>
   </div>
 
@@ -188,7 +202,7 @@
     var pInc=(typeof calcPensionIncome==="function")?calcPensionIncome(pension,76):0;
     var sInc=(typeof calcSalaryIncome==="function")?calcSalaryIncome(salary):0;
     sInc-=(typeof calcIncomeAdjustmentDeduction==="function")?calcIncomeAdjustmentDeduction(sInc,pInc):0; // 所得金額調整控除（給与と年金の両方がある人・租特法41条の3の11第2項）
-    return { pension:pension, dep:dep,
+    return { pension:pension, salary:salary, dep:dep,
              totalIncome:pInc+sInc+other,
              judgePart:Math.max(pInc-150000,0)+sInc+other,
              isEarner:(pension>1250000)||(salary>550000) };
@@ -199,10 +213,21 @@
     try{
       var n=activeCount();
       var ms=[]; for(var i=1;i<=n;i++) ms.push(member(i));
-      var anyIncome = ms.some(function(m){return m.totalIncome>0;});
+      // 収入が入っていれば、控除後の所得が0（年金110万円以下など）でも計算する（旧: 所得0の世帯は「入力してください」で止まり、7割軽減の額が出なかった）
+      var anyIncome = ms.some(function(m){return m.totalIncome>0 || m.pension>0 || m.salary>0;});
       if(!anyIncome){ R.innerHTML="<span class='result-placeholder'>各人の収入を入力してください</span>"; return; }
       var judge = ms.reduce(function(s,m){return s+m.judgePart;}, 0);
       var earners = ms.filter(function(m){return m.isEarner;}).length;
+      // 世帯主が被保険者でないとき: 軽減の判定所得と給与所得者等の数に世帯主も入れる（高齢者の医療の確保に関する法律施行令 第18条第5項第1号・第4号）。
+      //   65歳以上の公的年金等の所得は15万円を引き、給与所得者等の年金収入の基準は125万円（同令 附則第3条）。65歳未満は60万円
+      if(checked("hhOutside")){
+        var hs=num("hh_salary"), hp=num("hh_pension"), ho=num("hh_other"), ha=num("hh_age");
+        var hsInc=(typeof calcSalaryIncome==="function")?calcSalaryIncome(hs):0;
+        var hpInc=(typeof calcPensionIncome==="function")?calcPensionIncome(hp, ha, hsInc+ho):0;
+        hsInc-=(typeof calcIncomeAdjustmentDeduction==="function")?calcIncomeAdjustmentDeduction(hsInc,hpInc):0;
+        judge += (ha>=65 ? Math.max(hpInc-150000,0) : hpInc) + hsInc + ho;
+        if(hs>550000 || hp>(ha>=65?1250000:600000)) earners += 1;
+      }
 
       var html="", hhTotal=0, hhMonthly=0;
       ms.forEach(function(m, idx){
@@ -226,6 +251,7 @@
     renderRate(); renderCityNote(); syncMembers();
     document.getElementById("count").addEventListener("change", syncMembers);
     [1,2,3].forEach(function(i){ setupNumericInput("m"+i+"_pension",{withCommas:true}); setupNumericInput("m"+i+"_salary",{withCommas:true}); setupNumericInput("m"+i+"_other",{withCommas:true}); });
+    ["hh_salary","hh_pension","hh_other"].forEach(function(id){ setupNumericInput(id,{withCommas:true}); }); setupNumericInput("hh_age",{withCommas:false});
   }
   if(document.readyState!=="loading")init();
   else document.addEventListener("DOMContentLoaded",init);
