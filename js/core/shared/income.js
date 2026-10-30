@@ -99,6 +99,12 @@ function calcSalaryIncome(salary, fiscalYear = 2026) {
  */
 function calcPensionIncome(pension, age, otherIncome = 0) {
   if (!Number.isFinite(pension) || pension <= 0) return 0;
+  // 公的年金等に係る雑所得以外の合計所得金額（otherIncome）が 1,000万円超なら控除が10万円、2,000万円超なら20万円少ない。
+  //   所得税法 第35条第4項第2号・第3号（定額部分 40万→30万→20万・最低額 60万→50万→40万）、
+  //   65歳以上は租税特別措置法 第41条の15の3第1項（最低額 110万→100万→90万）。[確認済 2026-10-30 e-Gov 法令API]
+  //   収入に応じた部分（第1号ロ）は3区分で同じなので、差はどの年金額でもちょうど 10万・20万（2026-10-30 全方向試算 C025）。
+  const other = Number.isFinite(otherIncome) ? otherIncome : 0;
+  const reduction = other > 20_000_000 ? 200_000 : other > 10_000_000 ? 100_000 : 0;
 
   const isSenior = Number.isFinite(age) && age >= 65;
   let deduction;
@@ -129,7 +135,7 @@ function calcPensionIncome(pension, age, otherIncome = 0) {
     }
   }
 
-  return Math.max(0, Math.floor(pension - deduction));
+  return Math.max(0, Math.floor(pension - (deduction - reduction)));
 }
 
 // ─── 2-2. 所得金額調整控除（給与所得と公的年金等に係る雑所得の両方がある人） ─────
@@ -155,9 +161,11 @@ function calcIncomeAdjustmentDeduction(salaryIncome, pensionIncome) {
  * 給与所得（所得金額調整控除の後）＋年金所得 を返す。
  * @returns {number} 円、整数
  */
-function calcSalaryPensionIncome(salary, pension, age, fiscalYear) {
+function calcSalaryPensionIncome(salary, pension, age, fiscalYear, otherIncome = 0) {
   const salaryIncome  = calcSalaryIncome(salary || 0, fiscalYear);
-  const pensionIncome = calcPensionIncome(pension || 0, age);
+  // 年金以外の合計所得金額＝年金が無いものとして計算した合計所得（給与所得＋その他の所得。年金が無ければ所得金額調整控除は生じない）
+  const other         = Number.isFinite(otherIncome) ? otherIncome : 0;
+  const pensionIncome = calcPensionIncome(pension || 0, age, salaryIncome + other);
   return salaryIncome + pensionIncome - calcIncomeAdjustmentDeduction(salaryIncome, pensionIncome);
 }
 
@@ -179,7 +187,7 @@ function calcTaxableIncomeForKokuho(params) {
   const p = params || {};
   const other = Number.isFinite(p.otherIncome) ? p.otherIncome : 0;
 
-  return Math.max(0, calcSalaryPensionIncome(p.salary, p.pension, p.age, p.fiscalYear) + other);
+  return Math.max(0, calcSalaryPensionIncome(p.salary, p.pension, p.age, p.fiscalYear, other) + other);
 }
 
 // ─── 4. 住民税用課税所得（Phase 1 後半向けスケルトン） ───────────────
@@ -203,9 +211,9 @@ function calcTaxableIncomeForKokuho(params) {
  */
 function calcTaxableIncomeForJumin(params) {
   const p = params || {};
+  const otherJ = Number.isFinite(p.otherIncome) ? p.otherIncome : 0;
   const totalIncome =
-    calcSalaryPensionIncome(p.salary, p.pension, p.age, p.fiscalYear) +
-    (Number.isFinite(p.otherIncome) ? p.otherIncome : 0);
+    calcSalaryPensionIncome(p.salary, p.pension, p.age, p.fiscalYear, otherJ) + otherJ;
 
   const deductions =
     (p.socialInsurance       || 0) +

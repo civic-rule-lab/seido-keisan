@@ -285,18 +285,18 @@
 </div>
 
 <script>const CITY_SLUG = "kanuma"; const PREF_SLUG = "tochigi"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=46199ea1"></script>
-<script src="/js/core/shared/income.js?v=46199ea1"></script>
-<script src="/js/core/jumin.js?v=46199ea1"></script>
-<script src="/js/core/kokuho.js?v=46199ea1"></script>
-<script src="/js/core/kaigo.js?v=46199ea1"></script>
-<script src="/js/core/kouki.js?v=46199ea1"></script>
-<script src="/js/core/hoiku.js?v=46199ea1"></script>
-<script src="/js/core/shaho.js?v=46199ea1"></script>
-<script src="/js/core/shotoku.js?v=46199ea1"></script>
-<script src="/js/core/shogakukin.js?v=46199ea1"></script>
-<script src="/js/core/shogakukin-bridge.js?v=46199ea1"></script>
-<script src="/js/core/furusato.js?v=46199ea1"></script>
+<script src="/js/core/shared/ui-input.js?v=d29029e1"></script>
+<script src="/js/core/shared/income.js?v=d29029e1"></script>
+<script src="/js/core/jumin.js?v=d29029e1"></script>
+<script src="/js/core/kokuho.js?v=d29029e1"></script>
+<script src="/js/core/kaigo.js?v=d29029e1"></script>
+<script src="/js/core/kouki.js?v=d29029e1"></script>
+<script src="/js/core/hoiku.js?v=d29029e1"></script>
+<script src="/js/core/shaho.js?v=d29029e1"></script>
+<script src="/js/core/shotoku.js?v=d29029e1"></script>
+<script src="/js/core/shogakukin.js?v=d29029e1"></script>
+<script src="/js/core/shogakukin-bridge.js?v=d29029e1"></script>
+<script src="/js/core/furusato.js?v=d29029e1"></script>
 <script>
 (function () {
   "use strict";
@@ -437,7 +437,7 @@
     systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
 
     // 共有の所得計算（賞与込みの給与収入で総所得金額等を出す）
-    var totalIncome = calcSalaryPensionIncome(grossSalary, pension, age) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）。給与と年金の両方があれば所得金額調整控除を引く（租特法41条の3の11第2項・2026-10-25）
+    var totalIncome = calcSalaryPensionIncome(grossSalary, pension, age, undefined, sideIncome) + sideIncome; // 総所得金額等（給与所得＋年金所得＋副業などの所得・2026-10-15）。給与と年金の両方があれば所得金額調整控除を引く（租特法41条の3の11第2項・2026-10-25）
 
     // ── 扶養・配偶者（任意入力・2026-10-11 X183／配偶者の収入 2026-10-12 X184）。住民税・所得税・保育料指数・ふるさと納税の上限に同じ値を使う ──
     //   住民税の控除額（地方税法 第34条第1項第10号・第10号の2・第11号）: 配偶者控除 33万（本人の合計所得900万超950万以下 22万・950万超1,000万以下 11万）、
@@ -607,7 +607,7 @@
       try{
         var siPre=siParts.reduce(function(s,p){return s+p[1];},0);
         var rjPre=calculateJumin(juminData, Object.assign({salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:siPre, kyuchi:JUMIN_KYUCHI}, famJumin));
-        var pensionShotoku = calcPensionIncome(pension, age);
+        var pensionShotoku = calcPensionIncome(pension, age, calcSalaryIncome(grossSalary) + sideIncome); // 年金以外の所得1,000万超で控除縮小（所得税法35条4項・2026-10-30）
         var otherTotal = Math.max(0, totalIncome - pensionShotoku);
         rkg=calculateKaigo(kaigoData, {
           pensionIncome: pension,                  // 課税年金収入額（控除前・収入額）
@@ -671,7 +671,7 @@
     //   旧実装は年金を渡さず、年金のみの人にはカード自体が出なかった（2026-10-25）
     if((grossSalary>0 || sideIncome>0 || pension>0) && _shotokuEng){
       try{
-        var _selfPenShotoku = pension>0 ? calcPensionIncome(pension, age) : 0;
+        var _selfPenShotoku = pension>0 ? calcPensionIncome(pension, age, ((grossSalary>0 && typeof _shotokuEng.kyuyoShotoku==="function") ? _shotokuEng.kyuyoShotoku(grossSalary) : 0) + sideIncome) : 0; // 年金以外の所得1,000万超で控除縮小（2026-10-30）
         var _selfPenNet = _selfPenShotoku;
         if(_selfPenShotoku>0 && grossSalary>0 && typeof _shotokuEng.kyuyoShotoku==="function"){
           _selfPenNet -= calcIncomeAdjustmentDeduction(_shotokuEng.kyuyoShotoku(grossSalary), _selfPenShotoku);
