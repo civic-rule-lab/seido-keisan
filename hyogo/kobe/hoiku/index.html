@@ -91,10 +91,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"slug":"kobe","citySlug":"kobe","cityCode":"28100","cityName":"神戸市","pref":"hyogo","prefSlug":"hyogo","system":"hoiku","year":2026,"status":"verified","source":{"name":"神戸市子ども・子育て支援法施行細則 別表(第3条関係) 3歳未満児","reiki":"https://www1.g-reiki.net/city.kobe/reiki_honbun/k302RG00001658.html","page":"https://www.city.kobe.lg.jp/a65174/kosodate/shien/shinseido/riyomoshikomi/riyoshafutangaku.html","asOf":"2026-07-06","note":"令和7年規則第14号改正・R7.9.1施行の現行別表。例規テキストから直接転記(画像PDFのOCR回避)。0-2歳児(3号)。"},"seireiConversion":true,"inputBasis":"salary","fiscalSwitch":9,"multiChild":{"third":0,"note":"第2子=別表の明示実額(child2)・第3子以降=0(備考7)"},"brackets":[{"level":1,"criteria":"seikatsuhogo","label":"A(生活保護等)","standard":0,"short":0},{"level":2,"criteria":"hikazei","label":"B(非課税)","standard":0,"short":0},{"level":3,"label":"C(48,600円未満)","standard":12300,"short":12100,"child2":{"standard":6200,"short":6100},"maxShotokuwari":48599,"hitorioya":{"standard":6100,"short":6100,"child2":{"standard":0,"short":0}}},{"level":4,"label":"D1(48,600〜66,600)","standard":20300,"short":20000,"child2":{"standard":10200,"short":10000},"maxShotokuwari":66599,"hitorioya":{"standard":9000,"short":9000,"child2":{"standard":0,"short":0}}},{"level":5,"label":"D2a(66,600〜77,100)","standard":24000,"short":23600,"child2":{"standard":12000,"short":11800},"maxShotokuwari":77100,"hitorioya":{"standard":9000,"short":9000,"child2":{"standard":0,"short":0}}},{"level":6,"label":"D2b(77,101〜97,000)","standard":24000,"short":23600,"child2":{"standard":12000,"short":11800},"maxShotokuwari":96999,"hitorioya":{"standard":24000,"short":23600,"child2":{"standard":0,"short":0}}},{"level":7,"label":"D3(97,000〜169,000)","standard":35600,"short":35000,"child2":{"standard":17800,"short":17500},"maxShotokuwari":168999},{"level":8,"label":"D4(169,000〜301,000)","standard":49700,"short":48900,"child2":{"standard":24900,"short":24500},"maxShotokuwari":300999},{"level":9,"label":"D5(301,000〜397,000)","standard":59000,"short":58100,"child2":{"standard":29500,"short":29100},"maxShotokuwari":396999},{"level":10,"label":"D6(397,000円以上)","standard":66000,"short":64900,"child2":{"standard":33000,"short":32500}}]}; const CITY_SLUG = "kobe"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=4d744a3a"></script>
-<script src="/js/core/shared/income.js?v=4d744a3a"></script>
-<script src="/js/core/jumin.js?v=4d744a3a"></script>
-<script src="/js/core/hoiku.js?v=4d744a3a"></script>
+<script src="/js/core/shared/ui-input.js?v=93086a7e"></script>
+<script src="/js/core/shared/income.js?v=93086a7e"></script>
+<script src="/js/core/jumin.js?v=93086a7e"></script>
+<script src="/js/core/hoiku.js?v=93086a7e"></script>
 <script>
 (function(){
   "use strict";
@@ -248,13 +248,15 @@
   //   ・16歳以上の扶養親族（deps＝一般・特定・老人・同居老親の人数）も収入の多い方の扶養として数える。
   //     扶養控除 33万・45万・38万・45万（第314条の2第1項第11号・第4項）、人的控除差 5万・18万・10万・13万（第37条第1号イの表(8)(9)）、
   //     非課税限度額の人数（施行令 第47条の3第1号＝16歳未満と控除対象扶養親族）。
+  //   ・保育所の子は23歳未満の扶養親族なので、給与収入850万円超の保護者には所得金額調整控除（第1項）を入れる。
+  //     夫婦の双方に適用できる（租税特別措置法 第41条の3の11第1項・国税庁タックスアンサー No.1411）
   function familyFor(fatherSalary, motherSalary, children, hitorioya, deps){
     var fatherMain = fatherSalary >= motherSalary;
     var mainSalary = fatherMain ? fatherSalary : motherSalary, subSalary = fatherMain ? motherSalary : fatherSalary;
-    var mainIncome = calcSalaryIncome(mainSalary);
+    var mainIncome = calcSalaryIncome(mainSalary) - calcIncomeAdjustmentDeduction1(mainSalary, true);
     var d = deps || {};
     var dg = d.general||0, ds = d.specific||0, de = d.elderly||0, dp = d.parent||0;
-    var main = { dependents: children + dg + ds + de + dp,
+    var main = { under23Dependent: true, dependents: children + dg + ds + de + dp,
                  dependentDeduction: dg*330000 + ds*450000 + de*380000 + dp*450000,
                  humanDeductionDiff: 50000 + dg*50000 + ds*180000 + de*100000 + dp*130000 };
     if(subSalary===0 && hitorioya){
@@ -262,12 +264,13 @@
       main.singleParentDeduction = st.singleParentDeduction;
       main.humanDeductionDiff += st.singleParent==="mother" ? 50000 : (st.singleParent==="father" ? 10000 : 0);   // 第37条第1号イの表
     }else{
-      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) : 0 });
+      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) - calcIncomeAdjustmentDeduction1(subSalary, true) : 0 });
       main.spouseDeduction = sd.deduction;
       if(sd.kind==="haigu") main.dependents += 1;                                       // 同一生計配偶者
-      main.humanDeductionDiff += sd.humanDiffSpouse==="elderly" ? 100000 : (sd.humanDiffSpouse==="general" ? 50000 : 0);
+      main.humanDeductionDiff += sd.humanDiffAmount;                                    // 本人の合計所得900万円超で逓減（第37条第1号イの表(6)）
     }
-    return fatherMain ? { father: main, mother: null } : { father: null, mother: main };
+    var sub = { under23Dependent: true };
+    return fatherMain ? { father: main, mother: sub } : { father: sub, mother: main };
   }
 
   // ── 試算 ──

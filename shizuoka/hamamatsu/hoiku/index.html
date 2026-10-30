@@ -91,10 +91,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"slug":"hamamatsu","citySlug":"hamamatsu","cityCode":"22130","cityName":"浜松市","pref":"shizuoka","prefSlug":"shizuoka","system":"hoiku","year":2026,"status":"verified","source":{"name":"浜松市 認可保育施設の保育料 3号認定(3歳未満児)","page":"https://www.hamamatsu-pippi.net/contents/7773.html","asOf":"2026-07-06","note":"市委託サイト「ぴっぴ」掲載表。第2子=明示実額(概ね半額)・第3子0。母子世帯等サブ行は階層3-8a(≤77,101)のみ。階層8は母子77,101/その他84,900で境界食い違い→8a/8b分割。[要確認]6/8補正の一次明示。"},"seireiConversion":true,"inputBasis":"salary","fiscalSwitch":9,"multiChild":{"third":0,"note":"第2子=明示実額(child2)・第3子以降0。全世帯対象・生計を一の全きょうだいを年齢順カウント"},"brackets":[{"level":1,"criteria":"seikatsuhogo","label":"階層1(生活保護)","standard":0,"short":0},{"level":2,"criteria":"hikazei","label":"階層2(非課税・養育里親等)","standard":0,"short":0},{"level":3,"label":"階層3(所得割非課税)","standard":8100,"short":7900,"child2":{"standard":3600,"short":3500},"maxShotokuwari":0,"hitorioya":{"standard":3000,"short":3000,"child2":{"standard":0,"short":0}}},{"level":4,"label":"階層4(所得割<24,300)","standard":11400,"short":11200,"child2":{"standard":5100,"short":5000},"maxShotokuwari":24299,"hitorioya":{"standard":3400,"short":3400,"child2":{"standard":0,"short":0}}},{"level":5,"label":"階層5(24,300〜48,600)","standard":13200,"short":12900,"child2":{"standard":5900,"short":5800},"maxShotokuwari":48599,"hitorioya":{"standard":3900,"short":3800,"child2":{"standard":0,"short":0}}},{"level":6,"label":"階層6(48,600〜60,700)","standard":15500,"short":15200,"child2":{"standard":6900,"short":6800},"maxShotokuwari":60699,"hitorioya":{"standard":4400,"short":4300,"child2":{"standard":0,"short":0}}},{"level":7,"label":"階層7(60,700〜72,800)","standard":17800,"short":17500,"child2":{"standard":8000,"short":7800},"maxShotokuwari":72799,"hitorioya":{"standard":4900,"short":4800,"child2":{"standard":0,"short":0}}},{"level":8,"label":"階層8a(72,800〜77,100)","standard":20100,"short":19800,"child2":{"standard":9000,"short":8900},"maxShotokuwari":77100,"hitorioya":{"standard":5400,"short":5300,"child2":{"standard":0,"short":0}}},{"level":9,"label":"階層8b(77,101〜84,899)","standard":20100,"short":19800,"child2":{"standard":9000,"short":8900},"maxShotokuwari":84899},{"level":10,"label":"階層9(84,900〜97,000)","standard":22500,"short":22200,"child2":{"standard":10100,"short":9900},"maxShotokuwari":96999},{"level":11,"label":"階層10(97,000〜121,000)","standard":26100,"short":25700,"child2":{"standard":13000,"short":12800},"maxShotokuwari":120999},{"level":12,"label":"階層11(121,000〜145,000)","standard":29700,"short":29300,"child2":{"standard":14800,"short":14600},"maxShotokuwari":144999},{"level":13,"label":"階層12(145,000〜169,000)","standard":33300,"short":32900,"child2":{"standard":16600,"short":16400},"maxShotokuwari":168999},{"level":14,"label":"階層13(169,000〜235,000)","standard":41000,"short":40400,"child2":{"standard":20500,"short":20200},"maxShotokuwari":234999},{"level":15,"label":"階層14(235,000〜301,000)","standard":48800,"short":48000,"child2":{"standard":24400,"short":24000},"maxShotokuwari":300999},{"level":16,"label":"階層15(301,000〜349,000)","standard":56400,"short":55500,"child2":{"standard":28200,"short":27700},"maxShotokuwari":348999},{"level":17,"label":"階層16(349,000〜397,000)","standard":64000,"short":63000,"child2":{"standard":32000,"short":31500},"maxShotokuwari":396999},{"level":18,"label":"階層17(397,000円以上)","standard":73600,"short":72400,"child2":{"standard":36800,"short":36200}}]}; const CITY_SLUG = "hamamatsu"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 2;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=4d744a3a"></script>
-<script src="/js/core/shared/income.js?v=4d744a3a"></script>
-<script src="/js/core/jumin.js?v=4d744a3a"></script>
-<script src="/js/core/hoiku.js?v=4d744a3a"></script>
+<script src="/js/core/shared/ui-input.js?v=93086a7e"></script>
+<script src="/js/core/shared/income.js?v=93086a7e"></script>
+<script src="/js/core/jumin.js?v=93086a7e"></script>
+<script src="/js/core/hoiku.js?v=93086a7e"></script>
 <script>
 (function(){
   "use strict";
@@ -248,13 +248,15 @@
   //   ・16歳以上の扶養親族（deps＝一般・特定・老人・同居老親の人数）も収入の多い方の扶養として数える。
   //     扶養控除 33万・45万・38万・45万（第314条の2第1項第11号・第4項）、人的控除差 5万・18万・10万・13万（第37条第1号イの表(8)(9)）、
   //     非課税限度額の人数（施行令 第47条の3第1号＝16歳未満と控除対象扶養親族）。
+  //   ・保育所の子は23歳未満の扶養親族なので、給与収入850万円超の保護者には所得金額調整控除（第1項）を入れる。
+  //     夫婦の双方に適用できる（租税特別措置法 第41条の3の11第1項・国税庁タックスアンサー No.1411）
   function familyFor(fatherSalary, motherSalary, children, hitorioya, deps){
     var fatherMain = fatherSalary >= motherSalary;
     var mainSalary = fatherMain ? fatherSalary : motherSalary, subSalary = fatherMain ? motherSalary : fatherSalary;
-    var mainIncome = calcSalaryIncome(mainSalary);
+    var mainIncome = calcSalaryIncome(mainSalary) - calcIncomeAdjustmentDeduction1(mainSalary, true);
     var d = deps || {};
     var dg = d.general||0, ds = d.specific||0, de = d.elderly||0, dp = d.parent||0;
-    var main = { dependents: children + dg + ds + de + dp,
+    var main = { under23Dependent: true, dependents: children + dg + ds + de + dp,
                  dependentDeduction: dg*330000 + ds*450000 + de*380000 + dp*450000,
                  humanDeductionDiff: 50000 + dg*50000 + ds*180000 + de*100000 + dp*130000 };
     if(subSalary===0 && hitorioya){
@@ -262,12 +264,13 @@
       main.singleParentDeduction = st.singleParentDeduction;
       main.humanDeductionDiff += st.singleParent==="mother" ? 50000 : (st.singleParent==="father" ? 10000 : 0);   // 第37条第1号イの表
     }else{
-      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) : 0 });
+      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) - calcIncomeAdjustmentDeduction1(subSalary, true) : 0 });
       main.spouseDeduction = sd.deduction;
       if(sd.kind==="haigu") main.dependents += 1;                                       // 同一生計配偶者
-      main.humanDeductionDiff += sd.humanDiffSpouse==="elderly" ? 100000 : (sd.humanDiffSpouse==="general" ? 50000 : 0);
+      main.humanDeductionDiff += sd.humanDiffAmount;                                    // 本人の合計所得900万円超で逓減（第37条第1号イの表(6)）
     }
-    return fatherMain ? { father: main, mother: null } : { father: null, mother: main };
+    var sub = { under23Dependent: true };
+    return fatherMain ? { father: main, mother: sub } : { father: sub, mother: main };
   }
 
   // ── 試算 ──

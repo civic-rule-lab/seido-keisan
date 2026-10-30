@@ -127,22 +127,26 @@ function _haiguSpecialBase(spouseIncome) {
  * @param {boolean} [p.age70plus]  配偶者が70歳以上（老人控除対象配偶者）。特別控除には影響しない
  * @param {number} [p.fiscalYear]  住民税の年度。控除対象配偶者の所得要件（58万／62万）に効く。未指定=令和8年度
  * @param {object} [p.data]        data/national/jumin-haigusha-kojo.json。渡せば表引き、無ければ条文の式で計算
- * @returns {{ kind: 'haigu'|'special'|'none', deduction: number, humanDiffSpouse: 'general'|'elderly'|'none' }}
+ * @returns {{ kind: 'haigu'|'special'|'none', deduction: number, humanDiffSpouse: 'general'|'elderly'|'none', humanDiffAmount: number }}
  *   humanDiffSpouse は調整控除の人的控除差（第37条第1号イの表）用。特別控除は表(7)の対象外（配偶者所得55万円未満のみ）なので 'none'。
+ *   humanDiffAmount はその額。表(6)は本人の合計所得で逓減する（900万円以下 5万・950万円以下 4万・1,000万円以下 2万／
+ *   老人控除対象配偶者 10万・6万・3万）[確認済 2026-10-30 e-Gov 法令API]
  */
+// 調整控除の人的控除差のうち控除対象配偶者の分（地方税法 第37条第1号イの表(6)・第314条の6第1号イ）。列は本人の合計所得の段階
+const HUMAN_DIFF_SPOUSE_JUMIN = { general: [50_000, 40_000, 20_000], elderly: [100_000, 60_000, 30_000] };
 function calcSpouseDeductionJumin(p) {
   const self = Number(p && p.selfIncome) || 0;
   const sp = Number(p && p.spouseIncome) || 0;
   const data = p && p.data;
   const cols = (data && data.honninIncomeCols) || [9_000_000, 9_500_000, 10_000_000];
-  const none = { kind: 'none', deduction: 0, humanDiffSpouse: 'none' };
+  const none = { kind: 'none', deduction: 0, humanDiffSpouse: 'none', humanDiffAmount: 0 };
   if (self > cols[2]) return none;
   const col = self <= cols[0] ? 0 : self <= cols[1] ? 1 : 2;
   const limit = (data && data.fuyoIncomeLimit && data.fuyoIncomeLimit[String(p.fiscalYear || 2026)]) || fuyoIncomeLimitJumin(p.fiscalYear);
   if (sp <= limit) {
     const key = p.age70plus ? 'elderly' : 'general';
     const tbl = (data && data.haiguKojo) || HAIGU_KOJO_JUMIN;
-    return { kind: 'haigu', deduction: tbl[key][col], humanDiffSpouse: key };
+    return { kind: 'haigu', deduction: tbl[key][col], humanDiffSpouse: key, humanDiffAmount: HUMAN_DIFF_SPOUSE_JUMIN[key][col] };
   }
   if (sp > ((data && data.haiguSpecialLimit) || HAIGU_SPECIAL_LIMIT_JUMIN)) return none;
   let ded;
@@ -153,7 +157,7 @@ function calcSpouseDeductionJumin(p) {
     const base = _haiguSpecialBase(sp);
     ded = col === 0 ? base : Math.ceil((base * (col === 1 ? 2 : 1) / 3) / 10_000) * 10_000;
   }
-  return { kind: 'special', deduction: ded, humanDiffSpouse: 'none' };
+  return { kind: 'special', deduction: ded, humanDiffSpouse: 'none', humanDiffAmount: 0 };
 }
 
 // ─── 特定親族特別控除（令和8年度課税〜・令和7年度税制改正） ─────────
@@ -258,6 +262,8 @@ function calcHoikuShotokuwari(taxableIncome, humanDeductionDiff, totalIncome, sh
  * @param {boolean} [inputs.minor=false]        - 本人が未成年者（同上）
  * @param {boolean} [inputs.widow=false]        - 本人が寡婦（同上）
  * @param {boolean} [inputs.singleParent=false] - 本人がひとり親（同上）
+ * @param {boolean} [inputs.under23Dependent=false] - 給与収入850万円超の所得金額調整控除（租税特別措置法 第41条の3の11第1項）の要件
+ *   （本人が特別障害者・23歳未満の扶養親族・特別障害者の同一生計配偶者か扶養親族）に当たる
  * @param {number} [inputs.lifeInsuranceDeduction=0] - 生命保険料控除
  * @param {number} [inputs.earthquakeInsuranceDeduction=0] - 地震保険料控除
  * @param {number} [inputs.medicalDeduction=0]   - 医療費控除
@@ -313,6 +319,7 @@ function calculateJumin(data, inputs) {
     humanDeductionDiff = 50_000,
     taxCredits = 0,
     specialDependentSalaries = [],
+    under23Dependent = false, // 給与収入850万円超の所得金額調整控除（第1項）の要件に当たる（23歳未満の扶養親族・特別障害者）
     fiscalYear, // 住民税の年度。未指定=令和8年度(2026)で後方互換（給与所得控除の最低保障65万）。
                 // 2027以降で給与所得控除の最低保障74万を適用（令和8年度税制改正）。
     kyuchi: kyuchiInput, // 生活保護の級地（1/2/3）。未指定は data.kyuchi → 1級地。
@@ -342,11 +349,11 @@ function calculateJumin(data, inputs) {
   const effDependents         = dependents + _sdDependents;
 
   // 合計所得金額（介護保険段階判定・基礎控除前）
-  const totalIncome = _income.calcTaxableIncomeForKokuho({ salary, pension, age, otherIncome, fiscalYear });
+  const totalIncome = _income.calcTaxableIncomeForKokuho({ salary, pension, age, otherIncome, fiscalYear, under23Dependent });
 
   // 住民税課税所得（所得控除後）。1,000円未満切捨て（課税標準）。
   const taxableRaw = _income.calcTaxableIncomeForJumin({
-    salary, pension, age, otherIncome, fiscalYear,
+    salary, pension, age, otherIncome, fiscalYear, under23Dependent,
     socialInsurance,
     spouseDeduction, dependentDeduction: effDependentDeduction,
     disabilityDeduction, singleParentDeduction,

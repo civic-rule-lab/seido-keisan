@@ -90,6 +90,11 @@
   <p class="ji-hint">アルバイト等の給与収入が123万円超188万円以下なら、特定親族特別控除（令和8年度新設・3万〜45万円）を収入額から自動判定します。上の人数には含めないでください。該当する子が2人以上いる場合は1人分のみ反映されます。</p>
   <label for="dep_elderly">老人扶養親族（70歳以上）人数</label>
   <input id="dep_elderly" data-step="10" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="dep_young">16歳未満の子 人数</label>
+  <input id="dep_young" data-step="10a" type="text" inputmode="numeric" placeholder="例：0">
+  <p class="ji-hint">16歳未満の子は扶養控除がありませんが、住民税が非課税になるかの判定に使います。</p>
+  <label class="ji-check"><input type="checkbox" id="under23"> 16〜18歳の扶養親族・特別障害者の家族がいる</label>
+  <p class="ji-hint">給与収入850万円超のときの所得金額調整控除（最大15万円）に使います。16歳未満・19〜22歳の人数を入れた場合は自動で反映します。</p>
 
   <div class="ji-section">保険料・医療費控除</div>
   <label for="life">生命保険料控除額（住民税・上限7万円）</label>
@@ -101,8 +106,13 @@
 
   <div class="ji-section">その他の控除</div>
   <label class="ji-check"><input type="checkbox" id="disabled"> 障害者控除（本人・普通障害）</label>
-  <label class="ji-check"><input type="checkbox" id="singleparent"> ひとり親控除</label>
-  <label class="ji-check"><input type="checkbox" id="widow"> 寡婦控除</label>
+  <label for="selfStatus">ひとり親・寡婦</label>
+  <select id="selfStatus" data-step="13a">
+    <option value="none" selected>当てはまらない</option>
+    <option value="mother">ひとり親（母）</option>
+    <option value="father">ひとり親（父）</option>
+    <option value="widow">寡婦</option>
+  </select>
 
   <div class="ji-section">ふるさと納税</div>
   <label for="furusato">ふるさと納税の寄附額（年間）</label>
@@ -145,9 +155,9 @@
 </div>
 
 <script>const JUMIN_DATA = {"cityCode":"13117","citySlug":"kita","cityName":"北区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "kita"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
-<script src="/js/core/shared/ui-input.js?v=d29029e1"></script>
-<script src="/js/core/shared/income.js?v=d29029e1"></script>
-<script src="/js/core/jumin.js?v=d29029e1"></script>
+<script src="/js/core/shared/ui-input.js?v=b8699668"></script>
+<script src="/js/core/shared/income.js?v=b8699668"></script>
+<script src="/js/core/jumin.js?v=b8699668"></script>
 <!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
 <script>const FURUSATO_DATA = {
   "meta": {
@@ -235,7 +245,7 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 };</script>
-<script src="/js/core/furusato.js?v=d29029e1"></script>
+<script src="/js/core/furusato.js?v=b8699668"></script>
 <script>
 (function () {
   "use strict";
@@ -244,7 +254,7 @@
   // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
   function initInputs(){
     ["salary","pension","business","child_salary","spouse_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,{withCommas:true});});
-    ["age","dep_general","dep_specific","dep_elderly"].forEach(function(id){setupNumericInput(id,{withCommas:false});});
+    ["age","dep_general","dep_specific","dep_elderly","dep_young"].forEach(function(id){setupNumericInput(id,{withCommas:false});});
   }
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);
@@ -260,28 +270,34 @@
 
       // 扶養・配偶者控除（住民税の控除額）と人的控除差（調整控除用）
       var spouseDed=0, depDed=0, disDed=0, spDed=0;
-      var humanDiff=50000; // 基礎控除差（常時）
+      var dg=num("dep_general")||0, ds=num("dep_specific")||0, de=num("dep_elderly")||0, dy=num("dep_young")||0;
+      // 給与収入850万円超の所得金額調整控除（租税特別措置法 第41条の3の11第1項）: 23歳未満の扶養親族（16歳未満・19〜22歳の人数）か、
+      //   印（16〜18歳の扶養親族・特別障害者の家族）があれば適用する
+      var under23 = dy>0 || ds>0 || chk("under23");
+      var selfIncome=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, age:age, otherIncome:business, kyuchi:JUMIN_KYUCHI, under23Dependent:under23}).totalIncome;
+      // ひとり親・寡婦（第314条の2第1項第8号・第8号の2・合計所得500万円以下）。所得要件を外れたら控除・人的控除差なし
+      var st=calcSelfStatusDeductionJumin({ selfIncome:selfIncome, singleParent:(document.getElementById("selfStatus")||{}).value||"none" });
+      spDed=st.singleParentDeduction;
       // 配偶者控除／配偶者特別控除（2026-10-12 X184）: 配偶者の給与年収があれば所得から自動判定。無ければチェックどおり控除対象（所得0）。
       //   本人の合計所得で 3 段階（900万以下／950万以下／1,000万以下・超は 0）。計算は jumin.js calcSpouseDeductionJumin（第34条第1項第10号・第10号の2）。
       //   人的控除差（第37条第1号イの表）: 控除対象配偶者 5万・老人控除対象配偶者 10万。特別控除の配偶者は表(7)の対象外（所得55万未満のみ）＝0。
-      var spouseSalary=num("spouse_salary")||0, spouseKind="none";
+      var spouseSalary=num("spouse_salary")||0, spouseKind="none", spouseHD="none";
       if(chk("spouse") || spouseSalary>0){
-        var selfIncome=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, age:age, otherIncome:business, kyuchi:JUMIN_KYUCHI}).totalIncome;
         var sd=calcSpouseDeductionJumin({ selfIncome:selfIncome, spouseIncome:(spouseSalary>0?calcSalaryIncome(spouseSalary):0), age70plus:chk("spouse_elderly") });
-        spouseDed=sd.deduction; spouseKind=sd.kind;
-        if(sd.humanDiffSpouse==="elderly") humanDiff+=100000; else if(sd.humanDiffSpouse==="general") humanDiff+=50000;
+        spouseDed=sd.deduction; spouseKind=sd.kind; spouseHD=sd.humanDiffSpouse;
       }
-      var dg=num("dep_general")||0, ds=num("dep_specific")||0, de=num("dep_elderly")||0;
       depDed += dg*330000 + ds*450000 + de*380000;
-      humanDiff += dg*50000 + ds*180000 + de*100000;
-      if(chk("disabled")){ disDed+=260000; humanDiff+=10000; }
-      if(chk("singleparent")){ spDed+=300000; humanDiff+=50000; }
-      if(chk("widow")){ spDed+=260000; humanDiff+=10000; }
+      if(chk("disabled")) disDed+=260000;
+      // 人的控除差（調整控除・第37条第1号イの表）。配偶者の分は本人の合計所得900万円超で逓減（5万→4万→2万、老人10万→6万→3万）、
+      //   ひとり親は母5万・父1万、寡婦1万（表は data/national/furusato-2026.json の humanDiffTable）
+      var humanDiff=furusatoHumanDeductionDiff({ selfTotalIncome:selfIncome, spouse:spouseHD,
+        dependentGeneral:dg, dependentSpecific:ds, dependentElderly:de, dependentCohabitingParent:0,
+        selfDisability:(chk("disabled")?"general":"none"), singleParent:st.singleParent, workingStudent:false }, FURUSATO_DATA);
 
       var life=Math.min(num("life")||0,70000);
       var quake=Math.min(num("quake")||0,25000);
       var medical=num("medical")||0;
-      var dependents = (spouseKind==="haigu"?1:0) + dg + ds + de;   // 特別控除の配偶者は同一生計配偶者ではないので非課税判定の人数に入れない
+      var dependents = (spouseKind==="haigu"?1:0) + dg + ds + de + dy;   // 特別控除の配偶者は同一生計配偶者ではないので非課税判定の人数に入れない。16歳未満の子は入れる（施行令 第47条の3第1号）
       // 19〜22歳の子の給与収入（123万円超）→ 特定親族特別控除をエンジンで自動判定
       var childSalary=num("child_salary")||0;
 
@@ -293,6 +309,8 @@
         spouseDeduction:spouseDed, dependentDeduction:depDed,
         disabilityDeduction:disDed, singleParentDeduction:spDed,
         selfDisabled:chk("disabled"),   // 本人の障害者（合計所得135万円以下で非課税）。寡婦・ひとり親は spDed から判定される
+        minor:(age<18),                 // 未成年者（民法 第4条・18歳未満。賦課期日1月1日の年齢）も合計所得135万円以下で非課税（地方税法 第295条第1項第2号）
+        under23Dependent:under23,
         lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
         dependents:dependents, humanDeductionDiff:humanDiff,
         specialDependentSalaries: childSalary>0 ? [childSalary] : []

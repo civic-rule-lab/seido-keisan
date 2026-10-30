@@ -91,10 +91,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"13212","citySlug":"hino","cityName":"日野市","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "hino"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=4d744a3a"></script>
-<script src="/js/core/shared/income.js?v=4d744a3a"></script>
-<script src="/js/core/jumin.js?v=4d744a3a"></script>
-<script src="/js/core/hoiku.js?v=4d744a3a"></script>
+<script src="/js/core/shared/ui-input.js?v=93086a7e"></script>
+<script src="/js/core/shared/income.js?v=93086a7e"></script>
+<script src="/js/core/jumin.js?v=93086a7e"></script>
+<script src="/js/core/hoiku.js?v=93086a7e"></script>
 <script>
 (function(){
   "use strict";
@@ -248,13 +248,15 @@
   //   ・16歳以上の扶養親族（deps＝一般・特定・老人・同居老親の人数）も収入の多い方の扶養として数える。
   //     扶養控除 33万・45万・38万・45万（第314条の2第1項第11号・第4項）、人的控除差 5万・18万・10万・13万（第37条第1号イの表(8)(9)）、
   //     非課税限度額の人数（施行令 第47条の3第1号＝16歳未満と控除対象扶養親族）。
+  //   ・保育所の子は23歳未満の扶養親族なので、給与収入850万円超の保護者には所得金額調整控除（第1項）を入れる。
+  //     夫婦の双方に適用できる（租税特別措置法 第41条の3の11第1項・国税庁タックスアンサー No.1411）
   function familyFor(fatherSalary, motherSalary, children, hitorioya, deps){
     var fatherMain = fatherSalary >= motherSalary;
     var mainSalary = fatherMain ? fatherSalary : motherSalary, subSalary = fatherMain ? motherSalary : fatherSalary;
-    var mainIncome = calcSalaryIncome(mainSalary);
+    var mainIncome = calcSalaryIncome(mainSalary) - calcIncomeAdjustmentDeduction1(mainSalary, true);
     var d = deps || {};
     var dg = d.general||0, ds = d.specific||0, de = d.elderly||0, dp = d.parent||0;
-    var main = { dependents: children + dg + ds + de + dp,
+    var main = { under23Dependent: true, dependents: children + dg + ds + de + dp,
                  dependentDeduction: dg*330000 + ds*450000 + de*380000 + dp*450000,
                  humanDeductionDiff: 50000 + dg*50000 + ds*180000 + de*100000 + dp*130000 };
     if(subSalary===0 && hitorioya){
@@ -262,12 +264,13 @@
       main.singleParentDeduction = st.singleParentDeduction;
       main.humanDeductionDiff += st.singleParent==="mother" ? 50000 : (st.singleParent==="father" ? 10000 : 0);   // 第37条第1号イの表
     }else{
-      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) : 0 });
+      var sd = calcSpouseDeductionJumin({ selfIncome: mainIncome, spouseIncome: subSalary>0 ? calcSalaryIncome(subSalary) - calcIncomeAdjustmentDeduction1(subSalary, true) : 0 });
       main.spouseDeduction = sd.deduction;
       if(sd.kind==="haigu") main.dependents += 1;                                       // 同一生計配偶者
-      main.humanDeductionDiff += sd.humanDiffSpouse==="elderly" ? 100000 : (sd.humanDiffSpouse==="general" ? 50000 : 0);
+      main.humanDeductionDiff += sd.humanDiffAmount;                                    // 本人の合計所得900万円超で逓減（第37条第1号イの表(6)）
     }
-    return fatherMain ? { father: main, mother: null } : { father: null, mother: main };
+    var sub = { under23Dependent: true };
+    return fatherMain ? { father: main, mother: sub } : { father: sub, mother: main };
   }
 
   // ── 試算 ──
