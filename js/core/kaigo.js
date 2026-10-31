@@ -91,10 +91,13 @@ function matchBracket(ctx, bracket) {
  * @param {number} memberContext.totalIncome              - 合計所得金額（円）
  * @param {boolean} memberContext.isSelfTaxable           - 本人が住民税課税か
  * @param {boolean} memberContext.isHouseholdAllNonTaxable - 世帯全員が住民税非課税か
- * @returns {Object|null} null は data が不正な場合
+ * @returns {Object|null} null は data が不正な場合と、data.status が 'needs_update'（段階表が未確認の仮データ）の場合
  */
 function calculateKaigo(data, memberContext) {
   if (!data || !Array.isArray(data.brackets) || data.brackets.length === 0) return null;
+  // 段階表が未確認の仮データでは額を返さない（2026-10-31 全方向試算 C110。旧は status を見ずに仮の段階表で額を返していた）。
+  //   公開ページ（介護・家計簿）は verified／inferred のときだけ呼ぶので表示は変わらない
+  if (data.status === 'needs_update') return null;
 
   const ctx = {
     pensionIncome:             memberContext.pensionIncome            ?? 0,

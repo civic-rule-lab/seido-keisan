@@ -43,12 +43,15 @@ function timeKeysOf(muni) {
 }
 
 // 年度切替: 4-8月分=前年度の所得割 / 9月-3月分=当年度の所得割
+//   「特定教育・保育のあった月の属する年度（…四月から八月までの場合にあつては、前年度）分の…所得割」
+//   （子ども・子育て支援法施行令 第4条 [確認済 2026-10-31 e-Gov 法令API]）。1〜3月は4月に始まった年度に属するので当年度
+//   （2026-10-31 全方向試算 C088。旧は1〜3月を前年度と返していた）
 // 戻り値: 'prev'(前年度) | 'current'(当年度)。muni.fiscalSwitch は切替月(既定9)。
 function pickFiscalYear(month, fiscalSwitch = 9) {
   if (!Number.isInteger(month) || month < 1 || month > 12) {
     throw new Error(`pickFiscalYear: 不正な月 ${month}`);
   }
-  return month >= fiscalSwitch ? 'current' : 'prev';
+  return (month >= fiscalSwitch || month < 4) ? 'current' : 'prev';
 }
 
 // 指数(=父母合算の市町村民税所得割額)を確定する。
