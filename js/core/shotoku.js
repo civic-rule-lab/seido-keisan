@@ -17,7 +17,12 @@ const _isNode = (typeof module !== 'undefined' && !!module.exports);
 const fs = _isNode ? require('fs') : null;
 const path = _isNode ? require('path') : null;
 
-const DB_PATH = _isNode ? path.join(__dirname, 'data', 'national', 'shotokuzei-2026.json') : null;
+// データの場所: 正本ではリポ直下の data/national、写し（js/core/shotoku.js）では2階層上の data/national。
+//   どちらに置かれても読めるよう、あるほうを使う（2026-10-31 全方向試算 C136。旧は写しで存在しないパスを指し ENOENT）
+const DB_PATH = _isNode
+  ? ([path.join(__dirname, 'data', 'national', 'shotokuzei-2026.json'), path.join(__dirname, '..', '..', 'data', 'national', 'shotokuzei-2026.json')]
+      .find((p) => fs.existsSync(p)) || path.join(__dirname, 'data', 'national', 'shotokuzei-2026.json'))
+  : null;
 
 // null(上限なし) → Infinity へ正規化。lookup が key<=row[0] で使うため。
 function normalizeTable(table) {
@@ -94,17 +99,35 @@ function mulRateFloor(v, rate) {
 //   medicalPaid, medicalReimbursed（医療費控除: 支払額と保険金等の補填額。控除額はエンジンが計算・既定 0）,
 //   lifeInsurance, earthquakeInsurance（生命保険料控除・地震保険料控除の「控除額」を入れる。上限で頭打ち・既定 0）
 // 出力に marginalRate（課税所得が属する税率区分・復興特別所得税を含まない）を含む。
-function calcShotokuzei(input, P) {
-  const salary = input.salary || 0;
+// 寡婦・ひとり親・勤労学生の合計所得金額の要件（所得税法 第2条第1項第30号〜第32号）
+//   [確認済 2026-10-31 e-Gov 法令API・2026-10-01 施行時点]。勤労学生の「給与所得等以外の所得が10万円以下」は入力が無いので見ない
+const HITORIOYA_KAFU_INCOME_LIMIT = 5_000_000;
+const KINRO_GAKUSEI_INCOME_LIMIT = 850_000;
 
-  // 1) 給与所得・所得金額調整控除
+// 数の入力を検査する。null・undefined は 0、それ以外で有限の数でなければ例外（旧は文字列を足し算して合計所得が文字列になっていた・C137）
+function _numIn(v, name) {
+  if (v == null) return 0;
+  if (typeof v !== 'number' || !Number.isFinite(v)) throw new TypeError(`${name} は有限の数で渡してください（${String(v)}）`);
+  return v;
+}
+
+function calcShotokuzei(input, P) {
+  const salary = _numIn(input.salary, 'salary');
+  const otherIncome = _numIn(input.otherIncome, 'otherIncome');
+  const dis = Object.assign({ general: 0, special: 0, specialCoRes: 0 }, input.disability);
+
+  // 1) 給与所得・所得金額調整控除（租税特別措置法 第41条の3の11第1項）
+  //   要件＝本人が特別障害者、または23歳未満の扶養親族・特別障害者の同一生計配偶者か扶養親族がいる（2026-10-31 全方向試算 C146。
+  //   旧は23歳未満の扶養親族だけを見ていた）。disability の special・specialCoRes が1以上なら特別障害者がいるとみなす。
+  //   1円未満は切り上げ（国税庁タックスアンサー No.1411。旧は切捨て）
   const kyuyo = kyuyoShotoku(salary, P.kyuyoShotoku);
   let chosei = 0;
   const C = P.choseiKojo;
-  if (salary > C.salaryThreshold && input.under23Dependent) {
-    chosei = Math.floor((Math.min(salary, C.cap) - C.salaryThreshold) * C.rate);
+  const choseiEligible = !!input.under23Dependent || (dis.special | 0) > 0 || (dis.specialCoRes | 0) > 0;
+  if (salary > C.salaryThreshold && choseiEligible) {
+    chosei = Math.ceil((Math.min(salary, C.cap) - C.salaryThreshold) * Math.round(C.rate * 1000) / 1000);
   }
-  const gokeiShotoku = kyuyo - chosei + (input.otherIncome || 0);   // 合計所得金額（給与所得＋事業・雑所得等）
+  const gokeiShotoku = kyuyo - chosei + otherIncome;   // 合計所得金額（給与所得＋事業・雑所得等）
 
   // 2) 所得控除
   const detail = {};
@@ -131,16 +154,17 @@ function calcShotokuzei(input, P) {
     .filter((i) => i > P.fuyoIncomeLimit && i <= P.tokuteiShinzokuLimit)
     .reduce((s, i) => s + lookup(P.tokuteiShinzoku, i)[0], 0);
 
-  detail.jinteki = (input.singleParent ? P.hitorioya : input.widow ? P.kafu : 0) +
-    (input.workingStudent ? P.kinroGakusei : 0);
+  // ひとり親・寡婦は合計所得500万円以下、勤労学生は85万円以下のときだけ（2026-10-31 全方向試算 C144・C145）
+  const spOk = gokeiShotoku <= HITORIOYA_KAFU_INCOME_LIMIT;
+  detail.jinteki = (input.singleParent && spOk ? P.hitorioya : (input.widow && spOk ? P.kafu : 0)) +
+    (input.workingStudent && gokeiShotoku <= KINRO_GAKUSEI_INCOME_LIMIT ? P.kinroGakusei : 0);
 
   // 障害者控除（所得税法 79 条）: 人数 × 27 / 40 / 75 万
-  const dis = Object.assign({ general: 0, special: 0, specialCoRes: 0 }, input.disability);
   detail.shogai = dis.general * P.shogai.general + dis.special * P.shogai.special + dis.specialCoRes * P.shogai.specialCoRes;
 
   // 医療費控除（所得税法 73 条）: 支払額 − 補填 − min(総所得金額等×5%, 10 万)、上限 200 万。総所得金額等は合計所得金額で代用（給与＋その他の所得）
   const iry = P.iryohiKojo;
-  const iryFloor = Math.min(Math.floor(gokeiShotoku * iry.floorRate), iry.floorMax);
+  const iryFloor = Math.max(0, Math.min(Math.floor(gokeiShotoku * iry.floorRate), iry.floorMax));   // 合計所得が負でも足切り額は0未満にしない（C142）
   detail.iryohi = Math.min(iry.max, Math.max(0, (input.medicalPaid || 0) - (input.medicalReimbursed || 0) - iryFloor));
 
   // 生命保険料控除（76 条・合計 12 万）・地震保険料控除（77 条・5 万）: 控除額を受け取り上限で頭打ち
@@ -155,7 +179,7 @@ function calcShotokuzei(input, P) {
   const kazei = Math.floor(Math.max(0, gokeiShotoku - kojo) / P.kazeiRoundDown) * P.kazeiRoundDown;
   const [rate, sub] = lookup(P.taxTable, kazei);
   let tax = Math.max(0, mulRateFloor(kazei, rate) - sub);   // kazei は 1,000 の倍数なので真値は整数
-  tax = Math.max(0, tax - Math.floor(input.mortgageDeduction || 0));
+  tax = Math.max(0, tax - Math.max(0, Math.floor(input.mortgageDeduction || 0)));   // 負の住宅ローン控除で税額を増やさない（C141）
   const annualTax = Math.floor(mulRateFloor(tax, P.surtaxRate) / P.taxRoundDown) * P.taxRoundDown;
 
   return {
