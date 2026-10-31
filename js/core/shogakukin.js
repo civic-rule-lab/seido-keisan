@@ -25,9 +25,17 @@ const _adjBase = _isNode ? require('./jumin.js')._adjustmentCreditBase : _adjust
 //   ・所得割非課税(shotokuwariTaxable===false)なら 0（JASSO ※3）[B2]
 //   ・調整控除は既定で humanDeductionDiff から標準3%を自前合成（政令市補正なし）[M2]
 //   ・課税証明書の市民税調整控除実額(cityAdjustActual)を渡した場合のみ政令市×3/4
+// 数の入力を検査する（2026-10-31 全方向試算 C188・C189）。null・undefined は既定値、それ以外で有限の数でなければ例外。
+//   旧実装は文字列を素通しし（基準額が文字列の計算になる）、NaN・Infinity で基準額が NaN／Infinity になっていた
+function _num(v, name, dflt) {
+  if (v == null) return dflt;
+  if (typeof v !== 'number' || !Number.isFinite(v)) throw new TypeError(`${name} は有限の数で渡してください（${String(v)}）`);
+  return v;
+}
+
 function _supporterKijungakuComponent(s, cfg) {
   if (s.shotokuwariTaxable === false) return 0; // 所得割非課税 → 基準額0 [B2]
-  const taxable = Math.max(0, Math.floor(s.taxableIncome || 0));
+  const taxable = Math.max(0, Math.floor(_num(s.taxableIncome, 'taxableIncome', 0)));
   if (taxable <= 0) return 0;
   const cityGross = Math.floor(taxable * cfg.rate);
 
@@ -38,7 +46,7 @@ function _supporterKijungakuComponent(s, cfg) {
     cityAdjust = Math.floor(Math.max(0, s.cityAdjustActual) * factor);
   } else {
     // 標準3%を humanDeductionDiff から自前合成（政令市補正なし）[M2]。
-    const adjBase = _adjBase(taxable, s.humanDeductionDiff ?? 50_000, s.totalIncome ?? taxable);
+    const adjBase = _adjBase(taxable, _num(s.humanDeductionDiff, 'humanDeductionDiff', 50_000), _num(s.totalIncome, 'totalIncome', taxable));
     cityAdjust = Math.floor(adjBase * cfg.cityAdjustRate);
   }
   // 調整額（税額調整額）は課税証明書の実額。政令市は×3/4。
@@ -122,6 +130,8 @@ function _assetOk(g, isTashi, assets) {
  *   rikoNoPrivate: 私立理工農系か（第Ⅳ区分の要件・給付0/減免別建て）
  *   householdSize?: 世帯人数（将来の貸与型家計基準用に保持）
  */
+const KNOWN_LEVELS = ['大学', '短期大学', '専門学校', '高等専門学校', '通信'];
+
 function calcShogakukin(spec, inputs) {
   const g = spec.grant, cfg = g.kijungakuFormula;
   const supporters = Array.isArray(inputs.supporters) ? inputs.supporters : [];
@@ -137,9 +147,14 @@ function calcShogakukin(spec, inputs) {
 
   const isTashi = (inputs.childrenCount || 0) >= g.tashiSetai.minChildren;
   const student = inputs.student || {};
+  // 学校種: 未指定は大学（減免・給付の表と同じ既定）。知らない値は黙って大学の表で計算せず例外にする（2026-10-31 全方向試算 C185・C187）
+  const level = student.level || '大学';
+  if (!KNOWN_LEVELS.includes(level)) throw new RangeError(`student.level が不明です（${String(student.level)}）。${KNOWN_LEVELS.join('・')} のいずれか`);
+  // 私立理工農系（第Ⅳ区分）: 大学・高専は1/3、大学（通信課程）・短大・専門は1/4（授業料等減免事務処理要領 第7版 令和8年3月
+  //   [確認済 2026-10-31 原本]。全方向試算 C183・C184＝旧は高専と通信を外していた）
   const isRiko = !!(inputs.rikoNoPrivate) &&
                  (student.schoolType === '私立') &&
-                 ['大学', '短期大学', '専門学校'].includes(student.level);
+                 ['大学', '短期大学', '専門学校', '高等専門学校', '通信'].includes(level);
 
   // 区分判定
   let kubun = null;
