@@ -475,11 +475,11 @@
     [1330000, [30000, 20000, 10000]]
   ]
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
-<script src="/js/core/shared/ui-input.js?v=80b8f3dd"></script>
-<script src="/js/core/shared/income.js?v=80b8f3dd"></script>
-<script src="/js/core/jumin.js?v=80b8f3dd"></script>
-<script src="/js/core/kokuho.js?v=80b8f3dd"></script>
-<script src="/js/core/furusato.js?v=80b8f3dd"></script>
+<script src="/js/core/shared/ui-input.js?v=e15da0ee"></script>
+<script src="/js/core/shared/income.js?v=e15da0ee"></script>
+<script src="/js/core/jumin.js?v=e15da0ee"></script>
+<script src="/js/core/kokuho.js?v=e15da0ee"></script>
+<script src="/js/core/furusato.js?v=e15da0ee"></script>
 <script>
 (function(){
   "use strict";
@@ -616,7 +616,7 @@
     } else {
       var shown = Math.floor(r.limit.limit / 1000) * 1000;
       var rate = furusatoImpliedShotokuRate(r.limit.ratio, FURUSATO_DATA);
-      var b = calcFurusatoBreakdown(r.limit.limit, { incomeLevy: r.jumin.incomeLevy, ratio: r.limit.ratio, shotokuMarginalRate: rate, totalIncome: r.jumin.totalIncome }, FURUSATO_DATA);
+      var b = calcFurusatoBreakdown(r.limit.limit, { incomeLevy: r.jumin.incomeLevy, ratio: r.limit.ratio, shotokuMarginalRate: rate, totalIncome: r.jumin.totalIncome, shotokuTaxable: Math.max(0, r.limit.base) }, FURUSATO_DATA);   // 所得税の課税所得の目安＝課税総所得−人的控除差調整額
       h += "<div class='result-title' style='font-size:15px;margin-top:16px;'>ふるさと納税（2026年中の寄附）</div>" +
         row("控除上限額の目安", "約 " + shown.toLocaleString("ja-JP") + " 円", "big") +
         "<div class='hint' style='margin:0 0 12px;'>計算上の値は " + yen(r.limit.limit) + "。端数の扱いで実際とずれるため、千円未満を切り捨てて表示しています。</div>" +

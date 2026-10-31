@@ -69,12 +69,16 @@
     const kojoS = dividend > 0 ? haitoKojo(dividend, floorTo(shotokuTaxable + dividend, P.kazeiRoundDown), S.haitoKojo) : 0;
     const t1 = shotokuAnnualTax(shotokuTaxable + dividend, P);
     const annual1 = floorTo(mulRateFloor(Math.max(0, t1.tax - kojoS), P.surtaxRate), P.taxRoundDown);
-    const kojoJ = dividend > 0 ? haitoKojo(dividend, juminTaxable + dividend, J.haitoKojo) : 0;
+    // 住民税の課税総所得金額は1,000円未満を切り捨てる（地方税法 第20条の4の2第1項）。配当控除の1,000万円の判定（附則第5条）も、
+    //   総合課税で増える所得割も、切り捨てた課税総所得で見る（2026-10-31 全方向試算 C166・C167。旧は切り捨て前の額・配当×10%の近似）
+    const juminKazei0 = floorTo(juminTaxable, 1000), juminKazei1 = floorTo(juminTaxable + dividend, 1000);
+    const kojoJ = dividend > 0 ? haitoKojo(dividend, juminKazei1, J.haitoKojo) : 0;
+    const levyAddSogo = mulRateFloor(juminKazei1 - juminKazei0, J.sogoRate);
     const sogo = {
       shotokuTax: annual1 - t0.annual,
-      juminTax: mulRateFloor(dividend, J.sogoRate) - kojoJ,
+      juminTax: levyAddSogo - kojoJ,
       haitoKojoShotoku: kojoS, haitoKojoJumin: kojoJ,
-      incomeAdd: dividend, levyAdd: mulRateFloor(dividend, J.sogoRate), taxableAdd: dividend,
+      incomeAdd: dividend, levyAdd: levyAddSogo, taxableAdd: dividend,
     };
     for (const m of [none, separate, sogo]) m.total = m.shotokuTax + m.juminTax;
     return { dividend, none, separate, sogo };

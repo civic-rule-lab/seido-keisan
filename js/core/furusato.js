@@ -158,6 +158,7 @@ function calcFurusatoLimit(input, data) {
  * @param {object} ctx.ratio        calcFurusatoLimit(...).ratio
  * @param {number} ctx.shotokuMarginalRate 所得税の限界税率（furusatoMarginalShotokuRate）
  * @param {number} ctx.totalIncome  総所得金額等（控除対象額の 40%・30% の上限に使う）
+ * @param {number} [ctx.shotokuTaxable] 所得税の課税所得（寄附前）。渡せば所得税分の控除のもとをこの額までにする
  * @param {object} data data/national/furusato-2027.json
  */
 function calcFurusatoBreakdown(donation, ctx, data) {
@@ -168,8 +169,13 @@ function calcFurusatoBreakdown(donation, ctx, data) {
     return { donation: d, shotoku: 0, juminBasic: 0, juminSpecial: 0, totalDeduction: 0, selfBurden: d };
   }
   // 所得税: (min(寄附額, 総所得金額等×40%) − 2,000) × 限界税率 × 1.021
-  const shotokuBase = Math.max(0, Math.min(d, Math.floor(totalIncome * data.shotokuCapRateOfTotalIncome)) - sb);
-  const shotoku = Math.floor(shotokuBase * (ctx.shotokuMarginalRate || 0) * data.shotokuSurtaxMultiplier);
+  //   寄附金控除は所得から引く控除なので（所得税法 第78条・第87条）、下がる所得税のもとは寄附前の課税所得を超えない（C156）
+  //   率は整数にしてから掛ける（浮動小数の掛け算で1円少なくなっていた・C157。haito.js の mulRateFloor と同じ考え方）
+  let shotokuBase = Math.max(0, Math.min(d, Math.floor(totalIncome * data.shotokuCapRateOfTotalIncome)) - sb);
+  if (Number.isFinite(ctx.shotokuTaxable)) shotokuBase = Math.min(shotokuBase, Math.max(0, Math.floor(ctx.shotokuTaxable)));
+  const rateUnits = Math.round((ctx.shotokuMarginalRate || 0) * 10000);          // 0.05 → 500
+  const surtaxUnits = Math.round(data.shotokuSurtaxMultiplier * 1000);          // 1.021 → 1021
+  const shotoku = Math.floor(shotokuBase * rateUnits * surtaxUnits / 10000000);
   // 住民税 基本分: (min(寄附額, 総所得金額等×30%) − 2,000) × 10%
   const basicBase = Math.max(0, Math.min(d, Math.floor(totalIncome * data.juminBasicCapRateOfTotalIncome)) - sb);
   const juminBasic = Math.floor(basicBase * data.juminBasicRate);

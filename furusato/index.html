@@ -296,8 +296,8 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 }; const SHOTOKU_KISO_2026 = [[4890000,1040000],[6550000,670000],[23500000,620000],[24000000,480000],[24500000,320000],[25000000,160000],[null,0]];</script>
-<script src="/js/core/shared/ui-input.js?v=8162e2fb"></script>
-<script src="/js/core/furusato.js?v=8162e2fb"></script>
+<script src="/js/core/shared/ui-input.js?v=3f9933a3"></script>
+<script src="/js/core/furusato.js?v=3f9933a3"></script>
 <script>
 (function () {
   "use strict";
@@ -379,7 +379,7 @@
         return;
       }
       var rate = furusatoImpliedShotokuRate(r.ratio, FURUSATO_DATA);
-      var b = calcFurusatoBreakdown(r.limit, { incomeLevy: shotokuwari, ratio: r.ratio, shotokuMarginalRate: rate, totalIncome: soShotoku }, FURUSATO_DATA);
+      var b = calcFurusatoBreakdown(r.limit, { incomeLevy: shotokuwari, ratio: r.ratio, shotokuMarginalRate: rate, totalIncome: soShotoku, shotokuTaxable: Math.max(0, r.base) }, FURUSATO_DATA);   // 所得税の課税所得の目安＝課税総所得−人的控除差調整額（割合の区分と同じ考え方）
       var shown = Math.floor(r.limit / 1000) * 1000;
       out.innerHTML = head +
         row("控除上限額の目安", "約 "+shown.toLocaleString("ja-JP")+" 円", "big") +
