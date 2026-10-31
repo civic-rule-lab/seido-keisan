@@ -412,6 +412,7 @@ function calculateJumin(data, inputs) {
     taxableIncome, totalIncome, incomeLevy, adjustmentCredit, perCapita, total, monthly,
     isTaxable: kintoTaxable,
     kyuchi, kintoNonTaxableLimit, kintoBorderline,
+    shotokuTaxable,            // 所得割が課税か（非課税限度額・135万円以下の非課税・課税標準0を反映）
     specialNonTaxable,         // 障害者・未成年者・寡婦・ひとり親の135万円以下の非課税に当たったか
     specialDependentDeduction, // 19〜22歳の子等に適用された控除額（特定扶養45万/特定親族特別控除3万〜45万）
     humanDeductionDiff: effHumanDiff, // 調整控除に使った人的控除差の合計（特定扶養分を含む）
