@@ -20,7 +20,17 @@
 function judgeOnestop(input, data) {
   const inp = input || {};
   const shinkoku = inp.shinkoku || 'unknown';
-  const n = (inp.municipalities === null || inp.municipalities === undefined || inp.municipalities === '') ? null : Number(inp.municipalities);
+  // 寄附先の自治体数は 0 以上の整数（数で渡す）。0 は未入力と同じく「入れてください」に回す。
+  //   数でない値（' ' を含む）・NaN・負の数・小数は例外。上限を超える大きさ（Infinity を含む）は5団体超として判定する
+  //   （2026-11-03 全方向試算 C149。旧は Number() で ' ' が 0 になり、0・負・NaN でもワンストップ可と返していた）
+  const mv = inp.municipalities;
+  if (!(mv === null || mv === undefined || mv === '')) {
+    if (typeof mv !== 'number') throw new TypeError(`municipalities は数で渡してください（${String(mv)}）`);
+    if (Number.isNaN(mv) || mv < 0 || (Number.isFinite(mv) && !Number.isInteger(mv))) {
+      throw new RangeError(`municipalities が範囲外です（${String(mv)}）`);
+    }
+  }
+  const n = (mv === null || mv === undefined || mv === '' || mv === 0) ? null : mv;
   const reasons = inp.reasons || {};
   const max = data.maxMunicipalities;
 

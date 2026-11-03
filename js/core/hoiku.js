@@ -24,6 +24,8 @@
 const NATIONAL_CAP = 104000; // 国基準3号・標準時間の最上限(月額)。全自治体これ以下のはず[指示書§0]
 // 公開UIの入力モード(muni.inputBasis)。engineは不使用・UI/結線が入力フォームを出し分けるためのヒント。
 const INPUT_BASES = ['salary', 'shotokuwari-direct'];
+// 年齢区分（3号認定＝0〜2歳）。byAge の キーもこのどちらか
+const AGE_KEYS = ['age0', 'age1_2'];
 const SEIREI_NUM = 6;        // 政令市補正 分子(保育料は旧6%換算)
 const SEIREI_DEN = 8;        // 政令市補正 分母(2018税源移譲後8%)
 // child2alt.selector に使えない予約入力キー(既存 input フラグと衝突すると誤発火する)
@@ -58,9 +60,19 @@ function pickFiscalYear(month, fiscalSwitch = 9) {
 //   input.father / input.mother: { shotokuwari } 調整控除後・税額控除前。省略は0(片親等)。
 //   政令市: 通知書(8%基準)の額を直接入力した場合のみ 6/8 補正。
 //           年収連動(jumin側で6%相当を算出)の場合は input.isSeireiNotice=false のまま補正しない。
+// 所得割額は 0 以上の有限の数。未指定（親がいない・空欄）は 0。
+//   数でない値（"abc"・"48,600"・{}）・NaN・Infinity は例外（2026-11-03 全方向試算 C089・C090。旧は 0 扱いで最低の課税階層、Infinity は最上段の額を返していた）
+function _hoikuShotokuwari(parent, who) {
+  const v = parent ? parent.shotokuwari : undefined;
+  if (v === undefined || v === null) return 0;
+  if (typeof v !== 'number') throw new TypeError(`${who}.shotokuwari は数で渡してください（${String(v)}）`);
+  if (!Number.isFinite(v)) throw new RangeError(`${who}.shotokuwari が範囲外です（${String(v)}）`);
+  return v;
+}
+
 function resolveIndex(input, muni) {
-  const f = (input.father && Number(input.father.shotokuwari)) || 0;
-  const m = (input.mother && Number(input.mother.shotokuwari)) || 0;
+  const f = _hoikuShotokuwari(input.father, 'father');
+  const m = _hoikuShotokuwari(input.mother, 'mother');
   if (f < 0 || m < 0) throw new Error('resolveIndex: 所得割額が負');
   let index = f + m;
   const seireiApplied = !!(muni.seireiConversion && input.isSeireiNotice);
@@ -120,7 +132,12 @@ function calcHoiku(input, muni) {
   // 既定の時間区分: input.timeType 明示 > muni.defaultTimeType(京都=std_11h等) > 'standard'。
   const timeType = input.timeType || muni.defaultTimeType || 'standard';
   const age = input.age || 'age1_2';
-  const childOrder = input.childOrder || 1;
+  // 年齢区分は 0歳（age0）か 1〜2歳（age1_2）だけ。3〜5歳（3号の外）や未知の値は例外（2026-11-03 全方向試算 C092。旧は 1〜2歳の額を返していた）
+  if (!AGE_KEYS.includes(age)) throw new RangeError(`age が範囲外です（${String(age)}・${AGE_KEYS.join('/')}）`);
+  // 子の順位は 1 以上の整数。未指定は 1（2026-11-03 全方向試算 C091。旧は文字列 "2"・小数・0 を第1子として扱っていた）
+  const childOrder = input.childOrder == null ? 1 : input.childOrder;
+  if (typeof childOrder !== 'number') throw new TypeError(`childOrder は数で渡してください（${String(childOrder)}）`);
+  if (!Number.isInteger(childOrder) || childOrder < 1) throw new RangeError(`childOrder が範囲外です（${String(childOrder)}）`);
   const reasons = [];
 
   // 0) 無償化(東京型: 第1子から無償) — bracketsを見ずに即0

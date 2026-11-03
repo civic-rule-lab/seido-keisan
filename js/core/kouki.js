@@ -89,10 +89,19 @@ function calculateKouki(input, data) {
     pensionSalaryEarnerCount,
   } = input || {};
 
-  const incomeSafe = Math.max(totalIncome || 0, 0);
+  // 所得の額は数で渡す。数でない値・NaN・Infinity は例外（2026-11-03 全方向試算 C214・C215。
+  //   旧は "abc" で金額が NaN、軽減判定所得の NaN で黙って「軽減なし」になっていた）
+  const amount = (v, name) => {
+    if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+    if (!Number.isFinite(v)) throw new RangeError(`${name} が範囲外です（${String(v)}）`);
+    return v;
+  };
+  const incomeSafe = Math.max(totalIncome == null ? 0 : amount(totalIncome, 'totalIncome'), 0);
   const insured    = Math.max(householdInsuredCount || 1, 1);
   const earners    = Math.max(pensionSalaryEarnerCount || 0, 0);
-  const judge      = reductionJudgmentIncome ?? incomeSafe;
+  // 軽減判定所得は世帯の総所得金額等の合算で、負にはならない。負は例外（C216。旧は所得が多くても7割軽減になっていた）
+  const judge      = reductionJudgmentIncome == null ? incomeSafe : amount(reductionJudgmentIncome, 'reductionJudgmentIncome');
+  if (judge < 0) throw new RangeError(`reductionJudgmentIncome が範囲外です（${String(judge)}）`);
 
   // 所得割のもととなる所得金額
   const base = Math.max(incomeSafe - data.basicDeduction, 0);

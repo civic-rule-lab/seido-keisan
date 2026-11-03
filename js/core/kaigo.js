@@ -77,6 +77,18 @@ function matchBracket(ctx, bracket) {
   return true;
 }
 
+// ─── 入力の検査 ───────────────────────────────────────────────
+
+// 収入・所得の額。未指定（undefined・null）は 0。数でない値・NaN・Infinity は例外。
+//   負の額は 0 とする（合計所得金額が零を下回る場合には零とする＝介護保険法施行令 第38条第1項第6号イ ほか）。
+//   （2026-11-03 全方向試算 C117。旧は NaN を弾かず本人課税の最低段階を返していた）
+function _kaigoAmount(v, name) {
+  if (v === undefined || v === null) return 0;
+  if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+  if (!Number.isFinite(v)) throw new RangeError(`${name} が範囲外です（${String(v)}）`);
+  return Math.max(0, v);
+}
+
 // ─── 計算関数 ─────────────────────────────────────────────────
 
 /**
@@ -100,15 +112,19 @@ function calculateKaigo(data, memberContext) {
   if (data.status === 'needs_update') return null;
 
   const ctx = {
-    pensionIncome:             memberContext.pensionIncome            ?? 0,
-    totalIncome:               memberContext.totalIncome              ?? 0,
+    pensionIncome:             _kaigoAmount(memberContext.pensionIncome, 'pensionIncome'),
+    totalIncome:               _kaigoAmount(memberContext.totalIncome, 'totalIncome'),
     // sumIncome 未指定時は pensionIncome + totalIncome へフォールバックせず、
     // 合算型 criteria を持つ自治体では呼び出し側が必ず sumIncome を渡す前提。
     // （誤フォールバックで二重計上しないよう 0 既定）
-    sumIncome:                 memberContext.sumIncome                ?? 0,
+    sumIncome:                 _kaigoAmount(memberContext.sumIncome, 'sumIncome'),
     isSelfTaxable:             memberContext.isSelfTaxable            ?? false,
     isHouseholdAllNonTaxable:  memberContext.isHouseholdAllNonTaxable ?? false,
   };
+  // 本人が課税なら世帯全員非課税ではありえない（2026-11-03 全方向試算 C115。旧は検査せず第1〜3段階を返していた）
+  if (ctx.isSelfTaxable && ctx.isHouseholdAllNonTaxable) {
+    throw new RangeError('isSelfTaxable と isHouseholdAllNonTaxable が両方 true です（本人課税なら世帯全員非課税ではありません）');
+  }
 
   // 配列を先頭から評価し、最初にマッチした段階を採用
   let matched = data.brackets.find(b => matchBracket(ctx, b));
@@ -119,7 +135,9 @@ function calculateKaigo(data, memberContext) {
            || data.brackets[Math.floor(data.brackets.length / 2)];
   }
 
-  // 保険料: annual フィールド優先、なければ baseAmount × rate で算出
+  // 保険料: annual フィールド優先、なければ baseAmount × rate で算出。
+  //   どちらも無い段階はデータが不正なので null（2026-11-03 全方向試算 C120。旧は baseAmount=null で annual 0 を返していた）
+  if (matched.annual == null && !(Number.isFinite(data.baseAmount) && Number.isFinite(matched.rate))) return null;
   const annual = matched.annual ?? Math.round(data.baseAmount * matched.rate);
 
   return {

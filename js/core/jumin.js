@@ -327,6 +327,18 @@ function calculateJumin(data, inputs) {
   const kyuchi = [1, 2, 3].includes(kyuchiInput) ? kyuchiInput
                : [1, 2, 3].includes(cfg.kyuchi) ? cfg.kyuchi : 1;
 
+  // 所得控除・人的控除差・扶養の人数は 0 以上の数（人数は整数）。null は 0（従来どおり）。
+  //   数でない値（"2" など）・NaN・Infinity・負の数は例外（2026-11-03 全方向試算 C123〜C126。
+  //   旧は負の控除で課税所得が増え、NaN が所得割・保育料指数に伝わり、"2" は文字列連結で扶養人数が桁違いになっていた）
+  for (const [name, v] of Object.entries({ socialInsurance, spouseDeduction, dependentDeduction, disabilityDeduction,
+    singleParentDeduction, lifeInsuranceDeduction, earthquakeInsuranceDeduction, medicalDeduction, humanDeductionDiff, dependents })) {
+    if (v === null) continue;
+    if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+    if (!Number.isFinite(v) || v < 0 || (name === 'dependents' && !Number.isInteger(v))) {
+      throw new RangeError(`${name} が範囲外です（${String(v)}）`);
+    }
+  }
+
   // ── 19〜22歳の子等（B案: 給与収入から特定扶養／特定親族特別控除を自動判定） ──
   let specialDependentDeduction = 0; // 適用された控除額の合計（特定扶養45万を含む）
   let _sdHumanDiff = 0;              // 特定扶養該当分の人的控除差（特別控除分は対象外）

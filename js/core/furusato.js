@@ -26,6 +26,15 @@ function _furusatoRatioUnits(percent) {
   return Math.round(percent * 1000);
 }
 
+// 金額・率の入力。未指定（undefined・null）は 0。数でない値（'abc'）・NaN・Infinity は例外。負の額はこれまでどおり呼び出し元で 0 にする。
+//   （2026-11-03 全方向試算 C161・C162。旧は 'abc' で supported:true のまま上限額が NaN、Infinity で内訳が NaN になっていた）
+function _furusatoAmount(v, name) {
+  if (v === undefined || v === null) return 0;
+  if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+  if (!Number.isFinite(v)) throw new RangeError(`${name} が範囲外です（${String(v)}）`);
+  return v;
+}
+
 // 「課税総所得金額 − 人的控除差調整額」から特例控除の割合を引く。
 // 戻り値: { percent, units, band } band は 'negative' か、bands の添字（0 始まり）。
 function furusatoSpecialRatio(base, data) {
@@ -125,10 +134,10 @@ function furusatoHumanDeductionDiff(f, data) {
  *   limit=0       … 所得割が0円で特例控除が生じない（reason='no_income_levy'）。
  */
 function calcFurusatoLimit(input, data) {
-  const incomeLevy = Math.max(0, Math.floor(input.incomeLevy || 0));
-  const taxableIncome = Math.max(0, Math.floor(input.taxableIncome || 0));
-  const humanDeductionDiff = Math.max(0, Math.floor(input.humanDeductionDiff || 0));
-  const shotokuBasic = Math.max(0, Math.floor(input.shotokuBasicDeduction || 0));
+  const incomeLevy = Math.max(0, Math.floor(_furusatoAmount(input.incomeLevy, 'incomeLevy')));
+  const taxableIncome = Math.max(0, Math.floor(_furusatoAmount(input.taxableIncome, 'taxableIncome')));
+  const humanDeductionDiff = Math.max(0, Math.floor(_furusatoAmount(input.humanDeductionDiff, 'humanDeductionDiff')));
+  const shotokuBasic = Math.max(0, Math.floor(_furusatoAmount(input.shotokuBasicDeduction, 'shotokuBasicDeduction')));
 
   const humanAdjustment =
     humanDeductionDiff + Math.max(0, shotokuBasic - data.humanAdjustment.shotokuBasicDeductionOffset);
@@ -162,9 +171,11 @@ function calcFurusatoLimit(input, data) {
  * @param {object} data data/national/furusato-2027.json
  */
 function calcFurusatoBreakdown(donation, ctx, data) {
-  const d = Math.max(0, Math.floor(donation || 0));
+  const d = Math.max(0, Math.floor(_furusatoAmount(donation, 'donation')));
   const sb = data.selfBurden;
-  const totalIncome = Math.max(0, Math.floor(ctx.totalIncome || 0));
+  const totalIncome = Math.max(0, Math.floor(_furusatoAmount(ctx.totalIncome, 'totalIncome')));
+  _furusatoAmount(ctx.incomeLevy, 'incomeLevy');
+  _furusatoAmount(ctx.shotokuMarginalRate, 'shotokuMarginalRate');
   if (d <= sb || !ctx.ratio) {
     return { donation: d, shotoku: 0, juminBasic: 0, juminSpecial: 0, totalDeduction: 0, selfBurden: d };
   }

@@ -15,16 +15,41 @@
 
 (function (global) {
   const LEVELS = ['full', 'threeQuarters', 'half', 'quarter'];
+  const DEP_KEYS = ['under16', 'age16to22', 'general', 'elderly', 'elderlyCoRes'];
+
+  // 扶養の人数をそろえる。未指定（undefined・null）は 0。人数は 0 以上の整数で、数でない値・NaN・負・小数は例外
+  //   （2026-11-03 全方向試算 C175。旧は undefined を明示すると既定の 0 が上書きされ、基準額が NaN になっていた）
+  function deps(d) {
+    const x = Object.assign({}, d || {});
+    x.spouse = x.spouse || 0;
+    for (const k of DEP_KEYS) {
+      const v = x[k];
+      if (v === undefined || v === null) { x[k] = 0; continue; }
+      if (typeof v !== 'number') throw new TypeError(`dependents.${k} は数で渡してください（${String(v)}）`);
+      if (!Number.isInteger(v) || v < 0) throw new RangeError(`dependents.${k} が範囲外です（${String(v)}）`);
+    }
+    return x;
+  }
+
+  // 前年所得。未指定（undefined・null）は 0。数でない値・NaN・Infinity は例外
+  //   （2026-11-03 全方向試算 C174。旧は NaN を 0 として全額免除と判定していた）
+  function incomeOf(person) {
+    const v = person.income;
+    if (v === undefined || v === null) return 0;
+    if (typeof v !== 'number') throw new TypeError(`income は数で渡してください（${String(v)}）`);
+    if (!Number.isFinite(v)) throw new RangeError(`income が範囲外です（${String(v)}）`);
+    return v;
+  }
 
   // 人ごとの「扶養親族等の数」（配偶者＋扶養親族。年齢を問わない）
   function dependentCount(d) {
-    const x = Object.assign({ spouse: 0, under16: 0, age16to22: 0, general: 0, elderly: 0, elderlyCoRes: 0 }, d || {});
+    const x = deps(d);
     return (x.spouse ? 1 : 0) + x.under16 + x.age16to22 + x.general + x.elderly + x.elderlyCoRes;
   }
 
   // 人ごとの「扶養親族等控除額」
   function dependentDeduction(d, E) {
-    const x = Object.assign({ spouse: 0, under16: 0, age16to22: 0, general: 0, elderly: 0, elderlyCoRes: 0 }, d || {});
+    const x = deps(d);
     const t = E.dependentDeduction;
     return (x.spouse ? t.spouse : 0) + x.under16 * t.under16 + x.age16to22 * t.age16to22 +
       x.general * t.general + x.elderly * t.elderly + x.elderlyCoRes * t.elderlyCoRes;
@@ -63,12 +88,12 @@
     const lim = E.localTaxNonTaxable && E.localTaxNonTaxable.incomeMax;
     if (!lim) return false;
     const o = person.other || {};
-    return !!(o.selfShogai || o.kafu || o.hitorioya) && (person.income || 0) <= lim;
+    return !!(o.selfShogai || o.kafu || o.hitorioya) && incomeOf(person) <= lim;
   }
 
   function within(person, key, E) {
     if (localTaxNonTaxable(person, E)) return true;
-    return (person.income || 0) <= thresholds(person, E)[key];
+    return incomeOf(person) <= thresholds(person, E)[key];
   }
 
   // 保険料（年額・前納）。tsuka=true で付加保険料（月400円）を月額・年額に足す（前納の表には足さない＝一次資料のとおり付加を含まない）
