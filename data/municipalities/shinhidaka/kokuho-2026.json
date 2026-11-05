@@ -99,6 +99,7 @@
     "perCapita": 1000,
     "perCapitaAdult": 100,
     "perCapitaAdultScope": "all_ages",
-    "household": 1000
+    "household": 1000,
+    "cap": 30000
   }
 }

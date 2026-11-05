@@ -95,6 +95,7 @@
   "childcare": {
     "rate": 0.003,
     "perCapita": 1191,
-    "household": 766
+    "household": 766,
+    "cap": 30000
   }
 }

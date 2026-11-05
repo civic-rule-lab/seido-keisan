@@ -101,6 +101,7 @@
     "perCapita": 1928,
     "perCapitaAdult": 92,
     "perCapitaAdultScope": "all_ages",
-    "household": 0
+    "household": 0,
+    "cap": 30000
   }
 }
