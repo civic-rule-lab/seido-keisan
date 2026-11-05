@@ -31,7 +31,8 @@
     "perCapita": 1260,
     "perCapitaAdult": 106,
     "perCapitaAdultScope": "all_ages",
-    "household": 821
+    "household": 821,
+    "cap": 30000
   },
   "preschoolReduction": {
     "enabled": true,
