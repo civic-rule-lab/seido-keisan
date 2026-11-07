@@ -3499,6 +3499,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/chiba/tateyama/kaigo/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/chiba/tateyama/kakeibo/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/chiba/kisarazu/kaigo/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>
