@@ -195,7 +195,7 @@
       保育料も試算する（0〜2歳のお子さんが認可保育所）
     </label>
     <div id="hoikuDetail" style="display:none;margin-top:12px;">
-      <label for="hoikuSpouse">配偶者（保護者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄。空欄なら上の「扶養・配偶者」の年収を使います</span></label>
+      <label for="hoikuSpouse">配偶者（保護者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">空欄なら上の「扶養・配偶者」の年収を使います（上と違う額で試すときだけ入力）。配偶者がいない場合は上の欄も空欄のままにしてください</span></label>
       <input id="hoikuSpouse" data-step="11" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
@@ -220,7 +220,7 @@
       奨学金も判定する（大学・短大・専門・高専4,5年のお子さん）
     </label>
     <div id="shogakuDetail" style="display:none;margin-top:12px;">
-      <label for="shogakuSpouse">配偶者（生計維持者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">ひとり親は空欄。空欄なら上の「扶養・配偶者」の年収を使います</span></label>
+      <label for="shogakuSpouse">配偶者（生計維持者2）の給与年収 <span style="color:#9ca3af;font-size:12px;">空欄なら上の「扶養・配偶者」の年収を使います（上と違う額で試すときだけ入力）。配偶者がいない場合は上の欄も空欄のままにしてください</span></label>
       <input id="shogakuSpouse" data-step="13" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
@@ -896,7 +896,11 @@
           var sgSetti=((document.getElementById("shogakuSetti")||{}).value)||"私立";
           var sgAttend=((document.getElementById("shogakuAttend")||{}).value)||"自宅";
           var sgChildren=Number(((document.getElementById("shogakuChildren")||{}).value))||1;
-          var sgHasSpouse=(sgSpouse===0) && (famAny ? spouseKind==="haigu" : true);   // 配偶者収入の入力なし＝配偶者控除ありの近似。家族入力があればそれに従う
+          // 配偶者収入の入力なし＝配偶者控除ありの近似。家族入力があればそれに従う。
+          //   「あなたの区分」がひとり親（母・父）・寡婦なら配偶者はいないので近似を使わない（2026-11-09 オーナー指摘。旧実装は区分を見ず、
+          //   ひとり親を選んで家族欄が空のとき配偶者控除 33 万と人数 +1 を足して支援区分が有利に出ていた）
+          var sgSingle=(famSelfStatus==="mother"||famSelfStatus==="father"||famSelfStatus==="widow");   // 選択そのものを見る（所得 500 万超で控除が付かなくても配偶者はいない）
+          var sgHasSpouse=(sgSpouse===0) && !sgSingle && (famAny ? spouseKind==="haigu" : true);
           // 生計維持者1=本人。社会保険料控除は本体と同じ一本化した実額（会社員=shaho／自営・年金=国保・国民年金・介護1号）。配偶者は本人分を計算していないため会社員=shaho実額／自営=約14.4%概算
           //   ＝奨学金サイトのかんたん判定（15%概算）より会社員は正確側。賞与込み給与で課税判定。
           //   家族欄を入れたときは、住民税カードと同じ配偶者控除・配偶者特別控除・扶養控除・人数・人的控除差を渡す（2026-10-30 全方向試算 C068・C069。
