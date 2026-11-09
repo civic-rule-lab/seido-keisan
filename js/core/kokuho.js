@@ -27,9 +27,10 @@ function calculateKokuho(input, data) {
   //   子ども・子育て支援金の世帯割（と資産割）を課していた。family を省略したときは 0 ではなく、下のとおり 1 人（または members の人数）とみなす。
   // 世帯人数（加入者数）を省略した・数でないときは、members があればその人数、無ければ 1 人とみなす。
   //   旧実装は省略すると均等割が 0 人分・軽減の基準額が NaN になり、黙って「軽減なし」で計算していた（2026-10-25・全方向試算 B-8）。
+  // 人数は 0 以上の整数に正規化する（小数は切り捨て・負値は 0 人）。旧実装は 1.5 人で 0.5 円単位の額、-1 人で均等割だけ 0 の額を返していた（2026-11-09・S1-2 F2）。
   const family = (familyIn === undefined || familyIn === null || !Number.isFinite(Number(familyIn)))
     ? (Array.isArray(members) && members.length > 0 ? members.length : 1)
-    : Number(familyIn);
+    : Math.max(0, Math.floor(Number(familyIn)));
   if (family === 0) {
     return {
       medicalTotal: 0, supportTotal: 0, careTotal: 0, childcareTotal: 0,
@@ -104,7 +105,9 @@ function calculateKokuho(input, data) {
   // 例: 昭島市の独自減免「未就学児を除く 18 歳未満の医療分・支援分均等割を 5割減額」
   // 対象人数 = under18 - 未就学児（負値防止のため max(0, ...)）。介護分には適用しない。
   // schoolReduction.enabled が true でない自治体は schoolReductionMedical/Support = 0 → 既存挙動完全維持。
-  const u18Safe = Math.min(under18 || 0, familySafe);
+  // 未就学児は必ず 18 歳未満なので、under18 は preschool を下限にする。
+  //   旧実装は under18 を省略すると未就学児にも子ども・子育て支援金分の均等割が課されていた（2026-11-09・S1-2 F1）。
+  const u18Safe = Math.min(Math.max(under18 || 0, preschoolSafe), familySafe);
   const schoolSafe = Math.max(u18Safe - preschoolSafe, 0);
   // 実際の減額計算は「軽減判定」で reductionRate が確定した後に行う（未就学児軽減と同じ）。
 
@@ -197,7 +200,7 @@ function calculateKokuho(input, data) {
   // 旧方式(perCapitaAdult なし、under18Reduction: true):
   //   18歳以上 → perCapita のみ（例: 練馬区 1,873円）
   //   18歳未満 → 0
-  const u18    = Math.min(under18 || 0, familySafe);
+  const u18    = u18Safe;   // preschool を下限にした 18 歳未満の人数（上で正規化済み）
   const adults = familySafe - u18;
   let childcarePerCapitaTotal;
   if (childcareCfg?.perCapitaAdult !== undefined) {

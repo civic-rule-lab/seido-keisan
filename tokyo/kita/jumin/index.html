@@ -154,9 +154,9 @@
 <!-- 住民税データ（自治体スペック or null＝全国標準値） -->
 <script>const JUMIN_DATA = {"cityCode":"13117","citySlug":"kita","cityName":"北区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "kita"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（income.js を先に読み込み、グローバル関数を jumin.js に供給） -->
-<script src="/js/core/shared/ui-input.js?v=b609a39a"></script>
-<script src="/js/core/shared/income.js?v=b609a39a"></script>
-<script src="/js/core/jumin.js?v=b609a39a"></script>
+<script src="/js/core/shared/ui-input.js?v=bdd6e307"></script>
+<script src="/js/core/shared/income.js?v=bdd6e307"></script>
+<script src="/js/core/jumin.js?v=bdd6e307"></script>
 <script>
 (function () {
   "use strict";
@@ -193,8 +193,10 @@
   window.calcJumin = function(){
     var result=document.getElementById("result");
     try{
-      var salary=num("salary"), pension=num("pension"), business=num("business"), age=num("age")||40;
+      var salary=num("salary"), pension=num("pension"), business=num("business"), age=num("age");
       if(salary===0 && pension===0 && business===0){result.innerHTML="<span class='result-placeholder'>給与収入・年金収入・事業所得のいずれかを入力してください</span>";return;}
+      // 年齢は必須。旧実装は空欄を黙って 40 歳として計算し、年金受給者の公的年金等控除が 65 歳未満の表になっていた（2026-11-09・S1-1 W2C-03）
+      if(age===0){result.innerHTML="<span class='result-placeholder'>年齢を入力してください（公的年金等控除は 65 歳以上で変わります）</span>";return;}
       // 社会保険料控除を給与収入の約14.4%で概算控除し、公式シミュレーターに近い概算にする。
       // 年金収入・事業所得には社保概算を適用しない（実額は「詳しく計算」ページで入力）。
       var socialInsurance=Math.round(salary*0.144);

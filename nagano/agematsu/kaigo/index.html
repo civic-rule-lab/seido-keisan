@@ -175,6 +175,8 @@
     var result=document.getElementById("result");
     try{
       var pension=num("pension"), salary=num("salary"), other=num("other");
+      // 未入力なら結果を出さない（ui-rules R4-③・後期かんたんと同じ）。旧実装は全欄空でも既定の課税区分で第6段階を表示していた（2026-11-09・S1-1 W2C-02）
+      if(pension===0 && salary===0 && other===0){result.innerHTML="<span class='result-placeholder'>公的年金収入・給与収入・その他の所得のいずれかを入力してください（収入が無い場合は 0 と入力してください）</span>";return;}
       var r=calculateKaigo(KAIGO_DATA, toContext(pension,salary,other));
       if(!r){result.innerHTML="<span class='result-placeholder'>保険料データを読み込めませんでした</span>";return;}
       if(typeof gtag==="function"){var pp=location.pathname.split("/").filter(Boolean);gtag("event","calculate",{prefecture:pp[0]||"unknown",city:(typeof CITY_SLUG!=="undefined"?CITY_SLUG:"unknown"),calc_type:"kaigo-simple"});}

@@ -304,18 +304,18 @@
 </div>
 
 <script>const CITY_SLUG = "asakuchi"; const PREF_SLUG = "okayama"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=b609a39a"></script>
-<script src="/js/core/shared/income.js?v=b609a39a"></script>
-<script src="/js/core/jumin.js?v=b609a39a"></script>
-<script src="/js/core/kokuho.js?v=b609a39a"></script>
-<script src="/js/core/kaigo.js?v=b609a39a"></script>
-<script src="/js/core/kouki.js?v=b609a39a"></script>
-<script src="/js/core/hoiku.js?v=b609a39a"></script>
-<script src="/js/core/shaho.js?v=b609a39a"></script>
-<script src="/js/core/shotoku.js?v=b609a39a"></script>
-<script src="/js/core/shogakukin.js?v=b609a39a"></script>
-<script src="/js/core/shogakukin-bridge.js?v=b609a39a"></script>
-<script src="/js/core/furusato.js?v=b609a39a"></script>
+<script src="/js/core/shared/ui-input.js?v=bdd6e307"></script>
+<script src="/js/core/shared/income.js?v=bdd6e307"></script>
+<script src="/js/core/jumin.js?v=bdd6e307"></script>
+<script src="/js/core/kokuho.js?v=bdd6e307"></script>
+<script src="/js/core/kaigo.js?v=bdd6e307"></script>
+<script src="/js/core/kouki.js?v=bdd6e307"></script>
+<script src="/js/core/hoiku.js?v=bdd6e307"></script>
+<script src="/js/core/shaho.js?v=bdd6e307"></script>
+<script src="/js/core/shotoku.js?v=bdd6e307"></script>
+<script src="/js/core/shogakukin.js?v=bdd6e307"></script>
+<script src="/js/core/shogakukin-bridge.js?v=bdd6e307"></script>
+<script src="/js/core/furusato.js?v=bdd6e307"></script>
 <script>
 (function () {
   "use strict";
@@ -444,7 +444,7 @@
   window.calcAll = async function(){
     var systemsEl=document.getElementById("systems");
     var grandEl=document.getElementById("grand");
-    var salary=num("salary"), pension=num("pension"), sideIncome=num("sideIncome"), age=num("age")||40, family=num("family",1)||1;
+    var salary=num("salary"), pension=num("pension"), sideIncome=num("sideIncome"), age=num("age"), family=num("family",1)||1;
     var employment=((document.getElementById("employment")||{}).value)||"kaishain";
     var isKaishain=(employment==="kaishain");
     var bonus=isKaishain?num("bonus"):0;
@@ -452,6 +452,10 @@
     // 社保は monthlySalary=給与/12 と 賞与を別建てで計算（標準報酬月額＋標準賞与額）。
     var grossSalary=salary+bonus;
     if(salary===0 && pension===0 && sideIncome===0){systemsEl.innerHTML="<span class='result-placeholder'>給与収入または年金収入を入力してください</span>";grandEl.style.display="none";return;}
+    // 年齢は必須。旧実装は空欄を黙って 40 歳として計算し、年金受給者の公的年金等控除・介護分・後期の判定がずれていた（2026-11-09・S1-1 W2C-03）
+    if(age===0){systemsEl.innerHTML="<span class='result-placeholder'>年齢を入力してください（公的年金等控除・介護保険・後期高齢者医療の判定に使います）</span>";grandEl.style.display="none";return;}
+    // 会社員でも給与 0（年金のみ・退職後）は健康保険の被保険者ではないので、国保・後期の経路で計算する（2026-11-09 オーナー決定・S1-2 HC-1）
+    var kokuhoPath = !isKaishain || salary===0;
 
     systemsEl.innerHTML="<span class='result-placeholder'>計算中…</span>";
 
@@ -482,6 +486,10 @@
     //   保育料も試算するなら、少なくとも保育所の子1人＋認可に通う兄・姉は16歳未満なので、その人数を下限にする
     var _hoikuOn = !!((document.getElementById("hoikuOptIn")||{}).checked);
     var famDY = Math.max(num("famDepYoung"), _hoikuOn ? 1 + (Number((document.getElementById("hoikuSiblings")||{}).value)||0) : 0);
+    // 国保に渡す子の人数（2026-11-09・S1-2 HC-2）。未就学児＝保育所の子（本人＋きょうだい）、18 歳未満＝16 歳未満の子の欄を下限に使う
+    //   （16〜17 歳の欄は無いので下限。旧実装は preschool:0 / under18:0 固定で、未就学児 5 割軽減と支援金分の 18 歳未満軽減が効かなかった）
+    var kidsPre = _hoikuOn ? 1 + (Number((document.getElementById("hoikuSiblings")||{}).value)||0) : 0;
+    var kidsU18 = Math.max(famDY, kidsPre);
     var famHasSpouse=(famSpouse!=="none") || famSpouseSalary>0 || famSpousePension>0;
     var famAny=famHasSpouse || famDG>0 || famDS>0 || famDE>0 || famDP>0;
     // 本人の区分（地方税法 第314条の2第1項第6号・第8号・第8号の2。寡婦・ひとり親は合計所得500万円以下）。未成年者（18歳未満）とあわせ、
@@ -572,7 +580,7 @@
         try{ rkk=calculateKouki({totalIncome:totalIncome, reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, koukiData); }catch(e){ rkk=null; }
         if(rkk && rkk.total>=0) siParts.push(["後期高齢者医療", rkk.total]);
       }
-    } else if(!isKaishain){
+    } else if(kokuhoPath){
       if(age>=75){
         // 75歳以上＝後期高齢者医療（単身・1人分。世帯の軽減判定は本人の所得で代用）
         if(koukiData){ try{ rkk=calculateKouki({totalIncome:totalIncome, reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf)}, koukiData); }catch(e){ rkk=null; } }
@@ -587,7 +595,7 @@
             rkWithSpouse=true;
             rk=calculateKokuho({income:totalIncome+spouseIncomeJumin,
               members:[{income:totalIncome, careTarget:(careN===1)},{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
-              family:Math.max(family,2), preschool:0, under18:0, care:careN+spouseCare, fixedAssetTax:0,
+              family:Math.max(family,2), preschool:kidsPre, under18:kidsU18, care:careN+spouseCare, fixedAssetTax:0,
               // 給与所得者等の数: 本人と配偶者のうち給与収入55万円超・年金収入60万円（65歳以上は110万円）超の人（施行令 第29条の7 第6項第1号・2026-10-25 B-4。旧実装は 2 固定）
               salaryPensionCount:Math.max(1, (isKyuyoShotokushaTou(grossSalary, pension, age)?1:0) + (isKyuyoShotokushaTou(famSpouseSalary, famSpousePension, famSpouseAge)?1:0)),
               reductionJudgmentIncome:Math.max(0,totalIncome+spouseIncomeJumin-keigenSelf-keigenSp)}, kokuhoData);
@@ -598,7 +606,7 @@
             // 世帯人数には後期の配偶者も入っているので、国保の加入者数（均等割の人数）からは除く。加入者が本人1人なら
             //   特定世帯（移って5年以内＝平等割1/2）・特定継続世帯（その後3年＝3/4）を配偶者の年齢から推定する（施行令 第29条の7 第2項第8号・2026-10-25）
             var kokuhoFamily = spTokutei ? Math.max(1, family-1) : family;
-            rk=calculateKokuho({income:totalIncome, family:kokuhoFamily, preschool:0, under18:0, care:careN, salaryPensionCount:1, fixedAssetTax:0,
+            rk=calculateKokuho({income:totalIncome, family:kokuhoFamily, preschool:kidsPre, under18:kidsU18, care:careN, salaryPensionCount:1, fixedAssetTax:0,
               tokuteiDouitsuCount:spTokutei,
               tokuteiSetaiKubun:(spTokutei && kokuhoFamily===1) ? tokuteiSetaiKubunFromAge(famSpouseAge) : null,
               reductionJudgmentIncome:Math.max(0,totalIncome-keigenSelf+(spTokutei?spouseIncomeJumin-keigenSp:0))}, kokuhoData);
@@ -624,7 +632,7 @@
         //   本人が75歳未満なら国保に入っていない擬制世帯主として数える（施行令 第29条の7 第6項第1号・2026-10-25）
         var spEarners = (isKyuyoShotokushaTou(grossSalary, pension, age)?1:0) + (isKyuyoShotokushaTou(famSpouseSalary, famSpousePension, famSpouseAge)?1:0);
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
-          family:1, preschool:0, under18:0, care:spouseCare, salaryPensionCount:Math.max(1, spEarners), fixedAssetTax:0,
+          family:1, preschool:kidsPre, under18:kidsU18, care:spouseCare, salaryPensionCount:Math.max(1, spEarners), fixedAssetTax:0,
           giseiSetainushi:(age<75),
           tokuteiSetaiKubun:(age>=75 ? tokuteiSetaiKubunFromAge(age) : null),   // 本人が後期・配偶者だけが国保なら特定世帯（本人の年齢から推定）
           tokuteiDouitsuCount:(age>=75?1:0),   // 本人が75歳以上（後期）なら特定同一世帯所属者として5割・2割の人数に入れる（施行令 第29条の7 第6項第1号）
@@ -764,9 +772,9 @@
         cards.push("<div class='ci-grp'><div class='ci-grp-head'>後期高齢者医療<span class='ci-sub'>75歳以上</span></div><div class='ci-sub' style='line-height:1.7;color:#6b7280;'>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です。</div><div style='margin-top:7px;text-align:right;'><a href='../kouki/' style='font-size:13px;color:var(--acc);text-decoration:none;font-weight:600;'>後期高齢者医療を計算する →</a></div></div>");
       }
     }
-    if(age>=75 && !isKaishain){
+    if(age>=75 && kokuhoPath){
       pushKoukiCard();
-    } else if(isKaishain){
+    } else if(!kokuhoPath){
       // 会社員：協会けんぽ健保（介護第2号・子育て支援金含む）＋厚生年金＋雇用保険の本人負担（年額）。国保カードは出さない。
       if(salary>0 && shahoRes){
         var he=shahoRes.health.employee+shahoRes.care.employee+shahoRes.shienkin.employee;
@@ -812,7 +820,7 @@
     }
 
     // ── 国民年金（自営など・20〜59歳・本人1人分。定額なので合計に加える） ──
-    if(!isKaishain && age>=20 && age<60 && nenkinData && nenkinData.monthly>0){
+    if(kokuhoPath && age>=20 && age<60 && nenkinData && nenkinData.monthly>0){
       grand += nenkinData.monthly*12;
       cards.push(card("国民年金（本人1人分）", nenkinData.monthly*12, [["月額 "+yen(nenkinData.monthly)+" × 12か月", nenkinData.monthly*12]], "#0d9488"));
     }
@@ -855,7 +863,8 @@
           // 保護者に給与も年金も無いと非課税/有償の区別がつかず数値段に誤着地するため計算しない
           cards.push(skip("保育料（認可・0〜2歳）", "保育料の試算には保護者の給与または年金収入の入力が必要です"));
         } else try{
-          var rh = calcHoikuFromSalaries(hoikuData, salary, hoikuSpouseSalary, { honninSocialInsurance:socialInsurance, honninFamily:famJumin, honninOther:sideIncome,
+          var rh = calcHoikuFromSalaries(hoikuData, salary, hoikuSpouseSalary, { honninSocialInsurance:socialInsurance, honninFamily:famJumin, honninOther:sideIncome, honninAge:age,
+            spouseAge: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? famSpouseAge : 0,   // 家族欄の年収を使うときは配偶者の年齢欄も使う
             spouseSocialInsurance: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? spouseSelfSi : null,   // 家族欄の年収を使うときは働き方に応じた保険料
             spousePension: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? famSpousePension : 0,
             age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
@@ -987,7 +996,7 @@
     return "<div class='ci-grp' style='border-left:4px solid #cbd5e1;'><div class='ci-grp-head' style='color:#64748b;'>"+name+"<span class='ci-sub'>—</span></div><div class='ci-sub'>"+msg+"</div></div>";
   }
   // ── 保育料 結線（独立ページ hoiku-simple.html と同方式。①〜⑤を家計簿に移植） ──
-  function _juminOf(sal, pen, bon, siGiven, famGiven, other){
+  function _juminOf(sal, pen, bon, siGiven, famGiven, other, ageIn){
     sal=sal||0; pen=pen||0; bon=bon||0; other=other||0;
     if(!sal && !pen && !bon && !other) return {shotokuwari:0, taxable:false, borderline:false};
     // 本人（保護者1）は calcAll で一本化した社会保険料控除（国保・国民年金・介護1号の実額／会社員は shaho 実額）をそのまま使う（siGiven）。
@@ -1000,14 +1009,15 @@
     if(siGiven!=null){ si=siGiven; }
     else if(emp==="kaishain" && sal>0){ var sa=shahoAnnual(sal, bon, 40); si = sa ? sa.annual : Math.round(gross*0.144); }
     else { si=Math.round(gross*0.144); }
-    var r=calculateJumin(null,Object.assign({salary:gross,pension:pen,otherIncome:other,age:40,socialInsurance:si,kyuchi:JUMIN_KYUCHI}, famGiven||{}));
+    var ag=ageIn||40;   // 年齢は呼び出し元の入力（本人＝年齢欄・配偶者＝配偶者の年齢欄）。無ければ 40 歳（2026-11-09・S1-2 HC-3）
+    var r=calculateJumin(null,Object.assign({salary:gross,pension:pen,otherIncome:other,age:ag,socialInsurance:si,kyuchi:JUMIN_KYUCHI}, famGiven||{}));
     return {shotokuwari:r.hoikuShotokuwari, taxable:r.isTaxable, borderline:r.kintoBorderline};
   }
   function calcHoikuFromSalaries(M, honninSalary, spouseSalary, opts){
     opts=opts||{};
     var honninPension=opts.honninPension||0;               // 世帯主(=保護者1)の年金も課税判定に反映
     var honninBonus=opts.honninBonus||0;                   // 世帯主の賞与（会社員）。配偶者の賞与は入力欄が無いため0（配偶者は給与年収に含めて入力）
-    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily, opts.honninOther||0), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance, { under23Dependent: true });   // 保育所の子＝23歳未満の扶養親族（所得金額調整控除は夫婦の双方に適用・国税庁 No.1411）
+    var f=_juminOf(honninSalary, honninPension, honninBonus, opts.honninSocialInsurance, opts.honninFamily, opts.honninOther||0, opts.honninAge), m=_juminOf(spouseSalary, opts.spousePension||0, 0, opts.spouseSocialInsurance, { under23Dependent: true }, 0, opts.spouseAge);   // 保育所の子＝23歳未満の扶養親族（所得金額調整控除は夫婦の双方に適用・国税庁 No.1411）
     var input={ age:opts.age||"age1_2", hitorioya:!!opts.hitorioya, month:(M.fiscalSwitch||9),
       father:{shotokuwari:f.shotokuwari}, mother:{shotokuwari:m.shotokuwari}, isSeireiNotice:false };
     var fe=(!honninSalary && !honninPension && !honninBonus && !(opts.honninOther||0)), me=(!spouseSalary);

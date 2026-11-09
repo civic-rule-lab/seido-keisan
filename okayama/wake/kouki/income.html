@@ -222,6 +222,8 @@
       //   65歳以上の公的年金等の所得は15万円を引き、給与所得者等の年金収入の基準は125万円（同令 附則第3条）。65歳未満は60万円
       if(checked("hhOutside")){
         var hs=num("hh_salary"), hp=num("hh_pension"), ho=num("hh_other"), ha=num("hh_age");
+        // 世帯主の年齢は必須。旧実装は空欄を 0 歳として計算し、65 歳以上の年金控除・15 万円の控除が付かなかった（2026-11-09・S1-1 W2C-04）
+        if(ha===0){result.innerHTML="<span class='result-placeholder'>世帯主の年齢を入力してください（65 歳以上で公的年金等控除と軽減判定の 15 万円控除が変わります）</span>";return;}
         var hsInc=(typeof calcSalaryIncome==="function")?calcSalaryIncome(hs):0;
         var hpInc=(typeof calcPensionIncome==="function")?calcPensionIncome(hp, ha, hsInc+ho):0;
         hsInc-=(typeof calcIncomeAdjustmentDeduction==="function")?calcIncomeAdjustmentDeduction(hsInc,hpInc):0;
