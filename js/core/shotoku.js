@@ -111,10 +111,35 @@ function _numIn(v, name) {
   return v;
 }
 
+// 控除額の入力（社会保険料・iDeCo・その他の控除・生命保険料控除・地震保険料控除）を検査する（2026-11-09 S1-2 SHOTOKU-F1・F2）。
+//   null・undefined は 0。数でない（文字列 "100000" など）は TypeError、NaN・±Infinity・負の数は RangeError。
+//   旧は `input.x || 0` で受けており、文字列は控除合計を文字列連結して税額 0、-Infinity は税額 NaN、負数は税額を増やしていた
+function _amtIn(v, name) {
+  if (v == null) return 0;
+  if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+  if (!Number.isFinite(v)) throw new RangeError(`${name} が有限の数ではありません（${String(v)}）`);
+  if (v < 0) throw new RangeError(`${name} が負の数です（${String(v)}）`);
+  return v;
+}
+
+// 人数の入力（扶養親族・障害者の人数）を検査する（2026-11-09 S1-2 SHOTOKU-F3）。null・undefined は 0。
+//   数でない は TypeError、NaN・±Infinity・負の数・整数でない は RangeError。旧は -1 人で扶養控除が負になり税額が増えていた
+function _countIn(v, name) {
+  if (v == null) return 0;
+  if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+  if (!Number.isInteger(v) || v < 0) throw new RangeError(`${name} は 0 以上の整数で渡してください（${String(v)}）`);
+  return v;
+}
+
 function calcShotokuzei(input, P) {
   const salary = _numIn(input.salary, 'salary');
   const otherIncome = _numIn(input.otherIncome, 'otherIncome');
-  const dis = Object.assign({ general: 0, special: 0, specialCoRes: 0 }, input.disability);
+  const disIn = input.disability || {};
+  const dis = {
+    general: _countIn(disIn.general, 'disability.general'),
+    special: _countIn(disIn.special, 'disability.special'),
+    specialCoRes: _countIn(disIn.specialCoRes, 'disability.specialCoRes'),
+  };
 
   // 1) 給与所得・所得金額調整控除（租税特別措置法 第41条の3の11第1項）
   //   要件＝本人が特別障害者、または23歳未満の扶養親族・特別障害者の同一生計配偶者か扶養親族がいる（2026-10-31 全方向試算 C146。
@@ -132,9 +157,9 @@ function calcShotokuzei(input, P) {
   // 2) 所得控除
   const detail = {};
   detail.kiso = lookup(P.kisoKojo, gokeiShotoku)[0];
-  detail.shaho = input.socialInsurance || 0;
-  detail.ideco = input.ideco || 0;
-  detail.other = input.otherDeductions || 0;
+  detail.shaho = _amtIn(input.socialInsurance, 'socialInsurance');
+  detail.ideco = _amtIn(input.ideco, 'ideco');
+  detail.other = _amtIn(input.otherDeductions, 'otherDeductions');
 
   detail.haigu = 0;
   if (input.spouse && gokeiShotoku <= P.honninIncomeCols[2]) {
@@ -147,7 +172,13 @@ function calcShotokuzei(input, P) {
     }
   }
 
-  const d = Object.assign({ general: 0, specific: 0, elderly: 0, elderlyCoRes: 0 }, input.dependents);
+  const depIn = input.dependents || {};
+  const d = {
+    general: _countIn(depIn.general, 'dependents.general'),
+    specific: _countIn(depIn.specific, 'dependents.specific'),
+    elderly: _countIn(depIn.elderly, 'dependents.elderly'),
+    elderlyCoRes: _countIn(depIn.elderlyCoRes, 'dependents.elderlyCoRes'),
+  };
   detail.fuyo = d.general * P.fuyoKojo.general + d.specific * P.fuyoKojo.specific +
     d.elderly * P.fuyoKojo.elderly + d.elderlyCoRes * P.fuyoKojo.elderlyCoRes;
   detail.tokutei = (input.tokuteiShinzoku || [])
@@ -168,8 +199,8 @@ function calcShotokuzei(input, P) {
   detail.iryohi = Math.min(iry.max, Math.max(0, (input.medicalPaid || 0) - (input.medicalReimbursed || 0) - iryFloor));
 
   // 生命保険料控除（76 条・合計 12 万）・地震保険料控除（77 条・5 万）: 控除額を受け取り上限で頭打ち
-  detail.seiho = Math.min(input.lifeInsurance || 0, P.seihoKojoMax);
-  detail.jishin = Math.min(input.earthquakeInsurance || 0, P.jishinKojoMax);
+  detail.seiho = Math.min(_amtIn(input.lifeInsurance, 'lifeInsurance'), P.seihoKojoMax);
+  detail.jishin = Math.min(_amtIn(input.earthquakeInsurance, 'earthquakeInsurance'), P.jishinKojoMax);
 
   const kojo = detail.kiso + detail.shaho + detail.ideco + detail.other +
     detail.haigu + detail.fuyo + detail.tokutei + detail.jinteki +
