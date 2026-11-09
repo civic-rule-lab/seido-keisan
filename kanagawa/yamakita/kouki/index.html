@@ -92,19 +92,28 @@
     <div id="rateTable"></div>
   </div>
 
-  <p style="margin-top:12px;font-size:13px;text-align:right;">
+  <p class="portal-link-row" style="margin-top:12px;font-size:13px;text-align:right;">
     <a href="../kakeibo/" style="color:#6b7280;text-decoration:none;">この自治体の負担をまとめて見る →</a>
   </p>
 
-  <div class="note">
-    ※75歳以上の方（一定の障害がある65〜74歳の方を含む）が対象の後期高齢者医療制度の保険料を、単身世帯を前提に概算します。<br>
-    ※公的年金収入から公的年金等控除を、給与収入から給与所得控除を差し引いて所得を求め、基礎控除43万円を引いた額に所得割率をかけて計算します。<br>
-    ※均等割は世帯の所得に応じて軽減（7割・5割・2割）されます。医療分の7割軽減は国の財政措置により7.2割軽減です。<br>
-    ※遺族年金・障害年金などの非課税年金は収入に含めません。<br>
-    ※「被扶養者だった方」の軽減（均等割5割・所得割なし）は、加入から2年間が対象です。<br>
-    ※世帯に複数の被保険者がいる場合や、専従者給与・譲渡所得の特別控除がある場合は軽減判定が変わります。実際の保険料は広域連合や市区町村の通知でご確認ください。
-    <span id="cityNote"></span>
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>75歳以上の方（一定の障害がある65〜74歳の方を含む）が対象の後期高齢者医療制度の保険料を、単身世帯を前提に概算します。</li>
+      <li>公的年金収入から公的年金等控除を、給与収入から給与所得控除を差し引いて所得を求め、基礎控除43万円を引いた額に所得割率をかけて計算します。</li>
+      <li>均等割は世帯の所得に応じて軽減（7割・5割・2割）されます。医療分の7割軽減は国の財政措置により7.2割軽減です。</li>
+      <li>遺族年金・障害年金などの非課税年金は収入に含めません。</li>
+      <li>「被扶養者だった方」の軽減（均等割5割・所得割なし）は、加入から2年間が対象です。</li>
+      <li>世帯に複数の被保険者がいる場合や、専従者給与・譲渡所得の特別控除がある場合は軽減判定が変わります。実際の保険料は広域連合や市区町村の通知でご確認ください。</li>
+      <li id="cityNote" hidden></li>
+    </ul>
   </div>
+
+  <section class="source-section" data-source-state="verified" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="margin-top:0;">出典</h2>
+    <p style="margin:0 0 4px;font-size:12px;line-height:1.9;color:#4b5563;">出典: <a href="https://www.mhlw.go.jp/content/12403500/001689077.pdf" target="_blank" rel="noopener">厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について ↗</a>・<a href="https://www.union.kanagawa.lg.jp/1000009/1000559/1002087.html" target="_blank" rel="noopener">広域連合の保険料軽減の案内 ↗</a></p>
+    <p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">最終確認: 2026年6月28日 — Civic Rule Lab が上記の一次資料と照合しました。</p>
+  </section>
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
 
@@ -123,9 +132,9 @@
 <!-- 後期高齢者医療データ（自治体スペック＝都道府県均一料率） -->
 <script>const KOUKI_DATA = {"cityCode":"14364","citySlug":"yamakita","cityName":"山北町","prefSlug":"kanagawa","prefecture":"神奈川県","fiscalYear":2026,"system":"kouki","schemaVersion":"1.0","status":"verified","basicDeduction":430000,"perCapita":{"medical":52531,"childcare":1330},"rate":{"medical":0.103,"childcare":0.0025},"caps":{"medical":850000,"childcare":21000},"reduction":{"base":430000,"perEarnerAdd":100000,"fivePerInsured":310000,"twoPerInsured":570000,"ratios":{"seven":{"medical":0.72,"childcare":0.7},"five":{"medical":0.5,"childcare":0.5},"two":{"medical":0.2,"childcare":0.2}}},"incomeReduction":null,"rounding":{"income":"floor","reducedPerCapita":"floor","levyUnit":{"medical":10,"childcare":10},"source":{"url":"https://www.union.kanagawa.lg.jp/_res/projects/default_project/_page_/001/001/020/koukikoureishairyouzyourei.pdf","title":"神奈川県後期高齢者医療広域連合後期高齢者医療に関する条例","example":"https://www.union.kanagawa.lg.jp/1000009/1000664/1002086.html","confidence":"confirmed","retrievedAt":"2026-10-27"}},"publicNote":null,"source":{"rates":{"url":"https://www.mhlw.go.jp/content/12403500/001689077.pdf","title":"厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について","retrievedAt":"2026-06-28"},"kansho":{"url":"https://www.union.kanagawa.lg.jp/1000009/1000559/1002087.html","note":"所得割独自軽減なし・県内均一(公式軽減ページで確認＝全国一律7.2割/5割/2割＋被扶養者2年5割のみ)","confidence":0.95,"retrievedAt":"2026-06-28"}},"notes":"医療分・子ども分の均等割/所得割は厚労省公式PDF(全47一覧)から。7.2割軽減・限度額85万/2.1万・しきい値31万/57万は全国一律。所得割独自軽減は東京のみ、不均一賦課は全国なし。"}; const CITY_SLUG = "yamakita"; const PUBLISH_YEAR = 2026;</script>
 <!-- 計算エンジン（income.js を先に読み込み、グローバル関数を kouki.js に供給） -->
-<script src="/js/core/shared/ui-input.js?v=378d8624"></script>
-<script src="/js/core/shared/income.js?v=378d8624"></script>
-<script src="/js/core/kouki.js?v=378d8624"></script>
+<script src="/js/core/shared/ui-input.js?v=c083ab00"></script>
+<script src="/js/core/shared/income.js?v=c083ab00"></script>
+<script src="/js/core/kouki.js?v=c083ab00"></script>
 <script>
 (function () {
   "use strict";
@@ -197,7 +206,7 @@
   //    出したいときは、その自治体（または県）の JSON に publicNote を記載する。
   function renderCityNote(){
     var el=document.getElementById("cityNote"); if(!el||!KOUKI_DATA)return;
-    if(KOUKI_DATA.publicNote){ el.innerHTML="<br>※この地域の補足："+String(KOUKI_DATA.publicNote); }
+    if(KOUKI_DATA.publicNote){ el.textContent="この地域の補足："+String(KOUKI_DATA.publicNote); el.hidden=false; }   // 「計算の前提」の箇条の最後の 1 行（S1-1 ID-02）
   }
 
   function init(){ renderRate(); renderCityNote(); setupNumericInput("pension",{withCommas:true}); setupNumericInput("salary",{withCommas:true}); setupNumericInput("other",{withCommas:true}); }

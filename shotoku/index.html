@@ -31,6 +31,7 @@
   .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
   label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
   .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  label.hint{display:block;font-weight:400;}   /* 入力欄に結線した小見出し（障害者控除の人数・S1-1 ID-05）。見た目は .hint のまま */
   input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
   input::placeholder{color:#9ca3af;font-weight:400;}
   input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
@@ -179,15 +180,15 @@
     <label>配偶者・扶養親族の障害者控除（人数）</label>
     <div class="row3">
       <div>
-        <div class="hint">障害者（27万円）</div>
+        <label class="hint" for="famDisGeneral">障害者（27万円）</label>
         <input id="famDisGeneral" data-step="13a" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
-        <div class="hint">特別障害者（40万円）</div>
+        <label class="hint" for="famDisSpecial">特別障害者（40万円）</label>
         <input id="famDisSpecial" data-step="13b" type="text" inputmode="numeric" placeholder="例：0">
       </div>
       <div>
-        <div class="hint">同居特別障害者（75万円）</div>
+        <label class="hint" for="famDisCoRes">同居特別障害者（75万円）</label>
         <input id="famDisCoRes" data-step="13c" type="text" inputmode="numeric" placeholder="例：0">
       </div>
     </div>

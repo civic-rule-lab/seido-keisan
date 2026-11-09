@@ -327,11 +327,13 @@ function calculateJumin(data, inputs) {
   const kyuchi = [1, 2, 3].includes(kyuchiInput) ? kyuchiInput
                : [1, 2, 3].includes(cfg.kyuchi) ? cfg.kyuchi : 1;
 
-  // 所得控除・人的控除差・扶養の人数は 0 以上の数（人数は整数）。null は 0（従来どおり）。
+  // 所得控除・人的控除差・扶養の人数・税額控除は 0 以上の数（人数は整数）。null は 0（従来どおり）。
   //   数でない値（"2" など）・NaN・Infinity・負の数は例外（2026-11-03 全方向試算 C123〜C126。
   //   旧は負の控除で課税所得が増え、NaN が所得割・保育料指数に伝わり、"2" は文字列連結で扶養人数が桁違いになっていた）
   for (const [name, v] of Object.entries({ socialInsurance, spouseDeduction, dependentDeduction, disabilityDeduction,
-    singleParentDeduction, lifeInsuranceDeduction, earthquakeInsuranceDeduction, medicalDeduction, humanDeductionDiff, dependents })) {
+    singleParentDeduction, lifeInsuranceDeduction, earthquakeInsuranceDeduction, medicalDeduction, humanDeductionDiff, dependents,
+    // 税額控除も同じ検査（2026-11-09 S1-2 住民税 F1。旧は NaN が Math.max(0, …) を素通りして所得割・年税額が NaN になり、負は 0 に丸めていた）
+    taxCredits })) {
     if (v === null) continue;
     if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
     if (!Number.isFinite(v) || v < 0 || (name === 'dependents' && !Number.isInteger(v))) {

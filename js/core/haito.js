@@ -50,10 +50,19 @@
     return floorScaled((dividend - partOver) * scaled(k.rate) + partOver * scaled(k.rateOver));
   }
 
+  // 金額の入力。未指定（undefined・null）は 0、負の額は従来どおり 0。数でない値は TypeError、NaN・Infinity は RangeError
+  //   （2026-11-09 S1-2 HT-5。旧は Infinity と数字にならない文字列が素通りし、総合課税の税額が NaN になっていた）
+  function amountIn(v, name) {
+    if (v === undefined || v === null) return 0;
+    if (typeof v !== 'number') throw new TypeError(name + ' は数で渡してください（' + String(v) + '）');
+    if (!Number.isFinite(v)) throw new RangeError(name + ' が範囲外です（' + String(v) + '）');
+    return Math.max(0, Math.floor(v));
+  }
+
   function judgeHaito(input, data, P) {
-    const dividend = Math.max(0, Math.floor(input.dividend || 0));
-    const shotokuTaxable = Math.max(0, Math.floor(input.shotokuTaxable || 0));
-    const juminTaxable = Math.max(0, Math.floor(input.juminTaxable || 0));
+    const dividend = amountIn(input.dividend, 'dividend');
+    const shotokuTaxable = amountIn(input.shotokuTaxable, 'shotokuTaxable');
+    const juminTaxable = amountIn(input.juminTaxable, 'juminTaxable');
     const S = data.shotoku, J = data.jumin;
 
     // 申告不要（源泉徴収のまま）: 所得税 15% × 1.021、住民税（配当割）5%
@@ -74,9 +83,16 @@
     const juminKazei0 = floorTo(juminTaxable, 1000), juminKazei1 = floorTo(juminTaxable + dividend, 1000);
     const kojoJ = dividend > 0 ? haitoKojo(dividend, juminKazei1, J.haitoKojo) : 0;
     const levyAddSogo = mulRateFloor(juminKazei1 - juminKazei0, J.sogoRate);
+    // 配当控除は所得割の額から引く税額控除なので、配当を足す前の所得割を超えて住民税を減らさない。
+    //   配当を足す前の所得割は配当なしの課税総所得 × 10% で見る（調整控除は呼び出し側にしか分からないので含めない）。
+    //   課税総所得が 0 なら下限は 0（2026-11-09 S1-2 HT-2。旧は配当 36〜999 円・課税総所得 0 で −1〜−27 円を返していた）。
+    //   [未確認] 住民税の配当控除が所得割を限度とすることは地方税法 附則第5条の条文で未照合（データ meta.notes の「税額 0 が下限」は所得税側の記述）。
+    //   課税総所得が 1,000 円以上なら下限は −100 円以下で、増える所得割 ≥ (配当 − 999) × 10%・配当控除 ≤ 配当 × 2.8% から
+    //   この下限に掛かることはないので、課税総所得が 0 の場合のほかは従来の結果と変わらない
+    const juminBefore = mulRateFloor(juminKazei0, J.sogoRate);
     const sogo = {
       shotokuTax: annual1 - t0.annual,
-      juminTax: levyAddSogo - kojoJ,
+      juminTax: Math.max(-juminBefore, levyAddSogo - kojoJ),
       haitoKojoShotoku: kojoS, haitoKojoJumin: kojoJ,
       incomeAdd: dividend, levyAdd: levyAddSogo, taxableAdd: dividend,
     };

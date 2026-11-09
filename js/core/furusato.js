@@ -193,7 +193,9 @@ function calcFurusatoBreakdown(donation, ctx, data) {
   // 住民税 特例分: (寄附額 − 2,000) × 特例控除の割合。ただし所得割額の 20% まで
   const specialRaw = Math.floor(((d - sb) * ctx.ratio.units) / 100000);
   const specialCap = Math.floor(Math.max(0, ctx.incomeLevy || 0) * data.specialCapRateOfIncomeLevy);
-  const juminSpecial = Math.min(specialRaw, specialCap);
+  // 控除の合計は寄附額を超えない（自己負担が負にならない）。区分と整合しない所得税率を渡したとき（例: 区分0＝税率5% に 10%）に
+  //   特例分を寄附額までで止める（2026-11-09 S1-2 ふるさと F-1）。区分と整合した率では各項の切捨てで合計 ≤ 寄附額 − 2,000 なので掛からない
+  const juminSpecial = Math.max(0, Math.min(specialRaw, specialCap, d - shotoku - juminBasic));
   const totalDeduction = shotoku + juminBasic + juminSpecial;
   return { donation: d, shotoku, juminBasic, juminSpecial, totalDeduction, selfBurden: d - totalDeduction };
 }

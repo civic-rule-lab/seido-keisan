@@ -56,8 +56,18 @@
   }
 
   // 人ごとの「社会保険料控除額等」: 社会保険料控除（実額）＋小規模企業共済等掛金＋医療費等の所得控除＋障害者・寡婦・ひとり親控除
+  //   額（socialInsurance・otherKojo）は 0 以上の有限の数、障害者控除の人数（shogai・shogaiSpecial）は 0 以上の整数。
+  //   未指定（undefined・null）は 0。数でない値は TypeError、NaN・Infinity・負・（人数の）小数は RangeError
+  //   （2026-11-09 S1-2 NK-1。旧は検査が無く、"200000" は文字列連結で基準額が桁違いに、NaN は全区分不成立に、負は基準額を下げていた）
   function otherDeduction(o, E) {
     const x = Object.assign({ socialInsurance: 0, otherKojo: 0, shogai: 0, shogaiSpecial: 0, kafu: false, hitorioya: false }, o || {});
+    for (const k of ['socialInsurance', 'otherKojo', 'shogai', 'shogaiSpecial']) {
+      const v = x[k];
+      if (v === undefined || v === null) { x[k] = 0; continue; }
+      if (typeof v !== 'number') throw new TypeError(`other.${k} は数で渡してください（${String(v)}）`);
+      const isCount = k === 'shogai' || k === 'shogaiSpecial';
+      if (!Number.isFinite(v) || v < 0 || (isCount && !Number.isInteger(v))) throw new RangeError(`other.${k} が範囲外です（${String(v)}）`);
+    }
     const t = E.otherDeduction;
     return x.socialInsurance + x.otherKojo + x.shogai * t.shogai + x.shogaiSpecial * t.shogaiSpecial +
       (x.hitorioya ? t.hitorioya : (x.kafu ? t.kafu : 0));

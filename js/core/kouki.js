@@ -97,8 +97,17 @@ function calculateKouki(input, data) {
     return v;
   };
   const incomeSafe = Math.max(totalIncome == null ? 0 : amount(totalIncome, 'totalIncome'), 0);
-  const insured    = Math.max(householdInsuredCount || 1, 1);
-  const earners    = Math.max(pensionSalaryEarnerCount || 0, 0);
+  // 人数は 0 以上の整数で渡す。未指定（undefined・null）と 0 は従来どおり既定値（被保険者 1・所得者 0）。
+  //   数でない値は TypeError、NaN・Infinity・負・小数は RangeError（2026-11-09 S1-2 K-01。旧は "x" で Math.max("x",1)=NaN となり
+  //   軽減のしきい値がすべて NaN になって、黙って「軽減なし」を返していた）
+  const count = (v, name) => {
+    if (v === undefined || v === null) return 0;
+    if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+    if (!Number.isInteger(v) || v < 0) throw new RangeError(`${name} が範囲外です（${String(v)}）`);
+    return v;
+  };
+  const insured    = Math.max(count(householdInsuredCount, 'householdInsuredCount') || 1, 1);
+  const earners    = count(pensionSalaryEarnerCount, 'pensionSalaryEarnerCount');
   // 軽減判定所得は世帯の総所得金額等の合算で、負にはならない。負は例外（C216。旧は所得が多くても7割軽減になっていた）
   const judge      = reductionJudgmentIncome == null ? incomeSafe : amount(reductionJudgmentIncome, 'reductionJudgmentIncome');
   if (judge < 0) throw new RangeError(`reductionJudgmentIncome が範囲外です（${String(judge)}）`);

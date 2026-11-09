@@ -131,15 +131,24 @@
     <a href="/furusato/" style="color:#b45309;text-decoration:none;font-weight:600;">ふるさと納税の上限額を計算する →</a>　<a href="/furusato/onestop/" style="color:#b45309;text-decoration:none;font-weight:600;">ワンストップ特例か確定申告か →</a>
   </p>
 
-  <div class="note">
-    ※給与所得控除・社会保険料控除・各種所得控除・調整控除・ふるさと納税の寄附金税額控除を反映した試算です。<br>
-    ※令和8年度新設の特定親族特別控除（19〜22歳の子等・給与収入123万円超188万円以下）に対応しています。<br>
-    ※配偶者特別控除（配偶者の合計所得58万円超133万円以下）は「配偶者の給与年収」から自動判定します。配偶者が給与以外の所得（事業・年金など）の場合は、その合計所得を給与所得に読み替えて入力してください（給与収入＝合計所得＋65万円）。<br>
-    ※事業所得は売上から経費を引いた「所得金額」を入力してください。社会保険料を空欄にした場合の概算（給与の約14.4%）には事業所得分（国保等）は含まれないため、実額入力をおすすめします。<br>
-    ※生命保険料・地震保険料・医療費控除は住民税の控除額をそのまま入力してください。<br>
-    ※住宅ローン控除・配当控除・分離課税は未対応です。<br>
-    ※実際の税額は自治体の通知や公式案内でご確認ください。
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>給与所得控除・社会保険料控除・各種所得控除・調整控除・ふるさと納税の寄附金税額控除を反映した試算です。</li>
+      <li>令和8年度新設の特定親族特別控除（19〜22歳の子等・給与収入123万円超188万円以下）に対応しています。</li>
+      <li>配偶者特別控除（配偶者の合計所得58万円超133万円以下）は「配偶者の給与年収」から自動判定します。配偶者が給与以外の所得（事業・年金など）の場合は、その合計所得を給与所得に読み替えて入力してください（給与収入＝合計所得＋65万円）。</li>
+      <li>事業所得は売上から経費を引いた「所得金額」を入力してください。社会保険料を空欄にした場合の概算（給与の約14.4%）には事業所得分（国保等）は含まれないため、実額入力をおすすめします。</li>
+      <li>生命保険料・地震保険料・医療費控除は住民税の控除額をそのまま入力してください。</li>
+      <li>住宅ローン控除・配当控除・分離課税は未対応です。</li>
+      <li>実際の税額は自治体の通知や公式案内でご確認ください。</li>
+    </ul>
   </div>
+
+  <section class="source-section" data-source-state="verified" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="margin-top:0;">出典</h2>
+    <p style="margin:0 0 4px;font-size:12px;line-height:1.9;color:#4b5563;">出典: <a href="https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju" target="_blank" rel="noopener">東京都主税局: 個人住民税 ↗</a></p>
+    <p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">最終確認: 2026年6月10日 — Civic Rule Lab が上記の一次資料と照合しました。</p>
+  </section>
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
   <div style="text-align:center;margin-top:6px;">
@@ -155,9 +164,9 @@
 </div>
 
 <script>const JUMIN_DATA = {"cityCode":"13102","citySlug":"chuo","cityName":"中央区","prefSlug":"tokyo","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04,"prefPerCapita":1000,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.tax.metro.tokyo.lg.jp/kazei/life/kojin_ju","pageTitle":"東京都主税局: 個人住民税","retrievedAt":"2026-06-10"},"notes":"23特別区は税率・均等割が完全統一（特別区民税6%・3,000円／都民税4%・1,000円、超過課税・独自減税なし）。都主税局ページおよび大田区・江東区等の区公式ページで令和8年度も変更なしを確認(2026-06-10)。R8改正は給与所得控除等の控除関係のみで税率に影響なし。"}; const CITY_SLUG = "chuo"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
-<script src="/js/core/shared/ui-input.js?v=bdd6e307"></script>
-<script src="/js/core/shared/income.js?v=bdd6e307"></script>
-<script src="/js/core/jumin.js?v=bdd6e307"></script>
+<script src="/js/core/shared/ui-input.js?v=36341a99"></script>
+<script src="/js/core/shared/income.js?v=36341a99"></script>
+<script src="/js/core/jumin.js?v=36341a99"></script>
 <!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
 <script>const FURUSATO_DATA = {
   "meta": {
@@ -220,7 +229,7 @@
   },
   "humanDiffTable": {
     "_source": "地方税法 第37条第1号イ（市町村民税は第314条の6第1号イ）の表。e-Gov 2026-10-01 施行版を 2026-10-05 取得。令和8年法律第2号はこの表を改めていない。",
-    "_note": "表の（3）は寡婦または政令で定めるひとり親（1万円）、（4）は政令で定めるひとり親（5万円）。政令の区分は shogakukin-bridge.js の既存の近似（母5万・父1万）に合わせた［政令の原文は未照合］。表の（7）（控除対象配偶者に当たらない合計所得55万円未満の配偶者）は、令和9年度分では控除対象配偶者の所得要件が62万円以下のため、本人の合計所得1,000万円以下の範囲で該当者がいない＝扱わない。扶養親族・配偶者の障害の加算も扱わない（簡単計算の入力に無い）。",
+    "_note": "表の（3）は寡婦または政令で定めるひとり親（1万円）、（4）は政令で定めるひとり親（5万円）。政令の区分は shogakukin-bridge.js の既存の近似（母5万・父1万）に合わせた［政令の原文は未照合］。なお furusato-2027.json の同表は地方税法施行令 第7条の16の2 を照合済み（2026-10-11・同ファイルの _note）で、本表の各金額（_source・_note 以外の全項目）は 2027 版と同一（2026-11-09 に 2 ファイルを機械比較して一致を確認。2026 版について政令の原文を照合したものではない）。表の（7）（控除対象配偶者に当たらない合計所得55万円未満の配偶者）は、令和9年度分では控除対象配偶者の所得要件が62万円以下のため、本人の合計所得1,000万円以下の範囲で該当者がいない＝扱わない。扶養親族・配偶者の障害の加算も扱わない（簡単計算の入力に無い）。",
     "base": 50000,
     "selfDisabled": 10000,
     "selfSpecialDisabled": 100000,
@@ -245,7 +254,7 @@
   "shotokuCapRateOfTotalIncome": 0.4,
   "shotokuSurtaxMultiplier": 1.021
 };</script>
-<script src="/js/core/furusato.js?v=bdd6e307"></script>
+<script src="/js/core/furusato.js?v=36341a99"></script>
 <script>
 (function () {
   "use strict";

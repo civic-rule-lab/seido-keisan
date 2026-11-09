@@ -163,9 +163,18 @@ function _isKosen13(student) {
   return s.level === '高専1-3年' || (s.level === '高等専門学校' && (s.kosenGrade === '1-3' || s.kosenLower === true));
 }
 
+// 貸与の学校種は第一種の月額表（spec.loan.type1Monthly）にあるものだけ。未知の学校種（通信・大学院など）は例外
+//   （2026-11-09 S1-2 貸与 F1。給付コア calcShogakukin の C187 と同じ扱い。旧は大学の月額表に黙って落ちていた）。未指定は大学（従来どおり）
+function _checkLoanLevel(spec, student) {
+  const level = student.level || '大学';
+  const known = Object.keys(spec.loan.type1Monthly).filter(k => !k.startsWith('_'));
+  if (!known.includes(level)) throw new RangeError(`student.level が貸与型の月額表にありません（${String(student.level)}）。${known.join('・')} のいずれか`);
+}
+
 function calcLoanEligibility(spec, inputs) {
   const L = spec.loan;
   const student = inputs.student || {};
+  _checkLoanLevel(spec, student);
   const key = 'univ_college_senmon'; // 閾値は全学種共通（高専1〜3年含む）[確認済 2026-07-17 高専在学者用案内p.12: 併用164,600/一種189,400/二種381,500・家計基準に学年区分なし]
   const th = L.thresholds[key];
   const kijun = calcLoanKijungaku(spec, inputs);
@@ -233,8 +242,14 @@ function _kisogaku(spec, total) {
 }
 
 // 定額返還方式（第一種・第二種の回数決定にも使用）。月賦。
+// 返還シミュレーションの貸与総額。未指定（undefined・null）は 0、負は従来どおり 0。数でない値・NaN・Infinity は TypeError（_numL と同じ）
+//   （2026-11-09 S1-2 貸与 F3。旧は NaN・Infinity で年数・月額・総額がすべて NaN になっていた）
+function _totalL(total) {
+  return Math.max(0, Math.floor(_numL(total, 'total', 0)));
+}
+
 function simulateTeigaku(spec, total) {
-  const t = Math.max(0, Math.floor(total));
+  const t = _totalL(total);
   if (t <= 0) return { years: 0, n: 0, monthly: 0, lastMonthly: 0, totalPaid: 0 };
   const base = _kisogaku(spec, t);
   const years = Math.floor(t / base);                          // 小数点以下切捨て
@@ -249,7 +264,7 @@ function simulateTeigaku(spec, total) {
 
 // 月賦・半年賦併用（総額を半分ずつ）。
 function simulateHeiyoHenkan(spec, total) {
-  const t = Math.max(0, Math.floor(total));
+  const t = _totalL(total);
   if (t <= 0) return { years: 0, monthlyN: 0, halfN: 0, monthly: 0, hanki: 0 };
   const base = _kisogaku(spec, t);
   const years = Math.floor(t / base);
@@ -277,13 +292,14 @@ function simulateShotokuRendo(spec, taxableTotal, childCount, teigakuMonthly) {
 //   opts.graceDays: 据置日数（既定は貸与終了3月→初回返還10月27日 ≈ 210日相当を呼び出し側指定可）。
 function simulateType2(spec, total, annualRate, opts) {
   const o = opts || {};
-  const t = Math.max(0, Math.floor(total));
+  const t = _totalL(total);
+  const annualRateIn = _numL(annualRate, 'annualRate', 0);   // 数でない利率も例外（旧は 'abc' で NaN）
   if (t <= 0) return { monthly: 0, n: 0, years: 0, totalPaid: 0, interest: 0, _approx: true };
   const base = _kisogaku(spec, t);
   const years = Math.floor(t / base);
   if (years < 1) return { monthly: 0, n: 0, years: 0, totalPaid: t, interest: 0, belowMinimum: true, _approx: true };   // C194（simulateTeigaku と同じ）
   const n = years * 12;
-  const rate = Math.max(0, Math.min(annualRate || 0, spec.loan.repayment.interest.cap));   // 負の利率は0（C196）
+  const rate = Math.max(0, Math.min(annualRateIn, spec.loan.repayment.interest.cap));   // 負の利率は0（C196）
   const r = rate / 12;
   if (r <= 0) {
     // 利率0%は元金均等の定額返還と同じ（端数は最終回）。旧は monthly×n を総額にして元本を下回っていた（C191）

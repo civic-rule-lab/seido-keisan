@@ -127,6 +127,12 @@ function lookupBracket(index, brackets, flags) {
 //     bracket.reduced.hitorioya = 数値 | {standard,short} // 旧仕様(絶対額の上書き)。上位の hitorioya 指定が無い時のみ(後方互換)。
 //     bracket.facility = { ninka:{…}, kogata:{…} }       // 施設タイプ別の金額セット(上記 standard/short/child2/hitorioya/byAge を各施設が持つ)。
 //                                                        // 有れば input.facility で選択。level/criteria/maxShotokuwari は bracket 側に残す。
+// 早期 return（無償化・生活保護・非課税）の breakdown。通常経路と同じ形（index・base・firstFinal・childOrder・monthly）で、額はすべて 0
+//   （2026-11-09 S1-2 HOIKU-02。旧は { index, base } だけで、通常経路の firstFinal・childOrder・monthly が無かった）
+function _zeroBreakdown(childOrder) {
+  return { index: 0, base: 0, firstFinal: 0, childOrder, monthly: 0 };
+}
+
 function calcHoiku(input, muni) {
   if (!muni) throw new Error('calcHoiku: muni がありません');
   // 既定の時間区分: input.timeType 明示 > muni.defaultTimeType(京都=std_11h等) > 'standard'。
@@ -147,16 +153,16 @@ function calcHoiku(input, muni) {
       level: null,
       reason: `無償化: ${muni.freePolicy?.since || ''}〜第1子から無償`.trim(),
       free: true,
-      breakdown: { index: 0, base: 0 },
+      breakdown: _zeroBreakdown(childOrder),
     };
   }
 
   // 1) 生活保護/非課税は0(国基準①②)
   if (input.seikatsuhogo) {
-    return { monthly: 0, level: 1, reason: '生活保護世帯', breakdown: { index: 0, base: 0 } };
+    return { monthly: 0, level: 1, reason: '生活保護世帯', breakdown: _zeroBreakdown(childOrder) };
   }
   if (input.hikazei) {
-    return { monthly: 0, level: 2, reason: '住民税非課税世帯', breakdown: { index: 0, base: 0 } };
+    return { monthly: 0, level: 2, reason: '住民税非課税世帯', breakdown: _zeroBreakdown(childOrder) };
   }
 
   // 2) 指数(父母合算 / 政令市6:8補正)

@@ -50,8 +50,22 @@ function estimateHumanDeductionDiff(opts) {
 //   ・配偶者控除／特別控除は配偶者の所得と本人の合計所得から calcSpouseDeductionJumin で決める（旧: hasSpouseDeduction で 33万か 0）
 //   ・ひとり親・寡婦・障害者は calcSelfStatusDeductionJumin（寡婦・ひとり親は合計所得500万円以下）。135万円以下の非課税もエンジンが判定
 //   ・所得割の課税はエンジンの shotokuTaxable（19〜22歳の子を含む扶養人数・135万円非課税を反映）。旧はブリッジ自前の判定で食い違っていた
+// 収入の額。未指定（undefined・null）は 0。数でない値は TypeError、NaN・Infinity は RangeError。
+//   給与・年金・社会保険料は負も RangeError。その他の所得（otherIncome）は事業の損失で負になりうるので負を許す
+//   （2026-11-09 S1-2 貸与 F4。旧は "5000000"・NaN・負の給与を 0 円として第Ⅰ区分満額・第一種最高月額を返していた）
+function _incomeIn(i, name, allowNegative) {
+  const v = i[name];
+  if (v === undefined || v === null) return;
+  if (typeof v !== 'number') throw new TypeError(`${name} は数で渡してください（${String(v)}）`);
+  if (!Number.isFinite(v) || (!allowNegative && v < 0)) throw new RangeError(`${name} が範囲外です（${String(v)}）`);
+}
+
 function supporterFromIncome(juminData, in_) {
   const i = in_ || {};
+  _incomeIn(i, 'salary', false);
+  _incomeIn(i, 'pension', false);
+  _incomeIn(i, 'socialInsurance', false);
+  _incomeIn(i, 'otherIncome', true);
   const n = (v) => Math.max(0, (v | 0));
   const fy = i.fiscalYear;
   const under23Dependent = !!i.under23Dependent;

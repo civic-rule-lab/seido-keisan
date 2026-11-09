@@ -107,10 +107,9 @@ function _kaigoAmount(v, name) {
  */
 function calculateKaigo(data, memberContext) {
   if (!data || !Array.isArray(data.brackets) || data.brackets.length === 0) return null;
-  // 段階表が未確認の仮データでは額を返さない（2026-10-31 全方向試算 C110。旧は status を見ずに仮の段階表で額を返していた）。
-  //   公開ページ（介護・家計簿）は verified／inferred のときだけ呼ぶので表示は変わらない
-  if (data.status === 'needs_update') return null;
 
+  // 入力の検査は data.status を見る前に行う（2026-11-09 S1-2 LOW-1。旧は needs_update の早期 return が先にあり、
+  //   矛盾した入力でもデータが仮だと例外にならず null を返していた）
   const ctx = {
     pensionIncome:             _kaigoAmount(memberContext.pensionIncome, 'pensionIncome'),
     totalIncome:               _kaigoAmount(memberContext.totalIncome, 'totalIncome'),
@@ -125,6 +124,10 @@ function calculateKaigo(data, memberContext) {
   if (ctx.isSelfTaxable && ctx.isHouseholdAllNonTaxable) {
     throw new RangeError('isSelfTaxable と isHouseholdAllNonTaxable が両方 true です（本人課税なら世帯全員非課税ではありません）');
   }
+
+  // 段階表が未確認の仮データでは額を返さない（2026-10-31 全方向試算 C110。旧は status を見ずに仮の段階表で額を返していた）。
+  //   公開ページ（介護・家計簿）は verified／inferred のときだけ呼ぶので表示は変わらない
+  if (data.status === 'needs_update') return null;
 
   // 配列を先頭から評価し、最初にマッチした段階を採用
   let matched = data.brackets.find(b => matchBracket(ctx, b));

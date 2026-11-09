@@ -70,11 +70,20 @@
   <div id="result"><span class="ph">上の項目を入力して「保育料を試算する」を押してください</span></div>
 
   <a href="../kakeibo/" class="kakeibo-card"><span class="kakeibo-ico"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#0b7285" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 3v18M12 8h5M12 12h5"/></svg></span><span class="kakeibo-txt"><span class="kakeibo-main">この自治体の負担をまとめて見る</span><span class="kakeibo-sub">住民税・国保・介護をまとめて試算（家計簿シミュレーターへ）→</span></span></a>
-  <div class="note">
-    ※認可保育所・0〜2歳（3号認定）の利用者負担額の目安です。3歳以上は原則無償（給食費等は別）。<br>
-    ※保育料は父母の市民税所得割額をもとにした階層で決まります。ふるさと納税・住宅ローン控除では下がりません（税額控除前で判定）。<br>
-    ※実際の額は自治体の通知や公式案内でご確認ください。
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>認可保育所・0〜2歳（3号認定）の利用者負担額の目安です。3歳以上は原則無償（給食費等は別）。</li>
+      <li>保育料は父母の市民税所得割額をもとにした階層で決まります。ふるさと納税・住宅ローン控除では下がりません（税額控除前で判定）。</li>
+      <li>実際の額は自治体の通知や公式案内でご確認ください。</li>
+    </ul>
   </div>
+
+  <section class="source-section" data-source-state="free" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="margin-top:0;">出典</h2>
+    <p style="margin:0 0 4px;font-size:12px;line-height:1.9;color:#4b5563;">出典: <a href="https://www.city.osaka.lg.jp/kodomo/page/0000682656.html" target="_blank" rel="noopener">保育料の無償化の案内 ↗</a>・<a href="https://www.city.osaka.lg.jp/kodomo/page/0000608688.html" target="_blank" rel="noopener">無償化の関連資料 ↗</a>・<a href="https://www.city.osaka.lg.jp/kodomo/page/0000501253.html" target="_blank" rel="noopener">無償化の関連資料 ↗</a></p>
+    <p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">Civic Rule Lab が上記の公式ページで無償化を確認しました（確認日の記録はありません）。</p>
+  </section>
 
   <p style="margin-top:24px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
   <div style="text-align:center;margin-top:6px;">
@@ -91,10 +100,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"27100","citySlug":"osaka","cityName":"大阪市","prefSlug":"osaka","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2026-09","incomeLimit":false,"scope":"認可保育施設(保育所・認定こども園・地域型保育事業)の0〜2歳児クラス全員。企業主導型保育事業も市独自に対象。延長保育料等は対象外。申請不要。","note":"令和8年8月分まで(R8.4〜8月分)は下記 baseTable の金額表で有料。第2子以降は令和6年9月から無償。","publicNote":"令和8年4〜8月分の第1子の保育料は、所得に応じた有料でした（第2子以降は令和6年9月分から無償）。この期間の保育料は、市の保育料金額表でご確認ください。","source":["https://www.city.osaka.lg.jp/kodomo/page/0000682656.html","https://www.city.osaka.lg.jp/kodomo/page/0000608688.html","https://www.city.osaka.lg.jp/kodomo/page/0000501253.html"]},"confidence":"確認済","baseTable":{"note":"令和8年度 大阪市保育料金額表(0〜2歳児クラス)。令和8年4月分〜8月分に適用(令和7年度市町村民税で階層決定)。令和8年9月分から第1子も無償(上位の freePolicy)。参照・エンジン検証用の下地表。","status":"verified","confidence":"確認済","source":["https://www.city.osaka.lg.jp/kodomo/page/0000501253.html"],"asOf":"2026-04-24","fiscalSwitch":9,"seireiConversion":true,"taxBasis":"保護者等全員の市町村民税所得割の合計。寄附金税額控除・外国税額控除・配当割/株式譲渡所得割額控除・配当控除・住宅借入金等特別税額控除を行う前の額。政令市居住者は税額控除前所得割×6/8で金額表を適用。","zeroAgeSameAsToddler":true,"hitorioyaNote":"ひとり親世帯等(ひとり親世帯・在宅障がい児(者)のいる世帯)は第3〜第9階層(所得割77,101円未満)に代替実額。第10階層以上は本則額。第2子以降は0。","multiChild":{"second":0,"third":0,"countScope":"allChildren","note":"施設利用の有無・年齢にかかわらず生計を一にするきょうだい等を年長順に数え、2人目以降は無料(令和6年9月〜)。"},"unreportedRule":"市町村民税未申告・課税証明書未提出の場合は最高階層(第23)で仮決定し、後日遡って変更[未モデル化]。","guardianRule":"保護者等=生計を一にする父母及びそれ以外の扶養義務者(世帯の最多収入者)。父母の年収103万円以上、または父母以外の扶養義務者の年収が各300万円未満なら父母のみ[未モデル化]。","brackets":[{"level":1,"criteria":"seikatsuhogo","tier":"第1","label":"第1階層(生活保護世帯等)","standard":0,"short":0},{"level":2,"criteria":"hikazei","tier":"第2","label":"第2階層(市町村民税非課税世帯)","standard":0,"short":0},{"level":3,"tier":"第3","label":"第3階層(課税・所得割非課税)","standard":8100,"short":8000,"maxShotokuwari":0,"hitorioya":{"standard":2000,"short":2000,"child2":{"standard":0,"short":0}}},{"level":4,"tier":"第4","label":"第4階層(所得割46,000円未満)","standard":10100,"short":10000,"maxShotokuwari":45999,"hitorioya":{"standard":3500,"short":3500,"child2":{"standard":0,"short":0}}},{"level":5,"tier":"第5","label":"第5階層(所得割46,000〜48,600円未満)","standard":11800,"short":11700,"maxShotokuwari":48599,"hitorioya":{"standard":5000,"short":5000,"child2":{"standard":0,"short":0}}},{"level":6,"tier":"第6","label":"第6階層(所得割48,600〜50,000円未満)","standard":14000,"short":13800,"maxShotokuwari":49999,"hitorioya":{"standard":6000,"short":6000,"child2":{"standard":0,"short":0}}},{"level":7,"tier":"第7","label":"第7階層(所得割50,000〜54,000円未満)","standard":15700,"short":15500,"maxShotokuwari":53999,"hitorioya":{"standard":7000,"short":7000,"child2":{"standard":0,"short":0}}},{"level":8,"tier":"第8A","label":"第8A階層(所得割54,000〜57,700円未満)","standard":18300,"short":18100,"maxShotokuwari":57699,"hitorioya":{"standard":8000,"short":8000,"child2":{"standard":0,"short":0}}},{"level":9,"tier":"第8B","label":"第8B階層(所得割57,700〜59,000円未満)","standard":18300,"short":18100,"maxShotokuwari":58999,"hitorioya":{"standard":8000,"short":8000,"child2":{"standard":0,"short":0}}},{"level":10,"tier":"第9","label":"第9階層(所得割59,000〜77,101円未満)","standard":21500,"short":21300,"maxShotokuwari":77100,"hitorioya":{"standard":9000,"short":9000,"child2":{"standard":0,"short":0}}},{"level":11,"tier":"第10","label":"第10階層(所得割77,101〜79,000円未満)","standard":21500,"short":21300,"maxShotokuwari":78999},{"level":12,"tier":"第11","label":"第11階層(所得割79,000〜97,000円未満)","standard":24900,"short":24700,"maxShotokuwari":96999},{"level":13,"tier":"第12","label":"第12階層(所得割97,000〜115,000円未満)","standard":28300,"short":27900,"maxShotokuwari":114999},{"level":14,"tier":"第13","label":"第13階層(所得割115,000〜133,000円未満)","standard":32700,"short":32300,"maxShotokuwari":132999},{"level":15,"tier":"第14","label":"第14階層(所得割133,000〜169,000円未満)","standard":39400,"short":39000,"maxShotokuwari":168999},{"level":16,"tier":"第15","label":"第15階層(所得割169,000〜211,201円未満)","standard":45100,"short":44500,"maxShotokuwari":211200},{"level":17,"tier":"第16","label":"第16階層(所得割211,201〜217,000円未満)","standard":45100,"short":44500,"maxShotokuwari":216999},{"level":18,"tier":"第17","label":"第17階層(所得割217,000〜256,000円未満)","standard":50700,"short":50100,"maxShotokuwari":255999},{"level":19,"tier":"第18","label":"第18階層(所得割256,000〜301,000円未満)","standard":53000,"short":52400,"maxShotokuwari":300999},{"level":20,"tier":"第19","label":"第19階層(所得割301,000〜358,000円未満)","standard":59200,"short":58600,"maxShotokuwari":357999},{"level":21,"tier":"第20","label":"第20階層(所得割358,000〜397,000円未満)","standard":61700,"short":61100,"maxShotokuwari":396999},{"level":22,"tier":"第21","label":"第21階層(所得割397,000〜432,901円未満)","standard":65900,"short":65300,"maxShotokuwari":432900},{"level":23,"tier":"第22","label":"第22階層(所得割432,901〜536,000円未満)","standard":65900,"short":65300,"maxShotokuwari":535999},{"level":24,"tier":"第23","label":"第23階層(所得割536,000円以上)","standard":70600,"short":70000}]}}; const CITY_SLUG = "osaka"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=a9f2068f"></script>
-<script src="/js/core/shared/income.js?v=a9f2068f"></script>
-<script src="/js/core/jumin.js?v=a9f2068f"></script>
-<script src="/js/core/hoiku.js?v=a9f2068f"></script>
+<script src="/js/core/shared/ui-input.js?v=272fcbf7"></script>
+<script src="/js/core/shared/income.js?v=272fcbf7"></script>
+<script src="/js/core/jumin.js?v=272fcbf7"></script>
+<script src="/js/core/hoiku.js?v=272fcbf7"></script>
 <script>
 (function(){
   "use strict";
@@ -142,20 +151,20 @@
     // 年収モード
     html+='<div id="tab-salary" class="'+(directDefault?"hidden":"")+'">'
         +'<div class="sec">世帯の収入</div>'
-        +'<label>父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" data-step="1" inputmode="numeric" placeholder="例：4,000,000">'
-        +'<label>母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'<label for="fatherSalary">父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" data-step="1" inputmode="numeric" placeholder="例：4,000,000">'
+        +'<label for="motherSalary">母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
         +'<details id="depDetails"><summary>ほかに扶養している家族（高校生以上の子・親など）</summary>'
-        +'<label>16〜18歳・23〜69歳 <span class="hint">人</span></label><input id="depGeneral" data-step="3a" inputmode="numeric" placeholder="例：0">'
-        +'<label>19〜22歳 <span class="hint">人</span></label><input id="depSpecific" data-step="3b" inputmode="numeric" placeholder="例：0">'
-        +'<label>70歳以上（同居の親以外） <span class="hint">人</span></label><input id="depElderly" data-step="3c" inputmode="numeric" placeholder="例：0">'
-        +'<label>同居の親など（70歳以上） <span class="hint">人</span></label><input id="depParent" data-step="3d" inputmode="numeric" placeholder="例：0">'
+        +'<label for="depGeneral">16〜18歳・23〜69歳 <span class="hint">人</span></label><input id="depGeneral" data-step="3a" inputmode="numeric" placeholder="例：0">'
+        +'<label for="depSpecific">19〜22歳 <span class="hint">人</span></label><input id="depSpecific" data-step="3b" inputmode="numeric" placeholder="例：0">'
+        +'<label for="depElderly">70歳以上（同居の親以外） <span class="hint">人</span></label><input id="depElderly" data-step="3c" inputmode="numeric" placeholder="例：0">'
+        +'<label for="depParent">同居の親など（70歳以上） <span class="hint">人</span></label><input id="depParent" data-step="3d" inputmode="numeric" placeholder="例：0">'
         +'</details>'
         +'</div>';
     // 直接入力モード
     html+='<div id="tab-direct" class="'+(directDefault?"":"hidden")+'">'
         +'<div class="sec">市民税所得割額（通知書）</div>'
-        +'<label>父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" data-step="1" inputmode="numeric" placeholder="例：150,000">'
-        +'<label>母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
+        +'<label for="fatherShotoku">父の 市民税所得割額 <span class="hint">円・調整控除後</span></label><input id="fatherShotoku" data-step="1" inputmode="numeric" placeholder="例：150,000">'
+        +'<label for="motherShotoku">母の 市民税所得割額 <span class="hint">円・ひとり親は空欄</span></label><input id="motherShotoku" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
         +'<div class="chk"><input type="checkbox" id="directHikazei"><label for="directHikazei" style="margin:0">父母とも住民税が非課税（通知書に「非課税」とある） <span class="hint">所得割が0円でも、均等割がかかっている世帯は印を付けません</span></label></div>';
     if(M.seireiConversion){ // 政令市で通知書8%→6%換算（名古屋型 seireiConversion:false では出さない）
       html+='<div class="chk"><input type="checkbox" id="isSeireiNotice"><label for="isSeireiNotice" style="margin:0">通知書の税率が8%（政令市の現行税率）＝6%に近似換算する</label></div>'
@@ -166,22 +175,22 @@
     // 児童・保育
     html+='<div class="sec">お子さんと保育</div>';
     if(has0saiRate()){
-      html+='<label>お子さんの年齢</label><select id="age" data-step="4"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
+      html+='<label for="age">お子さんの年齢 <span class="hint">クラス年齢（4月1日時点の年齢）</span></label><select id="age" data-step="4"><option value="age0">0歳</option><option value="age1_2" selected>1・2歳</option></select>';
     }else{
       html+='<input type="hidden" id="age" value="age1_2">';
     }
-    html+='<label>保育時間</label><select id="timeType" data-step="5">';
+    html+='<label for="timeType">保育時間</label><select id="timeType" data-step="5">';
     tks.forEach(function(b,i){ html+='<option value="'+esc(b.key)+'"'+(i===0?" selected":"")+'>'+esc(b.label||b.key)+'</option>'; });
     html+='</select>';
     if(facs){
-      html+='<label>利用する施設の種類</label><select id="facility" data-step="6">';
+      html+='<label for="facility">利用する施設の種類</label><select id="facility" data-step="6">';
       facs.forEach(function(k,i){ html+='<option value="'+esc(k)+'"'+(k===(M.defaultFacility||facs[0])?" selected":"")+'>'+esc(M.facilityTypes[k])+'</option>'; });
       html+='</select>';
     }
 
     // きょうだい（多子）
     html+='<div class="sec">きょうだい（多子軽減）</div>'
-        +'<label>認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
+        +'<label for="enrolledOlder">認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
         +'<select id="enrolledOlder" data-step="7"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
     if(selKey){
       html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
@@ -195,7 +204,7 @@
     // 試算する月
     var sw=(M.fiscalSwitch||9);
     html+='<div class="sec">試算する月（年度切替）</div>'
-        +'<label>何月分の保育料か</label>'
+        +'<label for="month">何月分の保育料か</label>'
         +'<select id="month" data-step="8" data-step-end><option value="'+sw+'" selected>'+sw+'月〜翌3月分（当年度の所得割）</option><option value="4">4月〜'+(sw-1)+'月分（前年度の所得割）</option></select>'
         +'<div class="warn" id="monthNote" style="display:none">4〜'+(sw-1)+'月分は前年度の課税額で決まります。ここでは同じ年収と仮定した目安です（前年の収入で再計算すると変わることがあります）。</div>';
 

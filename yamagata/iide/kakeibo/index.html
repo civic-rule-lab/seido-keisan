@@ -199,7 +199,7 @@
       <input id="hoikuSpouse" data-step="11" type="text" inputmode="numeric" placeholder="例：3,000,000">
       <div class="field-grid">
         <div>
-          <label for="hoikuChildAge">お子さんの年齢</label>
+          <label for="hoikuChildAge">お子さんの年齢 <span style="color:#9ca3af;font-size:12px;">クラス年齢（4月1日時点の年齢）</span></label>
           <select id="hoikuChildAge" data-step="12a"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
         </div>
         <div>
@@ -277,17 +277,36 @@
     <a href="https://shaho-keisan.jp/hikaku/" target="_blank" rel="noopener">任意継続 vs 国保 ↗</a>
   </div>
 
-  <div class="note">
-    ※働き方で社会保険料の扱いが変わります。<b>会社員</b>＝協会けんぽ（健康保険・介護第2号・子育て支援金）・厚生年金・雇用保険の本人負担を、都道府県別料率と標準報酬月額から実額で計算し、住民税・所得税の社会保険料控除にも反映します（賞与は任意入力）。<b>自営・退職など</b>＝国民健康保険（75歳以上は後期高齢者医療）を計算し、その保険料と国民年金（20〜59歳・本人1人分）・介護保険（第1号・65歳以上）の実額を、住民税・所得税の社会保険料控除に反映します（保険料データが取得できない自治体では給与収入の約14.4%で概算）。<br>
-    ※所得税：全国一律。給与所得控除・公的年金等控除・所得金額調整控除（給与と年金の両方がある場合）・基礎控除・社会保険料控除・配偶者控除・配偶者特別控除・扶養控除（「扶養・配偶者」の入力）を反映した概算です（生命保険料控除・医療費控除・住宅ローン控除等は未考慮）。配偶者の所得税は給与だけの場合に計算します（年金がある場合は計算しません）。<br>
-    ※住民税：配偶者控除・配偶者特別控除・扶養控除は「扶養・配偶者」の入力を反映します（配偶者の給与年収から所得を出して判定。配偶者が自営の場合の所得は給与年収として入れてください）。障害者控除・ひとり親控除などその他の人的控除は未考慮の概算です。<br>
-    ※国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。配偶者が自営の場合は世帯分を本人の控除に含め、配偶者は国民年金のみ控除します。配偶者が65歳以上なら介護保険（第1号）も配偶者分として計算します。<br>
-    ※介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。<br>
-    ※75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（本人1人分・単身として計算。世帯の軽減判定などは後期高齢者医療のページで確認できます）。<br>
-    ※奨学金：高等教育の修学支援新制度（給付型＋授業料等減免）の目安判定です。扶養控除・本人収入・資産・政令市の調整控除実額・私立理工農系は未反映のため、実際はこれより支援が多い区分になる場合があります。支援額のため年間負担の合計には含めません。<br>
-    ※各制度の「詳しく計算 →」から個別ページに移動できます。<br>
-    ※実際の金額は各自治体の通知・公式案内でご確認ください。
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>働き方で社会保険料の扱いが変わります。
+        <ul style="margin:0;padding-left:1.2em;">
+          <li><b>会社員</b>＝協会けんぽ（健康保険・介護第2号・子育て支援金）・厚生年金・雇用保険の本人負担を、都道府県別料率と標準報酬月額から実額で計算し、住民税・所得税の社会保険料控除にも反映します（賞与は任意入力）。</li>
+          <li><b>自営・退職など</b>＝国民健康保険（75歳以上は後期高齢者医療）を計算し、その保険料と国民年金（20〜59歳・本人1人分）・介護保険（第1号・65歳以上）の実額を、住民税・所得税の社会保険料控除に反映します（保険料データが取得できない自治体では給与収入の約14.4%で概算）。</li>
+        </ul>
+      </li>
+      <li>所得税：全国一律。給与所得控除・公的年金等控除・所得金額調整控除（給与と年金の両方がある場合）・基礎控除・社会保険料控除・配偶者控除・配偶者特別控除・扶養控除（「扶養・配偶者」の入力）を反映した概算です（生命保険料控除・医療費控除・住宅ローン控除等は未考慮）。配偶者の所得税は給与だけの場合に計算します（年金がある場合は計算しません）。</li>
+      <li>住民税：配偶者控除・配偶者特別控除・扶養控除は「扶養・配偶者」の入力を反映します（配偶者の給与年収から所得を出して判定。配偶者が自営の場合の所得は給与年収として入れてください）。本人のひとり親控除・寡婦控除・障害者控除は「あなたの区分」「あなたの障害」の入力を反映します。配偶者・扶養親族の障害者控除などその他の控除は未考慮の概算です。</li>
+      <li>国保：基礎控除43万円を差し引いた概算。軽減判定は目安です。配偶者が自営の場合は世帯分を本人の控除に含め、配偶者は国民年金のみ控除します。配偶者が65歳以上なら介護保険（第1号）も配偶者分として計算します。</li>
+      <li>介護保険（第1号）は65歳以上のみ計算します。段階判定は簡易版です。</li>
+      <li>75歳以上の方は国民健康保険ではなく後期高齢者医療制度の対象です（本人1人分・単身として計算。世帯の軽減判定などは後期高齢者医療のページで確認できます）。</li>
+      <li>奨学金：高等教育の修学支援新制度（給付型＋授業料等減免）の目安判定です。扶養控除・本人収入・資産・政令市の調整控除実額・私立理工農系は未反映のため、実際はこれより支援が多い区分になる場合があります。支援額のため年間負担の合計には含めません。</li>
+      <li>各制度の「詳しく計算 →」から個別ページに移動できます。</li>
+      <li>実際の金額は各自治体の通知・公式案内でご確認ください。</li>
+    </ul>
   </div>
+
+  <section class="source-section" data-source-state="kakeibo" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="margin-top:0;">出典</h2>
+    <ul style="margin:0;padding-left:1.4em;font-size:12px;line-height:1.9;color:#4b5563;">
+      <li>住民税: <a href="https://www.pref.yamagata.jp/020007/zei_shitsumon/midori/midori.html" target="_blank" rel="noopener">山形県の県民税の案内 ↗</a> — 都道府県民税の税率は上記の資料の値、市区町村民税は標準税率（所得割6%・均等割3,000円）を当てた推計です。確認中の推計値を含みます（Civic Rule Lab が確認作業中）。この出典で最新の内容をご確認ください。（資料の取得: 2026年10月9日）</li>
+      <li>国民健康保険: <a href="https://www.town.iide.yamagata.jp/014/kokuho.html" target="_blank" rel="noopener">国民健康保険税について｜飯豊町（国民健康保険税の税率等（令和8年度）） ↗</a> — 最終確認: 2026年9月4日（Civic Rule Lab が資料と照合）</li>
+      <li>後期高齢者医療: <a href="https://www.mhlw.go.jp/content/12403500/001689077.pdf" target="_blank" rel="noopener">厚生労働省 後期高齢者医療制度の令和8・9年度の保険料率について ↗</a>・<a href="https://www.yamagata-kouiki.jp/insurance/entry-96.html" target="_blank" rel="noopener">広域連合の保険料軽減の案内 ↗</a> — 最終確認: 2026年6月28日（Civic Rule Lab が資料と照合）</li>
+      <li>介護保険（第1号）: <a href="https://www.town.iide.yamagata.jp/" target="_blank" rel="noopener">飯豊町 介護保険料（第9期） ↗</a> — 最終確認: 2026年6月26日（Civic Rule Lab が資料と照合）</li>
+    </ul>
+    <p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;margin-top:4px;">所得税・社会保険料（会社員）・国民年金・ふるさと納税の上限は全国共通の制度値で計算しています。</p>
+  </section>
 
   <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
 
@@ -304,24 +323,25 @@
 </div>
 
 <script>const CITY_SLUG = "iide"; const PREF_SLUG = "yamagata"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
-<script src="/js/core/shared/ui-input.js?v=bdd6e307"></script>
-<script src="/js/core/shared/income.js?v=bdd6e307"></script>
-<script src="/js/core/jumin.js?v=bdd6e307"></script>
-<script src="/js/core/kokuho.js?v=bdd6e307"></script>
-<script src="/js/core/kaigo.js?v=bdd6e307"></script>
-<script src="/js/core/kouki.js?v=bdd6e307"></script>
-<script src="/js/core/hoiku.js?v=bdd6e307"></script>
-<script src="/js/core/shaho.js?v=bdd6e307"></script>
-<script src="/js/core/shotoku.js?v=bdd6e307"></script>
-<script src="/js/core/shogakukin.js?v=bdd6e307"></script>
-<script src="/js/core/shogakukin-bridge.js?v=bdd6e307"></script>
-<script src="/js/core/furusato.js?v=bdd6e307"></script>
+<script src="/js/core/shared/ui-input.js?v=36341a99"></script>
+<script src="/js/core/shared/income.js?v=36341a99"></script>
+<script src="/js/core/jumin.js?v=36341a99"></script>
+<script src="/js/core/kokuho.js?v=36341a99"></script>
+<script src="/js/core/kaigo.js?v=36341a99"></script>
+<script src="/js/core/kouki.js?v=36341a99"></script>
+<script src="/js/core/hoiku.js?v=36341a99"></script>
+<script src="/js/core/shaho.js?v=36341a99"></script>
+<script src="/js/core/shotoku.js?v=36341a99"></script>
+<script src="/js/core/shogakukin.js?v=36341a99"></script>
+<script src="/js/core/shogakukin-bridge.js?v=36341a99"></script>
+<script src="/js/core/furusato.js?v=36341a99"></script>
 <script>
 (function () {
   "use strict";
   var CITY = (typeof CITY_SLUG !== "undefined") ? CITY_SLUG : (location.pathname.split("/").filter(Boolean)[1] || "");
   var YEARS = [2026, 2025];
   var _cache = {};
+  var _loadedYear = {};   // 制度ごとに実際に読めた年度（2026 が無く 2025 に下がったら結果欄に出す。S1-1 RF-2）
   // 介護保険（第1号）は自治体ごとに段階的リリース。kaigo-{year}.json の status が
   // verified / inferred の自治体だけ点灯し、それ以外は「準備中」表示のまま（合計にも含めない）。
 
@@ -428,6 +448,28 @@
   if(document.readyState!=="loading")initInputs();
   else document.addEventListener("DOMContentLoaded",initInputs);
   function yen(n){return Math.round(n).toLocaleString()+" 円";}
+  // 2026 年度のデータが無く前年度に下がって計算した制度の注記（S1-1 RF-2・修正順 S1 3-3）。
+  //   engine.js は暗黙の年度フォールバックを禁じている。ここでは計算は続け、どの年度の料率かを結果欄に必ず出す
+  function yearNote(sys){
+    var y=_loadedYear[sys];
+    if(!y || y===YEARS[0]) return "";
+    return "<div class='ci-sub' style='color:#92400e;margin:-6px 0 10px;line-height:1.7;'>※令和"+(y-2018)+"年度の料率で計算しています（令和"+(YEARS[0]-2018)+"年度のデータは未収録）。</div>";
+  }
+  // 住民税をどの税率で計算したか（S1-1 W2a-02・RF-1・修正順 S1 3-2。2026-11-09 オーナー決定「使い続け、明示」）。
+  //   jumin-{年度}.json が無い → 全国の標準税率（JUMIN_DEFAULTS）／status=verified → 自治体の公表値／それ以外（inferred 等）→ 確認中の推計値
+  function juminBasisNote(d){
+    var t;
+    if(!d){
+      var D=(typeof JUMIN_DEFAULTS!=="undefined")?JUMIN_DEFAULTS:null;
+      t = D ? "標準税率（所得割 "+Math.round((D.prefRate+D.cityRate)*1000)/10+"%・均等割 "+(D.prefPerCapita+D.cityPerCapita+D.forestTax).toLocaleString()+" 円）で計算（この自治体の住民税データは未収録）"
+            : "標準税率で計算（この自治体の住民税データは未収録）";
+    } else if(d.status==="verified"){
+      t = "自治体の公表値の税率で計算";
+    } else {
+      t = "自治体の税率（確認中の推計値）で計算"+((d.source&&d.source.scope==="prefecture"&&d.cityRate==null)?"。都道府県民税は公表値、市区町村民税は標準税率を当てています":"");
+    }
+    return "<div class='ci-sub ci-basis' style='margin:-6px 0 10px;line-height:1.7;'>"+t+"。出典はページ下の「出典」をご覧ください。</div>";
+  }
 
   // 制度別JSONを取得（年度フォールバック付き）。無ければ null。
   async function loadSystem(sys){
@@ -435,7 +477,7 @@
     for(var i=0;i<YEARS.length;i++){
       try{
         var res=await fetch("/data/municipalities/"+CITY+"/"+sys+"-"+YEARS[i]+".json",{cache:"no-store"});
-        if(res.ok){var j=await res.json(); _cache[sys]=j; return j;}
+        if(res.ok){var j=await res.json(); _cache[sys]=j; _loadedYear[sys]=YEARS[i]; return j;}
       }catch(e){/* try next year */}
     }
     _cache[sys]=null; return null;
@@ -596,7 +638,7 @@
             rk=calculateKokuho({income:totalIncome+spouseIncomeJumin,
               members:[{income:totalIncome, careTarget:(careN===1)},{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
               family:Math.max(family,2), preschool:kidsPre, under18:kidsU18, care:careN+spouseCare, fixedAssetTax:0,
-              // 給与所得者等の数: 本人と配偶者のうち給与収入55万円超・年金収入60万円（65歳以上は110万円）超の人（施行令 第29条の7 第6項第1号・2026-10-25 B-4。旧実装は 2 固定）
+              // 給与所得者等の数: 本人と配偶者のうち給与収入55万円超・年金収入60万円（65歳以上は125万円）超の人（施行令 第29条の7 第6項第1号・65歳以上は附則第5条の読替え・2026-10-25 B-4。旧実装は 2 固定）
               salaryPensionCount:Math.max(1, (isKyuyoShotokushaTou(grossSalary, pension, age)?1:0) + (isKyuyoShotokushaTou(famSpouseSalary, famSpousePension, famSpouseAge)?1:0)),
               reductionJudgmentIncome:Math.max(0,totalIncome+spouseIncomeJumin-keigenSelf-keigenSp)}, kokuhoData);
           } else {
@@ -628,7 +670,7 @@
     }
     if(spouseJiei && famSpouseAge<75 && !rkWithSpouse && kokuhoData){
       try{
-        // 給与所得者等の数: 世帯主（本人）と配偶者のうち、給与収入55万円超・年金収入60万円（65歳以上は110万円）超の人。
+        // 給与所得者等の数: 世帯主（本人）と配偶者のうち、給与収入55万円超・年金収入60万円（65歳以上は125万円＝国民健康保険法施行令 附則第5条の読替え）超の人。
         //   本人が75歳未満なら国保に入っていない擬制世帯主として数える（施行令 第29条の7 第6項第1号・2026-10-25）
         var spEarners = (isKyuyoShotokushaTou(grossSalary, pension, age)?1:0) + (isKyuyoShotokushaTou(famSpouseSalary, famSpousePension, famSpouseAge)?1:0);
         rkSp=calculateKokuho({income:spouseIncomeJumin, members:[{income:spouseIncomeJumin, careTarget:(spouseCare===1)}],
@@ -702,6 +744,7 @@
       cards.push(card("住民税", rj.total, [
         ["所得割", rj.incomeLevy],["均等割（森林環境税含む）", rj.perCapita]
       ], "var(--acc)"));
+      cards.push(juminBasisNote(juminData) + yearNote("jumin"));
       // 住民税・所得税・保育料・ふるさと納税の上限に共通して使った社会保険料控除の内訳（どの保険料を引いたかを見せる）
       if(siParts.length){
         cards.push("<div class='ci-sub' style='margin:-6px 0 10px;line-height:1.7;'>社会保険料控除（住民税・所得税に共通）: "+yen(socialInsurance)
@@ -765,7 +808,7 @@
         cards.push(card("後期高齢者医療", rkk.total, [
           ["医療分", rkk.medicalTotal],["子ども・子育て支援金分", rkk.childcareTotal]
         ], "#0d9488"));
-        cards.push("<div class='ci-sub' style='margin:-6px 0 10px;line-height:1.7;'>本人1人分・単身として計算しています（世帯の軽減判定は本人の所得で代用）。</div>");
+        cards.push("<div class='ci-sub' style='margin:-6px 0 10px;line-height:1.7;'>本人1人分・単身として計算しています（世帯の軽減判定は本人の所得で代用）。</div>" + yearNote("kouki"));
         detailLinks.push({href:"../kouki/", label:"後期高齢者医療を詳しく計算", color:"#0d9488"});
       } else {
         // 75歳以上は国保の対象外。データが無いときは個別ページに委ね、導線のみ示す。
@@ -803,6 +846,7 @@
       cards.push(card(rkWithSpouse?"国民健康保険（配偶者の所得を含む世帯分）":"国民健康保険", rk.total, [
         ["医療分", rk.medicalTotal],["支援分", rk.supportTotal],["介護分", rk.careTotal],["子ども・子育て支援金分", rk.childcareTotal||0],["法定軽減（上の各分から差し引き済み）", rk.totalReduction]
       ], "#0d9488"));
+      cards.push(yearNote("kokuho"));
     } else if(kokuhoData){ cards.push(skip("国民健康保険", "計算できませんでした"));
     } else { cards.push(skip("国民健康保険", "この自治体のデータは準備中")); }
 
@@ -841,6 +885,7 @@
           cards.push(card("介護保険（第1号）", rkg.annual, [
             [rkg.label||("第"+rkg.level+"段階"), rkg.annual]
           ], "#d97706"));
+          cards.push(yearNote("kaigo"));
           detailLinks.push({href:"../kaigo/", label:"介護保険を詳しく計算", color:"#d97706"});
         } else { cards.push(skip("介護保険（第1号）", "この自治体のデータは準備中")); }
       } else { cards.push(skip("介護保険（第1号）", "準備中（検証中）")); }
