@@ -322,7 +322,7 @@
 
 </div>
 
-<script>const CITY_SLUG = "yamae"; const PREF_SLUG = "kumamoto"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false;</script>
+<script>const CITY_SLUG = "yamae"; const PREF_SLUG = "kumamoto"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false; const KAIGO_YEAR = 2026;</script>
 <script src="/js/core/shared/ui-input.js?v=038f13cf"></script>
 <script src="/js/core/shared/income.js?v=038f13cf"></script>
 <script src="/js/core/jumin.js?v=038f13cf"></script>
@@ -340,6 +340,10 @@
   "use strict";
   var CITY = (typeof CITY_SLUG !== "undefined") ? CITY_SLUG : (location.pathname.split("/").filter(Boolean)[1] || "");
   var YEARS = [2026, 2025];
+  // 介護（第1号）は自治体ごとに年度を切り替える（registry の publishYear.kaigo を生成時に埋める・2026-11-10 オーナー決定 D1/D2）。
+  //   R9 の JSON を先に置いても、registry を上げるまでは R8 を読む。介護ページ（kaigo/index.html）と同じ年度になる。
+  //   null（介護を公開していない自治体）のときは他制度と同じ YEARS の順に探す
+  var KAIGO_YEARS = (typeof KAIGO_YEAR === "number") ? [KAIGO_YEAR] : YEARS;
   var _cache = {};
   var _loadedYear = {};   // 制度ごとに実際に読めた年度（2026 が無く 2025 に下がったら結果欄に出す。S1-1 RF-2）
   // 介護保険（第1号）は自治体ごとに段階的リリース。kaigo-{year}.json の status が
@@ -453,6 +457,8 @@
   function yearNote(sys){
     var y=_loadedYear[sys];
     if(!y || y===YEARS[0]) return "";
+    // 介護は他制度と年度が違ってよい（自治体ごとに切替）。どの年度の公表値かだけを出す（D2「年度を表示」）
+    if(sys==="kaigo") return "<div class='ci-sub' style='margin:-6px 0 10px;line-height:1.7;'>※介護保険料は令和"+(y-2018)+"年度の公表値で計算しています。</div>";
     return "<div class='ci-sub' style='color:#92400e;margin:-6px 0 10px;line-height:1.7;'>※令和"+(y-2018)+"年度の料率で計算しています（令和"+(YEARS[0]-2018)+"年度のデータは未収録）。</div>";
   }
   // 住民税をどの税率で計算したか（S1-1 W2a-02・RF-1・修正順 S1 3-2。2026-11-09 オーナー決定「使い続け、明示」）。
@@ -474,10 +480,11 @@
   // 制度別JSONを取得（年度フォールバック付き）。無ければ null。
   async function loadSystem(sys){
     if(_cache[sys]!==undefined) return _cache[sys];
-    for(var i=0;i<YEARS.length;i++){
+    var ys=(sys==="kaigo") ? KAIGO_YEARS : YEARS;
+    for(var i=0;i<ys.length;i++){
       try{
-        var res=await fetch("/data/municipalities/"+CITY+"/"+sys+"-"+YEARS[i]+".json",{cache:"no-store"});
-        if(res.ok){var j=await res.json(); _cache[sys]=j; _loadedYear[sys]=YEARS[i]; return j;}
+        var res=await fetch("/data/municipalities/"+CITY+"/"+sys+"-"+ys[i]+".json",{cache:"no-store"});
+        if(res.ok){var j=await res.json(); _cache[sys]=j; _loadedYear[sys]=ys[i]; return j;}
       }catch(e){/* try next year */}
     }
     _cache[sys]=null; return null;
