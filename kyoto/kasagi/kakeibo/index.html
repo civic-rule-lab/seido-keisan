@@ -203,8 +203,12 @@
           <select id="hoikuChildAge" data-step="12a"><option value="age1_2" selected>1・2歳</option><option value="age0">0歳</option></select>
         </div>
         <div>
-          <label for="hoikuSiblings">認可に通う兄・姉</label>
+          <label for="hoikuSiblings">保育所・幼稚園などに通う兄・姉</label>
           <select id="hoikuSiblings" data-step="12b"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上</option></select>
+        </div>
+        <div>
+          <label for="hoikuOlderOut">在園していない年上のきょうだい</label>
+          <select id="hoikuOlderOut" data-step="12c"><option value="0" selected>0人</option><option value="1">1人</option><option value="2">2人</option><option value="3">3人以上</option></select>
         </div>
       </div>
       <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
@@ -323,18 +327,18 @@
 </div>
 
 <script>const CITY_SLUG = "kasagi"; const PREF_SLUG = "kyoto"; const JUMIN_KYUCHI = 3; const HAS_JUMIN_PAGE = false; const KAIGO_YEAR = 2026;</script>
-<script src="/js/core/shared/ui-input.js?v=038f13cf"></script>
-<script src="/js/core/shared/income.js?v=038f13cf"></script>
-<script src="/js/core/jumin.js?v=038f13cf"></script>
-<script src="/js/core/kokuho.js?v=038f13cf"></script>
-<script src="/js/core/kaigo.js?v=038f13cf"></script>
-<script src="/js/core/kouki.js?v=038f13cf"></script>
-<script src="/js/core/hoiku.js?v=038f13cf"></script>
-<script src="/js/core/shaho.js?v=038f13cf"></script>
-<script src="/js/core/shotoku.js?v=038f13cf"></script>
-<script src="/js/core/shogakukin.js?v=038f13cf"></script>
-<script src="/js/core/shogakukin-bridge.js?v=038f13cf"></script>
-<script src="/js/core/furusato.js?v=038f13cf"></script>
+<script src="/js/core/shared/ui-input.js?v=bf63a89d"></script>
+<script src="/js/core/shared/income.js?v=bf63a89d"></script>
+<script src="/js/core/jumin.js?v=bf63a89d"></script>
+<script src="/js/core/kokuho.js?v=bf63a89d"></script>
+<script src="/js/core/kaigo.js?v=bf63a89d"></script>
+<script src="/js/core/kouki.js?v=bf63a89d"></script>
+<script src="/js/core/hoiku.js?v=bf63a89d"></script>
+<script src="/js/core/shaho.js?v=bf63a89d"></script>
+<script src="/js/core/shotoku.js?v=bf63a89d"></script>
+<script src="/js/core/shogakukin.js?v=bf63a89d"></script>
+<script src="/js/core/shogakukin-bridge.js?v=bf63a89d"></script>
+<script src="/js/core/furusato.js?v=bf63a89d"></script>
 <script>
 (function () {
   "use strict";
@@ -921,6 +925,7 @@
             spousePension: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? famSpousePension : 0,
             age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
             enrolled: Number((document.getElementById("hoikuSiblings")||{}).value)||0,
+            olderNotEnrolled: Number((document.getElementById("hoikuOlderOut")||{}).value)||0,
             hitorioya: !!(document.getElementById("hoikuHitorioya")||{}).checked,
             honninPension: pension,
             honninBonus: bonus   // 賞与も住民税課税＝保育料指数に反映（社保は月給と賞与を別建て計算）
@@ -1080,6 +1085,7 @@
     var fTax=fe?false:f.taxable, mTax=me?false:m.taxable;
     input.hikazei = !(fe&&me) && !fTax && !mTax;   // ② 非課税=父母AND(年金課税も考慮)
     input.childOrder = (opts.enrolled||0)+1;        // ① 多子=在園兄姉+1
+    input.olderNotEnrolled = opts.olderNotEnrolled||0; // 在園していない年上のきょうだい（数えるかはエンジンが市の基準と所得で判定）
     var res = calcHoiku(input, M);                   // ④ kintowariOnly不問 ⑤ salary経路 isSeireiNotice=false
     // 均等割の非課税基準をわずかに上回る親がいて、ほかの親が非課税なら、条例しだいで非課税世帯になりうる（注記用）
     var fNear=fe?false:f.borderline, mNear=me?false:m.borderline;

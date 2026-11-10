@@ -100,10 +100,10 @@
 <!-- 保育料データ（自治体スペック muni をそのまま埋め込み） -->
 <script>const HOIKU_DATA = {"cityCode":"13114","citySlug":"nakano-ku","cityName":"中野区","prefSlug":"tokyo","fiscalYear":2026,"system":"hoiku","schemaVersion":"1.0","status":"free","freePolicy":{"firstChild":true,"since":"2025-09","incomeLimit":false,"source":["https://www.fukushi.metro.tokyo.lg.jp/kodomo/hoiku/mushouka"]},"confidence":"確認済"}; const CITY_SLUG = "nakano-ku"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
 <!-- 計算エンジン（順序厳守: income → jumin → hoiku） -->
-<script src="/js/core/shared/ui-input.js?v=272fcbf7"></script>
-<script src="/js/core/shared/income.js?v=272fcbf7"></script>
-<script src="/js/core/jumin.js?v=272fcbf7"></script>
-<script src="/js/core/hoiku.js?v=272fcbf7"></script>
+<script src="/js/core/shared/ui-input.js?v=f1424c41"></script>
+<script src="/js/core/shared/income.js?v=f1424c41"></script>
+<script src="/js/core/jumin.js?v=f1424c41"></script>
+<script src="/js/core/hoiku.js?v=f1424c41"></script>
 <script>
 (function(){
   "use strict";
@@ -190,10 +190,15 @@
 
     // きょうだい（多子）
     html+='<div class="sec">きょうだい（多子軽減）</div>'
-        +'<label for="enrolledOlder">認可保育所等に通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
+        +'<label for="enrolledOlder">保育所・認定こども園・幼稚園・地域型保育・児童発達支援などに通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
         +'<select id="enrolledOlder" data-step="7"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
     if(selKey){
       html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
+    } else {
+      // 在園していない年上のきょうだい（小学生以上など）。数えるかは市の基準と所得でエンジンが判定する
+      // （世帯の全きょうだいを数える市、または施行令14条の低所得世帯のとき順位に足す）
+      html+='<label for="olderNotEnrolled">在園していない年上のきょうだい（小学生以上など・生計が同じ）の人数 <span class="hint">市の基準や所得によって数えます</span></label>'
+          +'<select id="olderNotEnrolled" data-step="7b"><option value="0" selected>0人</option><option value="1">1人</option><option value="2">2人</option><option value="3">3人以上</option></select>';
     }
 
     // 世帯の状況
@@ -330,6 +335,7 @@
       var selKey=findSelector();
       if(selKey && checked("selFlag")){ childOrder += 1; input[selKey]=true; }
       input.childOrder = childOrder;
+      if(document.getElementById("olderNotEnrolled")) input.olderNotEnrolled = Number(val("olderNotEnrolled"))||0;
 
       var r = calcHoiku(input, M);
       var mo = r.monthly||0;

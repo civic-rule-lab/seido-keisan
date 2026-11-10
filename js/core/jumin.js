@@ -161,38 +161,52 @@ function calcSpouseDeductionJumin(p) {
 }
 
 // ─── 特定親族特別控除（令和8年度課税〜・令和7年度税制改正） ─────────
-// 19歳以上23歳未満の親族等（配偶者・青色事業専従者等を除く）で、
-// 合計所得金額が 扶養の所得要件超 123万円以下（令和8年度は58万円超、令和9年度以後は62万円超）の場合、
-// 親族の合計所得金額に応じた7段階の所得控除（住民税は最高45万円）。
-//   出典: 総務省説明資料（令7.5.15）・横浜市/大阪市/西宮市 R8税制改正ページ
+// 根拠: 地方税法 第314条の2 第1項第12号（市町村民税）。道府県民税は第34条第1項第12号（同じ規定）。
+//   e-Gov 法令API v2 で確認: law_revision_id 325AC0000000226_20261101_508AC0000000002（2026-11-01 施行版）、取得 2026-11-10。
+//   条文の本文ハッシュと改正の有無は data/reference/law-citations.json に記録し、
+//   scripts/watch-law-citations.js が e-Gov と突き合わせる（未施行の改正版も見る。規範14）。
+// 対象: 19歳以上23歳未満の親族（配偶者を除く）等で、前年の合計所得金額が123万円以下、かつ控除対象扶養親族に
+//   該当しないもの（＝扶養の所得要件超。令和8年度は58万円超、令和9年度以後は62万円超。fuyoIncomeLimitJumin）。
+// 控除額は条文のイ〜ニをそのまま書く。表に書き写さない（改正時に直すのを定数1か所にし、写し間違いを防ぐ）:
+//   イ 95万円以下 45万円
+//   ロ 95万円超115万円以下 63万円 −（合計所得のうち84万1円を超える部分×2 を、「10万円の整数倍−8万円」の形の
+//      うち その額以下で最大のものに切り下げた額）
+//   ハ 115万円超120万円以下 6万円
+//   ニ 120万円超 3万円（上限123万円は対象者の定義）
+// 総務省説明資料（令7.5.15）の7段階表（95万以下45万／100万以下41万／105万以下31万／110万以下21万／
+//   115万以下11万／120万以下6万／123万以下3万）とは、1円刻みで全範囲一致することを scripts/verify-units.cjs で検査する。
 // 注意:
 //   - 対象者は税法上の扶養親族には含まれない（非課税限度額の扶養人数にカウントしない）
 //   - 調整控除の人的控除差にも含まれない（境港市・倉敷市のR8調整控除一覧で確認）
-const TOKUTEI_SHINZOKU_BRACKETS = [
-  //  親族の合計所得金額の上限, 控除額
-  [   950_000, 450_000 ], //  58万円超  95万円以下 → 45万円
-  [ 1_000_000, 410_000 ], //  95万円超 100万円以下 → 41万円
-  [ 1_050_000, 310_000 ], // 100万円超 105万円以下 → 31万円
-  [ 1_100_000, 210_000 ], // 105万円超 110万円以下 → 21万円
-  [ 1_150_000, 110_000 ], // 110万円超 115万円以下 → 11万円
-  [ 1_200_000,  60_000 ], // 115万円超 120万円以下 →  6万円
-  [ 1_230_000,  30_000 ], // 120万円超 123万円以下 →  3万円
-];
+const TOKUTEI_SHINZOKU = Object.freeze({
+  upperIncome:   1_230_000, // 対象者の定義「前年の合計所得金額が百二十三万円以下」
+  i:  { upTo:   950_000, amount: 450_000 },                       // イ
+  ro: { upTo: 1_150_000, base: 630_000, over: 840_001,            // ロ
+        unit: 100_000, offset: 80_000 },
+  ha: { upTo: 1_200_000, amount:  60_000 },                       // ハ
+  ni: {                  amount:  30_000 },                       // ニ
+});
 
 /**
- * 特定親族特別控除（住民税）の控除額を返す。
+ * 特定親族特別控除（住民税）の控除額を返す。地方税法 第314条の2 第1項第12号イ〜ニ。
  * @param {number} relativeIncome - 親族の合計所得金額（円）
  * @param {number} [fiscalYear]   - 住民税の年度。未指定=令和8年度。
  * @returns {number} 控除額（円）。扶養の所得要件以下（=扶養控除の領域。令和8年度58万円・令和9年度以後62万円）と123万円超は 0。
- *   令和9年度以後も区分表（95万円以下45万円 …）は改正されていない。62万円超95万円以下が45万円になる。
+ *   令和9年度以後もイ〜ニは改正されていない（62万円超95万円以下が45万円になる）。
  */
 function calcTokuteiShinzokuDeduction(relativeIncome, fiscalYear) {
   if (!Number.isFinite(relativeIncome)) return 0;
-  if (relativeIncome <= fuyoIncomeLimitJumin(fiscalYear) || relativeIncome > 1_230_000) return 0;
-  for (const [cap, deduction] of TOKUTEI_SHINZOKU_BRACKETS) {
-    if (relativeIncome <= cap) return deduction;
+  const T = TOKUTEI_SHINZOKU;
+  if (relativeIncome <= fuyoIncomeLimitJumin(fiscalYear) || relativeIncome > T.upperIncome) return 0;
+  if (relativeIncome <= T.i.upTo) return T.i.amount;                         // イ
+  if (relativeIncome <= T.ro.upTo) {                                         // ロ
+    const doubled = (relativeIncome - T.ro.over) * 2;                        // 84万1円を超える部分×2
+    // 「十万円の整数倍の金額から八万円を控除した金額」で doubled 以下のうち最大（doubled がその形ならそのまま）
+    const rounded = Math.floor((doubled + T.ro.offset) / T.ro.unit) * T.ro.unit - T.ro.offset;
+    return T.ro.base - rounded;
   }
-  return 0;
+  if (relativeIncome <= T.ha.upTo) return T.ha.amount;                       // ハ
+  return T.ni.amount;                                                        // ニ
 }
 
 // ─── 基礎控除（合計所得金額で逓減） ─────────────────────────────────

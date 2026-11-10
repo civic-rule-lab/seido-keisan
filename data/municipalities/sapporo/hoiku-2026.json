@@ -22,6 +22,8 @@
   "multiChild": {
     "second": 0,
     "third": 0,
+    "countScope": "household-all",
+    "countScopeSource": "[確認済 2026-11-10] 札幌市『令和8年度 保育料の決定方法』PDF「ウ 多子軽減」: 第２子以降の保育料無償化により、すべての階層において、お子さまに生計を一にする兄又は姉がいる場合、きょうだいの保育所等の利用状況に関わらず保育料がかかりません。https://kosodate.city.sapporo.jp/material/files/group/1/hoikuryou2026ketteihouhou.pdf",
     "note": "第2子以降=全世帯無条件無料(R6.4〜)。生計を一のきょうだいを年齢順カウント(規則は市民税額で変動・childOrderは外部入力)"
   },
   "brackets": [

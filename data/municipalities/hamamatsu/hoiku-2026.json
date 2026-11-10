@@ -19,6 +19,8 @@
   "fiscalSwitch": 9,
   "multiChild": {
     "third": 0,
+    "countScope": "household-all",
+    "countScopeSource": "[確認済 2026-11-10] 浜松市（ぴっぴ）「2号・3号認定の多子世帯の保育料の軽減とカウント方法について」: 0～2歳児クラスの保育料は、すべての世帯を対象に生計を一にするきょうだいのうち、最年長の子を第1子、その下の子を第2子と数えます。https://www.hamamatsu-pippi.net/contents/7773.html",
     "note": "第2子=明示実額(child2)・第3子以降0。全世帯対象・生計を一の全きょうだいを年齢順カウント"
   },
   "brackets": [

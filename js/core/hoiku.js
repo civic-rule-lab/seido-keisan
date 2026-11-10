@@ -28,6 +28,12 @@ const INPUT_BASES = ['salary', 'shotokuwari-direct'];
 const AGE_KEYS = ['age0', 'age1_2'];
 const SEIREI_NUM = 6;        // 政令市補正 分子(保育料は旧6%換算)
 const SEIREI_DEN = 8;        // 政令市補正 分母(2018税源移譲後8%)
+// 子ども・子育て支援法施行令 第14条: 市町村民税所得割合算額がこれ未満なら、在園かどうかを問わず
+// 生計を一にする子（特定被監護者等）を年長順に数え、第2子は1/2（ひとり親等は0）、第3子以降は0を上限とする。
+const LOW_INCOME_SIBLING_CAP = 57700;            // 第14条本文
+const LOW_INCOME_SIBLING_CAP_HITORIOYA = 77101;  // 第14条「特定教育・保育給付認定保護者にあっては、七万七千百一円未満」
+// 市が年齢・在園を問わず生計を一にするきょうだいを全員数える、を表す multiChild.countScope の値（2 つは同じ意味）
+const COUNT_ALL_SCOPES = ['household-all', 'allChildren'];
 // child2alt.selector に使えない予約入力キー(既存 input フラグと衝突すると誤発火する)
 const RESERVED_INPUT_KEYS = ['seikatsuhogo', 'hikazei', 'kintowariOnly', 'isSeireiNotice', 'timeType', 'age', 'childOrder', 'hitorioya', 'facility', 'father', 'mother', 'month'];
 
@@ -109,7 +115,10 @@ function lookupBracket(index, brackets, flags) {
 //     isSeireiNotice: bool,          // 政令市通知書(8%)の額を直接入力したか
 //     timeType: 'standard'|'short',  // 保育時間区分(既定standard)
 //     age: 'age0'|'age1_2',          // 0歳別額の自治体向け(既定age1_2)
-//     childOrder: 1..,               // 多子カウント上の当該児童の順位(既定1)
+//     childOrder: 1..,               // 在園している兄・姉の数＋1（施行令13条2項の施設等に通う年上の子で数えた順位。既定1）
+//     olderNotEnrolled: 0..,         // 在園していない、生計を一にする年上のきょうだいの数（既定0）。
+//                                    //   市が世帯の全きょうだいを数える(multiChild.countScope='household-all'/'allChildren')か、
+//                                    //   施行令14条の低所得(所得割合算額 57,700円未満・ひとり親等 77,101円未満)のときだけ順位に足す
 //     hitorioya: bool,               // ひとり親・障害者等の軽減対象
 //     facility: 'ninka'|'kogata'|…,  // 施設タイプ(既定=muni.defaultFacility||'ninka')。bracket.facility 使用時のみ有効。
 //     [selector]: bool,              // セレクタギャップ入力(税額で判定不能な世帯要素)。bracket.child2alt.selector が指す
@@ -168,6 +177,23 @@ function calcHoiku(input, muni) {
   // 2) 指数(父母合算 / 政令市6:8補正)
   const { index, seireiApplied } = resolveIndex(input, muni);
   if (seireiApplied) reasons.push(`政令市補正 ×${SEIREI_NUM}/${SEIREI_DEN}`);
+
+  // 2b) 多子の数え方（誰を年上のきょうだいとして順位に数えるか）
+  //   input.childOrder は在園している兄・姉で数えた順位（施行令13条。UI が渡す）。
+  //   在園していない年上のきょうだい(olderNotEnrolled)は、次のどちらかのときだけ足す:
+  //     ・市の独自拡大: muni.multiChild.countScope が 'household-all' か 'allChildren'（同じ意味。年齢・在園を問わず生計を一にするきょうだいを数える）
+  //     ・施行令14条: 所得割合算額(index) < 57,700円（ひとり親等は < 77,101円）
+  //   muni.selector を持つ市（新潟の表②）は従来どおり selector 経路で扱い、ここでは足さない。
+  const olderNotEnrolled = input.olderNotEnrolled == null ? 0 : input.olderNotEnrolled;
+  if (typeof olderNotEnrolled !== 'number') throw new TypeError(`olderNotEnrolled は数で渡してください（${String(olderNotEnrolled)}）`);
+  if (!Number.isInteger(olderNotEnrolled) || olderNotEnrolled < 0) throw new RangeError(`olderNotEnrolled が範囲外です（${String(olderNotEnrolled)}）`);
+  const scopeAll = !!(muni.multiChild && COUNT_ALL_SCOPES.includes(muni.multiChild.countScope));
+  const lowIncome = index < (input.hitorioya ? LOW_INCOME_SIBLING_CAP_HITORIOYA : LOW_INCOME_SIBLING_CAP);
+  let effOrder = childOrder;
+  if (olderNotEnrolled > 0 && !muni.selector && (scopeAll || lowIncome)) {
+    effOrder = childOrder + olderNotEnrolled;
+    reasons.push(`在園していない年上のきょうだい${olderNotEnrolled}人も数える（${scopeAll ? '市の基準' : '施行令14条・低所得'}）`);
+  }
 
   // 3) 階層lookup
   const bracket = lookupBracket(index, muni.brackets || [], {
@@ -240,12 +266,12 @@ function calcHoiku(input, muni) {
 
   // 5) 多子(childOrder)。第3子以降は multiChild.third(係数)が無ければ0。
   let amount;
-  if (childOrder >= 3) {
+  if (effOrder >= 3) {
     const third = muni.multiChild ? muni.multiChild.third : null;
     amount = (third != null) ? Math.round(firstAmt * third) : 0;
     if (hitorioyaFactor != null) amount = Math.round(amount * hitorioyaFactor);
-    reasons.push(third != null ? `多子軽減(第${childOrder}子)×${third}` : `多子軽減(第${childOrder}子)`);
-  } else if (childOrder === 2) {
+    reasons.push(third != null ? `多子軽減(第${effOrder}子)×${third}` : `多子軽減(第${effOrder}子)`);
+  } else if (effOrder === 2) {
     // 5a) セレクタ別額(新潟表②型): 非ひとり親経路でのみ、input[selector] が真かつ当該階層に
     //     child2alt があれば第2子の別額を最優先(絶対額・係数もひとり親率も掛けない)。
     //     どの階層が child2alt を持つかで index 条件(表②=6%57,700未満 等)を内包する。
@@ -278,6 +304,11 @@ function calcHoiku(input, muni) {
   } else {
     amount = firstFinal; // 第1子
   }
+  // 施行令14条第1号かっこ書き: ひとり親等で所得割合算額 77,101円未満なら、第2子の上限は 0 円
+  if (effOrder === 2 && input.hitorioya && index < LOW_INCOME_SIBLING_CAP_HITORIOYA && amount > 0) {
+    amount = 0;
+    reasons.push('第2子 0円（施行令14条・ひとり親等の低所得）');
+  }
 
   return {
     monthly: amount,
@@ -287,7 +318,8 @@ function calcHoiku(input, muni) {
       index,
       base: firstAmt,       // 第1子の基本額(0歳別額/時間区分 解決後・ひとり親/多子 前)
       firstFinal,           // 第1子確定額(ひとり親 適用後)
-      childOrder,
+      childOrder: effOrder, // 順位（在園していないきょうだいを数えた場合は加算後）
+      olderNotEnrolledCounted: effOrder - childOrder,
       monthly: amount,
     },
   };
@@ -316,6 +348,12 @@ function validateBrackets(muni) {
         errs.push(`defaultTimeType '${muni.defaultTimeType}' が timeBands に無い`);
       }
     }
+  }
+  // multiChild.countScope: 'household-all'・'allChildren' のときだけエンジンが読む（在園していないきょうだいを常に数える）。
+  //   ほかの値（preschoolSiblings・age-desc・preschool）は記録用で、国の基準（13条・14条）どおりに扱う。
+  if (muni.multiChild && muni.multiChild.countScope != null &&
+      ![...COUNT_ALL_SCOPES, 'preschoolSiblings', 'age-desc', 'preschool'].includes(muni.multiChild.countScope)) {
+    errs.push(`multiChild.countScope が不正: '${muni.multiChild.countScope}'`);
   }
   if (muni.status === 'free' || (muni.freePolicy && muni.freePolicy.firstChild)) return errs; // free段は表不要
   const brackets = muni.brackets || [];
