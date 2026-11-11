@@ -54,6 +54,10 @@
       "twoTenths": 0.2
     }
   },
+  "rounding": {
+    "componentUnit": 1,
+    "note": "能勢町国民健康保険条例: 賦課額（区分）・合計の端数処理を定める規定は無い。1円単位で扱う。2026-11-11 確認。"
+  },
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.1.0",

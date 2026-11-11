@@ -63,6 +63,16 @@
       "twoTenths": 0.2
     }
   },
+  "rounding": {
+    "componentUnit": {
+      "medical": 10,
+      "support": 10,
+      "care": 10,
+      "childcare": 1
+    },
+    "componentDropBelow": 100,
+    "note": "千葉市国民健康保険条例 第31条第2項「基礎賦課額、後期高齢者支援金等賦課額及び介護納付金賦課額に10円未満の端数があるとき、又はその金額が100円未満であるときは、その端数金額又はその全額を切り捨てる。」子ども・子育て支援納付金賦課額は列挙されていない（1円単位）。g-reiki 例規集、2026-11-11 確認。"
+  },
   "meta": {
     "schemaVersion": "2.0",
     "dataVersion": "2.0.1",

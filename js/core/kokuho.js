@@ -8,6 +8,21 @@
 // これは「データ欠落時の最後の手段」であり、正は各自治体 JSON の childcareLevy.cap。
 const CHILDCARE_CAP_NATIONAL = 30000;
 
+// 区分（医療・支援・介護・子ども分）ごとの賦課額の端数単位（2026-11-11・TASKS X253＝X148-1・X149-1）。
+//   既定は 100 円未満切捨て。保険税は地方税法 第20条の4の2 第3項（地方税の確定金額の百円未満の端数は切捨て。
+//   e-Gov 325AC0000000226_20261101 で確認）により区分ごとに切り捨てる（新宮市・久留米市・白山市の公表例で区分ごとを確認）。
+//   保険料（料方式）は条例次第なので、既定と違う自治体だけデータ rounding に持つ（持たない自治体と未判明の料方式は既定。X149-1 の ④）。
+//     componentUnit  区分ごとの単位。数（全区分共通）か { medical, support, care, childcare }（区分で違う。千葉市は子ども分だけ 1）。
+//                    1＝切り捨てない（特別区）。
+//     componentDropBelow  区分の額がこの額未満なら全額を切り捨てる（千葉市 条例31条2項「その金額が100円未満であるときは…その全額」）。
+//     totalUnit      区分の和（保険料の額）にだけ掛ける単位。既定 1（掛けない）。長野市 10（条例17条2項「保険料の確定金額」）、
+//                    夕張市 100（条例15条「保険料の賦課額」＝10条の4区分の合算額）。合計だけ切り捨てる自治体は componentUnit を 1 にする。
+//     incomeUnit     区分ごとの所得割の切捨て単位 { medical, support, care, childcare }（書いた区分だけ。京都市 10）。
+//   合計だけ切り捨てると区分の額の和と total が合わなくなる（区分は切り捨て前の額のまま）。
+const DEFAULT_COMPONENT_UNIT = 100;
+const COMPONENT_UNITS = [1, 10, 100];
+const COMPONENT_KEYS = ["medical", "support", "care", "childcare"];
+
 function calculateKokuho(input, data) {
   const { income, family: familyIn, preschool, under18, care, salaryPensionCount, fixedAssetTax,
           reductionJudgmentIncome, members, tokuteiDouitsuCount, giseiSetainushi, tokuteiSetaiKubun } = input;
@@ -74,10 +89,21 @@ function calculateKokuho(input, data) {
     ? memberList.reduce((s, m) => s + (m?.careTarget ? memberBase(m) : 0), 0)
     : baseIncome;
 
-  // 所得割
-  const medicalIncome = Math.round(baseIncome * data.rate.medical);
-  const supportIncome = Math.round(baseIncome * data.rate.support);
-  const careIncome    = careSafe > 0 ? Math.round(careBaseIncome * data.rate.care) : 0;
+  // 所得割。既定は 1 円未満四捨五入。rounding.incomeUnit（{ 区分: 10 }）を持つ自治体は、その区分の所得割を
+  //   単位未満切捨て（京都市 条例12条2項・14条の4第2項・15条の4第2項＝医療・支援・子ども分は 10 円未満切捨て。介護分は規定なし）。
+  const incomeUnitOf = (k) => {
+    const u = data.rounding?.incomeUnit?.[k];
+    if (u == null) return null;
+    if (!COMPONENT_UNITS.includes(u)) throw new RangeError(`[kokuho] ${data.citySlug || "(citySlug不明)"}: rounding.incomeUnit.${k} は ${COMPONENT_UNITS.join("/")} のいずれか（${String(u)}）`);
+    return u;
+  };
+  const incomeLevy = (base, rate, k) => {
+    const u = incomeUnitOf(k);
+    return u == null ? Math.round(base * rate) : Math.floor(base * rate / u) * u;
+  };
+  const medicalIncome = incomeLevy(baseIncome, data.rate.medical, "medical");
+  const supportIncome = incomeLevy(baseIncome, data.rate.support, "support");
+  const careIncome    = careSafe > 0 ? incomeLevy(careBaseIncome, data.rate.care, "care") : 0;
 
   // 均等割
   const medicalPerCapita = familySafe * data.perCapita.medical;
@@ -191,7 +217,7 @@ function calculateKokuho(input, data) {
   const childcareRate       = childcareCfg?.rate      || 0;
   const childcarePerCapita  = childcareCfg?.perCapita || 0;
   const childcareHousehold  = tokuteiAdj(childcareCfg?.household || 0);
-  const childcareIncome     = childcareRate > 0 ? Math.round(baseIncome * childcareRate) : 0;
+  const childcareIncome     = childcareRate > 0 ? incomeLevy(baseIncome, childcareRate, "childcare") : 0;
 
   // 均等割の計算
   // 新方式(perCapitaAdult あり):
@@ -254,7 +280,32 @@ function calculateKokuho(input, data) {
   }
   childcareTotal = Math.min(Math.max(childcareTotal, 0), childcareCap);
 
-  const total          = medicalTotal + supportTotal + careTotal + childcareTotal;
+  // 区分ごとの端数（限度額で頭打ちにした後に切り捨てる。限度額は単位の倍数なので順序で結果は変わらない）。
+  const rd = data.rounding || {};
+  const where = data.citySlug || "(citySlug不明)";
+  const checkUnit = (u, name) => {
+    if (!COMPONENT_UNITS.includes(u)) throw new RangeError(`[kokuho] ${where}: rounding.${name} は ${COMPONENT_UNITS.join("/")} のいずれか（${String(u)}）`);
+    return u;
+  };
+  const cu = rd.componentUnit ?? DEFAULT_COMPONENT_UNIT;
+  const unitOf = {};
+  for (const k of COMPONENT_KEYS) {
+    unitOf[k] = checkUnit(typeof cu === "object" && cu !== null ? (cu[k] ?? DEFAULT_COMPONENT_UNIT) : cu, `componentUnit${typeof cu === "object" ? "." + k : ""}`);
+  }
+  const dropBelow = rd.componentDropBelow ?? 0;
+  if (!Number.isFinite(dropBelow) || dropBelow < 0) throw new RangeError(`[kokuho] ${where}: rounding.componentDropBelow は 0 以上の数（${String(dropBelow)}）`);
+  const totalUnit = checkUnit(rd.totalUnit ?? 1, "totalUnit");
+  const floorTo = (v, u) => Math.floor(v / u) * u;
+  const roundComponent = (v, k) => {
+    const f = floorTo(v, unitOf[k]);
+    return unitOf[k] > 1 && f < dropBelow ? 0 : f;   // 全額切捨ては単位で切り捨てる区分だけ（千葉市の子ども分は対象外）
+  };
+  medicalTotal   = roundComponent(medicalTotal, "medical");
+  supportTotal   = roundComponent(supportTotal, "support");
+  careTotal      = roundComponent(careTotal, "care");
+  childcareTotal = roundComponent(childcareTotal, "childcare");
+
+  const total          = floorTo(medicalTotal + supportTotal + careTotal + childcareTotal, totalUnit);
   const monthly        = Math.round(total / 12);
   const totalReduction = medicalReduction + supportReduction + careReduction + childcareReduction;
   const assetLevyTotal = assetLevyMedical + assetLevySupport + assetLevyCare + assetLevyChildcare;
