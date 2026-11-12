@@ -168,7 +168,7 @@
         +'<div class="chk"><input type="checkbox" id="directHikazei"><label for="directHikazei" style="margin:0">父母とも住民税が非課税（通知書に「非課税」とある） <span class="hint">所得割が0円でも、均等割がかかっている世帯は印を付けません</span></label></div>';
     if(M.seireiConversion){ // 政令市で通知書8%→6%換算（名古屋型 seireiConversion:false では出さない）
       html+='<div class="chk"><input type="checkbox" id="isSeireiNotice"><label for="isSeireiNotice" style="margin:0">通知書の税率が8%（政令市の現行税率）＝6%に近似換算する</label></div>'
-          +'<div class="warn">8%→6%換算は近似です。階層境界では±数百円で1段ずれることがあります（要通知書確認）。</div>';
+          +'<div class="warn">8%→6%換算は近似です。通知書の額は100円単位のため、換算した額は本来の額と100円未満ずれることがあり、階層の境目では1段ずれることがあります（要通知書確認）。</div>';
     }
     html+='</div>';
 

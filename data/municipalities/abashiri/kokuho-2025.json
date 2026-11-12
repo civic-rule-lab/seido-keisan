@@ -53,6 +53,15 @@
       "twoTenths": 0.2
     }
   },
+  "rounding": {
+    "componentUnit": {
+      "medical": 100,
+      "support": 1,
+      "care": 1,
+      "childcare": 1
+    },
+    "note": "網走市国民健康保険条例 第25条の3第2項: 「第15条の保険料の賦課額に100円未満の端数があるとき(第22条第2項の場合を除く。」。100円切捨ては基礎賦課額のみ明記。2026-11-12 確認。"
+  },
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",

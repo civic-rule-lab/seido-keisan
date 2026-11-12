@@ -66,11 +66,11 @@
       "r8Stage": "source_found_r8",
       "sourceStatus": "previous_year_carryover",
       "sourceUrls": [
-        "https://www.town.mamurogawa.yamagata.jp/"
+        "https://www.vill.tozawa.yamagata.jp/pages/324/"
       ],
       "watchUrls": [
         "https://www.town.kaneyama.yamagata.jp/",
-        "https://www.town.mamurogawa.yamagata.jp/",
+        "https://www.vill.tozawa.yamagata.jp/pages/324/",
         "https://www.town.mamurogawa.yamagata.jp/soshiki/chomin/1/15/1/1460.html",
         "https://www.town.mamurogawa.yamagata.jp/soshiki/chomin/1/15/1/1446.html",
         "https://www.vill.tozawa.yamagata.jp/pages/324/"
@@ -80,8 +80,8 @@
     },
     "source": {
       "type": "wide_area_union_rate",
-      "title": "最上地区広域連合 国民健康保険料率（広報No.39・令和7年度）",
-      "url": "https://www.town.mamurogawa.yamagata.jp/",
+      "title": "最上地区広域連合 国民健康保険料率（令和7年度。構成村の戸沢村「令和７年度の保険料について」。真室川町のページには料率の記載なし）",
+      "url": "https://www.vill.tozawa.yamagata.jp/pages/324/",
       "publishedAt": "2025"
     },
     "quality": {

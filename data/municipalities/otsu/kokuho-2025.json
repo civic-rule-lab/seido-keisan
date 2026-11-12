@@ -53,6 +53,10 @@
       "twoTenths": 0.2
     }
   },
+  "rounding": {
+    "componentUnit": 1,
+    "note": "大津市国民健康保険条例 (賦課額の端数規定なし): 。賦課額・合計の端数規定なし（1円単位で扱う）。2026-11-12 確認。"
+  },
   "meta": {
     "schemaVersion": "1.0",
     "dataVersion": "1.0.0",

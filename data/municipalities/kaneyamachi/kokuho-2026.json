@@ -66,11 +66,11 @@
       "r8Stage": "source_found_r8",
       "sourceStatus": "previous_year_carryover",
       "sourceUrls": [
-        "https://www.town.mamurogawa.yamagata.jp/"
+        "https://www.town.kaneyama.yamagata.jp/machinososhiki/chominzeimuka/zeimukakari/2/1314.html"
       ],
       "watchUrls": [
         "https://www.town.kaneyama.yamagata.jp/",
-        "https://www.town.mamurogawa.yamagata.jp/",
+        "https://www.town.kaneyama.yamagata.jp/machinososhiki/chominzeimuka/zeimukakari/2/1314.html",
         "https://www.town.mamurogawa.yamagata.jp/soshiki/chomin/1/15/1/1460.html",
         "https://www.town.mamurogawa.yamagata.jp/soshiki/chomin/1/15/1/1446.html",
         "https://www.vill.tozawa.yamagata.jp/pages/324/"
@@ -80,8 +80,8 @@
     },
     "source": {
       "type": "wide_area_union_rate",
-      "title": "最上地区広域連合 国民健康保険料率（広報No.39・令和7年度）",
-      "url": "https://www.town.mamurogawa.yamagata.jp/",
+      "title": "最上地区広域連合 国民健康保険料率（令和7年度。構成町の金山町「国民健康保険料」ページ・2025-07-14 更新）",
+      "url": "https://www.town.kaneyama.yamagata.jp/machinososhiki/chominzeimuka/zeimukakari/2/1314.html",
       "publishedAt": "2025"
     },
     "quality": {
