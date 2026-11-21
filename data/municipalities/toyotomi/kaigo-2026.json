@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "http://houmu.h-chosonkai.gr.jp/~reikidb/top/detail/3844326",
-    "pageTitle": "豊富町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://houmu.h-chosonkai.gr.jp/~reikidb/data/134/57/H412901010004/H412901010004_j.html",
+    "pageTitle": "豊富町介護保険条例（北海道町村会 例規集データベース）",
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "豊富町13段。基準72000。第1-3軽減後。境界R8=826500。"
+  "notes": "豊富町13段。基準72000。第1-3軽減後。境界R8=826500。★2026-11-22 出典 URL を取り直し、条例本文と年額 13 段階を照合。全段階一致。"
 }

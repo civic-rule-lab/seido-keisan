@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://houmu.h-chosonkai.gr.jp/~reikidb/data/104/51/reiki_honbun/a067RG00000180.html",
-    "pageTitle": "寿都町介護保険条例 第2条(R6-8料率・北海道町村会例規DB)",
-    "retrievedAt": "2026-07-08"
+    "url": "https://houmu.h-chosonkai.gr.jp/~reikidb/data/104/53/reiki_honbun/a067RG00000180.html",
+    "pageTitle": "寿都町介護保険条例（北海道町村会 例規集データベース）",
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "寿都町(13段・単独保険者)。基準76,800(月6,400)。介護保険条例第2条で年額確定(第1-3軽減後21,800/37,200/52,600)。★条例が100円未満切捨を明記。標準率。★2026-07-08 町村会例規DBをブラウザで取得しinferred→verified。"
+  "notes": "寿都町(13段・単独保険者)。基準76,800(月6,400)。介護保険条例第2条で年額確定(第1-3軽減後21,800/37,200/52,600)。★条例が100円未満切捨を明記。標準率。★2026-07-08 町村会例規DBをブラウザで取得しinferred→verified。★2026-11-22 出典 URL を取り直し、条例本文と年額 13 段階を照合。全段階一致。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "http://houmu.h-chosonkai.gr.jp/~reikidb/top/detail/4004864",
-    "pageTitle": "礼文町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://houmu.h-chosonkai.gr.jp/~reikidb/data/210/51/H412901010002/H412901010002_j.html",
+    "pageTitle": "礼文町介護保険条例（北海道町村会 例規集データベース）",
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "礼文町13段。基準67200。第1-3軽減後。境界R8=826500。"
+  "notes": "礼文町13段。基準67200。第1-3軽減後。境界R8=826500。★2026-11-22 出典 URL を取り直し、条例本文と年額 13 段階を照合。全段階一致。"
 }
