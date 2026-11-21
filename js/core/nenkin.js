@@ -8,6 +8,9 @@
 //   4分の1免除: ≤ 168万円 + 同上
 //   学生納付特例（本人のみ）: ≤ 128万円 + 扶養親族等の数×38万円 + 社会保険料控除等
 //   審査対象: 免除＝本人・配偶者・世帯主の全員 / 納付猶予＝本人・配偶者（50歳未満） / 学生納付特例＝本人
+//   審査の順: 全額免除 → 納付猶予 → 4分の3免除 → 半額免除 → 4分の1免除（申請書で区分を選ばないときの既定の順）。
+//     出典: 日本年金機構「国民年金保険料 免除・納付猶予申請書」⑨免除等区分欄「記入がない場合は、以下の免除等区分について
+//     １～５の順に全て審査します」（2026-11-15 確認）。申請者は備考欄で納付猶予の位置を変えられるが、本関数は既定の順だけを扱う。
 //   特例: 本人が地方税法上の障害者・寡婦・ひとり親で前年所得135万円以下の人は、上の式によらず基準を満たす
 //         （国民年金法 第90条第1項第3号・施行令 第6条の7の2・第6条の8。JSON の exemption.localTaxNonTaxable）
 // 「扶養親族等控除額」「社会保険料控除額等」の内訳は JSON の exemption.dependentDeduction / otherDeduction（meta.inferred 参照）。
@@ -139,11 +142,14 @@
     if (input.isStudent) {
       if (within(self, 'student', E)) Object.assign(out, { level: 'student', payFraction: E.payFraction.student });
     } else {
-      for (const lv of LEVELS) {
-        if (okFor(all, lv)) { Object.assign(out, { level: lv, payFraction: E.payFraction[lv] }); break; }
-      }
-      if (out.level === 'none' && age < E.yuyo.ageMax && okFor(['self', 'spouse'].filter((k) => persons[k]), 'yuyo')) {
-        Object.assign(out, { level: 'yuyo', payFraction: E.payFraction.yuyo });
+      // 申請書の既定の順（全額免除 → 納付猶予 → 4分の3 → 半額 → 4分の1）。2026-11-15 TASKS X245（S1-2 NK-2）:
+      //   旧は納付猶予を最後に審査しており、本人・配偶者が全額免除の基準内でも、世帯主の所得しだいで
+      //   一部免除（保険料の一部を納付）と判定し、世帯主の所得が増えると納付猶予（0 円）に変わる逆転があった。
+      const order = ['full', 'yuyo', 'threeQuarters', 'half', 'quarter'];
+      const yuyoKeys = ['self', 'spouse'].filter((k) => persons[k]);
+      for (const lv of order) {
+        const ok = lv === 'yuyo' ? (age < E.yuyo.ageMax && okFor(yuyoKeys, 'yuyo')) : okFor(all, lv);
+        if (ok) { Object.assign(out, { level: lv, payFraction: E.payFraction[lv] }); break; }
       }
     }
     out.monthlyAfter = Math.round(db.monthly * out.payFraction);

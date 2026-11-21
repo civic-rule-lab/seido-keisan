@@ -962,15 +962,20 @@
           //   ＝奨学金サイトのかんたん判定（15%概算）より会社員は正確側。賞与込み給与で課税判定。
           //   家族欄を入れたときは、住民税カードと同じ配偶者控除・配偶者特別控除・扶養控除・人数・人的控除差を渡す（2026-10-30 全方向試算 C068・C069。
           //   旧実装は配偶者に給与があると配偶者控除を外し、扶養控除を渡さず、人数も別の数え方だった）。家族欄が空なら従来の近似。
-          //   ひとり親（母・父）はブリッジの singleParent で渡す。寡婦・障害者・所得金額調整控除はブリッジが受けない（段4 で対応）
+          //   本人の区分（ひとり親の母・父・寡婦）は singleParent、本人の障害は selfDisability、未成年・23歳未満の扶養の有無も渡す。
+          //   住民税カード（famJumin）と同じ入力を使う。ブリッジ（supporterFromIncome）が控除額と135万円以下の非課税を住民税エンジンで決める
+          //   （旧実装は母・父だけを渡し、寡婦・障害者を選んでも奨学金カードに効かず、支援区分が不利に出ていた）
           //   進学するお子さんを「扶養（19〜22歳）」に入れていない（0人）ときは、1人を特定扶養（控除45万・人的控除差18万・人数+1）として足す
-          var sgSP = (selfSt.singleParent==="mother"||selfSt.singleParent==="father") ? selfSt.singleParent : undefined;
+          var sgSP = (selfSt.singleParent==="mother"||selfSt.singleParent==="father"||selfSt.singleParent==="widow") ? selfSt.singleParent : undefined;
+          var sgSD = (famSelfDisability==="general"||famSelfDisability==="special") ? famSelfDisability : undefined;
           var sgAddStudent = (famDS===0) ? 1 : 0;
           var sgSup=[ famAny
             ? { salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, singleParent:sgSP,
+                selfDisability:sgSD, minor:famJumin.minor, under23Dependent:famJumin.under23Dependent,
                 spouseDeduction:famJumin.spouseDeduction, dependentDeduction:famJumin.dependentDeduction + sgAddStudent*450000,
                 dependents:famJumin.dependents + sgAddStudent, humanDeductionDiff:famJumin.humanDeductionDiff + sgAddStudent*180000 }
             : { salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, singleParent:sgSP,
+                selfDisability:sgSD, minor:famJumin.minor, under23Dependent:famJumin.under23Dependent,
                 hasSpouseDeduction:sgHasSpouse, dependents:(sgHasSpouse?1:0)+sgChildren } ];
           if(sgSpouse>0){
             var sgSpSi;
