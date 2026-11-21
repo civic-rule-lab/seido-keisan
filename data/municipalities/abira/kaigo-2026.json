@@ -15,7 +15,7 @@
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 17784,
+      "annual": 17780,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 30264,
+      "annual": 30260,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 42744,
+      "annual": 42740,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -170,5 +170,5 @@
     "pageTitle": "安平町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "安平町13段。基準62400。第1-3軽減後。境界R8=826500。"
+  "notes": "安平町13段。基準62400。第1-3軽減後。境界R8=826500。★2026-11-22 第1〜3段階の年額を条例の額に訂正（安平町介護保険条例 附則第19項（令和6年度から令和8年度における保険料の額の特例）。第8条第2項は 10 円未満切捨て）。従来は基準額×料率の計算値で、条例の端数処理が入っていなかった（差は年 10 円未満）。第4段階以降は条例と一致。料率（rate）は変えていない。"
 }
