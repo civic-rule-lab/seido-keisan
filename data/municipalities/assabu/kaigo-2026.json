@@ -15,7 +15,7 @@
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 23256,
+      "annual": 23200,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 39576,
+      "annual": 39500,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 55896,
+      "annual": 55800,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -49,7 +49,7 @@
       "level": "4",
       "label": "第4段階",
       "rate": 0.9,
-      "annual": 73440,
+      "annual": 73400,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 97920,
+      "annual": 97900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -84,7 +84,7 @@
       "level": "7",
       "label": "第7段階",
       "rate": 1.3,
-      "annual": 106080,
+      "annual": 106000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -108,7 +108,7 @@
       "level": "9",
       "label": "第9段階",
       "rate": 1.7,
-      "annual": 138720,
+      "annual": 138700,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -120,7 +120,7 @@
       "level": "10",
       "label": "第10段階",
       "rate": 1.9,
-      "annual": 155040,
+      "annual": 155000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -132,7 +132,7 @@
       "level": "11",
       "label": "第11段階",
       "rate": 2.1,
-      "annual": 171360,
+      "annual": 171300,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -144,7 +144,7 @@
       "level": "12",
       "label": "第12段階",
       "rate": 2.3,
-      "annual": 187680,
+      "annual": 187600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -156,7 +156,7 @@
       "level": "13",
       "label": "第13段階",
       "rate": 2.4,
-      "annual": 195840,
+      "annual": 195800,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -170,5 +170,5 @@
     "pageTitle": "厚沢部町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "厚沢部町13段。基準81600。第1-3軽減後。境界R8=826500。"
+  "notes": "厚沢部町13段。基準81600。第1-3軽減後。境界R8=826500。★2026-11-22 年額 11 段階を条例の額に訂正。従来は基準額×料率の計算値で、条例の 100 円未満切捨てが入っていなかった（差は年 100 円未満）。町村会 例規集データベースの条例本文（https://houmu.h-chosonkai.gr.jp/~reikidb/data/10/56/reiki_honbun/a058RG00000230.html）と出典ページで 13 段階を照合。料率（rate）は変えていない。"
 }
