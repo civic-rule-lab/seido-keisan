@@ -33,6 +33,13 @@
 //                     配列を first-match 評価するだけ（データ駆動）。
 //     ※額は bracket.annual（公表値・百円丸め等）があれば優先、なければ
 //       baseAmount×rate。係数と公表額が一致しない自治体があるため annual を正とする。
+//
+// 年額の端数処理（2026-11-22・TASKS X258）:
+//   条例・公表資料の年額に端数があり、別の条や注記で「◯円未満は切り捨てる」と定める自治体がある
+//   （調布市 条例第11条・さいたま市・京都市 ほか）。データには公表されている額（切り捨てる前）を入れ、
+//   切り捨てる単位を data.rounding.annualUnit（10 か 100）に持つ。エンジンが年額をその単位で切り捨てる。
+//   rounding が無いデータは切り捨てない（従来どおり）。月割りの条（賦課期日後の資格取得・喪失）だけに
+//   ある端数処理は通年の年額にかからないので、ここには入れない。
 
 'use strict';
 
@@ -89,6 +96,29 @@ function _kaigoAmount(v, name) {
   return Math.max(0, v);
 }
 
+// ─── 年額（端数処理つき） ─────────────────────────────────────
+
+const KAIGO_ANNUAL_UNITS = [10, 100];
+
+/**
+ * 段階 1 つの年額を返す。data.rounding.annualUnit があれば、その単位で切り捨てる。
+ * annual も baseAmount×rate も無い段階は null。
+ *
+ * @param {Object} data    - kaigo-{year}.json
+ * @param {Object} bracket - data.brackets の 1 要素
+ * @returns {{listed:number, annual:number, unit:number}|null} listed は公表されている額、annual は端数処理後、unit は切り捨てた単位（無ければ 1）
+ */
+function kaigoBracketAnnual(data, bracket) {
+  if (bracket.annual == null && !(Number.isFinite(data.baseAmount) && Number.isFinite(bracket.rate))) return null;
+  const listed = bracket.annual ?? Math.round(data.baseAmount * bracket.rate);
+  const u = data.rounding?.annualUnit;
+  if (u === undefined) return { listed, annual: listed, unit: 1 };
+  if (!KAIGO_ANNUAL_UNITS.includes(u)) {
+    throw new RangeError(`[kaigo] ${data.citySlug || '(citySlug不明)'}: rounding.annualUnit は ${KAIGO_ANNUAL_UNITS.join('/')} のいずれか（${String(u)}）`);
+  }
+  return { listed, annual: Math.floor(listed / u) * u, unit: u };
+}
+
 // ─── 計算関数 ─────────────────────────────────────────────────
 
 /**
@@ -140,10 +170,12 @@ function calculateKaigo(data, memberContext) {
 
   // 保険料: annual フィールド優先、なければ baseAmount × rate で算出。
   //   どちらも無い段階はデータが不正なので null（2026-11-03 全方向試算 C120。旧は baseAmount=null で annual 0 を返していた）
-  if (matched.annual == null && !(Number.isFinite(data.baseAmount) && Number.isFinite(matched.rate))) return null;
-  const annual = matched.annual ?? Math.round(data.baseAmount * matched.rate);
+  //   data.rounding.annualUnit があれば年額をその単位で切り捨てる（2026-11-22 X258。kaigoBracketAnnual）
+  const a = kaigoBracketAnnual(data, matched);
+  if (a === null) return null;
+  const annual = a.annual;
 
-  return {
+  const result = {
     level:      matched.level,
     label:      matched.label,
     rate:       matched.rate,
@@ -151,8 +183,11 @@ function calculateKaigo(data, memberContext) {
     annual,
     monthly:    Math.round(annual / 12),
   };
+  // 切り捨てたときだけ、公表されている額と単位を添える（表示の注記用）
+  if (a.unit !== 1) { result.annualListed = a.listed; result.annualUnit = a.unit; }
+  return result;
 }
 
 if (typeof module !== 'undefined' && module.exports) {
-  module.exports = { calculateKaigo, matchBracket };
+  module.exports = { calculateKaigo, matchBracket, kaigoBracketAnnual };
 }

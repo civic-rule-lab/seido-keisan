@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 84960,
+      "annual": 84900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -84,7 +84,7 @@
       "level": "7",
       "label": "第7段階",
       "rate": 1.3,
-      "annual": 92040,
+      "annual": 92000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -108,7 +108,7 @@
       "level": "9",
       "label": "第9段階",
       "rate": 1.7,
-      "annual": 120360,
+      "annual": 120300,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -120,7 +120,7 @@
       "level": "10",
       "label": "第10段階",
       "rate": 1.9,
-      "annual": 134520,
+      "annual": 134500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -132,7 +132,7 @@
       "level": "11",
       "label": "第11段階",
       "rate": 2.1,
-      "annual": 148680,
+      "annual": 148600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -144,7 +144,7 @@
       "level": "12",
       "label": "第12段階",
       "rate": 2.3,
-      "annual": 162840,
+      "annual": 162800,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -156,7 +156,7 @@
       "level": "13",
       "label": "第13段階",
       "rate": 2.4,
-      "annual": 169920,
+      "annual": 169900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -170,5 +170,5 @@
     "pageTitle": "羅臼町 介護保険料(第9期)",
     "retrievedAt": "2026-06-26"
   },
-  "notes": "羅臼町13段。基準70800。第1-3軽減後。境界R8=826500。"
+  "notes": "羅臼町13段。基準70800。第1-3軽減後。境界R8=826500。★2026-11-22 年額 7 段階を条例の額に訂正。出典の介護保険条例は 100 円未満を切り捨てた額そのものを定めており、従来のデータは基準額×料率の計算値のままだった（差は年 100 円未満）。料率（rate）は変えていない。"
 }
