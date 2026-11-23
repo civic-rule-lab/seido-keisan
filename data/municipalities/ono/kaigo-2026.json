@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.ono.hyogo.jp/material/files/group/19/2025kaigohokennryou.pdf",
+    "url": "https://www.city.ono.hyogo.jp/material/files/group/19/hokenryou2026.pdf",
     "pageTitle": "小野市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "小野市13段(国標準)。基準72000(月6000)。第1-3軽減後。境界120/210/320/420/520/620/720万。"
+  "notes": "小野市13段(国標準)。基準72000(月6000)。第1-3軽減後。境界120/210/320/420/520/620/720万。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.ono.hyogo.jp/material/files/group/19/2025kaigohokennryou.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.iijima.lg.jp/material/files/group/5/koreishaplan10th_gaiyo.pdf",
+    "url": "https://www.town.iijima.lg.jp/assets/images/content/content_20260828_170608.pdf",
     "pageTitle": "飯島町 第9期介護保険料",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "飯島町(上伊那)第9期計画概要PDF（ユーザー提供）。13段階・基準額月5,600円(年67,200)。町独自軽減率(第1-3=0.25/0.45/0.685)の年額保険料列を採用。標準境界。"
+  "notes": "飯島町(上伊那)第9期計画概要PDF（ユーザー提供）。13段階・基準額月5,600円(年67,200)。町独自軽減率(第1-3=0.25/0.45/0.685)の年額保険料列を採用。標準境界。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.town.iijima.lg.jp/material/files/group/5/koreishaplan10th_gaiyo.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

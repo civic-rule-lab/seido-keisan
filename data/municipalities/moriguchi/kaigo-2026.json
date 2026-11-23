@@ -202,9 +202,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.moriguchi.osaka.jp/material/files/group/78/dai9ki_kaigodankai_reiwa7.pdf",
-    "pageTitle": "moriguchi 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "url": "https://www.city.moriguchi.osaka.jp/material/files/group/78/R8_kaigohokenryou.pdf",
+    "pageTitle": "守口市 介護保険料（第9期）",
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "守口市16段(くすのき解散後・単独)。基準107640(月8970)。第1-3軽減後(0.285/0.485/0.685)。1020万まで細分。"
+  "notes": "守口市16段(くすのき解散後・単独)。基準107640(月8970)。第1-3軽減後(0.285/0.485/0.685)。1020万まで細分。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.moriguchi.osaka.jp/material/files/group/78/dai9ki_kaigodankai_reiwa7.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 16 段階がすべて一致することを確認。年額・料率は変えていない。出典名の自治体名を slug 表記から日本語に直した。"
 }

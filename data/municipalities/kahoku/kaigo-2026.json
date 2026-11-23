@@ -166,10 +166,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kahoku.lg.jp/003/331/334/d000260_d/fil/000000090809.pdf",
+    "url": "https://www.city.kahoku.lg.jp/003/331/334/d000260_d/fil/R8hokenryou.pdf",
     "pdfUrl": null,
     "pageTitle": "かほく市 介護保険料（令和6〜8年度・13段階）",
-    "retrievedAt": "2026-06-15"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "かほく市公式PDF(テキスト)から確定。基準額70,800円。第1-3軽減後。PDF表記80万→R8=82.65万正規化。標準刻み。"
+  "notes": "かほく市公式PDF(テキスト)から確定。基準額70,800円。第1-3軽減後。PDF表記80万→R8=82.65万正規化。標準刻み。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.kahoku.lg.jp/003/331/334/d000260_d/fil/000000090809.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

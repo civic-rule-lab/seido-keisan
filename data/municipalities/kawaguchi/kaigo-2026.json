@@ -214,9 +214,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kawaguchi.lg.jp/material/files/group/42/hokennryoudannkai2025.pdf",
+    "url": "https://www.city.kawaguchi.lg.jp/material/files/group/42/hokennryoudannkai2026.pdf",
     "pageTitle": "川口市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "川口市★17段。基準72920(月6077)。公式PDF確定。第1-3軽減後・★第4=0.85(61980)。独自境界720-820/820-1000/1000-1500/1500-2000/2000万。境界R8=826500。"
+  "notes": "川口市★17段。基準72920(月6077)。公式PDF確定。第1-3軽減後・★第4=0.85(61980)。独自境界720-820/820-1000/1000-1500/1500-2000/2000万。境界R8=826500。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.kawaguchi.lg.jp/material/files/group/42/hokennryoudannkai2025.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 17 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

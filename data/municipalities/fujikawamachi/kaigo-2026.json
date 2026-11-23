@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.fujikawa.yamanashi.jp/docs/2023082200067/file_contents/R7kaigohokennryou.pdf",
+    "url": "https://www.town.fujikawa.yamanashi.jp/docs/2023082200067/file_contents/8kaigohokenryou.pdf",
     "pageTitle": "富士川町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "富士川町公式PDF。13段階・基準額73,200円。国標準境界・乗率。第1-3軽減後（20,870/35,510/50,150、軽減前33,300/50,140/50,500）。第1-5境界R8=826500に正規化。"
+  "notes": "富士川町公式PDF。13段階・基準額73,200円。国標準境界・乗率。第1-3軽減後（20,870/35,510/50,150、軽減前33,300/50,140/50,500）。第1-5境界R8=826500に正規化。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.town.fujikawa.yamanashi.jp/docs/2023082200067/file_contents/R7kaigohokennryou.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

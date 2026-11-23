@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.saito.lg.jp/0c0bcfec12313ec41e39ce1bfaa216c9.pdf",
+    "url": "https://www.city.saito.lg.jp/uploads/docs/kenko_kyoiku/1793773272_0c0bcfec12313ec41e39ce1bfaa216c9.pdf",
     "pageTitle": "西都市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-19"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "西都市13段。基準75600(月6300)。第1-3軽減後(0.285/0.485/0.685)。第4=0.90。境界120/210/320/420/520/620/720万。第9期計画本編PDF p116-117。"
+  "notes": "西都市13段。基準75600(月6300)。第1-3軽減後(0.285/0.485/0.685)。第4=0.90。境界120/210/320/420/520/620/720万。第9期計画本編PDF p116-117。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.saito.lg.jp/0c0bcfec12313ec41e39ce1bfaa216c9.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

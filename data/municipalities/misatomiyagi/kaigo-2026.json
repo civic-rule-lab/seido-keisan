@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.misato.miyagi.jp/05kenko/pdf/kaigohokenryounoosirase.pdf",
+    "url": "https://www.town.misato.miyagi.jp/fukushi/kaigo/pdf/kaigohokenryounoosirase.pdf",
     "pageTitle": "美里町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "美里町13段(宮城・埼玉/熊本の美里と別)。基準69600(月5800)。第1-3軽減後(公式明記)。第6+標準境界。境界R8=826500。"
+  "notes": "美里町13段(宮城・埼玉/熊本の美里と別)。基準69600(月5800)。第1-3軽減後(公式明記)。第6+標準境界。境界R8=826500。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.town.misato.miyagi.jp/05kenko/pdf/kaigohokenryounoosirase.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

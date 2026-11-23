@@ -226,10 +226,10 @@
   ],
   "fallbackLevel": "6",
   "source": {
-    "url": "https://www.city.yokohama.lg.jp/kurashi/fukushi-kaigo/kaigo/hoken/hokenryo/keisan.html",
-    "pdfUrl": "https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/fukushi-kaigo/koreisha-kaigo/kaigo-hoken/kaigo-hoken-hiyo/kaigohokenryo.files/0018_20250616.pdf",
+    "url": "https://www.city.yokohama.lg.jp/kenko-iryo-fukushi/fukushi-kaigo/koreisha-kaigo/kaigo-hoken/kaigo-hoken-hiyo/kaigohokenryo.html",
+    "pdfUrl": null,
     "pageTitle": "横浜市 65歳以上の方の介護保険料（第9期・19段階）",
-    "retrievedAt": "2026-06-15"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "横浜市公式PDF(令和6〜8年度・19段階)から確定。基準額79,440円(第6段階)。公式は19段階だが第1(生保/老齢福祉年金)と第2(世帯非課税・合算82.65万円以下)が同額(基準額×0.20)のため所得判定エンジン上はlevel1に統合(計18bracket)。生保フラグは未実装の拡張点。第1〜6は合算所得(課税年金収入＋その他合計所得)、第7以降は保険料算定用所得金額。第1〜5境界はR8=82.65万(R7=80.9万)。"
+  "notes": "横浜市公式PDF(令和6〜8年度・19段階)から確定。基準額79,440円(第6段階)。公式は19段階だが第1(生保/老齢福祉年金)と第2(世帯非課税・合算82.65万円以下)が同額(基準額×0.20)のため所得判定エンジン上はlevel1に統合(計18bracket)。生保フラグは未実装の拡張点。第1〜6は合算所得(課税年金収入＋その他合計所得)、第7以降は保険料算定用所得金額。第1〜5境界はR8=82.65万(R7=80.9万)。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.yokohama.lg.jp/kurashi/fukushi-kaigo/kaigo/hoken/hokenryo/keisan.html）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 18 段階がすべて一致することを確認。年額・料率は変えていない。併記していた pdfUrl も 404 のため null にした。"
 }

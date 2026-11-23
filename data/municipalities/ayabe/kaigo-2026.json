@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.ayabe.lg.jp/cmsfiles/contents/0000001/1598/R7minnanoansinkaigohoken.pdf",
+    "url": "https://www.city.ayabe.lg.jp/cmsfiles/contents/0000001/1598/R8minnanoansinkaigohoken.pdf",
     "pageTitle": "綾部市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "綾部市15段階。基準74,430(月6,202)。第1-3軽減後(★第2=0.435独自)・第4=0.85。高所得720/800/1000万で細分。出典=公式パンフPDF p.33。府PDF6,202と一致。"
+  "notes": "綾部市15段階。基準74,430(月6,202)。第1-3軽減後(★第2=0.435独自)・第4=0.85。高所得720/800/1000万で細分。出典=公式パンフPDF p.33。府PDF6,202と一致。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.ayabe.lg.jp/cmsfiles/contents/0000001/1598/R7minnanoansinkaigohoken.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、取得して年額 15 段階がすべて一致することを確認。年額・料率は変えていない。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.fuefuki.yamanashi.jp/documents/6143/kaigohokenryou.pdf",
+    "url": "https://www.city.fuefuki.yamanashi.jp/documents/6143/kaigohokenryou_1.pdf",
     "pageTitle": "笛吹市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-22"
   },
-  "notes": "笛吹市公式PDF（令和6〜8年度笛吹市介護保険料一覧表）。13段階・基準額72,000円(月6,000)。第1-3軽減後（0.285/0.485/0.685直接掲載）。上位独自乗率: 第10=1.8/第11=1.88/第12=1.89/第13=1.9。第1-5境界R8=826500に正規化。"
+  "notes": "笛吹市公式PDF（令和6〜8年度笛吹市介護保険料一覧表）。13段階・基準額72,000円(月6,000)。第1-3軽減後（0.285/0.485/0.685直接掲載）。上位独自乗率: 第10=1.8/第11=1.88/第12=1.89/第13=1.9。第1-5境界R8=826500に正規化。★2026-11-22 出典 URL を差し替え。旧 URL（https://www.city.fuefuki.yamanashi.jp/documents/6143/kaigohokenryou.pdf）が 404 になっていた。新しい出典は同じ自治体の公式サイト上の資料で、画像の PDF のため、画像に変換して目視で年額 13 段階がすべて一致することを確認。年額・料率は変えていない。"
 }
