@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.sakuho.nagano.jp/kurashi/fukushi/kaigo/kenkofukushika_379.html",
+    "url": "https://www.town.sakuho.nagano.jp/kenko_fukushi/fukushi_kaigo/koreisha/kenkofukushi_7709.html",
     "pageTitle": "佐久穂町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "佐久穂町公式。13段階・基準額70,800円。第1-3軽減後。"
+  "notes": "佐久穂町公式。13段階・基準額70,800円。第1-3軽減後。★2026-11-24 出典の url を差し替え（旧 https://www.town.sakuho.nagano.jp/kurashi/fukushi/kaigo/kenkofukushika_379.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

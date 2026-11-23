@@ -226,10 +226,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.ayase.kanagawa.jp/soshiki/koreikaigoka/kaigohokentanto/kaigosimin/kaigohokennryou/21674.html",
+    "url": "https://www.city.ayase.kanagawa.jp/soshiki/koreikaigoka/kaigohokentanto/kaigosimin/kaigohokennryou/24943.html",
     "pdfUrl": null,
     "pageTitle": "綾瀬市 介護保険料（令和8年度・18段階）",
-    "retrievedAt": "2026-06-15"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "綾瀬市公式HP(令和8.4〜表)から確定。基準額68,300円。境界82.65万明記。"
+  "notes": "綾瀬市公式HP(令和8.4〜表)から確定。基準額68,300円。境界82.65万明記。★2026-11-24 出典の url を差し替え（旧 https://www.city.ayase.kanagawa.jp/soshiki/koreikaigoka/kaigohokentanto/kaigosimin/kaigohokennryou/21674.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 18 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.aichi-miyoshi.lg.jp/kaigo/",
+    "url": "https://www.city.aichi-miyoshi.lg.jp/soshiki/fukushi/choju/kaigohoken/kaigohokenryou/968.html",
     "pageTitle": "みよし市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "みよし市★13段。基準58800(月4900)。★★第1=0.175/第2=0.30/第3=0.50/第4=0.80 deep独自軽減(R8改定)。第6+標準境界。境界R8=826500。"
+  "notes": "みよし市★13段。基準58800(月4900)。★★第1=0.175/第2=0.30/第3=0.50/第4=0.80 deep独自軽減(R8改定)。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.aichi-miyoshi.lg.jp/kaigo/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -166,10 +166,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.tsuruga.lg.jp/kenko_fukushi/zaitakuseikasu_shien/65kaigohokenryou.html",
+    "url": "https://www.city.tsuruga.lg.jp/page/2573.html",
     "pdfUrl": null,
     "pageTitle": "敦賀市 介護保険料（令和6〜8年度・13段階）",
-    "retrievedAt": "2026-06-15"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "敦賀市公式HPから確定。基準額75,600円。第1-3軽減後(率0.285/0.435/0.735独自)。HP表記80万→R8=82.65万正規化。標準刻み。"
+  "notes": "敦賀市公式HPから確定。基準額75,600円。第1-3軽減後(率0.285/0.435/0.735独自)。HP表記80万→R8=82.65万正規化。標準刻み。★2026-11-24 出典の url を差し替え（旧 https://www.city.tsuruga.lg.jp/kenko_fukushi/zaitakuseikasu_shien/65kaigohokenryou.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

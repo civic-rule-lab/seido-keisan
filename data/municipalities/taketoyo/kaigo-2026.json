@@ -202,9 +202,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.taketoyo.lg.jp/kenkou/kaigo/1004961.html",
+    "url": "https://www.town.taketoyo.lg.jp/kenkou/1001527/1002140/1004961.html",
     "pageTitle": "武豊町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "武豊町★16段。基準60480(月5040)。第1-3軽減後(軽減前併記→軽減後採用)。独自境界820/920/1000万。境界R8=826500。"
+  "notes": "武豊町★16段。基準60480(月5040)。第1-3軽減後(軽減前併記→軽減後採用)。独自境界820/920/1000万。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.town.taketoyo.lg.jp/kenkou/kaigo/1004961.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 16 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

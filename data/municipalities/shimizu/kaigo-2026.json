@@ -15,7 +15,7 @@
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 20180,
+      "annual": 20170,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.485,
-      "annual": 34340,
+      "annual": 34330,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.685,
-      "annual": 48500,
+      "annual": 48490,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.shimizu.hokkaido.jp/plans/05/files/593d2ebeee30a1cac446801b10f27bc9.pdf",
-    "pageTitle": "清水町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "url": "https://houmu.h-chosonkai.gr.jp/~reikidb/data/91/62/H412901010023/H412901010023_j.html",
+    "pageTitle": "清水町介護保険条例（北海道町村会 例規集データベース）",
+    "retrievedAt": "2026-11-23"
   },
-  "notes": "清水町13段。基準70800。第1-3軽減後。境界R8=826500。"
+  "notes": "清水町13段。基準70800。第1-3軽減後。境界R8=826500。★2026-11-23 第1〜3段階の年額を条例の額に訂正（20,180→20,170／34,340→34,330／48,500→48,490）。清水町介護保険条例 第2条第2〜4項（令和6年度から令和8年度までの減額賦課に係る保険料率）の額。従来は基準額×料率を10円単位に丸めた値で、条例の額（10円未満切り捨て）と違っていた。第4段階以降は同条第1項の額と一致。料率（rate）は変えていない。出典を北海道町村会 例規集データベースの条例本文に差し替えた（旧 URL https://www.town.shimizu.hokkaido.jp/plans/05/files/593d2ebeee30a1cac446801b10f27bc9.pdf は町の公式サイトのセキュリティメンテナンスで 404。2026-05-17 の web.archive.org の写し〈第9期計画〉も第1〜3段階は 20,170／34,330／48,490 円）。"
 }

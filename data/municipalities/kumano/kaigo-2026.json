@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.kumano.hiroshima.jp/www/contents/1715326197306/index.html",
+    "url": "https://www.town.kumano.lg.jp/section/reiki/reiki_int/reiki_honbun/m317RG00000427.html",
     "pageTitle": "熊野町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-24"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "熊野町13段。基準57936一致。第1-3軽減後(0.285/0.485/0.685)。第6+標準境界。境界R8=826500正規化(公式80万)。"
+  "notes": "熊野町13段。基準57936一致。第1-3軽減後(0.285/0.485/0.685)。第6+標準境界。境界R8=826500正規化(公式80万)。★2026-11-24 出典の url を差し替え（旧 https://www.town.kumano.hiroshima.jp/www/contents/1715326197306/index.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

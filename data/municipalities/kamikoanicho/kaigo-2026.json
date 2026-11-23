@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://lg.joureikun.jp/kamikoani_vill/reiki/act/110000291.html",
+    "url": "https://www.vill.kamikoani.akita.jp/div/jyumin/pdf/hukusi/kaigo/kaigokeikaku9.pdf",
     "pageTitle": "上小阿仁村 介護保険料（第9期）",
-    "retrievedAt": "2026-06-24"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "上小阿仁村13段。基準81600一致(月6800)。介護保険条例第2条。第1-3軽減後=減額賦課(23256/39576/55896)。第6+標準境界。境界R8=826500正規化。"
+  "notes": "上小阿仁村13段。基準81600一致(月6800)。介護保険条例第2条。第1-3軽減後=減額賦課(23256/39576/55896)。第6+標準境界。境界R8=826500正規化。★2026-11-24 出典の url を差し替え（旧 https://lg.joureikun.jp/kamikoani_vill/reiki/act/110000291.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

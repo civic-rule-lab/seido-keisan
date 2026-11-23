@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.awaji.lg.jp/site/kaigohoken/23296.html",
+    "url": "https://www.city.awaji.lg.jp/site/kaigohoken/55806.html",
     "pageTitle": "淡路市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "淡路市13段。基準67200(月5600)。第1-3軽減後。★第7=1.35/第9=1.85の独自乗率。境界は国標準。"
+  "notes": "淡路市13段。基準67200(月5600)。第1-3軽減後。★第7=1.35/第9=1.85の独自乗率。境界は国標準。★2026-11-24 出典の url を差し替え（旧 https://www.city.awaji.lg.jp/site/kaigohoken/23296.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

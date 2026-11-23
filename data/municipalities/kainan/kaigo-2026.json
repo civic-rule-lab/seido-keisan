@@ -178,9 +178,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kainan.lg.jp/kakubusho/kurashibu/koreinenkinka/koreikaigokatorikumi/kaigohokenryo/3632.html",
+    "url": "https://www.city.kainan.lg.jp/kakubusho/kurashibu/koreinenkinka/kaigohoken/kaigohokenryo/3632.html",
     "pageTitle": "海南市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-23"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "海南市14段階。基準72,000(月6,000)。★第1-3独自実額(0.285/0.41/0.685)・第4=0.879。第13=720-820/第14=820万以上。goo6,000と一致。"
+  "notes": "海南市14段階。基準72,000(月6,000)。★第1-3独自実額(0.285/0.41/0.685)・第4=0.879。第13=720-820/第14=820万以上。goo6,000と一致。★2026-11-24 出典の url を差し替え（旧 https://www.city.kainan.lg.jp/kakubusho/kurashibu/koreinenkinka/koreikaigokatorikumi/kaigohokenryo/3632.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 14 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

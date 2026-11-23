@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www1.g-reiki.net/town.kaneyama.yamagata/reiki_honbun/c422RG00000263.html",
+    "url": "https://www.town.kaneyama.yamagata.jp/material/files/group/5/20240522.pdf",
     "pageTitle": "金山町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "金山町13段。基準72000(月6000)。介護保険条例第2条。第1-3軽減後。第6+標準境界。境界R8=826500。"
+  "notes": "金山町13段。基準72000(月6000)。介護保険条例第2条。第1-3軽減後。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www1.g-reiki.net/town.kaneyama.yamagata/reiki_honbun/c422RG00000263.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

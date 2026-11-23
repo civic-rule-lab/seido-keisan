@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.tamura.lg.jp/soshiki/kaigofukushi/",
+    "url": "https://www.city.tamura.lg.jp/soshiki/15/kaigo-hokennryo.html",
     "pageTitle": "田村市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "田村市13段。基準72000(月6000)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。"
+  "notes": "田村市13段。基準72000(月6000)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.tamura.lg.jp/soshiki/kaigofukushi/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

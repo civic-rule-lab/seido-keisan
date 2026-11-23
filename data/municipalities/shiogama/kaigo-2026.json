@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.shiogama.miyagi.jp/soshiki/kaigo/kaigohokenryo.html",
+    "url": "https://www.city.shiogama.miyagi.jp/soshiki/12/2573.html",
     "pageTitle": "塩竈市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "塩竈市13段。基準72120(月6010)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。"
+  "notes": "塩竈市13段。基準72120(月6010)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.shiogama.miyagi.jp/soshiki/kaigo/kaigohokenryo.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

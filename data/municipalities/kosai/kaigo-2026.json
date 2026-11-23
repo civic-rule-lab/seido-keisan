@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kosai.shizuoka.jp/material/files/group/18/kaigohokenryo_R7.pdf",
+    "url": "https://www.city.kosai.shizuoka.jp/material/files/group/18/kaigohokenryo_R8.pdf",
     "pageTitle": "湖西市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "湖西市公式PDF(R7版・基準額/乗率/年額は第9期R6-R8共通)。13段階・基準額60,000円(月5,000)。第1-3軽減後。第6-13境界120/210/320/420/520/620/720万。第1-5境界R8=826500に正規化。"
+  "notes": "湖西市公式PDF(R7版・基準額/乗率/年額は第9期R6-R8共通)。13段階・基準額60,000円(月5,000)。第1-3軽減後。第6-13境界120/210/320/420/520/620/720万。第1-5境界R8=826500に正規化。★2026-11-24 出典の url を差し替え（旧 https://www.city.kosai.shizuoka.jp/material/files/group/18/kaigohokenryo_R7.pdf は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

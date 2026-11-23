@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.kuriharacity.jp/kurashi/kaigo/kaigohokenryo.html",
+    "url": "https://www.kuriharacity.jp/w014/010/010/010/100/PAGE000000000000001340.html",
     "pageTitle": "栗原市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "栗原市13段。基準75600(月6300)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。"
+  "notes": "栗原市13段。基準75600(月6300)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.kuriharacity.jp/kurashi/kaigo/kaigohokenryo.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -238,9 +238,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.oji.nara.jp/material/files/group/7/20250620.pdf",
+    "url": "https://www.town.oji.nara.jp/material/files/group/7/r8hokenn.pdf",
     "pageTitle": "王寺町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-23"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "王寺町19段階。基準67,200(月5,600)。★第2=0.435独自軽減。年額は公式お知らせPDF(令和7-8年度)で確認。★独自境界160/230/270万＋高所得720/800/1000/2000万で細分。県PDF5,600と一致。"
+  "notes": "王寺町19段階。基準67,200(月5,600)。★第2=0.435独自軽減。年額は公式お知らせPDF(令和7-8年度)で確認。★独自境界160/230/270万＋高所得720/800/1000/2000万で細分。県PDF5,600と一致。★2026-11-24 出典の url を差し替え（旧 https://www.town.oji.nara.jp/material/files/group/7/20250620.pdf は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 19 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -202,9 +202,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kunitachi.tokyo.jp/kenko/koreisha/1/1_1/11777.html",
+    "url": "https://www.city.kunitachi.tokyo.jp/soshiki/Dept03/Div03/Sec01/gyomu/0144/2000/1461062474043.html",
     "pageTitle": "国立市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-25"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "国立市16段。基準77600(月6467)。★第1段階0.20(市独自deep軽減)。独自境界125/200/400万等。境界80.9万→R8=826500正規化。"
+  "notes": "国立市16段。基準77600(月6467)。★第1段階0.20(市独自deep軽減)。独自境界125/200/400万等。境界80.9万→R8=826500正規化。★2026-11-24 出典の url を差し替え（旧 https://www.city.kunitachi.tokyo.jp/kenko/koreisha/1/1_1/11777.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 16 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -214,9 +214,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.chuo.lg.jp/kuminbu/fukukoukou/kaigohoken/fkaiho_kaigohokenryo2020.html",
+    "url": "https://www.city.chuo.lg.jp/documents/3517/2026hokenryou.pdf",
     "pageTitle": "中央区 介護保険料（第9期）",
-    "retrievedAt": "2026-06-25"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "中央区17段。基準75600(月6300)。★第1段階0.25(区独自追加軽減)。独自境界370/750/2500万等。境界R8=826500。"
+  "notes": "中央区17段。基準75600(月6300)。★第1段階0.25(区独自追加軽減)。独自境界370/750/2500万等。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.chuo.lg.jp/kuminbu/fukukoukou/kaigohoken/fkaiho_kaigohokenryo2020.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 17 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

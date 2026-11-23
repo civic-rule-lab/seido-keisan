@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.toyota.aichi.jp/kurashi/koreisha/kaigohoken/",
+    "url": "https://www.city.toyota.aichi.jp/kenkoiryo/korei/kaigo/1073629/1009259/1003186.html",
     "pageTitle": "豊田市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "豊田市★13段。基準63600(月5300)。★第1=0.29/第2=0.50/第3=0.68独自軽減。★独自境界125/200/300/400/500/700/1000万。境界R8=826500。"
+  "notes": "豊田市★13段。基準63600(月5300)。★第1=0.29/第2=0.50/第3=0.68独自軽減。★独自境界125/200/300/400/500/700/1000万。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.toyota.aichi.jp/kurashi/koreisha/kaigohoken/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

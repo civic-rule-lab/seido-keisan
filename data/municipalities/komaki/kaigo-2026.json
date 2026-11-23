@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.komaki.aichi.jp/admin/kurashi/koureisya/9/",
+    "url": "https://www.city.komaki.aichi.jp/admin/soshiki/fukushi/kaigohoken/3/6/4078.html",
     "pageTitle": "小牧市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "小牧市★15段。基準58800(月4906・公式年額)。第1-3軽減後(0.2687/0.449/0.6497独自・年額採用)。独自境界1000/2000万。境界R8=826500。"
+  "notes": "小牧市★15段。基準58800(月4906・公式年額)。第1-3軽減後(0.2687/0.449/0.6497独自・年額採用)。独自境界1000/2000万。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.komaki.aichi.jp/admin/kurashi/koureisya/9/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 15 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

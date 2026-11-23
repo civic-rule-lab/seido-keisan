@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://en3-jg.d1-law.com/shizukuishi/d1w_reiki/",
+    "url": "https://www.town.shizukuishi.iwate.jp/docs/2024041100022/file_contents/No991_HP.pdf",
     "pageTitle": "雫石町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-24"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "雫石町13段。基準78000一致(月6500)。介護保険条例第2条。第1-3軽減後=第2-4項(22200/37800/53400)。第6+標準境界。境界R8=826500正規化。"
+  "notes": "雫石町13段。基準78000一致(月6500)。介護保険条例第2条。第1-3軽減後=第2-4項(22200/37800/53400)。第6+標準境界。境界R8=826500正規化。★2026-11-24 出典の url を差し替え（旧 https://en3-jg.d1-law.com/shizukuishi/d1w_reiki/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -178,9 +178,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.urayasu.lg.jp/fukushi/koureisha/hoken/gaiyo/1018081/1045451.html",
+    "url": "https://www.city.urayasu.lg.jp/fukushi/koureisha/hoken/gaiyo/1048723.html",
     "pageTitle": "浦安市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-25"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "浦安市14段(県内最安基準)。基準59760。第1段階0.285。独自境界720/1000万。境界80万→R8=826500正規化。"
+  "notes": "浦安市14段(県内最安基準)。基準59760。第1段階0.285。独自境界720/1000万。境界80万→R8=826500正規化。★2026-11-24 出典の url を差し替え（旧 https://www.city.urayasu.lg.jp/fukushi/koureisha/hoken/gaiyo/1018081/1045451.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 14 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

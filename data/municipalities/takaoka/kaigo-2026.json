@@ -167,10 +167,10 @@
   "fallbackLevel": "5",
   "source": {
     "url": "https://www.city.takaoka.toyama.jp/soshiki/koreikaigoka/2/1/2/4/3768.html",
-    "pdfUrl": "https://www.city.takaoka.toyama.jp/material/files/group/37/0516takaoka.pdf",
+    "pdfUrl": "https://www.city.takaoka.toyama.jp/soshiki/koreikaigoka/2/1/2/4/3768.html",
     "pageTitle": "高岡市 介護保険の第1号被保険者（令和6〜8年度・13段階）",
     "insurer": "高岡市",
-    "retrievedAt": "2026-10-27"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "高岡市公式HPの所得段階別表(令和6〜8年度・13段階)から確定。基準額77,900円。第1〜5段階は課税年金収入＋合計所得の82.65万/120万しきい値（令和8年度。介護保険法施行令第38条の改正で80.9万から変わった。公式HP 2026-04-01更新の表で確認）。第6〜13は合計所得120/200/300/400/500/600/700万。年額は公表値。"
+  "notes": "高岡市公式HPの所得段階別表(令和6〜8年度・13段階)から確定。基準額77,900円。第1〜5段階は課税年金収入＋合計所得の82.65万/120万しきい値（令和8年度。介護保険法施行令第38条の改正で80.9万から変わった。公式HP 2026-04-01更新の表で確認）。第6〜13は合計所得120/200/300/400/500/600/700万。年額は公表値。★2026-11-24 出典の pdfUrl を差し替え（旧 https://www.city.takaoka.toyama.jp/material/files/group/37/0516takaoka.pdf は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

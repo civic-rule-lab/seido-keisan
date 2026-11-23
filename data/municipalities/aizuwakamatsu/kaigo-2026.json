@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.aizuwakamatsu.fukushima.jp/docs/2016070800012/",
+    "url": "https://www.city.aizuwakamatsu.fukushima.jp/docs/2007080903298/",
     "pageTitle": "会津若松市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "会津若松市13段。基準79200(月6600)。★第2=0.335/第3=0.635/第4=0.85独自軽減。第6+標準境界。境界R8=826500。"
+  "notes": "会津若松市13段。基準79200(月6600)。★第2=0.335/第3=0.635/第4=0.85独自軽減。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.aizuwakamatsu.fukushima.jp/docs/2016070800012/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

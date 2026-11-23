@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.nishio.aichi.jp/kurashi/kenko/kaigohoken/",
+    "url": "https://www.city.nishio.aichi.jp/kenkofukushi/kaigohoken/1001465/1002551.html",
     "pageTitle": "西尾市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "西尾市★15段。基準63600(月5300)。★第1=0.24/第2=0.39/第3=0.64独自軽減。独自境界800/1000万。境界R8=826500。"
+  "notes": "西尾市★15段。基準63600(月5300)。★第1=0.24/第2=0.39/第3=0.64独自軽減。独自境界800/1000万。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.nishio.aichi.jp/kurashi/kenko/kaigohoken/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 15 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

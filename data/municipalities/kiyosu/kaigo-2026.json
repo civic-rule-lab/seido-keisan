@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kiyosu.aichi.jp/kurashi/kaigo/",
+    "url": "https://www.city.kiyosu.aichi.jp/kenko_iryo/fukushi_kaigo/kaigo/kaigohokensimin/kaigo_hoken.html",
     "pageTitle": "清須市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "清須市★15段。基準71200(月5939・第5段公式年額)。第1-3軽減後(標準)。独自境界860/1000万。境界R8=826500。"
+  "notes": "清須市★15段。基準71200(月5939・第5段公式年額)。第1-3軽減後(標準)。独自境界860/1000万。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.kiyosu.aichi.jp/kurashi/kaigo/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 15 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

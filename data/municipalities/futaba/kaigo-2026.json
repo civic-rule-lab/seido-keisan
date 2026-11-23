@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.futaba.fukushima.jp/",
+    "url": "https://www.town.fukushima-futaba.lg.jp/secure/15357/ver09.pdf",
     "pageTitle": "双葉町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "双葉町13段(原発避難)。基準91600(月7633・条例丸め。MHLW91596は月×12)。条例方式。第1-3軽減後=第2-4項。第6+標準境界。境界R8=826500。"
+  "notes": "双葉町13段(原発避難)。基準91600(月7633・条例丸め。MHLW91596は月×12)。条例方式。第1-3軽減後=第2-4項。第6+標準境界。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.town.futaba.fukushima.jp/ は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

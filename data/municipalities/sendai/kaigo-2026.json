@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.sendai.jp/kaigokanri/kaigohokenryou.html",
+    "url": "https://www.city.sendai.jp/kaigohoken/kurashi/kenkotofukushi/korenokata/kaigohoken/kisojoho/hokenryo/1gou-hokenryo.html",
     "pageTitle": "仙台市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "仙台市★公式16段(政令市)。基準72900(月6079)。★生保第1+世帯非課税第2を同0.285で統合し内部15段(=エンジンに生保フラグ無)。第2(旧3)=0.395/第4(旧5)=0.85独自。独自境界125/200/300/400/500/600/700/1000/1500万。境界R8=826500。"
+  "notes": "仙台市★公式16段(政令市)。基準72900(月6079)。★生保第1+世帯非課税第2を同0.285で統合し内部15段(=エンジンに生保フラグ無)。第2(旧3)=0.395/第4(旧5)=0.85独自。独自境界125/200/300/400/500/600/700/1000/1500万。境界R8=826500。★2026-11-24 出典の url を差し替え（旧 https://www.city.sendai.jp/kaigokanri/kaigohokenryou.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 15 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

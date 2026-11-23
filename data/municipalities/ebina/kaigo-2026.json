@@ -202,10 +202,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.ebina.kanagawa.jp/guide/shogaisha/kaigo/1003245.html",
+    "url": "https://www.city.ebina.kanagawa.jp/guide/shogaisha/1018608/1018479.html",
     "pdfUrl": null,
     "pageTitle": "海老名市 介護保険料（令和6〜8年度・16段階）",
-    "retrievedAt": "2026-06-15"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "海老名市公式HPから確定。基準額64,236円。掲載は令和6年度版(第1-5境界80万表記)だが、R8正規化=82.65万を適用。第6段階125万未満始まり。第1-3は軽減前の年額を計上(本則)。"
+  "notes": "海老名市公式HPから確定。基準額64,236円。掲載は令和6年度版(第1-5境界80万表記)だが、R8正規化=82.65万を適用。第6段階125万未満始まり。第1-3は軽減前の年額を計上(本則)。★2026-11-24 出典の url を差し替え（旧 https://www.city.ebina.kanagawa.jp/guide/shogaisha/kaigo/1003245.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 16 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

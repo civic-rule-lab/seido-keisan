@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.isen.kagoshima.jp/documents/1688/r6hokenryou.pdf",
+    "url": "https://www.town.isen.kagoshima.jp/documents/3626/r8kaigohokensyo.pdf",
     "pageTitle": "伊仙町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "伊仙町13段(徳之島地区介護保険組合)。基準75600。第1-3軽減後(0.285/0.485/0.685)。境界120/210/320/420/520/620/720万。"
+  "notes": "伊仙町13段(徳之島地区介護保険組合)。基準75600。第1-3軽減後(0.285/0.485/0.685)。境界120/210/320/420/520/620/720万。★2026-11-24 出典の url を差し替え（旧 https://www.town.isen.kagoshima.jp/documents/1688/r6hokenryou.pdf は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.ajigasawa.lg.jp/reiki_int/reiki_honbun/c016RG00000282.html",
+    "url": "https://www.town.ajigasawa.lg.jp/kurashi/hoken_zei/kaigohoken/hokenryo.files/R8hokenryou.pdf",
     "pageTitle": "鰺ヶ沢町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-25"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "鰺ヶ沢町13段。基準76800一致(月6400)。介護保険条例第2条+公式PDF。第1-3軽減後(0.285/0.485/0.685)。第6+標準境界。境界R8=826500(公式82.65万)。深浦と同一表。"
+  "notes": "鰺ヶ沢町13段。基準76800一致(月6400)。介護保険条例第2条+公式PDF。第1-3軽減後(0.285/0.485/0.685)。第6+標準境界。境界R8=826500(公式82.65万)。深浦と同一表。★2026-11-24 出典の url を差し替え（旧 https://www.town.ajigasawa.lg.jp/reiki_int/reiki_honbun/c016RG00000282.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

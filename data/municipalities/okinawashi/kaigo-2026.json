@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.okinawa.okinawa.jp/zyoureikun/act/print/print110000404.htm",
+    "url": "https://www.city.okinawa.okinawa.jp/documents/24415/r8tomonihagukumu.pdf",
     "pageTitle": "沖縄市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-17"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "沖縄市13段。基準87300。第1-3軽減後(0.285/0.38/0.61・第2第3非標準=33168/53244)。第4=0.79(68964)。境界120/210/320/420/520/620/720万。介護保険条例第6条。"
+  "notes": "沖縄市13段。基準87300。第1-3軽減後(0.285/0.38/0.61・第2第3非標準=33168/53244)。第4=0.79(68964)。境界120/210/320/420/520/620/720万。介護保険条例第6条。★2026-11-24 出典の url を差し替え（旧 https://www.city.okinawa.okinawa.jp/zyoureikun/act/print/print110000404.htm は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

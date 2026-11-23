@@ -178,9 +178,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kai.yamanashi.jp/kenko_fukushi/kaigohoken/kaigohoken/5058.html",
+    "url": "https://www.city.kai.yamanashi.jp/page/4356.html",
     "pageTitle": "甲斐市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "甲斐市公式HTML。14段階・基準額60,000円(月5,000)。独自境界(410/500/590/680/770万)＋独自乗率(1.75/1.85/2.0/2.2/2.4)。第1-3軽減後。第1-5境界R8=826500に正規化(ページ80万表記)。"
+  "notes": "甲斐市公式HTML。14段階・基準額60,000円(月5,000)。独自境界(410/500/590/680/770万)＋独自乗率(1.75/1.85/2.0/2.2/2.4)。第1-3軽減後。第1-5境界R8=826500に正規化(ページ80万表記)。★2026-11-24 出典の url を差し替え（旧 https://www.city.kai.yamanashi.jp/kenko_fukushi/kaigohoken/kaigohoken/5058.html は 404 などで開けず、公開ページに開けないリンクとして出ていた）。新しい出典（HTML）にデータの年額 14 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }
