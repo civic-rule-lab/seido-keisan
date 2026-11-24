@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.mogami.lg.jp/health/08kaigo-hoken/05hokenryou1.php",
+    "url": "https://town.mogami.lg.jp/health/08kaigo-hoken/05hokenryou1.php",
     "pageTitle": "最上町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "最上町13段。基準74400(月6200)。第1-3軽減後(段階表は画像PDF)。第6+標準境界。境界R8=826500。"
+  "notes": "最上町13段。基準74400(月6200)。第1-3軽減後(段階表は画像PDF)。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.town.mogami.lg.jp/health/08kaigo-hoken/05hokenryou1.php は開けず、公開ページに開けないリンクとして出ていた）。町のページの保険料表は画像（2025-r6-r8-kaigo-hokenryou1.jpg）で、基準額 74,400 円と 13 段階の年額がデータと一致（AI が画像を目視で確認）。年額・料率は変えていない。"
 }

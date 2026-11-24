@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.taragi.lg.jp/gyousei/soshiki/fukushi/kaigohoken/2376.html",
+    "url": "https://www.town.taragi.lg.jp/gyousei/kenko_iryo_fukushi/kaigohoken/oshirase/2376.html",
     "pageTitle": "多良木町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-18"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "多良木町13段。基準82800(月6900)。第1-3軽減後(0.285/0.485/0.685)。第4=0.90。境界120/210/320/420/520/620/720万。"
+  "notes": "多良木町13段。基準82800(月6900)。第1-3軽減後(0.285/0.485/0.685)。第4=0.90。境界120/210/320/420/520/620/720万。★2026-11-24 出典を差し替え（旧 https://www.town.taragi.lg.jp/gyousei/soshiki/fukushi/kaigohoken/2376.html は開けず、公開ページに開けないリンクとして出ていた）。町のページは月額だけを載せている。年額は多良木町介護保険条例 第2条（令和6〜8年度）の額と 13 段階すべて一致（条例本文 https://en3-jg.d1-law.com/taragi/d1w_reiki/H412901010002/H412901010002_j.html は民間の例規集ホストのため出典リンクにしない・正本 §E-2 第4項）。年額・料率は変えていない。"
 }

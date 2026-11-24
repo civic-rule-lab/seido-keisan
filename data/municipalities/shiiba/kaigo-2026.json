@@ -49,7 +49,7 @@
       "level": "4",
       "label": "第4段階",
       "rate": 0.9,
-      "annual": 56160,
+      "annual": 56100,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 74880,
+      "annual": 74800,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://public.joureikun.jp/shiiba_vill/reiki/act/110000270.html",
+    "url": "https://www.vill.shiiba.miyazaki.jp/welfare/care/caremoney.php",
     "pageTitle": "椎葉村 介護保険料（第9期）",
-    "retrievedAt": "2026-06-19"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "椎葉村13段(介護保険条例第2条)。基準62400。第1-3軽減後(17700/30200/42700)。第4=0.90。第6-13は条例実額。境界120/210/320/420/520/620/720万。"
+  "notes": "椎葉村13段(介護保険条例第2条)。基準62400。第1-3軽減後(17700/30200/42700)。第4=0.90。第6-13は条例実額。境界120/210/320/420/520/620/720万。★2026-11-24 第4段階・第6段階の年額を条例の額に訂正（56,160→56,100／74,880→74,800）。椎葉村介護保険条例 第2条第1項（令和6〜8年度）の額で、条例は基準額×割合の 100 円未満を切り捨てている（従来は切り捨て前の計算値）。他の段階と第1〜3段階の軽減後の額（17,700／30,200／42,700）は条例と一致。出典を村のページに差し替えた（旧 https://public.joureikun.jp/shiiba_vill/reiki/act/110000270.html は開けない）。村のページは第4・第6段階を条例と同じ額で載せているが、第1〜3段階は軽減前の額（28,300／42,700／43,000）で、第9段階は「10,600円」と誤記している。全段階の根拠は条例本文 https://public1.legalcrud.com/shiiba_vill/reiki/act/110000270.html（民間の例規集ホストのため出典リンクにはしない・正本 §E-2 第4項）。"
 }

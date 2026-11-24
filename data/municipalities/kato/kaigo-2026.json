@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.kato.lg.jp/kakukanogoannai/kenkoufukushibu/kourei/1455789335211.html",
+    "url": "https://www.city.kato.lg.jp/kakukanogoannai/kenkoufukushibu/kourei/kaigo/1455789335211.html",
     "pageTitle": "加東市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "加東市13段(国標準)。基準73200(月6100)。第1-3軽減後(軽減前33300/50100/50500併記)。境界120/210/320/420/520/620/720万。"
+  "notes": "加東市13段(国標準)。基準73200(月6100)。第1-3軽減後(軽減前33300/50100/50500併記)。境界120/210/320/420/520/620/720万。★2026-11-24 出典を差し替え（旧 https://www.city.kato.lg.jp/kakukanogoannai/kenkoufukushibu/kourei/1455789335211.html は開けず、公開ページに開けないリンクとして出ていた）。市のページは第1・第2段階の軽減後の額を「20.800円」「35.500円」とピリオドで表記しているが、13 段階の額はデータと一致（AI が本文を読んで確認）。年額・料率は変えていない。"
 }

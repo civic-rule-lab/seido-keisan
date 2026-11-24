@@ -14,8 +14,8 @@
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.3,
-      "annual": 23400,
+      "rate": 0.285,
+      "annual": 22200,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.5,
-      "annual": 39000,
+      "rate": 0.485,
+      "annual": 37800,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.7,
-      "annual": 54600,
+      "rate": 0.685,
+      "annual": 53400,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.china.lg.jp/hokenfukushi/kurasu/fukushi-kaigo/koresha/kaigohoken/kaigohokenryo.html",
+    "url": "https://www.town.china.lg.jp/kenko-fukushi/koreisha-fukushi/1/1988.html",
     "pageTitle": "知名町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-22"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "知名町13段(沖永良部与論地区広域事務組合)。基準78000。第1-3軽減後(0.285/0.485/0.685明記)。境界120/210/320/420/520/620/720万。"
+  "notes": "知名町13段(沖永良部与論地区広域事務組合)。基準78000。第1-3軽減後(0.285/0.485/0.685明記)。境界120/210/320/420/520/620/720万。★2026-11-24 第1〜3段階を町の公表額に訂正（料率 0.3→0.285・0.5→0.485・0.7→0.685、年額 23,400→22,200・39,000→37,800・54,600→53,400）。従来は第8期の軽減割合（0.3／0.5／0.7）の値だった。町の介護保険料のページは割合と年額を 0.285・22,200円／0.485・37,800円／0.685・53,400円と明記している。知名町介護保険条例 第2条第2〜4項は軽減後の額を 22,200円／35,400円／37,800円と定めており、第2・第3段階が町のページと食い違う（条例の額が 1 段ずつずれた起草の誤りの疑い・未確認）。オーナー判断で町のページの額に合わせた（2026-11-24）。第4段階以降は町のページ・条例と一致。出典を町のページに差し替えた（旧 https://www.town.china.lg.jp/hokenfukushi/kurasu/fukushi-kaigo/koresha/kaigohoken/kaigohokenryo.html は 404）。"
 }

@@ -9,155 +9,167 @@
   "schemaVersion": "1.0",
   "planPeriod": "第9期（2024-2026）",
   "status": "verified",
-  "baseAmount": 68400,
+  "baseAmount": 69600,
   "brackets": [
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.3,
-      "annual": 20520,
+      "rate": 0.285,
+      "annual": 19830,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
       },
-      "condition": "世帯全員非課税(生活保護/老齢福祉年金含む) かつ 合算所得が82.65万円以下"
+      "condition": "世帯全員非課税 かつ（生活保護等／合計所得＋課税年金収入が82.65万円以下）"
     },
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.5,
-      "annual": 34200,
+      "rate": 0.485,
+      "annual": 33750,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
         "sumIncomeMax": 1200000
       },
-      "condition": "世帯全員非課税 かつ 合算所得82.65万円超〜120万円以下"
+      "condition": "世帯全員非課税 かつ 合計所得＋課税年金収入が82.65万円超〜120万円以下"
     },
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.7,
-      "annual": 47880,
+      "rate": 0.685,
+      "annual": 47670,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
       },
-      "condition": "世帯全員非課税 かつ 合算所得120万円超"
+      "condition": "世帯全員非課税 かつ 合計所得＋課税年金収入が120万円超"
     },
     {
       "level": "4",
       "label": "第4段階",
-      "rate": 0.8991,
-      "annual": 61500,
+      "rate": 0.9,
+      "annual": 62640,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
         "sumIncomeMax": 826500
       },
-      "condition": "世帯課税あり・本人非課税 かつ 合算所得82.65万円以下"
+      "condition": "世帯課税あり・本人非課税 かつ 合計所得＋課税年金収入が82.65万円以下"
     },
     {
       "level": "5",
       "label": "第5段階（基準）",
       "rate": 1.0,
-      "annual": 68400,
+      "annual": 69600,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
         "sumIncomeMin": 826501
       },
-      "condition": "世帯課税あり・本人非課税 かつ 合算所得82.65万円超"
+      "condition": "世帯課税あり・本人非課税 かつ 合計所得＋課税年金収入が82.65万円超"
     },
     {
       "level": "6",
       "label": "第6段階",
-      "rate": 1.1988,
-      "annual": 82000,
+      "rate": 1.2,
+      "annual": 83520,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
       },
-      "condition": "本人課税・合計所得120万円未満"
+      "condition": "本人課税・合計所得金額120万円未満"
     },
     {
       "level": "7",
       "label": "第7段階",
-      "rate": 1.2997,
-      "annual": 88900,
+      "rate": 1.3,
+      "annual": 90480,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
         "totalIncomeMax": 2099999
       },
-      "condition": "本人課税・合計所得120万円以上210万円未満"
+      "condition": "本人課税・合計所得金額120万円以上210万円未満"
     },
     {
       "level": "8",
       "label": "第8段階",
       "rate": 1.5,
-      "annual": 102600,
+      "annual": 104400,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 2100000,
         "totalIncomeMax": 3199999
       },
-      "condition": "本人課税・合計所得210万円以上320万円未満"
+      "condition": "本人課税・合計所得金額210万円以上320万円未満"
     },
     {
       "level": "9",
       "label": "第9段階",
-      "rate": 1.6988,
-      "annual": 116200,
+      "rate": 1.7,
+      "annual": 118320,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
-        "totalIncomeMax": 3999999
+        "totalIncomeMax": 4199999
       },
-      "condition": "本人課税・合計所得320万円以上400万円未満"
+      "condition": "本人課税・合計所得金額320万円以上420万円未満"
     },
     {
       "level": "10",
       "label": "第10段階",
-      "rate": 1.8494,
-      "annual": 126500,
+      "rate": 1.9,
+      "annual": 132240,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 4000000,
-        "totalIncomeMax": 4999999
+        "totalIncomeMin": 4200000,
+        "totalIncomeMax": 5199999
       },
-      "condition": "本人課税・合計所得400万円以上500万円未満"
+      "condition": "本人課税・合計所得金額420万円以上520万円未満"
     },
     {
       "level": "11",
       "label": "第11段階",
-      "rate": 2.0,
-      "annual": 136800,
+      "rate": 2.1,
+      "annual": 146160,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 5000000,
-        "totalIncomeMax": 5999999
+        "totalIncomeMin": 5200000,
+        "totalIncomeMax": 6199999
       },
-      "condition": "本人課税・合計所得500万円以上600万円未満"
+      "condition": "本人課税・合計所得金額520万円以上620万円未満"
     },
     {
       "level": "12",
       "label": "第12段階",
-      "rate": 2.1491,
-      "annual": 147000,
+      "rate": 2.3,
+      "annual": 160080,
       "criteria": {
         "selfTaxable": true,
-        "totalIncomeMin": 6000000
+        "totalIncomeMin": 6200000,
+        "totalIncomeMax": 7199999
       },
-      "condition": "本人課税・合計所得600万円以上"
+      "condition": "本人課税・合計所得金額620万円以上720万円未満"
+    },
+    {
+      "level": "13",
+      "label": "第13段階",
+      "rate": 2.4,
+      "annual": 167040,
+      "criteria": {
+        "selfTaxable": true,
+        "totalIncomeMin": 7200000
+      },
+      "condition": "本人課税・合計所得金額720万円以上"
     }
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.tsubata.lg.jp/division/fukushi/kaigohokennryou.html",
+    "url": "https://www.town.tsubata.lg.jp/uploaded/attachment/2680.pdf",
     "pdfUrl": null,
-    "pageTitle": "津幡町 介護保険料（令和6〜8年度・12段階）",
-    "retrievedAt": "2026-06-15"
+    "pageTitle": "津幡町 介護保険料の決まり方・納め方（令和6〜8年度・13段階）",
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "津幡町公式HPから確定。基準額68,400円。**12段階**(最上位600万以上=粗い独自構造)。HP表記80万→R8=82.65万正規化。第6以降=120/210/320/400/500/600万。"
+  "notes": "津幡町公式HPから確定。基準額68,400円。**12段階**(最上位600万以上=粗い独自構造)。HP表記80万→R8=82.65万正規化。第6以降=120/210/320/400/500/600万。★2026-11-24 第9期の額に全面的に作り直した。従来のデータは第8期（基準額 68,400 円・12 段階・独自の所得区分）のままだった。津幡町介護保険条例 第4条第1項（令和6〜8年度・13 段階・令和6年3月13日条例第7号による改正後）の額と、同条第2〜4項の軽減後の額（第1〜3段階 19,830／33,750／47,670 円）を採用。基準額 69,600 円。割合は国の標準（0.285〜2.4）で、条例の額は基準額×割合の 10 円未満切り捨てと一致。所得区分は条例に町独自の定めが無く、国の基準（合計所得 120・210・320・420・520・620・720 万円）。出典を町の資料（PDF・13 段階の額と区分を掲載）に差し替えた（旧 https://www.town.tsubata.lg.jp/division/fukushi/kaigohokennryou.html は 404）。"
 }
