@@ -14,8 +14,8 @@
     {
       "level": "1",
       "label": "第1段階",
-      "rate": 0.2854,
-      "annual": 20208,
+      "rate": 0.285,
+      "annual": 20200,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -25,8 +25,8 @@
     {
       "level": "2",
       "label": "第2段階",
-      "rate": 0.4859,
-      "annual": 34404,
+      "rate": 0.485,
+      "annual": 34400,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -37,8 +37,8 @@
     {
       "level": "3",
       "label": "第3段階",
-      "rate": 0.6851,
-      "annual": 48504,
+      "rate": 0.685,
+      "annual": 48500,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -49,7 +49,7 @@
       "level": "4",
       "label": "第4段階",
       "rate": 0.9,
-      "annual": 63720,
+      "annual": 63700,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -73,7 +73,7 @@
       "level": "6",
       "label": "第6段階",
       "rate": 1.2,
-      "annual": 84960,
+      "annual": 84900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMax": 1199999
@@ -84,7 +84,7 @@
       "level": "7",
       "label": "第7段階",
       "rate": 1.3,
-      "annual": 92040,
+      "annual": 92000,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 1200000,
@@ -108,7 +108,7 @@
       "level": "9",
       "label": "第9段階",
       "rate": 1.7,
-      "annual": 120360,
+      "annual": 120300,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 3200000,
@@ -120,7 +120,7 @@
       "level": "10",
       "label": "第10段階",
       "rate": 1.9,
-      "annual": 134520,
+      "annual": 134500,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 4200000,
@@ -132,7 +132,7 @@
       "level": "11",
       "label": "第11段階",
       "rate": 2.1,
-      "annual": 148680,
+      "annual": 148600,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 5200000,
@@ -144,7 +144,7 @@
       "level": "12",
       "label": "第12段階",
       "rate": 2.3,
-      "annual": 162840,
+      "annual": 162800,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 6200000,
@@ -156,7 +156,7 @@
       "level": "13",
       "label": "第13段階",
       "rate": 2.4,
-      "annual": 169920,
+      "annual": 169900,
       "criteria": {
         "selfTaxable": true,
         "totalIncomeMin": 7200000
@@ -166,10 +166,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.ono.fukui.jp/kenko/korei/kaigo/kaigohokenryou.html",
+    "url": "https://www.city.ono.fukui.jp/kenko/korei/kaigohokenriyousha/kaigohokenryou.html",
     "pdfUrl": null,
     "pageTitle": "大野市 介護保険料（令和6〜8年度・13段階）",
-    "retrievedAt": "2026-06-15"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "大野市公式HP(R8反映=82.65万明記)から確定(月額×12)。基準額70,800円。第1-3軽減後。標準刻み。"
+  "notes": "大野市公式HP(R8反映=82.65万明記)から確定(月額×12)。基準額70,800円。第1-3軽減後。標準刻み。★2026-11-24 13 段階のうち 11 段階の年額を条例の額に訂正（第1〜3段階 20,208→20,200／34,404→34,400／48,504→48,500、第4段階 63,720→63,700、第6・7段階 84,960→84,900／92,040→92,000、第9〜13段階 120,360→120,300／134,520→134,500／148,680→148,600／162,840→162,800／169,920→169,900。第5・第8段階は一致）。大野市介護保険条例 第7条（令和6〜8年度・令和8年4月1日施行版）の額で、基準額×割合の 100 円未満を切り捨てた値。従来の値は市のページの月額×12 で、切り捨て前の額だった。第1〜3段階の料率も逆算値（0.2854 など）から標準の 0.285／0.485／0.685 にした。条例は ぎょうせい Super Reiki-Base（https://kri206.legal-square.com/HAS-Shohin/page/SJSrbLogin.jsf ・ログイン型でページ単位のリンク不可）にあり、AI が Chrome で第7条を表示して確認した。出典を市の介護保険料のページ（月額のみ掲載）に差し替えた（旧 https://www.city.ono.fukui.jp/kenko/korei/kaigo/kaigohokenryou.html は 404）。"
 }

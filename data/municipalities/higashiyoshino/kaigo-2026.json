@@ -15,7 +15,7 @@
       "level": "1",
       "label": "第1段階",
       "rate": 0.285,
-      "annual": 24900,
+      "annual": 24800,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -61,7 +61,7 @@
       "level": "5",
       "label": "第5段階（基準）",
       "rate": 1.0,
-      "annual": 87360,
+      "annual": 87300,
       "criteria": {
         "householdAllNonTaxable": false,
         "selfTaxable": false,
@@ -166,9 +166,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://vill.higashiyoshino.nara.jp/life/kaigohoken/",
+    "url": "https://vill.higashiyoshino.nara.jp/life/%e4%bb%8b%e8%ad%b7%e4%bf%9d%e9%99%ba/",
+    "pdfUrl": "http://www.vill.higashiyoshino.nara.jp/life/wp-content/uploads/sites/2/2024/04/hy_9ki_keikakusyo.pdf",
     "pageTitle": "東吉野村 介護保険料（第9期）",
-    "retrievedAt": "2026-06-23"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "東吉野村13段階(国標準)。基準87,360(月7,280)。第1-3軽減後。境界120/210/320/420/520/620/720万。県PDF7,280と一致。"
+  "notes": "東吉野村13段階(国標準)。基準87,360(月7,280)。第1-3軽減後。境界120/210/320/420/520/620/720万。県PDF7,280と一致。★2026-11-24 第1段階・第5段階の年額を村の公表額に訂正（24,900→24,800／87,360→87,300）。村の第9期 高齢者福祉計画・介護保険事業計画（2024年3月）の保険料表と村の介護保険のページは、13 段階すべてを基準額 87,360 円（月額 7,280 円×12）×割合の 100 円未満切り捨てで載せており、第1段階 24,800 円・第5段階 87,300 円。従来の値は第1段階が 100 円単位の四捨五入、第5段階が切り捨て前の基準額だった。他の 11 段階は一致。baseAmount（87,360）は計算の基準として残した。村の例規集は見つからず、条例本文では確認していない。出典を村の介護保険のページ（保険料表は画像）と計画書 PDF に差し替えた（旧 https://vill.higashiyoshino.nara.jp/life/kaigohoken/ は 404）。"
 }
