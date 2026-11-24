@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.taiwa.miyagi.jp/",
+    "url": "https://www.town.taiwa.miyagi.jp/kenko_fukushi/koreishafukushi_kaigo/kaigohoken/4224.html",
     "pageTitle": "大和町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "大和町13段。基準78240(月6520・条例割合方式)。第1-3軽減後(base×0.285/0.485/0.685)。第6+標準境界。境界R8=826500。"
+  "notes": "大和町13段。基準78240(月6520・条例割合方式)。第1-3軽減後(base×0.285/0.485/0.685)。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.town.taiwa.miyagi.jp/ は自治体のトップページなどで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.vill.hirata.fukushima.jp/",
+    "url": "https://www.vill.hirata.fukushima.jp/uploaded/attachment/3223.pdf",
     "pageTitle": "平田村 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "平田村13段。基準76800(月6400)。介護保険条例第3条。第1-3軽減後。第6+標準境界。境界R8=826500。"
+  "notes": "平田村13段。基準76800(月6400)。介護保険条例第3条。第1-3軽減後。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.vill.hirata.fukushima.jp/ は自治体のトップページなどで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

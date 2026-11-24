@@ -15,7 +15,7 @@
       "level": "1",
       "label": "第1段階",
       "rate": 0.2849,
-      "annual": 20856,
+      "annual": 20862,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMax": 826500
@@ -26,7 +26,7 @@
       "level": "2",
       "label": "第2段階",
       "rate": 0.4849,
-      "annual": 35496,
+      "annual": 35502,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 826501,
@@ -38,7 +38,7 @@
       "level": "3",
       "label": "第3段階",
       "rate": 0.6849,
-      "annual": 50136,
+      "annual": 50142,
       "criteria": {
         "householdAllNonTaxable": true,
         "sumIncomeMin": 1200001
@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.mikawa.yamagata.jp/",
-    "pageTitle": "三川町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "url": "https://www.town.mikawa.yamagata.jp/reiki_int/reiki_honbun/c439RG00000350.html",
+    "pageTitle": "三川町介護保険条例（三川町例規集）",
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "三川町13段。基準73200(月6100・月額×12)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。"
+  "notes": "三川町13段。基準73200(月6100・月額×12)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。★2026-11-24 第1〜3段階（軽減後）の年額を条例の額に訂正（20,856→20,862／35,496→35,502／50,136→50,142）。三川町介護保険条例 第5条第2〜4項（令和6〜8年度）の額で、基準額 73,200 円×0.285／0.485／0.685 と端数まで一致。従来の値は町のページの月額（1,738／2,958／4,178 円）×12 で、条例の額と違っていた。第4段階以降は条例と一致。出典を町の例規集の条例本文に差し替えた（旧 https://www.town.mikawa.yamagata.jp/ は町のトップページで保険料の表が載っていなかった）。"
 }

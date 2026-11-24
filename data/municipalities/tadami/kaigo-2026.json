@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.tadami-net.com/",
+    "url": "https://www.town.tadami.lg.jp/information/2025/03/05/tadamimachi_kaigo_gaiyouHP.pdf",
     "pageTitle": "只見町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "只見町13段。基準70800(月5900)。介護保険条例第2条。第1-3軽減後。第6+標準境界。境界R8=826500。"
+  "notes": "只見町13段。基準70800(月5900)。介護保険条例第2条。第1-3軽減後。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.tadami-net.com/ は自治体のトップページなどで、保険料の表が載っておらず年額を裏づけていなかった）。町の第9期計画 概要版 PDF は文字が図形化されているため、7 ページの表を画像にして AI が目視で 13 段階を照合して一致。年額・料率は変えていない。"
 }

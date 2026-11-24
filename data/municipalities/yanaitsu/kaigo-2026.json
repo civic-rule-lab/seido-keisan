@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.yanaizu.fukushima.jp/",
+    "url": "https://www.town.yanaizu.fukushima.jp/docs/2024101800022",
     "pageTitle": "柳津町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "柳津町13段。基準68220(月5685)。第1-3軽減後。第6+標準境界。境界R8=826500。"
+  "notes": "柳津町13段。基準68220(月5685)。第1-3軽減後。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.town.yanaizu.fukushima.jp/ は自治体のトップページなどで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

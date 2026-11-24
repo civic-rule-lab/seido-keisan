@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.tomioka-town.jp/",
+    "url": "https://www.tomioka-town.jp/soshiki/fukushi/1108.html",
     "pageTitle": "富岡町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "富岡町13段(原発避難)。基準81600(月6800)。第1-3軽減後(HP表)。第6+標準境界。境界R8=826500。"
+  "notes": "富岡町13段(原発避難)。基準81600(月6800)。第1-3軽減後(HP表)。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.tomioka-town.jp/ は自治体のトップページなどで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

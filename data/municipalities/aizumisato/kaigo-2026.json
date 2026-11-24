@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.aizumisato.fukushima.jp/",
+    "url": "https://www.town.aizumisato.fukushima.jp/material/files/group/4/R7kaigohokennryou.pdf",
     "pageTitle": "会津美里町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "会津美里町13段。基準81600(月6800)。第1-3軽減後。非課税境界80.9万→R8=826500正規化。第6+標準境界。"
+  "notes": "会津美里町13段。基準81600(月6800)。第1-3軽減後。非課税境界80.9万→R8=826500正規化。第6+標準境界。★2026-11-24 出典を差し替え（旧 https://www.town.aizumisato.fukushima.jp/ は自治体のトップページなどで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }
