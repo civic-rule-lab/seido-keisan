@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.sakaiminato.lg.jp/index.php?view=119860",
+    "url": "https://www.city.sakaiminato.lg.jp/upload/user/00114804-gZwnmZ.pdf",
     "pageTitle": "境港市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-24"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "境港市13段。基準76500一致。第1-3軽減後(公費投入後の年額と明記・第2≒0.50独自)。第6+標準境界。境界R8=826500(公式82.65万独自設定)。"
+  "notes": "境港市13段。基準76500一致。第1-3軽減後(公費投入後の年額と明記・第2≒0.50独自)。第6+標準境界。境界R8=826500(公式82.65万独自設定)。★2026-11-24 出典を差し替え（旧 https://www.city.sakaiminato.lg.jp/index.php?view=119860 は市の介護保険料のページで、表は本文になく PDF にある）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

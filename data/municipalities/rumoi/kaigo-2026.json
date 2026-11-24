@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.e-rumoi.jp/",
+    "url": "https://www.e-rumoi.jp/kaigosien/kai_00001.html",
     "pageTitle": "留萌市 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "留萌市13段。基準64200。第1-3軽減後。境界R8=826500。"
+  "notes": "留萌市13段。基準64200。第1-3軽減後。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.e-rumoi.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

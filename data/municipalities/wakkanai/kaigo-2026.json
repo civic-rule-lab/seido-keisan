@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.wakkanai.hokkaido.jp/",
+    "url": "https://www.city.wakkanai.hokkaido.jp/fukushi/kaigo/kaigohokenseido/hokenryosantei2.html",
     "pageTitle": "稚内市 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "稚内市★13段。基準67200。第1-3軽減後・★独自乗率(第3=0.65/第4=0.80/第6=1.10/第7=1.25/第9=1.75)。境界R8=826500。"
+  "notes": "稚内市★13段。基準67200。第1-3軽減後・★独自乗率(第3=0.65/第4=0.80/第6=1.10/第7=1.25/第9=1.75)。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.wakkanai.hokkaido.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（HTML）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

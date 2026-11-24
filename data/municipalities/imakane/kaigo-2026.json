@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.imakane.lg.jp/",
+    "url": "https://houmu.h-chosonkai.gr.jp/~reikidb/data/18/60/reiki_honbun/a065RG00000434.html",
     "pageTitle": "今金町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "今金町13段。基準75600。第1-3軽減後。境界R8=826500。"
+  "notes": "今金町13段。基準75600。第1-3軽減後。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.town.imakane.lg.jp/ は町のトップページで年額を裏づけていなかった）。北海道町村会の例規集の今金町介護保険条例 第5条（第2〜4項が第1〜3段階の軽減後の額）と機械照合し、13 段階すべて一致。年額・料率は変えていない。"
 }

@@ -166,10 +166,10 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.utashinai.hokkaido.jp/",
+    "url": "https://www.city.utashinai.hokkaido.jp/hotnews/files/00004100/00004130/20240515154528.pdf",
     "pageTitle": "浦臼町 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26",
+    "retrievedAt": "2026-11-24",
     "insurer": "空知中部広域連合"
   },
-  "notes": "urausu＝空知中部広域連合(統一料率)。基準65400。第1-3軽減後。境界R8=826500。"
+  "notes": "urausu＝空知中部広域連合(統一料率)。基準65400。第1-3軽減後。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.utashinai.hokkaido.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。保険者の空知中部広域連合の公式サイトが見当たらないため、構成市の歌志内市が公表した第9期計画 概要版（広域連合の保険料表を掲載）を出典にした。年額・料率は変えていない。"
 }

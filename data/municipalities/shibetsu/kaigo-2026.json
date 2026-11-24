@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.shibetsu.lg.jp/",
+    "url": "https://www.city.shibetsu.lg.jp/material/files/group/17/dai9ki-hokenryoudankaisettei.pdf",
     "pageTitle": "士別市 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "士別市★13段(根室標津町と別)。基準60300。第1-3軽減後・★第2=0.385/第7=1.5/第8=1.8独自・独自境界125/200/400万。境界R8=826500。"
+  "notes": "士別市★13段(根室標津町と別)。基準60300。第1-3軽減後・★第2=0.385/第7=1.5/第8=1.8独自・独自境界125/200/400万。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.shibetsu.lg.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.obuse.nagano.jp/",
+    "url": "https://www.town.obuse.nagano.jp/fs/1/8/6/9/4/3/_/%E4%BB%8B%E8%AD%B7%E4%BF%9D%E9%99%BA%E6%96%99%E4%B8%80%E8%A6%A7%E8%A1%A8.pdf",
     "pageTitle": "小布施町 介護保険料一覧表（第9期）",
-    "retrievedAt": "2026-06-16"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "小布施町公式PDF。13段階・基準額63,000円。第1-3軽減後。"
+  "notes": "小布施町公式PDF。13段階・基準額63,000円。第1-3軽減後。★2026-11-24 出典を差し替え（旧 https://www.town.obuse.nagano.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（PDF）にデータの年額 13 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

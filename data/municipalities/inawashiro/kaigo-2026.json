@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.town.inawashiro.fukushima.jp/",
+    "url": "https://www.town.inawashiro.fukushima.jp/reiki/reiki_honbun/c546RG00000293.html",
     "pageTitle": "猪苗代町 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "猪苗代町13段。基準69600(月5800)。介護保険条例第6条。第1-3軽減後。第6+標準境界。境界R8=826500。"
+  "notes": "猪苗代町13段。基準69600(月5800)。介護保険条例第6条。第1-3軽減後。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.town.inawashiro.fukushima.jp/ は町のトップページで年額を裏づけていなかった）。町の例規集の猪苗代町介護保険条例 第6条（金額は漢数字）を算用数字に直して機械照合し、13 段階すべて一致（第1〜3段階は第9〜11項の軽減後の額）。年額・料率は変えていない。"
 }

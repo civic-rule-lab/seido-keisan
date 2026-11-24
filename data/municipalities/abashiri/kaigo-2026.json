@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.abashiri.hokkaido.jp/",
+    "url": "https://www.city.abashiri.hokkaido.jp/soshiki/13/2024.html",
     "pageTitle": "網走市 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "網走市★15段。基準69600。第1-3軽減後・第4=0.875。★独自境界150/260万。境界R8=826500。"
+  "notes": "網走市★15段。基準69600。第1-3軽減後・第4=0.875。★独自境界150/260万。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.abashiri.hokkaido.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（HTML）にデータの年額 15 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }

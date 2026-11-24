@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.nemuro.hokkaido.jp/",
+    "url": "https://www.city.nemuro.hokkaido.jp/lifeinfo/kakuka/shiminfukushibu/kaigofukusi/111111/8723.html",
     "pageTitle": "根室市 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "根室市13段。基準51600。第1-3軽減後・★第4=0.83独自(二次ソース)。境界R8=826500。"
+  "notes": "根室市13段。基準51600。第1-3軽減後・★第4=0.83独自(二次ソース)。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.nemuro.hokkaido.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。表が画像（または文字が図形化）のため、AI が画像を読んで全段階の一致を確認。年額・料率は変えていない。"
 }

@@ -214,9 +214,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.obihiro.hokkaido.jp/",
+    "url": "https://www.city.obihiro.hokkaido.jp/_res/projects/default_project/_page_/001/007/938/r6-r8_hokenryodankai.pdf",
     "pageTitle": "帯広市 介護保険料(第9期)",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "帯広市★17段。基準75240。第1-3軽減後。★細分独自境界80/120/160/210/260/320/420/520/620/720/1000万。境界R8=826500。"
+  "notes": "帯広市★17段。基準75240。第1-3軽減後。★細分独自境界80/120/160/210/260/320/420/520/620/720/1000万。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.obihiro.hokkaido.jp/ は自治体のトップページで、保険料の表が載っておらず年額を裏づけていなかった）。新しい出典（PDF）にデータの年額 17 件がすべて載っていることを機械照合。年額・料率は変えていない。"
 }
