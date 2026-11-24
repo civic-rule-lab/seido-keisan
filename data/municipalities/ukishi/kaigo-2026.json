@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.uki.kumamoto.jp/iryo_fukushi/kaigo/kaigohoken/2028019",
+    "url": "https://www.city.uki.kumamoto.jp/gyousei/gyoseikiko/2010366",
     "pageTitle": "宇城市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-18"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "宇城市13段。基準72000。第1-3軽減後(0.285/0.485/0.685)。境界120/210/320/420/520/620/720万。"
+  "notes": "宇城市13段。基準72000。第1-3軽減後(0.285/0.485/0.685)。境界120/210/320/420/520/620/720万。★2026-11-24 出典を差し替え（旧 https://www.city.uki.kumamoto.jp/iryo_fukushi/kaigo/kaigohoken/2028019 は開けなかった）。市の「宇城市例規集」ページ（例規集本体は g-reiki.net にあり許可ホスト外のため出典リンクは市のページにした）。宇城市介護保険条例（https://www1.g-reiki.net/uki/reiki_honbun/r177RG00000426.html）と機械照合し、13 段階すべて一致。市のサイトに保険料の表のページは見当たらない。年額・料率は変えていない。"
 }

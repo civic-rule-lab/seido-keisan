@@ -190,9 +190,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.owariasahi.lg.jp/kategori/kenkou/kaigo/",
+    "url": "https://www.city.owariasahi.lg.jp/page/1544.html",
     "pageTitle": "尾張旭市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "尾張旭市★15段。基準65800(月5490・第5段公式年額)。★第1=0.23/第2=0.40 deep独自軽減。独自境界800/1000万。境界R8=826500。"
+  "notes": "尾張旭市★15段。基準65800(月5490・第5段公式年額)。★第1=0.23/第2=0.40 deep独自軽減。独自境界800/1000万。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.owariasahi.lg.jp/kategori/kenkou/kaigo/ は開けなかった）。Chrome で開いて本文の年額を機械照合し、全段階一致（市町のサイトはボット対策で機械取得できないため）。年額・料率は変えていない。"
 }

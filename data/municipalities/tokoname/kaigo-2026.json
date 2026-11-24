@@ -166,9 +166,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.tokoname.aichi.jp/kurashi/1000176/",
+    "url": "https://www.city.tokoname.aichi.jp/kurashi/koreisya/1000787/1000789.html",
     "pageTitle": "常滑市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "常滑市13段。基準70800(月5900)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。"
+  "notes": "常滑市13段。基準70800(月5900)。第1-3軽減後(標準)。第6+標準境界。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.tokoname.aichi.jp/kurashi/1000176/ は開けなかった）。Chrome で開いて本文の年額を機械照合し、全段階一致（市町のサイトはボット対策で機械取得できないため）。年額・料率は変えていない。"
 }

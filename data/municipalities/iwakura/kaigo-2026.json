@@ -202,9 +202,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.iwakura.aichi.jp/category/bunya/kenkou/kaigohoken/",
+    "url": "https://www.city.iwakura.aichi.jp/0000006318.html",
     "pageTitle": "岩倉市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "岩倉市★16段。基準64600(月5391・第5段公式年額)。第1-3軽減後(軽減前併記→軽減後採用)。独自境界820/1000/1500万。境界R8=826500。"
+  "notes": "岩倉市★16段。基準64600(月5391・第5段公式年額)。第1-3軽減後(軽減前併記→軽減後採用)。独自境界820/1000/1500万。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.iwakura.aichi.jp/category/bunya/kenkou/kaigohoken/ は開けなかった）。市の「岩倉市例規集等」ページ（例規集本体は第一法規 d1-law.com にあり許可ホスト外のため出典リンクは市のページにした）。岩倉市介護保険条例 第4条と機械照合し、16 段階すべて一致（第1〜3段階は減額賦課の額）。年額・料率は変えていない。"
 }

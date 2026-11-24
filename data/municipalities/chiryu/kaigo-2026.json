@@ -214,9 +214,9 @@
   ],
   "fallbackLevel": "5",
   "source": {
-    "url": "https://www.city.chiryu.aichi.jp/kurashi/fukushi_kaigo/",
+    "url": "https://www.city.chiryu.aichi.jp/material/files/group/11/0804kaigohokenryou.pdf",
     "pageTitle": "知立市 介護保険料（第9期）",
-    "retrievedAt": "2026-06-26"
+    "retrievedAt": "2026-11-24"
   },
-  "notes": "知立市★17段。基準69100(月5760・第5段公式年額)。第1-3軽減後。独自境界850/1000/1500/2000万。境界R8=826500。"
+  "notes": "知立市★17段。基準69100(月5760・第5段公式年額)。第1-3軽減後。独自境界850/1000/1500/2000万。境界R8=826500。★2026-11-24 出典を差し替え（旧 https://www.city.chiryu.aichi.jp/kurashi/fukushi_kaigo/ は開けなかった）。市の「介護保険料の決め方（令和8年度分）」PDF を Chrome で開き、表を AI が読んで 17 段階すべて一致を確認（ボット対策で機械取得できない）。年額・料率は変えていない。"
 }
