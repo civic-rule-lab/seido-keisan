@@ -1,0 +1,64 @@
+{
+  "meta": {
+    "scheme": "個人の事業税（事業主控除・標準税率）",
+    "taxYear": 2026,
+    "taxYearLabel": "2026年（令和8年）中の事業の所得にかかる分（納めるのは翌年度）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-11-25",
+    "source": {
+      "kojo": "地方税法 第72条の49の14（事業主控除＝年290万円。事業を行った期間が1年に満たないときは月割り。e-Gov 法令API v1・法令番号 昭和二十五年法律第二百二十六号、2026-11-25 取得）",
+      "rates": "地方税法 第72条の49の17 第1項（標準税率＝第一種事業 100分の5・第二種事業 100分の4・第三種事業 100分の5・第三種事業のうち第72条の2第10項第5号及び第7号の事業 100分の3）・同 第3項（道府県が標準税率を超える税率で課する場合の上限は1.1倍）。同上・2026-11-25 取得",
+      "gyoshu": "地方税法 第72条の2 第3項・第8項〜第10項（個人の事業税は第一種事業・第二種事業・第三種事業に課する。業種は各項の号に列挙）。同上・2026-11-25 取得",
+      "base": "地方税法 第72条の49の12 第1項（課税標準は所得税の不動産所得・事業所得の計算の例により算定する）。同上・2026-11-25 取得",
+      "aoiro": "東京都主税局「個人事業税」https://www.tax.metro.tokyo.lg.jp/kazei/work/kojin_ji （「個人の事業税には青色申告特別控除の適用はありませんので、所得金額に加算します。（取扱通知（県）第3章11の4）」。事業主控除 年間290万円・第1種事業（37業種）5%・第2種事業（3業種）4%・第3種事業（30業種）5%。2026-11-25 取得）",
+      "rounding": "地方税法 第20条の4の2 第1項（課税標準額の千円未満切捨て）・第3項（確定金額の百円未満切捨て）。e-Gov 法令API v1・2026-11-25 取得",
+      "snapshot": {
+        "capturedAt": "2026-11-24T15:32:06Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "egov_chihozeiho_72-49-14.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_49_14", "sha256": "19141a6c32014dcf066dd88778841b0b30140aa63d2a4a22c925773bc4c0b075", "bytes": 1578 },
+          { "file": "egov_chihozeiho_72-49-17.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_49_17", "sha256": "733bacafd85e5f0ba99a3ed8f86c0b3b6398f7a5d3b225d1f09c410a825b136b", "bytes": 4290 },
+          { "file": "egov_chihozeiho_72-49-12.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_49_12", "sha256": "4cb78bd21638d022a97836626064cc2bd2d2c59203fcbb9832076746c8af7ddc", "bytes": 21199 },
+          { "file": "egov_chihozeiho_72-2.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_2", "sha256": "b1d451bd1a69cee251585de08a44e28080968c7be554f7d9670703a47b18a2d1", "bytes": 29731 },
+          { "file": "egov_chihozeiho_20-4-2.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=20_4_2", "sha256": "7630a40d2f410c1c013bc8b349dcb6e8bd23077ca0f28ead5bde7a192a6e0250", "bytes": 5837 },
+          { "file": "tokyo_shuzeikyoku_kojin_ji.html", "url": "https://www.tax.metro.tokyo.lg.jp/kazei/work/kojin_ji", "sha256": "51fa0d25692dc0d6c6e92973e88a8d038528cd4e592945f5e279d3070817f6cb", "bytes": 576808 }
+        ]
+      }
+    },
+    "inferred": [
+      {
+        "key": "rates（都道府県ごとの税率）",
+        "note": "収録しているのは標準税率。都道府県が条例で標準税率と違う税率を定めているかどうかは調べていない（地方税法は1.1倍までの超過を認めている）。",
+        "confidence": "unverified"
+      },
+      {
+        "key": "gyoshu（政令で加わる業種）",
+        "note": "第一種・第二種・第三種事業には、政令で定める事業が加わる（第72条の2 第8項第31号・第9項第3号・第10項第21号など）。政令の内容は確認していない。どの事業に当たるかの認定は都道府県が行う。",
+        "confidence": "unverified"
+      }
+    ],
+    "notes": [
+      "働き方の比較（js/core/hatarakikata.js）が、個人事業の列の税として使う。計算は js/core/jigyozei.js。",
+      "課税標準＝事業の所得（青色申告特別控除を引く前）− 事業主控除。青色申告特別控除は個人の事業税には適用されない。",
+      "法律に列挙された業種（法定業種）に当たらない事業には課されない。画面では利用者が区分を選ぶ（rates の key）。",
+      "繰越控除・事業専従者給与（控除）・事業を行った期間が1年に満たない場合の月割りは収録していない（計算側も1年分だけを扱う）。"
+    ]
+  },
+  "jigyonushiKojo": {
+    "annual": 2900000,
+    "months": 12
+  },
+  "rates": [
+    { "key": "type1", "label": "第1種事業（物品販売業・製造業・請負業・飲食店業など）", "ratePercent": 5 },
+    { "key": "type2", "label": "第2種事業（畜産業・水産業・薪炭製造業）", "ratePercent": 4 },
+    { "key": "type3", "label": "第3種事業（医業・弁護士業・税理士業・コンサルタント業・デザイン業・理容業・美容業など）", "ratePercent": 5 },
+    { "key": "type3low", "label": "第3種事業のうち、あん摩・マッサージ・指圧・はり・きゅう・柔道整復など、および装蹄師業", "ratePercent": 3 },
+    { "key": "none", "label": "法定業種に当たらない事業（課されない）", "ratePercent": 0 }
+  ],
+  "rounding": {
+    "taxableUnit": 1000,
+    "taxUnit": 100
+  }
+}

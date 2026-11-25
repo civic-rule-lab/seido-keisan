@@ -1,0 +1,74 @@
+{
+  "meta": {
+    "scheme": "働き方の比較（会社員・個人事業）の計算の前提と、会社が負担する子ども・子育て拠出金の率",
+    "incomeYear": 2026,
+    "incomeYearLabel": "2026年（令和8年）の稼ぎとして計算する",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-11-25",
+    "source": {
+      "kyoshutsukin": "日本年金機構「厚生年金保険料額表（令和8年度版）」https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf （「子ども・子育て拠出金率（令和8年4月1日～ 適用） …0.36％」「事業主が全額負担」「被保険者個々の厚生年金保険の標準報酬月額」及び標準賞与額に拠出金率を乗じた額。2026-11-25 取得）",
+      "nenkinAge": "国民年金法 第7条第1項（第1号被保険者＝日本国内に住所を有する20歳以上60歳未満の者で第2号・第3号に当たらないもの／第2号被保険者＝厚生年金保険の被保険者／第3号被保険者＝第2号被保険者の配偶者で主として第2号被保険者の収入により生計を維持するもののうち20歳以上60歳未満のもの。e-Gov 法令API v1・法令番号 昭和三十四年法律第百四十一号、2026-11-25 取得）",
+      "snapshot": {
+        "capturedAt": "2026-11-24T15:32:06Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "nenkin_R08ryougaku.pdf", "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf", "sha256": "17cb4adcce3e25646fd48c73ae6fc79dc25a372276a47e31364ae08e7bfa1d5c", "bytes": 339589 },
+          { "file": "egov_kokuminnenkinho_7.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=7", "sha256": "766f4ded6ad009da6d066cf6ba811f4a373de835b84a3083530042ac339a7040", "bytes": 3643 }
+        ]
+      }
+    },
+    "inferred": [
+      {
+        "key": "spouse.hifuyoSalaryLimit",
+        "note": "配偶者が健康保険の被扶養者・国民年金の第3号被保険者になれる収入の目安（年130万円未満）。認定の基準は通知によるもので、この値の一次資料は確認していない。60歳以上・障害者の基準（180万円未満）と、勤め先で自分の社会保険に入る人の扱いは収録していない。",
+        "confidence": "unverified"
+      },
+      {
+        "key": "kaigoAge",
+        "note": "介護保険の第2号被保険者（40歳以上65歳未満）の年齢。国保の介護分の対象を数えるために使う。既存の計算ページと同じ値で、この確認では条文を取得していない。",
+        "confidence": "unverified"
+      }
+    ],
+    "notes": [
+      "働き方の比較（js/core/hatarakikata.js）が読む。年の組み合わせは既存の家計簿・自営業のページに合わせた（2026年の稼ぎ → 所得税は令和8年分・住民税は令和9年度分・国保は令和8年度の料率・社会保険料は対象月 2026-07 の料率）。",
+      "会社の負担に入れるのは、健康保険・介護保険・子ども・子育て支援金・厚生年金保険の会社負担分、雇用保険の会社負担分（data/shaho/koyo-<年>.json の一般の事業）、子ども・子育て拠出金。労災保険は業種で率が違うため入れない。",
+      "賞与は扱わない（年収を12で割った額を毎月の報酬として計算する）。"
+    ]
+  },
+  "years": {
+    "shotokuYear": 2026,
+    "juminFiscalYear": 2027,
+    "kokuhoYear": 2026,
+    "shahoTargetMonth": "2026-07",
+    "nenkinFiscalYear": 2026
+  },
+  "kaishain": {
+    "koyoCategory": "ippan",
+    "kyoshutsukin": {
+      "ratePer10000": 36,
+      "base": "kosei-standard-monthly"
+    }
+  },
+  "kojin": {
+    "aoiroOptions": [650000, 550000, 100000, 0],
+    "aoiroDefault": 650000,
+    "gyoshuDefault": "type1"
+  },
+  "nenkin1go": {
+    "ageFrom": 20,
+    "ageUnder": 60
+  },
+  "kaigoAge": {
+    "ageFrom": 40,
+    "ageUnder": 65
+  },
+  "spouse": {
+    "hifuyoSalaryLimit": 1300000
+  },
+  "ageRange": {
+    "min": 15,
+    "under": 75
+  }
+}

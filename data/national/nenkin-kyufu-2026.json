@@ -1,0 +1,50 @@
+{
+  "meta": {
+    "scheme": "公的年金の年金額（老齢基礎年金の満額・老齢厚生年金の報酬比例部分の乗率）",
+    "fiscalYear": 2026,
+    "fiscalYearLabel": "令和8年度（2026年4月分〜2027年3月分）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-11-25",
+    "source": {
+      "kisoFormula": "国民年金法 第27条（老齢基礎年金の額＝780,900円×改定率。100円未満は50円未満切捨て・50円以上切上げ。保険料納付済期間の月数が480に満たないときは月数÷480を乗じる。e-Gov 法令API v1・法令番号 昭和三十四年法律第百四十一号、2026-11-25 取得）",
+      "kisoAmount": "厚生労働省「令和8年度の年金額改定についてお知らせします」（令和8年1月23日）https://www.mhlw.go.jp/content/12502000/001639615.pdf （国民年金〈老齢基礎年金（満額）1人分〉月額 70,608円。昭和31年4月1日以前生まれは月額 70,408円。2026-11-25 取得）",
+      "kisoAmountCrossCheck": "日本年金機構「令和8年4月分からの年金額等について」https://www.nenkin.go.jp/oshirase/taisetu/kojin/2026/202604/0401.html （老齢基礎年金（満額）月額 70,608円。2026-11-25 取得）・同「老齢基礎年金の受給要件・支給開始時期・年金額」https://www.nenkin.go.jp/service/jukyu/seido/roureinenkin/jukyu-yoken/20150401-02.html （昭和31年4月1日以前生まれは 844,900円。2026-11-25 取得）",
+      "koseiFormula": "厚生年金保険法 第43条第1項（老齢厚生年金の額＝平均標準報酬額×1000分の5.481×被保険者期間の月数。平均標準報酬額は各月の標準報酬月額と標準賞与額に再評価率を乗じた総額÷月数。e-Gov 法令API v1・法令番号 昭和二十九年法律第百十五号、2026-11-25 取得）",
+      "snapshot": {
+        "capturedAt": "2026-11-24T15:32:06Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "egov_kokuminnenkinho_27.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=27", "sha256": "5e51d5a9af96c0b3adaa26a79fbc78adb0303c90eb181dcd34a12a5eec5d882e", "bytes": 4890 },
+          { "file": "egov_kouseinenkinhokenho_43.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十九年法律第百十五号;article=43", "sha256": "112e1e885a7b5ae881cc301f8bee39bd366aaec1e7e761d4d1acb5d825d7aea6", "bytes": 3364 },
+          { "file": "mhlw_r8_nenkingaku_kaitei_001639615.pdf", "url": "https://www.mhlw.go.jp/content/12502000/001639615.pdf", "sha256": "b3682a45109a862446d931ececab8f4964cafca2a404be64d449d6b8c87f18a2", "bytes": 1050393 },
+          { "file": "nenkin_r8_nenkingaku_202604.html", "url": "https://www.nenkin.go.jp/oshirase/taisetu/kojin/2026/202604/0401.html", "sha256": "37972b6dfac4025456d7ac01d9ee0add18d3c1aea1e9690979b5db0620dfb73b", "bytes": 27647 },
+          { "file": "nenkin_roureikiso_nenkingaku.html", "url": "https://www.nenkin.go.jp/service/jukyu/seido/roureinenkin/jukyu-yoken/20150401-02.html", "sha256": "3a557a28367a8395db21afe3dc572aa6c83a8848d4aa0ff90529ebe7d73e150f", "bytes": 30247 }
+        ]
+      }
+    },
+    "inferred": [
+      {
+        "key": "kiso.fullAnnual",
+        "note": "年額 847,300円は、一次資料の月額 70,608円（×12＝847,296円）と、国民年金法 第27条の100円単位の端数処理から導いた値。一次資料の本文に年額 847,300円の文字は確認できていない（年金機構のページでは計算式が画像）。同じページにある昭和31年4月1日以前生まれの年額 844,900円と月額 70,408円（×12＝844,896円）が同じ関係になっていることを確認した。",
+        "confidence": "inferred"
+      }
+    ],
+    "notes": [
+      "働き方の比較（js/core/hatarakikata.js）が「1年働いたときに増える年金（年額）」の目安を出すために使う。計算は js/core/nenkin-kyufu.js。",
+      "昭和31年4月2日以後生まれの額だけを収録する（現役世代が対象のため）。",
+      "報酬比例部分の目安は、標準報酬月額×月数×乗率で計算し、再評価率と標準賞与額は扱わない（計算側の簡略。乗率そのものは条文の値）。",
+      "年金額は毎年度改定される。年度が変わったら nenkin-kyufu-<年>.json を新しく作る。"
+    ]
+  },
+  "kiso": {
+    "fullAnnual": 847300,
+    "fullMonthly": 70608,
+    "fullMonths": 480
+  },
+  "kosei": {
+    "rateNumerator": 5481,
+    "rateDenominator": 1000000
+  }
+}
