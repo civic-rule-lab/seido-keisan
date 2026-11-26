@@ -161,7 +161,7 @@
         </select>
       </div>
     </div>
-    <div class="hint" style="margin-top:8px;">前年分の社会保険料控除・小規模企業共済等掛金控除（iDeCo など）・医療費控除・雑損控除・配偶者特別控除・特定親族特別控除の合計。一部免除と学生納付特例の基準に足します。</div>
+    <div class="hint" id="selfDedHint" style="margin-top:8px;">前年分の社会保険料控除・小規模企業共済等掛金控除（iDeCo など）・医療費控除・雑損控除・配偶者特別控除・特定親族特別控除の合計。一部免除と学生納付特例の基準に足します。経費とは別のものなので、収入の種類で「所得」を選んだときも入れます。</div>
   </div>
 
   <div class="fz-card">
@@ -196,6 +196,8 @@
           <input id="spouseDed" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
         </div>
       </div>
+      <div class="hint" id="spouseDepsHint" style="margin-top:8px;">配偶者が扶養している人の数です。本人（所得<span data-db="fuyoLimit">58万円</span>以下）を扶養していれば本人も数え、16歳未満の子も数えます。本人が扶養している人は②に入れ、ここには数えません。いなければ空欄。</div>
+      <div class="hint" id="spouseDedHint" style="margin-top:8px;">「社会保険料控除など」は、配偶者の前年分の社会保険料控除・小規模企業共済等掛金控除（iDeCo など）・医療費控除などの合計です。経費とは別のものなので、収入の種類で「所得」を選んだときも入れます。一部免除の基準に足します。空欄なら 0 円として計算します。</div>
     </div>
     <label for="householder">世帯主</label>
     <select id="householder" data-step="9">
@@ -226,6 +228,8 @@
           <input id="hhDed" data-step="11b" type="text" inputmode="numeric" placeholder="例：0">
         </div>
       </div>
+      <div class="hint" id="hhDepsHint" style="margin-top:8px;">世帯主が扶養している人の数です。16歳未満の子も数えます。本人や配偶者が扶養している人は、ここには数えません。いなければ空欄。</div>
+      <div class="hint" id="hhDedHint" style="margin-top:8px;">「社会保険料控除など」は、世帯主の前年分の社会保険料控除・小規模企業共済等掛金控除（iDeCo など）・医療費控除などの合計です。経費とは別のものなので、収入の種類で「所得」を選んだときも入れます。一部免除の基準に足します。空欄なら 0 円として計算します。</div>
       <div class="hint" style="margin-top:8px;">納付猶予（50歳未満）と学生納付特例は、世帯主の所得を審査しません。</div>
     </div>
     <label for="tsuka">付加保険料（月<span data-db="tsuka">400</span>円・任意）</label>
