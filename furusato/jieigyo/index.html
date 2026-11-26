@@ -59,6 +59,14 @@
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
   .ci-sub{font-size:12px;color:#6b7280;line-height:1.7;}
   .links a{display:inline-block;margin:6px 8px 0 0;padding:8px 12px;border-radius:10px;background:var(--acc-bg);color:var(--acc);text-decoration:none;font-weight:600;font-size:13px;}
+  .cta-list{display:grid;grid-template-columns:max-content auto;gap:10px 3em;align-items:center;margin-top:6px;}
+  .cta-item{display:contents;}
+  .cta-item a{display:inline-block;justify-self:start;padding:10px 16px;border-radius:999px;background:var(--acc-bg-2);border:1px solid var(--acc-line-strong);color:var(--acc-strong);text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;}
+  .cta-item a:hover{background:var(--acc-line);}
+  .cta-item a:active{transform:translateY(1px);}
+  .cta-ext{font-size:13px;margin-left:2px;}
+  .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
+  @media (max-width:480px){ .cta-list{grid-template-columns:1fr;gap:4px 0;} .cta-item a{margin-bottom:8px;} }
 </style>
 </head>
 
@@ -228,6 +236,11 @@
     ・<a href="/furusato/onestop/" style="color:var(--acc);font-weight:600;">ワンストップ特例か確定申告か、3問で判定する →</a><br>
     ・住民税の決定通知書が手元にある方は、<a href="/furusato/" style="color:var(--acc);font-weight:600;">通知書の数字から上限額を計算する →</a> の方が正確です。<br>
     ・上場株式の配当がある方は、<a href="/furusato/haito/" style="color:var(--acc);font-weight:600;">配当を申告すると得か損か（国保料と上限を含めて判定）→</a>
+  </div>
+
+  <h2>あわせて使う</h2>
+  <div class="cta-list">
+    <div class="cta-item"><span class="cta-desc">同じ稼ぎを会社員で受け取ったときの税・社会保険料・手取りと比較</span><a href="/hatarakikata/">働き方の比較 <span class="cta-ext">↗</span></a></div>
   </div>
 
   <h2>計算の前提</h2>
