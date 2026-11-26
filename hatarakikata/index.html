@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="ja" data-system="seido">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="同じ稼ぎを会社員として受け取る場合と個人事業として受け取る場合で、社会保険料・税・手取り・年金の増え方がどう変わるかを、お住まいの自治体の国保料と住民税で計算して並べます。全国の市区町村に対応。">
+<link rel="canonical" href="https://seido-keisan.jp/hatarakikata/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="働き方で変わる 税・社会保険料・手取りの比較｜自治体別に計算">
+<meta property="og:description" content="自治体を選んで年収か売上を入れるだけ。同じ稼ぎでの社会保険料・税・手取り・年金の増え方を並べます。">
+<meta property="og:url" content="https://seido-keisan.jp/hatarakikata/">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=97f4dd1e">
+<title>働き方で変わる 税・社会保険料・手取りの比較｜自治体別に計算【2026年】</title>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（自営業・国保加入者モード seido-jieigyo.html と同じ見た目） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  .mode-title{margin:32px 0 12px;font-size:22px;font-weight:700;color:var(--acc);text-align:center;}
+  label{display:block;font-size:14px;font-weight:700;margin:18px 0 7px;color:#111827;}
+  .hint{font-size:12px;color:#6b7280;line-height:1.7;margin:-2px 0 6px;}
+  input[type="text"],select{width:100%;padding:14px 14px;font-size:17px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus,select:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
+  button:active{transform:translateY(1px);}
+  .fz-card{background:#f8fafc;border:1px solid #e5e7eb;border-radius:14px;padding:4px 16px 18px;margin:16px 0;}
+  .fz-card-title{font-size:15px;font-weight:700;color:var(--acc);margin:14px 0 4px;}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .warn{background:#fff8e1;border:1px solid #e6b800;border-radius:10px;padding:10px 12px;font-size:13px;line-height:1.8;color:#1f2937;margin-top:12px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+  .jt-card{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:14px 16px;margin:18px 0;}
+  .jt-card .jt-card-title{font-size:13px;font-weight:700;color:var(--acc);margin-bottom:8px;}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
+  .ci-sub{font-size:12px;color:#6b7280;line-height:1.7;}
+  .cta-list{display:grid;grid-template-columns:max-content auto;gap:10px 3em;align-items:center;margin-top:6px;}
+  .cta-item{display:contents;}
+  .cta-item a{display:inline-block;justify-self:start;padding:10px 16px;border-radius:999px;background:var(--acc-bg-2);border:1px solid var(--acc-line-strong);color:var(--acc-strong);text-decoration:none;font-weight:700;font-size:14px;line-height:1.4;white-space:nowrap;}
+  .cta-item a:hover{background:var(--acc-line);}
+  .cta-item a:active{transform:translateY(1px);}
+  .cta-ext{font-size:13px;margin-left:2px;}
+  .cta-desc{font-size:13px;color:#374151;line-height:1.5;}
+  details{margin-top:14px;}
+  summary{cursor:pointer;font-size:14px;font-weight:700;color:var(--acc);}
+  /* 比較の表: 見出しの列 ＋ 働き方の列（列の数は --hk-cols で渡す）。携帯幅では、働き方ごとに縦に積む */
+  .hk-grid{display:grid;grid-template-columns:minmax(0,1.15fr) repeat(var(--hk-cols),minmax(0,1fr));border-top:1px solid #e5e7eb;margin-top:8px;}
+  .hk-grid > div{padding:9px 4px;border-bottom:1px solid #e5e7eb;font-size:14px;line-height:1.5;box-sizing:border-box;min-width:0;}
+  .hk-h{font-weight:700;color:var(--acc);text-align:right;}
+  .hk-l{color:#374151;}
+  .hk-c{text-align:right;font-weight:700;color:#0f172a;font-variant-numeric:tabular-nums;}
+  .hk-c .ci-sub{display:block;font-weight:400;}
+  .hk-strong{background:var(--acc-bg);}
+  .hk-strong.hk-c{font-size:16px;color:var(--acc-strong);}
+  @media (max-width:480px){
+    .cta-list{grid-template-columns:1fr;gap:4px 0;} .cta-item a{margin-bottom:8px;}
+    .hk-grid{grid-template-columns:minmax(0,1fr);border-top:none;}
+    .hk-grid > .hk-l,.hk-grid > .hk-corner{display:none;}
+    .hk-grid > .hk-h{order:var(--o);text-align:left;margin-top:14px;font-size:15px;border-bottom:2px solid var(--acc);}
+    .hk-grid > .hk-c{order:var(--o);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 10px;}
+    .hk-c::before{content:attr(data-label);font-weight:400;color:#374151;text-align:left;}
+    .hk-c .ci-sub{grid-column:1 / -1;}
+    .hk-grid > .hk-info{grid-template-columns:minmax(0,1fr);}
+    .hk-info::before{font-weight:700;}
+  }
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:32px;font-size:clamp(26px,4.5vw,30px);text-align:center;"><span class="h1-seg">働き方で変わる</span><span class="h1-seg">税・社会保険料・</span><span class="h1-seg">手取りの比較</span><span class="h1-year">【2026年の稼ぎ・自治体別に計算】</span></h1>
+
+  <p style="font-size:14px;line-height:1.9;color:#374151;margin:0 0 6px;">同じ稼ぎを、働き方を変えて受け取ったときの<b>社会保険料・税・手取り・年金の増え方</b>を並べます。会社が払う総額（額面年収＋会社が負担する社会保険料）と、売上から経費を引いた額を同じ額として比べます。国保料と住民税は、お住まいの自治体の料率で計算します（<b>1733</b> 自治体に対応）。</p>
+  <p style="font-size:12px;color:#6b7280;margin:0 0 10px;">入力した内容はこの端末の中だけで計算し、送信・保存しません。</p>
+
+  <div class="mode-title">かんたん計算</div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">① お住まいの自治体</div>
+    <div class="row2">
+      <div>
+        <label for="pref">都道府県</label>
+        <select id="pref" data-step="1a"><option value="">選択してください</option></select>
+      </div>
+      <div>
+        <label for="city">市区町村</label>
+        <select id="city" data-step="1b" disabled><option value="">先に都道府県を選択</option></select>
+      </div>
+    </div>
+    <div class="hint">国保料と住民税は市区町村ごとに違います（国保は令和8年度の料率で計算）。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">② いまの働き方と稼ぎ</div>
+    <label for="mode">いまの働き方</label>
+    <select id="mode" data-step="2"></select>
+    <div class="hint">選んだ働き方の数字を入れると、同じ稼ぎになるように、ほかの働き方の数字を計算します。</div>
+    <div id="boxKaishain">
+      <label for="nenshu">額面年収（2026年の見込み・円）</label>
+      <div class="hint">税や社会保険料を引かれる前の年収。源泉徴収票の「支払金額」にあたります。</div>
+      <input id="nenshu" data-step="3" type="text" inputmode="numeric" placeholder="例：5,000,000">
+    </div>
+    <div id="boxKojin" style="display:none;">
+      <div class="row2">
+        <div>
+          <label for="uriage">売上（2026年の見込み・円）</label>
+          <input id="uriage" data-step="4a" type="text" inputmode="numeric" placeholder="例：8,000,000">
+        </div>
+        <div>
+          <label for="keihi">経費（円）</label>
+          <input id="keihi" data-step="4b" type="text" inputmode="numeric" placeholder="例：2,000,000">
+        </div>
+      </div>
+      <div class="hint">売上から経費を引いた額で比べます。青色申告特別控除は、下の欄で選びます（経費には入れません）。</div>
+    </div>
+    <label for="age">年齢</label>
+    <input id="age" data-step="5" type="text" inputmode="numeric" placeholder="例：35">
+    <div class="hint">40〜64歳は介護保険料がかかります。20〜59歳は基礎年金が増える期間です。</div>
+    <div id="boxKojinOpt" style="display:none;">
+      <label for="aoiro">青色申告特別控除</label>
+      <select id="aoiro" data-step="6a"></select>
+      <label for="gyoshu">業種（個人事業税の税率）</label>
+      <select id="gyoshu" data-step="6b"></select>
+      <div class="hint">個人事業税がかかる業種かどうかは、都道府県税事務所にご確認ください。</div>
+    </div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">③ 家族（2026年12月31日時点の見込み・任意）</div>
+    <label for="spouse">配偶者</label>
+    <select id="spouse" data-step="7">
+      <option value="none" selected>いない</option>
+      <option value="yes">いる</option>
+    </select>
+    <div id="spouseBox" style="display:none;">
+      <div class="row2">
+        <div>
+          <label for="spouseAge">配偶者の年齢</label>
+          <input id="spouseAge" data-step="8a" type="text" inputmode="numeric" placeholder="例：35">
+        </div>
+        <div>
+          <label for="spouseSalary">配偶者の給与収入（年収・円）</label>
+          <input id="spouseSalary" data-step="8b" type="text" inputmode="numeric" placeholder="例：0">
+        </div>
+      </div>
+      <div class="hint">パート・給与のみの前提。年収 <span data-cfg="hifuyo"></span> 未満は扶養に入るものとして、それ以上は自分の勤め先の社会保険に入っているものとして計算します。</div>
+    </div>
+    <div class="row2">
+      <div>
+        <label for="kidsU16">子の人数（16歳未満）</label>
+        <input id="kidsU16" data-step="9a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="kidsPre">うち小学校に入る前の子</label>
+        <input id="kidsPre" data-step="9b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="kids1618">子の人数（16〜18歳）</label>
+        <input id="kids1618" data-step="10a" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+      <div>
+        <label for="kids1922">子の人数（19〜22歳）</label>
+        <input id="kids1922" data-step="10b" type="text" inputmode="numeric" placeholder="例：0">
+      </div>
+    </div>
+    <div class="hint" style="margin-top:6px;">子は所得がない前提です。国保の人数と軽減、扶養控除の計算に使います。</div>
+  </div>
+
+  <div class="fz-card">
+    <div class="fz-card-title">④ 自分の積立（任意）</div>
+    <label for="ideco">iDeCo の掛金（2026年の年額・円）</label>
+    <input id="ideco" data-step="11a" type="text" inputmode="numeric" placeholder="例：0">
+    <div class="hint">上限は働き方で違います。上限を超えた分は、上限の額で計算します（会社員は年 <span data-cfg="idecoKaishain"></span>、個人事業は年 <span data-cfg="idecoKojin"></span>）。</div>
+    <label for="kyosai">小規模企業共済の掛金（2026年の年額・円）</label>
+    <input id="kyosai" data-step="11b" data-step-end type="text" inputmode="numeric" placeholder="例：0">
+    <div class="hint">個人事業の列だけに入ります（上限は年 <span data-cfg="kyosai"></span>）。</div>
+  </div>
+
+  <button onclick="calcHatarakikata()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <div class="warn">
+    <strong>目安です。</strong>同じ稼ぎが続いたときの1年分を比べています。独立した最初の年は、住民税と国保料が前の年の所得で決まるため、この結果と違う数字になります。
+  </div>
+
+  <h2>金額に入っていない違い</h2>
+  <p class="hint" style="margin:0 0 8px;">手取りの額には出ない、働き方による違いです。</p>
+  <div id="infoTable"></div>
+
+  <h2>計算のしかた</h2>
+  <div class="jt-card">
+    <div class="jt-card-title">同じ稼ぎにそろえてから、社会保険料と税を引く</div>
+    <ol style="margin:6px 0 0;padding-left:1.4em;font-size:13px;line-height:1.8;color:#374151;">
+      <li>会社が払う総額 ＝ 額面年収 ＋ 会社が負担する社会保険料（健康保険・介護保険・子ども・子育て支援金・厚生年金・雇用保険・子ども・子育て拠出金）</li>
+      <li>個人事業は、売上 − 経費 を、会社が払う総額と同じ額として比べる</li>
+      <li>手取り ＝ そろえた額 − 社会保険料 − 税 − 自分の積立</li>
+      <li>売上と経費から入れたときは、同じ総額になる額面年収を 1,000 円きざみで求める</li>
+    </ol>
+  </div>
+
+  <h2>あわせて使う</h2>
+  <div class="cta-list">
+    <div class="cta-item"><span class="cta-desc">住民税・保険料・手取りを自治体別に計算</span><a href="/">家計簿シミュレーター <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">所得税の計算（令和8年分）</span><a href="/shotoku/">所得税の計算 <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">国民健康保険料の計算サイト</span><a href="https://kokuho-keisan.jp/">国保料の計算 <span class="cta-ext">↗</span></a></div>
+    <div class="cta-item"><span class="cta-desc">社会保険料の計算サイト（会社員）</span><a href="https://shaho-keisan.jp/">社会保険料の計算 <span class="cta-ext">↗</span></a></div>
+  </div>
+
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>2026年の稼ぎとして計算します（所得税は令和8年分・住民税は令和9年度分・国保料は令和8年度・社会保険料は2026年7月時点の料率）。</li>
+      <li>会社員は、協会けんぽ・雇用保険は一般の事業・賞与なし（年収を12で割った額を毎月の報酬とする）の前提です。</li>
+      <li>会社が払う総額には、労災保険料・退職金の積立・通勤手当・福利厚生は入れていません。</li>
+      <li>個人事業は、市区町村の国保に入る前提です（国保組合は対象外）。国保の資産割、国民年金の免除と付加保険料は入れていません。</li>
+      <li>青色申告特別控除の 65万円・55万円には、帳簿や申告の方法の要件があります。</li>
+      <li>個人事業税は、標準税率・事業主控除 <span data-cfg="jigyonushi"></span> で1年分を計算します。都道府県による税率の違いは入れていません。</li>
+      <li>iDeCo の上限は、会社員は企業年金に入っていない場合の額です。個人事業の上限は、国民年金基金・付加保険料と合わせた額です。</li>
+      <li>配偶者自身の税と社会保険料は、手取りに入れていません。</li>
+    </ul>
+  </div>
+
+  <h2>出典</h2>
+  <div class="note" style="margin-top:4px;">
+    健康保険法（第99条 傷病手当金・第102条 出産手当金）、厚生年金保険法 第43条、国民年金法 第7条・第27条、雇用保険法 第10条・第61条の6、国民健康保険法 第58条・各自治体の国保条例（料率はお住まいの自治体の公表値）、所得税法・租税特別措置法 第25条の2（青色申告特別控除）、地方税法（住民税・第72条の49の12〜第72条の49の17 個人の事業税）、確定拠出年金法施行令 第36条、小規模企業共済法 第4条、日本年金機構「厚生年金保険料額表（令和8年度版）」「国民年金保険料」、厚生労働省「令和8年度の年金額改定について」「令和8年度の雇用保険料率」、全国健康保険協会の保険料率。
+  </div>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+  <p style="margin-top:14px;font-size:12px;text-align:center;"><a href="/about/" style="color:#6b7280;">運営者情報・プライバシーポリシー・免責事項</a></p>
+<p style="margin-top:14px;font-size:12px;text-align:center;color:#6b7280;">運営：Civic Rule Lab（Civic Systems）｜ <a href="https://seido-keisan.jp/about/" style="color:#6b7280;">運営者情報・免責</a></p>
+<p style="margin-top:6px;font-size:12px;text-align:center;color:#6b7280;">関連サイト： <a href="https://kokuho-keisan.jp/" style="color:#6b7280;">国保計算</a> ／ <a href="https://shaho-keisan.jp/" style="color:#6b7280;">社会保険の計算</a> ／ <a href="https://shogakukin-keisan.jp/" style="color:#6b7280;">奨学金かんたん計算</a></p>
+
+</div>
+
+<!-- 制度値と自治体一覧。生成時に埋め込む（JSON は文字列のまま） -->
+<script>
+const CITY_INDEX = {"北海道":{"slug":"hokkaido","cities":[{"slug":"sapporo","name":"札幌市","k":1,"j":1},{"slug":"hakodate","name":"函館市","k":2,"j":0},{"slug":"otaru","name":"小樽市","k":2,"j":0},{"slug":"asahikawa","name":"旭川市","k":2,"j":0},{"slug":"muroran","name":"室蘭市","k":2,"j":0},{"slug":"kushiro","name":"釧路市","k":2,"j":0},{"slug":"obihiro","name":"帯広市","k":2,"j":0},{"slug":"kitami","name":"北見市","k":3,"j":0},{"slug":"yubari","name":"夕張市","k":2,"j":0},{"slug":"iwamizawa","name":"岩見沢市","k":2,"j":0},{"slug":"abashiri","name":"網走市","k":3,"j":0},{"slug":"rumoi","name":"留萌市","k":3,"j":0},{"slug":"tomakomai","name":"苫小牧市","k":2,"j":0},{"slug":"wakkanai","name":"稚内市","k":3,"j":0},{"slug":"bibai","name":"美唄市","k":3,"j":0},{"slug":"ashibetsu","name":"芦別市","k":3,"j":0},{"slug":"ebetsu","name":"江別市","k":1,"j":0},{"slug":"akabira","name":"赤平市","k":3,"j":0},{"slug":"monbetsu","name":"紋別市","k":3,"j":0},{"slug":"shibetsu","name":"士別市","k":3,"j":0},{"slug":"nayoro","name":"名寄市","k":3,"j":0},{"slug":"mikasa","name":"三笠市","k":3,"j":0},{"slug":"nemuro","name":"根室市","k":3,"j":0},{"slug":"chitose","name":"千歳市","k":2,"j":0},{"slug":"takikawa","name":"滝川市","k":3,"j":0},{"slug":"sunagawa","name":"砂川市","k":3,"j":0},{"slug":"utashinai","name":"歌志内市","k":3,"j":0},{"slug":"fukagawa","name":"深川市","k":3,"j":0},{"slug":"furano","name":"富良野市","k":3,"j":0},{"slug":"noboribetsu","name":"登別市","k":2,"j":0},{"slug":"eniwa","name":"恵庭市","k":2,"j":0},{"slug":"date","name":"伊達市","k":3,"j":0},{"slug":"kitahiroshima","name":"北広島市","k":2,"j":0},{"slug":"ishikari","name":"石狩市","k":3,"j":0},{"slug":"hokuto","name":"北斗市","k":3,"j":0},{"slug":"tobetsu","name":"当別町","k":3,"j":0},{"slug":"shinshinotsu","name":"新篠津村","k":3,"j":0},{"slug":"matsumae","name":"松前町","k":3,"j":0},{"slug":"fukushima","name":"福島町","k":3,"j":0},{"slug":"shiriuchi","name":"知内町","k":3,"j":0},{"slug":"kikonai","name":"木古内町","k":3,"j":0},{"slug":"nanae","name":"七飯町","k":3,"j":0},{"slug":"shikabe","name":"鹿部町","k":3,"j":0},{"slug":"mori","name":"森町","k":3,"j":0},{"slug":"yakumo","name":"八雲町","k":3,"j":0},{"slug":"oshamanbe","name":"長万部町","k":3,"j":0},{"slug":"esashi","name":"江差町","k":3,"j":0},{"slug":"kaminokuni","name":"上ノ国町","k":3,"j":0},{"slug":"assabu","name":"厚沢部町","k":3,"j":0},{"slug":"otobe","name":"乙部町","k":3,"j":0},{"slug":"okushiri","name":"奥尻町","k":3,"j":0},{"slug":"imakane","name":"今金町","k":3,"j":0},{"slug":"setana","name":"せたな町","k":3,"j":0},{"slug":"shimamaki","name":"島牧村","k":3,"j":0},{"slug":"suttsu","name":"寿都町","k":3,"j":0},{"slug":"kuromatsunai","name":"黒松内町","k":3,"j":0},{"slug":"rankoshi","name":"蘭越町","k":3,"j":0},{"slug":"niseko","name":"ニセコ町","k":3,"j":0},{"slug":"makkari","name":"真狩村","k":3,"j":0},{"slug":"rusutsu","name":"留寿都村","k":3,"j":0},{"slug":"kimobetsu","name":"喜茂別町","k":3,"j":0},{"slug":"kyogoku","name":"京極町","k":3,"j":0},{"slug":"kutchan","name":"倶知安町","k":3,"j":0},{"slug":"kyowa","name":"共和町","k":3,"j":0},{"slug":"iwanai","name":"岩内町","k":3,"j":0},{"slug":"tomari","name":"泊村","k":3,"j":0},{"slug":"kamoenai","name":"神恵内村","k":3,"j":0},{"slug":"shakotan","name":"積丹町","k":3,"j":0},{"slug":"furubira","name":"古平町","k":3,"j":0},{"slug":"niki","name":"仁木町","k":3,"j":0},{"slug":"yoichi","name":"余市町","k":3,"j":0},{"slug":"akaiwa","name":"赤井川村","k":3,"j":0},{"slug":"nanporo","name":"南幌町","k":3,"j":0},{"slug":"naie","name":"奈井江町","k":3,"j":0},{"slug":"kamisunagawa","name":"上砂川町","k":3,"j":0},{"slug":"yuni","name":"由仁町","k":3,"j":0},{"slug":"naganuma","name":"長沼町","k":3,"j":0},{"slug":"kuriyama","name":"栗山町","k":3,"j":0},{"slug":"tsukigata","name":"月形町","k":3,"j":0},{"slug":"urausu","name":"浦臼町","k":3,"j":0},{"slug":"shintotsu","name":"新十津川町","k":3,"j":0},{"slug":"moseushi","name":"妹背牛町","k":3,"j":0},{"slug":"chippubetsu","name":"秩父別町","k":3,"j":0},{"slug":"uryu","name":"雨竜町","k":3,"j":0},{"slug":"hokuryu","name":"北竜町","k":3,"j":0},{"slug":"numata","name":"沼田町","k":3,"j":0},{"slug":"takasu","name":"鷹栖町","k":3,"j":0},{"slug":"higashikagura","name":"東神楽町","k":3,"j":0},{"slug":"toma","name":"当麻町","k":3,"j":0},{"slug":"pippu","name":"比布町","k":3,"j":0},{"slug":"aibetsu","name":"愛別町","k":3,"j":0},{"slug":"kamikawa-hokkaido","name":"上川町","k":3,"j":0},{"slug":"higashikawa","name":"東川町","k":3,"j":0},{"slug":"biei","name":"美瑛町","k":3,"j":0},{"slug":"kamifurano","name":"上富良野町","k":3,"j":0},{"slug":"nakafurano","name":"中富良野町","k":3,"j":0},{"slug":"minamifurano","name":"南富良野町","k":3,"j":0},{"slug":"shimukappu","name":"占冠村","k":3,"j":0},{"slug":"wassamu","name":"和寒町","k":3,"j":0},{"slug":"kembuchi","name":"剣淵町","k":3,"j":0},{"slug":"shimokawa","name":"下川町","k":3,"j":0},{"slug":"bifuka","name":"美深町","k":3,"j":0},{"slug":"otoineppu","name":"音威子府村","k":3,"j":0},{"slug":"nakagawa-hokkaido","name":"中川町","k":3,"j":0},{"slug":"horokanai","name":"幌加内町","k":3,"j":0},{"slug":"mashike","name":"増毛町","k":3,"j":0},{"slug":"obira","name":"小平町","k":3,"j":0},{"slug":"tomamae","name":"苫前町","k":3,"j":0},{"slug":"haboro","name":"羽幌町","k":3,"j":0},{"slug":"shosanbetsu","name":"初山別村","k":3,"j":0},{"slug":"embetsu","name":"遠別町","k":3,"j":0},{"slug":"teshio","name":"天塩町","k":3,"j":0},{"slug":"sarobetsu","name":"猿払村","k":3,"j":0},{"slug":"hamatonbetsu","name":"浜頓別町","k":3,"j":0},{"slug":"nakatonbetsu","name":"中頓別町","k":3,"j":0},{"slug":"esashi-hokkaido","name":"枝幸町","k":3,"j":0},{"slug":"toyotomi","name":"豊富町","k":3,"j":0},{"slug":"rebun","name":"礼文町","k":3,"j":0},{"slug":"rishiri","name":"利尻町","k":3,"j":0},{"slug":"rishirifuji","name":"利尻富士町","k":3,"j":0},{"slug":"horonobe","name":"幌延町","k":3,"j":0},{"slug":"bihoro","name":"美幌町","k":3,"j":0},{"slug":"tsubetsu","name":"津別町","k":3,"j":0},{"slug":"shari","name":"斜里町","k":3,"j":0},{"slug":"kiyosato","name":"清里町","k":3,"j":0},{"slug":"koshimizu","name":"小清水町","k":3,"j":0},{"slug":"kunneppu","name":"訓子府町","k":3,"j":0},{"slug":"oketo","name":"置戸町","k":3,"j":0},{"slug":"saroma","name":"佐呂間町","k":3,"j":0},{"slug":"engaru","name":"遠軽町","k":3,"j":0},{"slug":"yubetsu","name":"湧別町","k":3,"j":0},{"slug":"takinoue","name":"滝上町","k":3,"j":0},{"slug":"okoppe","name":"興部町","k":3,"j":0},{"slug":"nishiokoppe","name":"西興部村","k":3,"j":0},{"slug":"omu","name":"雄武町","k":3,"j":0},{"slug":"ozora","name":"大空町","k":3,"j":0},{"slug":"toyoura","name":"豊浦町","k":3,"j":0},{"slug":"sobetsu","name":"壮瞥町","k":3,"j":0},{"slug":"shiraoi","name":"白老町","k":3,"j":0},{"slug":"atsuma","name":"厚真町","k":3,"j":0},{"slug":"toyako","name":"洞爺湖町","k":3,"j":0},{"slug":"abira","name":"安平町","k":3,"j":0},{"slug":"mukawa","name":"むかわ町","k":3,"j":0},{"slug":"hidaka-hokkaido","name":"日高町","k":3,"j":0},{"slug":"biratori","name":"平取町","k":3,"j":0},{"slug":"niikappu","name":"新冠町","k":3,"j":0},{"slug":"urakawa","name":"浦河町","k":3,"j":0},{"slug":"samani","name":"様似町","k":3,"j":0},{"slug":"erimo","name":"えりも町","k":3,"j":0},{"slug":"shinhidaka","name":"新ひだか町","k":3,"j":0},{"slug":"otofuke","name":"音更町","k":3,"j":0},{"slug":"shihoro","name":"士幌町","k":3,"j":0},{"slug":"kamishihoro","name":"上士幌町","k":3,"j":0},{"slug":"shikaoibetsu","name":"鹿追町","k":3,"j":0},{"slug":"shintoku","name":"新得町","k":3,"j":0},{"slug":"shimizu","name":"清水町","k":3,"j":0},{"slug":"memuro","name":"芽室町","k":3,"j":0},{"slug":"nakasatsunai","name":"中札内村","k":3,"j":0},{"slug":"sarabetsu","name":"更別村","k":3,"j":0},{"slug":"taiki","name":"大樹町","k":3,"j":0},{"slug":"hiroo","name":"広尾町","k":3,"j":0},{"slug":"makubetsu","name":"幕別町","k":3,"j":0},{"slug":"ikeda-hokkaido","name":"池田町","k":3,"j":0},{"slug":"toyokoro","name":"豊頃町","k":3,"j":0},{"slug":"honbetsu","name":"本別町","k":3,"j":0},{"slug":"ashoro","name":"足寄町","k":3,"j":0},{"slug":"rikubetsu","name":"陸別町","k":3,"j":0},{"slug":"urahoro","name":"浦幌町","k":3,"j":0},{"slug":"kushiro-town","name":"釧路町","k":3,"j":0},{"slug":"akkeshi","name":"厚岸町","k":3,"j":0},{"slug":"hamanaka","name":"浜中町","k":3,"j":0},{"slug":"shibecha","name":"標茶町","k":3,"j":0},{"slug":"teshikaga","name":"弟子屈町","k":3,"j":0},{"slug":"tsurui","name":"鶴居村","k":3,"j":0},{"slug":"shiranuka","name":"白糠町","k":3,"j":0},{"slug":"betsukai","name":"別海町","k":3,"j":0},{"slug":"nakashibetsu","name":"中標津町","k":3,"j":0},{"slug":"shibetsu-hokkaido","name":"標津町","k":3,"j":0},{"slug":"rausu","name":"羅臼町","k":3,"j":0}]},"青森県":{"slug":"aomori","cities":[{"slug":"aomori","name":"青森市","k":2,"j":0},{"slug":"hirosaki","name":"弘前市","k":3,"j":0},{"slug":"hachinohe","name":"八戸市","k":3,"j":0},{"slug":"kuroishi","name":"黒石市","k":3,"j":0},{"slug":"goshogawara","name":"五所川原市","k":3,"j":0},{"slug":"towada","name":"十和田市","k":3,"j":0},{"slug":"misawa","name":"三沢市","k":3,"j":0},{"slug":"mutsu","name":"むつ市","k":3,"j":0},{"slug":"tsugaru","name":"つがる市","k":3,"j":0},{"slug":"hirakawa","name":"平川市","k":3,"j":0},{"slug":"hiranai","name":"平内町","k":3,"j":0},{"slug":"imabetsu","name":"今別町","k":3,"j":0},{"slug":"yomogita","name":"蓬田村","k":3,"j":0},{"slug":"sotogahama","name":"外ヶ浜町","k":3,"j":0},{"slug":"ajigasawa","name":"鰺ヶ沢町","k":3,"j":0},{"slug":"fukaura","name":"深浦町","k":3,"j":0},{"slug":"nishimeya","name":"西目屋村","k":3,"j":0},{"slug":"fujisaki","name":"藤崎町","k":3,"j":0},{"slug":"owani","name":"大鰐町","k":3,"j":0},{"slug":"inakadate","name":"田舎館村","k":3,"j":0},{"slug":"itayanagi","name":"板柳町","k":3,"j":0},{"slug":"tsuruta","name":"鶴田町","k":3,"j":0},{"slug":"nakadomari","name":"中泊町","k":3,"j":0},{"slug":"noheji","name":"野辺地町","k":3,"j":0},{"slug":"shichinohe","name":"七戸町","k":3,"j":0},{"slug":"rokunohe","name":"六戸町","k":3,"j":0},{"slug":"yokohamacho","name":"横浜町","k":3,"j":0},{"slug":"tohokucho","name":"東北町","k":3,"j":0},{"slug":"rokkasho","name":"六ヶ所村","k":3,"j":0},{"slug":"oirase","name":"おいらせ町","k":3,"j":0},{"slug":"oma","name":"大間町","k":3,"j":0},{"slug":"higashidori","name":"東通村","k":3,"j":0},{"slug":"kazamaura","name":"風間浦村","k":3,"j":0},{"slug":"sai","name":"佐井村","k":3,"j":0},{"slug":"sannohe","name":"三戸町","k":3,"j":0},{"slug":"gonohe","name":"五戸町","k":3,"j":0},{"slug":"takko","name":"田子町","k":3,"j":0},{"slug":"nanbu","name":"南部町","k":3,"j":0},{"slug":"hashikami","name":"階上町","k":3,"j":0},{"slug":"shingo","name":"新郷村","k":3,"j":0}]},"岩手県":{"slug":"iwate","cities":[{"slug":"morioka","name":"盛岡市","k":2,"j":0},{"slug":"miyakoshi","name":"宮古市","k":3,"j":0},{"slug":"ofunato","name":"大船渡市","k":3,"j":0},{"slug":"hanamaki","name":"花巻市","k":3,"j":0},{"slug":"kitakami","name":"北上市","k":3,"j":0},{"slug":"kuji","name":"久慈市","k":3,"j":0},{"slug":"tono","name":"遠野市","k":3,"j":0},{"slug":"ichinoseki","name":"一関市","k":3,"j":0},{"slug":"rikuzentakata","name":"陸前高田市","k":3,"j":0},{"slug":"kamaishi","name":"釜石市","k":3,"j":0},{"slug":"ninohe","name":"二戸市","k":3,"j":0},{"slug":"hachimantai","name":"八幡平市","k":3,"j":0},{"slug":"oshu","name":"奥州市","k":3,"j":0},{"slug":"takizawa","name":"滝沢市","k":3,"j":0},{"slug":"shizukuishi","name":"雫石町","k":3,"j":0},{"slug":"kuzumaki","name":"葛巻町","k":3,"j":0},{"slug":"iwatemachi","name":"岩手町","k":3,"j":0},{"slug":"shiwa","name":"紫波町","k":3,"j":0},{"slug":"yahaba","name":"矢巾町","k":3,"j":0},{"slug":"nishiwaga","name":"西和賀町","k":3,"j":0},{"slug":"kanegasaki","name":"金ケ崎町","k":3,"j":0},{"slug":"hiraizumi","name":"平泉町","k":3,"j":0},{"slug":"sumita","name":"住田町","k":3,"j":0},{"slug":"otsuchi","name":"大槌町","k":3,"j":0},{"slug":"yamada","name":"山田町","k":3,"j":0},{"slug":"iwaizumi","name":"岩泉町","k":3,"j":0},{"slug":"tanohata","name":"田野畑村","k":3,"j":0},{"slug":"fudai","name":"普代村","k":3,"j":0},{"slug":"karumai","name":"軽米町","k":3,"j":0},{"slug":"nodamura","name":"野田村","k":3,"j":0},{"slug":"kunohe","name":"九戸村","k":3,"j":0},{"slug":"hironocho","name":"洋野町","k":3,"j":0},{"slug":"ichinohe","name":"一戸町","k":3,"j":0}]},"宮城県":{"slug":"miyagi","cities":[{"slug":"sendai","name":"仙台市","k":1,"j":1},{"slug":"ishinomaki","name":"石巻市","k":3,"j":0},{"slug":"shiogama","name":"塩竈市","k":2,"j":0},{"slug":"kesennuma","name":"気仙沼市","k":3,"j":0},{"slug":"shiroishi","name":"白石市","k":3,"j":0},{"slug":"natori","name":"名取市","k":2,"j":0},{"slug":"kakuda","name":"角田市","k":3,"j":0},{"slug":"tagajo","name":"多賀城市","k":2,"j":0},{"slug":"iwanuma","name":"岩沼市","k":3,"j":0},{"slug":"tome","name":"登米市","k":3,"j":0},{"slug":"kurihara","name":"栗原市","k":3,"j":0},{"slug":"higashimatsushima","name":"東松島市","k":3,"j":0},{"slug":"osakishi","name":"大崎市","k":3,"j":0},{"slug":"tomiya","name":"富谷市","k":3,"j":0},{"slug":"zao","name":"蔵王町","k":3,"j":0},{"slug":"shichigashuku","name":"七ヶ宿町","k":3,"j":0},{"slug":"ogawara","name":"大河原町","k":3,"j":0},{"slug":"murata","name":"村田町","k":3,"j":0},{"slug":"shibatacho","name":"柴田町","k":3,"j":0},{"slug":"kawasakimiyagi","name":"川崎町","k":3,"j":0},{"slug":"marumori","name":"丸森町","k":3,"j":0},{"slug":"watari","name":"亘理町","k":3,"j":0},{"slug":"yamamoto","name":"山元町","k":3,"j":0},{"slug":"matsushima","name":"松島町","k":3,"j":0},{"slug":"shichigahama","name":"七ヶ浜町","k":3,"j":0},{"slug":"rifu","name":"利府町","k":3,"j":0},{"slug":"taiwa","name":"大和町","k":3,"j":0},{"slug":"osato","name":"大郷町","k":3,"j":0},{"slug":"ohira","name":"大衡村","k":3,"j":0},{"slug":"shikama","name":"色麻町","k":3,"j":0},{"slug":"kami","name":"加美町","k":3,"j":0},{"slug":"wakuya","name":"涌谷町","k":3,"j":0},{"slug":"misatomiyagi","name":"美里町","k":3,"j":0},{"slug":"onagawa","name":"女川町","k":3,"j":0},{"slug":"minamisanriku","name":"南三陸町","k":3,"j":0}]},"秋田県":{"slug":"akita","cities":[{"slug":"akita","name":"秋田市","k":2,"j":0},{"slug":"noshiro","name":"能代市","k":3,"j":0},{"slug":"yokote","name":"横手市","k":3,"j":0},{"slug":"odate","name":"大館市","k":3,"j":0},{"slug":"oga","name":"男鹿市","k":3,"j":0},{"slug":"yuzawacity","name":"湯沢市","k":3,"j":0},{"slug":"kazuno","name":"鹿角市","k":3,"j":0},{"slug":"yurihonjo","name":"由利本荘市","k":3,"j":0},{"slug":"katagami","name":"潟上市","k":3,"j":0},{"slug":"daisencity","name":"大仙市","k":3,"j":0},{"slug":"kitaakita","name":"北秋田市","k":3,"j":0},{"slug":"nikaho","name":"にかほ市","k":3,"j":0},{"slug":"semboku","name":"仙北市","k":3,"j":0},{"slug":"kosakacho","name":"小坂町","k":3,"j":0},{"slug":"kamikoanicho","name":"上小阿仁村","k":3,"j":0},{"slug":"fujisatomachi","name":"藤里町","k":3,"j":0},{"slug":"mitane","name":"三種町","k":3,"j":0},{"slug":"happocho","name":"八峰町","k":3,"j":0},{"slug":"gojomecho","name":"五城目町","k":3,"j":0},{"slug":"hachirogatacho","name":"八郎潟町","k":3,"j":0},{"slug":"ikawacho","name":"井川町","k":3,"j":0},{"slug":"ogatacho","name":"大潟村","k":3,"j":0},{"slug":"misatocho","name":"美郷町","k":3,"j":0},{"slug":"ugocho","name":"羽後町","k":3,"j":0},{"slug":"higashinarusemura","name":"東成瀬村","k":3,"j":0}]},"山形県":{"slug":"yamagata","cities":[{"slug":"yamagatacity","name":"山形市","k":2,"j":0},{"slug":"yonezawa","name":"米沢市","k":3,"j":0},{"slug":"tsuruoka","name":"鶴岡市","k":3,"j":0},{"slug":"sakata","name":"酒田市","k":3,"j":0},{"slug":"shinjocity","name":"新庄市","k":3,"j":0},{"slug":"sagae","name":"寒河江市","k":3,"j":0},{"slug":"kaminoyama","name":"上山市","k":3,"j":0},{"slug":"murayama","name":"村山市","k":3,"j":0},{"slug":"nagai","name":"長井市","k":3,"j":0},{"slug":"tendo","name":"天童市","k":3,"j":0},{"slug":"higashine","name":"東根市","k":3,"j":0},{"slug":"obanazawa","name":"尾花沢市","k":3,"j":0},{"slug":"nanyo","name":"南陽市","k":3,"j":0},{"slug":"yamabecho","name":"山辺町","k":3,"j":0},{"slug":"nakayamacho","name":"中山町","k":3,"j":0},{"slug":"kawakitacho","name":"河北町","k":3,"j":0},{"slug":"nishikawa","name":"西川町","k":3,"j":0},{"slug":"asahimachi","name":"朝日町","k":3,"j":0},{"slug":"oe","name":"大江町","k":3,"j":0},{"slug":"oishida","name":"大石田町","k":3,"j":0},{"slug":"kaneyamachi","name":"金山町","k":3,"j":0},{"slug":"mogami","name":"最上町","k":3,"j":0},{"slug":"funagata","name":"舟形町","k":3,"j":0},{"slug":"mamurogawa","name":"真室川町","k":3,"j":0},{"slug":"okuramura","name":"大蔵村","k":3,"j":0},{"slug":"sakegawa","name":"鮭川村","k":3,"j":0},{"slug":"tozawa","name":"戸沢村","k":3,"j":0},{"slug":"takahata","name":"高畠町","k":3,"j":0},{"slug":"kawanishicho","name":"川西町","k":3,"j":0},{"slug":"ogunicho","name":"小国町","k":3,"j":0},{"slug":"shirataka","name":"白鷹町","k":3,"j":0},{"slug":"iide","name":"飯豊町","k":3,"j":0},{"slug":"mikawa","name":"三川町","k":3,"j":0},{"slug":"shonai","name":"庄内町","k":3,"j":0},{"slug":"yuza","name":"遊佐町","k":3,"j":0}]},"福島県":{"slug":"fukushima","cities":[{"slug":"fukushimashi","name":"福島市","k":2,"j":0},{"slug":"aizuwakamatsu","name":"会津若松市","k":3,"j":0},{"slug":"koriyama","name":"郡山市","k":3,"j":0},{"slug":"iwaki","name":"いわき市","k":3,"j":0},{"slug":"shirakawashi","name":"白河市","k":3,"j":0},{"slug":"sukagawa","name":"須賀川市","k":3,"j":0},{"slug":"kitakatashi","name":"喜多方市","k":3,"j":0},{"slug":"soma","name":"相馬市","k":3,"j":0},{"slug":"nihonmatsu","name":"二本松市","k":3,"j":0},{"slug":"tamura","name":"田村市","k":3,"j":0},{"slug":"minamisoma","name":"南相馬市","k":3,"j":0},{"slug":"dateshi","name":"伊達市","k":3,"j":0},{"slug":"motomiya","name":"本宮市","k":3,"j":0},{"slug":"koori","name":"桑折町","k":3,"j":0},{"slug":"kunimi","name":"国見町","k":3,"j":0},{"slug":"kawamata","name":"川俣町","k":3,"j":0},{"slug":"otama","name":"大玉村","k":3,"j":0},{"slug":"kagamiishi","name":"鏡石町","k":3,"j":0},{"slug":"tenei","name":"天栄村","k":3,"j":0},{"slug":"shimogo","name":"下郷町","k":3,"j":0},{"slug":"hinoemata","name":"檜枝岐村","k":3,"j":0},{"slug":"tadami","name":"只見町","k":3,"j":0},{"slug":"minamiaizu","name":"南会津町","k":3,"j":0},{"slug":"kitashiobara","name":"北塩原村","k":3,"j":0},{"slug":"nishiaizu","name":"西会津町","k":3,"j":0},{"slug":"bandai","name":"磐梯町","k":3,"j":0},{"slug":"inawashiro","name":"猪苗代町","k":3,"j":0},{"slug":"aizubange","name":"会津坂下町","k":3,"j":0},{"slug":"yugawa","name":"湯川村","k":3,"j":0},{"slug":"yanaitsu","name":"柳津町","k":3,"j":0},{"slug":"mishimacho","name":"三島町","k":3,"j":0},{"slug":"kaneyama","name":"金山町","k":3,"j":0},{"slug":"showamura","name":"昭和村","k":3,"j":0},{"slug":"aizumisato","name":"会津美里町","k":3,"j":0},{"slug":"nishigo","name":"西郷村","k":3,"j":0},{"slug":"izumizaki","name":"泉崎村","k":3,"j":0},{"slug":"nakajima","name":"中島村","k":3,"j":0},{"slug":"yabuki","name":"矢吹町","k":3,"j":0},{"slug":"tanagura","name":"棚倉町","k":3,"j":0},{"slug":"yamatsuri","name":"矢祭町","k":3,"j":0},{"slug":"hanawa","name":"塙町","k":3,"j":0},{"slug":"samegawa","name":"鮫川村","k":3,"j":0},{"slug":"ishikawa","name":"石川町","k":3,"j":0},{"slug":"tamakawa","name":"玉川村","k":3,"j":0},{"slug":"hirata","name":"平田村","k":3,"j":0},{"slug":"asakawa","name":"浅川町","k":3,"j":0},{"slug":"furudono","name":"古殿町","k":3,"j":0},{"slug":"miharu","name":"三春町","k":3,"j":0},{"slug":"onomachi","name":"小野町","k":3,"j":0},{"slug":"hirono","name":"広野町","k":3,"j":0},{"slug":"naraha","name":"楢葉町","k":3,"j":0},{"slug":"tomiokacho","name":"富岡町","k":3,"j":0},{"slug":"kawauchi","name":"川内村","k":3,"j":0},{"slug":"okuma","name":"大熊町","k":3,"j":0},{"slug":"futaba","name":"双葉町","k":3,"j":0},{"slug":"namie","name":"浪江町","k":3,"j":0},{"slug":"katsurao","name":"葛尾村","k":3,"j":0},{"slug":"shinchi","name":"新地町","k":3,"j":0},{"slug":"iitate","name":"飯舘村","k":3,"j":0}]},"茨城県":{"slug":"ibaraki","cities":[{"slug":"mito","name":"水戸市","k":2,"j":0},{"slug":"hitachi","name":"日立市","k":2,"j":0},{"slug":"tsuchiura","name":"土浦市","k":2,"j":0},{"slug":"koga-ibaraki","name":"古河市","k":2,"j":0},{"slug":"ishioka","name":"石岡市","k":3,"j":0},{"slug":"yuki","name":"結城市","k":3,"j":0},{"slug":"ryugasaki","name":"龍ケ崎市","k":3,"j":0},{"slug":"shimotsuma","name":"下妻市","k":3,"j":0},{"slug":"joso","name":"常総市","k":3,"j":0},{"slug":"hitachiota","name":"常陸太田市","k":3,"j":0},{"slug":"takahagi","name":"高萩市","k":3,"j":0},{"slug":"kitaibaraki","name":"北茨城市","k":3,"j":0},{"slug":"kasama","name":"笠間市","k":3,"j":0},{"slug":"toride","name":"取手市","k":2,"j":0},{"slug":"ushiku","name":"牛久市","k":3,"j":0},{"slug":"tsukuba","name":"つくば市","k":3,"j":0},{"slug":"hitachinaka","name":"ひたちなか市","k":3,"j":0},{"slug":"kashima","name":"鹿嶋市","k":3,"j":0},{"slug":"itako","name":"潮来市","k":3,"j":0},{"slug":"moriya","name":"守谷市","k":3,"j":0},{"slug":"hitachiomiya","name":"常陸大宮市","k":3,"j":0},{"slug":"naka","name":"那珂市","k":3,"j":0},{"slug":"chikusei","name":"筑西市","k":3,"j":0},{"slug":"bando","name":"坂東市","k":3,"j":0},{"slug":"inashiki","name":"稲敷市","k":3,"j":0},{"slug":"kasumigaura","name":"かすみがうら市","k":3,"j":0},{"slug":"sakuragawa","name":"桜川市","k":3,"j":0},{"slug":"kamisu","name":"神栖市","k":3,"j":0},{"slug":"namegata","name":"行方市","k":3,"j":0},{"slug":"hokota","name":"鉾田市","k":3,"j":0},{"slug":"tsukubamirai","name":"つくばみらい市","k":3,"j":0},{"slug":"omitama","name":"小美玉市","k":3,"j":0},{"slug":"ibarakimachi","name":"茨城町","k":3,"j":0},{"slug":"oarai","name":"大洗町","k":3,"j":0},{"slug":"shirosato","name":"城里町","k":3,"j":0},{"slug":"tokaimura","name":"東海村","k":3,"j":0},{"slug":"daigo","name":"大子町","k":3,"j":0},{"slug":"miho","name":"美浦村","k":3,"j":0},{"slug":"ami","name":"阿見町","k":3,"j":0},{"slug":"kawachi","name":"河内町","k":3,"j":0},{"slug":"yachiyomachi","name":"八千代町","k":3,"j":0},{"slug":"goka","name":"五霞町","k":3,"j":0},{"slug":"sakaimachi","name":"境町","k":3,"j":0},{"slug":"tone","name":"利根町","k":3,"j":0}]},"栃木県":{"slug":"tochigi","cities":[{"slug":"utsunomiya","name":"宇都宮市","k":2,"j":1},{"slug":"ashikaga","name":"足利市","k":2,"j":0},{"slug":"tochigi","name":"栃木市","k":3,"j":0},{"slug":"sano","name":"佐野市","k":3,"j":0},{"slug":"kanuma","name":"鹿沼市","k":3,"j":0},{"slug":"nikko","name":"日光市","k":3,"j":0},{"slug":"oyama","name":"小山市","k":3,"j":0},{"slug":"moka","name":"真岡市","k":3,"j":0},{"slug":"otawara","name":"大田原市","k":3,"j":0},{"slug":"yaita","name":"矢板市","k":3,"j":0},{"slug":"nasushiobara","name":"那須塩原市","k":3,"j":0},{"slug":"sakurashi","name":"さくら市","k":3,"j":0},{"slug":"nasukarasuyama","name":"那須烏山市","k":3,"j":0},{"slug":"shimotsuke","name":"下野市","k":3,"j":0},{"slug":"kaminokawa","name":"上三川町","k":3,"j":0},{"slug":"mashiko","name":"益子町","k":3,"j":0},{"slug":"motegi","name":"茂木町","k":3,"j":0},{"slug":"ichikai","name":"市貝町","k":3,"j":0},{"slug":"haga","name":"芳賀町","k":3,"j":0},{"slug":"mibu","name":"壬生町","k":3,"j":0},{"slug":"nogi","name":"野木町","k":3,"j":0},{"slug":"shioya","name":"塩谷町","k":3,"j":0},{"slug":"takanezawa","name":"高根沢町","k":3,"j":0},{"slug":"nasu","name":"那須町","k":3,"j":0},{"slug":"nakagawamachi","name":"那珂川町","k":3,"j":0}]},"群馬県":{"slug":"gunma","cities":[{"slug":"maebashi","name":"前橋市","k":2,"j":0},{"slug":"takasaki","name":"高崎市","k":2,"j":0},{"slug":"kiryu","name":"桐生市","k":2,"j":0},{"slug":"isesaki","name":"伊勢崎市","k":3,"j":0},{"slug":"ota-gunma","name":"太田市","k":3,"j":0},{"slug":"numatashi","name":"沼田市","k":3,"j":0},{"slug":"tatebayashi","name":"館林市","k":3,"j":0},{"slug":"shibukawa","name":"渋川市","k":3,"j":0},{"slug":"fujioka","name":"藤岡市","k":3,"j":0},{"slug":"tomioka","name":"富岡市","k":3,"j":0},{"slug":"annaka","name":"安中市","k":3,"j":0},{"slug":"midori","name":"みどり市","k":3,"j":0},{"slug":"shinto","name":"榛東村","k":3,"j":0},{"slug":"yoshioka","name":"吉岡町","k":3,"j":0},{"slug":"ueno","name":"上野村","k":3,"j":0},{"slug":"kanna","name":"神流町","k":3,"j":0},{"slug":"shimonita","name":"下仁田町","k":3,"j":0},{"slug":"namoku","name":"南牧村","k":3,"j":0},{"slug":"kanra","name":"甘楽町","k":3,"j":0},{"slug":"nakanojo","name":"中之条町","k":3,"j":0},{"slug":"naganohara","name":"長野原町","k":3,"j":0},{"slug":"tsumagoi","name":"嬬恋村","k":3,"j":0},{"slug":"kusatsu","name":"草津町","k":3,"j":0},{"slug":"takayamamura","name":"高山村","k":3,"j":0},{"slug":"higashiagatsuma","name":"東吾妻町","k":3,"j":0},{"slug":"katashina","name":"片品村","k":3,"j":0},{"slug":"kawaba","name":"川場村","k":3,"j":0},{"slug":"showa","name":"昭和村","k":3,"j":0},{"slug":"minakami","name":"みなかみ町","k":3,"j":0},{"slug":"tamamura","name":"玉村町","k":3,"j":0},{"slug":"itakura","name":"板倉町","k":3,"j":0},{"slug":"meiwa","name":"明和町","k":3,"j":0},{"slug":"chiyodamachi","name":"千代田町","k":3,"j":0},{"slug":"oizumi","name":"大泉町","k":3,"j":0},{"slug":"ora","name":"邑楽町","k":3,"j":0}]},"埼玉県":{"slug":"saitama","cities":[{"slug":"saitama","name":"さいたま市","k":1,"j":1},{"slug":"kawagoe","name":"川越市","k":2,"j":0},{"slug":"kumagaya","name":"熊谷市","k":2,"j":0},{"slug":"kawaguchi","name":"川口市","k":1,"j":1},{"slug":"gyoda","name":"行田市","k":3,"j":0},{"slug":"chichibu","name":"秩父市","k":3,"j":0},{"slug":"tokorozawa","name":"所沢市","k":1,"j":0},{"slug":"hanno","name":"飯能市","k":3,"j":0},{"slug":"kazo","name":"加須市","k":3,"j":0},{"slug":"honjo","name":"本庄市","k":3,"j":0},{"slug":"higashimatsuyama","name":"東松山市","k":3,"j":0},{"slug":"kasukabe","name":"春日部市","k":2,"j":0},{"slug":"sayama","name":"狭山市","k":2,"j":0},{"slug":"hanyu","name":"羽生市","k":3,"j":0},{"slug":"konosu","name":"鴻巣市","k":3,"j":0},{"slug":"fukaya","name":"深谷市","k":3,"j":0},{"slug":"ageo","name":"上尾市","k":2,"j":0},{"slug":"soka","name":"草加市","k":2,"j":0},{"slug":"koshigaya","name":"越谷市","k":2,"j":0},{"slug":"warabi","name":"蕨市","k":1,"j":0},{"slug":"toda","name":"戸田市","k":1,"j":0},{"slug":"iruma","name":"入間市","k":2,"j":0},{"slug":"asaka","name":"朝霞市","k":1,"j":0},{"slug":"shiki","name":"志木市","k":2,"j":0},{"slug":"wako","name":"和光市","k":1,"j":0},{"slug":"niiza","name":"新座市","k":1,"j":0},{"slug":"okegawa","name":"桶川市","k":2,"j":0},{"slug":"kuki","name":"久喜市","k":3,"j":0},{"slug":"kitamoto","name":"北本市","k":3,"j":0},{"slug":"yashio","name":"八潮市","k":2,"j":0},{"slug":"fujimishi","name":"富士見市","k":2,"j":0},{"slug":"misato","name":"三郷市","k":2,"j":0},{"slug":"hasuda","name":"蓮田市","k":3,"j":0},{"slug":"sakado","name":"坂戸市","k":3,"j":0},{"slug":"satte","name":"幸手市","k":3,"j":0},{"slug":"tsurugashima","name":"鶴ヶ島市","k":3,"j":0},{"slug":"hidaka","name":"日高市","k":3,"j":0},{"slug":"yoshikawa","name":"吉川市","k":3,"j":0},{"slug":"fujimino","name":"ふじみ野市","k":2,"j":0},{"slug":"shiraoka","name":"白岡市","k":3,"j":0},{"slug":"inacho","name":"伊奈町","k":3,"j":0},{"slug":"miyoshicho","name":"三芳町","k":2,"j":0},{"slug":"moroyama","name":"毛呂山町","k":3,"j":0},{"slug":"ogose","name":"越生町","k":3,"j":0},{"slug":"namegawa","name":"滑川町","k":3,"j":0},{"slug":"ranzan","name":"嵐山町","k":3,"j":0},{"slug":"ogawacho","name":"小川町","k":3,"j":0},{"slug":"kawajima","name":"川島町","k":3,"j":0},{"slug":"yoshimi","name":"吉見町","k":3,"j":0},{"slug":"hatoyama","name":"鳩山町","k":3,"j":0},{"slug":"tokigawa","name":"ときがわ町","k":3,"j":0},{"slug":"yokoze","name":"横瀬町","k":3,"j":0},{"slug":"minano","name":"皆野町","k":3,"j":0},{"slug":"nagatoro","name":"長瀞町","k":3,"j":0},{"slug":"ogano","name":"小鹿野町","k":3,"j":0},{"slug":"higashichichibu","name":"東秩父村","k":3,"j":0},{"slug":"misatomachi","name":"美里町","k":3,"j":0},{"slug":"kamikawa","name":"神川町","k":3,"j":0},{"slug":"kamisato","name":"上里町","k":3,"j":0},{"slug":"yorii","name":"寄居町","k":3,"j":0},{"slug":"miyashiro","name":"宮代町","k":3,"j":0},{"slug":"sugito","name":"杉戸町","k":3,"j":0},{"slug":"matsubushi","name":"松伏町","k":3,"j":0}]},"千葉県":{"slug":"chiba","cities":[{"slug":"chiba","name":"千葉市","k":1,"j":1},{"slug":"choshi","name":"銚子市","k":3,"j":0},{"slug":"ichikawa","name":"市川市","k":1,"j":0},{"slug":"funabashi","name":"船橋市","k":1,"j":1},{"slug":"tateyama","name":"館山市","k":3,"j":0},{"slug":"kisarazu","name":"木更津市","k":3,"j":0},{"slug":"matsudo","name":"松戸市","k":1,"j":0},{"slug":"noda","name":"野田市","k":2,"j":0},{"slug":"mobara","name":"茂原市","k":3,"j":0},{"slug":"narita","name":"成田市","k":3,"j":0},{"slug":"sakura","name":"佐倉市","k":2,"j":0},{"slug":"togane","name":"東金市","k":3,"j":0},{"slug":"asahishi","name":"旭市","k":3,"j":0},{"slug":"narashino","name":"習志野市","k":1,"j":0},{"slug":"kashiwa","name":"柏市","k":2,"j":0},{"slug":"katsuura","name":"勝浦市","k":3,"j":0},{"slug":"ichihara","name":"市原市","k":2,"j":0},{"slug":"nagareyama","name":"流山市","k":2,"j":0},{"slug":"yachiyo","name":"八千代市","k":2,"j":0},{"slug":"abiko","name":"我孫子市","k":2,"j":0},{"slug":"kamogawa","name":"鴨川市","k":3,"j":0},{"slug":"kamagaya","name":"鎌ケ谷市","k":2,"j":0},{"slug":"kimitsu","name":"君津市","k":3,"j":0},{"slug":"futtsu","name":"富津市","k":3,"j":0},{"slug":"urayasu","name":"浦安市","k":1,"j":0},{"slug":"yotsukaido","name":"四街道市","k":2,"j":0},{"slug":"sodegaura","name":"袖ケ浦市","k":3,"j":0},{"slug":"yachimata","name":"八街市","k":3,"j":0},{"slug":"inzai","name":"印西市","k":3,"j":0},{"slug":"shiroi","name":"白井市","k":3,"j":0},{"slug":"tomisato","name":"富里市","k":3,"j":0},{"slug":"minamiboso","name":"南房総市","k":3,"j":0},{"slug":"sosa","name":"匝瑳市","k":3,"j":0},{"slug":"katori","name":"香取市","k":3,"j":0},{"slug":"sammu","name":"山武市","k":3,"j":0},{"slug":"isumi","name":"いすみ市","k":3,"j":0},{"slug":"oamishirasato","name":"大網白里市","k":3,"j":0},{"slug":"shisui","name":"酒々井町","k":3,"j":0},{"slug":"sakaecho","name":"栄町","k":3,"j":0},{"slug":"kozaki","name":"神崎町","k":3,"j":0},{"slug":"tako","name":"多古町","k":3,"j":0},{"slug":"tohnosho","name":"東庄町","k":3,"j":0},{"slug":"kujukuri","name":"九十九里町","k":3,"j":0},{"slug":"shibayama","name":"芝山町","k":3,"j":0},{"slug":"yokoshibahikari","name":"横芝光町","k":3,"j":0},{"slug":"ichinomiya-chiba","name":"一宮町","k":3,"j":0},{"slug":"mutsuzawa","name":"睦沢町","k":3,"j":0},{"slug":"chosei","name":"長生村","k":3,"j":0},{"slug":"shirako","name":"白子町","k":3,"j":0},{"slug":"nagara","name":"長柄町","k":3,"j":0},{"slug":"chonan","name":"長南町","k":3,"j":0},{"slug":"otakicho","name":"大多喜町","k":3,"j":0},{"slug":"onjuku","name":"御宿町","k":3,"j":0},{"slug":"kyonan","name":"鋸南町","k":3,"j":0}]},"東京都":{"slug":"tokyo","cities":[{"slug":"chiyoda","name":"千代田区","k":1,"j":1},{"slug":"chuo","name":"中央区","k":1,"j":1},{"slug":"minato","name":"港区","k":1,"j":1},{"slug":"shinjuku","name":"新宿区","k":1,"j":1},{"slug":"bunkyo","name":"文京区","k":1,"j":1},{"slug":"taito","name":"台東区","k":1,"j":1},{"slug":"sumida","name":"墨田区","k":1,"j":1},{"slug":"koto","name":"江東区","k":1,"j":1},{"slug":"shinagawa","name":"品川区","k":1,"j":1},{"slug":"meguro","name":"目黒区","k":1,"j":1},{"slug":"ota","name":"大田区","k":1,"j":1},{"slug":"setagaya","name":"世田谷区","k":1,"j":1},{"slug":"shibuya","name":"渋谷区","k":1,"j":1},{"slug":"nakano-ku","name":"中野区","k":1,"j":1},{"slug":"suginami","name":"杉並区","k":1,"j":1},{"slug":"toshima","name":"豊島区","k":1,"j":1},{"slug":"kita","name":"北区","k":1,"j":1},{"slug":"arakawa","name":"荒川区","k":1,"j":1},{"slug":"itabashi","name":"板橋区","k":1,"j":1},{"slug":"nerima","name":"練馬区","k":1,"j":1},{"slug":"adachi","name":"足立区","k":1,"j":1},{"slug":"katsushika","name":"葛飾区","k":1,"j":1},{"slug":"edogawa","name":"江戸川区","k":1,"j":1},{"slug":"hachioji","name":"八王子市","k":1,"j":1},{"slug":"tachikawa","name":"立川市","k":1,"j":0},{"slug":"musashino","name":"武蔵野市","k":1,"j":0},{"slug":"mitaka","name":"三鷹市","k":1,"j":0},{"slug":"ome","name":"青梅市","k":1,"j":0},{"slug":"fuchu","name":"府中市","k":1,"j":0},{"slug":"akishima","name":"昭島市","k":1,"j":0},{"slug":"chofu","name":"調布市","k":1,"j":0},{"slug":"machida","name":"町田市","k":1,"j":0},{"slug":"koganei","name":"小金井市","k":1,"j":0},{"slug":"kodaira","name":"小平市","k":1,"j":0},{"slug":"hino","name":"日野市","k":1,"j":0},{"slug":"higashimurayama","name":"東村山市","k":1,"j":0},{"slug":"kokubunji","name":"国分寺市","k":1,"j":0},{"slug":"kunitachi","name":"国立市","k":1,"j":0},{"slug":"fussa","name":"福生市","k":1,"j":0},{"slug":"komae","name":"狛江市","k":1,"j":0},{"slug":"higashiyamato","name":"東大和市","k":1,"j":0},{"slug":"kiyose","name":"清瀬市","k":1,"j":0},{"slug":"higashikurume","name":"東久留米市","k":1,"j":0},{"slug":"musashimurayama","name":"武蔵村山市","k":1,"j":0},{"slug":"tama","name":"多摩市","k":1,"j":0},{"slug":"inagi","name":"稲城市","k":1,"j":0},{"slug":"hamura","name":"羽村市","k":2,"j":0},{"slug":"akiruno","name":"あきる野市","k":2,"j":0},{"slug":"nishitokyo","name":"西東京市","k":1,"j":0},{"slug":"mizuho","name":"瑞穂町","k":2,"j":0},{"slug":"hinode","name":"日の出町","k":3,"j":0},{"slug":"hinohara","name":"檜原村","k":3,"j":0},{"slug":"okutama","name":"奥多摩町","k":3,"j":0},{"slug":"ogasawara","name":"小笠原村","k":3,"j":0}]},"神奈川県":{"slug":"kanagawa","cities":[{"slug":"yokohama","name":"横浜市","k":1,"j":1},{"slug":"kawasaki","name":"川崎市","k":1,"j":1},{"slug":"sagamihara","name":"相模原市","k":1,"j":1},{"slug":"yokosuka","name":"横須賀市","k":1,"j":0},{"slug":"hiratsuka","name":"平塚市","k":1,"j":0},{"slug":"kamakura","name":"鎌倉市","k":1,"j":0},{"slug":"fujisawa","name":"藤沢市","k":1,"j":0},{"slug":"odawara","name":"小田原市","k":1,"j":0},{"slug":"chigasaki","name":"茅ヶ崎市","k":1,"j":0},{"slug":"zushi","name":"逗子市","k":1,"j":0},{"slug":"miura","name":"三浦市","k":1,"j":0},{"slug":"hadano","name":"秦野市","k":1,"j":0},{"slug":"atsugi","name":"厚木市","k":1,"j":0},{"slug":"yamato","name":"大和市","k":1,"j":0},{"slug":"isehara","name":"伊勢原市","k":2,"j":0},{"slug":"ebina","name":"海老名市","k":2,"j":0},{"slug":"zama","name":"座間市","k":1,"j":0},{"slug":"minamiashigara","name":"南足柄市","k":2,"j":0},{"slug":"ayase","name":"綾瀬市","k":2,"j":0},{"slug":"hayama","name":"葉山町","k":1,"j":0},{"slug":"samukawa","name":"寒川町","k":2,"j":0},{"slug":"oiso","name":"大磯町","k":2,"j":0},{"slug":"ninomiya","name":"二宮町","k":2,"j":0},{"slug":"nakai","name":"中井町","k":3,"j":0},{"slug":"oi","name":"大井町","k":2,"j":0},{"slug":"matsuda","name":"松田町","k":2,"j":0},{"slug":"yamakita","name":"山北町","k":3,"j":0},{"slug":"kaisei","name":"開成町","k":2,"j":0},{"slug":"hakone","name":"箱根町","k":2,"j":0},{"slug":"manazuru","name":"真鶴町","k":2,"j":0},{"slug":"yugawara","name":"湯河原町","k":2,"j":0},{"slug":"aikawa","name":"愛川町","k":3,"j":0},{"slug":"kiyokawa","name":"清川村","k":3,"j":0}]},"新潟県":{"slug":"niigata","cities":[{"slug":"niigata","name":"新潟市","k":2,"j":1},{"slug":"nagaoka","name":"長岡市","k":2,"j":0},{"slug":"sanjo","name":"三条市","k":3,"j":0},{"slug":"kashiwazaki","name":"柏崎市","k":3,"j":0},{"slug":"shibata","name":"新発田市","k":3,"j":0},{"slug":"ojiya","name":"小千谷市","k":3,"j":0},{"slug":"kamo","name":"加茂市","k":3,"j":0},{"slug":"tokamachi","name":"十日町市","k":3,"j":0},{"slug":"mitsuke","name":"見附市","k":3,"j":0},{"slug":"murakami","name":"村上市","k":3,"j":0},{"slug":"tsubame","name":"燕市","k":3,"j":0},{"slug":"itoigawa","name":"糸魚川市","k":3,"j":0},{"slug":"myoko","name":"妙高市","k":3,"j":0},{"slug":"gosen","name":"五泉市","k":3,"j":0},{"slug":"joetsu","name":"上越市","k":3,"j":0},{"slug":"agano","name":"阿賀野市","k":3,"j":0},{"slug":"sado","name":"佐渡市","k":3,"j":0},{"slug":"uonuma","name":"魚沼市","k":3,"j":0},{"slug":"minamiuonuma","name":"南魚沼市","k":3,"j":0},{"slug":"tainai","name":"胎内市","k":3,"j":0},{"slug":"seiro","name":"聖籠町","k":3,"j":0},{"slug":"yahiko","name":"弥彦村","k":3,"j":0},{"slug":"tagami","name":"田上町","k":3,"j":0},{"slug":"aga","name":"阿賀町","k":3,"j":0},{"slug":"izumozaki","name":"出雲崎町","k":3,"j":0},{"slug":"yuzawa","name":"湯沢町","k":3,"j":0},{"slug":"tsunan","name":"津南町","k":3,"j":0},{"slug":"kariwa","name":"刈羽村","k":3,"j":0},{"slug":"sekikawa","name":"関川村","k":3,"j":0},{"slug":"awashimaura","name":"粟島浦村","k":3,"j":0}]},"富山県":{"slug":"toyama","cities":[{"slug":"toyama","name":"富山市","k":2,"j":0},{"slug":"takaoka","name":"高岡市","k":2,"j":0},{"slug":"uozu","name":"魚津市","k":3,"j":0},{"slug":"himi","name":"氷見市","k":3,"j":0},{"slug":"namerikawa","name":"滑川市","k":3,"j":0},{"slug":"kurobe","name":"黒部市","k":3,"j":0},{"slug":"tonami","name":"砺波市","k":3,"j":0},{"slug":"oyabe","name":"小矢部市","k":3,"j":0},{"slug":"nanto","name":"南砺市","k":3,"j":0},{"slug":"imizu","name":"射水市","k":3,"j":0},{"slug":"funahashi","name":"舟橋村","k":3,"j":0},{"slug":"kamiichi","name":"上市町","k":3,"j":0},{"slug":"tateyama-toyama","name":"立山町","k":3,"j":0},{"slug":"nyuzen","name":"入善町","k":3,"j":0},{"slug":"asahitoyama","name":"朝日町","k":3,"j":0}]},"石川県":{"slug":"ishikawa","cities":[{"slug":"kanazawa","name":"金沢市","k":2,"j":1},{"slug":"nanao","name":"七尾市","k":3,"j":0},{"slug":"komatsu","name":"小松市","k":2,"j":0},{"slug":"wajima","name":"輪島市","k":3,"j":0},{"slug":"suzu","name":"珠洲市","k":3,"j":0},{"slug":"kaga","name":"加賀市","k":3,"j":0},{"slug":"hakui","name":"羽咋市","k":3,"j":0},{"slug":"kahoku","name":"かほく市","k":3,"j":0},{"slug":"hakusan","name":"白山市","k":3,"j":0},{"slug":"nomi","name":"能美市","k":3,"j":0},{"slug":"nonoichi","name":"野々市市","k":3,"j":0},{"slug":"kawakita","name":"川北町","k":3,"j":0},{"slug":"tsubata","name":"津幡町","k":3,"j":0},{"slug":"uchinada","name":"内灘町","k":3,"j":0},{"slug":"shika","name":"志賀町","k":3,"j":0},{"slug":"hodatsushimizu","name":"宝達志水町","k":3,"j":0},{"slug":"nakanoto","name":"中能登町","k":3,"j":0},{"slug":"anamizu","name":"穴水町","k":3,"j":0},{"slug":"notocho","name":"能登町","k":3,"j":0}]},"福井県":{"slug":"fukui","cities":[{"slug":"fukui","name":"福井市","k":2,"j":0},{"slug":"tsuruga","name":"敦賀市","k":3,"j":0},{"slug":"obama","name":"小浜市","k":3,"j":0},{"slug":"onofukui","name":"大野市","k":3,"j":0},{"slug":"katsuyama","name":"勝山市","k":3,"j":0},{"slug":"sabae","name":"鯖江市","k":3,"j":0},{"slug":"awara","name":"あわら市","k":3,"j":0},{"slug":"echizen","name":"越前市","k":3,"j":0},{"slug":"sakaifukui","name":"坂井市","k":3,"j":0},{"slug":"eiheiji","name":"永平寺町","k":3,"j":0},{"slug":"ikedafukui","name":"池田町","k":3,"j":0},{"slug":"minamiechizen","name":"南越前町","k":3,"j":0},{"slug":"echizencho","name":"越前町","k":3,"j":0},{"slug":"mihamafukui","name":"美浜町","k":3,"j":0},{"slug":"takahamafukui","name":"高浜町","k":3,"j":0},{"slug":"ooi","name":"おおい町","k":3,"j":0},{"slug":"wakasa","name":"若狭町","k":3,"j":0}]},"山梨県":{"slug":"yamanashi","cities":[{"slug":"kofu","name":"甲府市","k":2,"j":0},{"slug":"fujiyoshida","name":"富士吉田市","k":3,"j":0},{"slug":"tsuru","name":"都留市","k":3,"j":0},{"slug":"yamanashi","name":"山梨市","k":3,"j":0},{"slug":"otsuki","name":"大月市","k":3,"j":0},{"slug":"nirasaki","name":"韮崎市","k":3,"j":0},{"slug":"minami-alps","name":"南アルプス市","k":3,"j":0},{"slug":"hokuto-yamanashi","name":"北杜市","k":3,"j":0},{"slug":"kai","name":"甲斐市","k":3,"j":0},{"slug":"fuefuki","name":"笛吹市","k":3,"j":0},{"slug":"uenohara","name":"上野原市","k":3,"j":0},{"slug":"koshu","name":"甲州市","k":3,"j":0},{"slug":"chuo-yamanashi","name":"中央市","k":3,"j":0},{"slug":"ichikawamisatomachi","name":"市川三郷町","k":3,"j":0},{"slug":"hayakawamachi","name":"早川町","k":3,"j":0},{"slug":"minobu","name":"身延町","k":3,"j":0},{"slug":"nanbumachi","name":"南部町","k":3,"j":0},{"slug":"fujikawamachi","name":"富士川町","k":3,"j":0},{"slug":"showamachi","name":"昭和町","k":3,"j":0},{"slug":"doshimura","name":"道志村","k":3,"j":0},{"slug":"nishikatsu","name":"西桂町","k":3,"j":0},{"slug":"oshinomura","name":"忍野村","k":3,"j":0},{"slug":"yamanakako","name":"山中湖村","k":3,"j":0},{"slug":"narusawa","name":"鳴沢村","k":3,"j":0},{"slug":"fujikawaguchiko","name":"富士河口湖町","k":3,"j":0},{"slug":"kosugemura","name":"小菅村","k":3,"j":0},{"slug":"tabayamamura","name":"丹波山村","k":3,"j":0}]},"長野県":{"slug":"nagano","cities":[{"slug":"nagano","name":"長野市","k":2,"j":0},{"slug":"matsumoto","name":"松本市","k":2,"j":0},{"slug":"ueda","name":"上田市","k":2,"j":0},{"slug":"okaya","name":"岡谷市","k":2,"j":0},{"slug":"iida","name":"飯田市","k":3,"j":0},{"slug":"suwa","name":"諏訪市","k":2,"j":0},{"slug":"suzaka","name":"須坂市","k":3,"j":0},{"slug":"komoro","name":"小諸市","k":3,"j":0},{"slug":"ina","name":"伊那市","k":3,"j":0},{"slug":"komagane","name":"駒ヶ根市","k":3,"j":0},{"slug":"nakano","name":"中野市","k":3,"j":0},{"slug":"omachi","name":"大町市","k":3,"j":0},{"slug":"iiyama","name":"飯山市","k":3,"j":0},{"slug":"chino","name":"茅野市","k":3,"j":0},{"slug":"shiojiri","name":"塩尻市","k":3,"j":0},{"slug":"saku","name":"佐久市","k":3,"j":0},{"slug":"chikuma","name":"千曲市","k":3,"j":0},{"slug":"tomi","name":"東御市","k":3,"j":0},{"slug":"azumino","name":"安曇野市","k":3,"j":0},{"slug":"koumi","name":"小海町","k":3,"j":0},{"slug":"kawakami","name":"川上村","k":3,"j":0},{"slug":"minamimaki","name":"南牧村","k":3,"j":0},{"slug":"minamiaiki","name":"南相木村","k":3,"j":0},{"slug":"kitaaiki","name":"北相木村","k":3,"j":0},{"slug":"sakuho","name":"佐久穂町","k":3,"j":0},{"slug":"karuizawa","name":"軽井沢町","k":3,"j":0},{"slug":"miyota","name":"御代田町","k":3,"j":0},{"slug":"tateshina","name":"立科町","k":3,"j":0},{"slug":"aoki","name":"青木村","k":3,"j":0},{"slug":"nagawa","name":"長和町","k":3,"j":0},{"slug":"shimosuwa","name":"下諏訪町","k":3,"j":0},{"slug":"fujimi","name":"富士見町","k":3,"j":0},{"slug":"hara","name":"原村","k":3,"j":0},{"slug":"tatsuno","name":"辰野町","k":3,"j":0},{"slug":"minowa","name":"箕輪町","k":3,"j":0},{"slug":"iijima","name":"飯島町","k":3,"j":0},{"slug":"minamimino","name":"南箕輪村","k":3,"j":0},{"slug":"nakagawa","name":"中川村","k":3,"j":0},{"slug":"miyada","name":"宮田村","k":3,"j":0},{"slug":"matsukawa","name":"松川町","k":3,"j":0},{"slug":"takamori","name":"高森町","k":3,"j":0},{"slug":"anan","name":"阿南町","k":3,"j":0},{"slug":"achi","name":"阿智村","k":3,"j":0},{"slug":"hiraya","name":"平谷村","k":3,"j":0},{"slug":"neba","name":"根羽村","k":3,"j":0},{"slug":"shimojo","name":"下條村","k":3,"j":0},{"slug":"uruki","name":"売木村","k":3,"j":0},{"slug":"tenryu","name":"天龍村","k":3,"j":0},{"slug":"yasuoka","name":"泰阜村","k":3,"j":0},{"slug":"takagi","name":"喬木村","k":3,"j":0},{"slug":"toyooka","name":"豊丘村","k":3,"j":0},{"slug":"oshika","name":"大鹿村","k":3,"j":0},{"slug":"agematsu","name":"上松町","k":3,"j":0},{"slug":"nagiso","name":"南木曽町","k":3,"j":0},{"slug":"kiso","name":"木祖村","k":3,"j":0},{"slug":"otaki","name":"王滝村","k":3,"j":0},{"slug":"okuwamura","name":"大桑村","k":3,"j":0},{"slug":"kisomachi","name":"木曽町","k":3,"j":0},{"slug":"omi","name":"麻績村","k":3,"j":0},{"slug":"ikusaka","name":"生坂村","k":3,"j":0},{"slug":"yamagata","name":"山形村","k":3,"j":0},{"slug":"asahi","name":"朝日村","k":3,"j":0},{"slug":"chikuhoku","name":"筑北村","k":3,"j":0},{"slug":"ikeda","name":"池田町","k":3,"j":0},{"slug":"matsukawamura","name":"松川村","k":3,"j":0},{"slug":"hakuba","name":"白馬村","k":3,"j":0},{"slug":"otari","name":"小谷村","k":3,"j":0},{"slug":"sakaki","name":"坂城町","k":3,"j":0},{"slug":"obuse","name":"小布施町","k":3,"j":0},{"slug":"takayama","name":"高山村","k":3,"j":0},{"slug":"yamanouchi","name":"山ノ内町","k":3,"j":0},{"slug":"kijimadaira","name":"木島平村","k":3,"j":0},{"slug":"nozawaonsen","name":"野沢温泉村","k":3,"j":0},{"slug":"shinano","name":"信濃町","k":3,"j":0},{"slug":"ogawa","name":"小川村","k":3,"j":0},{"slug":"iizuna","name":"飯綱町","k":3,"j":0},{"slug":"sakae","name":"栄村","k":3,"j":0}]},"岐阜県":{"slug":"gifu","cities":[{"slug":"gifu","name":"岐阜市","k":2,"j":1},{"slug":"ogaki","name":"大垣市","k":2,"j":0},{"slug":"takayamashi","name":"高山市","k":3,"j":0},{"slug":"tajimi","name":"多治見市","k":2,"j":0},{"slug":"seki","name":"関市","k":3,"j":0},{"slug":"nakatsugawa","name":"中津川市","k":3,"j":0},{"slug":"mino","name":"美濃市","k":3,"j":0},{"slug":"mizunami","name":"瑞浪市","k":2,"j":0},{"slug":"hashima","name":"羽島市","k":3,"j":0},{"slug":"ena","name":"恵那市","k":3,"j":0},{"slug":"minokamo","name":"美濃加茂市","k":3,"j":0},{"slug":"toki","name":"土岐市","k":2,"j":0},{"slug":"kakamigahara","name":"各務原市","k":2,"j":0},{"slug":"kani","name":"可児市","k":3,"j":0},{"slug":"yamagatashi","name":"山県市","k":3,"j":0},{"slug":"mizuhoshi","name":"瑞穂市","k":3,"j":0},{"slug":"hida","name":"飛騨市","k":3,"j":0},{"slug":"motosu","name":"本巣市","k":3,"j":0},{"slug":"gujo","name":"郡上市","k":3,"j":0},{"slug":"gero","name":"下呂市","k":3,"j":0},{"slug":"kaizu","name":"海津市","k":3,"j":0},{"slug":"ginancho","name":"岐南町","k":3,"j":0},{"slug":"kasamatsucho","name":"笠松町","k":3,"j":0},{"slug":"yorocho","name":"養老町","k":3,"j":0},{"slug":"taruicho","name":"垂井町","k":3,"j":0},{"slug":"sekigaharacho","name":"関ケ原町","k":3,"j":0},{"slug":"godocho","name":"神戸町","k":3,"j":0},{"slug":"wanouchi","name":"輪之内町","k":3,"j":0},{"slug":"anpachicho","name":"安八町","k":3,"j":0},{"slug":"ibicho","name":"揖斐川町","k":3,"j":0},{"slug":"onocho","name":"大野町","k":3,"j":0},{"slug":"ikedacho","name":"池田町","k":3,"j":0},{"slug":"kitakata","name":"北方町","k":3,"j":0},{"slug":"sakahogi","name":"坂祝町","k":3,"j":0},{"slug":"tomika","name":"富加町","k":3,"j":0},{"slug":"kawabe","name":"川辺町","k":3,"j":0},{"slug":"shichiso","name":"七宗町","k":3,"j":0},{"slug":"yaotsu","name":"八百津町","k":3,"j":0},{"slug":"shirakawa","name":"白川町","k":3,"j":0},{"slug":"higashishirakawa","name":"東白川村","k":3,"j":0},{"slug":"mitake","name":"御嵩町","k":3,"j":0},{"slug":"shirakawamura","name":"白川村","k":3,"j":0}]},"静岡県":{"slug":"shizuoka","cities":[{"slug":"shizuoka","name":"静岡市","k":2,"j":1},{"slug":"hamamatsu","name":"浜松市","k":2,"j":1},{"slug":"numazu","name":"沼津市","k":2,"j":0},{"slug":"atami","name":"熱海市","k":2,"j":0},{"slug":"mishima","name":"三島市","k":2,"j":0},{"slug":"fujinomiya","name":"富士宮市","k":3,"j":0},{"slug":"ito","name":"伊東市","k":2,"j":0},{"slug":"shimada","name":"島田市","k":3,"j":0},{"slug":"fuji","name":"富士市","k":2,"j":0},{"slug":"iwata","name":"磐田市","k":3,"j":0},{"slug":"yaizu","name":"焼津市","k":3,"j":0},{"slug":"kakegawa","name":"掛川市","k":3,"j":0},{"slug":"fujieda","name":"藤枝市","k":3,"j":0},{"slug":"gotemba","name":"御殿場市","k":3,"j":0},{"slug":"fukuroi","name":"袋井市","k":3,"j":0},{"slug":"shimoda","name":"下田市","k":3,"j":0},{"slug":"susono","name":"裾野市","k":3,"j":0},{"slug":"kosai","name":"湖西市","k":3,"j":0},{"slug":"izu","name":"伊豆市","k":3,"j":0},{"slug":"omaezaki","name":"御前崎市","k":3,"j":0},{"slug":"kikugawa","name":"菊川市","k":3,"j":0},{"slug":"izunokuni","name":"伊豆の国市","k":3,"j":0},{"slug":"makinohara","name":"牧之原市","k":3,"j":0},{"slug":"higashiizu","name":"東伊豆町","k":3,"j":0},{"slug":"kawazu","name":"河津町","k":3,"j":0},{"slug":"minamiizu","name":"南伊豆町","k":3,"j":0},{"slug":"matsuzaki","name":"松崎町","k":3,"j":0},{"slug":"nishiizu","name":"西伊豆町","k":3,"j":0},{"slug":"kannami","name":"函南町","k":3,"j":0},{"slug":"shimizumachi","name":"清水町","k":3,"j":0},{"slug":"nagaizumi","name":"長泉町","k":3,"j":0},{"slug":"oyamamachi","name":"小山町","k":3,"j":0},{"slug":"yoshida","name":"吉田町","k":3,"j":0},{"slug":"kawanehon","name":"川根本町","k":3,"j":0},{"slug":"morimachi","name":"森町","k":3,"j":0}]},"愛知県":{"slug":"aichi","cities":[{"slug":"nagoya","name":"名古屋市","k":1,"j":1},{"slug":"toyohashi","name":"豊橋市","k":2,"j":0},{"slug":"okazaki","name":"岡崎市","k":2,"j":0},{"slug":"ichinomiya","name":"一宮市","k":2,"j":0},{"slug":"seto","name":"瀬戸市","k":2,"j":0},{"slug":"handa","name":"半田市","k":3,"j":0},{"slug":"kasugai","name":"春日井市","k":2,"j":0},{"slug":"toyokawa","name":"豊川市","k":2,"j":0},{"slug":"tsushima","name":"津島市","k":3,"j":0},{"slug":"hekinan","name":"碧南市","k":3,"j":0},{"slug":"kariya","name":"刈谷市","k":2,"j":0},{"slug":"toyota","name":"豊田市","k":2,"j":0},{"slug":"anjo","name":"安城市","k":2,"j":0},{"slug":"nishio","name":"西尾市","k":3,"j":0},{"slug":"gamagori","name":"蒲郡市","k":3,"j":0},{"slug":"inuyama","name":"犬山市","k":3,"j":0},{"slug":"tokoname","name":"常滑市","k":3,"j":0},{"slug":"konan","name":"江南市","k":3,"j":0},{"slug":"komaki","name":"小牧市","k":3,"j":0},{"slug":"inazawa","name":"稲沢市","k":3,"j":0},{"slug":"shinshiro","name":"新城市","k":3,"j":0},{"slug":"tokai","name":"東海市","k":2,"j":0},{"slug":"obu","name":"大府市","k":2,"j":0},{"slug":"chita","name":"知多市","k":3,"j":0},{"slug":"chiryu","name":"知立市","k":2,"j":0},{"slug":"owariasahi","name":"尾張旭市","k":2,"j":0},{"slug":"takahama","name":"高浜市","k":3,"j":0},{"slug":"iwakura","name":"岩倉市","k":2,"j":0},{"slug":"toyoake","name":"豊明市","k":2,"j":0},{"slug":"nisshin","name":"日進市","k":2,"j":0},{"slug":"tahara","name":"田原市","k":3,"j":0},{"slug":"aisai","name":"愛西市","k":3,"j":0},{"slug":"kiyosu","name":"清須市","k":2,"j":0},{"slug":"kitanagoya","name":"北名古屋市","k":2,"j":0},{"slug":"yatomi","name":"弥富市","k":3,"j":0},{"slug":"miyoshi","name":"みよし市","k":3,"j":0},{"slug":"ama","name":"あま市","k":3,"j":0},{"slug":"nagakute","name":"長久手市","k":3,"j":0},{"slug":"togo","name":"東郷町","k":3,"j":0},{"slug":"toyoyama","name":"豊山町","k":3,"j":0},{"slug":"oguchi","name":"大口町","k":3,"j":0},{"slug":"fuso","name":"扶桑町","k":3,"j":0},{"slug":"oharu","name":"大治町","k":3,"j":0},{"slug":"kanie","name":"蟹江町","k":3,"j":0},{"slug":"tobishima","name":"飛島村","k":3,"j":0},{"slug":"agui","name":"阿久比町","k":3,"j":0},{"slug":"higashiura","name":"東浦町","k":3,"j":0},{"slug":"minamichita","name":"南知多町","k":3,"j":0},{"slug":"mihama","name":"美浜町","k":3,"j":0},{"slug":"taketoyo","name":"武豊町","k":3,"j":0},{"slug":"kota","name":"幸田町","k":3,"j":0},{"slug":"shitara","name":"設楽町","k":3,"j":0},{"slug":"toei","name":"東栄町","k":3,"j":0},{"slug":"toyne","name":"豊根村","k":3,"j":0}]},"三重県":{"slug":"mie","cities":[{"slug":"tsu","name":"津市","k":2,"j":0},{"slug":"yokkaichi","name":"四日市市","k":2,"j":0},{"slug":"ise","name":"伊勢市","k":3,"j":0},{"slug":"matsusaka","name":"松阪市","k":2,"j":0},{"slug":"kuwana","name":"桑名市","k":2,"j":0},{"slug":"suzuka","name":"鈴鹿市","k":3,"j":0},{"slug":"nabari","name":"名張市","k":3,"j":0},{"slug":"owase","name":"尾鷲市","k":3,"j":0},{"slug":"kameyama","name":"亀山市","k":3,"j":0},{"slug":"toba","name":"鳥羽市","k":3,"j":0},{"slug":"kumanoshi","name":"熊野市","k":3,"j":0},{"slug":"inabe","name":"いなべ市","k":3,"j":0},{"slug":"shima","name":"志摩市","k":3,"j":0},{"slug":"iga","name":"伊賀市","k":3,"j":0},{"slug":"kisosaki","name":"木曽岬町","k":3,"j":0},{"slug":"toin","name":"東員町","k":3,"j":0},{"slug":"komono","name":"菰野町","k":3,"j":0},{"slug":"asahicho","name":"朝日町","k":3,"j":0},{"slug":"kawagoemachi","name":"川越町","k":3,"j":0},{"slug":"taki","name":"多気町","k":3,"j":0},{"slug":"meiwamachi","name":"明和町","k":3,"j":0},{"slug":"odai","name":"大台町","k":3,"j":0},{"slug":"tamaki","name":"玉城町","k":3,"j":0},{"slug":"watarai","name":"度会町","k":3,"j":0},{"slug":"taikimachi","name":"大紀町","k":3,"j":0},{"slug":"minamiise","name":"南伊勢町","k":3,"j":0},{"slug":"kihoku","name":"紀北町","k":3,"j":0},{"slug":"mihamachomie","name":"御浜町","k":3,"j":0},{"slug":"kiho","name":"紀宝町","k":3,"j":0}]},"滋賀県":{"slug":"shiga","cities":[{"slug":"otsu","name":"大津市","k":1,"j":0},{"slug":"hikone","name":"彦根市","k":3,"j":0},{"slug":"nagahama","name":"長浜市","k":3,"j":0},{"slug":"omihachiman","name":"近江八幡市","k":3,"j":0},{"slug":"kusatsushi","name":"草津市","k":2,"j":0},{"slug":"moriyama","name":"守山市","k":3,"j":0},{"slug":"ritto","name":"栗東市","k":3,"j":0},{"slug":"koka","name":"甲賀市","k":3,"j":0},{"slug":"yasu","name":"野洲市","k":3,"j":0},{"slug":"konanshi","name":"湖南市","k":3,"j":0},{"slug":"takashima","name":"高島市","k":3,"j":0},{"slug":"higashiomi","name":"東近江市","k":3,"j":0},{"slug":"maibara","name":"米原市","k":3,"j":0},{"slug":"hinocho","name":"日野町","k":3,"j":0},{"slug":"ryuo","name":"竜王町","k":3,"j":0},{"slug":"aisho","name":"愛荘町","k":3,"j":0},{"slug":"toyosato","name":"豊郷町","k":3,"j":0},{"slug":"kora","name":"甲良町","k":3,"j":0},{"slug":"taga","name":"多賀町","k":3,"j":0}]},"京都府":{"slug":"kyoto","cities":[{"slug":"kyoto","name":"京都市","k":1,"j":1},{"slug":"fukuchiyama","name":"福知山市","k":3,"j":0},{"slug":"maizuru","name":"舞鶴市","k":3,"j":0},{"slug":"ayabe","name":"綾部市","k":3,"j":0},{"slug":"uji","name":"宇治市","k":1,"j":0},{"slug":"miyazu","name":"宮津市","k":3,"j":0},{"slug":"kameoka","name":"亀岡市","k":3,"j":0},{"slug":"joyo","name":"城陽市","k":2,"j":0},{"slug":"muko","name":"向日市","k":1,"j":0},{"slug":"nagaokakyo","name":"長岡京市","k":1,"j":0},{"slug":"yawata","name":"八幡市","k":2,"j":0},{"slug":"kyotanabe","name":"京田辺市","k":2,"j":0},{"slug":"kyotango","name":"京丹後市","k":3,"j":0},{"slug":"nantan","name":"南丹市","k":3,"j":0},{"slug":"kizugawa","name":"木津川市","k":3,"j":0},{"slug":"oyamazaki","name":"大山崎町","k":2,"j":0},{"slug":"kumiyama","name":"久御山町","k":2,"j":0},{"slug":"ide","name":"井手町","k":3,"j":0},{"slug":"ujitawara","name":"宇治田原町","k":3,"j":0},{"slug":"kasagi","name":"笠置町","k":3,"j":0},{"slug":"wazuka","name":"和束町","k":3,"j":0},{"slug":"seika","name":"精華町","k":3,"j":0},{"slug":"minamiyamashiro","name":"南山城村","k":3,"j":0},{"slug":"kyotamba","name":"京丹波町","k":3,"j":0},{"slug":"ine","name":"伊根町","k":3,"j":0},{"slug":"yosano","name":"与謝野町","k":3,"j":0}]},"大阪府":{"slug":"osaka","cities":[{"slug":"osaka","name":"大阪市","k":1,"j":1},{"slug":"sakai","name":"堺市","k":1,"j":1},{"slug":"kishiwada","name":"岸和田市","k":1,"j":0},{"slug":"toyonaka","name":"豊中市","k":1,"j":0},{"slug":"ikedashi","name":"池田市","k":1,"j":0},{"slug":"suita","name":"吹田市","k":1,"j":0},{"slug":"izumiotsu","name":"泉大津市","k":1,"j":0},{"slug":"takatsuki","name":"高槻市","k":1,"j":0},{"slug":"kaizuka","name":"貝塚市","k":1,"j":0},{"slug":"moriguchi","name":"守口市","k":1,"j":0},{"slug":"hirakata","name":"枚方市","k":1,"j":0},{"slug":"ibaraki","name":"茨木市","k":1,"j":0},{"slug":"yao","name":"八尾市","k":1,"j":0},{"slug":"izumisano","name":"泉佐野市","k":2,"j":0},{"slug":"tondabayashi","name":"富田林市","k":2,"j":0},{"slug":"neyagawa","name":"寝屋川市","k":1,"j":0},{"slug":"kawachinagano","name":"河内長野市","k":2,"j":0},{"slug":"matsubara","name":"松原市","k":1,"j":0},{"slug":"daito","name":"大東市","k":1,"j":0},{"slug":"izumi","name":"和泉市","k":1,"j":0},{"slug":"minoh","name":"箕面市","k":1,"j":0},{"slug":"kashiwara","name":"柏原市","k":2,"j":0},{"slug":"habikino","name":"羽曳野市","k":2,"j":0},{"slug":"kadoma","name":"門真市","k":1,"j":0},{"slug":"settsu","name":"摂津市","k":1,"j":0},{"slug":"takaishi","name":"高石市","k":1,"j":0},{"slug":"fujiidera","name":"藤井寺市","k":1,"j":0},{"slug":"higashiosaka","name":"東大阪市","k":1,"j":1},{"slug":"sennan","name":"泉南市","k":2,"j":0},{"slug":"shijonawate","name":"四條畷市","k":1,"j":0},{"slug":"katano","name":"交野市","k":1,"j":0},{"slug":"osakasayama","name":"大阪狭山市","k":2,"j":0},{"slug":"hannan","name":"阪南市","k":3,"j":0},{"slug":"shimamoto","name":"島本町","k":2,"j":0},{"slug":"toyono","name":"豊能町","k":3,"j":0},{"slug":"nose","name":"能勢町","k":3,"j":0},{"slug":"tadaoka","name":"忠岡町","k":1,"j":0},{"slug":"kumatori","name":"熊取町","k":2,"j":0},{"slug":"tajiri","name":"田尻町","k":2,"j":0},{"slug":"misaki","name":"岬町","k":3,"j":0},{"slug":"taishi","name":"太子町","k":3,"j":0},{"slug":"kanan","name":"河南町","k":3,"j":0},{"slug":"chihayaakasaka","name":"千早赤阪村","k":3,"j":0}]},"兵庫県":{"slug":"hyogo","cities":[{"slug":"kobe","name":"神戸市","k":1,"j":1},{"slug":"himeji","name":"姫路市","k":1,"j":1},{"slug":"amagasaki","name":"尼崎市","k":1,"j":0},{"slug":"akashi","name":"明石市","k":1,"j":0},{"slug":"nishinomiya","name":"西宮市","k":1,"j":0},{"slug":"sumoto","name":"洲本市","k":3,"j":0},{"slug":"ashiyashi","name":"芦屋市","k":1,"j":0},{"slug":"itami","name":"伊丹市","k":1,"j":0},{"slug":"aioi","name":"相生市","k":3,"j":0},{"slug":"toyookashi","name":"豊岡市","k":3,"j":1},{"slug":"kakogawa","name":"加古川市","k":2,"j":0},{"slug":"ako","name":"赤穂市","k":3,"j":0},{"slug":"nishiwaki","name":"西脇市","k":3,"j":0},{"slug":"takarazuka","name":"宝塚市","k":1,"j":0},{"slug":"miki","name":"三木市","k":3,"j":0},{"slug":"takasago","name":"高砂市","k":2,"j":0},{"slug":"kawanishi","name":"川西市","k":1,"j":0},{"slug":"ono","name":"小野市","k":3,"j":0},{"slug":"sanda","name":"三田市","k":3,"j":0},{"slug":"kasai","name":"加西市","k":3,"j":0},{"slug":"tanbasasayama","name":"丹波篠山市","k":3,"j":0},{"slug":"yabu","name":"養父市","k":3,"j":0},{"slug":"tamba","name":"丹波市","k":3,"j":0},{"slug":"minamiawaji","name":"南あわじ市","k":3,"j":0},{"slug":"asago","name":"朝来市","k":3,"j":0},{"slug":"awaji","name":"淡路市","k":3,"j":0},{"slug":"shiso","name":"宍粟市","k":3,"j":0},{"slug":"kato","name":"加東市","k":3,"j":0},{"slug":"tatsunoshi","name":"たつの市","k":3,"j":0},{"slug":"inagawa","name":"猪名川町","k":3,"j":0},{"slug":"taka","name":"多可町","k":3,"j":0},{"slug":"inami","name":"稲美町","k":3,"j":0},{"slug":"harima","name":"播磨町","k":2,"j":0},{"slug":"ichikawamachi","name":"市川町","k":3,"j":0},{"slug":"fukusaki","name":"福崎町","k":3,"j":0},{"slug":"kamikawamachi","name":"神河町","k":3,"j":0},{"slug":"taishimachi","name":"太子町","k":3,"j":0},{"slug":"kamigori","name":"上郡町","k":3,"j":0},{"slug":"sayo","name":"佐用町","k":3,"j":0},{"slug":"mihamacho","name":"香美町","k":3,"j":0},{"slug":"shinonsen","name":"新温泉町","k":3,"j":0}]},"奈良県":{"slug":"nara","cities":[{"slug":"nara","name":"奈良市","k":2,"j":0},{"slug":"yamatotakada","name":"大和高田市","k":3,"j":0},{"slug":"yamatokoriyama","name":"大和郡山市","k":3,"j":0},{"slug":"tenri","name":"天理市","k":3,"j":0},{"slug":"kashihara","name":"橿原市","k":2,"j":0},{"slug":"sakurai","name":"桜井市","k":3,"j":0},{"slug":"gojo","name":"五條市","k":3,"j":0},{"slug":"gose","name":"御所市","k":3,"j":0},{"slug":"ikoma","name":"生駒市","k":2,"j":0},{"slug":"kashiba","name":"香芝市","k":3,"j":0},{"slug":"katsuragi","name":"葛城市","k":3,"j":0},{"slug":"uda","name":"宇陀市","k":3,"j":0},{"slug":"yamazoe","name":"山添村","k":3,"j":0},{"slug":"heguri","name":"平群町","k":3,"j":0},{"slug":"sango","name":"三郷町","k":3,"j":0},{"slug":"ikaruga","name":"斑鳩町","k":3,"j":0},{"slug":"ando","name":"安堵町","k":3,"j":0},{"slug":"kawanishimachi","name":"川西町","k":3,"j":0},{"slug":"miyake","name":"三宅町","k":3,"j":0},{"slug":"tawaramoto","name":"田原本町","k":3,"j":0},{"slug":"soni","name":"曽爾村","k":3,"j":0},{"slug":"mitsue","name":"御杖村","k":3,"j":0},{"slug":"takatori","name":"高取町","k":3,"j":0},{"slug":"asuka","name":"明日香村","k":3,"j":0},{"slug":"kamimaki","name":"上牧町","k":3,"j":0},{"slug":"oji","name":"王寺町","k":3,"j":0},{"slug":"koryo","name":"広陵町","k":3,"j":0},{"slug":"kawai","name":"河合町","k":3,"j":0},{"slug":"yoshino","name":"吉野町","k":3,"j":0},{"slug":"oyodo","name":"大淀町","k":3,"j":0},{"slug":"shimoichi","name":"下市町","k":3,"j":0},{"slug":"kurotaki","name":"黒滝村","k":3,"j":0},{"slug":"tenkawa","name":"天川村","k":3,"j":0},{"slug":"nosegawa","name":"野迫川村","k":3,"j":0},{"slug":"totsukawa","name":"十津川村","k":3,"j":0},{"slug":"shimokitayama","name":"下北山村","k":3,"j":0},{"slug":"kamikitayama","name":"上北山村","k":3,"j":0},{"slug":"kawakamimura","name":"川上村","k":3,"j":0},{"slug":"higashiyoshino","name":"東吉野村","k":3,"j":0}]},"和歌山県":{"slug":"wakayama","cities":[{"slug":"wakayama","name":"和歌山市","k":2,"j":0},{"slug":"kainan","name":"海南市","k":3,"j":0},{"slug":"hashimoto","name":"橋本市","k":3,"j":0},{"slug":"arida","name":"有田市","k":3,"j":0},{"slug":"gobo","name":"御坊市","k":3,"j":0},{"slug":"tanabe","name":"田辺市","k":3,"j":0},{"slug":"shingushi","name":"新宮市","k":3,"j":0},{"slug":"kinokawa","name":"紀の川市","k":3,"j":0},{"slug":"iwade","name":"岩出市","k":3,"j":0},{"slug":"kimino","name":"紀美野町","k":3,"j":0},{"slug":"katsuragimachi","name":"かつらぎ町","k":3,"j":0},{"slug":"kudoyama","name":"九度山町","k":3,"j":0},{"slug":"koya","name":"高野町","k":3,"j":0},{"slug":"yuasa","name":"湯浅町","k":3,"j":0},{"slug":"hirogawa","name":"広川町","k":3,"j":0},{"slug":"aridagawa","name":"有田川町","k":3,"j":0},{"slug":"mihamawakayama","name":"美浜町","k":3,"j":0},{"slug":"hidakacho","name":"日高町","k":3,"j":0},{"slug":"yura","name":"由良町","k":3,"j":0},{"slug":"inamicho","name":"印南町","k":3,"j":0},{"slug":"minabe","name":"みなべ町","k":3,"j":0},{"slug":"hidakagawa","name":"日高川町","k":3,"j":0},{"slug":"shirahama","name":"白浜町","k":3,"j":0},{"slug":"kamitonda","name":"上富田町","k":3,"j":0},{"slug":"susami","name":"すさみ町","k":3,"j":0},{"slug":"nachikatsuura","name":"那智勝浦町","k":3,"j":0},{"slug":"taiji","name":"太地町","k":3,"j":0},{"slug":"kozagawa","name":"古座川町","k":3,"j":0},{"slug":"kitayama","name":"北山村","k":3,"j":0},{"slug":"kushimoto","name":"串本町","k":3,"j":0}]},"鳥取県":{"slug":"tottori","cities":[{"slug":"tottori","name":"鳥取市","k":2,"j":0},{"slug":"yonago","name":"米子市","k":3,"j":0},{"slug":"kurayoshi","name":"倉吉市","k":3,"j":0},{"slug":"sakaiminato","name":"境港市","k":3,"j":0},{"slug":"iwamimachi","name":"岩美町","k":3,"j":0},{"slug":"wakasacho","name":"若桜町","k":3,"j":0},{"slug":"chizucho","name":"智頭町","k":3,"j":0},{"slug":"yazu","name":"八頭町","k":3,"j":0},{"slug":"misasa","name":"三朝町","k":3,"j":0},{"slug":"yurihama","name":"湯梨浜町","k":3,"j":0},{"slug":"kotoura","name":"琴浦町","k":3,"j":0},{"slug":"hokuei","name":"北栄町","k":3,"j":0},{"slug":"hichisomura","name":"日吉津村","k":3,"j":0},{"slug":"daisen","name":"大山町","k":3,"j":0},{"slug":"nanbumachi-tottori","name":"南部町","k":3,"j":0},{"slug":"hoki","name":"伯耆町","k":3,"j":0},{"slug":"nichinanmachi","name":"日南町","k":3,"j":0},{"slug":"hinomachi","name":"日野町","k":3,"j":0},{"slug":"kofu-tottori","name":"江府町","k":3,"j":0}]},"島根県":{"slug":"shimane","cities":[{"slug":"matsue","name":"松江市","k":2,"j":0},{"slug":"hamada","name":"浜田市","k":3,"j":0},{"slug":"izumo","name":"出雲市","k":3,"j":0},{"slug":"masuda","name":"益田市","k":3,"j":0},{"slug":"oda","name":"大田市","k":3,"j":0},{"slug":"yasugi","name":"安来市","k":3,"j":0},{"slug":"gotsu","name":"江津市","k":3,"j":0},{"slug":"unnan","name":"雲南市","k":3,"j":0},{"slug":"okuizumo","name":"奥出雲町","k":3,"j":0},{"slug":"iinan","name":"飯南町","k":3,"j":0},{"slug":"kawamoto","name":"川本町","k":3,"j":0},{"slug":"misato-shimane","name":"美郷町","k":3,"j":0},{"slug":"ohnan","name":"邑南町","k":3,"j":0},{"slug":"tsuwano","name":"津和野町","k":3,"j":0},{"slug":"yoshika","name":"吉賀町","k":3,"j":0},{"slug":"amamachi","name":"海士町","k":3,"j":0},{"slug":"nishinoshima","name":"西ノ島町","k":3,"j":0},{"slug":"chibumura","name":"知夫村","k":3,"j":0},{"slug":"okinoshima","name":"隠岐の島町","k":3,"j":0}]},"岡山県":{"slug":"okayama","cities":[{"slug":"okayama","name":"岡山市","k":1,"j":1},{"slug":"kurashiki","name":"倉敷市","k":1,"j":0},{"slug":"tsuyama","name":"津山市","k":3,"j":0},{"slug":"tamano","name":"玉野市","k":2,"j":0},{"slug":"kasaoka","name":"笠岡市","k":3,"j":0},{"slug":"ibara","name":"井原市","k":3,"j":0},{"slug":"soja","name":"総社市","k":3,"j":0},{"slug":"takahashi","name":"高梁市","k":3,"j":0},{"slug":"niimi","name":"新見市","k":3,"j":0},{"slug":"bizen","name":"備前市","k":3,"j":0},{"slug":"setouchi","name":"瀬戸内市","k":3,"j":0},{"slug":"akaiwashi","name":"赤磐市","k":3,"j":0},{"slug":"maniwa","name":"真庭市","k":3,"j":0},{"slug":"mimasaka","name":"美作市","k":3,"j":0},{"slug":"asakuchi","name":"浅口市","k":3,"j":0},{"slug":"wake","name":"和気町","k":3,"j":0},{"slug":"hayashima","name":"早島町","k":3,"j":0},{"slug":"satosho","name":"里庄町","k":3,"j":0},{"slug":"yakage","name":"矢掛町","k":3,"j":0},{"slug":"shinjo","name":"新庄村","k":3,"j":0},{"slug":"kagamino","name":"鏡野町","k":3,"j":0},{"slug":"shoo","name":"勝央町","k":3,"j":0},{"slug":"nagi","name":"奈義町","k":3,"j":0},{"slug":"nishiawakura","name":"西粟倉村","k":3,"j":0},{"slug":"kumenan","name":"久米南町","k":3,"j":0},{"slug":"misakicho","name":"美咲町","k":3,"j":0},{"slug":"kibichuo","name":"吉備中央町","k":3,"j":0}]},"広島県":{"slug":"hiroshima","cities":[{"slug":"hiroshima","name":"広島市","k":1,"j":1},{"slug":"kure","name":"呉市","k":1,"j":0},{"slug":"takehara","name":"竹原市","k":3,"j":0},{"slug":"mihara","name":"三原市","k":2,"j":0},{"slug":"onomichi","name":"尾道市","k":2,"j":0},{"slug":"fukuyama","name":"福山市","k":1,"j":0},{"slug":"fuchushi","name":"府中市","k":2,"j":0},{"slug":"miyoshishi","name":"三次市","k":3,"j":0},{"slug":"shobara","name":"庄原市","k":3,"j":0},{"slug":"otake","name":"大竹市","k":2,"j":0},{"slug":"higashihiroshima","name":"東広島市","k":3,"j":0},{"slug":"hatsukaichi","name":"廿日市市","k":2,"j":0},{"slug":"akitakata","name":"安芸高田市","k":3,"j":0},{"slug":"etajima","name":"江田島市","k":3,"j":0},{"slug":"fuchucho","name":"府中町","k":1,"j":0},{"slug":"kaita","name":"海田町","k":2,"j":0},{"slug":"kumano","name":"熊野町","k":3,"j":0},{"slug":"saka","name":"坂町","k":2,"j":0},{"slug":"akiota","name":"安芸太田町","k":3,"j":0},{"slug":"kitahiroshimamachi","name":"北広島町","k":3,"j":0},{"slug":"osakikamijima","name":"大崎上島町","k":3,"j":0},{"slug":"sera","name":"世羅町","k":3,"j":0},{"slug":"jinsekikogen","name":"神石高原町","k":3,"j":0}]},"山口県":{"slug":"yamaguchi","cities":[{"slug":"shimonoseki","name":"下関市","k":2,"j":0},{"slug":"ube","name":"宇部市","k":2,"j":0},{"slug":"yamaguchi","name":"山口市","k":2,"j":0},{"slug":"hagi","name":"萩市","k":3,"j":0},{"slug":"hofu","name":"防府市","k":2,"j":0},{"slug":"kudamatsu","name":"下松市","k":3,"j":0},{"slug":"iwakuni","name":"岩国市","k":2,"j":0},{"slug":"hikari","name":"光市","k":3,"j":0},{"slug":"nagato","name":"長門市","k":3,"j":0},{"slug":"yanai","name":"柳井市","k":3,"j":0},{"slug":"mine","name":"美祢市","k":3,"j":0},{"slug":"shunan","name":"周南市","k":2,"j":0},{"slug":"sanyoonoda","name":"山陽小野田市","k":3,"j":0},{"slug":"suooshima","name":"周防大島町","k":3,"j":0},{"slug":"waki","name":"和木町","k":3,"j":0},{"slug":"kaminoseki","name":"上関町","k":3,"j":0},{"slug":"tabuse","name":"田布施町","k":3,"j":0},{"slug":"hirao","name":"平生町","k":3,"j":0},{"slug":"abu","name":"阿武町","k":3,"j":0}]},"徳島県":{"slug":"tokushima","cities":[{"slug":"tokushima","name":"徳島市","k":2,"j":0},{"slug":"naruto","name":"鳴門市","k":3,"j":0},{"slug":"komatsushima","name":"小松島市","k":3,"j":0},{"slug":"anantokushima","name":"阿南市","k":3,"j":0},{"slug":"yoshinogawa","name":"吉野川市","k":3,"j":0},{"slug":"awa","name":"阿波市","k":3,"j":0},{"slug":"mima","name":"美馬市","k":3,"j":0},{"slug":"miyoshitokushima","name":"三好市","k":3,"j":0},{"slug":"katsuuratokushima","name":"勝浦町","k":3,"j":0},{"slug":"kamikatsu","name":"上勝町","k":3,"j":0},{"slug":"sanagochi","name":"佐那河内村","k":3,"j":0},{"slug":"ishii","name":"石井町","k":3,"j":0},{"slug":"kamiyama","name":"神山町","k":3,"j":0},{"slug":"nakatokushima","name":"那賀町","k":3,"j":0},{"slug":"mugi","name":"牟岐町","k":3,"j":0},{"slug":"minami","name":"美波町","k":3,"j":0},{"slug":"kaiyo","name":"海陽町","k":3,"j":0},{"slug":"matsushige","name":"松茂町","k":3,"j":0},{"slug":"kitajima","name":"北島町","k":3,"j":0},{"slug":"aizumi","name":"藍住町","k":3,"j":0},{"slug":"itano","name":"板野町","k":3,"j":0},{"slug":"kamiita","name":"上板町","k":3,"j":0},{"slug":"tsurugi","name":"つるぎ町","k":3,"j":0},{"slug":"higashimiyoshi","name":"東みよし町","k":3,"j":0}]},"香川県":{"slug":"kagawa","cities":[{"slug":"takamatsu","name":"高松市","k":2,"j":0},{"slug":"marugame","name":"丸亀市","k":3,"j":0},{"slug":"sakaide","name":"坂出市","k":3,"j":0},{"slug":"zentsuji","name":"善通寺市","k":3,"j":0},{"slug":"kanonji","name":"観音寺市","k":3,"j":0},{"slug":"sanuki","name":"さぬき市","k":3,"j":0},{"slug":"higashikagawa","name":"東かがわ市","k":3,"j":0},{"slug":"mitoyo","name":"三豊市","k":3,"j":0},{"slug":"tonoshomachi","name":"土庄町","k":3,"j":0},{"slug":"shodoshimamachi","name":"小豆島町","k":3,"j":0},{"slug":"mikimachi","name":"三木町","k":3,"j":0},{"slug":"naoshimamachi","name":"直島町","k":3,"j":0},{"slug":"utazumachi","name":"宇多津町","k":3,"j":0},{"slug":"ayagawamachi","name":"綾川町","k":3,"j":0},{"slug":"kotohiramachi","name":"琴平町","k":3,"j":0},{"slug":"tadotsumachi","name":"多度津町","k":3,"j":0},{"slug":"mannomachi","name":"まんのう町","k":3,"j":0}]},"愛媛県":{"slug":"ehime","cities":[{"slug":"matsuyama","name":"松山市","k":2,"j":1},{"slug":"imabari","name":"今治市","k":3,"j":0},{"slug":"uwajima","name":"宇和島市","k":3,"j":0},{"slug":"yawatahama","name":"八幡浜市","k":3,"j":0},{"slug":"niihama","name":"新居浜市","k":3,"j":0},{"slug":"saijo","name":"西条市","k":3,"j":0},{"slug":"ozu","name":"大洲市","k":3,"j":0},{"slug":"iyo","name":"伊予市","k":3,"j":0},{"slug":"shikokuchuo","name":"四国中央市","k":3,"j":0},{"slug":"seiyo","name":"西予市","k":3,"j":0},{"slug":"toon","name":"東温市","k":3,"j":0},{"slug":"kamijima","name":"上島町","k":3,"j":0},{"slug":"kumakogen","name":"久万高原町","k":3,"j":0},{"slug":"masaki","name":"松前町","k":3,"j":0},{"slug":"tobe","name":"砥部町","k":3,"j":0},{"slug":"uchiko","name":"内子町","k":3,"j":0},{"slug":"ikata","name":"伊方町","k":3,"j":0},{"slug":"matsuno","name":"松野町","k":3,"j":0},{"slug":"kihokucho","name":"鬼北町","k":3,"j":0},{"slug":"ainan","name":"愛南町","k":3,"j":0}]},"高知県":{"slug":"kochi","cities":[{"slug":"kochi","name":"高知市","k":2,"j":0},{"slug":"muroto","name":"室戸市","k":3,"j":0},{"slug":"aki","name":"安芸市","k":3,"j":0},{"slug":"nankoku","name":"南国市","k":3,"j":0},{"slug":"tosa","name":"土佐市","k":3,"j":0},{"slug":"susaki","name":"須崎市","k":3,"j":0},{"slug":"sukumo","name":"宿毛市","k":3,"j":0},{"slug":"tosashimizu","name":"土佐清水市","k":3,"j":0},{"slug":"shimanto","name":"四万十市","k":3,"j":0},{"slug":"konan-kochi","name":"香南市","k":3,"j":0},{"slug":"kami-kochi","name":"香美市","k":3,"j":0},{"slug":"toyomachi","name":"東洋町","k":3,"j":0},{"slug":"naharimachi","name":"奈半利町","k":3,"j":0},{"slug":"tanomachi","name":"田野町","k":3,"j":0},{"slug":"yasudamachi","name":"安田町","k":3,"j":0},{"slug":"kitagawamura","name":"北川村","k":3,"j":0},{"slug":"umajimura","name":"馬路村","k":3,"j":0},{"slug":"geisenimura","name":"芸西村","k":3,"j":0},{"slug":"motoyamamachi","name":"本山町","k":3,"j":0},{"slug":"otoyomachi","name":"大豊町","k":3,"j":0},{"slug":"tosamachi","name":"土佐町","k":3,"j":0},{"slug":"okawamura","name":"大川村","k":3,"j":0},{"slug":"inomachi","name":"いの町","k":3,"j":0},{"slug":"niyodogawamachi","name":"仁淀川町","k":3,"j":0},{"slug":"nakatosamachi","name":"中土佐町","k":3,"j":0},{"slug":"sakawamachi","name":"佐川町","k":3,"j":0},{"slug":"ochimachi","name":"越知町","k":3,"j":0},{"slug":"yusuharamachi","name":"梼原町","k":3,"j":0},{"slug":"hidakamura","name":"日高村","k":3,"j":0},{"slug":"tsunomachi","name":"津野町","k":3,"j":0},{"slug":"shimantomachi","name":"四万十町","k":3,"j":0},{"slug":"otsukimachi","name":"大月町","k":3,"j":0},{"slug":"miharamura","name":"三原村","k":3,"j":0},{"slug":"kuroshiomachi","name":"黒潮町","k":3,"j":0}]},"福岡県":{"slug":"fukuoka","cities":[{"slug":"kitakyushu","name":"北九州市","k":1,"j":1},{"slug":"fukuoka","name":"福岡市","k":1,"j":1},{"slug":"omuta","name":"大牟田市","k":2,"j":0},{"slug":"kurume","name":"久留米市","k":2,"j":0},{"slug":"nogata","name":"直方市","k":2,"j":0},{"slug":"iizuka","name":"飯塚市","k":2,"j":0},{"slug":"tagawa","name":"田川市","k":2,"j":0},{"slug":"yanagawa","name":"柳川市","k":3,"j":0},{"slug":"yame","name":"八女市","k":3,"j":0},{"slug":"chikugo","name":"筑後市","k":3,"j":0},{"slug":"okawa","name":"大川市","k":3,"j":0},{"slug":"yukuhashi","name":"行橋市","k":2,"j":0},{"slug":"buzen","name":"豊前市","k":3,"j":0},{"slug":"nakama","name":"中間市","k":2,"j":0},{"slug":"ogori","name":"小郡市","k":3,"j":0},{"slug":"chikushino","name":"筑紫野市","k":2,"j":0},{"slug":"kasuga","name":"春日市","k":2,"j":0},{"slug":"onojo","name":"大野城市","k":2,"j":0},{"slug":"munakata","name":"宗像市","k":2,"j":0},{"slug":"dazaifu","name":"太宰府市","k":2,"j":0},{"slug":"koga","name":"古賀市","k":2,"j":0},{"slug":"fukutsu","name":"福津市","k":2,"j":0},{"slug":"ukiha","name":"うきは市","k":3,"j":0},{"slug":"miyawaka","name":"宮若市","k":3,"j":0},{"slug":"kama","name":"嘉麻市","k":3,"j":0},{"slug":"asakura","name":"朝倉市","k":3,"j":0},{"slug":"miyama","name":"みやま市","k":3,"j":0},{"slug":"itoshima","name":"糸島市","k":3,"j":0},{"slug":"nakagawashi","name":"那珂川市","k":2,"j":0},{"slug":"umi","name":"宇美町","k":2,"j":0},{"slug":"sasaguri","name":"篠栗町","k":2,"j":0},{"slug":"shime","name":"志免町","k":2,"j":0},{"slug":"sue","name":"須恵町","k":2,"j":0},{"slug":"shingu","name":"新宮町","k":2,"j":0},{"slug":"hisayama","name":"久山町","k":2,"j":0},{"slug":"kasuya","name":"粕屋町","k":2,"j":0},{"slug":"ashiya","name":"芦屋町","k":2,"j":0},{"slug":"mizumaki","name":"水巻町","k":2,"j":0},{"slug":"okagaki","name":"岡垣町","k":2,"j":0},{"slug":"onga","name":"遠賀町","k":2,"j":0},{"slug":"kotake","name":"小竹町","k":3,"j":0},{"slug":"kurate","name":"鞍手町","k":3,"j":0},{"slug":"keisen","name":"桂川町","k":3,"j":0},{"slug":"chikuzen","name":"筑前町","k":3,"j":0},{"slug":"toho","name":"東峰村","k":3,"j":0},{"slug":"tachiarai","name":"大刀洗町","k":3,"j":0},{"slug":"oki","name":"大木町","k":3,"j":0},{"slug":"hirokawa","name":"広川町","k":3,"j":0},{"slug":"kawara","name":"香春町","k":3,"j":0},{"slug":"soeda","name":"添田町","k":3,"j":0},{"slug":"itoda","name":"糸田町","k":3,"j":0},{"slug":"kawasakimachi","name":"川崎町","k":3,"j":0},{"slug":"oto","name":"大任町","k":3,"j":0},{"slug":"akamura","name":"赤村","k":3,"j":0},{"slug":"fukuchi","name":"福智町","k":3,"j":0},{"slug":"kanda","name":"苅田町","k":2,"j":0},{"slug":"miyako","name":"みやこ町","k":3,"j":0},{"slug":"yoshitomi","name":"吉富町","k":3,"j":0},{"slug":"koge","name":"上毛町","k":3,"j":0},{"slug":"chikujo","name":"築上町","k":3,"j":0}]},"佐賀県":{"slug":"saga","cities":[{"slug":"saga","name":"佐賀市","k":2,"j":0},{"slug":"karatsu","name":"唐津市","k":3,"j":0},{"slug":"tosu","name":"鳥栖市","k":3,"j":0},{"slug":"taku","name":"多久市","k":3,"j":0},{"slug":"imari","name":"伊万里市","k":3,"j":0},{"slug":"takeo","name":"武雄市","k":3,"j":0},{"slug":"kashima-saga","name":"鹿島市","k":3,"j":0},{"slug":"ogi","name":"小城市","k":3,"j":0},{"slug":"ureshino","name":"嬉野市","k":3,"j":0},{"slug":"kanzaki","name":"神埼市","k":3,"j":0},{"slug":"yoshinogaricho","name":"吉野ヶ里町","k":3,"j":0},{"slug":"kiyamamachi","name":"基山町","k":3,"j":0},{"slug":"kamiminememachi","name":"上峰町","k":3,"j":0},{"slug":"miyakimachi","name":"みやき町","k":3,"j":0},{"slug":"genkaimachi","name":"玄海町","k":3,"j":0},{"slug":"aritamachi","name":"有田町","k":3,"j":0},{"slug":"omachimachi","name":"大町町","k":3,"j":0},{"slug":"kohokumachi","name":"江北町","k":3,"j":0},{"slug":"shiroishicho","name":"白石町","k":3,"j":0},{"slug":"tararacho","name":"太良町","k":3,"j":0}]},"長崎県":{"slug":"nagasaki","cities":[{"slug":"nagasaki","name":"長崎市","k":2,"j":0},{"slug":"sasebo","name":"佐世保市","k":2,"j":0},{"slug":"shimabara","name":"島原市","k":3,"j":0},{"slug":"isahaya","name":"諫早市","k":3,"j":0},{"slug":"omura","name":"大村市","k":3,"j":0},{"slug":"hirado","name":"平戸市","k":3,"j":0},{"slug":"matsuura","name":"松浦市","k":3,"j":0},{"slug":"tsushimashi","name":"対馬市","k":3,"j":0},{"slug":"iki","name":"壱岐市","k":3,"j":0},{"slug":"goto","name":"五島市","k":3,"j":0},{"slug":"saikai","name":"西海市","k":2,"j":0},{"slug":"unzen","name":"雲仙市","k":3,"j":0},{"slug":"minamishimabara","name":"南島原市","k":3,"j":0},{"slug":"nagayo","name":"長与町","k":3,"j":0},{"slug":"togitsu","name":"時津町","k":3,"j":0},{"slug":"higashisonogi","name":"東彼杵町","k":3,"j":0},{"slug":"kawatana","name":"川棚町","k":3,"j":0},{"slug":"hasami","name":"波佐見町","k":3,"j":0},{"slug":"ojika","name":"小値賀町","k":3,"j":0},{"slug":"saza","name":"佐々町","k":3,"j":0},{"slug":"shinkamigoto","name":"新上五島町","k":3,"j":0}]},"熊本県":{"slug":"kumamoto","cities":[{"slug":"kumamoto","name":"熊本市","k":2,"j":1},{"slug":"yatsushiro","name":"八代市","k":3,"j":0},{"slug":"hitoyoshi","name":"人吉市","k":3,"j":0},{"slug":"arao","name":"荒尾市","k":2,"j":0},{"slug":"minamata","name":"水俣市","k":3,"j":0},{"slug":"tamana","name":"玉名市","k":3,"j":0},{"slug":"yamaga","name":"山鹿市","k":3,"j":0},{"slug":"kikuchi","name":"菊池市","k":3,"j":0},{"slug":"uto","name":"宇土市","k":3,"j":0},{"slug":"kamiamakusa","name":"上天草市","k":3,"j":0},{"slug":"ukishi","name":"宇城市","k":3,"j":0},{"slug":"aso","name":"阿蘇市","k":3,"j":0},{"slug":"amakusa","name":"天草市","k":3,"j":0},{"slug":"koshi","name":"合志市","k":3,"j":0},{"slug":"misatokuma","name":"美里町","k":3,"j":0},{"slug":"gyokuto","name":"玉東町","k":3,"j":0},{"slug":"nankan","name":"南関町","k":3,"j":0},{"slug":"nagasu","name":"長洲町","k":3,"j":0},{"slug":"nagomi","name":"和水町","k":3,"j":0},{"slug":"otsumachi","name":"大津町","k":3,"j":0},{"slug":"kikuyo","name":"菊陽町","k":3,"j":0},{"slug":"minamioguni","name":"南小国町","k":3,"j":0},{"slug":"oguni","name":"小国町","k":3,"j":0},{"slug":"ubuyama","name":"産山村","k":3,"j":0},{"slug":"takamorimachi","name":"高森町","k":3,"j":0},{"slug":"nishiharamura","name":"西原村","k":3,"j":0},{"slug":"minamiaso","name":"南阿蘇村","k":3,"j":0},{"slug":"mifune","name":"御船町","k":3,"j":0},{"slug":"kashimacho","name":"嘉島町","k":3,"j":0},{"slug":"mashiki","name":"益城町","k":3,"j":0},{"slug":"kosa","name":"甲佐町","k":3,"j":0},{"slug":"yamatomachi","name":"山都町","k":3,"j":0},{"slug":"hikawa","name":"氷川町","k":3,"j":0},{"slug":"ashikita","name":"芦北町","k":3,"j":0},{"slug":"tsunagi","name":"津奈木町","k":3,"j":0},{"slug":"nishiki","name":"錦町","k":3,"j":0},{"slug":"taragi","name":"多良木町","k":3,"j":0},{"slug":"yunomae","name":"湯前町","k":3,"j":0},{"slug":"mizukami","name":"水上村","k":3,"j":0},{"slug":"sagara","name":"相良村","k":3,"j":0},{"slug":"itsuki","name":"五木村","k":3,"j":0},{"slug":"yamae","name":"山江村","k":3,"j":0},{"slug":"kuma","name":"球磨村","k":3,"j":0},{"slug":"asagiri","name":"あさぎり町","k":3,"j":0},{"slug":"reihoku","name":"苓北町","k":3,"j":0}]},"大分県":{"slug":"oita","cities":[{"slug":"oita","name":"大分市","k":2,"j":0},{"slug":"beppu","name":"別府市","k":2,"j":0},{"slug":"nakatsu","name":"中津市","k":3,"j":0},{"slug":"hita","name":"日田市","k":3,"j":0},{"slug":"saiki","name":"佐伯市","k":3,"j":0},{"slug":"usuki","name":"臼杵市","k":3,"j":0},{"slug":"tsukumi","name":"津久見市","k":3,"j":0},{"slug":"taketa","name":"竹田市","k":3,"j":0},{"slug":"bungotakada","name":"豊後高田市","k":3,"j":0},{"slug":"kitsuki","name":"杵築市","k":3,"j":0},{"slug":"usa","name":"宇佐市","k":3,"j":0},{"slug":"bungoono","name":"豊後大野市","k":3,"j":0},{"slug":"yufu","name":"由布市","k":3,"j":0},{"slug":"kunisaki","name":"国東市","k":3,"j":0},{"slug":"himeshima","name":"姫島村","k":3,"j":0},{"slug":"hiji","name":"日出町","k":3,"j":0},{"slug":"kokonoe","name":"九重町","k":3,"j":0},{"slug":"kusu","name":"玖珠町","k":3,"j":0}]},"宮崎県":{"slug":"miyazaki","cities":[{"slug":"miyazaki","name":"宮崎市","k":2,"j":0},{"slug":"miyakonojo","name":"都城市","k":3,"j":0},{"slug":"nobeoka","name":"延岡市","k":3,"j":0},{"slug":"nichinan","name":"日南市","k":3,"j":0},{"slug":"kobayashi","name":"小林市","k":3,"j":0},{"slug":"hyuga","name":"日向市","k":3,"j":0},{"slug":"kushima","name":"串間市","k":3,"j":0},{"slug":"saito","name":"西都市","k":3,"j":0},{"slug":"ebino","name":"えびの市","k":3,"j":0},{"slug":"mimata","name":"三股町","k":3,"j":0},{"slug":"takaharu","name":"高原町","k":3,"j":0},{"slug":"kunitomi","name":"国富町","k":3,"j":0},{"slug":"aya","name":"綾町","k":3,"j":0},{"slug":"takanabe","name":"高鍋町","k":3,"j":0},{"slug":"shintomi","name":"新富町","k":3,"j":0},{"slug":"nishimera","name":"西米良村","k":3,"j":0},{"slug":"kijo","name":"木城町","k":3,"j":0},{"slug":"kawaminami","name":"川南町","k":3,"j":0},{"slug":"tsuno","name":"都農町","k":3,"j":0},{"slug":"kadogawa","name":"門川町","k":3,"j":0},{"slug":"morotsuka","name":"諸塚村","k":3,"j":0},{"slug":"shiiba","name":"椎葉村","k":3,"j":0},{"slug":"misatomiyazaki","name":"美郷町","k":3,"j":0},{"slug":"takachiho","name":"高千穂町","k":3,"j":0},{"slug":"hinokage","name":"日之影町","k":3,"j":0},{"slug":"gokase","name":"五ヶ瀬町","k":3,"j":0}]},"鹿児島県":{"slug":"kagoshima","cities":[{"slug":"kagoshima","name":"鹿児島市","k":2,"j":1},{"slug":"kanoya","name":"鹿屋市","k":3,"j":0},{"slug":"makurazaki","name":"枕崎市","k":3,"j":0},{"slug":"akune","name":"阿久根市","k":3,"j":0},{"slug":"izumishi","name":"出水市","k":3,"j":0},{"slug":"ibusuki","name":"指宿市","k":3,"j":0},{"slug":"nishinoomote","name":"西之表市","k":3,"j":0},{"slug":"tarumizu","name":"垂水市","k":3,"j":0},{"slug":"satsumasendai","name":"薩摩川内市","k":3,"j":0},{"slug":"hioki","name":"日置市","k":3,"j":0},{"slug":"soo","name":"曽於市","k":3,"j":0},{"slug":"kirishima","name":"霧島市","k":3,"j":0},{"slug":"ichikushikino","name":"いちき串木野市","k":3,"j":0},{"slug":"minamisatsuma","name":"南さつま市","k":3,"j":0},{"slug":"shibushi","name":"志布志市","k":3,"j":0},{"slug":"amami","name":"奄美市","k":3,"j":0},{"slug":"minamikyshu","name":"南九州市","k":3,"j":0},{"slug":"isa","name":"伊佐市","k":3,"j":0},{"slug":"aira","name":"姶良市","k":3,"j":0},{"slug":"mishimamura","name":"三島村","k":3,"j":0},{"slug":"toshimamura","name":"十島村","k":3,"j":0},{"slug":"satsuma","name":"さつま町","k":3,"j":0},{"slug":"nagashima","name":"長島町","k":3,"j":0},{"slug":"yusui","name":"湧水町","k":3,"j":0},{"slug":"osaki","name":"大崎町","k":3,"j":0},{"slug":"higashikushira","name":"東串良町","k":3,"j":0},{"slug":"kinko","name":"錦江町","k":3,"j":0},{"slug":"minamiosumi","name":"南大隅町","k":3,"j":0},{"slug":"kimotsuki","name":"肝付町","k":3,"j":0},{"slug":"nakatane","name":"中種子町","k":3,"j":0},{"slug":"minamitane","name":"南種子町","k":3,"j":0},{"slug":"yakushima","name":"屋久島町","k":3,"j":0},{"slug":"yamatomura","name":"大和村","k":3,"j":0},{"slug":"uken","name":"宇検村","k":3,"j":0},{"slug":"setouchicho","name":"瀬戸内町","k":3,"j":0},{"slug":"tatsugou","name":"龍郷町","k":3,"j":0},{"slug":"kikai","name":"喜界町","k":3,"j":0},{"slug":"tokunoshima","name":"徳之島町","k":3,"j":0},{"slug":"amagi","name":"天城町","k":3,"j":0},{"slug":"isen","name":"伊仙町","k":3,"j":0},{"slug":"wadomari","name":"和泊町","k":3,"j":0},{"slug":"china","name":"知名町","k":3,"j":0},{"slug":"yoron","name":"与論町","k":3,"j":0}]},"沖縄県":{"slug":"okinawa","cities":[{"slug":"naha","name":"那覇市","k":2,"j":0},{"slug":"ginowan","name":"宜野湾市","k":3,"j":0},{"slug":"ishigaki","name":"石垣市","k":3,"j":0},{"slug":"urasoe","name":"浦添市","k":3,"j":0},{"slug":"nago","name":"名護市","k":3,"j":0},{"slug":"itoman","name":"糸満市","k":3,"j":0},{"slug":"okinawashi","name":"沖縄市","k":3,"j":0},{"slug":"tomigusuku","name":"豊見城市","k":3,"j":0},{"slug":"uruma","name":"うるま市","k":3,"j":0},{"slug":"miyakojima","name":"宮古島市","k":3,"j":0},{"slug":"nanjo","name":"南城市","k":3,"j":0},{"slug":"kunigami","name":"国頭村","k":3,"j":0},{"slug":"ogimi","name":"大宜味村","k":3,"j":0},{"slug":"higashi","name":"東村","k":3,"j":0},{"slug":"nakijin","name":"今帰仁村","k":3,"j":0},{"slug":"motobu","name":"本部町","k":3,"j":0},{"slug":"onna","name":"恩納村","k":3,"j":0},{"slug":"ginoza","name":"宜野座村","k":3,"j":0},{"slug":"kin","name":"金武町","k":3,"j":0},{"slug":"ie","name":"伊江村","k":3,"j":0},{"slug":"yomitan","name":"読谷村","k":3,"j":0},{"slug":"kadena","name":"嘉手納町","k":3,"j":0},{"slug":"chatan","name":"北谷町","k":3,"j":0},{"slug":"kitanakagusuku","name":"北中城村","k":3,"j":0},{"slug":"nakagusuku","name":"中城村","k":3,"j":0},{"slug":"nishihara","name":"西原町","k":3,"j":0},{"slug":"yonabaru","name":"与那原町","k":3,"j":0},{"slug":"haebaru","name":"南風原町","k":3,"j":0},{"slug":"tokashiki","name":"渡嘉敷村","k":3,"j":0},{"slug":"zamami","name":"座間味村","k":3,"j":0},{"slug":"aguni","name":"粟国村","k":3,"j":0},{"slug":"tonaki","name":"渡名喜村","k":3,"j":0},{"slug":"minamidaito","name":"南大東村","k":3,"j":0},{"slug":"kitadaito","name":"北大東村","k":3,"j":0},{"slug":"iheya","name":"伊平屋村","k":3,"j":0},{"slug":"izena","name":"伊是名村","k":3,"j":0},{"slug":"kumejima","name":"久米島町","k":3,"j":0},{"slug":"yaese","name":"八重瀬町","k":3,"j":0},{"slug":"tarama","name":"多良間村","k":3,"j":0},{"slug":"taketomi","name":"竹富町","k":3,"j":0},{"slug":"yonaguni","name":"与那国町","k":3,"j":0}]}};
+const HK_CONFIG = {
+  "meta": {
+    "scheme": "働き方の比較（会社員・個人事業）の計算の前提と、会社が負担する子ども・子育て拠出金の率",
+    "incomeYear": 2026,
+    "incomeYearLabel": "2026年（令和8年）の稼ぎとして計算する",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-11-25",
+    "source": {
+      "kyoshutsukin": "日本年金機構「厚生年金保険料額表（令和8年度版）」https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf （「子ども・子育て拠出金率（令和8年4月1日～ 適用） …0.36％」「事業主が全額負担」「被保険者個々の厚生年金保険の標準報酬月額」及び標準賞与額に拠出金率を乗じた額。2026-11-25 取得）",
+      "nenkinAge": "国民年金法 第7条第1項（第1号被保険者＝日本国内に住所を有する20歳以上60歳未満の者で第2号・第3号に当たらないもの／第2号被保険者＝厚生年金保険の被保険者／第3号被保険者＝第2号被保険者の配偶者で主として第2号被保険者の収入により生計を維持するもののうち20歳以上60歳未満のもの。e-Gov 法令API v1・法令番号 昭和三十四年法律第百四十一号、2026-11-25 取得）",
+      "kakekin": "確定拠出年金法施行令 第36条（個人型年金の拠出限度額＝月額。第1号「第一号加入者及び第四号加入者 六万八千円（国民年金の付加保険料又は国民年金基金の掛金の納付に係る月は、その額を控除した額）」・第2号「第二号加入者であって、次号から第五号までに掲げる者以外のもの 二万三千円」。e-Gov 法令API v1・法令番号 平成十三年政令第二百四十八号、2026-11-26 取得）／小規模企業共済法 第4条第2項（「掛金月額は、千円以上であつて五百円に整数を乗じて得た額とし、共済契約者一人につき七万円を超えてはならない」。同・法令番号 昭和四十年法律第百二号、2026-11-26 取得）",
+      "snapshot": {
+        "capturedAt": "2026-11-24T15:32:06Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録（capturedAt を個別に持つ 2 点は 2026-11-26 取得・同日登録）。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "nenkin_R08ryougaku.pdf", "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf", "sha256": "17cb4adcce3e25646fd48c73ae6fc79dc25a372276a47e31364ae08e7bfa1d5c", "bytes": 339589 },
+          { "file": "egov_kokuminnenkinho_7.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=7", "sha256": "766f4ded6ad009da6d066cf6ba811f4a373de835b84a3083530042ac339a7040", "bytes": 3643 },
+          { "file": "egov_kakuteikyoshutsu_rei_36.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=平成十三年政令第二百四十八号;article=36", "sha256": "db400d065527b7cf0525ea9ac17839631837657884439597de93c4881d88bbcc", "bytes": 5408, "capturedAt": "2026-11-25T20:49:31Z" },
+          { "file": "egov_shokibokigyokyosaiho_4.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和四十年法律第百二号;article=4", "sha256": "48fb300103276efe65a0a2926653845497c1f6fa6d648184a6d2d94676bdfb77", "bytes": 1049, "capturedAt": "2026-11-25T20:49:32Z" }
+        ]
+      }
+    },
+    "inferred": [
+      {
+        "key": "kakekin.idecoMonthlyMax.kaishain",
+        "note": "会社員の列には、企業型年金にも他の企業年金にも入っていない人の上限（施行令 第36条第2号・月 23,000 円）を使う。企業型年金・確定給付企業年金などに入っている人は上限がこれより低い（同 第3号〜第5号）が、収録していない。画面は年額（月額×12）で比べる。月ごとの拠出の有無、年の途中の上限の改正は扱わない。",
+        "confidence": "verified-with-simplification"
+      },
+      {
+        "key": "spouse.hifuyoSalaryLimit",
+        "note": "配偶者が健康保険の被扶養者・国民年金の第3号被保険者になれる収入の目安（年130万円未満）。認定の基準は通知によるもので、この値の一次資料は確認していない。60歳以上・障害者の基準（180万円未満）と、勤め先で自分の社会保険に入る人の扱いは収録していない。",
+        "confidence": "unverified"
+      },
+      {
+        "key": "kaigoAge",
+        "note": "介護保険の第2号被保険者（40歳以上65歳未満）の年齢。国保の介護分の対象を数えるために使う。既存の計算ページと同じ値で、この確認では条文を取得していない。",
+        "confidence": "unverified"
+      }
+    ],
+    "notes": [
+      "働き方の比較（js/core/hatarakikata.js）が読む。年の組み合わせは既存の家計簿・自営業のページに合わせた（2026年の稼ぎ → 所得税は令和8年分・住民税は令和9年度分・国保は令和8年度の料率・社会保険料は対象月 2026-07 の料率）。",
+      "会社の負担に入れるのは、健康保険・介護保険・子ども・子育て支援金・厚生年金保険の会社負担分、雇用保険の会社負担分（data/shaho/koyo-<年>.json の一般の事業）、子ども・子育て拠出金。労災保険は業種で率が違うため入れない。",
+      "賞与は扱わない（年収を12で割った額を毎月の報酬として計算する）。",
+      "kakekin は画面（templates/seido-hatarakikata.html）が、入力された掛金の年額を列ごとの上限（月額×12）で打ち切るために読む。計算の純関数（js/core/hatarakikata.js）は上限を検査しない。"
+    ]
+  },
+  "years": {
+    "shotokuYear": 2026,
+    "juminFiscalYear": 2027,
+    "kokuhoYear": 2026,
+    "shahoTargetMonth": "2026-07",
+    "nenkinFiscalYear": 2026
+  },
+  "kaishain": {
+    "koyoCategory": "ippan",
+    "kyoshutsukin": {
+      "ratePer10000": 36,
+      "base": "kosei-standard-monthly"
+    }
+  },
+  "kojin": {
+    "aoiroOptions": [650000, 550000, 100000, 0],
+    "aoiroDefault": 650000,
+    "gyoshuDefault": "type1"
+  },
+  "nenkin1go": {
+    "ageFrom": 20,
+    "ageUnder": 60
+  },
+  "kaigoAge": {
+    "ageFrom": 40,
+    "ageUnder": 65
+  },
+  "spouse": {
+    "hifuyoSalaryLimit": 1300000
+  },
+  "kakekin": {
+    "idecoMonthlyMax": {
+      "kaishain": 23000,
+      "kojin": 68000
+    },
+    "kyosaiMonthlyMax": 70000
+  },
+  "ageRange": {
+    "min": 15,
+    "under": 75
+  }
+};
+const HK_SHAHO = { kenpo: {
+  "institution": "shaho-kenpo",
+  "insurer": "kyoukaikenpo",
+  "fiscalYear": 2026,
+  "era": "R8",
+  "status": "verified",
+  "source": {
+    "url": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/rate_prefectures/r08/index.html",
+    "verifiedAt": "2026-07-03",
+    "note": "公式ページの都道府県単位保険料率表から転記。全国平均9.9%（R7比▲0.1）",
+    "crossCheck": {
+      "verifiedAt": "2026-07-07",
+      "method": "R8料額表PDF（月額欄の健保料率）と再突合",
+      "samples": [
+        { "pref": "osaka", "data": 0.1013, "pdf": 0.1013, "url": "https://www.kyoukaikenpo.or.jp/assets/R8_27osaka.pdf" },
+        { "pref": "okinawa", "data": 0.0944, "pdf": 0.0944, "url": "https://www.kyoukaikenpo.or.jp/assets/R8_47okinawa.pdf" },
+        { "pref": "saga", "data": 0.1055, "pdf": 0.1055, "url": "https://www.kyoukaikenpo.or.jp/assets/R8_41saga.pdf" }
+      ],
+      "result": "3県とも一致（差別化キー県の裏取り済）"
+    }
+  },
+  "careRate": {
+    "rate": 0.0162,
+    "validFrom": "2026-03",
+    "validTo": "2027-02",
+    "appliesTo": "age40to64",
+    "note": "介護保険第2号被保険者（40〜64歳）。全国一律。R7は0.0159"
+  },
+  "shienkinRate": {
+    "rate": 0.0023,
+    "validFrom": "2026-04",
+    "validTo": "2027-03",
+    "note": "子ども・子育て支援金。全国一律。健保料率と適用開始が1ヶ月ずれる（4月分＝5月納付分から）点に注意",
+    "futureSchedule": {
+      "status": "rate_unpublished",
+      "verifiedAt": "2026-07-07",
+      "note": "[未確認・推測] R9(2027)・R10(2028)の支援金『率(%)』は一次ソースで未公表。段階導入のため増額見込みだが率は使用不可。R9率はR8同様2月頃(健保料率と同時期)に公表される想定。公表まで対象月に合う率が無ければ暗黙フォールバックせずthrowする設計を維持。",
+      "reference": {
+        "totalYen": [
+          { "fy": "R8", "approx": 600000000000 },
+          { "fy": "R9", "approx": 800000000000 },
+          { "fy": "R10", "approx": 1000000000000 }
+        ],
+        "kyoukaiPerCapitaMonthlyYen": [
+          { "fy": "R8", "value": 250 },
+          { "fy": "R9", "value": 350 },
+          { "fy": "R10", "value": 450 }
+        ],
+        "sourceNote": "[確認済] 総額目安と加入者一人当たり月額見込み。こども家庭庁資料。率換算ではない参考値",
+        "sources": [
+          "https://www.mhlw.go.jp/content/12401000/001670257.pdf",
+          "https://www.cfa.go.jp/assets/contents/node/basic_page/field_ref_resources/ba94b64b-731f-4f48-97ba-b54a76b0aeb6/7fb56c33/20240329_councils_shienkin-daijinkonwakai_04.pdf"
+        ]
+      }
+    }
+  },
+  "validFrom": "2026-03",
+  "validTo": "2027-02",
+  "niniKeizoku": {
+    "capStandardMonthly": 320000,
+    "capGrade": 23,
+    "basisAvgYen": 318100,
+    "basisDate": "2025-09-30",
+    "validFrom": "2026-04",
+    "status": "verified",
+    "verifiedAt": "2026-07-08",
+    "source": "https://www.kyoukaikenpo.or.jp/g1/r7-12/7121001/",
+    "note": "任意継続の標準報酬月額 = min(資格喪失時の標準報酬月額, 前年9/30時点の全被保険者平均標準報酬月額の該当等級)。R8は平均318,100円→第23級=320,000円。任意継続は4月分から適用（健保本体の3月分と1ヶ月ずれ）。全額自己負担（折半なし）。/hikaku/（任意継続 vs 国保）用の予約フィールド"
+  },
+  "notes": [
+    "「○月分」＝対象月ベース。納付は翌月（3月分＝4月納付分）",
+    "任意継続被保険者・日雇特例被保険者は4月分からの適用",
+    "労使折半。被保険者負担＝標準報酬月額×率÷2"
+  ],
+  "prefRates": [
+    { "prefCode": "01", "prefSlug": "hokkaido", "prefName": "北海道", "rate": 0.1028 },
+    { "prefCode": "02", "prefSlug": "aomori", "prefName": "青森県", "rate": 0.0985 },
+    { "prefCode": "03", "prefSlug": "iwate", "prefName": "岩手県", "rate": 0.0951 },
+    { "prefCode": "04", "prefSlug": "miyagi", "prefName": "宮城県", "rate": 0.1010 },
+    { "prefCode": "05", "prefSlug": "akita", "prefName": "秋田県", "rate": 0.1001 },
+    { "prefCode": "06", "prefSlug": "yamagata", "prefName": "山形県", "rate": 0.0975 },
+    { "prefCode": "07", "prefSlug": "fukushima", "prefName": "福島県", "rate": 0.0950 },
+    { "prefCode": "08", "prefSlug": "ibaraki", "prefName": "茨城県", "rate": 0.0952 },
+    { "prefCode": "09", "prefSlug": "tochigi", "prefName": "栃木県", "rate": 0.0982 },
+    { "prefCode": "10", "prefSlug": "gunma", "prefName": "群馬県", "rate": 0.0968 },
+    { "prefCode": "11", "prefSlug": "saitama", "prefName": "埼玉県", "rate": 0.0967 },
+    { "prefCode": "12", "prefSlug": "chiba", "prefName": "千葉県", "rate": 0.0973 },
+    { "prefCode": "13", "prefSlug": "tokyo", "prefName": "東京都", "rate": 0.0985 },
+    { "prefCode": "14", "prefSlug": "kanagawa", "prefName": "神奈川県", "rate": 0.0992 },
+    { "prefCode": "15", "prefSlug": "niigata", "prefName": "新潟県", "rate": 0.0921 },
+    { "prefCode": "16", "prefSlug": "toyama", "prefName": "富山県", "rate": 0.0959 },
+    { "prefCode": "17", "prefSlug": "ishikawa", "prefName": "石川県", "rate": 0.0970 },
+    { "prefCode": "18", "prefSlug": "fukui", "prefName": "福井県", "rate": 0.0971 },
+    { "prefCode": "19", "prefSlug": "yamanashi", "prefName": "山梨県", "rate": 0.0955 },
+    { "prefCode": "20", "prefSlug": "nagano", "prefName": "長野県", "rate": 0.0963 },
+    { "prefCode": "21", "prefSlug": "gifu", "prefName": "岐阜県", "rate": 0.0980 },
+    { "prefCode": "22", "prefSlug": "shizuoka", "prefName": "静岡県", "rate": 0.0961 },
+    { "prefCode": "23", "prefSlug": "aichi", "prefName": "愛知県", "rate": 0.0993 },
+    { "prefCode": "24", "prefSlug": "mie", "prefName": "三重県", "rate": 0.0977 },
+    { "prefCode": "25", "prefSlug": "shiga", "prefName": "滋賀県", "rate": 0.0988 },
+    { "prefCode": "26", "prefSlug": "kyoto", "prefName": "京都府", "rate": 0.0989 },
+    { "prefCode": "27", "prefSlug": "osaka", "prefName": "大阪府", "rate": 0.1013 },
+    { "prefCode": "28", "prefSlug": "hyogo", "prefName": "兵庫県", "rate": 0.1012 },
+    { "prefCode": "29", "prefSlug": "nara", "prefName": "奈良県", "rate": 0.0991 },
+    { "prefCode": "30", "prefSlug": "wakayama", "prefName": "和歌山県", "rate": 0.1006 },
+    { "prefCode": "31", "prefSlug": "tottori", "prefName": "鳥取県", "rate": 0.0986 },
+    { "prefCode": "32", "prefSlug": "shimane", "prefName": "島根県", "rate": 0.0994 },
+    { "prefCode": "33", "prefSlug": "okayama", "prefName": "岡山県", "rate": 0.1005 },
+    { "prefCode": "34", "prefSlug": "hiroshima", "prefName": "広島県", "rate": 0.0978 },
+    { "prefCode": "35", "prefSlug": "yamaguchi", "prefName": "山口県", "rate": 0.1015 },
+    { "prefCode": "36", "prefSlug": "tokushima", "prefName": "徳島県", "rate": 0.1024 },
+    { "prefCode": "37", "prefSlug": "kagawa", "prefName": "香川県", "rate": 0.1002 },
+    { "prefCode": "38", "prefSlug": "ehime", "prefName": "愛媛県", "rate": 0.0998 },
+    { "prefCode": "39", "prefSlug": "kochi", "prefName": "高知県", "rate": 0.1005 },
+    { "prefCode": "40", "prefSlug": "fukuoka", "prefName": "福岡県", "rate": 0.1011 },
+    { "prefCode": "41", "prefSlug": "saga", "prefName": "佐賀県", "rate": 0.1055 },
+    { "prefCode": "42", "prefSlug": "nagasaki", "prefName": "長崎県", "rate": 0.1006 },
+    { "prefCode": "43", "prefSlug": "kumamoto", "prefName": "熊本県", "rate": 0.1008 },
+    { "prefCode": "44", "prefSlug": "oita", "prefName": "大分県", "rate": 0.1008 },
+    { "prefCode": "45", "prefSlug": "miyazaki", "prefName": "宮崎県", "rate": 0.0977 },
+    { "prefCode": "46", "prefSlug": "kagoshima", "prefName": "鹿児島県", "rate": 0.1013 },
+    { "prefCode": "47", "prefSlug": "okinawa", "prefName": "沖縄県", "rate": 0.0944 }
+  ]
+}, kosei: {
+  "institution": "shaho-kosei-nenkin",
+  "insurer": "nenkin-kikou",
+  "status": "verified",
+  "source": {
+    "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/hoshu/20150515-01.html",
+    "capScheduleUrl": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000147284_00024.html",
+    "verifiedAt": "2026-07-03"
+  },
+  "rate": {
+    "value": 0.183,
+    "validFrom": "2017-09",
+    "validTo": null,
+    "note": "平成29年9月以降固定。労使折半（本人9.15%）"
+  },
+  "gradeCount": 32,
+  "capSchedule": [
+    { "cap": 650000, "validFrom": "2020-09", "validTo": "2027-08" },
+    { "cap": 680000, "validFrom": "2027-09", "validTo": "2028-08" },
+    { "cap": 710000, "validFrom": "2028-09", "validTo": "2029-08" },
+    { "cap": 750000, "validFrom": "2029-09", "validTo": null }
+  ],
+  "capScheduleNote": "令和7年6月13日成立の年金制度改正法による段階的引き上げ。9月＝年度途中に変わるため、必ず対象月で解決すること",
+  "floor": 88000,
+  "bonusCap": {
+    "monthlyBonusCap": 1500000,
+    "status": "verified",
+    "verifiedAt": "2026-07-03",
+    "note": "標準賞与額＝税引前賞与から1,000円未満切捨。支給1回（同月複数回は合算）につき150万円上限。年金機構公式ページで確認済"
+  }
+}, koyo: {
+  "institution": "shaho-koyo",
+  "insurer": "mhlw",
+  "fiscalYear": 2026,
+  "era": "R8",
+  "status": "verified",
+  "source": {
+    "url": "https://www.mhlw.go.jp/content/001692566.pdf",
+    "verifiedAt": "2026-07-03",
+    "note": "R7比▲0.1%",
+    "crossCheck": {
+      "verifiedAt": "2026-07-07",
+      "method": "厚労省R8料率PDF(適用2026-04〜2027-03)本文と3区分再突合",
+      "result": "一般13.5/農林水産清酒15.5/建設16.5(いずれも/1000)とも一致",
+      "note": "園芸サービス・牛馬育成・酪農・養鶏・養豚・内水面養殖・特定船員は『一般の事業』率を適用（PDF注記）"
+    }
+  },
+  "validFrom": "2026-04",
+  "validTo": "2027-03",
+  "base": "wage-total",
+  "baseNote": "標準報酬月額ではなく賃金総額（通勤手当等含む実支給額）に料率を乗じる",
+  "categories": [
+    {
+      "key": "ippan",
+      "label": "一般の事業",
+      "total": 0.0135,
+      "employee": 0.005,
+      "employer": 0.0085
+    },
+    {
+      "key": "nourin",
+      "label": "農林水産・清酒製造の事業",
+      "total": 0.0155,
+      "employee": 0.006,
+      "employer": 0.0095
+    },
+    {
+      "key": "kensetsu",
+      "label": "建設の事業",
+      "total": 0.0165,
+      "employee": 0.006,
+      "employer": 0.0105
+    }
+  ]
+}, standard: {
+  "institution": "shaho-standard-monthly",
+  "status": "verified",
+  "statusNote": "[確認済 2026-07-07] 協会けんぽR8料額表（令和8年3月分〜, 東京PDF R8_13tokyo.pdf）の報酬月額レンジ列を explicitBoundaries に転記済。標準報酬月額列も既存と一致確認。等級境界は全県共通（都道府県で差があるのは料率のみ）。",
+  "source": {
+    "ratougakuhyouIndex": "https://www.kyoukaikenpo.or.jp/about/business/insurance_rate/premium_prefectures/r08/index.html",
+    "transcribedFrom": "https://www.kyoukaikenpo.or.jp/assets/R8_13tokyo.pdf",
+    "allPrefsExcel": "https://www.kyoukaikenpo.or.jp/assets/r8ippan3.xlsx",
+    "verifiedAt": "2026-07-07"
+  },
+  "boundaryRule": "explicitBoundaries を正とする。各等級の報酬月額 range は [min(以上,inclusive), max(未満,exclusive)]。min=null は下限なし（1等級）、max=null は上限なし（50等級）。中点則は廃止（下記 midpointDivergence 参照）。",
+  "midpointDivergence": {
+    "note": "[確認済 2026-07-07] 旧・中点則は44級/45級境界より上で公式表と食い違う（6箇所すべて公式が5,000円低い）。中点則で等級判定していた場合、下記レンジの報酬月額で誤判定が発生していた。",
+    "mismatches": [
+      {
+        "boundary": "44/45",
+        "midpoint": 1060000,
+        "official": 1055000
+      },
+      {
+        "boundary": "45/46",
+        "midpoint": 1120000,
+        "official": 1115000
+      },
+      {
+        "boundary": "46/47",
+        "midpoint": 1180000,
+        "official": 1175000
+      },
+      {
+        "boundary": "47/48",
+        "midpoint": 1240000,
+        "official": 1235000
+      },
+      {
+        "boundary": "48/49",
+        "midpoint": 1300000,
+        "official": 1295000
+      },
+      {
+        "boundary": "49/50",
+        "midpoint": 1360000,
+        "official": 1355000
+      }
+    ]
+  },
+  "explicitBoundaries": [
+    {
+      "grade": 1,
+      "standardMonthly": 58000,
+      "min": null,
+      "max": 63000
+    },
+    {
+      "grade": 2,
+      "standardMonthly": 68000,
+      "min": 63000,
+      "max": 73000
+    },
+    {
+      "grade": 3,
+      "standardMonthly": 78000,
+      "min": 73000,
+      "max": 83000
+    },
+    {
+      "grade": 4,
+      "standardMonthly": 88000,
+      "min": 83000,
+      "max": 93000
+    },
+    {
+      "grade": 5,
+      "standardMonthly": 98000,
+      "min": 93000,
+      "max": 101000
+    },
+    {
+      "grade": 6,
+      "standardMonthly": 104000,
+      "min": 101000,
+      "max": 107000
+    },
+    {
+      "grade": 7,
+      "standardMonthly": 110000,
+      "min": 107000,
+      "max": 114000
+    },
+    {
+      "grade": 8,
+      "standardMonthly": 118000,
+      "min": 114000,
+      "max": 122000
+    },
+    {
+      "grade": 9,
+      "standardMonthly": 126000,
+      "min": 122000,
+      "max": 130000
+    },
+    {
+      "grade": 10,
+      "standardMonthly": 134000,
+      "min": 130000,
+      "max": 138000
+    },
+    {
+      "grade": 11,
+      "standardMonthly": 142000,
+      "min": 138000,
+      "max": 146000
+    },
+    {
+      "grade": 12,
+      "standardMonthly": 150000,
+      "min": 146000,
+      "max": 155000
+    },
+    {
+      "grade": 13,
+      "standardMonthly": 160000,
+      "min": 155000,
+      "max": 165000
+    },
+    {
+      "grade": 14,
+      "standardMonthly": 170000,
+      "min": 165000,
+      "max": 175000
+    },
+    {
+      "grade": 15,
+      "standardMonthly": 180000,
+      "min": 175000,
+      "max": 185000
+    },
+    {
+      "grade": 16,
+      "standardMonthly": 190000,
+      "min": 185000,
+      "max": 195000
+    },
+    {
+      "grade": 17,
+      "standardMonthly": 200000,
+      "min": 195000,
+      "max": 210000
+    },
+    {
+      "grade": 18,
+      "standardMonthly": 220000,
+      "min": 210000,
+      "max": 230000
+    },
+    {
+      "grade": 19,
+      "standardMonthly": 240000,
+      "min": 230000,
+      "max": 250000
+    },
+    {
+      "grade": 20,
+      "standardMonthly": 260000,
+      "min": 250000,
+      "max": 270000
+    },
+    {
+      "grade": 21,
+      "standardMonthly": 280000,
+      "min": 270000,
+      "max": 290000
+    },
+    {
+      "grade": 22,
+      "standardMonthly": 300000,
+      "min": 290000,
+      "max": 310000
+    },
+    {
+      "grade": 23,
+      "standardMonthly": 320000,
+      "min": 310000,
+      "max": 330000
+    },
+    {
+      "grade": 24,
+      "standardMonthly": 340000,
+      "min": 330000,
+      "max": 350000
+    },
+    {
+      "grade": 25,
+      "standardMonthly": 360000,
+      "min": 350000,
+      "max": 370000
+    },
+    {
+      "grade": 26,
+      "standardMonthly": 380000,
+      "min": 370000,
+      "max": 395000
+    },
+    {
+      "grade": 27,
+      "standardMonthly": 410000,
+      "min": 395000,
+      "max": 425000
+    },
+    {
+      "grade": 28,
+      "standardMonthly": 440000,
+      "min": 425000,
+      "max": 455000
+    },
+    {
+      "grade": 29,
+      "standardMonthly": 470000,
+      "min": 455000,
+      "max": 485000
+    },
+    {
+      "grade": 30,
+      "standardMonthly": 500000,
+      "min": 485000,
+      "max": 515000
+    },
+    {
+      "grade": 31,
+      "standardMonthly": 530000,
+      "min": 515000,
+      "max": 545000
+    },
+    {
+      "grade": 32,
+      "standardMonthly": 560000,
+      "min": 545000,
+      "max": 575000
+    },
+    {
+      "grade": 33,
+      "standardMonthly": 590000,
+      "min": 575000,
+      "max": 605000
+    },
+    {
+      "grade": 34,
+      "standardMonthly": 620000,
+      "min": 605000,
+      "max": 635000
+    },
+    {
+      "grade": 35,
+      "standardMonthly": 650000,
+      "min": 635000,
+      "max": 665000
+    },
+    {
+      "grade": 36,
+      "standardMonthly": 680000,
+      "min": 665000,
+      "max": 695000
+    },
+    {
+      "grade": 37,
+      "standardMonthly": 710000,
+      "min": 695000,
+      "max": 730000
+    },
+    {
+      "grade": 38,
+      "standardMonthly": 750000,
+      "min": 730000,
+      "max": 770000
+    },
+    {
+      "grade": 39,
+      "standardMonthly": 790000,
+      "min": 770000,
+      "max": 810000
+    },
+    {
+      "grade": 40,
+      "standardMonthly": 830000,
+      "min": 810000,
+      "max": 855000
+    },
+    {
+      "grade": 41,
+      "standardMonthly": 880000,
+      "min": 855000,
+      "max": 905000
+    },
+    {
+      "grade": 42,
+      "standardMonthly": 930000,
+      "min": 905000,
+      "max": 955000
+    },
+    {
+      "grade": 43,
+      "standardMonthly": 980000,
+      "min": 955000,
+      "max": 1005000
+    },
+    {
+      "grade": 44,
+      "standardMonthly": 1030000,
+      "min": 1005000,
+      "max": 1055000
+    },
+    {
+      "grade": 45,
+      "standardMonthly": 1090000,
+      "min": 1055000,
+      "max": 1115000
+    },
+    {
+      "grade": 46,
+      "standardMonthly": 1150000,
+      "min": 1115000,
+      "max": 1175000
+    },
+    {
+      "grade": 47,
+      "standardMonthly": 1210000,
+      "min": 1175000,
+      "max": 1235000
+    },
+    {
+      "grade": 48,
+      "standardMonthly": 1270000,
+      "min": 1235000,
+      "max": 1295000
+    },
+    {
+      "grade": 49,
+      "standardMonthly": 1330000,
+      "min": 1295000,
+      "max": 1355000
+    },
+    {
+      "grade": 50,
+      "standardMonthly": 1390000,
+      "min": 1355000,
+      "max": null
+    }
+  ],
+  "kenpo": {
+    "gradeCount": 50,
+    "amounts": [
+      58000,
+      68000,
+      78000,
+      88000,
+      98000,
+      104000,
+      110000,
+      118000,
+      126000,
+      134000,
+      142000,
+      150000,
+      160000,
+      170000,
+      180000,
+      190000,
+      200000,
+      220000,
+      240000,
+      260000,
+      280000,
+      300000,
+      320000,
+      340000,
+      360000,
+      380000,
+      410000,
+      440000,
+      470000,
+      500000,
+      530000,
+      560000,
+      590000,
+      620000,
+      650000,
+      680000,
+      710000,
+      750000,
+      790000,
+      830000,
+      880000,
+      930000,
+      980000,
+      1030000,
+      1090000,
+      1150000,
+      1210000,
+      1270000,
+      1330000,
+      1390000
+    ],
+    "bonusCap": {
+      "fiscalYearTotal": 5730000,
+      "status": "verified",
+      "verifiedAt": "2026-07-07",
+      "note": "[確認済] 標準賞与額の上限は健保・介護・子育て支援金で年間573万円（毎年4/1〜翌3/31の累計）。R8料額表脚注で確認。"
+    }
+  },
+  "koseiNenkin": {
+    "gradeCount": 32,
+    "note": "厚年は健保等級4（88,000/厚年1級）〜35（650,000/厚年32級）に対応。ただし報酬月額の端の読み替えが公式表脚注にあり（下記boundaryOverride）。上限はkosei-nenkin.jsonのcapScheduleが優先（2027-09以降 68/71/75万等級が追加）。",
+    "derivedFromKenpo": {
+      "startIndex": 3,
+      "endIndex": 34
+    },
+    "boundaryOverride": {
+      "grade1": {
+        "kenpoGrade": 4,
+        "standardMonthly": 88000,
+        "min": null,
+        "max": 93000,
+        "note": "[確認済] 厚年1級の報酬月額は「93,000円未満」（健保4級の下限83,000ではなく下限なし）"
+      },
+      "grade32": {
+        "kenpoGrade": 35,
+        "standardMonthly": 650000,
+        "min": 635000,
+        "max": null,
+        "note": "[確認済] 厚年32級の報酬月額は「635,000円以上」（健保35級の上限665,000ではなく上限なし）"
+      }
+    }
+  },
+  "rounding": {
+    "status": "verified",
+    "verifiedAt": "2026-07-07",
+    "note": "[確認済 R8料額表脚注] 被保険者負担分の端数処理。①事業主が給与から控除する場合: 50銭以下=切捨/50銭超=切上。②被保険者が現金で事業主へ支払う場合: 50銭未満=切捨/50銭以上=切上。①②にかかわらず労使特約があれば特約に従う。納入告知書は合算後の円未満切捨。"
+  },
+  "ninkeiStandardMonthlyCap": {
+    "value": 320000,
+    "status": "verified",
+    "verifiedAt": "2026-07-07",
+    "note": "[確認済 R8料額表脚注] 令和8年度 任意継続被保険者の標準報酬月額の上限は320,000円。設計書§4の『30万円?要検証』を訂正（正しくは32万円）。任意継続料率は令和8年4月分〜適用。"
+  }
+}, senpo: null };
+const HK_SHOTOKU_DB = {
+  "meta": {
+    "scheme": "所得税（給与所得者）",
+    "unit": "円",
+    "targetYears": ["令和8年分(2026)", "令和9年分(2027)"],
+    "confidence": "verified",
+    "source": {
+      "primary": "国税庁『源泉所得税の改正のあらまし（令和8年4月）』 https://www.nta.go.jp/publication/pamph/gensen/2026kaisei.pdf",
+      "secondary": [
+        "国税庁『令和8年度税制改正による所得税の基礎控除の引上げ等について』 https://www.nta.go.jp/users/gensen/2026kiso/index.htm",
+        "財務省 令和8年度税制改正の大綱(2025-12-26閣議決定) https://www.mof.go.jp/tax_policy/tax_reform/outline/fy2026/20251226taikou.pdf",
+        "国税庁 タックスアンサー No.1160 障害者控除（所得税法79条・27/40/75万） https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1160.htm（令和8年4月1日現在法令等・2026-10-21 確認）",
+        "国税庁 タックスアンサー No.1120 医療費控除（所得税法73条・支払額−補填−min(総所得金額等×5%, 10万)・上限200万） https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1120.htm（同）",
+        "国税庁 タックスアンサー No.1140 生命保険料控除（所得税法76条・合計適用限度額12万。23歳未満扶養の新生命保険料特例6万はR8・R9年分） https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1140.htm（同）",
+        "国税庁 タックスアンサー No.1145 地震保険料控除（所得税法77条・最高5万） https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1145.htm（同）"
+      ]
+    },
+    "inferred": [],
+    "verification": [
+      {
+        "field": "years.2026.kyuyoShotoku",
+        "date": "2026-10-21",
+        "note": "国税庁『令和8年分 年末調整のしかた』47〜54頁「令和8年分の年末調整等のための給与所得控除後の給与等の金額の表」（nencho2026/pdf/114.pdf）の全1,103区間（2,191,000〜6,600,000円・4,000円刻み）と kyuyoShotoku を突合し全区間一致（test/fixtures/nta-nencho2026-114-table.json・test-shotoku-verify.js 4）。別表第五方式の推測は正しかったが、浮動小数点で93区間が1円低く出ていたため同日修正。",
+        "sha256": "3d06c41b675161d51cc59c89d6d129ce8ea204b5ccc986f5b30b1072a12a032c",
+        "confidence": "verified"
+      }
+    ],
+    "trap": "令和8年分は令和7年度改正(基礎控除95/88/68/63・給与所得控除65万)を令和8年度改正が上書きする。ネット解説の大半はR7ベースで令和8年分には非適用。正は本ファイルの値。",
+    "surtaxNote": "復興特別所得税2.1%はR8年分まで。R9年分から防衛特別所得税1%+復興1.1%で合計2.1%不変(計算式・rate変わらず)。"
+  },
+  "years": {
+    "2026": {
+      "year": 2026,
+      "eraLabel": "令和8年分",
+      "kisoKojo": [
+        [4890000, 1040000],
+        [6550000, 670000],
+        [23500000, 620000],
+        [24000000, 480000],
+        [24500000, 320000],
+        [25000000, 160000],
+        [null, 0]
+      ],
+      "taxTable": [
+        [1950000, 0.05, 0],
+        [3300000, 0.10, 97500],
+        [6950000, 0.20, 427500],
+        [9000000, 0.23, 636000],
+        [18000000, 0.33, 1536000],
+        [40000000, 0.40, 2796000],
+        [null, 0.45, 4796000]
+      ],
+      "surtaxRate": 1.021,
+      "kyuyoShotoku": {
+        "floorGuarantee": 740000,
+        "steps": [
+          [741000, "zero"],
+          [2191000, "minus740k"],
+          [2193000, 1451000],
+          [2196000, 1453000],
+          [2200000, 1456000],
+          [6600000, "table5"],
+          [8500000, "rate90"],
+          [null, "cap195"]
+        ],
+        "table5band": { "roundUnit": 4000, "lowRate": 0.7, "lowSub": 80000, "highThreshold": 3600000, "highRate": 0.8, "highSub": 440000 },
+        "rate90": { "rate": 0.9, "sub": 1100000 },
+        "cap195": { "sub": 1950000 }
+      },
+      "choseiKojo": { "salaryThreshold": 8500000, "cap": 10000000, "rate": 0.1 },
+      "fuyoIncomeLimit": 620000,
+      "haiguSpecialLimit": 1330000,
+      "tokuteiShinzokuLimit": 1230000,
+      "honninIncomeCols": [9000000, 9500000, 10000000],
+      "haiguKojo": { "general": [380000, 260000, 130000], "elderly": [480000, 320000, 160000] },
+      "haiguSpecial": [
+        [950000, [380000, 260000, 130000]],
+        [1000000, [360000, 240000, 120000]],
+        [1050000, [310000, 210000, 110000]],
+        [1100000, [260000, 180000, 90000]],
+        [1150000, [210000, 140000, 70000]],
+        [1200000, [160000, 110000, 60000]],
+        [1250000, [110000, 80000, 40000]],
+        [1300000, [60000, 40000, 20000]],
+        [1330000, [30000, 20000, 10000]]
+      ],
+      "tokuteiShinzoku": [
+        [850000, 630000],
+        [900000, 610000],
+        [950000, 510000],
+        [1000000, 410000],
+        [1050000, 310000],
+        [1100000, 210000],
+        [1150000, 110000],
+        [1200000, 60000],
+        [1230000, 30000]
+      ],
+      "fuyoKojo": { "general": 380000, "specific": 630000, "elderly": 480000, "elderlyCoRes": 580000 },
+      "hitorioya": 350000,
+      "kafu": 270000,
+      "kinroGakusei": 270000,
+      "shogai": { "general": 270000, "special": 400000, "specialCoRes": 750000 },
+      "seihoKojoMax": 120000,
+      "jishinKojoMax": 50000,
+      "iryohiKojo": { "floorRate": 0.05, "floorMax": 100000, "max": 2000000 },
+      "kazeiRoundDown": 1000,
+      "taxRoundDown": 100
+    },
+    "2027": {
+      "year": 2027,
+      "eraLabel": "令和9年分",
+      "inheritsFrom": 2026,
+      "diff": { "hitorioya": 380000, "surtaxNote": "防衛1%+復興1.1%で合計2.1%不変・rate=1.021据置" },
+      "hitorioya": 380000
+    }
+  }
+};
+const HK_HAIGU = {
+  "meta": {
+    "scheme": "個人住民税（道府県民税・市町村民税）の配偶者控除・配偶者特別控除",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-12",
+    "source": {
+      "primary": "地方税法 第34条第1項第10号・第10号の2（市町村民税は第314条の2第1項第10号・第10号の2）。e-Gov 法令API v1 https://laws.e-gov.go.jp/api/1/lawdata/325AC0000000226 （revision 325AC0000000226_20261001_508AC0000000002・2026-10-05 取得）",
+      "amendmentCheck": "令和8年法律第2号（地方税法等の一部を改正する法律） https://www.soumu.go.jp/main_content/001066281.pdf を全文検索。第34条第1項で改めるのは第6号・第8号の2（ひとり親 30万→33万・令和10年度以後）・第11号のみで、第10号の2（配偶者特別控除）の金額・区分は改正なし。要綱 https://www.soumu.go.jp/main_content/001060865.pdf にも配偶者特別控除の記載なし（2026-10-12 確認）",
+      "fuyoIncomeLimit": "同改正法 第23条第1項第7号・第292条第1項第7号「五十八万円」→「六十二万円」（令和9年度分以後）。js/core/jumin.js fuyoIncomeLimitJumin と同じ値"
+    },
+    "formula": "配偶者特別控除（本人の合計所得900万円以下・第10号の2 イ）: (1) 配偶者の合計所得100万円以下 → 33万円 (2) 100万円超130万円以下 → 38万円 −（配偶者の合計所得のうち93万1円を超える部分の金額。その金額が「5万円の整数倍 − 3万円」でないときは、それに満たない「5万円の整数倍 − 3万円」のうち最も多い金額） (3) 130万円超133万円以下 → 3万円。本人の合計所得900万円超950万円以下は 2/3、950万円超1,000万円以下は 1/3（いずれも1万円未満切上げ）。1,000万円超は対象外。haiguSpecial の表はこの式を境目ごとに計算したもので、通説の表と全区分で一致（2026-10-12・検証メモ X184）。",
+    "notes": [
+      "配偶者控除（第10号）: 配偶者の合計所得が fuyoIncomeLimit 以下。一般 33万円・老人控除対象配偶者（70歳以上）38万円。本人の合計所得で3段階（900万円以下／950万円以下／1,000万円以下）。",
+      "配偶者特別控除の人的控除差（第37条第1号イの表(7)）は配偶者の合計所得55万円未満のみ該当。控除対象配偶者の所得要件（58万円・令和9年度以後62万円）より低いため、特別控除の対象者には人的控除差が生じない＝0。",
+      "所得税の配偶者特別控除（shotokuzei-2026.json haiguSpecial）は 95万／100万／105万…の5万円刻みで、住民税（100万円以下が一段）と区分が違う。混同しないこと。",
+      "青色事業専従者・事業専従者は対象外（家計簿では扱わない）。"
+    ]
+  },
+  "honninIncomeCols": [9000000, 9500000, 10000000],
+  "fuyoIncomeLimit": { "2026": 580000, "2027": 620000 },
+  "haiguKojo": { "general": [330000, 220000, 110000], "elderly": [380000, 260000, 130000] },
+  "haiguSpecialLimit": 1330000,
+  "haiguSpecial": [
+    [1000000, [330000, 220000, 110000]],
+    [1050000, [310000, 210000, 110000]],
+    [1100000, [260000, 180000, 90000]],
+    [1150000, [210000, 140000, 70000]],
+    [1200000, [160000, 110000, 60000]],
+    [1250000, [110000, 80000, 40000]],
+    [1300000, [60000, 40000, 20000]],
+    [1330000, [30000, 20000, 10000]]
+  ]
+};
+const HK_NENKIN = {
+  "meta": {
+    "scheme": "国民年金保険料（第1号被保険者・定額）",
+    "fiscalYear": 2026,
+    "fiscalYearLabel": "令和8年度（2026年4月分〜2027年3月分）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-11",
+    "source": {
+      "primary": "日本年金機構「国民年金保険料」 https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html （ページ更新日 2026-04-01、2026-10-11 取得）",
+      "crossCheck": "日本年金機構「国民年金保険料の変遷」 https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html （令和8年4月〜令和9年3月 17,920円。令和7年度 17,510円・令和6年度 16,980円。ページ更新日 2026-04-01、2026-10-11 取得）",
+      "snapshot": {
+        "capturedAt": "2026-10-10T21:55:35Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-10-12 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "nenkin_hokenryo_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hokenryo.html", "sha256": "e1f86aef2aa89ed0905efd2dca64655dc521f100d0264528df6e7c085e049a6d", "bytes": 31518 },
+          { "file": "nenkin_hensen_20261011.html", "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/hensen.html", "sha256": "ebd2af6086b839b4775d528389c3385400be0d5420f257167a1e95b02eeb3011", "bytes": 41196 }
+        ]
+      }
+    },
+    "notes": [
+      "家計簿（city-integrated.html）で、自営・退職など（国民健康保険）を選んだ20歳以上60歳未満の本人1人分を社会保険料控除に加える（monthly×12）。",
+      "家計簿・ふるさと納税ページは monthly / additionalMonthly だけを読む。prepay / exemption は国民年金ページ（js/core/nenkin.js）用に 2026-10-22 追加。既存キーは不変。",
+      "年度のずれ: 社会保険料控除は暦年に払った額だが、家計簿は「同じ収入が続く前提」で令和8年度の月額×12とする。"
+    ],
+    "sourcePrepay": "日本年金機構「国民年金保険料の前納」 https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html （ページ更新日 2026-09-04、2026-10-22 確認。2年前納は令和8・9年度の毎月納付合計 434,520 円との比較）",
+    "sourceExemption": [
+      "日本年金機構「国民年金保険料の免除制度・納付猶予制度」 https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html （ページ更新日 2026-10-16、2026-10-22 確認。全額免除・納付猶予＝(扶養親族等の数+1)×35万円+32万円、4分の3＝88万円+扶養親族等控除額+社会保険料控除額等、半額 128万円、4分の1 168万円。年金額への反映 1/2・5/8・6/8・7/8、納付猶予は反映なし、追納 10 年）",
+      "日本年金機構「学生納付特例制度」 https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html （ページ更新日 2026-10-16、2026-10-22 確認。128万円+扶養親族等の数×38万円+社会保険料控除等・本人のみ審査）",
+      "日本年金機構「免除等の申請可能期間と前年所得の関係」 https://www.nenkin.go.jp/service/kokunen/menjo/20150402-01.html （ページ更新日 2026-08-03。令和8年度分＝令和8年7月〜令和9年6月・審査対象は令和7年中所得）"
+    ],
+    "snapshotNenkinPages": {
+      "capturedAt": "2026-10-22",
+      "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）。実体は sha256 で照合できる",
+      "files": [
+        { "url": "https://www.nenkin.go.jp/service/kokunen/hokenryo/zenno.html", "sha256": "c7aac959ce33f973f536056c6e3e774c333e341a9d498e9ae8df934d3afcc46c", "bytes": 31593 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150428.html", "sha256": "4a45201c53d1b2763e40cca3d39c955c6115c0ab01b20f089012dd392e11745f", "bytes": 49545 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150514.html", "sha256": "a2a9639dea3433e8b488c9ed1024b65c012ac46f7d77d152a4501b5272cb9d12", "bytes": 41754 },
+        { "url": "https://www.nenkin.go.jp/service/kokunen/menjo/20150402-01.html", "sha256": "974194bf20b9d73b24c4c7b3d336c58d4123fe2a885d1d694e366dcaa8c2a0f5", "bytes": 38133 }
+      ]
+    },
+    "inferred": [
+      {
+        "field": "exemption.dependentDeduction / exemption.otherDeduction",
+        "note": "「扶養親族等控除額」「社会保険料控除額等」の内訳額は国民年金法施行令（第6条の9〜第6条の12 [条番号も未確認]）の定めだが、2026-10-22 は e-Gov がメンテナンス中で原文を確認できていない。日本年金機構のページには内訳の記載が無い。値は大阪市の案内（16歳以上23歳未満 63万円・70歳以上の同一生計配偶者または老人扶養親族 48万円）と所得税の控除額からの推測。国民年金ページを公開する前に e-Gov で確定し、本項を削除する。",
+        "confidence": "inferred"
+      }
+    ]
+  },
+  "monthly": 17920,
+  "additionalMonthly": 400,
+  "nextYearMonthly": 18290,
+  "prepay": {
+    "kouza": {
+      "m6": { "amount": 106300, "discount": 1220 },
+      "y1": { "amount": 210530, "discount": 4510 },
+      "y2": { "amount": 417150, "discount": 17370 },
+      "hayawari": { "monthly": 17860, "discount": 60 }
+    },
+    "nofusho": {
+      "m6": { "amount": 106650, "discount": 870 },
+      "y1": { "amount": 211220, "discount": 3820 },
+      "y2": { "amount": 418510, "discount": 16010 }
+    }
+  },
+  "exemption": {
+    "period": "令和8年度分（2026年7月〜2027年6月）・審査対象は2025年中（令和7年中）の所得",
+    "full": { "perPerson": 350000, "base": 320000 },
+    "yuyo": { "perPerson": 350000, "base": 320000, "ageMax": 50 },
+    "partial": { "threeQuarters": 880000, "half": 1280000, "quarter": 1680000 },
+    "student": { "base": 1280000, "perDependent": 380000 },
+    "dependentDeduction": { "spouse": 380000, "general": 380000, "age16to22": 630000, "elderly": 480000, "elderlyCoRes": 580000, "under16": 0 },
+    "otherDeduction": { "shogai": 270000, "shogaiSpecial": 400000, "kafu": 270000, "hitorioya": 350000 },
+    "localTaxNonTaxable": { "incomeMax": 1350000, "_desc": "本人が地方税法上の障害者・寡婦・ひとり親で、前年所得（総所得金額等）が135万円以下なら、その人は全額免除の要件を満たす（国民年金法 第90条第1項第3号、同法施行令 第6条の7の2・第6条の8［e-Gov 2026-10-01 施行版で確認］）。一部免除（第90条の2）・学生納付特例（第90条の3）・納付猶予（平成26年改正法 附則第14条）も「第九十条第一項第二号及び第三号に該当するとき」を要件に挙げている" },
+    "payFraction": { "full": 0, "threeQuarters": 0.25, "half": 0.5, "quarter": 0.75, "yuyo": 0, "student": 0 },
+    "pensionReflection": { "full": "1/2", "threeQuarters": "5/8", "half": "6/8", "quarter": "7/8", "yuyo": "0", "student": "0" },
+    "tsuinoYears": 10
+  }
+};
+const HK_NENKIN_KYUFU = {
+  "meta": {
+    "scheme": "公的年金の年金額（老齢基礎年金の満額・老齢厚生年金の報酬比例部分の乗率）",
+    "fiscalYear": 2026,
+    "fiscalYearLabel": "令和8年度（2026年4月分〜2027年3月分）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-11-25",
+    "source": {
+      "kisoFormula": "国民年金法 第27条（老齢基礎年金の額＝780,900円×改定率。100円未満は50円未満切捨て・50円以上切上げ。保険料納付済期間の月数が480に満たないときは月数÷480を乗じる。e-Gov 法令API v1・法令番号 昭和三十四年法律第百四十一号、2026-11-25 取得）",
+      "kisoAmount": "厚生労働省「令和8年度の年金額改定についてお知らせします」（令和8年1月23日）https://www.mhlw.go.jp/content/12502000/001639615.pdf （国民年金〈老齢基礎年金（満額）1人分〉月額 70,608円。昭和31年4月1日以前生まれは月額 70,408円。2026-11-25 取得）",
+      "kisoAmountCrossCheck": "日本年金機構「令和8年4月分からの年金額等について」https://www.nenkin.go.jp/oshirase/taisetu/kojin/2026/202604/0401.html （老齢基礎年金（満額）月額 70,608円。2026-11-25 取得）・同「老齢基礎年金の受給要件・支給開始時期・年金額」https://www.nenkin.go.jp/service/jukyu/seido/roureinenkin/jukyu-yoken/20150401-02.html （昭和31年4月1日以前生まれは 844,900円。2026-11-25 取得）",
+      "koseiFormula": "厚生年金保険法 第43条第1項（老齢厚生年金の額＝平均標準報酬額×1000分の5.481×被保険者期間の月数。平均標準報酬額は各月の標準報酬月額と標準賞与額に再評価率を乗じた総額÷月数。e-Gov 法令API v1・法令番号 昭和二十九年法律第百十五号、2026-11-25 取得）",
+      "snapshot": {
+        "capturedAt": "2026-11-24T15:32:06Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "egov_kokuminnenkinho_27.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=27", "sha256": "5e51d5a9af96c0b3adaa26a79fbc78adb0303c90eb181dcd34a12a5eec5d882e", "bytes": 4890 },
+          { "file": "egov_kouseinenkinhokenho_43.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十九年法律第百十五号;article=43", "sha256": "112e1e885a7b5ae881cc301f8bee39bd366aaec1e7e761d4d1acb5d825d7aea6", "bytes": 3364 },
+          { "file": "mhlw_r8_nenkingaku_kaitei_001639615.pdf", "url": "https://www.mhlw.go.jp/content/12502000/001639615.pdf", "sha256": "b3682a45109a862446d931ececab8f4964cafca2a404be64d449d6b8c87f18a2", "bytes": 1050393 },
+          { "file": "nenkin_r8_nenkingaku_202604.html", "url": "https://www.nenkin.go.jp/oshirase/taisetu/kojin/2026/202604/0401.html", "sha256": "37972b6dfac4025456d7ac01d9ee0add18d3c1aea1e9690979b5db0620dfb73b", "bytes": 27647 },
+          { "file": "nenkin_roureikiso_nenkingaku.html", "url": "https://www.nenkin.go.jp/service/jukyu/seido/roureinenkin/jukyu-yoken/20150401-02.html", "sha256": "3a557a28367a8395db21afe3dc572aa6c83a8848d4aa0ff90529ebe7d73e150f", "bytes": 30247 }
+        ]
+      }
+    },
+    "inferred": [
+      {
+        "key": "kiso.fullAnnual",
+        "note": "年額 847,300円は、一次資料の月額 70,608円（×12＝847,296円）と、国民年金法 第27条の100円単位の端数処理から導いた値。一次資料の本文に年額 847,300円の文字は確認できていない（年金機構のページでは計算式が画像）。同じページにある昭和31年4月1日以前生まれの年額 844,900円と月額 70,408円（×12＝844,896円）が同じ関係になっていることを確認した。",
+        "confidence": "inferred"
+      }
+    ],
+    "notes": [
+      "働き方の比較（js/core/hatarakikata.js）が「1年働いたときに増える年金（年額）」の目安を出すために使う。計算は js/core/nenkin-kyufu.js。",
+      "昭和31年4月2日以後生まれの額だけを収録する（現役世代が対象のため）。",
+      "報酬比例部分の目安は、標準報酬月額×月数×乗率で計算し、再評価率と標準賞与額は扱わない（計算側の簡略。乗率そのものは条文の値）。",
+      "年金額は毎年度改定される。年度が変わったら nenkin-kyufu-<年>.json を新しく作る。"
+    ]
+  },
+  "kiso": {
+    "fullAnnual": 847300,
+    "fullMonthly": 70608,
+    "fullMonths": 480
+  },
+  "kosei": {
+    "rateNumerator": 5481,
+    "rateDenominator": 1000000
+  }
+};
+const HK_JIGYOZEI = {
+  "meta": {
+    "scheme": "個人の事業税（事業主控除・標準税率）",
+    "taxYear": 2026,
+    "taxYearLabel": "2026年（令和8年）中の事業の所得にかかる分（納めるのは翌年度）",
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-11-25",
+    "source": {
+      "kojo": "地方税法 第72条の49の14（事業主控除＝年290万円。事業を行った期間が1年に満たないときは月割り。e-Gov 法令API v1・法令番号 昭和二十五年法律第二百二十六号、2026-11-25 取得）",
+      "rates": "地方税法 第72条の49の17 第1項（標準税率＝第一種事業 100分の5・第二種事業 100分の4・第三種事業 100分の5・第三種事業のうち第72条の2第10項第5号及び第7号の事業 100分の3）・同 第3項（道府県が標準税率を超える税率で課する場合の上限は1.1倍）。同上・2026-11-25 取得",
+      "gyoshu": "地方税法 第72条の2 第3項・第8項〜第10項（個人の事業税は第一種事業・第二種事業・第三種事業に課する。業種は各項の号に列挙）。同上・2026-11-25 取得",
+      "base": "地方税法 第72条の49の12 第1項（課税標準は所得税の不動産所得・事業所得の計算の例により算定する）。同上・2026-11-25 取得",
+      "aoiro": "東京都主税局「個人事業税」https://www.tax.metro.tokyo.lg.jp/kazei/work/kojin_ji （「個人の事業税には青色申告特別控除の適用はありませんので、所得金額に加算します。（取扱通知（県）第3章11の4）」。事業主控除 年間290万円・第1種事業（37業種）5%・第2種事業（3業種）4%・第3種事業（30業種）5%。2026-11-25 取得）",
+      "rounding": "地方税法 第20条の4の2 第1項（課税標準額の千円未満切捨て）・第3項（確定金額の百円未満切捨て）。e-Gov 法令API v1・2026-11-25 取得",
+      "snapshot": {
+        "capturedAt": "2026-11-24T15:32:06Z",
+        "capturedBy": "本人端末（curl）",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
+        "files": [
+          { "file": "egov_chihozeiho_72-49-14.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_49_14", "sha256": "19141a6c32014dcf066dd88778841b0b30140aa63d2a4a22c925773bc4c0b075", "bytes": 1578 },
+          { "file": "egov_chihozeiho_72-49-17.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_49_17", "sha256": "733bacafd85e5f0ba99a3ed8f86c0b3b6398f7a5d3b225d1f09c410a825b136b", "bytes": 4290 },
+          { "file": "egov_chihozeiho_72-49-12.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_49_12", "sha256": "4cb78bd21638d022a97836626064cc2bd2d2c59203fcbb9832076746c8af7ddc", "bytes": 21199 },
+          { "file": "egov_chihozeiho_72-2.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=72_2", "sha256": "b1d451bd1a69cee251585de08a44e28080968c7be554f7d9670703a47b18a2d1", "bytes": 29731 },
+          { "file": "egov_chihozeiho_20-4-2.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和二十五年法律第二百二十六号;article=20_4_2", "sha256": "7630a40d2f410c1c013bc8b349dcb6e8bd23077ca0f28ead5bde7a192a6e0250", "bytes": 5837 },
+          { "file": "tokyo_shuzeikyoku_kojin_ji.html", "url": "https://www.tax.metro.tokyo.lg.jp/kazei/work/kojin_ji", "sha256": "51fa0d25692dc0d6c6e92973e88a8d038528cd4e592945f5e279d3070817f6cb", "bytes": 576808 }
+        ]
+      }
+    },
+    "inferred": [
+      {
+        "key": "rates（都道府県ごとの税率）",
+        "note": "収録しているのは標準税率。都道府県が条例で標準税率と違う税率を定めているかどうかは調べていない（地方税法は1.1倍までの超過を認めている）。",
+        "confidence": "unverified"
+      },
+      {
+        "key": "gyoshu（政令で加わる業種）",
+        "note": "第一種・第二種・第三種事業には、政令で定める事業が加わる（第72条の2 第8項第31号・第9項第3号・第10項第21号など）。政令の内容は確認していない。どの事業に当たるかの認定は都道府県が行う。",
+        "confidence": "unverified"
+      }
+    ],
+    "notes": [
+      "働き方の比較（js/core/hatarakikata.js）が、個人事業の列の税として使う。計算は js/core/jigyozei.js。",
+      "課税標準＝事業の所得（青色申告特別控除を引く前）− 事業主控除。青色申告特別控除は個人の事業税には適用されない。",
+      "法律に列挙された業種（法定業種）に当たらない事業には課されない。画面では利用者が区分を選ぶ（rates の key）。",
+      "繰越控除・事業専従者給与（控除）・事業を行った期間が1年に満たない場合の月割りは収録していない（計算側も1年分だけを扱う）。"
+    ]
+  },
+  "jigyonushiKojo": {
+    "annual": 2900000,
+    "months": 12
+  },
+  "rates": [
+    { "key": "type1", "label": "第1種事業（物品販売業・製造業・請負業・飲食店業など）", "ratePercent": 5 },
+    { "key": "type2", "label": "第2種事業（畜産業・水産業・薪炭製造業）", "ratePercent": 4 },
+    { "key": "type3", "label": "第3種事業（医業・弁護士業・税理士業・コンサルタント業・デザイン業・理容業・美容業など）", "ratePercent": 5 },
+    { "key": "type3low", "label": "第3種事業のうち、あん摩・マッサージ・指圧・はり・きゅう・柔道整復など、および装蹄師業", "ratePercent": 3 },
+    { "key": "none", "label": "法定業種に当たらない事業（課されない）", "ratePercent": 0 }
+  ],
+  "rounding": {
+    "taxableUnit": 1000,
+    "taxUnit": 100
+  }
+};
+</script>
+<script src="/js/core/shared/ui-input.js?v=5daec3ca"></script>
+<script src="/js/core/shared/income.js?v=5daec3ca"></script>
+<script src="/js/core/shaho.js?v=5daec3ca"></script>
+<script src="/js/core/shotoku.js?v=5daec3ca"></script>
+<script src="/js/core/jumin.js?v=5daec3ca"></script>
+<script src="/js/core/kokuho.js?v=5daec3ca"></script>
+<script src="/js/core/nenkin-kyufu.js?v=5daec3ca"></script>
+<script src="/js/core/jigyozei.js?v=5daec3ca"></script>
+<script src="/js/core/hatarakikata.js?v=5daec3ca"></script>
+<script>
+(function(){
+  "use strict";
+  // 計算は純関数 Hatarakikata.compare（js/core/hatarakikata.js）。ここには入力の読み取りと表示だけを書く。
+  // 年は制度値（HK_CONFIG.years）から読む。このファイルに年の数字を持たない。
+  var YEARS = HK_CONFIG.years;
+  var DATA = { config: HK_CONFIG, shaho: HK_SHAHO, shotokuDb: HK_SHOTOKU_DB, haigu: HK_HAIGU, nenkin: HK_NENKIN, nenkinKyufu: HK_NENKIN_KYUFU, jigyozei: HK_JIGYOZEI };
+  var KK = HK_CONFIG.kakekin;
+  var CAP = { ideco: { kaishain: KK.idecoMonthlyMax.kaishain * 12, kojin: KK.idecoMonthlyMax.kojin * 12 }, kyosai: KK.kyosaiMonthlyMax * 12 };
+
+  // 働き方（列）の名前。列を足すときは、ここと MODES に 1 行ずつ足す
+  var COLUMN_LABEL = { kaishain: "会社員", kojin: "個人事業" };
+  var MODES = [{ value: "kaishain", label: "会社員（額面年収を入れる）" }, { value: "kojin", label: "個人事業（売上と経費を入れる）" }];
+  var ITEM_LABEL = { kenpoKosei: "健康保険・厚生年金など", koyo: "雇用保険", kyoshutsukin: "子ども・子育て拠出金", kokuho: "国民健康保険", kokuminNenkin: "国民年金",
+    shotokuzei: "所得税", juminzei: "住民税", kojinJigyozei: "個人事業税", ideco: "iDeCo", kyosai: "小規模企業共済" };
+  var TAX_ROW_LABEL = { shotokuzei: "所得税", juminzei: "住民税（" + wareki(YEARS.juminFiscalYear) + "年度分）", kojinJigyozei: "個人事業税" };
+  // 金額に入っていない違い（列の名前で持つ。該当しない列は「—」）
+  var INFO_ROWS = [
+    { label: "病気・出産で働けないときの手当", cells: { kaishain: "傷病手当金・出産手当金があります", kojin: "国保では、条例や規約で定めた場合に限られます" } },
+    { label: "失業したとき・育児休業の給付", cells: { kaishain: "雇用保険の給付があります", kojin: "雇用保険に入らないため、ありません" } },
+    { label: "扶養に入る配偶者の年金の保険料", cells: { kaishain: "かかりません（年金は増えます）", kojin: "配偶者の分もかかります" } }
+  ];
+
+  function $(id){ return document.getElementById(id); }
+  function raw(id){ return toHalfWidth(($(id)||{}).value || "").replace(/[^0-9]/g, ""); }
+  function num(id){ var v = raw(id); return v === "" ? 0 : Number(v); }
+  function val(id){ return ($(id)||{}).value || ""; }
+  function yen(n){ return Math.round(n).toLocaleString("ja-JP") + " 円"; }
+  function man(n){ return (n / 10000).toLocaleString("ja-JP") + " 万円"; }
+  function wareki(y){ return "令和" + (y - 2018); }
+  function esc(s){ return String(s).replace(/[<>&"]/g, function(c){ return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]; }); }
+  function colLabel(key){ return COLUMN_LABEL[key] || key; }
+  function placeholder(msg){ return "<span class='result-placeholder'>" + esc(msg) + "</span>"; }
+
+  // ── 自治体プルダウン（都道府県 → 市区町村。CITY_INDEX は JIS コード順） ──
+  var prefSel = $("pref"), citySel = $("city");
+  Object.keys(CITY_INDEX).forEach(function(pn){ var o = document.createElement("option"); o.value = pn; o.textContent = pn; prefSel.appendChild(o); });
+  prefSel.addEventListener("change", function(){
+    var pn = prefSel.value; citySel.innerHTML = "";
+    if(!pn){ citySel.disabled = true; citySel.innerHTML = "<option value=''>先に都道府県を選択</option>"; return; }
+    citySel.disabled = false;
+    var o0 = document.createElement("option"); o0.value = ""; o0.textContent = "選択してください"; citySel.appendChild(o0);
+    CITY_INDEX[pn].cities.forEach(function(c){ var o = document.createElement("option"); o.value = c.slug; o.textContent = c.name; citySel.appendChild(o); });
+  });
+  function currentCity(){
+    var pn = prefSel.value, slug = citySel.value; if(!pn || !slug) return null;
+    var c = CITY_INDEX[pn].cities.filter(function(x){ return x.slug === slug; })[0];
+    return c ? { pref: pn, prefSlug: CITY_INDEX[pn].slug, slug: slug, name: c.name, kyuchi: c.k, hasJumin: !!c.j } : null;
+  }
+
+  // ── 自治体データ（国保・住民税）。同じサイトの /data/municipalities/ から取得 ──
+  var _cache = {};
+  function loadMunicipal(slug, sys){
+    var key = slug + "/" + sys;
+    if(_cache[key]) return _cache[key];
+    _cache[key] = fetch("/data/municipalities/" + slug + "/" + sys + "-" + YEARS.kokuhoYear + ".json", { cache: "no-store" })
+      .then(function(r){ if(!r.ok) throw new Error(sys + " HTTP " + r.status); return r.json(); })
+      .catch(function(e){ delete _cache[key]; throw e; });
+    return _cache[key];
+  }
+
+  // ── 入力を読む。計算できないときは { message } を返す（0 円の結果を出さない） ──
+  function readInput(city){
+    var mode = val("mode"), ar = HK_CONFIG.ageRange;
+    if(mode === "kaishain"){ if(!num("nenshu")) return { message: "②の額面年収を入れてください" }; }
+    else {
+      if(!num("uriage")) return { message: "②の売上を入れてください" };
+      if(num("keihi") > num("uriage")) return { message: "経費が売上を上回っています。赤字の年は計算できません" };
+    }
+    if(raw("age") === "") return { message: "②の年齢を入れてください" };
+    var age = num("age");
+    if(age >= ar.under) return { warn: ar.under + "歳以上の方は、国保ではなく後期高齢者医療の対象です。このページでは計算できません。" };
+    if(age < ar.min) return { message: "年齢は " + ar.min + " 歳以上で入れてください" };
+    var spouse = null;
+    if(val("spouse") !== "none"){
+      if(raw("spouseAge") === "") return { message: "③の配偶者の年齢を入れてください" };
+      if(num("spouseAge") >= ar.under) return { warn: "配偶者が " + ar.under + "歳以上の場合は、このページでは計算できません（後期高齢者医療の対象のため）。" };
+      spouse = { age: num("spouseAge"), salary: num("spouseSalary") };
+    }
+    var kids = { u16: num("kidsU16"), preschool: num("kidsPre"), a1618: num("kids1618"), a1922: num("kids1922") };
+    if(kids.preschool > kids.u16) return { message: "③の「小学校に入る前の子」は、16歳未満の子の人数以下で入れてください" };
+    // 掛金は、列ごとの上限（月額×12）で打ち切る。打ち切ったことは結果に書く
+    var idecoIn = num("ideco"), kyosaiIn = num("kyosai");
+    var kakekin = {
+      kaishain: { ideco: Math.min(idecoIn, CAP.ideco.kaishain) },
+      kojin: { ideco: Math.min(idecoIn, CAP.ideco.kojin), kyosai: Math.min(kyosaiIn, CAP.kyosai) },
+      capped: { kaishainIdeco: idecoIn > CAP.ideco.kaishain, kojinIdeco: idecoIn > CAP.ideco.kojin, kyosai: kyosaiIn > CAP.kyosai }
+    };
+    var input = { mode: mode, common: { age: age, prefSlug: city.prefSlug, kyuchi: city.kyuchi, spouse: spouse, kids: kids },
+      kaishain: { ideco: kakekin.kaishain.ideco }, kojin: { ideco: kakekin.kojin.ideco, kyosai: kakekin.kojin.kyosai } };
+    if(mode === "kaishain"){ input.kaishain.nenshu = num("nenshu"); }
+    else { input.kojin.uriage = num("uriage"); input.kojin.keihi = num("keihi"); input.kojin.aoiro = Number(val("aoiro")); input.kojin.gyoshu = val("gyoshu"); }
+    return { input: input, kakekin: kakekin };
+  }
+  window.hatarakikataReadInput = readInput;
+
+  // ── 表示: 列の配列（r.columns）と行の定義から表を組み立てる。列の数を HTML に直接書かない ──
+  function assume(col, key){ return (col.assumptions || []).filter(function(a){ return a.key === key; })[0] || null; }
+  function itemNames(items){ return items.map(function(i){ return ITEM_LABEL[i.key] || i.key; }).join("・"); }
+  function taxOf(col, key){ var t = col.taxes.filter(function(x){ return x.key === key; })[0]; return t ? t.amount : null; }
+  function grossSub(col){
+    if(col.grossKind === "nenshu") return "額面年収";
+    var a = assume(col, "aoiro");
+    return "事業所得" + (a && a.value > 0 ? "（青色申告特別控除 " + man(a.value) + "を引いた後）" : "（青色申告特別控除なし）");
+  }
+  function taxSub(col, key){
+    if(key !== "kojinJigyozei") return "";
+    var g = assume(col, "gyoshu"); if(!g) return "";
+    var row = HK_JIGYOZEI.rates.filter(function(x){ return x.key === g.value; })[0];
+    return row ? "税率 " + row.ratePercent + "% で計算" : "";
+  }
+  function cell(id, label, order, amount, sub, strong){
+    return "<div class='hk-c" + (strong ? " hk-strong" : "") + "' id='" + id + "' data-label='" + esc(label) + "' style='--o:" + order + "'><span class='hk-amt'>" +
+      (amount === null ? "—" : yen(amount)) + "</span>" + (sub ? "<span class='ci-sub'>" + esc(sub) + "</span>" : "") + "</div>";
+  }
+  // rows: [{ id, label, strong, get(col) → { amount, sub } }]。どの列も該当なし（null）の行は、hideIfAllNull なら出さない
+  function grid(cols, rows, idPrefix){
+    var shown = rows.filter(function(row){ return !row.hideIfAllNull || cols.some(function(c){ return row.get(c).amount !== null; }); });
+    var h = "<div class='hk-grid' style='--hk-cols:" + cols.length + "'><div class='hk-corner'></div>";
+    cols.forEach(function(c, ci){ h += "<div class='hk-h' style='--o:" + ((ci + 1) * 100) + "'>" + esc(colLabel(c.key)) + "</div>"; });
+    shown.forEach(function(row, ri){
+      h += "<div class='hk-l" + (row.strong ? " hk-strong" : "") + "'>" + esc(row.label) + "</div>";
+      cols.forEach(function(c, ci){ var v = row.get(c); h += cell(idPrefix + c.key + "-" + row.id, row.label, (ci + 1) * 100 + ri + 1, v.amount, v.sub, row.strong); });
+    });
+    return h + "</div>";
+  }
+  function mainRows(cols){
+    var rows = [
+      { id: "gross", label: "額面年収 ／ 事業所得", get: function(c){ return { amount: c.gross, sub: grossSub(c) }; } },
+      { id: "siEmployer", label: "社会保険料（会社が負担）", get: function(c){ return { amount: c.siEmployer, sub: c.siEmployer === null ? "" : itemNames(c.siEmployerItems) }; } },
+      { id: "siEmployee", label: "社会保険料（本人が負担）", get: function(c){ return { amount: c.siEmployee, sub: itemNames(c.siEmployeeItems) }; } }
+    ];
+    // 税目は列によって数が違う。出てくる税目を、最初に出た順に 1 行ずつ
+    var taxKeys = [];
+    cols.forEach(function(c){ c.taxes.forEach(function(t){ if(taxKeys.indexOf(t.key) < 0) taxKeys.push(t.key); }); });
+    taxKeys.forEach(function(k){ rows.push({ id: "tax-" + k, label: TAX_ROW_LABEL[k] || k, get: function(c){ return { amount: taxOf(c, k), sub: taxSub(c, k) }; } }); });
+    if(cols.some(function(c){ return c.buckets.savings > 0; }))
+      rows.push({ id: "savings", label: "自分の積立", get: function(c){ return { amount: c.buckets.savings, sub: c.buckets.savings > 0 ? itemNames(c.buckets.savingsItems) : "" }; } });
+    rows.push({ id: "retained", label: "会社に残る額", hideIfAllNull: true, get: function(c){ return { amount: c.buckets.retained, sub: "" }; } });
+    rows.push({ id: "takehome", label: "手取り（年）", strong: true, get: function(c){ return { amount: c.takeHome, sub: "" }; } });
+    return rows;
+  }
+  var PENSION_ROWS = [
+    { id: "kiso", label: "基礎年金", hideIfAllNull: true, get: function(c){ return { amount: c.pension.kiso, sub: "" }; } },
+    { id: "kosei", label: "厚生年金", hideIfAllNull: true, get: function(c){ return { amount: c.pension.kosei, sub: "" }; } },
+    { id: "spouseKiso", label: "配偶者の基礎年金", hideIfAllNull: true, get: function(c){ return { amount: c.pension.spouseKiso, sub: "" }; } }
+  ];
+  function pensionTotal(c){ return (c.pension.kiso || 0) + (c.pension.kosei || 0); }
+  // 「計算上は、◯◯の◯◯が最も多くなります」。同じ額なら、そう書く
+  function topSentence(cols, what, f){
+    var max = Math.max.apply(null, cols.map(f)), tops = cols.filter(function(c){ return f(c) === max; });
+    if(tops.length === cols.length) return what + "は同じです。";
+    return tops.map(function(c){ return colLabel(c.key); }).join("と") + "の" + what + "が最も多くなります。";
+  }
+  function flow(c){
+    function li(items){ return items.map(function(i){ return "<div class='result-row'><div class='result-label'>" + esc(ITEM_LABEL[i.key] || i.key) + "</div><div class='amount'>" + yen(i.amount) + "</div></div>"; }).join(""); }
+    var h = "<div class='fz-card-title'>" + esc(colLabel(c.key)) + "</div>" +
+      "<div class='result-row'><div class='result-label'>そろえた額（" + (c.siEmployer === null ? "売上から経費を引いた額" : "会社が払う総額") + "）</div><div class='amount'>" + yen(c.totalUsed) + "</div></div>";
+    if(c.siEmployer !== null) h += "<div class='ci-sub'>会社が負担する社会保険料</div>" + li(c.siEmployerItems);
+    h += "<div class='ci-sub'>本人が負担する社会保険料</div>" + li(c.siEmployeeItems) + "<div class='ci-sub'>税</div>" + li(c.taxes);
+    if(c.buckets.savings > 0) h += "<div class='ci-sub'>自分の積立</div>" + li(c.buckets.savingsItems);
+    return h + "<div class='result-row'><div class='result-label'>手取り（そろえた額から、上のすべてを引いた額）</div><div class='amount'>" + yen(c.takeHome) + "</div></div>";
+  }
+  function render(r, city, kakekin){
+    var cols = r.columns;
+    var h = "<div class='result-title' style='font-size:15px;margin-top:4px;'>同じ稼ぎ <span id='res-total'>" + yen(r.total) + "</span> での比較（" + esc(city.name) + "・" + YEARS.shotokuYear + "年）</div>" +
+      "<div class='ci-sub'>会社が払う総額 ＝ 売上から経費を引いた額 として比べています。</div>";
+    if(r.align.gap > 0) h += "<div class='ci-sub' id='res-gap'>会社員の列は、総額 " + yen(r.align.kaishainTotal) + "（差 " + yen(r.align.gap) + "）で計算しています。社会保険料が段階で決まるため、ぴったり同じ額にはなりません。</div>";
+    h += grid(cols, mainRows(cols), "res-");
+    var capNotes = [];
+    if(kakekin.capped.kaishainIdeco) capNotes.push("会社員の iDeCo は、上限の年 " + yen(CAP.ideco.kaishain) + " で計算しました。");
+    if(kakekin.capped.kojinIdeco) capNotes.push("個人事業の iDeCo は、上限の年 " + yen(CAP.ideco.kojin) + " で計算しました。");
+    if(kakekin.capped.kyosai) capNotes.push("小規模企業共済は、上限の年 " + yen(CAP.kyosai) + " で計算しました。");
+    if(capNotes.length) h += "<div class='ci-sub' id='res-cap' style='margin-top:6px;'>" + capNotes.map(esc).join("<br>") + "</div>";
+    h += "<div class='result-title' style='font-size:15px;margin-top:20px;'>1年働くと増える年金（年額の目安）</div>" +
+      grid(cols, PENSION_ROWS, "res-pension-") +
+      "<ul class='ci-sub' style='margin:8px 0 0;padding-left:1.4em;'>" +
+        "<li>" + wareki(YEARS.nenkinFiscalYear) + "年度の年金額で計算した目安です。年金額は毎年度見直されます。</li>" +
+        "<li>受け取りは原則65歳からです。</li>" +
+        "<li>厚生年金には、障害年金・遺族年金の上乗せもあります（金額には入れていません）。</li>" +
+      "</ul>" +
+      "<div class='hint' id='res-summary' style='margin-top:14px;font-size:13px;color:#374151;'>計算上は、" + esc(topSentence(cols, "手取り", function(c){ return c.takeHome; })) +
+        "1年働くと増える年金は、" + esc(topSentence(cols, "額", pensionTotal)).replace("の額が", "が") + "</div>" +
+      "<details><summary>計算の流れを見る</summary>" + cols.map(flow).join("") + "</details>" +
+      "<div class='hint' id='res-closing' style='margin-top:12px;'>この結果は、入力した前提での計算結果の比較です。実際の手続きや申告では、年金事務所・税務署または税理士にご確認ください。</div>";
+    return h;
+  }
+  window.hatarakikataRender = render;
+
+  window.calcHatarakikata = async function(){
+    var out = $("result");
+    var city = currentCity();
+    if(!city){ out.innerHTML = placeholder("①で都道府県と市区町村を選んでください"); return; }
+    var q = readInput(city);
+    if(q.message){ out.innerHTML = placeholder(q.message); return; }
+    if(q.warn){ out.innerHTML = "<div class='warn'>" + esc(q.warn) + "</div>"; return; }
+    out.innerHTML = placeholder(city.name + "のデータを読み込んで計算中…");
+    var kokuhoData, juminData = null;
+    try{ kokuhoData = await loadMunicipal(city.slug, "kokuho"); }
+    catch(e){ out.innerHTML = "<div class='warn'>" + esc(city.name) + "の国保データを取得できませんでした（" + esc(e.message) + "）。</div>"; return; }
+    if(city.hasJumin){ try{ juminData = await loadMunicipal(city.slug, "jumin"); }catch(e){ juminData = null; } }
+    var data = Object.assign({}, DATA, { kokuho: kokuhoData, jumin: juminData });
+    var r;
+    try{ r = Hatarakikata.compare(q.input, data); }
+    catch(e){ out.innerHTML = "<div class='warn'>計算できませんでした（" + esc(e.message) + "）。</div>"; return; }
+    if(typeof gtag === "function"){ gtag("event", "calculate", { calc_type: "hatarakikata", city: city.slug }); }
+    out.innerHTML = render(r, city, q.kakekin);
+  };
+
+  function init(){
+    var m = $("mode"); MODES.forEach(function(o){ var op = document.createElement("option"); op.value = o.value; op.textContent = o.label; m.appendChild(op); });
+    var ao = $("aoiro");
+    HK_CONFIG.kojin.aoiroOptions.forEach(function(v){ var op = document.createElement("option"); op.value = String(v); op.textContent = v > 0 ? man(v) : "なし（白色申告）"; ao.appendChild(op); });
+    ao.value = String(HK_CONFIG.kojin.aoiroDefault);
+    var gy = $("gyoshu");
+    HK_JIGYOZEI.rates.forEach(function(x){ var op = document.createElement("option"); op.value = x.key; op.textContent = x.ratePercent + "%：" + x.label; gy.appendChild(op); });
+    gy.value = HK_CONFIG.kojin.gyoshuDefault;
+    ["nenshu","uriage","keihi","spouseSalary","ideco","kyosai"].forEach(function(id){ setupNumericInput(id, { withCommas: true }); });
+    ["age","spouseAge","kidsU16","kidsPre","kids1618","kids1922"].forEach(function(id){ setupNumericInput(id); });
+    function toggleMode(){ var k = val("mode") === "kojin"; $("boxKaishain").style.display = k ? "none" : ""; $("boxKojin").style.display = k ? "" : "none"; $("boxKojinOpt").style.display = k ? "" : "none"; }
+    function toggleSpouse(){ $("spouseBox").style.display = val("spouse") === "none" ? "none" : ""; }
+    m.addEventListener("change", toggleMode); toggleMode();
+    $("spouse").addEventListener("change", toggleSpouse); toggleSpouse();
+    // 説明文の中の制度値は、制度値ファイルから入れる（HTML に数字を直接書かない）
+    var CFG_TEXT = { hifuyo: man(HK_CONFIG.spouse.hifuyoSalaryLimit), idecoKaishain: yen(CAP.ideco.kaishain), idecoKojin: yen(CAP.ideco.kojin), kyosai: yen(CAP.kyosai), jigyonushi: man(HK_JIGYOZEI.jigyonushiKojo.annual) };
+    Array.prototype.forEach.call(document.querySelectorAll("[data-cfg]"), function(el){ el.textContent = CFG_TEXT[el.getAttribute("data-cfg")] || ""; });
+    // 金額に入っていない違い（列の名前から組み立てる）
+    var keys = Hatarakikata.DEFAULT_COLUMNS;
+    var t = "<div class='hk-grid' style='--hk-cols:" + keys.length + "'><div class='hk-corner'></div>";
+    keys.forEach(function(k, ci){ t += "<div class='hk-h' style='--o:" + ((ci + 1) * 100) + ";text-align:left;'>" + esc(colLabel(k)) + "</div>"; });
+    INFO_ROWS.forEach(function(row, ri){
+      t += "<div class='hk-l'>" + esc(row.label) + "</div>";
+      keys.forEach(function(k, ci){ t += "<div class='hk-c hk-info' data-label='" + esc(row.label) + "' style='--o:" + ((ci + 1) * 100 + ri + 1) + ";font-weight:400;text-align:left;font-size:13px;'><span class='hk-v'>" + esc(row.cells[k] || "—") + "</span></div>"; });
+    });
+    $("infoTable").innerHTML = t + "</div>";
+  }
+  if(document.readyState !== "loading") init(); else document.addEventListener("DOMContentLoaded", init);
+})();
+</script>
+</body>
+</html>

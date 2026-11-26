@@ -9,17 +9,25 @@
     "source": {
       "kyoshutsukin": "日本年金機構「厚生年金保険料額表（令和8年度版）」https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf （「子ども・子育て拠出金率（令和8年4月1日～ 適用） …0.36％」「事業主が全額負担」「被保険者個々の厚生年金保険の標準報酬月額」及び標準賞与額に拠出金率を乗じた額。2026-11-25 取得）",
       "nenkinAge": "国民年金法 第7条第1項（第1号被保険者＝日本国内に住所を有する20歳以上60歳未満の者で第2号・第3号に当たらないもの／第2号被保険者＝厚生年金保険の被保険者／第3号被保険者＝第2号被保険者の配偶者で主として第2号被保険者の収入により生計を維持するもののうち20歳以上60歳未満のもの。e-Gov 法令API v1・法令番号 昭和三十四年法律第百四十一号、2026-11-25 取得）",
+      "kakekin": "確定拠出年金法施行令 第36条（個人型年金の拠出限度額＝月額。第1号「第一号加入者及び第四号加入者 六万八千円（国民年金の付加保険料又は国民年金基金の掛金の納付に係る月は、その額を控除した額）」・第2号「第二号加入者であって、次号から第五号までに掲げる者以外のもの 二万三千円」。e-Gov 法令API v1・法令番号 平成十三年政令第二百四十八号、2026-11-26 取得）／小規模企業共済法 第4条第2項（「掛金月額は、千円以上であつて五百円に整数を乗じて得た額とし、共済契約者一人につき七万円を超えてはならない」。同・法令番号 昭和四十年法律第百二号、2026-11-26 取得）",
       "snapshot": {
         "capturedAt": "2026-11-24T15:32:06Z",
         "capturedBy": "本人端末（curl）",
-        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録。実体は files の sha256 で照合できる",
+        "archive": "非公開の一次資料保管庫（内容アドレス方式・manifest 追記型）に 2026-11-25 登録（capturedAt を個別に持つ 2 点は 2026-11-26 取得・同日登録）。実体は files の sha256 で照合できる",
         "files": [
           { "file": "nenkin_R08ryougaku.pdf", "url": "https://www.nenkin.go.jp/service/kounen/hokenryo/ryogaku/ryogakuhyo/20200825.files/R08ryougaku.pdf", "sha256": "17cb4adcce3e25646fd48c73ae6fc79dc25a372276a47e31364ae08e7bfa1d5c", "bytes": 339589 },
-          { "file": "egov_kokuminnenkinho_7.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=7", "sha256": "766f4ded6ad009da6d066cf6ba811f4a373de835b84a3083530042ac339a7040", "bytes": 3643 }
+          { "file": "egov_kokuminnenkinho_7.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和三十四年法律第百四十一号;article=7", "sha256": "766f4ded6ad009da6d066cf6ba811f4a373de835b84a3083530042ac339a7040", "bytes": 3643 },
+          { "file": "egov_kakuteikyoshutsu_rei_36.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=平成十三年政令第二百四十八号;article=36", "sha256": "db400d065527b7cf0525ea9ac17839631837657884439597de93c4881d88bbcc", "bytes": 5408, "capturedAt": "2026-11-25T20:49:31Z" },
+          { "file": "egov_shokibokigyokyosaiho_4.xml", "url": "https://laws.e-gov.go.jp/api/1/articles;lawNum=昭和四十年法律第百二号;article=4", "sha256": "48fb300103276efe65a0a2926653845497c1f6fa6d648184a6d2d94676bdfb77", "bytes": 1049, "capturedAt": "2026-11-25T20:49:32Z" }
         ]
       }
     },
     "inferred": [
+      {
+        "key": "kakekin.idecoMonthlyMax.kaishain",
+        "note": "会社員の列には、企業型年金にも他の企業年金にも入っていない人の上限（施行令 第36条第2号・月 23,000 円）を使う。企業型年金・確定給付企業年金などに入っている人は上限がこれより低い（同 第3号〜第5号）が、収録していない。画面は年額（月額×12）で比べる。月ごとの拠出の有無、年の途中の上限の改正は扱わない。",
+        "confidence": "verified-with-simplification"
+      },
       {
         "key": "spouse.hifuyoSalaryLimit",
         "note": "配偶者が健康保険の被扶養者・国民年金の第3号被保険者になれる収入の目安（年130万円未満）。認定の基準は通知によるもので、この値の一次資料は確認していない。60歳以上・障害者の基準（180万円未満）と、勤め先で自分の社会保険に入る人の扱いは収録していない。",
@@ -34,7 +42,8 @@
     "notes": [
       "働き方の比較（js/core/hatarakikata.js）が読む。年の組み合わせは既存の家計簿・自営業のページに合わせた（2026年の稼ぎ → 所得税は令和8年分・住民税は令和9年度分・国保は令和8年度の料率・社会保険料は対象月 2026-07 の料率）。",
       "会社の負担に入れるのは、健康保険・介護保険・子ども・子育て支援金・厚生年金保険の会社負担分、雇用保険の会社負担分（data/shaho/koyo-<年>.json の一般の事業）、子ども・子育て拠出金。労災保険は業種で率が違うため入れない。",
-      "賞与は扱わない（年収を12で割った額を毎月の報酬として計算する）。"
+      "賞与は扱わない（年収を12で割った額を毎月の報酬として計算する）。",
+      "kakekin は画面（templates/seido-hatarakikata.html）が、入力された掛金の年額を列ごとの上限（月額×12）で打ち切るために読む。計算の純関数（js/core/hatarakikata.js）は上限を検査しない。"
     ]
   },
   "years": {
@@ -66,6 +75,13 @@
   },
   "spouse": {
     "hifuyoSalaryLimit": 1300000
+  },
+  "kakekin": {
+    "idecoMonthlyMax": {
+      "kaishain": 23000,
+      "kojin": 68000
+    },
+    "kyosaiMonthlyMax": 70000
   },
   "ageRange": {
     "min": 15,
