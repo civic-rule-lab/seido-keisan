@@ -6,14 +6,17 @@
 //   4分の3免除: ≤ 88万円 + 扶養親族等控除額 + 社会保険料控除額等
 //   半額免除:   ≤ 128万円 + 同上
 //   4分の1免除: ≤ 168万円 + 同上
-//   学生納付特例（本人のみ）: ≤ 128万円 + 扶養親族等の数×38万円 + 社会保険料控除等
+//   学生納付特例（本人のみ）: ≤ 128万円 + 扶養親族等控除額 + 社会保険料控除額等（半額免除と同じ条＝施行令 第6条の9）
 //   審査対象: 免除＝本人・配偶者・世帯主の全員 / 納付猶予＝本人・配偶者（50歳未満） / 学生納付特例＝本人
 //   審査の順: 全額免除 → 納付猶予 → 4分の3免除 → 半額免除 → 4分の1免除（申請書で区分を選ばないときの既定の順）。
 //     出典: 日本年金機構「国民年金保険料 免除・納付猶予申請書」⑨免除等区分欄「記入がない場合は、以下の免除等区分について
 //     １～５の順に全て審査します」（2026-11-15 確認）。申請者は備考欄で納付猶予の位置を変えられるが、本関数は既定の順だけを扱う。
 //   特例: 本人が地方税法上の障害者・寡婦・ひとり親で前年所得135万円以下の人は、上の式によらず基準を満たす
 //         （国民年金法 第90条第1項第3号・施行令 第6条の7の2・第6条の8。JSON の exemption.localTaxNonTaxable）
-// 「扶養親族等控除額」「社会保険料控除額等」の内訳は JSON の exemption.dependentDeduction / otherDeduction（meta.inferred 参照）。
+// 「扶養親族等控除額」「社会保険料控除額等」の内訳は JSON の exemption.dependentDeduction / otherDeduction。
+//   扶養親族等控除額（施行令 第6条の8の2・第6条の9・第6条の9の2）: 扶養親族等 1 人につき 38 万円。70 歳以上の同一生計配偶者・老人扶養親族は 48 万円、
+//   特定扶養親族等（16 歳以上 23 歳未満）は 63 万円。同居の老親だけの額は無い（elderlyCoRes は elderly と同じ額で数える）。
+//   社会保険料控除額等（施行令 第6条の12第2項）: 一部免除と学生納付特例だけで所得から引く。全額免除・納付猶予では引かない（第6条の11）。
 'use strict';
 
 (function (global) {
@@ -25,6 +28,7 @@
   function deps(d) {
     const x = Object.assign({}, d || {});
     x.spouse = x.spouse || 0;
+    x.spouseElderly = x.spouseElderly || 0;
     for (const k of DEP_KEYS) {
       const v = x[k];
       if (v === undefined || v === null) { x[k] = 0; continue; }
@@ -44,18 +48,18 @@
     return v;
   }
 
-  // 人ごとの「扶養親族等の数」（配偶者＋扶養親族。年齢を問わない）
+  // 人ごとの「扶養親族等の数」（同一生計配偶者＋扶養親族。年齢を問わない）。配偶者は spouse（70 歳未満）か spouseElderly（70 歳以上）のどちらかで 1 人
   function dependentCount(d) {
     const x = deps(d);
-    return (x.spouse ? 1 : 0) + x.under16 + x.age16to22 + x.general + x.elderly + x.elderlyCoRes;
+    return (x.spouse || x.spouseElderly ? 1 : 0) + x.under16 + x.age16to22 + x.general + x.elderly + x.elderlyCoRes;
   }
 
   // 人ごとの「扶養親族等控除額」
   function dependentDeduction(d, E) {
     const x = deps(d);
     const t = E.dependentDeduction;
-    return (x.spouse ? t.spouse : 0) + x.under16 * t.under16 + x.age16to22 * t.age16to22 +
-      x.general * t.general + x.elderly * t.elderly + x.elderlyCoRes * t.elderlyCoRes;
+    return (x.spouseElderly ? t.spouseElderly : (x.spouse ? t.spouse : 0)) + x.under16 * t.under16 + x.age16to22 * t.age16to22 +
+      x.general * t.general + (x.elderly + x.elderlyCoRes) * t.elderly;
   }
 
   // 人ごとの「社会保険料控除額等」: 社会保険料控除（実額）＋小規模企業共済等掛金＋医療費等の所得控除＋障害者・寡婦・ひとり親控除
@@ -87,7 +91,7 @@
       threeQuarters: E.partial.threeQuarters + dd + od,
       half: E.partial.half + dd + od,
       quarter: E.partial.quarter + dd + od,
-      student: E.student.base + n * E.student.perDependent + od,
+      student: E.student.base + dd + od,
       dependentCount: n, dependentDeduction: dd, otherDeduction: od,
       localTaxNonTaxable: localTaxNonTaxable(person, E),  // 第90条第1項第3号に当たる（画面の説明用）
     };
