@@ -229,6 +229,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/kanagawa/chigasaki/hoiku/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/kanagawa/zushi/kaigo/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>

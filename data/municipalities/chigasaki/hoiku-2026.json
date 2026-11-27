@@ -1,0 +1,211 @@
+{
+  "slug": "chigasaki",
+  "citySlug": "chigasaki",
+  "cityCode": "14207",
+  "cityName": "茅ヶ崎市",
+  "pref": "kanagawa",
+  "prefSlug": "kanagawa",
+  "system": "hoiku",
+  "year": 2026,
+  "fiscalYear": 2026,
+  "schemaVersion": "1.0",
+  "status": "verified",
+  "source": {
+    "name": "茅ヶ崎市 保育料（利用者負担額）基準額表（令和元年10月1日〜） 0〜2歳児クラス（2・3号認定）",
+    "page": "https://www.city.chigasaki.kanagawa.jp/kosodate/1024751/hoikuen/1004734.html",
+    "pdf": "https://www.city.chigasaki.kanagawa.jp/_res/projects/default_project/_page_/001/004/734/201910hoikuryo.pdf",
+    "asOf": "2026-11-27",
+    "pageUpdated": "2025-08-19",
+    "note": "市の保育料のページ（更新日 令和7年8月19日）に掲載の基準額表（令和元年10月1日改定）から全段を転記。「保育所等のしおり」の令和7年9月11日発行版（令和8年4月〜令和9年3月の入所申請に使う版）と令和8年9月11日発行版の基準額表と、金額がすべて同じことを確認。4〜8月分は前年度、9〜3月分は当年度の市民税所得割額で算定（市のページ）。階層 B の「均等割のみ課税（要保護世帯）」は表に金額の記載が無く、このデータには入れていない。"
+  },
+  "seireiConversion": false,
+  "inputBasis": "salary",
+  "fiscalSwitch": 9,
+  "multiChild": {
+    "second": 0.5,
+    "third": 0,
+    "note": "第2子は表の金額（ひとり親世帯等の枠を除く）の半額、第3子以降は無料。ひとり親世帯等で所得割 77,101円未満は第1子が枠内の額、第2子以降は無料。数え方: ひとり親世帯等で 77,101円未満、それ以外で 57,700円未満の世帯は生計が同一の子を年齢に関わらず数える。それ以外は認可保育所等に在籍する就学前のきょうだいで数える（基準額表の注記）。"
+  },
+  "brackets": [
+    {
+      "level": 1,
+      "criteria": "seikatsuhogo",
+      "label": "A(生活保護世帯等)",
+      "standard": 0,
+      "short": 0
+    },
+    {
+      "level": 2,
+      "criteria": "hikazei",
+      "label": "B(非課税)",
+      "standard": 0,
+      "short": 0
+    },
+    {
+      "level": 3,
+      "label": "C(均等割のみ課税)",
+      "standard": 6700,
+      "short": 6700,
+      "maxShotokuwari": 0,
+      "hitorioya": {
+        "standard": 3350,
+        "short": 3350,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 4,
+      "label": "D1(48,600円未満)",
+      "standard": 7800,
+      "short": 7600,
+      "maxShotokuwari": 48599,
+      "hitorioya": {
+        "standard": 3900,
+        "short": 3800,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 5,
+      "label": "D2(48,600円以上52,000円未満)",
+      "standard": 12000,
+      "short": 11700,
+      "maxShotokuwari": 51999,
+      "hitorioya": {
+        "standard": 6000,
+        "short": 5850,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 6,
+      "label": "D3(52,000円以上57,000円未満)",
+      "standard": 15200,
+      "short": 14900,
+      "maxShotokuwari": 56999,
+      "hitorioya": {
+        "standard": 7600,
+        "short": 7450,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 7,
+      "label": "D4(57,000円以上65,000円未満)",
+      "standard": 17700,
+      "short": 17300,
+      "maxShotokuwari": 64999,
+      "hitorioya": {
+        "standard": 8850,
+        "short": 8650,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 8,
+      "label": "D5(65,000円以上77,101円未満)",
+      "standard": 19800,
+      "short": 19400,
+      "maxShotokuwari": 77100,
+      "hitorioya": {
+        "standard": 9000,
+        "short": 9000,
+        "child2": {
+          "standard": 0,
+          "short": 0
+        }
+      }
+    },
+    {
+      "level": 9,
+      "label": "D5(77,101円以上79,000円未満)",
+      "standard": 19800,
+      "short": 19400,
+      "maxShotokuwari": 78999
+    },
+    {
+      "level": 10,
+      "label": "D6(79,000円以上97,000円未満)",
+      "standard": 24800,
+      "short": 24300,
+      "maxShotokuwari": 96999
+    },
+    {
+      "level": 11,
+      "label": "D7(97,000円以上132,000円未満)",
+      "standard": 31800,
+      "short": 31200,
+      "maxShotokuwari": 131999
+    },
+    {
+      "level": 12,
+      "label": "D8(132,000円以上169,000円未満)",
+      "standard": 39300,
+      "short": 38600,
+      "maxShotokuwari": 168999
+    },
+    {
+      "level": 13,
+      "label": "D9(169,000円以上183,000円未満)",
+      "standard": 41900,
+      "short": 41100,
+      "maxShotokuwari": 182999
+    },
+    {
+      "level": 14,
+      "label": "D10(183,000円以上214,000円未満)",
+      "standard": 46900,
+      "short": 46100,
+      "maxShotokuwari": 213999
+    },
+    {
+      "level": 15,
+      "label": "D11(214,000円以上253,000円未満)",
+      "standard": 49200,
+      "short": 48300,
+      "maxShotokuwari": 252999
+    },
+    {
+      "level": 16,
+      "label": "D12(253,000円以上301,000円未満)",
+      "standard": 54300,
+      "short": 53300,
+      "maxShotokuwari": 300999
+    },
+    {
+      "level": 17,
+      "label": "D13(301,000円以上358,000円未満)",
+      "standard": 56300,
+      "short": 55300,
+      "maxShotokuwari": 357999
+    },
+    {
+      "level": 18,
+      "label": "D14(358,000円以上397,000円未満)",
+      "standard": 58300,
+      "short": 57300,
+      "maxShotokuwari": 396999
+    },
+    {
+      "level": 19,
+      "label": "D15(397,000円以上)",
+      "standard": 72800,
+      "short": 71500
+    }
+  ]
+}
