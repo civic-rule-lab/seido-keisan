@@ -190,8 +190,8 @@
 
     // きょうだい（多子）
     html+='<div class="sec">きょうだい（多子軽減）</div>'
-        +'<label for="enrolledOlder">保育所・認定こども園・幼稚園・地域型保育・児童発達支援などに通っている兄・姉の人数 <span class="hint">＝このお子さんの順位を決めます</span></label>'
-        +'<select id="enrolledOlder" data-step="7"><option value="0" selected>0人（第1子）</option><option value="1">1人（第2子）</option><option value="2">2人以上（第3子以降）</option></select>';
+        +'<label for="enrolledOlder">保育所・認定こども園・幼稚園・地域型保育・児童発達支援などに通っている兄・姉の人数 <span class="hint">小学生以上の兄・姉は入れず、下の欄で答えてください。お子さんが何人目として計算されるかは、2つの欄と市の基準・所得で決まります</span></label>'
+        +'<select id="enrolledOlder" data-step="7"><option value="0" selected>0人</option><option value="1">1人</option><option value="2">2人以上</option></select>';
     if(selKey){
       html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
     } else {
