@@ -251,6 +251,7 @@
           <select id="shogakuChildren" data-step="15b" data-step-end><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人以上（多子世帯）</option></select>
         </div>
       </div>
+      <div id="shogakuKidsHint" class="note" style="display:none;margin-top:8px;"></div>
       <div class="note" style="margin-top:8px;">高等教育の修学支援新制度（給付型奨学金＋授業料等減免）の目安判定です。上の「扶養・配偶者」に入れた控除を反映します。「扶養（19〜22歳）」が空欄なら、進学するお子さん1人をそこに数えて計算します。資産・本人収入・私立理工農系・貸与型は<a href="https://shogakukin-keisan.jp/" target="_blank" rel="noopener" style="color:#16a34a;font-weight:600;">奨学金かんたん計算 ↗</a>で反映できます。</div>
     </div>
   </div>
@@ -463,8 +464,46 @@
     function syncEmp(){ var jiei=(emp && emp.value==="jiei"); if(bf) bf.style.display = jiei ? "none" : "block"; if(bh) bh.style.display = jiei ? "none" : "block"; }
     if(emp){ emp.addEventListener("change", syncEmp); syncEmp(); }
   }
-  if(document.readyState!=="loading")initInputs();
-  else document.addEventListener("DOMContentLoaded",initInputs);
+  // ── 上の「扶養・配偶者」欄から子の人数を数える（2026-11-27・オーナー実機指摘）。奨学金欄の「扶養する子の人数」はここから自動で入れる ──
+  //   数えるのは 16歳未満・16〜18歳/23〜69歳・19〜22歳 の 3 欄（多子世帯の「子ども」は扶養親族のうち生計維持者の子で、年齢の上限は無い＝JASSO
+  //   「多子世帯に属している」の条件）。16〜18歳/23〜69歳の欄は親などと混ざるので、内訳を欄の下に出し、手で直せるようにする。
+  //   保育料も試算するなら、保育所の子（本人＋認可に通う兄・姉）を 16歳未満の下限にする（calcAll の famDY と同じ）。
+  function kidsFromFamily(){
+    var hoikuOn = !!((document.getElementById("hoikuOptIn")||{}).checked);
+    var young = Math.max(num("famDepYoung"), hoikuOn ? 1 + (Number((document.getElementById("hoikuSiblings")||{}).value)||0) : 0);
+    var general = num("famDepGeneral"), specific = num("famDepSpecific");
+    return { young: young, general: general, specific: specific, total: young + general + specific };
+  }
+  // 奨学金欄の値が「最後に自動で入れた値」のままなら自動のまま、違えば利用者が直した値として優先する
+  var _sgKidsAuto = "1";
+  function syncShogakuKids(){
+    var sel=document.getElementById("shogakuChildren"), hint=document.getElementById("shogakuKidsHint");
+    if(!sel) return { manual:false, total:0, auto:"1", last:_sgKidsAuto };
+    var k=kidsFromFamily();
+    var want = String(Math.min(3, Math.max(1, k.total)));
+    var manual = (sel.value !== _sgKidsAuto);
+    if(!manual){ sel.value = want; _sgKidsAuto = want; }
+    else if(sel.value === want){ _sgKidsAuto = want; manual = false; }   // 手で直した値が上の欄と揃ったら自動に戻す
+    if(hint){
+      if(k.total<1){ hint.style.display="none"; hint.textContent=""; }
+      else {
+        var parts=[]; if(k.young) parts.push("16歳未満 "+k.young+"人"); if(k.general) parts.push("16〜18歳・23〜69歳 "+k.general+"人"); if(k.specific) parts.push("19〜22歳 "+k.specific+"人");
+        var t = manual
+          ? "上の「扶養・配偶者」欄では "+k.total+"人（"+parts.join("、")+"）ですが、ここで選んだ「"+sel.options[sel.selectedIndex].text+"」で判定します。"
+          : "上の「扶養・配偶者」欄から "+k.total+"人と数えました（"+parts.join("、")+"）。進学するお子さんを含めた人数にしてください。親などを扶養に入れているときや、人数が違うときは、ここで直せます。";
+        hint.textContent=t; hint.style.display="block";
+      }
+    }
+    return { manual: manual, total: k.total, auto: want, last: _sgKidsAuto };
+  }
+  window.kidsFromFamily = kidsFromFamily; window.syncShogakuKids = syncShogakuKids;   // 画面テスト（test-kakeibo-dom.cjs）から呼ぶ
+  function initShogakuKids(){
+    ["famDepYoung","famDepGeneral","famDepSpecific"].forEach(function(id){ var e=document.getElementById(id); if(e){ e.addEventListener("input",syncShogakuKids); e.addEventListener("change",syncShogakuKids); } });
+    ["hoikuOptIn","hoikuSiblings","shogakuOptIn","shogakuChildren"].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener("change",syncShogakuKids); });
+    syncShogakuKids();
+  }
+  if(document.readyState!=="loading"){ initInputs(); initShogakuKids(); }
+  else document.addEventListener("DOMContentLoaded",function(){ initInputs(); initShogakuKids(); });
   function yen(n){return Math.round(n).toLocaleString()+" 円";}
   // 2026 年度のデータが無く前年度に下がって計算した制度の注記（S1-1 RF-2・修正順 S1 3-3）。
   //   engine.js は暗黙の年度フォールバックを禁じている。ここでは計算は続け、どの年度の料率かを結果欄に必ず出す
@@ -962,12 +1001,15 @@
           var sgLevel=((document.getElementById("shogakuLevel")||{}).value)||"大学";
           var sgSetti=((document.getElementById("shogakuSetti")||{}).value)||"私立";
           var sgAttend=((document.getElementById("shogakuAttend")||{}).value)||"自宅";
+          var sgKids=syncShogakuKids();   // 上の扶養欄と連動（手で直した値は優先）してから読む
           var sgChildren=Number(((document.getElementById("shogakuChildren")||{}).value))||1;
+          // 16歳未満の子だけを入れたときも、家族欄を入れた扱いにする（旧実装は famAny に 16歳未満が無く、上の欄を使わず近似で計算していた）
+          var famAnySg = famAny || famDY>0;
           // 配偶者収入の入力なし＝配偶者控除ありの近似。家族入力があればそれに従う。
           //   「あなたの区分」がひとり親（母・父）・寡婦なら配偶者はいないので近似を使わない（2026-11-09 オーナー指摘。旧実装は区分を見ず、
           //   ひとり親を選んで家族欄が空のとき配偶者控除 33 万と人数 +1 を足して支援区分が有利に出ていた）
           var sgSingle=(famSelfStatus==="mother"||famSelfStatus==="father"||famSelfStatus==="widow");   // 選択そのものを見る（所得 500 万超で控除が付かなくても配偶者はいない）
-          var sgHasSpouse=(sgSpouse===0) && !sgSingle && (famAny ? spouseKind==="haigu" : true);
+          var sgHasSpouse=(sgSpouse===0) && !sgSingle && (famAnySg ? spouseKind==="haigu" : true);
           // 生計維持者1=本人。社会保険料控除は本体と同じ一本化した実額（会社員=shaho／自営・年金=国保・国民年金・介護1号）。配偶者は本人分を計算していないため会社員=shaho実額／自営=約14.4%概算
           //   ＝奨学金サイトのかんたん判定（15%概算）より会社員は正確側。賞与込み給与で課税判定。
           //   家族欄を入れたときは、住民税カードと同じ配偶者控除・配偶者特別控除・扶養控除・人数・人的控除差を渡す（2026-10-30 全方向試算 C068・C069。
@@ -979,7 +1021,7 @@
           var sgSP = (selfSt.singleParent==="mother"||selfSt.singleParent==="father"||selfSt.singleParent==="widow") ? selfSt.singleParent : undefined;
           var sgSD = (famSelfDisability==="general"||famSelfDisability==="special") ? famSelfDisability : undefined;
           var sgAddStudent = (famDS===0) ? 1 : 0;
-          var sgSup=[ famAny
+          var sgSup=[ famAnySg
             ? { salary:grossSalary, pension:pension, otherIncome:sideIncome, age:age, socialInsurance:socialInsurance, singleParent:sgSP,
                 selfDisability:sgSD, minor:famJumin.minor, under23Dependent:famJumin.under23Dependent,
                 spouseDeduction:famJumin.spouseDeduction, dependentDeduction:famJumin.dependentDeduction + sgAddStudent*450000,
@@ -1010,6 +1052,9 @@
             sgInner+="<div class='ci-sub' style='line-height:1.7;'>扶養する子3人以上の多子世帯は、所得に関わらず授業料等減免が満額です（この所得帯では給付奨学金は支給なし）。</div>";
           } else if(!rsg.kubunCode){
             sgInner="<div class='ci-sub' style='line-height:1.7;'>この収入・人数の目安では支援区分の対象外です。扶養控除などを反映すると対象になる場合があります（下の「奨学金を詳しく判定」で確認できます）。</div>";
+          }
+          if(sgKids.manual && sgKids.total>=1){
+            sgInner+="<div class='ci-sub' style='margin-top:6px;line-height:1.7;'>上の「扶養・配偶者」欄では子が "+sgKids.total+"人ですが、奨学金欄で選んだ "+(sgChildren>=3?"3人以上":sgChildren+"人")+" で判定しました。</div>";
           }
           sgInner+="<div class='ci-sub' style='margin-top:6px;'>支援額のため、下の「年間負担の合計」には含めていません。</div>";
           cards.push("<div class='ci-grp' style='border-left:4px solid #16a34a;'><div class='ci-grp-head' style='color:#16a34a;'>奨学金（給付型＋授業料減免）<span class='ci-sub'>"+sgShort+"</span></div>"+sgInner+"</div>");
