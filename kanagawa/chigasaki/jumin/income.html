@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja" data-system="jumin">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="茅ヶ崎市の住民税（市民税・県民税）はいくら？社会保険料・扶養・保険料控除・ふるさと納税まで入力して令和8年度の税額を詳しくシミュレーション。所得割10.025%・均等割を反映。">
+<link rel="canonical" href="https://seido-keisan.jp/kanagawa/chigasaki/jumin/income.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="茅ヶ崎市の住民税シミュレーション｜控除・ふるさと納税対応の詳しい計算【令和8年度】">
+<meta property="og:description" content="茅ヶ崎市の住民税（市民税・県民税）はいくら？社会保険料・扶養・保険料控除・ふるさと納税まで入力して令和8年度の税額を詳しくシミュレーション。所得割10.025%・均等割を反映。">
+<meta property="og:url" content="https://seido-keisan.jp/kanagawa/chigasaki/jumin/income.html">
+<meta property="og:site_name" content="制度計算.jp">
+<meta property="og:locale" content="ja_JP">
+<link rel="stylesheet" href="/css/common.css?v=97f4dd1e">
+<title>茅ヶ崎市の住民税シミュレーション｜控除・ふるさと納税対応の詳しい計算【令和8年度】</title>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"制度計算ポータル","item":"https://seido-keisan.jp/"},{"@type":"ListItem","position":2,"name":"神奈川県","item":"https://seido-keisan.jp/#kanagawa"},{"@type":"ListItem","position":3,"name":"茅ヶ崎市","item":"https://seido-keisan.jp/kanagawa/chigasaki/"}]},{"@type":"WebApplication","name":"茅ヶ崎市 住民税計算ツール（詳しく）（令和8年度）","description":"茅ヶ崎市の住民税（市民税・県民税）はいくら？社会保険料・扶養・保険料控除・ふるさと納税まで入力して令和8年度の税額を詳しくシミュレーション。所得割10.025%・均等割を反映。","url":"https://seido-keisan.jp/kanagawa/chigasaki/jumin/income.html","applicationCategory":"FinanceApplication","operatingSystem":"Web","inLanguage":"ja","offers":{"@type":"Offer","price":"0","priceCurrency":"JPY"},"publisher":{"@id":"https://seido-keisan.jp/about/#organization"}},{"@type":"Organization","@id":"https://seido-keisan.jp/about/#organization","name":"Civic Rule Lab","alternateName":"Civic Systems","url":"https://seido-keisan.jp/about/"}]}</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H15R1TNWD2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-H15R1TNWD2');
+</script>
+<style>
+  /* ── 自己完結スタイル（common.css 不在でも整って見える） ── */
+  body{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:20px;background:linear-gradient(180deg,var(--tint) 0%,#f8fafc 100%);color:#1f2937;min-height:100vh;-webkit-text-size-adjust:100%;}
+  .wrap{max-width:560px;margin:0 auto;background:#ffffff;padding:28px 22px 32px;border-radius:18px;border:1px solid #e5e7eb;box-shadow:0 10px 30px rgba(0,0,0,0.05);box-sizing:border-box;}
+  .h1-seg{display:block;}
+  .h1-year{display:block;font-size:15px;font-weight:600;color:#6b7280;margin-top:4px;}
+  label{display:block;font-size:14px;font-weight:700;margin:14px 0 7px;color:#111827;}
+  input{width:100%;padding:13px 14px;font-size:16px;font-weight:500;border:2px solid #cbd5e1;border-radius:12px;background:#ffffff;color:#0f172a;box-sizing:border-box;}
+  input::placeholder{color:#9ca3af;font-weight:400;}
+  input:focus{outline:none;border-color:var(--acc-soft);box-shadow:0 0 0 3px var(--acc-ring);}
+  button{width:100%;margin-top:26px;padding:16px;font-size:17px;font-weight:700;border:none;border-radius:999px;background:var(--acc);color:#ffffff;cursor:pointer;box-shadow:0 6px 16px var(--acc-shadow);}
+  button:hover{background:var(--acc-strong);}
+  button:active{transform:translateY(1px);}
+  .result-title{margin-top:30px;margin-bottom:6px;font-size:17px;font-weight:700;color:#111827;}
+  .result-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:8px;}
+  .result-label{font-size:15px;color:#374151;flex:1;}
+  .amount{font-size:17px;font-weight:700;color:#0f172a;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;}
+  .result-placeholder{color:#9ca3af;font-size:14px;}
+  .note{margin-top:20px;font-size:12px;line-height:1.9;color:#6b7280;}
+
+  /* 住民税（詳しく）固有 */
+  .ji-section{margin:24px 0 6px;font-size:14px;font-weight:700;color:var(--acc);border-bottom:1px solid #e5e7eb;padding-bottom:4px;}
+  .ji-check{display:flex;align-items:center;gap:8px;font-size:14px;color:#374151;margin:8px 0;cursor:pointer;}
+  .ji-check input{width:18px;height:18px;accent-color:var(--acc-soft);}
+  .ji-hint{font-size:11px;color:#9ca3af;margin:2px 0 0;}
+  .ji-row{display:flex;justify-content:space-between;font-size:13px;color:#4b5563;padding:2px 0;}
+  .ji-row .amount{font-variant-numeric:tabular-nums;}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <h1 style="margin-top:28px;margin-bottom:24px;font-size:clamp(26px,4.2vw,30px);text-align:center;"><span class="h1-seg">茅ヶ崎市</span><span class="h1-seg">住民税計算（詳しく）</span><span class="h1-year">【令和8年度】</span></h1>
+
+  <p style="font-size:15px;color:#374151;line-height:1.7;margin:0 0 28px;">社会保険料・扶養・保険料控除・ふるさと納税まで入力すると、公式シミュレーターに近い精度で茅ヶ崎市の住民税を試算できます。</p>
+
+  <div class="ji-section">収入</div>
+  <label for="salary">給与収入（年収）</label>
+  <input id="salary" data-step="1" type="text" inputmode="numeric" placeholder="例：5,000,000">
+  <label for="pension">公的年金収入（任意）</label>
+  <input id="pension" data-step="2" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="business">事業所得（個人事業主の方・任意）</label>
+  <input id="business" data-step="3" type="text" inputmode="numeric" placeholder="例：0">
+  <p class="ji-hint">売上から経費（と青色申告特別控除）を引いた後の「所得金額」を入力してください。不動産所得などもここに合算できます。</p>
+  <label for="age">年齢</label>
+  <input id="age" data-step="4" type="text" inputmode="numeric" placeholder="例：40">
+
+  <div class="ji-section">社会保険料</div>
+  <label for="social">社会保険料（年額・空欄なら給与の約14.4%で概算）</label>
+  <input id="social" data-step="5" type="text" inputmode="numeric" placeholder="例：720,000">
+
+  <div class="ji-section">扶養・配偶者</div>
+  <label class="ji-check"><input type="checkbox" id="spouse"> 配偶者控除（配偶者の合計所得58万円以下＝給与収入123万円以下）</label>
+  <label for="spouse_salary">配偶者の給与年収（任意）</label>
+  <input id="spouse_salary" data-step="6" type="text" inputmode="numeric" placeholder="例：1,500,000">
+  <label class="ji-check"><input type="checkbox" id="spouse_elderly"> 配偶者が70歳以上（老人控除対象配偶者）</label>
+  <p class="ji-hint">配偶者の給与年収を入れると、配偶者控除（合計所得58万円以下）か配偶者特別控除（58万円超133万円以下・33万〜3万円）かを所得から自動で判定します（地方税法 第34条第1項第10号・第10号の2）。あなたの合計所得が900万円超950万円以下なら控除額は2/3、950万円超1,000万円以下なら1/3、1,000万円超なら控除なしです。</p>
+  <label for="dep_general">一般扶養親族（16〜18歳・23〜69歳）人数</label>
+  <input id="dep_general" data-step="7" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="dep_specific">特定扶養親族（19〜22歳・給与収入123万円以下）人数</label>
+  <input id="dep_specific" data-step="8" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="child_salary">19〜22歳の子の給与収入が123万円を超える場合：その給与収入（年収）</label>
+  <input id="child_salary" data-step="9" type="text" inputmode="numeric" placeholder="例：1,500,000">
+  <p class="ji-hint">アルバイト等の給与収入が123万円超188万円以下なら、特定親族特別控除（令和8年度新設・3万〜45万円）を収入額から自動判定します。上の人数には含めないでください。該当する子が2人以上いる場合は1人分のみ反映されます。</p>
+  <label for="dep_elderly">老人扶養親族（70歳以上）人数</label>
+  <input id="dep_elderly" data-step="10" type="text" inputmode="numeric" placeholder="例：0">
+  <label for="dep_young">16歳未満の子 人数</label>
+  <input id="dep_young" data-step="10a" type="text" inputmode="numeric" placeholder="例：0">
+  <p class="ji-hint">16歳未満の子は扶養控除がありませんが、住民税が非課税になるかの判定に使います。</p>
+  <label class="ji-check"><input type="checkbox" id="under23"> 16〜18歳の扶養親族・特別障害者の家族がいる</label>
+  <p class="ji-hint">給与収入850万円超のときの所得金額調整控除（最大15万円）に使います。16歳未満・19〜22歳の人数を入れた場合は自動で反映します。</p>
+
+  <div class="ji-section">保険料・医療費控除</div>
+  <label for="life">生命保険料控除額（住民税・上限7万円）</label>
+  <input id="life" data-step="11" type="text" inputmode="numeric" placeholder="例：28,000">
+  <label for="quake">地震保険料控除額（住民税・上限2.5万円）</label>
+  <input id="quake" data-step="12" type="text" inputmode="numeric" placeholder="例：25,000">
+  <label for="medical">医療費控除額</label>
+  <input id="medical" data-step="13" type="text" inputmode="numeric" placeholder="例：0">
+
+  <div class="ji-section">その他の控除</div>
+  <label class="ji-check"><input type="checkbox" id="disabled"> 障害者控除（本人・普通障害）</label>
+  <label for="selfStatus">ひとり親・寡婦</label>
+  <select id="selfStatus" data-step="13a">
+    <option value="none" selected>当てはまらない</option>
+    <option value="mother">ひとり親（母）</option>
+    <option value="father">ひとり親（父）</option>
+    <option value="widow">寡婦</option>
+  </select>
+
+  <div class="ji-section">ふるさと納税</div>
+  <label for="furusato">ふるさと納税の寄附額（年間）</label>
+  <input id="furusato" data-step="14" data-step-end type="text" inputmode="numeric" placeholder="例：50,000">
+  <p class="ji-hint">寄附金税額控除（住民税分）を確定申告ベースで概算し差し引きます。控除上限（所得割の約2割）超過分やワンストップ特例の住民税上乗せ分は反映しません。</p>
+
+  <button onclick="calcJuminFull()">計算する</button>
+
+  <div class="result-title">計算結果</div>
+  <div id="result"><span class="result-placeholder">ここに結果が表示されます</span></div>
+
+  <p style="margin-top:10px;font-size:12px;text-align:right;">
+    <a href="./" style="color:#6b7280;text-decoration:none;">← 茅ヶ崎市 かんたん計算に戻る</a>
+  </p>
+  <p style="margin-top:6px;font-size:12px;text-align:right;">
+    <a href="/furusato/" style="color:#b45309;text-decoration:none;font-weight:600;">ふるさと納税の上限額を計算する →</a>　<a href="/furusato/onestop/" style="color:#b45309;text-decoration:none;font-weight:600;">ワンストップ特例か確定申告か →</a>
+  </p>
+
+  <h2>計算の前提</h2>
+  <div class="note" style="margin-top:4px;">
+    <ul style="margin:0;padding-left:1.4em;">
+      <li>給与所得控除・社会保険料控除・各種所得控除・調整控除・ふるさと納税の寄附金税額控除を反映した試算です。</li>
+      <li>令和8年度新設の特定親族特別控除（19〜22歳の子等・給与収入123万円超188万円以下）に対応しています。</li>
+      <li>配偶者特別控除（配偶者の合計所得58万円超133万円以下）は「配偶者の給与年収」から自動判定します。配偶者が給与以外の所得（事業・年金など）の場合は、その合計所得を給与所得に読み替えて入力してください（給与収入＝合計所得＋65万円）。</li>
+      <li>事業所得は売上から経費を引いた「所得金額」を入力してください。社会保険料を空欄にした場合の概算（給与の約14.4%）には事業所得分（国保等）は含まれないため、実額入力をおすすめします。</li>
+      <li>生命保険料・地震保険料・医療費控除は住民税の控除額をそのまま入力してください。</li>
+      <li>住宅ローン控除・配当控除・分離課税は未対応です。</li>
+      <li>実際の税額は自治体の通知や公式案内でご確認ください。</li>
+    </ul>
+  </div>
+
+  <section class="source-section" data-source-state="verified" style="margin-top:36px;padding:14px 16px;background:#f9fafb;border-radius:10px;border:1px solid #e5e7eb;">
+    <h2 style="margin-top:0;">出典</h2>
+    <p style="margin:0 0 4px;font-size:12px;line-height:1.9;color:#4b5563;">出典: <a href="https://www.city.chigasaki.kanagawa.jp/zei/1015353/1003678.html" target="_blank" rel="noopener">個人市民税（個人住民税）について｜茅ヶ崎市 ↗</a></p>
+    <p style="margin:0;font-size:12px;line-height:1.9;color:#4b5563;">最終確認: 2026年11月27日 — Civic Rule Lab が上記の一次資料と照合しました。</p>
+  </section>
+
+  <p style="margin-top:28px;font-size:12px;color:#9ca3af;text-align:center;">制度ポータルへ戻る</p>
+  <div style="text-align:center;margin-top:6px;">
+    <a href="/" style="display:inline-block;text-decoration:none;border-radius:10px;padding:6px 18px;background:var(--brand);">
+      <div style="font-size:16px;font-weight:700;color:#ffffff;letter-spacing:0.02em;">Civic Rule Lab</div>
+      <div style="font-size:11px;font-weight:500;color:#ffffff;margin-top:1px;">市民 ↔ 制度</div>
+    </a>
+  </div>
+  <p style="margin-top:14px;font-size:12px;text-align:center;"><a href="https://seido-keisan.jp/about/" style="color:#6b7280;">運営者情報・プライバシーポリシー・免責事項</a></p>
+<p style="margin-top:14px;font-size:12px;text-align:center;color:#6b7280;">運営：Civic Rule Lab（Civic Systems）｜ <a href="https://seido-keisan.jp/about/" style="color:#6b7280;">運営者情報・免責</a></p>
+<p style="margin-top:6px;font-size:12px;text-align:center;color:#6b7280;">関連サイト： <a href="https://kokuho-keisan.jp/" style="color:#6b7280;">国保計算</a> ／ <a href="https://shaho-keisan.jp/" style="color:#6b7280;">社会保険の計算</a> ／ <a href="https://shogakukin-keisan.jp/" style="color:#6b7280;">奨学金かんたん計算</a></p>
+
+</div>
+
+<script>const JUMIN_DATA = {"cityCode":"14207","citySlug":"chigasaki","cityName":"茅ヶ崎市","prefSlug":"kanagawa","fiscalYear":2026,"system":"jumin","schemaVersion":"1.0","status":"verified","prefRate":0.04025,"prefPerCapita":1300,"cityRate":0.06,"cityPerCapita":3000,"source":{"url":"https://www.city.chigasaki.kanagawa.jp/zei/1015353/1003678.html","pageTitle":"個人市民税（個人住民税）について｜茅ヶ崎市","retrievedAt":"2026-11-27"},"notes":"市民税 6%・均等割 3,000円、県民税 4.025%・均等割 1,300円（神奈川県の水源環境保全税の上乗せ 0.025%・300円を含む。令和8年度まで延長）を市の公式ページで確認。市の公式 FAQ「茅ヶ崎市の市・県民税は高いのではないですか。」で、市民税は地方税法の標準税率を採用していることを確認。"}; const CITY_SLUG = "chigasaki"; const PUBLISH_YEAR = 2026; const JUMIN_KYUCHI = 1;</script>
+<script src="/js/core/shared/ui-input.js?v=c0b5b66c"></script>
+<script src="/js/core/shared/income.js?v=c0b5b66c"></script>
+<script src="/js/core/jumin.js?v=c0b5b66c"></script>
+<!-- ふるさと納税の寄附金税額控除（令和8年度分＝2025年中の寄附）。制度値 data/national/furusato-2026.json を生成時に埋め込む -->
+<script>const FURUSATO_DATA = {
+  "meta": {
+    "scheme": "ふるさと納税（都道府県・市区町村に対する寄附金）の寄附金税額控除・控除上限額",
+    "juminFiscalYear": 2026,
+    "juminFiscalYearLabel": "令和8年度（2026年度）分の個人住民税",
+    "donationYear": 2025,
+    "donationYearLabel": "2025年（令和7年）中の寄附",
+    "shotokuYear": 2025,
+    "unit": "円",
+    "confidence": "verified",
+    "verifiedAt": "2026-10-05",
+    "source": {
+      "law": "地方税法 第37条の2第11項・第314条の7第11項（特例控除額）、第37条第1号イ・第314条の6第1号イ（人的控除差）、附則第5条の6（復興特別所得税を加味した割合） e-Gov 法令API https://laws.e-gov.go.jp/api/1/lawdata/325AC0000000226 （2026-10-01 施行版を 2026-10-05 取得）",
+      "amendment": "地方税法等の一部を改正する法律（令和8年法律第2号） https://www.soumu.go.jp/main_content/001066281.pdf 附則第1条第2号（第37条の2第11項の改正のうち第1号に係る部分は令和8年4月1日施行）、附則第3条第1項・第9項、第11条第1項・第8項",
+      "explanation": [
+        "総務省「税金の控除について」 https://www.soumu.go.jp/main_sosiki/jichi_zeisei/czaisei/czaisei_seido/furusato/mechanism/deduction.html",
+        "練馬区「寄附金税額控除」（更新 2026-02-25） https://www.city.nerima.tokyo.jp/kurashi/zei/jyuminzei/zeigakukojo/kifukinzeigakukojo.html"
+      ]
+    },
+    "notes": [
+      "特例控除の割合は、附則第5条の6 による読み替え後の値（第37条の2第11項第1号の表 85/80/70/67/57/50/45% から復興特別所得税分を引いたもの）。課税総所得金額から人的控除差調整額を控除した金額が0円未満のときの 90%（同項第2号）は附則で読み替えられない。",
+      "人的控除差調整額 ＝ 第37条第1号イの金額（基礎控除の差5万円＋該当者ごとの加算）＋ max(0, 前年分の所得税の基礎控除の額 − 48万円)。後半の加算は令和8年法律第2号による第1号の改正で、令和8年4月1日施行・令和8年度分以後に適用（附則第1条・第3条第1項）。",
+      "特例控除額の193万円の上限（道府県民税 77.2万円・市町村民税 115.8万円。指定都市は 38.6万円・154.4万円）は、令和10年度分（2027年中の寄附）以後に適用（附則第3条第9項・第11条第8項）。2025年中の寄附には適用しないため、本ファイルの値には入れていない。",
+      "割合の表・第37条第1号イの表は furusato-2027.json（令和9年度分）と同じ条文・同じ値。違いは人的控除差調整額に使う『前年分の所得税の基礎控除の額』が令和7年分になること（shotokuBasicDeductionTable）。住民税の詳しく計算（templates/jumin-income.html・令和8年度分）が使う。",
+      "課税山林所得金額・課税退職所得金額がある場合の割合（第37条の2第11項第3号）は扱わない。"
+    ]
+  },
+  "selfBurden": 2000,
+  "specialRatio": {
+    "basis": "課税総所得金額 − 人的控除差調整額",
+    "bands": [
+      { "upTo": 1950000, "percent": 84.895 },
+      { "upTo": 3300000, "percent": 79.79 },
+      { "upTo": 6950000, "percent": 69.58 },
+      { "upTo": 9000000, "percent": 66.517 },
+      { "upTo": 18000000, "percent": 56.307 },
+      { "upTo": 40000000, "percent": 49.16 },
+      { "upTo": null, "percent": 44.055 }
+    ],
+    "negativePercent": 90
+  },
+  "humanAdjustment": {
+    "shotokuBasicDeductionOffset": 480000
+  },
+  "shotokuBasicDeductionTable": {
+    "_source": "国税庁 タックスアンサー No.1199 基礎控除（令和8年4月1日現在法令等・2026-10-07 取得）の『令和7年分』の列 https://www.nta.go.jp/taxes/shiraberu/taxanswer/shotoku/1199.htm 。所得税法第86条・租税特別措置法第41条の16の2 適用後の額（居住者）",
+    "_format": "[[合計所得金額の上限（null=上限なし）, 控除額], ...]。furusato.js の furusatoShotokuBasicDeduction に渡す",
+    "rows": [
+      [1320000, 950000],
+      [3360000, 880000],
+      [4890000, 680000],
+      [6550000, 630000],
+      [23500000, 580000],
+      [24000000, 480000],
+      [24500000, 320000],
+      [25000000, 160000],
+      [null, 0]
+    ]
+  },
+  "humanDiffTable": {
+    "_source": "地方税法 第37条第1号イ（市町村民税は第314条の6第1号イ）の表。e-Gov 2026-10-01 施行版を 2026-10-05 取得。令和8年法律第2号はこの表を改めていない。",
+    "_note": "表の（3）は寡婦または政令で定めるひとり親（1万円）、（4）は政令で定めるひとり親（5万円）。政令の区分は shogakukin-bridge.js の既存の近似（母5万・父1万）に合わせた［政令の原文は未照合］。なお furusato-2027.json の同表は地方税法施行令 第7条の16の2 を照合済み（2026-10-11・同ファイルの _note）で、本表の各金額（_source・_note 以外の全項目）は 2027 版と同一（2026-11-09 に 2 ファイルを機械比較して一致を確認。2026 版について政令の原文を照合したものではない）。表の（7）（控除対象配偶者に当たらない合計所得55万円未満の配偶者）は、令和9年度分では控除対象配偶者の所得要件が62万円以下のため、本人の合計所得1,000万円以下の範囲で該当者がいない＝扱わない。扶養親族・配偶者の障害の加算も扱わない（簡単計算の入力に無い）。",
+    "base": 50000,
+    "selfDisabled": 10000,
+    "selfSpecialDisabled": 100000,
+    "widow": 10000,
+    "singleParentFather": 10000,
+    "singleParentMother": 50000,
+    "workingStudent": 10000,
+    "spouse": [
+      { "selfIncomeUpTo": 9000000, "general": 50000, "elderly": 100000 },
+      { "selfIncomeUpTo": 9500000, "general": 40000, "elderly": 60000 },
+      { "selfIncomeUpTo": 10000000, "general": 20000, "elderly": 30000 },
+      { "selfIncomeUpTo": null, "general": 0, "elderly": 0 }
+    ],
+    "dependentGeneral": 50000,
+    "dependentSpecific": 180000,
+    "dependentElderly": 100000,
+    "dependentCohabitingParent": 130000
+  },
+  "specialCapRateOfIncomeLevy": 0.2,
+  "juminBasicRate": 0.1,
+  "juminBasicCapRateOfTotalIncome": 0.3,
+  "shotokuCapRateOfTotalIncome": 0.4,
+  "shotokuSurtaxMultiplier": 1.021
+};</script>
+<script src="/js/core/furusato.js?v=c0b5b66c"></script>
+<script>
+(function () {
+  "use strict";
+  function num(id){var v=document.getElementById(id);if(!v||v.value==="")return null;var n=Number(toHalfWidth(v.value).replace(/[^\d]/g,""));return isFinite(n)?Math.max(0,n):null;}
+  function chk(id){var v=document.getElementById(id);return !!(v&&v.checked);}
+  // 入力欄の全角数字を半角にライブ変換（IME対応・国保と挙動統一）
+  function initInputs(){
+    ["salary","pension","business","child_salary","spouse_salary","social","life","quake","medical","furusato"].forEach(function(id){setupNumericInput(id,{withCommas:true});});
+    ["age","dep_general","dep_specific","dep_elderly","dep_young"].forEach(function(id){setupNumericInput(id,{withCommas:false});});
+  }
+  if(document.readyState!=="loading")initInputs();
+  else document.addEventListener("DOMContentLoaded",initInputs);
+
+  window.calcJuminFull = function(){
+    var result=document.getElementById("result");
+    try{
+      var salary=num("salary")||0, pension=num("pension")||0, business=num("business")||0, age=num("age");
+      if(salary===0 && pension===0 && business===0){result.innerHTML="<span class='result-placeholder'>給与収入・年金収入・事業所得のいずれかを入力してください</span>";return;}
+      // 年齢は必須。旧実装は空欄を黙って 40 歳として計算していた（2026-11-09・S1-1 W2C-03）
+      if(age===null || age===0){result.innerHTML="<span class='result-placeholder'>年齢を入力してください（公的年金等控除は 65 歳以上で変わります）</span>";return;}
+
+      // 社会保険料：実額入力、空欄なら給与の14.4%概算
+      var social=num("social"); if(social===null)social=Math.round(salary*0.144);
+
+      // 扶養・配偶者控除（住民税の控除額）と人的控除差（調整控除用）
+      var spouseDed=0, depDed=0, disDed=0, spDed=0;
+      var dg=num("dep_general")||0, ds=num("dep_specific")||0, de=num("dep_elderly")||0, dy=num("dep_young")||0;
+      // 給与収入850万円超の所得金額調整控除（租税特別措置法 第41条の3の11第1項）: 23歳未満の扶養親族（16歳未満・19〜22歳の人数）か、
+      //   印（16〜18歳の扶養親族・特別障害者の家族）があれば適用する
+      var under23 = dy>0 || ds>0 || chk("under23");
+      var selfIncome=calculateJumin(JUMIN_DATA, {salary:salary, pension:pension, age:age, otherIncome:business, kyuchi:JUMIN_KYUCHI, under23Dependent:under23}).totalIncome;
+      // ひとり親・寡婦（第314条の2第1項第8号・第8号の2・合計所得500万円以下）。所得要件を外れたら控除・人的控除差なし
+      var st=calcSelfStatusDeductionJumin({ selfIncome:selfIncome, singleParent:(document.getElementById("selfStatus")||{}).value||"none" });
+      spDed=st.singleParentDeduction;
+      // 配偶者控除／配偶者特別控除（2026-10-12 X184）: 配偶者の給与年収があれば所得から自動判定。無ければチェックどおり控除対象（所得0）。
+      //   本人の合計所得で 3 段階（900万以下／950万以下／1,000万以下・超は 0）。計算は jumin.js calcSpouseDeductionJumin（第34条第1項第10号・第10号の2）。
+      //   人的控除差（第37条第1号イの表）: 控除対象配偶者 5万・老人控除対象配偶者 10万。特別控除の配偶者は表(7)の対象外（所得55万未満のみ）＝0。
+      var spouseSalary=num("spouse_salary")||0, spouseKind="none", spouseHD="none";
+      if(chk("spouse") || spouseSalary>0){
+        var sd=calcSpouseDeductionJumin({ selfIncome:selfIncome, spouseIncome:(spouseSalary>0?calcSalaryIncome(spouseSalary):0), age70plus:chk("spouse_elderly") });
+        spouseDed=sd.deduction; spouseKind=sd.kind; spouseHD=sd.humanDiffSpouse;
+      }
+      depDed += dg*330000 + ds*450000 + de*380000;
+      if(chk("disabled")) disDed+=260000;
+      // 人的控除差（調整控除・第37条第1号イの表）。配偶者の分は本人の合計所得900万円超で逓減（5万→4万→2万、老人10万→6万→3万）、
+      //   ひとり親は母5万・父1万、寡婦1万（表は data/national/furusato-2026.json の humanDiffTable）
+      var humanDiff=furusatoHumanDeductionDiff({ selfTotalIncome:selfIncome, spouse:spouseHD,
+        dependentGeneral:dg, dependentSpecific:ds, dependentElderly:de, dependentCohabitingParent:0,
+        selfDisability:(chk("disabled")?"general":"none"), singleParent:st.singleParent, workingStudent:false }, FURUSATO_DATA);
+
+      var life=Math.min(num("life")||0,70000);
+      var quake=Math.min(num("quake")||0,25000);
+      var medical=num("medical")||0;
+      var dependents = (spouseKind==="haigu"?1:0) + dg + ds + de + dy;   // 特別控除の配偶者は同一生計配偶者ではないので非課税判定の人数に入れない。16歳未満の子は入れる（施行令 第47条の3第1号）
+      // 19〜22歳の子の給与収入（123万円超）→ 特定親族特別控除をエンジンで自動判定
+      var childSalary=num("child_salary")||0;
+
+      var common={
+        salary:salary, pension:pension, age:age,
+        otherIncome:business,
+        socialInsurance:social,
+        kyuchi:JUMIN_KYUCHI,
+        spouseDeduction:spouseDed, dependentDeduction:depDed,
+        disabilityDeduction:disDed, singleParentDeduction:spDed,
+        selfDisabled:chk("disabled"),   // 本人の障害者（合計所得135万円以下で非課税）。寡婦・ひとり親は spDed から判定される
+        minor:(age<18),                 // 未成年者（民法 第4条・18歳未満。賦課期日1月1日の年齢）も合計所得135万円以下で非課税（地方税法 第295条第1項第2号）
+        under23Dependent:under23,
+        lifeInsuranceDeduction:life, earthquakeInsuranceDeduction:quake, medicalDeduction:medical,
+        dependents:dependents, humanDeductionDiff:humanDiff,
+        specialDependentSalaries: childSalary>0 ? [childSalary] : []
+      };
+
+      // 1) ふるさと納税前の所得割を算出
+      var r0=calculateJumin(JUMIN_DATA, common);
+
+      // 2) ふるさと納税の寄附金税額控除（住民税分＝基本分＋特例分）を概算（js/core/furusato.js）
+      //   特例控除の割合は「課税総所得金額 − 人的控除差調整額」の区分で決まる（地方税法 第37条の2第11項第1号）。
+      //   人的控除差調整額 ＝ 調整控除に使う人的控除差（r0.humanDeductionDiff）＋ max(0, 令和7年分の所得税の基礎控除 − 48万円)。
+      //   旧実装は区分を課税総所得金額で引いており、境目付近で1段上の区分（低い割合）になっていた（TASKS X173-14）。
+      var furusato=num("furusato")||0, furusatoCredit=0;
+      if(furusato>2000 && r0.incomeLevy>0){
+        var fzKiso=furusatoShotokuBasicDeduction(r0.totalIncome, FURUSATO_DATA.shotokuBasicDeductionTable.rows);
+        var fzLim=calcFurusatoLimit({incomeLevy:r0.incomeLevy, taxableIncome:r0.taxableIncome, humanDeductionDiff:r0.humanDeductionDiff, shotokuBasicDeduction:fzKiso}, FURUSATO_DATA);
+        if(fzLim.ratio){
+          var fzB=calcFurusatoBreakdown(furusato, {incomeLevy:r0.incomeLevy, ratio:fzLim.ratio, shotokuMarginalRate:0, totalIncome:r0.totalIncome}, FURUSATO_DATA);
+          furusatoCredit=fzB.juminBasic+fzB.juminSpecial;
+        }
+      }
+
+      // 3) 税額控除を反映して再計算
+      var r=calculateJumin(JUMIN_DATA, Object.assign({}, common, {taxCredits:furusatoCredit}));
+
+      if(typeof gtag==="function"){gtag("event","calculate",{city:(typeof CITY_SLUG!=="undefined"?CITY_SLUG:"unknown"),calc_type:"jumin-income"});}
+
+      result.innerHTML=
+        "<div class='result-row'><div class='result-label'>課税総所得金額</div><div class='amount'>"+r.taxableIncome.toLocaleString()+" 円</div></div>"+
+        (spouseKind!=="none"?"<div class='ji-row'><span>　"+(spouseKind==="haigu"?"配偶者控除":"配偶者特別控除")+(spouseSalary>0?"（配偶者の合計所得 "+calcSalaryIncome(spouseSalary).toLocaleString()+" 円）":"")+"</span><span class='amount'>-"+spouseDed.toLocaleString()+" 円</span></div>":"")+
+        ((chk("spouse")||spouseSalary>0)&&spouseKind==="none"?"<div class='ji-row'><span>　配偶者控除</span><span class='amount'>対象外（配偶者の合計所得133万円超、またはあなたの合計所得1,000万円超）</span></div>":"")+
+        (r.specialDependentDeduction>0?"<div class='ji-row'><span>　19〜22歳の子の控除（特定扶養／特定親族特別控除）</span><span class='amount'>-"+r.specialDependentDeduction.toLocaleString()+" 円</span></div>":"")+
+        "<div class='result-row'><div class='result-label'>所得割（調整控除"+(r.adjustmentCredit?"・税額控除":"")+"後）</div><div class='amount'>"+r.incomeLevy.toLocaleString()+" 円</div></div>"+
+        (furusatoCredit>0?"<div class='ji-row'><span>　うちふるさと納税控除</span><span class='amount'>-"+furusatoCredit.toLocaleString()+" 円</span></div>":"")+
+        "<div class='result-row'><div class='result-label'>均等割（森林環境税含む）</div><div class='amount'>"+r.perCapita.toLocaleString()+" 円</div></div>"+
+        "<div class='result-row'><div class='result-label'>住民税 合計（年額）</div><div class='amount'>"+r.total.toLocaleString()+" 円</div></div>"+
+        "<div class='result-row'><div class='result-label'>月額目安</div><div class='amount'>約 "+r.monthly.toLocaleString()+" 円</div></div>"+
+        (r.isTaxable?"":"<div class='result-row'><div class='result-label'>判定</div><div class='amount'>非課税</div></div>")+
+        (r.kintoBorderline?"<p class='note' style='margin:8px 0 0;font-size:12px;line-height:1.7;color:#92400e;'>※この所得は、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（"+r.kyuchi+"級地）では課税ですが、条例で基準額を少し高く定めている自治体では非課税になることがあります。お住まいの自治体でご確認ください。</p>":"");
+    }catch(e){
+      result.innerHTML="<div class='result-label'>計算エラー</div><div class='monthly'>"+e.message+"</div>";
+    }
+  };
+})();
+</script>
+
+</body>
+</html>

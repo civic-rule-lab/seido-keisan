@@ -205,6 +205,18 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://seido-keisan.jp/kanagawa/chigasaki/jumin/income.html</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://seido-keisan.jp/kanagawa/chigasaki/jumin/</loc>
+    <lastmod>2026-11-27</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://seido-keisan.jp/kanagawa/chigasaki/kaigo/</loc>
     <lastmod>2026-09-16</lastmod>
     <changefreq>yearly</changefreq>

@@ -6,12 +6,15 @@
   "fiscalYear": 2026,
   "system": "jumin",
   "schemaVersion": "1.0",
-  "status": "inferred",
+  "status": "verified",
   "prefRate": 0.04025,
   "prefPerCapita": 1300,
+  "cityRate": 0.06,
+  "cityPerCapita": 3000,
   "source": {
-    "url": "https://www.city.yokohama.lg.jp/kurashi/koseki-zei-hoken/zeikin/y-shizei/kojin-shiminzei-kenminzei/kojin-shimin.html",
-    "retrievedAt": "2026-10-09",
-    "scope": "prefecture"
-  }
+    "url": "https://www.city.chigasaki.kanagawa.jp/zei/1015353/1003678.html",
+    "pageTitle": "個人市民税（個人住民税）について｜茅ヶ崎市",
+    "retrievedAt": "2026-11-27"
+  },
+  "notes": "市民税 6%・均等割 3,000円、県民税 4.025%・均等割 1,300円（神奈川県の水源環境保全税の上乗せ 0.025%・300円を含む。令和8年度まで延長）を市の公式ページで確認。市の公式 FAQ「茅ヶ崎市の市・県民税は高いのではないですか。」で、市民税は地方税法の標準税率を採用していることを確認。"
 }
