@@ -153,9 +153,9 @@
         +'<div class="sec">世帯の収入</div>'
         +'<label for="fatherSalary">父（保護者1）の年収 <span class="hint">給与収入・円</span></label><input id="fatherSalary" data-step="1" inputmode="numeric" placeholder="例：4,000,000">'
         +'<label for="motherSalary">母（保護者2）の年収 <span class="hint">円・ひとり親は空欄</span></label><input id="motherSalary" data-step="2" inputmode="numeric" placeholder="ひとり親は空欄でOK">'
-        +'<details id="depDetails"><summary>ほかに扶養している家族（高校生以上の子・親など）</summary>'
-        +'<label for="depGeneral">16〜18歳・23〜69歳 <span class="hint">人</span></label><input id="depGeneral" data-step="3a" inputmode="numeric" placeholder="例：0">'
-        +'<label for="depSpecific">19〜22歳 <span class="hint">人</span></label><input id="depSpecific" data-step="3b" inputmode="numeric" placeholder="例：0">'
+        +'<details id="depDetails"><summary>ほかに扶養している家族（親など）</summary>'
+        +'<div class="note" style="margin-top:6px">お子さんの兄・姉は、下の「きょうだい（多子軽減）」に年齢別に入れてください（ここには入れません）。</div>'
+        +'<label for="depGeneral">23〜69歳 <span class="hint">人</span></label><input id="depGeneral" data-step="3a" inputmode="numeric" placeholder="例：0">'
         +'<label for="depElderly">70歳以上（同居の親以外） <span class="hint">人</span></label><input id="depElderly" data-step="3c" inputmode="numeric" placeholder="例：0">'
         +'<label for="depParent">同居の親など（70歳以上） <span class="hint">人</span></label><input id="depParent" data-step="3d" inputmode="numeric" placeholder="例：0">'
         +'</details>'
@@ -190,16 +190,16 @@
 
     // きょうだい（多子）
     html+='<div class="sec">きょうだい（多子軽減）</div>'
-        +'<label for="enrolledOlder">保育所・認定こども園・幼稚園・地域型保育・児童発達支援などに通っている兄・姉の人数 <span class="hint">小学生以上の兄・姉は入れず、下の欄で答えてください。お子さんが何人目として計算されるかは、2つの欄と市の基準・所得で決まります</span></label>'
+        +'<label for="enrolledOlder">保育所・認定こども園・幼稚園・地域型保育・児童発達支援などに通っている兄・姉の人数 <span class="hint">小学生以上の兄・姉は入れず、下の欄で答えてください。お子さんが何人目として計算されるかは、下の欄とあわせて、市の基準・所得で決まります</span></label>'
         +'<select id="enrolledOlder" data-step="7"><option value="0" selected>0人</option><option value="1">1人</option><option value="2">2人以上</option></select>';
-    if(selKey){
-      html+='<div class="chk"><input type="checkbox" id="selFlag"><label for="selFlag" style="margin:0">小学生など「在園していない年上のきょうだい」がいる <span class="hint">年収360万円未満相当が対象</span></label></div>';
-    } else {
-      // 在園していない年上のきょうだい（小学生以上など）。数えるかは市の基準と所得でエンジンが判定する
-      // （世帯の全きょうだいを数える市、または施行令14条の低所得世帯のとき順位に足す）
-      html+='<label for="olderNotEnrolled">在園していない年上のきょうだい（小学生以上など・生計が同じ）の人数 <span class="hint">市の基準や所得によって数えます</span></label>'
-          +'<select id="olderNotEnrolled" data-step="7b"><option value="0" selected>0人</option><option value="1">1人</option><option value="2">2人</option><option value="3">3人以上</option></select>';
-    }
+    // 在園していない年上のきょうだい（小学生以上など）を年齢別に 1 回だけ聞く（2026-11-28・オーナー指摘。旧実装は人数だけを聞き、
+    // 高校生以上は「ほかに扶養している家族」にも入れさせていた）。合計＝多子軽減の順位に使う人数（数えるかは市の基準と所得でエンジンが判定。
+    // 新潟型＝selector の市は「いる／いない」だけを使う）。年齢別＝住民税の人数と扶養控除（中学生以下＝16歳未満・16〜18歳＝一般・19〜22歳＝特定）。
+    html+='<div class="sec" style="margin-top:14px">在園していない年上のきょうだい（小学生以上など・生計が同じ）</div>'
+        +'<div class="note">'+(selKey?'年収360万円未満相当の世帯で数えます。':'市の基準や所得によって数えます。')+'年齢は税の計算にも使います（23歳以上は上の「ほかに扶養している家族」へ）。</div>'
+        +'<label for="olderYoung">中学生以下 <span class="hint">人</span></label><input id="olderYoung" data-step="7b" inputmode="numeric" placeholder="例：0">'
+        +'<label for="olderHigh">16〜18歳（高校生など） <span class="hint">人</span></label><input id="olderHigh" data-step="7c" inputmode="numeric" placeholder="例：0">'
+        +'<label for="olderCollege">19〜22歳（大学生など） <span class="hint">人</span></label><input id="olderCollege" data-step="7d" inputmode="numeric" placeholder="例：0">';
 
     // 世帯の状況
     html+='<div class="sec">世帯の状況</div>'
@@ -218,7 +218,7 @@
 
     // 全角→半角ライブ変換
     ["fatherSalary","motherSalary","fatherShotoku","motherShotoku"].forEach(function(id){ setupNumericInput(id,{withCommas:true}); });
-    ["depGeneral","depSpecific","depElderly","depParent"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
+    ["depGeneral","depElderly","depParent","olderYoung","olderHigh","olderCollege"].forEach(function(id){ setupNumericInput(id,{withCommas:false}); });
     var mo=document.getElementById("month"); if(mo)mo.addEventListener("change",function(){ document.getElementById("monthNote").style.display=(mo.value!=String(sw))?"block":"none"; });
   }
 
@@ -312,9 +312,11 @@
         //    印が無ければ所得割0でも均等割のみ課税の階層になる（名古屋 C1 など・全方向試算 C106）
         input.hikazei = checked("directHikazei");
       }else{
-        var _children = 1 + (Number(val("enrolledOlder"))||0) + (findSelector() && checked("selFlag") ? 1 : 0);
+        // 16歳未満の子＝保育所の子＋在園の兄姉＋在園していない中学生以下のきょうだい。16〜18歳は一般扶養、19〜22歳は特定扶養に足す
+        //   （旧実装は在園していないきょうだいを新潟型の印 1 人しか人数に入れず、非課税限度額の人数が少なく出ていた）
+        var _children = 1 + (Number(val("enrolledOlder"))||0) + num("olderYoung");
         var fam = familyFor(num("fatherSalary"), num("motherSalary"), _children, input.hitorioya,
-                            { general:num("depGeneral"), specific:num("depSpecific"), elderly:num("depElderly"), parent:num("depParent") });
+                            { general:num("depGeneral")+num("olderHigh"), specific:num("olderCollege"), elderly:num("depElderly"), parent:num("depParent") });
         var f=juminOf(num("fatherSalary"), fam.father), m=juminOf(num("motherSalary"), fam.mother);
         input.father={shotokuwari:f.shotokuwari}; input.mother={shotokuwari:m.shotokuwari};
         input.isSeireiNotice=false; // 年収経路は固定6%済み（政令市補正しない）
@@ -333,9 +335,10 @@
       var enrolled = Number(val("enrolledOlder"))||0;
       var childOrder = enrolled + 1;
       var selKey=findSelector();
-      if(selKey && checked("selFlag")){ childOrder += 1; input[selKey]=true; }
+      var olderOut = num("olderYoung") + num("olderHigh") + num("olderCollege");   // 在園していない年上のきょうだいの合計
+      if(selKey && olderOut>0){ childOrder += 1; input[selKey]=true; }
       input.childOrder = childOrder;
-      if(document.getElementById("olderNotEnrolled")) input.olderNotEnrolled = Number(val("olderNotEnrolled"))||0;
+      if(!selKey) input.olderNotEnrolled = olderOut;
 
       var r = calcHoiku(input, M);
       var mo = r.monthly||0;
@@ -345,7 +348,7 @@
       if(r.reason) rows+='<div class="note" style="margin-top:4px">'+esc(r.reason)+'</div>';
       if(!directOn && !anyIncome) rows+='<div class="note" style="margin-top:4px">※父母とも収入0（住民税非課税）として計算しました。</div>';
       if(kintoBorderNote) rows+='<div class="note" style="margin-top:4px;color:#92400e">※収入が、住民税（均等割）が非課税になる基準をわずかに上回っています。国の基準（'+JUMIN_KYUCHI+'級地）では課税として計算していますが、条例で基準額を少し高く定めている自治体では住民税非課税世帯となり、保育料が変わることがあります。お住まいの自治体でご確認ください。</div>';
-      if(childOrder>=2 && enrolled===0 && checked("selFlag") && r.reason && r.reason.indexOf('第2子・'+selKey)>=0) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
+      if(childOrder>=2 && enrolled===0 && selKey && olderOut>0 && r.reason && r.reason.indexOf('第2子・'+selKey)>=0) rows+='<div class="note">※非在園の年上きょうだいを1人目に数えて第2子として計算しています。</div>';
       out.innerHTML=rows;
     }catch(e){
       out.innerHTML='<div class="warn">計算エラー: '+esc(e.message)+'</div>';

@@ -211,7 +211,8 @@
           <select id="hoikuOlderOut" data-step="12c"><option value="0" selected>0人</option><option value="1">1人</option><option value="2">2人</option><option value="3">3人以上</option></select>
         </div>
       </div>
-      <div id="hoikuSiblingsHint" class="note" style="margin-top:8px;">小学生以上の兄・姉は「在園していない年上のきょうだい」に入れてください。お子さんが何人目として計算されるかは、この2つの欄と、市の基準・所得で決まります。</div>
+      <div id="hoikuSiblingsHint" class="note" style="margin-top:8px;">小学生以上の兄・姉は「在園していない年上のきょうだい」に数えます。お子さんが何人目として計算されるかは、この2つの欄と、市の基準・所得で決まります。</div>
+      <div id="hoikuOlderHint" class="note" style="display:none;margin-top:6px;"></div>
       <label style="display:flex;align-items:center;gap:8px;margin-top:12px;">
         <input type="checkbox" id="hoikuHitorioya"> ひとり親世帯・世帯員に障害者がいる
       </label>
@@ -498,7 +499,35 @@
     return { manual: manual, total: k.total, auto: want, last: _sgKidsAuto };
   }
   window.kidsFromFamily = kidsFromFamily; window.syncShogakuKids = syncShogakuKids;   // 画面テスト（test-kakeibo-dom.cjs）から呼ぶ
+  // ── 保育料の「在園していない年上のきょうだい」も上の「扶養・配偶者」欄から自動で入れる（2026-11-28・オーナー指摘。同じ子を 2 回聞いていた） ──
+  //   数えるのは、16歳未満の子のうち保育所の子と在園の兄・姉を除いた人数＋16〜18歳/23〜69歳＋19〜22歳。親などと混ざる欄があるので内訳を出し、手で直せる。
+  //   税の計算（住民税の人数・扶養控除）は上の欄だけを使う。
+  var _hkOlderAuto = "0";
+  function syncHoikuOlder(){
+    var sel=document.getElementById("hoikuOlderOut"), hint=document.getElementById("hoikuOlderHint");
+    if(!sel) return { manual:false, total:0, auto:"0", last:_hkOlderAuto };
+    var sib = Number((document.getElementById("hoikuSiblings")||{}).value)||0;
+    var youngOlder = Math.max(0, num("famDepYoung") - 1 - sib), general = num("famDepGeneral"), specific = num("famDepSpecific");
+    var total = youngOlder + general + specific;
+    var want = String(Math.min(3, total));
+    var manual = (sel.value !== _hkOlderAuto);
+    if(!manual){ sel.value = want; _hkOlderAuto = want; }
+    else if(sel.value === want){ _hkOlderAuto = want; manual = false; }
+    if(hint){
+      var parts=[]; if(youngOlder) parts.push("16歳未満 "+youngOlder+"人"); if(general) parts.push("16〜18歳・23〜69歳 "+general+"人"); if(specific) parts.push("19〜22歳 "+specific+"人");
+      var t="";
+      if(manual && total>0) t="上の「扶養・配偶者」欄では "+total+"人（"+parts.join("、")+"）ですが、ここで選んだ「"+sel.options[sel.selectedIndex].text+"」で順位を決めます。";
+      else if(manual) t="年上のきょうだいは、上の「扶養・配偶者」欄にも年齢別に入れてください（税の計算は上の欄を使います）。上に入れると、この欄は自動で変わります。";
+      else if(total>0) t="在園していない年上のきょうだいは、上の「扶養・配偶者」欄から "+total+"人と数えました（"+parts.join("、")+"。16歳未満は保育所のお子さんと在園の兄・姉を除いた人数）。親などを扶養に入れているときや、人数が違うときは、ここで直せます。";
+      hint.textContent=t; hint.style.display = t ? "block" : "none";
+    }
+    return { manual: manual, total: total, auto: want, last: _hkOlderAuto };
+  }
+  window.syncHoikuOlder = syncHoikuOlder;   // 画面テスト（test-kakeibo-dom.cjs）から呼ぶ
   function initShogakuKids(){
+    ["famDepYoung","famDepGeneral","famDepSpecific"].forEach(function(id){ var e=document.getElementById(id); if(e){ e.addEventListener("input",syncHoikuOlder); e.addEventListener("change",syncHoikuOlder); } });
+    ["hoikuOptIn","hoikuSiblings","hoikuOlderOut"].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener("change",syncHoikuOlder); });
+    syncHoikuOlder();
     ["famDepYoung","famDepGeneral","famDepSpecific"].forEach(function(id){ var e=document.getElementById(id); if(e){ e.addEventListener("input",syncShogakuKids); e.addEventListener("change",syncShogakuKids); } });
     ["hoikuOptIn","hoikuSiblings","shogakuOptIn","shogakuChildren"].forEach(function(id){ var e=document.getElementById(id); if(e) e.addEventListener("change",syncShogakuKids); });
     syncShogakuKids();
@@ -975,7 +1004,7 @@
             spousePension: (num("hoikuSpouse")===0 || num("hoikuSpouse")===famSpouseSalary) ? famSpousePension : 0,
             age: (document.getElementById("hoikuChildAge")||{}).value || "age1_2",
             enrolled: Number((document.getElementById("hoikuSiblings")||{}).value)||0,
-            olderNotEnrolled: Number((document.getElementById("hoikuOlderOut")||{}).value)||0,
+            olderNotEnrolled: (syncHoikuOlder(), Number((document.getElementById("hoikuOlderOut")||{}).value)||0),   // 上の扶養欄と連動（手で直した値は優先）してから読む
             hitorioya: !!(document.getElementById("hoikuHitorioya")||{}).checked,
             honninPension: pension,
             honninBonus: bonus   // 賞与も住民税課税＝保育料指数に反映（社保は月給と賞与を別建て計算）
